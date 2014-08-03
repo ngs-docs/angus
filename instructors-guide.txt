@@ -1,0 +1,11 @@
+Instructor's Guide to ANGUS Materials
+=====================================
+
+The main repository is here: https://github.com/ngs-docs/angus
+
+For 2014, contribute to the branch '2014'.
+
+You can use pull requests OR you can just send Titus your github ID.
+
+Merges to the '2014' branch are automatically built and posted by
+readthedocs.org at http://angus.readthedocs.org/en/2014/

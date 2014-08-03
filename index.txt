@@ -1,77 +1,46 @@
 ==========================================
-Next-Gen Sequence Analysis Workshop (2013)
+Next-Gen Sequence Analysis Workshop (2014)
 ==========================================
 
-.. Warning:: These documents are not maintained and their instructions may be
+.. Warning These documents are not maintained and their instructions may be
 	out of date. However the GED Lab does maintain the `khmer protocols
 	<http://khmer-protocols.readthedocs.org/>`__ which may cover similar
 	topics. See also the `installation instructions for the current version
 	of the khmer project <https://khmer.readthedocs.org/en/latest/install.html>`__. 
 
-This is the schedule for the `2013 MSU NGS course <http://bioinformatics.msu.edu/ngs-summer-course-2013>`__, which ran from June 10th to June 20th, 2013.  If you're interested in this course in 2014, please see `the 2014 announcement <http://bioinformatics.msu.edu/ngs-summer-course-2014>`__.
+This is the schedule for the `2014 MSU NGS course <http://bioinformatics.msu.edu/ngs-summer-course-2014>`__.
+
+.. , which ran from June 10th to June 20th, 2013.  If you're interested in this course in 2014, please see `the 2014 announcement <http://bioinformatics.msu.edu/ngs-summer-course-2014>`__.
 
 ===============  =============================================================
 Day              Schedule
 ===============  =============================================================
-Monday 6/10      * 1:30pm tutorial: :doc:`day1` (Adina)
+Monday 8/4       * 1:30pm tutorial: :doc:`day1` (Titus)
                  * 7pm: research presentations
-Tuesday 6/11     * :doc:`day2`
+Tuesday 8/5      * :doc:`day2`
 		 * 9:30am: lecture, `Welcome! <_static/lecture1-welcome.pptx.pdf>`__ (Titus)
                  * 10:45am: tutorial, :doc:`running-command-line-blast`
 		 * 1:15pm: tutorial, :doc:`short-read-quality-evaluation`
 		 * Evening: *firepit social*
-Wednesday 6/12   * :doc:`day3`
+Wednesday 8/6    * :doc:`day3`
 	  	 * 9:30am: lecture, `Mapping. <_static/lecture2-mapping.pptx.pdf>`__ (Titus)
                  * 10:45am: tutorial, :doc:`bwa-tutorial` (Likit)
 		 * 1:15pm: tutorial cont'd; also, :doc:`plot-mapping-mismatches`
 		 * 8pm: `General bioinformatics overview <_static/challenges-bioinfo-ngs.pdf>`__ (Istvan)
-Thursday 6/13	 * 9:15am: lecture, `Assembly. <_static/lecture3-assembly.pptx.pdf>`__ (Titus)
+Thursday 8/7	 * 9:15am: lecture, `Assembly. <_static/lecture3-assembly.pptx.pdf>`__ (Titus)
 	 	 * 10:45am: tutorial, :doc:`assembling-ecoli-with-velvet`
    	 	 * 1:15pm: tutorial, cont'd, evaluating assemblies.
 		 * Evening: *brew pub in Kalamazoo.*
-Friday 6/14	 * 9:15am: lecture, `Intervals <_static/interval-datatypes.pdf>`__ (Istvan)
-       		 * 10:45am: tutorial, :doc:`interval-analysis-tutorial` (Istvan)
-		 * 1:15pm: lecture/tutorial, `Statistics <_static/stats-lecture.pptx.pdf>`__ (Ian)
-		 * 8 Tutorial: :doc:`teach-me-intervals` (Istvan)
-Saturday 6/15	 * 9:15am: lecture, `Pipelines and Automation <_static/lecture5-pipelines.pptx.pdf>`__ (Titus)
+Friday 8/8       * 9:15am: lecture, `Intervals <_static/interval-datatypes.pdf>`__ (Istvan)
+                 * 10:45am: tutorial, :doc:`interval-analysis-tutorial` (Istvan)
+                 * 1:15pm: lecture/tutorial, `Statistics <_static/stats-lecture.pptx.pdf>`__ (Ian)
+                 * 8 Tutorial: :doc:`teach-me-intervals` (Istvan)
+Saturday 8/9	 * 9:15am: lecture, `Pipelines and Automation <_static/lecture5-pipelines.pptx.pdf>`__ (Titus)
 	 	 * 10:45am: tutorial: Shell scripts and pipelines.
 		 * 1:15pm: tutorial, R (`text <https://github.com/jrherr/quick_basic_R_tutorial/blob/master/R_tutorial.md>`__ | `code <https://github.com/jrherr/quick_basic_R_tutorial/blob/master/basic_R_tutorial.R>`__) (Josh)
 		 * Evening: BBQ/dinner.
-Sunday 6/16	 Day of rest.  Brunch in the morning;
-       		 takeout dinner in evening.
-Monday 6/17	 * 9:15am: `lecture, mRNAseq I <_static/NGS2013_RNAseq_1.pptx.pdf>`__ (Ian Dworkin)
-       		 * Tutorials 10:45am, 1:15pm as usual; topics:
-
-                 1. :doc:`rnaseq_bwa`
-		 2. :doc:`rnaseq_tophat`
-		 3. :doc:`DGE_analysis_with_MISO_cuffdiff`
-		 4. :doc:`transcriptome_de_novo_assembly`
-
-		 * 7:30pm: :doc:`git-koans` (Titus)
-		 * 8-9pm: look busy
-		 * 9pm: firepit
-Tuesday 6/18	 * 9:15am: `lecture, mRNAseq II <_static/NGS2013_RNAseq_2.pptx.pdf>`__ (Ian Dworkin)
-		 * Impromptu tutorial: :doc:`seqtk_tools`
-       		 * Tutorials 10:45am, 1:15pm as usual; mRNAseq, continued.
-		 * :doc:`rnaseq_bwa_counting` (`edgeR code <_static/analyze_edgeR_bwa_transcriptome.R>`__)
-		 * 8:30pm: `Single-cell mRNAseq <_static/MSU_linker_2013.06.17.pdf>`__ (Erich Schwarz)
-		 * 9:15pm: `PacBio intro <_static/PacBio_overview_angus_2013.pdf>`__ (Tristan De Buysscher)
-		 * 8-11pm: look busy
-Wednesday 6/19	 * 9:15am: `Advanced assembly <_static/rayan-2013-june-18-msu.pdf>`__ (Rayan)
-	  	 * 10:45am: :doc:`kmer-abundance-and-diginorm` and `presentation <_static/titus-kmers.pptx.pdf>`__ (Titus)
-		 * 1:15pm: `Computing without Amazon <_static/crusoe-amazon-free-analysis.pdf>`__ (Michael Crusoe)
-		 * 2pm: :doc:`snp_tutorial` (Likit)
-		 * 3-5pm: look busy.
-		 * 7:30pm: BBQ, gin, and firepit social
-Thursday 6/20	 * 9:15am: lecture, `Genome assembly and analysis <_static/NGS_Acey_2013.06.20.01.pdf>`__ (Erich Schwarz)
-	 	 * 10:45am: Genome assembly treasure hunt.
-		 * 1:15pm: :doc:`ucsc-genome-browser` (Likit)
-		 * 5pm: Joe Graves, Genome-Wide Convergence with Repeated Evolution in Drosophila melanogaster.
-		 * 8:30pm: Sequencing technology Q&A (Nick Beckloff)
-		 * 8-11pm: look busy
-Friday 6/21	 * 9:15am: meet at classroom with bags; `final lecture <_static/final-lecture.pptx.pdf>`__.
-       		 * 10am: course post-mortem/analysis
-       		 * 11am: lunch at Frona's Pantry (optional!)
+Sunday 8/10      Day of rest.  Brunch in the morning;
+                 takeout dinner in evening.
 ===============  =============================================================
 
 Cheat sheet for starting up an EC2 instance
