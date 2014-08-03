@@ -46,7 +46,7 @@ Sunday 8/10      Day of rest.  Brunch in the morning;
 Cheat sheet for starting up an EC2 instance
 ===========================================
 
- - use Amazon Machine Instance "ami-c17ec8a8";
+ - use Amazon Machine Instance "XXXX";
  - m1.large or larger;
  - make sure you are in the US East zone (Virgina) -- see upper right;
  - make sure the security group you use has SSH and HTTPS enabled for inbound;
@@ -63,19 +63,23 @@ Instructors:
 TAs:
 
 * Amanda Charbonneau
-* Michael Crusoe
-* Tristan De Buysscher
-* Joshua Herr
 * Elijah Lowe
-* Likit Preeyanon
+* Will Pitchers
+* Aswathy Sebastian
+* Qingpeng Zhang
 
 Lecturers:
 
-* Nick Beckloff
-* Rayan Chaikhi
 * Chris Chandler
 * Adina Chuang Howe
-* Erich Schwarz
+* Matt MacManes
+* Martin Schilling
+* Daniel Standage
+* Meg Staton
+
+He Who Drives Many Places:
+
+* Cody Nicks
 
 Papers and References
 =====================
