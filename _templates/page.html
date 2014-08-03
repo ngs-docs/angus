@@ -14,6 +14,8 @@
   github_project = 'labibi'
 #}
 
+{%- set render_sidebar = 0 %}
+
 {##################################################}
 {# for plone-derived "edit me" & Google analytics #}
 {##################################################}
@@ -140,6 +142,19 @@
 {%- block body %}
   {{ super() }}
 
+<hr>
+
+<font size="-1"><b>LICENSE:</b>
+This documentation and all textual/graphic site content is licensed
+under the <a href='http://creativecommons.org/publicdomain/zero/1.0/'>
+Creative Commons - 0 License
+(CC0)</a> -- <a href='https://github.com/ngs-docs/angus>fork @
+github</a>.  Presentations (PPT/PDF) and PDFs are the property of
+their respective owners and are under the terms indicated within the
+presentation.</font>
+
+<hr>
+
 {% if disqus_shortname %}
   {{ comments() }}
 {% else %}
@@ -147,3 +162,12 @@
 {% endif %}
 
 {%- endblock %}
+
+{####}
+
+{% block sidebar2 %}
+{% endblock %}
+
+{% block sidebar1 %}
+{% endblock %}
+

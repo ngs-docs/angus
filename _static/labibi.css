@@ -1,5 +1,10 @@
 @import url('default.css');
 
+
+div.bodywrapper {
+    margin: 0 0 0 0;
+}
+
 /* Styles for floating Edit on GitHub box */
 #editor-trap {
     margin: 1em;
