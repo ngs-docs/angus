@@ -9,6 +9,8 @@ Welcome to the labibi demo site!
 .. toctree::
    :maxdepth: 2
 
+Testing.
+
 Labibi is a base package to use for documentation and Web sites for
 other projects of mine.
 
