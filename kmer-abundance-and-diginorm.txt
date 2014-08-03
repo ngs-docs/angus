@@ -1,0 +1,34 @@
+=========================================
+Calculating k-mer abundance distributions
+=========================================
+
+.. Warning:: These documents are not maintained and their instructions may be
+	out of date. However the GED Lab does maintain the `khmer protocols
+	<http://khmer-protocols.readthedocs.org/>`__ which may cover similar
+	topics. See also the `installation instructions for the current version
+	of the khmer project <https://khmer.readthedocs.org/en/latest/install.html>`__. 
+
+Start up an m1.large.
+
+Install screed::
+
+   cd /usr/local/share
+   git clone https://github.com/ged-lab/screed.git
+   cd screed
+   python setup.py install
+
+Install khmer::
+
+   cd /usr/local/share
+   git clone https://github.com/ged-lab/khmer.git
+   cd khmer
+   make
+
+Then, grab the following IPython Notebook::
+
+   cd /usr/local/notebooks
+   curl -O https://raw.github.com/ngs-docs/ngs-notebooks/master/ngs-5x-kmer-abundance-distributions-2013.ipynb
+
+Now, go to your IPython Notebook interface (https:// + machine name)
+and open the notebok 'ngs-5x-kmer-abundance-distributions-2013.ipynb'.
+

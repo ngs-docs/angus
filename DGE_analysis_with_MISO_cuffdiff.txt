@@ -1,0 +1,176 @@
+=======================================================
+Differential Expression Analysis with CuffDiff and MISO
+=======================================================
+
+In this tutorial, we will analyse differential gene/isoform expression using
+CuffDiff and MISO. You can run the pipeline from scratch, which will start from
+mapping reads with TopHat2 or you can skip to DGE analysis using our pre-mapped
+reads. Please keep in mind that mapping could take more than four hours.
+Two samples from D. melanogaster are used in this tutorial for demonstration
+purposes.
+
+
+Requirements
+------------
+
+All programs are required to run the analysis from scratch.
+If you only want to analyse DGE with pre-mapped reads, only Cufflinks and MISO are needed.
+
+Installation::
+
+    # install bowtie2
+    cd ~
+    wget -O bowtie2-2.1.0-linux-x86_64.zip http://sourceforge.net/projects/bowtie-bio/files/bowtie2/2.1.0/bowtie2-2.1.0-linux-x86_64.zip/download
+    unzip bowtie2-2.1.0-linux-x86_64.zip
+    cp bowtie2 bowtie2-align bowtie2-build bowtie2-inspect /usr/local/bin/
+
+
+    # install tophat2
+    cd ~
+    wget http://tophat.cbcb.umd.edu/downloads/tophat-2.0.8b.Linux_x86_64.tar.gz
+    tar xvfz tophat-2.0.8b.Linux_x86_64.tar.gz
+    ln -s ~/tophat-2.0.8b.Linux_x86_64/tophat2 /usr/local/bin
+
+    # install cufflinks
+    cd ~
+    wget http://cufflinks.cbcb.umd.edu/downloads/cufflinks-2.1.1.Linux_x86_64.tar.gz
+    tar xvfz cufflinks-2.1.1.Linux_x86_64.tar.gz
+    cp cufflinks cuffdiff cuffcompare /usr/local/bin
+
+    # install MISO with easy_install
+    cd ~
+    wget http://pypi.python.org/packages/source/m/misopy/misopy-0.4.9.tar.gz
+    tar xvfz misopy-0.4.9.tar.gz
+    cd misopy-0.4.9/
+    python setup.py install
+
+
+Read Mapping
+------------
+
+Map paired-end reads to Drosophila genome with TopHat2::
+
+    cd /mnt
+
+    # build bowtie index
+    bowtie2-build /data/dmel-all-chromosome-r5.51.fasta dmel_genome_bowtie2
+
+    # map reads to the genome
+    # this step could take more than four hours
+    tophat -r 300 -p 2 -o /mnt/tophat/vg1_005 dmel_genome_bowtie2 \
+    /mnt/OREf_SAMm_vg1_CTTGTA_L005_R1_001.fastq /mnt/OREf_SAMm_vg1_CTTGTA_L005_R2_001.fastq
+
+    tophat -r 300 -p 2 -o /mnt/tophat/w_006 dmel_genome_bowtie2 \
+    /data/OREf_SAMm_w_GTCCGC_L006_R1_001.fastq /data/OREf_SAMm_w_GTCCGC_L006_R2_001.fastq
+
+
+CuffDiff expression analysis
+----------------------------
+
+Analyse differential expression with CuffDiff::
+
+    # prepare the annotation with cuffcompare
+    # cuffcmp.combined.gtf will be created
+    cd /mnt
+    cuffcompare -s /data/dmel-all-chromosome-r5.51.fasta -CG -r \
+    /data/Drosophila_melanogaster.BDGP5.71.gtf /data/Drosophila_melanogaster.BDGP5.71.gtf
+
+    # run cuffdiff, this could take more than an hour
+    cd /mnt
+    cuffdiff -p 2 -o cufflinks/comparison cuffcmp.combined.gtf \
+    /mnt/tophat/vg1_005/accepted_hits.bam tophat/w_006/accepted_hits.bam
+
+
+MISO expression analysis (Exon-centric)
+---------------------------------------
+
+First we need to sort and index BAM files::
+
+    cd /mnt
+
+    # sort two BAM files from two samples
+    # this could take a while
+    samtools sort /mnt/tophat/vg1_005/accepted_hits.bam accepted_hits.sorted
+    samtools sort /mnt/tophat/w_006/accepted_hits.bam accepted_hits.sorted
+
+    # index BAM files
+    samtools index /mnt/tophat/vg1_005/accepted_hits.sorted.bam
+    samtools index /mnt/tophat/w_006/accepted_hits.sorted.bam
+
+    # move BAM files to a new directory
+    mkdir -p /mnt/miso-data/bam-data
+
+    mv /mnt/tophat/vg1_005/accepted_hits.sorted.bam /mnt/miso-data/bam-data/vg1_005.sorted.bam
+    mv /mnt/tophat/vg1_005/accepted_hits.sorted.bam.bai /mnt/miso-data/bam-data/vg1_005.sorted.bam.bai
+
+    mv /mnt/tophat/w_006/accepted_hits.sorted.bam /mnt/miso-data/bam-data/w_006.sorted.bam
+    mv /mnt/tophat/w_006/accepted_hits.sorted.bam.bai /mnt/miso-data/bam-data/w_006.sorted.bam.bai
+
+Then, we need to build alternative splicing index from alternative splicing
+annotation. Annotations for fly, mouse and human can be downloaded from
+MISO website.
+
+Note that regular gene annotations are not supported by MISO::
+
+    # build alternative event index
+    # modENCODE_SE_4.gff is a small subset of skipped exons
+    # You will need to build the index for all annotation files if you
+    # want to do a complete analysis.
+    index_gff.py --index /data/modENCODE/modENCODE_SE_4.gff /mnt/miso-data/altevents/4_SE
+
+For demonstration purposes, we will use the default settings provided by MISO.
+MISO provides a guide to estimate the insert size and standard deviation on its webpage.
+However, in this tutorial we will use the insert size and the standard deviation estimated
+by TopHat::
+
+    # calculate psi value (percent spliced-in),
+    run_events_analysis.py --compute-genes-psi /mnt/miso-data/altevents/4_SE \
+    /mnt/miso-data/bam-data/vg1_005/accepted_hits.sorted.bam --output-dir \
+    /mnt/miso-data/4_SE/vg1_005 --read-len 100 --paired-end 250 99 --event-type=SE
+
+    run_events_analysis.py --compute-genes-psi /mnt/miso-data/altevents/4_SE \
+    /mnt/miso-data/bam-data/w_006/accepted_hits.sorted.bam --output-dir \
+    /mnt/miso-data/4_SE/w_006 --read-len 100 --paired-end 250 99 --event-type=SE
+
+    # summarize the results
+    run_miso.py --summarize-samples /mnt/miso-data/4_SE/vg1_005/ /mnt/miso-data/4_SE/w_006/
+
+    # compare samples
+    run_miso.py --compare-samples /mnt/miso-data/4_SE/w_006/ \
+    /mnt/miso-data/4_SE/vg1_005/ /mnt/miso-data/4_SE/comparisons
+
+MISO provides a script that filters out results based on some parameters.
+For example, in this tutorial, we filter out all events that have
+bayes-factor less than 1.
+
+Note, bayes-factor > 10 is considered significant.
+However, none of events in our small dataset has bayes-factor greater than 1.0::
+
+    # filter results
+    filter_events.py --filter /mnt/miso-data/4_SE/comparisons/w_006_vs_vg1_005/bayes-factors/w_006_vs_vg1_005.miso_bf \
+    --num-inc 1 --num-exc 1 --num-sum-inc-exc 10 --delta-psi 0.20 --bayes-factor 1 \
+    --output-dir /mnt/miso-data/4_SE/comparisons/filtered/
+
+Visualize AS event with Sashimi plot
+-----------------------------------
+
+Sashimi plot requires some settings written in a file, e.g. sashimi_plot_settings.txt.
+Among other things, the number of mapped reads is required for each dataset in order to
+calculate expression in RPKM unit.
+
+To get the number of reads, run::
+    
+    # You do not need to run this.
+    samtools view -c -f 1 -F 12 /mnt/miso-data/bam-data/w_006.sorted.bam
+    # total number of mapped reads = 59,324,738
+    samtools view -c -f 1 -F 12 /mnt/miso-data/bam-data/vg1_005.sorted.bam
+    # total number of mapped reads = 106,437,936
+
+    cd /mnt/miso-data/
+    # plot the graph from two alternative events
+    # both graphs will be in sashimi_plot directory
+    plot.py --plot-event "chr4:848485:848533:-@chr4:844127:844244:-@chr4:823024:823953:-" \
+    altevents/4_SE/ sashimi_plot_settings.txt  --output-dir sashimi_plot
+
+    plot.py --plot-event "chr4:497918:498709:-@chr4:495586:495730:-@chr4:495079:495394:-" \
+    altevents/4_SE/ sashimi_plot_settings.txt  --output-dir sashimi_plot

@@ -1,0 +1,140 @@
+==========================
+Interval Analysis Tutorial
+==========================
+
+Requirements
+-------------
+
+Install Bedtools::
+
+    # go to the code installation directory
+    cd /mnt
+    
+    # download the code
+    wget https://bedtools.googlecode.com/files/BEDTools.v2.17.0.tar.gz
+    
+    # unpack it
+    tar zxvf BEDTools.v2.17.0.tar.gz
+    
+    # move into the tool folder
+    cd bedtools-2.17.0/
+    
+    # compile the program
+    make
+    
+    # copy the program to be universally accessible
+    cp bin/bedtools /usr/local/bin/
+    
+Prepare the Dropbox work folders::
+
+    # this will switch back to
+    # the home directory
+    cd
+    
+    # create a new work directory
+    mkdir Dropbox/intervals
+    
+    # switch to that directory
+    cd Dropbox/intervals
+
+You can now create files on your local Dropbox folder and once the file are
+saved they will appear on the remote (Amazon cloud) computer.
+
+With the editor of your choice create a fasta/fastq file in your Dropbox folder that contains the following:
+
+1. an exact subsequence from the drosophila genome 
+2. a subsequence from the drosophila genome with one mismatch (or any other variation)
+3. a spliced junction file
+
+Now the pipeline to generate a mapping file will look like this. You can also put this into
+a separate file and re-run it via the shell command::
+
+    # align the reads
+    bwa aln /mnt/dmel-all-chromosome-r5.37.fasta read1.fq > read1.sai
+        
+    # format the alignment as a SAM file
+    bwa samse /mnt/dmel-all-chromosome-r5.37.fasta read1.sai read1.fq > temp.sam
+    
+    # convert sam to bam format, then sort and index it
+    samtools view -Sb temp.sam > temp.bam
+    samtools sort -f temp.bam read1.bam
+    samtools index read1.bam
+    
+    # delete the temporary SAM files
+    #rm temp.sam temp.bam
+    
+    # display the SAM file with the header
+    samtools view -h read1.bam
+
+Add other sequences, modify the input, verify and study the output.
+Understanding the SAM format is an fundamental requirement for most applications.
+
+Novelty: The bwa MEM (Maximal Exact Matches) algorithm can produce local
+maximal alignments. Modify your query sequence to the extent that
+the normal aln method does not match then try the MEM method::
+
+    bwa mem /mnt/dmel-all-chromosome-r5.37.fasta read1.fa > results.sam
+  
+(it can do spliced alignments!)
+
+Now let's investigate your previous drosophila SAM file. First link it into the current
+folder. This creates a shortcut::
+
+    # create a symbolic link (shortcut) to the file
+    ln -s /mnt/RAL357_bwa.sorted.bam ral.bam
+    
+    # index the file
+    samtools index ral.bam
+    
+    # view your file
+    samtools view ral.bam | more
+    
+SamTools is a phenomenal tool that allows one to filter and view any part of
+the file at very high speeds, this shows only the region of 1-10000 of the XHet
+chromosome::
+
+    samtools view ral.bam XHet:1-10000
+    
+Counting how much data falls in a certain range is so common it has its own flag, -c ::
+
+    samtools view -c ral.bam XHet:1-10000
+
+Filtering by flags at: http://picard.sourceforge.net/explain-flags.html
+
+The ``-f`` flag keeps reads with a certain property, the ``-F`` flag removes reads
+with a certain property.
+
+Task: find out if the for chromosome 2R and the first one million
+bases the number of reads on the positive strand are reasonably
+equal to the number of reads on the negative strand.
+    
+
+Interval Operations
+===================
+
+Visit the FlyBase http://flybase.org/ and download the gene annotations for the
+drosphila genome as a GFF file and put it into your Dropbox folder::
+
+    # download a single annotation file
+    wget ftp://ftp.flybase.net/genomes/Drosophila_melanogaster/current/gff/dmel-3RHet-r5.51.gff.gz
+
+    # decompress the file that was downloaded
+    gunzip dmel-3RHet-r5.51.gff.gz
+    
+    # count the number of line in the file
+    wc -l dmel-3RHet-r5.51.gff 
+    
+    # this file contains all annotations but we want to filter
+    # for lines that are annotated as gene
+    # but we can't just directly match for the word gene as this
+    # word may be present in other context
+    # we need to search for lines that match
+    # the word FlyBase \tab gene
+    # below the capital \W indicates a whitespace character
+    
+    grep -E 'FlyBase\Wgene' dmel-3RHet-r5.51.gff > genes.gff
+    
+Previously we have created a SAM alignment file and you can now
+have combine it with genes via the bedtools::
+
+    bedtools intersect -a ral.bed -b genes.gff -wo > results.txt    

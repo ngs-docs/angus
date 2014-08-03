@@ -1,0 +1,328 @@
+========================================
+Assembling E. coli sequences with Velvet
+========================================
+
+.. Warning:: These documents are not maintained and their instructions may be
+	out of date. However the GED Lab does maintain the `khmer protocols
+	<http://khmer-protocols.readthedocs.org/>`__ which may cover similar
+	topics. See also the `installation instructions for the current version
+	of the khmer project <https://khmer.readthedocs.org/en/latest/install.html>`__. 
+
+Install screed::
+
+   cd /usr/local/share
+   git clone https://github.com/ged-lab/screed.git
+   cd screed
+   python setup.py install
+
+Install khmer::
+
+   cd /usr/local/share
+   git clone https://github.com/ged-lab/khmer.git
+   cd khmer
+   make
+
+Grab the ngs-scripts::
+
+   git clone https://github.com/ngs-docs/ngs-scripts.git /root/ngs-scripts
+
+and install the Velvet assembler::
+
+   cd /root
+   curl -O http://www.ebi.ac.uk/~zerbino/velvet/velvet_1.2.10.tgz
+   tar xzf velvet_1.2.10.tgz
+   cd velvet_1.2.10
+   make MAXKMERLENGTH=51
+   cp velvet? /usr/local/bin
+
+Now, let's create a working directory::
+
+   cd /mnt
+   mkdir assembly
+   cd assembly
+
+Download some E. coli data.  The first data set
+(ecoli_ref-5m-trim.fastq.gz) is the trimmed PE data sets from the
+other day (see :doc:`short-read-quality-evaluation`), and the second
+data set is a specially processed data set using `digital
+normalization <http://ged.msu.edu/papers/2012-diginorm/>`__ that will
+assemble quickly. ::
+
+   curl -O https://s3.amazonaws.com/public.ged.msu.edu/ecoli_ref-5m-trim.fastq.gz
+   curl -O https://s3.amazonaws.com/public.ged.msu.edu/ecoli-reads-5m-dn-paired.fa.gz
+
+Now... assemble the small, fast data sets, using the Velvet assembler.  Here
+we will set the required parameter k=31::
+
+   velveth ecoli.31 31 -shortPaired -fasta.gz ecoli-reads-5m-dn-paired.fa.gz
+   velvetg ecoli.31 -exp_cov auto
+
+Check out the stats for the assembled contigs for a cutoff of 1000::
+
+   python /usr/local/share/khmer/sandbox/assemstats3.py 1000 ecoli.*/contigs.fa
+
+Also try assembling with k=33 and k=35::
+
+   velveth ecoli.33 33 -shortPaired -fasta.gz ecoli-reads-5m-dn-paired.fa.gz
+   velvetg ecoli.33 -exp_cov auto
+
+   velveth ecoli.35 35 -shortPaired -fasta.gz ecoli-reads-5m-dn-paired.fa.gz
+   velvetg ecoli.35 -exp_cov auto
+
+Now check out the stats for the assembled contigs for a cutoff of 1000::
+
+   python /usr/local/share/khmer/sandbox/assemstats3.py 1000 ecoli.*/contigs.fa
+
+(Also read: `What does k control in de Bruijn graph assemblers? <http://ivory.idyll.org/blog/the-k-parameter.html>`__.)
+
+Over lunch, run an assembly of the larger read data set.  (You might want to
+do this in screen.) ::
+
+   velveth ecoli-full.31 31 -short -fastq.gz ecoli_ref-5m-trim.fastq.gz
+   velvetg ecoli-full.31 -exp_cov auto
+
+Comparing and evaluating assemblies - Mapping
+=============================================
+
+Install bowtie::
+
+   cd /root
+
+   curl -O -L http://sourceforge.net/projects/bowtie-bio/files/bowtie/0.12.7/bowtie-0.12.7-linux-x86_64.zip
+   unzip bowtie-0.12.7-linux-x86_64.zip
+   cd bowtie-0.12.7
+   cp bowtie bowtie-build bowtie-inspect /usr/local/bin
+
+Now, for each contigs file, extract the contigs over (say) 300 bases -- ::
+
+   cd /mnt/assembly
+
+   python /usr/local/share/khmer/sandbox/extract-long-sequences.py 300 ecoli.31/contigs.fa > ecoli-31.fa
+   python /usr/local/share/khmer/sandbox/extract-long-sequences.py 300 ecoli.33/contigs.fa > ecoli-33.fa
+   python /usr/local/share/khmer/sandbox/extract-long-sequences.py 300 ecoli.35/contigs.fa > ecoli-35.fa
+
+...and build the indices::
+
+   for i in 31 33 35; do
+      bowtie-build ecoli-$i.fa ecoli-$i
+   done
+
+Finally, map a subset of the reads to each subset::
+
+   gunzip -c ecoli_ref-5m-trim.fastq.gz | head -1200000 > 300k-reads.fq
+
+   for i in 31 33 35; do
+      echo mapping to ecoli-$i
+      bowtie -p 2 ecoli-$i -q 300k-reads.fq 300k-reads.x.$i.map
+   done
+
+You can look at the statistics (# of reads aligned) as a proxy for
+"completeness" of the assembly -- ::
+
+   mapping to ecoli-31
+   # reads processed: 300000
+   # reads with at least one reported alignment: 266468 (88.82%)
+   # reads that failed to align: 33532 (11.18%)
+   Reported 266468 alignments to 1 output stream(s)
+
+   mapping to ecoli-33
+   # reads processed: 300000
+   # reads with at least one reported alignment: 256539 (85.51%)
+   # reads that failed to align: 43461 (14.49%)
+   Reported 256539 alignments to 1 output stream(s)
+
+   mapping to ecoli-35
+   # reads processed: 300000
+   # reads with at least one reported alignment: 243645 (81.22%)
+   # reads that failed to align: 56355 (18.79%)
+   Reported 243645 alignments to 1 output stream(s)
+
+generally you want this number to be as high as possible, because it
+means that you've got an assembly representing more of the reads.
+
+Note that you can also 'wc' to count the number of lines in the map files::
+
+   wc -l *.map
+
+from which you can generate the numbers above.
+
+Comparing and evaluating assemblies -- BLAST
+============================================
+
+Install BLAST::
+
+   cd /root
+
+   curl -O ftp://ftp.ncbi.nih.gov/blast/executables/release/2.2.24/blast-2.2.24-x64-linux.tar.gz
+   tar xzf blast-2.2.24-x64-linux.tar.gz
+   cp blast-2.2.24/bin/* /usr/local/bin
+   cp -r blast-2.2.24/data /usr/local/blast-data
+
+Build BLAST databases for the assemblies you've done::
+
+   cd /mnt/assembly
+
+   for i in 31 33 35
+   do
+      formatdb -i ecoli-$i.fa -o T -p F
+   done
+
+Also download the true reference genome::
+
+   curl -O https://s3.amazonaws.com/public.ged.msu.edu/ecoliMG1655.fa.gz
+   gunzip ecoliMG1655.fa.gz
+   formatdb -i ecoliMG1655.fa -o T -p F
+
+And now do a few pairwise BLASTs::
+
+   blastall -i ecoli-31.fa -d ecoliMG1655.fa -p blastn -e 1e-20 -o 31.x.mg.blastn &
+   blastall -d ecoli-31.fa -i ecoliMG1655.fa -p blastn -e 1e-20 -o mg.x.31.blastn &
+   blastall -i ecoli-31.fa -d ecoli-33.fa -p blastn -e 1e-20 -o 31.x.33.blastn &
+   blastall -d ecoli-31.fa -i ecoli-33.fa -p blastn -e 1e-20 -o 33.x.31.blastn &
+
+Compute overlaps::
+
+   python /root/ngs-scripts/blast/calc-blast-cover.py ecoli-33.fa 31.x.33.blastn 300 ecoli-31.fa
+   python /root/ngs-scripts/blast/calc-blast-cover.py ecoli-31.fa 33.x.31.blastn 300 ecoli-33.fa
+
+   python /root/ngs-scripts/blast/calc-blast-cover.py ecoliMG1655.fa 31.x.mg.blastn 300 ecoli-31.fa
+   python /root/ngs-scripts/blast/calc-blast-cover.py ecoli-31.fa mg.x.31.blastn 300 ecoliMG1655.fa
+
+You should see::
+
+   total bases in reference: 4588331
+   total ref bases covered : 4232257
+   fraction                : 0.92239574695
+   reference               : ecoli-33.fa
+   blast file              : 31.x.33.blastn
+   query sequences         : ecoli-31.fa
+
+which tells you that 4.23 mb of the 4.58 mb (92.2% of the bases) in
+ecoli-33 have an alignment in ecoli-31.  Similarly, ::
+
+   total bases in reference: 4606276
+   total ref bases covered : 4223094
+   fraction                : 0.916813061137
+   reference               : ecoli-31.fa
+   blast file              : 33.x.31.blastn
+   query sequences         : ecoli-33.fa
+
+tells you that 91.6% (4.22/4.61 mb) of the bases in ecoli-31.fa have an
+alignment in ecoli-33.
+
+The numbers for the reference genome are a bit strange, though -- ::
+
+   total bases in reference: 4639675
+   total ref bases covered : 4409820
+   fraction                : 0.950458814464
+   reference               : ecoliMG1655.fa
+   blast file              : 31.x.mg.blastn
+   query sequences         : ecoli-31.fa
+
+   total bases in reference: 4606276
+   total ref bases covered : 896964
+   fraction                : 0.194726499237
+   reference               : ecoli-31.fa
+   blast file              : mg.x.31.blastn
+   query sequences         : ecoliMG1655.fa
+
+What?  So, 95% of the reference genome is covered by ecoli-31, but
+only 19.4% of ecoli-31.fa is covered by the E. coli genome?  How is
+that possible??
+
+What's going on?  Any ideas?
+
+It turns out that, by default, BLAST only shows the first 200-250 matches
+for each query sequence!  In the case where you have one query
+sequence (the E. coli genome) and many query contigs (ecoli-31.fa)
+there are several thousand hits; BLAST is only showing you the first
+few hundred.
+
+To fix this, re-run BLAST with different -b and -v parameters, to
+increase the number of hits reported, and then re-run the
+calc-blast-cover command::
+
+   blastall -d ecoli-31.fa -i ecoliMG1655.fa -p blastn -e 1e-20 -o mg.x.31.blastn -b 5000 -v 5000
+   python /root/ngs-scripts/blast/calc-blast-cover.py ecoli-31.fa mg.x.31.blastn 300 ecoliMG1655.fa
+
+and you should get this::
+
+   total bases in reference: 4606276
+   total ref bases covered : 4354561
+   fraction                : 0.945353904108
+   reference               : ecoli-31.fa
+   blast file              : mg.x.31.blastn
+   query sequences         : ecoliMG1655.fa
+
+Much better!
+
+Comparing and evaluating assemblies -- contig size distributions
+================================================================
+
+Go to IPython Notebook (https:// + machine name), and enter the code
+below in different cells.  Use SHIFT-Enter to execute the Python code.
+
+First, write a function to load in the lengths of sequences in an
+assembly::
+
+   import screed
+
+   def get_length_distribution(filename):
+       x = []
+       for record in screed.open(filename):
+           x.append(len(record.sequence))
+       return x
+
+Then load the data from E. coli 31 and E. coli 33. ::
+
+   ecoli31 = get_length_distribution('/mnt/assembly/ecoli-31.fa')
+   ecoli33 = get_length_distribution('/mnt/assembly/ecoli-33.fa')
+
+Now look at a histogram of the length distribution::
+
+   hist(ecoli31)
+
+The problem with this graph is that it shows the *number of contigs*
+by bin, not the *number of bases*.  Let's fix::
+
+   def generate_cumulative_above(contig_sizes):
+       sizes = list(reversed(sorted(contig_sizes)))
+    
+       sizesum = []
+       sofar = 0
+       for size in sizes:
+           sofar += size
+           sizesum.append((size, sofar))
+        
+       sizesum.sort()
+
+       return numpy.array(sizesum)
+
+Now, plot::
+
+   cum31 = generate_cumulative_above(ecoli31)
+   cum33 = generate_cumulative_above(ecoli33)
+
+   plot(cum31[:,0], cum31[:,1], label='k=31')
+   plot(cum33[:,0], cum33[:,1], label='k=33')
+   legend()
+
+.. @SGA
+
+Suggested exercises
+-------------------
+
+1. Plot the above graphs for k=35 on the digitally normalized data, as well
+   on the ecoli-full.31 data set.
+
+2. For the digitally normalized data, find the "best" k value.  Why is it
+   the best? :)
+
+3. Note that the 'ecoli_ref-5m-trim.fastq.gz' is interleaved but contains
+   both pairs and orphans.  Use::
+
+      python /usr/local/share/khmer/sandbox/strip-and-split-for-assembly.py
+
+   to split things up into a .pe and .se file, and then modify the velveth
+   command to use '-shortPaired' on the .pe file, and '-short' on the .se
+   file.

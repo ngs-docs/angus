@@ -1,0 +1,47 @@
+===============================================
+Plotting the distribution of mapping mismatches
+===============================================
+
+Mapping and calculating mismatch positions
+------------------------------------------
+
+First, run Bowtie to produce a mapping file::
+
+  cd /mnt
+  time bowtie -p 2 drosophila_bowtie -q /data/drosophila/RAL357_1.fastq RAL357_1_bowtie.map
+
+This will produce a file that shows the mismatches in the mapping -- check
+it out by doing 'head RAL357_1_bowtie.map'.
+
+Next, get an updated copy of the ngs-scripts::
+ 
+  git clone https://github.com/ngs-docs/ngs-scripts.git /root/ngs-scripts
+
+and run it on the map file::
+
+  python /root/ngs-scripts/bowtie/map-profile.py RAL357_1_bowtie.map > RAL357_1_bowtie.count
+
+This will produce a .count file, which, again, you can check out with
+'head'.
+
+(You can look at the script by doing 'more /root/ngs-scripts/bowtie/map-profile.py' or by viewing it online `at github <https://github.com/ngs-docs/ngs-scripts/blob/master/bowtie/map-profile.py>`__.)
+
+Plotting
+--------
+
+Now, go to 'https://' + YOUR MACHINE NAME, and click on "New notebook".
+In the new notebook, paste::
+
+   counts = numpy.loadtxt('/mnt/RAL357_1_bowtie.count')
+   plot(counts[:,0], counts[:,1])
+   axis(ymax=50000, xmax=50)
+
+and hit "shift-ENTER" to execute this code.
+
+Exercise
+--------
+
+Note the spike around 12 -- try using the 'map-profile-N.py' script
+(in the same place as the map-profile script) to plot the distribution
+of mismatches where N is in the read.  Do the spikes align?
+

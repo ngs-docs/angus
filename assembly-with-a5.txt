@@ -1,0 +1,29 @@
+Assembling microbial genomes with A5
+====================================
+
+Let's try using a different assembly pipeline -- the A5 pipeline, from
+`An Integrated Pipeline for de Novo Assembly of Microbial Genomes
+<http://www.plosone.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0042304>`__.
+
+First, let's install it.  You can go to the `ngopt project
+<http://code.google.com/p/ngopt/>`__ to see the info necessary; we're
+going to grab the Linux/64-bit version, which corresponds to our Amazon
+instance. ::
+
+   cd /root
+   curl -O http://ngopt.googlecode.com/files/ngopt_a5pipeline_linux-x64_20120518.tar.gz
+   tar xzf ngopt_a5pipeline_linux-x64_20120518.tar.gz
+   mv ngopt_a5pipeline_linux-x64_20120518 ngopt
+
+These commands download it, unpack it, and rename it to 'ngopt'.
+
+Now, go to your working space, and create a new directory -- ::
+
+   cd /mnt
+   mkdir a5
+   cd a5
+
+'a5' has its own preprocessing steps and everything; if you trust them, you can
+just run a5 directly::
+
+   /root/ngopt/bin/a5_pipeline.pl ../ecoli_ref-5m.fastq.gz ecoli

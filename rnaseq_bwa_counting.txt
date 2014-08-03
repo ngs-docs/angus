@@ -1,0 +1,62 @@
+==========================
+Counting reads for RNA-seq
+==========================
+
+We now have reads mapped to the reference transcriptome. The next step is counting: how many reads mapped to each transcript? These numbers are what we need to be able to identify differentially expressed genes.
+
+One simple way to do this step is to use bedtools with the BAM file you generated (sorted and indexed) to do the counting. This approach also requires a reference file, and an annotation file containing the coordinates of all the transcripts/exons/whatever features you're interested in. bedtools will tell you how many reads map to each feature.
+
+If you've mapped your reads to an annotated reference genome, you can probably download a pre-computed annotation file. We've done that for the Drosophila genome and placed it into the snapshot you're using.
+
+However, in many cases nobody has already created this annotation file for you. For example, you may be mapping reads to a transcriptome that you assembled yourself (maybe even using the same RNA-seq dataset). In that case, to use bedtools, you'll need to create an annotation file yourself. We've written a simple script that will create a simple BED file that has one entry for each contig in your transcriptome, so that you can use bedtools to do the counting for you (note: this script requires the BioPython package)::
+
+  '''
+  Generates a BED file from a fasta file
+  The BED file contains one annotation feature for each sequence in the fasta,
+   each one spanning the entire sequence
+  Can then use this BED file to count the number of reads mapping to each sequence
+   in the fasta file with existing tools
+  
+  Usage:
+  
+  python make_bed_from_fasta.py <sequences.fasta>
+  
+  '''
+  
+  import sys
+  from Bio import SeqIO
+  
+  fasta_handle = open(sys.argv[1], "rU") #Open the fasta file specified by the user on the command line
+  
+  #Go through all the records in the fasta file
+  for record in SeqIO.parse(fasta_handle, "fasta"):
+      cur_id = record.id #Name of the current feature
+      cur_length = len(record.seq) #Size of the current feature
+      print "%s\t%d\t%d" % (cur_id, 0, cur_length) #Output the name, start, and end coordinates to the screen
+      
+
+In this case, we mapped reads to the Drosophila transcriptome with BWA (rather than to the Drosophila genome with tophat). So let's create a BED file and do the counting (as always, make sure you're doing all of this in the right directory!)::
+
+  python make_bed_from_fasta.py dmel-all-transcript-r5.51.fasta > dmel_transcriptome.bed
+  multiBamCov -q 30 -p -bams ${bam1} ${bam2} ${bam3} ${bam4} -bed dmel_transcriptome.bed > bwa_transcriptome_counts.txt
+  
+In the multiBamCov line, the -q 30 option tells the software to only count reads that have a mapping quality of 30 or better, while the -p option specifies that you only want to use properly mapping read pairs.
+
+If you take a look at the file::
+
+  head bwa_transcriptome_counts.txt
+
+you'll see that it is a readable flat text file, e.g.::
+
+  FBtr0086024	0	2202	0	0	0	0
+  FBtr0082362	0	898	0	0	0	0
+  FBtr0300409	0	4704	284	458	645	389
+  FBtr0308603	0	4307	18	14	26	6
+  FBtr0080982	0	1284	1355	1342	2178	1172
+  FBtr0305683	0	1463	2	2	4	4
+  FBtr0299694	0	635	0	0	0	0
+  FBtr0299695	0	587	0	0	0	0
+  FBtr0085737	0	2643	0	0	0	0
+  FBtr0309194	0	2398	0	0	0	0 
+  
+The first column is transcript IDs, and the second and third columns are the start and end positions of each transcript that reads could map to (they all start at 0 and span the entire length of each transcript, because we wanted to count all reads that map to anywhere in the transcript). The following four columns are the read counts for each sample.

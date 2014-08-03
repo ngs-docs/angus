@@ -1,0 +1,78 @@
+==============================
+De novo RNA-Seq Assembly
+==============================
+
+Trinty and Velvet/Oases are two of the many programs available for de novo RNA-seq assembly.::
+
+    apt-get update
+    apt-get -y --force-yes install libbz2-1.0 libbz2-dev libncurses5-dev openjdk-6-jre-headless zlib1g-dev
+
+=============================
+Installing trinity
+=============================
+Now change to the /mnt directory and download Trinity:::
+
+    cd /mnt
+    wget http://downloads.sourceforge.net/project/trinityrnaseq/trinityrnaseq_r2013-02-25.tgz?r=http%3A%2F%2Fsourceforge.net%2Fprojects%2Ftrinityrnaseq%2Ffiles%2Ftrinityrnaseq_r2013-02-25.tgz%2Fdownload&ts=1371471384&use_mirror=superb-dca3
+    mv trinityrnaseq_r2013-02-25.tgz?r=http%3A%2F%2Fsourceforge.net%2Fprojects%2Ftrinityrnaseq%2Ffiles%2Ftrinityrnaseq_r2013-02-25.tgz%2Fdownload&ts=1371471384&use_mirror=superb-dca3 trinityrnaseq_r2013-02-25.tgz
+    tar xvfz trinityrnaseq_r2013-02-25.tgz
+    cd trinityrnaseq_r2013-02-25
+    make
+    
+The latest version of Trinity using bowtie when building your transcriptome, so you must install bowtie as well.::
+
+    curl -O -L http://sourceforge.net/projects/bowtie-bio/files/bowtie/0.12.7/bowtie-0.12.7-linux-x86_64.zip
+    unzip bowtie-0.12.7-linux-x86_64.zip
+    cd bowtie-0.12.7
+    cp bowtie bowtie-build bowtie-inspect /usr/local/bin
+    
+Trinity's manual can be found here http://trinityrnaseq.sourceforge.net/
+Now to run trinity, you execute the Trinity.pl command. The required options are --seqType to specify the read type, --JM for number of GB of system memory to use for k-mer counting by jellyfish --left,--right for paired end reads and --single for single ended reads::
+
+    Trinity.pl --seqType fq --left <paired file 1> --right <paired file 2>   --min_contig_length 200 --CPU 4 --JM 32G --output <output file name>
+
+For additional reads files you would just add the appropriate flags --left and --right, or --single.
+
+=============================
+Installing Velvet/Oases
+=============================
+Velvet was originally developed for genome assembly, and Oases was created as an add on for RNA-seq transcriptome assembly, so both programs much be used to complete your transcriptome assembly. To install Velvet::
+
+    git clone git://github.com/dzerbino/velvet.git
+    cd velvet
+    make
+    cp velvet* /usr/local/bin
+    make 'MAXKMERLENGTH=92'
+    
+As with most programs there are tons of options and they can be found here http://www.ebi.ac.uk/~zerbino/velvet/ under Manual    
+    
+Now for Oases::
+
+    cd /mnt
+    git clone git://github.com/dzerbino/oases.git
+    cd oases
+    make
+    make 'VELVET_DIR=/path/to/velvet' 'MAXKMERLENGTH=92'
+    cp oases /usr/local/bin
+    
+To run Velvet/Oases the base commands are::
+
+    velveth directory_k k -short reads.fa
+    velvetg directory_k -read_trkg yes
+
+Where you would replace 'k' with the k overlap value, and you must use the '-read_trkg yes' option to let velvet know to create files that will be needed by Oases. Now to finish the assembly with Oases::
+    oases directory_k
+    
+When using Velvet/Oases you may want to assemble multiple k values, a quick way to do that without have to retype the command yourselve is::
+
+    velveth directory 21,33,2 -short reads.fa
+    for((n=21; n<=33; n=n+2)); do velvetg directory_"$n" -read_trkg yes; done
+
+And you can run Oases the same way:::
+
+    for((n=21; n<=33; n=n+2)); do oases directory_"$n"; done
+
+And now you're finished. Things to consider when select velvet requires you to select a k value and trinity is a memory hog.
+Pick the appropriate instance type (most especially memory/RAM!) for your data set size. Trinity is a memory hog and usually you will want to pick 34GB or 68GB of RAM. (This may not be that cheap). Note the number of cores so that you can adjust Trinity command line parameters to use them all.
+
+From here you can map your reads back to your assembled transcriptomes with your favorite mapper (i.e. Bowtie or bwa)

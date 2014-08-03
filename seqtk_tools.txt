@@ -1,0 +1,81 @@
+================================================================
+Using seqtk to trim and process reads at an insanely high speed
+================================================================
+
+seqtk was developed by Heng Li and is available from his GitHub page: https://github.com/lh3/seqtk
+
+Installation
+------------
+
+To obtain the code you will need to have `git` installed and you need to clone the `seqtk` url::
+
+    # download with github
+    git clone git://github.com/lh3/seqtk.git
+
+Switch to the seqtk directory and make it::
+
+    cd seqtk
+    make
+    cp seqtk /usr/local/bin
+
+We will use E.coli data in snapshot snap-000d346e in this tutorials.
+Create a volume from the snapshot and attach it to the instance.::
+
+    mkdir /ebs/
+    mount /dev/xvdf /ebs
+
+Basic Usage
+-----------
+
+For just about all tools the input can be fasta, fastq file, may be
+gzipped or not, will unzip on the fly.
+
+    # extracts a random sample
+    seqtk sample
+
+    # apply a seed to extract the same reads from two, paired end files
+    seqtk -s 10 sample
+
+    # trim reads with the modified Mott trimming algorithm
+    seqtk trimfq ...
+
+The algorithm is described on this page: `http://www.phrap.org/phredphrap/phred.html`__. Scroll down to the Algorithm section for details.
+
+Beyond this usage there are other interesting features - you can subtract subsequences from file (say you want to extract a certain part of your
+reference genome) using seqtk.
+
+Tools
+-----
+
+Using your Amazon EC2 instance::
+
+    cd /mnt
+
+To see a list of tools::
+
+    seqtk
+
+Extracts a random sample::
+
+    # sample 1000 reads from a fastq file
+    seqtk sample /ebs/ecoli/SRR001666_1.fastq.gz 1000 > SRR001666_1_1000.fastq 
+
+Convert fastq to fasta::
+
+    seqtk seq -A /ebs/ecoli/SRR001666_1.fastq.gz > sample.fa
+
+Apply a seed to extract the same reads from two, paired end files::
+
+    seqtk sample -s 10 /ebs/ecoli/SRR001666_1.fastq.gz 1000 > SRR001666_1_1000.fastq 
+    seqtk sample -s 10 /ebs/ecoli/SRR001666_2.fastq.gz 1000 > SRR001666_2_1000.fastq 
+
+Trim reads with the modified Mott trimming algorithm::
+
+    # trim with default error threshold = 0.05
+    seqtk trimfq /ebs/ecoli/SRR001666_1.fastq.gz > timmed.fq
+
+    # trim with an error threshold = 0.01
+    seqtk trimfq -q 0.01 /ebs/ecoli/SRR001666_1.fastq.gz > timmed.fq
+
+    # trim the first 3 bases and the last 5 bases
+    seqtk trimfq -b 3 -e 5 /ebs/ecoli/SRR001666_1.fastq.gz > timmed.fq

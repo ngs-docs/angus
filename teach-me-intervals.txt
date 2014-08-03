@@ -1,0 +1,264 @@
+================================
+Teach me interval based analysis
+================================
+                             
+Premise: a participant in the course solves
+a problem at the podium while taking input from the audience when
+necessary.
+
+The problem to be solved
+------------------------
+
+    Create mutations in the yeast genome and simulate sequencing reads from
+    this genome. Apply bioinformatics tools on this data and find those
+    genes that contain mutations in their promoter regions.
+    
+    The input data will consist of the yeast genome in FASTA format and
+    the gene annotations as a GFF file. Download the data from
+    `http://bcc.bx.psu.edu/data/teachme.zip (3.6Mb) <http://bcc.bx.psu.edu/data/teachme.zip>`_
+
+The installation for bedtools is described at
+the beginning of :doc:`interval-analysis-tutorial`.                                                   
+We assume that you have already installed the ``bwa`` and ``samtools`` packages.                                             
+                                             
+The following is a annotated step-by-step history of the commands that have been
+performed at the podium.
+
+First we download the teachme data::
+ 
+    wget http://bcc.bx.psu.edu/data/teachme.zip
+    unzip teachme.zip
+    cd teachme/
+ 
+Investigate what exactly is stored in these files::
+
+    less genes.gff
+    cd refs/
+    less sc.fa
+ 
+Our first task is simulate a genome and create sequencing reads from it.
+What this means is that we simulate the genome of an organism, then
+create a library from it and we simulate sequencing
+this library via a sequencing instrument. The output of the process
+will be data similar to what one would get back from a sequencing facility.
+
+There are many sequence simulators, we will use `wgsim <https://github.com/lh3/wgsim>`_
+written by Heng Li. This code is currently hosted on GitHub::
+
+    #clone and install wgsim (mutation simulator)
+    git clone https://github.com/lh3/wgsim
+    
+    # move to the folder
+    cd wgsim/
+    
+    # compile the code (see the README for info)
+    gcc -g -O2 -Wall -o wgsim wgsim.c -lz -lm
+    
+    # copy the code to a path that makes it available on the computer
+    cp wgsim /usr/bin/
+ 
+Now lets run the simulator and generate the reads. Both the ``README`` and
+just running the tool on its own produces information on the usage::
+
+    # go to refs folder and run wgsim on sc_fa to create NGS reads that contains mutations based on the sc.fa reference genome
+    cd ..
+    wgsim -N 100000 sc.fa sc_mut1.fq sc_mut2.fq > sc_mut_screen.txt
+    
+    #look at mutation summary and mutated read (just sc_mut1.fq)
+    less sc_mut_screen.txt
+    less sc_mut1.fq
+
+By default the tool creates paired-end reads (two files) but for simpliciy
+we are going to use only one file.
+
+At this point the student at the podium reorganized the files, created
+a new directory called ``work`` and moved all data into that folder::
+
+     #make work directory and copy genes.gff and mutated reads
+     cd ..
+     mkdir work
+     mv genes.gff work/
+     mv refs/sc_mut* work/
+     cd work/
+ 
+From this point on she worked off the ``work`` directory that will collect
+all files. The reference will be located at the relative path ``../refs/sc.fa``.
+
+We have the simulated data in ``sc_mut1.fq`` and the next goal is to generate
+an alignment file from this data. We use a standard mapping protocol::
+    
+     #index reference genome for alignment
+     bwa index ../refs/sc.fa
+     
+     #perform bwa alignment
+     bwa aln ../refs/sc.fa sc_mut1.fq > sc_mut1.sai
+     
+     #create SAM files 
+     bwa samse ../refs/sc.fa sc_mut1.sai sc_mut1.fq > sc_mut1.sam
+     
+     # always take a quick peek at what you just did, looks good!
+     less sc_mut1.sam
+
+The next step is transforming the SAM file to a BAM format. The BAM file
+is one of the final results of the analysis, it is a fully self
+contained format that represents all the original data plus the alignment
+information::
+
+    
+     # transform the sam file into a bam file
+     samtools view -Sb sc_mut1.sam > tmp.bam
+     
+     # sort the file and create a new file
+     samtools sort tmp.bam sc_mut1
+     
+     # index the bam file
+     samtools index sc_mut1.bam
+     
+Whew! We are half way through. We now have the information on where the reads align
+and each alignment contains information on wether the match is exact or
+wether it has mismatches/insertions or deletions. See the CIGAR column and/or the
+MD tag in the SAM file.
+
+The next step is to create the promoter region for each gene. We start with
+gene information, although one could directly obtain the promoter information
+from another source.
+
+The ``gene.gff`` file contains coordinates that we want to
+transform to represent promoter regions. A promoter region is
+an extension of the gene in the so called 5' direction (upstream)
+of the start coordinate.
+
+As an example the 100 bp long
+promoter region of an interval of 1000-2000 would be 900-1000 if
+the region lies on the positive strand and it would be
+2000-2100 if the region lies on the negative strand.
+
+You have to be careful here though as the above applies for a zero based
+representation. If the same interval 1000-2000 were specified with
+a one based coordinate system the promoter coordinates would
+be 900-999 if the gene were on the positive strand and 2001-2100 for the
+negative strand.
+
+Interval operations with bedtools
+---------------------------------
+
+Bedtools offers a series commands that can alter intervals in various ways.
+Moreover it can perform these operations in a strand specific and
+moreover it will recognize and respect the coordinate system
+that is being used.
+
+To find the promoter regions  we will first extend each gene upstream
+then we subtract the gene file from the extended file. Here is a visualization::
+
+    ..........GGGGGGGGGGG........ # original gene
+    .....GGGGGGGGGGGGGGGG........ # extended gene
+    .....GGGGG................... # subtracted
+    
+    # for the reverse strand the operation willbe
+
+    .....GGGGGGGGGGGG............. # original gene
+    .....GGGGGGGGGGGGGGGGG........ # extended gene
+    .................GGGGG........ # subtracted
+
+As it happens the interval extension program needs to know how long the
+chromosomes are, this is to avoid extending the intervals past the
+actual chromosome size. So it needs a new tab delimited file
+that contains the chromosome name and the chromosome lenghts.
+
+This information could be extracted from the SAM file header::
+    
+    # head sc_mut1.sam
+    @SQ	SN:chrI	LN:230218
+    @SQ	SN:chrII	LN:813184
+    @SQ	SN:chrIII	LN:316620
+    @SQ	SN:chrIV	LN:1531933
+    @SQ	SN:chrV	LN:576874
+    @SQ	SN:chrVI	LN:270161
+    @SQ	SN:chrVII	LN:1090940
+    ... more lines ...
+    
+copy this information into a separete file and edit it to keep only the
+chromosome names and lenghts.
+
+There is a second (possibly easier) way to do this is via indexing
+the the fasta file and looking at the .fai file that it creates::
+    
+    # fasta index the reference
+    samtools faidx ../refs/sc.fa
+    
+    # look at the file
+    head ../refs/sc.fa.fai
+    chrI	230218	6	80	81
+    chrII	813184	233109	80	81
+    chrIII	316620	1056466	80	81
+    chrIV	1531933	1377051	80	81
+    chrV	576874	2928140	80	81
+    chrVI	270161	3512232	80	81
+    chrVII	1090940	3785779	80	81
+    chrVIII	562643	4890365	80	81
+    chrIX	439888	5460049	80	81
+    chrX	745751	5905442	80	81
+
+This file too would need to be edited to remove the extra columns::
+
+    cut -f 1,2 ../refs/sc.fa.fai > genome.txt
+
+Now let's extend the genes, the command to do this is called ``slop``::
+
+    #'Extend' genes.gff intervals to 1000 bases upstream positive
+    # strand reads / 1000 downstream negative strand reads -
+    # this is to include a hypothetical 1000 bases promoter
+    bedtools slop -l 1000 -r 0 -s -i genes.gff -g genome.txt > slop.gff
+ 
+    # check if it worked, look at both files
+    head -3 genes.gff
+    head -3 slop.gff
+    
+Subtract the genes from the slop files. The order of files matter!::
+
+    #subtract the rest of the genes.gff file ("genome") from the slop.gff file to keep only the promoter regions
+    bedtools subtract -a slop.gff -b genes.gff -s > promoter.gff
+    
+    #check if it worked
+    head -3 genes.gff
+    head -3 promoter.gff
+ 
+We're almost there. We have a BAM file with alignments and a promoter file.
+We just need to lay over one over the other. Now for simplicity we
+convert the BAM file to an easier to interpret text file.
+Moreover we will add an extra piece of information into the BED file.
+Normally the score value column contains the mapping quality but
+what we could also put there is the edit-distance: how many
+changes were in the alignment. The `-ed` command instructs bedtools
+to add that information::
+ 
+    #create BED files (containing interval information of the alingments)
+    bedtools bamtobed -ed -i sc_mut1_bwa.bam > sc_mut1_bwa.bed
+    
+Finally the result is near! We just need to intersect the alignments with
+the promoters. The ``-wo`` flag will make rows from both files be displayed next to
+one another::
+
+    # intersect the promoter.gff file (which contains
+    # annotation and interval information of the promoters)
+    # with the BED file created from the aligment to get the reads
+    # that mapped to the promoter regions
+    bedtools intersect -a promoter.gff -b sc_mut1_bwa.bed -wo > answer.txt
+    
+The ``answer.txt`` file has a lot of columns 9 from BED and 12 from SAM file. All we
+need are the columns for gene name and edit distance::
+
+    cut -f 9,14 answer.txt > edits.txt
+    
+To interpret it better we can sort this file to see which promoters have the most
+reads indicating edit distances. The sort needs to operate in the second column
+`-k 2` it must use numerical values `-n` and we want reverse order `-r`::
+
+    sort -k 2 -r edits.txt | head
+    
+Voila, the promoter regions for these genes have variation with and edit distance of 4::
+
+    ID=YPR200C	4
+    ID=YPR198W	4
+    ID=YPR193C	4
+    ID=YPR187W	4

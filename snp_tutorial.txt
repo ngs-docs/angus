@@ -1,0 +1,253 @@
+==========================
+Calling SNPs with Samtools
+==========================
+
+In this tutorial, we're going to use the sorted BAM files we generated
+earlier to generate a list of SNPs at which the iso-female lines we
+re-sequenced differ from the reference Drosophila melanogaster
+genome. We'll be using Samtools for this, but there is other software
+out there that will call SNPs and genotypes for you. We encourage you
+to try them out on your own.
+
+Getting the data
+----------------
+
+Set up your EC2 server, and mount the provided snapshot
+(snap-000d346e) on /data.
+
+Next, install Samtools. When you are installing Samtools, make sure to
+install bcftools as well (which is included as part of the Samtools
+package)::
+
+  cd /mnt
+  curl -O -L http://sourceforge.net/projects/samtools/files/samtools/0.1.18/samtools-0.1.18.tar.bz2
+  tar xvfj samtools-0.1.18.tar.bz2
+  cd samtools-0.1.18
+  make
+  cp samtools /usr/local/bin
+  cd misc/
+  cp *.pl maq2sam-long maq2sam-short md5fa md5sum-lite wgsim /usr/local/bin/
+  cd ..
+  cd bcftools
+  cp *.pl bcftools /usr/local/bin/
+
+Since it took a while to do map our reads to the reference genome last
+time, we have the sorted bam files saved in the /data/snp_calling/
+folder.
+
+We're going to try out two separate SNP callers, so let's try to keep
+ourselves organized::
+
+  mkdir samtools_snps
+  cd samtools_snps
+
+Calling SNPs with Samtools
+--------------------------
+
+To generate a BCF file (which is a binary data format used to hold information about sequence variants such as SNPs), run the following lines::
+
+  samtools mpileup -uD -r 2L:100,000-150,000 -f /data/drosophila/dmel-all-chromosome-r5.37.fasta \
+  /data/snp_calling/RAL357_full_bwa.sorted.bam /data/snp_calling/RAL391_full_bwa.sorted.bam | \
+  bcftools view -bvcg - > RAL_samtools.raw.bcf
+
+You'll notice that this command has two parts, and we've used several flags in the first part of it. Here's what they mean::
+
+  -u tells it to output into an uncompressed bcf file (rather than compressed)
+  -D tells it to keep read depth for each sample
+  -r tells it which chromosome region to call SNPs for (you can omit this if you want to do the whole genome, but in the interest of speed, we picked a 50kb region)
+  -f tells it that the next argument is going to be the reference genome file
+
+The Samtools portion of this calculates our genotype likelihoods. We
+then pipe the output to bcftools, which does our SNP calling based on
+those likelihoods. This portion of the command has several options as
+well. The -b flag tells it to output to BCF format (rather than VCF);
+-c tells it to do SNP calling, and -v tells it to only output
+potential variant sites (i.e., exclude monomorphic ones); and -g tells
+it to call genotypes for each sample in addition to just calling
+SNPs. Then we run::
+
+  bcftools view RAL_samtools.raw.bcf | vcfutils.pl varFilter -D100
+     > RAL_samtools.vcf
+
+This line converts the BCF file into a VCF file (a flat text file
+rather than a binary, making it a lot easier to view), and then we
+pipe that into vcfutils.pl with the varFilter -D100 option, which
+filters out SNPs that had read depth higher than 100 (we don't want to
+trust SNPs at sites with super high coverage, because they might be
+represent variation between variable copy number repeats, i.e., the
+reads that map to this location in the reference are actually from
+duplicated sites in your sample; you can--and should--change this
+parameter based on the kind of coverage you have in your dataset,
+e.g., -D500).
+
+How does samtools detect SNPs? Every time a mapped read shows a
+mis-match from the reference genome, it does some fancy statistics to
+try and figure out whether the mis-match is because of a real SNP. It
+incorporates different types of information, such as the number of
+different reads that share a mis-match from the reference, the
+sequence quality data, and the expected sequencing error rates, and it
+essentially figures out whether it's more likely that the observed
+mis-match is due simply to a sequencing error, or because of a true
+SNP.
+
+The resulting VCF file has a lot of information about your
+genotypes. For a detailed description of the VCF format, see
+http://vcftools.sourceforge.net/specs.html.
+
+Fow now, let's look at the first few lines of the VCF file. The file
+lists the chromosome, position, ID, reference allele at that
+nucleotide position, and alternate alleles detected in our dataset
+(across all samples). It also tells you the "Quality" -- which is
+basically a measure of how confident Samtools is that there really is
+a SNP there (higher is better) -- and whether or not that SNP passed
+the quality filters. The "Info" field tells you various statistics
+about each position; the information in this field can vary, but what
+exactly each symbol (e.g., NS, DP, etc.) should be explained in the
+file header. The "Format" field tells you what type of data are found
+in the rest of the fields (there should be one additional field for
+each sample that you ran through Samtools). For example, GT:GQ:DP
+means that the sample fields for this position tell you the genotype,
+genotype quality, and depth (coverage) of each sample that you fed
+into Samtools; again, explanations of these symbol names (GT, GT, DP)
+can be found in the header of your VCF file.::
+
+  less RAL_samtools.vcf
+
+Calling SNPs with GATK's Unified Genotyper
+------------------------------------------
+ 
+Now let's try mapping our reads with another mapper, the Unified
+Genotyper included as part of the Genome Analysis Toolkit
+(GATK). Again, let's try to keep our files organized::
+
+  cd /mnt
+  mkdir GATK_snps
+
+Download GATK
+-------------
+
+The latest version of GATK require headers in SAM file, which are missing in
+the sample datasets. Therefore, we will download older version to use in this
+tutorial. You should download the latest version for you analysis.::
+
+  cd /mnt/
+  curl -O ftp://ftp.broadinstitute.org/pub/gsa/GenomeAnalysisTK/GenomeAnalysisTK-1.0.5974.tar.bz2
+  tar xvfj GenomeAnalysisTK-latest.tar.bz2
+
+
+Like FastQC, this is also written in java, so let's make sure java is installed::
+
+  java -version
+  
+Now let's run GATK's Unified Genotyper. The GATK people recommend a
+few quality control steps before you run the SNP calling. In
+particular, they recommend local re-alignment around indels, because
+reads whose ends map to the location of an indel can sometimes lead to
+false positive SNP calls. I'll try to illustrate this with a
+simplified example. Suppose the reference sequence is GGGGTTTT and
+there's an alternate allele with a 4-bp insertion of C's:
+GGGGCCCCTTTT. Now if a read carries the entire insertion, the aligner
+can figure things out without a problem. However, if the end of the
+read overlaps the insertion, you could run into problems. For
+example::
+
+  Reference : GGGG----TTTT
+  Read 1    :    GCCCCT
+  Read 2    : GGGG----C
+                      *
+  
+Read 1 looks fine, but read 2 is probably mis-aligned; rather than
+counting the C as an insertion, which is probably better, the aligner
+has placed it after the indel, making it look like there is a SNP
+there. In GATK we can account for this problem by doing local
+re-alignment around potential indel sites, in which we incorporate
+information about all the reads in that region simultaneously, rather
+than mapping each read individually. First, GATK needs to figure out
+which regions are in need of re-alignment::
+
+    cd /mnt/GATK_snps
+
+    java -Xmx1g -jar /mnt/GenomeAnalysisTK-1.0.5974/GenomeAnalysisTK.jar -T RealignerTargetCreator -R /data/drosophila/dmel-all-chromosome-r5.37.fasta -I /data/snp_calling/RAL357_full_bwa.sorted.bam -o RAL357.realign.intervals -L 2L:100000-150000
+  
+And then it needs to actually do the re-alignment (this step is slow,
+taking ~10 min, even for our small region)::
+
+    java -Xmx4g -jar /mnt/GenomeAnalysisTK-1.0.5974/GenomeAnalysisTK.jar -I /data/snp_calling/RAL357_full_bwa.sorted.bam -R /data/drosophila/dmel-all-chromosome-r5.37.fasta -T IndelRealigner -targetIntervals RAL357.realign.intervals -o RAL357_full_bwa.realigned.bam
+
+Now we need to do this re-alignment again with the other fly strain
+that we genotyped (if you were running a large number of samples, this
+is where a shell script would come in handy). You might want to run
+this in the background or in a new session while you're re-aligning
+the first one::
+
+    java -Xmx1g -jar /mnt/GenomeAnalysisTK-1.0.5974/GenomeAnalysisTK.jar -T RealignerTargetCreator -R /data/drosophila/dmel-all-chromosome-r5.37.fasta -I /data/snp_calling/RAL391_full_bwa.sorted.bam -o RAL391.realign.intervals -L 2L:100000-150000
+
+    java -Xmx4g -jar /mnt/GenomeAnalysisTK-1.0.5974/GenomeAnalysisTK.jar -I /data/snp_calling/RAL391_full_bwa.sorted.bam -R /data/drosophila/dmel-all-chromosome-r5.37.fasta -T IndelRealigner -targetIntervals RAL391.realign.intervals -o RAL391_full_bwa.realigned.bam
+  
+Now we would like to run the SNP caller, but we first need to use a
+package called Picard to fix a minor formatting problem in the
+re-aligned BAM files before GATK's Unified Genotyper will accept them
+(these steps take a few minutes each as well)::
+
+      cd /mnt
+      curl -O -L http://sourceforge.net/projects/picard/files/picard-tools/1.47/picard-tools-1.47.zip
+      unzip picard-tools-1.47.zip
+      cd /mnt/GATK_snps/
+      java -jar /mnt/picard-tools-1.47/AddOrReplaceReadGroups.jar I= RAL357_full_bwa.realigned.bam O= RAL357_full_bwa.realigned.fixed.bam SORT_ORDER=coordinate RGID=RAL357 RGLB=RAL357 RGPL=illumina RGPU=RAL357 RGSM=RAL357 CREATE_INDEX=True VALIDATION_STRINGENCY=LENIENT 
+      java -jar /mnt/picard-tools-1.47/AddOrReplaceReadGroups.jar I= RAL391_full_bwa.realigned.bam O= RAL391_full_bwa.realigned.fixed.bam SORT_ORDER=coordinate RGID=RAL391 RGLB=RAL391 RGPL=illumina RGPU=RAL391 RGSM=RAL391 CREATE_INDEX=True VALIDATION_STRINGENCY=LENIENT 
+  
+And finally we can run GATK's SNP caller::  
+
+    java -jar /mnt/GenomeAnalysisTK-1.0.5974/GenomeAnalysisTK.jar -R /data/drosophila/dmel-all-chromosome-r5.37.fasta -T UnifiedGenotyper -I RAL357_full_bwa.realigned.fixed.bam -I RAL391_full_bwa.realigned.fixed.bam -o RAL_GATK.vcf -stand_call_conf 50.0 -stand_emit_conf 10.0 -dcov 500 -L  2L:100000-150000
+
+These parameqters are similar, but not identical, to those in Samtools. -stand_emit_conf 10.0 means that it won't report any potential SNPs with a quality below 10.0; but unless they meet the quality threshold set by -stand_call_conf (50.0, in this case), they will be listed as failing the quality filter. -dcov 500 means that any site that has more than 500x coverage, the genotype caller will only use 500 randomly selected reads (for computational efficiency).
+
+Keep in mind that, at this point, indel calling in GATK's Unified
+Genotyper does not seem to be well supported. For that, you may want
+to stick with Samtools or other software for now.
+
+Another approach you could take is to just do the local re-alignment
+with GATK, but then do your SNP calling using Samtools on the locally
+re-aligned BAM files.::
+
+      samtools mpileup -uD -r 2L:100,000-150,000 -f /data/drosophila/dmel-all-chromosome-r5.37.fasta RAL357_full_bwa.realigned.fixed.bam RAL391_full_bwa.realigned.fixed.bam | bcftools view -bvcg - > RAL_samtools_fixed.raw.bcf
+      bcftools view RAL_samtools_fixed.raw.bcf | vcfutils.pl varFilter -D100 > RAL_samtools_fixed.vcf
+
+Comparing output
+----------------
+
+Now say you want to count how many SNPs each SNP calling approach
+found. You could do this pretty simply using grep on the vcf file. In
+this case, we only looked at a region on chromosome 2L, and the
+chromosome is the first thing listed about each SNP. So we can search
+for and then count every line in the vcf file that begins with the
+text '2L'. To use grep to search for text at the beginning of a line,
+you use the ^ symbol. Once we find the lines in the vcf file that
+describe our SNPs, we're going to pipe them all to the wc command
+(with the -l flag) to count how many of them there are::
+
+  cd /mnt
+  grep '^2L' samtools_snps/RAL_samtools.vcf | wc -l
+  grep '^2L' GATK_snps/RAL_GATK.vcf | wc -l
+  grep '^2L' GATK_snps/RAL_samtools_fixed.vcf | wc -l
+  
+Which approach detected the most SNPs in this region?
+
+There is a package called vcftools that has all sorts of utilities for
+working with VCF files. I won't go over it here, but consult the
+project's website and documentation at
+http://vcftools.sourceforge.net/ if you are interested. For now,
+compare the SNPs that each SNP caller detected by viewing the VCF
+files using less::
+
+  less samtools_snps/RAL_samtools.vcf
+  less GATK_snps/RAL_GATK.vcf
+  less GATK_snps/RAL_samtools_fixed.vcf
+  
+Another exercise:
+
+In the snp_calling directory, you will also find BAM files generated
+by aligning the same set of reads to the same reference genome for one
+of the two fly lines (RAL357) using bowtie rather than bwa. Use
+Samtools to call SNPs and generate a VCF file on the bowtie alignment
+and compare it to the VCF file you got from the bwa alignment.

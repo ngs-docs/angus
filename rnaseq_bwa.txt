@@ -1,0 +1,43 @@
+=====================================
+Mapping to the transcriptome with BWA
+=====================================
+
+In this tutorial, we'll begin by mapping reads from an RNA-seq study involving Drosophila melanogaster to a reference transcriptome. First, make sure you have BWA and SAMTools installed. Next, you will need to download the reference transcriptome::
+
+  mkdir bwa_transcriptome
+  cd bwa_transcriptome
+  curl -O -L ftp://ftp.flybase.net/releases/current/dmel_r5.51/fasta/dmel-all-transcript-r5.51.fasta.gz
+  gunzip dmel-all-transcript-r5.51.fasta.gz
+  
+How many transcripts are encoded in this file? Let's look at the file manually first::
+
+  less dmel-all-transcript-r5.51.fasta
+  
+Notice the fasta format; each line beginning with a > is a new sequence, followed by another line (or multiple lines) containing the sequence itself. If we want to count how many transcripts are in the file, we can just count the number of lines that begin with > ::
+
+  grep '>' | wc -l
+  
+You should see 28826.
+
+Next, we need to prepare the file for use with BWA. The first step is to index it::
+
+  bwa index dmel-all-transcript-r5.51.fasta
+  
+Next, we can map our paired-end sequence reads to the transcriptome. To make our code a little more readable and flexible, we'll use shell variables in place of the actual file names. In this case, let's first specify what the values of those variables should be::
+
+  reference=dmel-all-transcript-r5.51.fasta
+  reads_1=OREf_SAMm_vg1_CTTGTA_L005_R1_001.fastq
+  reads_2=OREf_SAMm_vg1_CTTGTA_L005_R2_001.fastq
+  output=vg_1
+  
+Now we can use these variable names in our mapping commands. The advantage here is that we can just change the variables later on if we want to apply the same pipeline to a new set of samples (which we do)::
+
+  bwa mem ${reference} ${reads_1} ${reads_2} > ${output}.sam
+  
+This command will output a file named vg_1.sam in the current working directory. Next, we want to use SAMTools to convert it to a BAM, and then sort and index it::
+
+  samtools import ${reference}.fai ${output}.sam ${output}.unsorted.bam
+  samtools sort ${output}.unsorted.bam ${output}
+  samtools index ${output}.bam
+  
+Next, you can use your existing knowledge to view the mappings, plot the distribution of mismatch positions, etc.

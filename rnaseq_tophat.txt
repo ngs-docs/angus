@@ -1,0 +1,39 @@
+===============================================
+Mapping RNA-seq reads to the genome with tophat
+===============================================
+
+In this tutorial, we'll map reads from an RNA-seq study in Drosophila melanogaster to the reference genome using tophat. tophat is a "splicing aware" aligner, so we can map transcripts to the genome. This is quite different conceptually to mapping to the transcriptome directly. At the very end, we can compare these results to the results we got from mapping directly to the reference transcriptome. First, make sure you have tophat/bowtie and SAMTools installed. You'll also need to download the D. melanogaster genome::
+
+  mkdir tophat_dmel
+  cd tophat_dmel
+  curl -O -L ftp://ftp.flybase.net/releases/current/dmel_r5.51/fasta/dmel-all-chromosome-r5.51.fasta.gz
+  gunzip dmel-all-chromosome-r5.51.fasta.gz
+  
+As usual, we first need to index the reference genome::
+  
+  reference=dmel-all-chromosome-r5.51.fasta
+  reference_index=dmel_genome_bowtie2
+  bowtie2-build ${reference} ${reference_index}
+
+We also need a list of annotations to go along with the reference genome. This file basically specifies the coordinates of all the coding sequences in the reference (or of any other feature that we might be interested in). It's a text file, so feel free to take a look at the contents if you want. In this case, it's a GTF file, which should be included in the image you're using.::
+
+  transcript_annotation=Drosophila_melanogaster.BDGP5.71.gtf
+
+And let's remember to create variables for our sequence data, and our output::
+
+  reads_1=OREf_SAMm_vg1_CTTGTA_L005_R1_001.fastq
+  reads_2=OREf_SAMm_vg1_CTTGTA_L005_R2_001.fastq
+  output=vg_1
+
+Now we're ready to use tophat. Tophat can map RNA-seq reads to a reference genome even if those reads span introns::
+
+  tophat -p 4 -G ${transcript_annotation} -o ${output} --no-novel-juncs ${reference_index} ${reads_1} ${reads_2}
+
+The -p 4 option tells tophat to use multithreading (4 processors). Tophat will "know" that you're dealing with paired-end data because you gave it two sets of reads. The --no-novel-juncs option tells tophat that we won't be looking for any novel splice sites (more on that later).
+  
+Tophat places the results in the directory named ${output}, which will contain a number of files. The file that we're interested in for now is accepted_hits.bam, which is the reads that were mapped successfully.::
+
+  samtools sort ${output}/accepted_hits.bam ${output}/accepted_hits.sorted
+  samtools index ${output}/accepted_hits.sorted.bam
+
+From here, we can feed our BAM file into our quantification script.
