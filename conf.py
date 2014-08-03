@@ -177,8 +177,6 @@ htmlhelp_basename = 'labibidoc'
 html_context = {
    "google_analytics_id" : 'UA-53464733-1',
    "disqus_shortname" : 'angus-ctb',
-   "github_base_account" : 'ngs-docs',
-   "github_project" : 'angus',
 }
 
 
