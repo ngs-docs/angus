@@ -1,6 +1,11 @@
 Start up an EC2 instance
 ========================
 
+Here, we're going to startup an Amazon Web Services (AWS) Elastic
+Cloud Computing (EC2) "instance", or computer.
+
+----
+
 Go to 'https://aws.amazon.com' in a Web browser.
 
 Select 'My Account/Console' menu option 'AWS Management Console."
@@ -20,6 +25,8 @@ Select "Launch Instance" (midway down the page).
 
 Next, scroll down the list of operating system types until you find
 Ubuntu 14.04 LTS (PV) -- it should be at the very bottom.  Click 'select'.
+(See :doc:`starting-up-a-custom-ami` if you want to start up a custom
+operating system instead of Ubuntu 14.04.)
 
 .. image:: images/amazon-3.png
    :width: 50%
