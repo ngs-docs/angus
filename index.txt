@@ -15,41 +15,16 @@ This is the schedule for the `2014 MSU NGS course <http://bioinformatics.msu.edu
 ===============  =============================================================
 Day              Schedule
 ===============  =============================================================
-Monday 8/4       * 1:30pm tutorial: :doc:`day1` (Titus)
+Monday 8/4       * 1:30pm lecture: Welcome! (Titus)
+                 * Tutorial: :doc:`day1`
                  * 7pm: research presentations
 Tuesday 8/5      * :doc:`day2`
-		 * 9:30am: lecture, `Welcome! <_static/lecture1-welcome.pptx.pdf>`__ (Titus)
-                 * 10:45am: tutorial, :doc:`running-command-line-blast`
-		 * 1:15pm: tutorial, :doc:`short-read-quality-evaluation`
-		 * Evening: *firepit social*
-Wednesday 8/6    * :doc:`day3`
-	  	 * 9:30am: lecture, `Mapping. <_static/lecture2-mapping.pptx.pdf>`__ (Titus)
-                 * 10:45am: tutorial, :doc:`bwa-tutorial` (Likit)
-		 * 1:15pm: tutorial cont'd; also, :doc:`plot-mapping-mismatches`
-		 * 8pm: `General bioinformatics overview <_static/challenges-bioinfo-ngs.pdf>`__ (Istvan)
-Thursday 8/7	 * 9:15am: lecture, `Assembly. <_static/lecture3-assembly.pptx.pdf>`__ (Titus)
-	 	 * 10:45am: tutorial, :doc:`assembling-ecoli-with-velvet`
-   	 	 * 1:15pm: tutorial, cont'd, evaluating assemblies.
-		 * Evening: *brew pub in Kalamazoo.*
-Friday 8/8       * 9:15am: lecture, `Intervals <_static/interval-datatypes.pdf>`__ (Istvan)
-                 * 10:45am: tutorial, :doc:`interval-analysis-tutorial` (Istvan)
-                 * 1:15pm: lecture/tutorial, `Statistics <_static/stats-lecture.pptx.pdf>`__ (Ian)
-                 * 8 Tutorial: :doc:`teach-me-intervals` (Istvan)
-Saturday 8/9	 * 9:15am: lecture, `Pipelines and Automation <_static/lecture5-pipelines.pptx.pdf>`__ (Titus)
-	 	 * 10:45am: tutorial: Shell scripts and pipelines.
-		 * 1:15pm: tutorial, R (`text <https://github.com/jrherr/quick_basic_R_tutorial/blob/master/R_tutorial.md>`__ | `code <https://github.com/jrherr/quick_basic_R_tutorial/blob/master/basic_R_tutorial.R>`__) (Josh)
-		 * Evening: BBQ/dinner.
-Sunday 8/10      Day of rest.  Brunch in the morning;
-                 takeout dinner in evening.
+                 * 9:15am lecture (Titus)
+                 * 10:30am: tutorial, :doc:`running-command-line-blast`
+                 * Afternoon: assessment
+                 * 1:15pm: tutorial, :doc:`short-read-quality-evaluation`
+                 * Evening: *firepit social*
 ===============  =============================================================
-
-Cheat sheet for starting up an EC2 instance
-===========================================
-
- - use Amazon Machine Instance "XXXX";
- - m1.large or larger;
- - make sure you are in the US East zone (Virgina) -- see upper right;
- - make sure the security group you use has SSH and HTTPS enabled for inbound;
 
 Dramatis personae
 =================
@@ -184,3 +159,15 @@ Blogs
 * http://omicsomics.blogspot.com/
 
   Omics! Omics!
+
+Complete table of contents
+==========================
+
+.. toctree::
+   :maxdepth: 5
+
+   day1
+   day2
+
+   amazon/index
+   instructors-guide

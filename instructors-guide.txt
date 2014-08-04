@@ -18,4 +18,5 @@ we would still suggest using pull requests just so you can get the
 hang of reST.
 
 Put static files that you do not want interpreted by Sphinx
-(e.g. presentation PDFs) in 
+(e.g. presentation PDFs) in the ``files/`` directory.
+

@@ -1,0 +1,14 @@
+Amazon Web Services instructions
+================================
+
+.. toctree::
+   :maxdepth: 5
+
+   start-up-an-ec2-instance
+   log-in-with-ssh-mac
+   log-in-with-ssh-win
+   installing-dropbox
+   terminating-your-instance.txt
+
+   starting-up-a-custom-ami
+   technical-guide
