@@ -1,5 +1,5 @@
-Terminate (shut down) your EC2 instance
-=======================================
+Terminating (shutting down) your EC2 instance
+=============================================
 
 While your instance is running, Amazon will happily charge you on a per-hour
 basis -- `check out the pricing <http://www.ec2instances.info/>`__ for more
