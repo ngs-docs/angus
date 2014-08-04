@@ -53,6 +53,3 @@ To log out, type::
    logout
 
 or just close the window.
-
-
-

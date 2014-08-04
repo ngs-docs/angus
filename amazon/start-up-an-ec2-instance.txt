@@ -62,5 +62,6 @@ is your machine name, which you will need for logging in.
 .. image:: images/amazon-9.png
    :width: 50%
 
-
 Then, go to :doc:`log-in-with-ssh-win` or :doc:`log-in-with-ssh-mac`
+
+You might also want to read about :doc:`terminating-your-instance`.
