@@ -17,7 +17,7 @@ This workshop has a :doc:`code-of-conduct`.
 ===============  =============================================================
 Day              Schedule
 ===============  =============================================================
-Monday 8/4       * 1:30pm lecture: Welcome! (Titus)
+Monday 8/4       * 1:30pm lecture: `Welcome! <_static/2014-lecture1-welcome.pptx.pdf>`__ (Titus)
                  * Tutorial: :doc:`day1`
                  * 7pm: research presentations
 Tuesday 8/5      * :doc:`day2`
@@ -173,3 +173,5 @@ Complete table of contents
 
    amazon/index
    instructors-guide
+   code-of-conduct
+
