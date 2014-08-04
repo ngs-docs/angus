@@ -12,6 +12,8 @@ This is the schedule for the `2014 MSU NGS course <http://bioinformatics.msu.edu
 
 .. , which ran from June 10th to June 20th, 2013.  If you're interested in this course in 2014, please see `the 2014 announcement <http://bioinformatics.msu.edu/ngs-summer-course-2014>`__.
 
+This workshop has a :doc:`code-of-conduct`.
+
 ===============  =============================================================
 Day              Schedule
 ===============  =============================================================
@@ -20,9 +22,9 @@ Monday 8/4       * 1:30pm lecture: Welcome! (Titus)
                  * 7pm: research presentations
 Tuesday 8/5      * :doc:`day2`
                  * 9:15am lecture (Titus)
-                 * 10:30am: tutorial, :doc:`running-command-line-blast`
+                 * 10:30am: tutorial, :doc:`running-command-line-blast` (Titus)
                  * Afternoon: assessment
-                 * 1:15pm: tutorial, :doc:`short-read-quality-evaluation`
+                 * 1:15pm: tutorial, :doc:`short-read-quality-evaluation` (Elijah and Istvan)
                  * Evening: *firepit social*
 ===============  =============================================================
 
