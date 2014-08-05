@@ -90,7 +90,7 @@ Setup
 -----
 
 In our case you have to always specify which section of the
-`Makefile` do you wish to execture. For example you can type::
+`Makefile` do you wish to execute. For example you can type::
 
 	make setup
 
