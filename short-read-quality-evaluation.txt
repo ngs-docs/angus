@@ -2,13 +2,6 @@
 Evaluating the quality of your short reads, and trimming them
 =============================================================
 
-.. Note::
-	BTW: cool kids have pretty prompts, but you too can be cool, all you need to do is::
-
-		echo "export PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\]\n\$ '" >> ~/.bashrc
-
-	Then relog. Don't ask why this works, it is one of those things that is best left undisturbed.
-
 As useful as BLAST is, we really want to get into sequencing data,
 right?  One of the first steps you must do with your data is
 evaluate its quality and throw away bad sequences.
@@ -132,12 +125,19 @@ Quality and clipping:
 	:start-after: trimPE:
 	:end-before: end:
 
-Now the homework:
+Now a homework:
 
 .. note::
 
-	Read the manual for `Trimmomatic <http://www.usadellab.org/cms/index.php?page=trimmomatic>`__. Trim the reads in parallel for both readfiles.
+	Read the manual for `Trimmomatic <http://www.usadellab.org/cms/index.php?page=trimmomatic>`__.
+	Trim the reads in parallel for both readfiles in a sample.
 
+.. Note::
+	BTW: cool kids have pretty prompts, but you too can be cool, all you need to do is::
+
+		echo "export PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\]\n\$ '" >> ~/.bashrc
+
+	Then relog. Don't ask why this works, it is one of those things that is best left undisturbed.
 
 
 
