@@ -21,7 +21,7 @@ Monday 8/4       * 1:30pm lecture: `Welcome! <_static/2014-lecture1-welcome.pptx
                  * Tutorial: :doc:`day1`
                  * 7pm: research presentations
 Tuesday 8/5      * :doc:`day2`
-                 * 9:15am lecture (Titus)
+                 * 9:15am lecture: `Sequencing considerations <_static/2014-lecture2-sequencing.pptx.pdf>`__ (Titus)
                  * 10:30am: tutorial, :doc:`running-command-line-blast` (Titus)
                  * Afternoon: assessment
                  * 1:15pm: tutorial, :doc:`short-read-quality-evaluation` (Elijah and Istvan)
