@@ -26,7 +26,7 @@ Let's get started. Install `make`::
 
 Now get the current `Makefile` onto your system::
 
-	curl http://..../ -o Makefile
+	curl https://raw.githubusercontent.com/ngs-docs/angus/2014/files/Makefile-short-read-quality -o Makefile
 
 	# See the file that you have downloaded
 	ls

@@ -36,14 +36,14 @@ software:
 	# Install Trimmomatic
 	#
 	curl http://www.usadellab.org/cms/uploads/supplementary/Trimmomatic/Trimmomatic-0.32.zip -o ~/src/Trimmomatic-0.32.zip
-	unzip -o ~/src/Trimmomatic-0.32.zip -d src
+	unzip -o ~/src/Trimmomatic-0.32.zip -d ~/src
 	ln -fs ~/src/Trimmomatic-0.32/trimmomatic-0.32.jar ~/bin
 
 	#
 	# Install FastQC
 	#
 	curl http://www.bioinformatics.babraham.ac.uk/projects/fastqc/fastqc_v0.11.2.zip -o ~/src/fastqc_v0.11.2.zip
-	unzip -o ~/src/fastqc_v0.11.2.zip -d src
+	unzip -o ~/src/fastqc_v0.11.2.zip -d ~/src
 	chmod +x ~/src/FastQC/fastqc
 	ln -fs ~/src/FastQC/fastqc ~/bin/fastqc
 
