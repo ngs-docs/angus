@@ -165,7 +165,7 @@ look at them (a short walkthrough on what each plot means).
 
 Alternatively you can generate the fastqc output directly to your Dropbox like so::
 
-	fastqc *.fastq -o /mnt/Dropbpox
+	fastqc *.fastq -o /mnt/Dropbox
 
 Pattern Matching
 ----------------
