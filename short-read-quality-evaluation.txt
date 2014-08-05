@@ -168,7 +168,7 @@ Pattern Matching
 
 We can also investigate what the files contain by matching::
 
-	# Find stop codons
+	# Find start codons
 	grep ATG SRR519926_1.fastq  --color=always | head
 
 	# Find a subsequence
