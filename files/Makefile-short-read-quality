@@ -1,0 +1,75 @@
+#
+# Makefile for short read quality evaluation
+#
+
+all:
+	@echo "*** Use the source, Luke!"
+
+prepare:
+	#
+	# Create a bin directory that will contain
+	# the programs that we install during a number of tutorials.
+	#
+	mkdir -p ~/bin
+	echo 'export PATH=$$PATH:~/bin' >> ~/.bashrc
+	sudo apt-get install -y unzip
+
+	# Change the mount point so it is user writeable
+	sudo chmod 777 /mnt
+
+	#
+	# Install java
+	#
+	sudo apt-get update
+	sudo apt-get install -y default-jdk
+
+software:
+	#
+	# The src directory will contain the programs
+	# will download and install.
+	#
+	mkdir -p ~/src
+	mkdir -p ~/bin
+
+
+	#
+	# Install Trimmomatic
+	#
+	curl http://www.usadellab.org/cms/uploads/supplementary/Trimmomatic/Trimmomatic-0.32.zip -o ~/src/Trimmomatic-0.32.zip
+	unzip -o ~/src/Trimmomatic-0.32.zip -d src
+	ln -fs ~/src/Trimmomatic-0.32/trimmomatic-0.32.jar ~/bin
+
+	#
+	# Install FastQC
+	#
+	curl http://www.bioinformatics.babraham.ac.uk/projects/fastqc/fastqc_v0.11.2.zip -o ~/src/fastqc_v0.11.2.zip
+	unzip -o ~/src/fastqc_v0.11.2.zip -d src
+	chmod +x ~/src/FastQC/fastqc
+	ln -fs ~/src/FastQC/fastqc ~/bin/fastqc
+
+download:
+	#
+	# Data download
+	#
+	curl apollo.huck.psu.edu/data/SRR.tar.gz -o /mnt/SRR.tar.gz
+
+	# Unpack the gzipped data
+	tar xzvf /mnt/SRR.tar.gz
+
+fastqc:
+	#
+	# Run FastQC on the data that we've downloaded
+	#
+	fastqc *.fastq
+
+trim:
+	java -jar ~/src/Trimmomatic-0.32/trimmomatic-0.32.jar SE SRR447649_1.fastq good.fq SLIDINGWINDOW:4:25 MINLEN:36
+	fastqc good.fq
+
+trimPE:
+	# Paired end trimming, quality and clipping
+	java -jar ~/src/Trimmomatic-0.32/trimmomatic-0.32.jar SE SRR519926_1.fastq good.fq SLIDINGWINDOW:4:25 MINLEN:36 ILLUMINACLIP:TruSeq3-SE.fa:2:30:10
+	fastqc good.fq
+
+end:
+	# this is just a marker
