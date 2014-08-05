@@ -59,6 +59,8 @@ Let's get started. Install `make`::
 
 	sudo apt-get install make -y
 
+You can also investigate the `Makefile` yourself: https://github.com/ngs-docs/angus/blob/2014/files/Makefile-short-read-quality
+
 This tutorial will download datasets. You may want to create a
 directory (folder) that stores this data::
 
