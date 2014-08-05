@@ -98,7 +98,12 @@ This will execute the parts of the Makefile that is listed below:
 	:end-before: install:
 
 Note that you could also just type in these commands yourself for
-the same results. The Makefile just automates this. The::
+the same results. The Makefile just automates this.
+
+Software Install
+----------------
+
+The next step is installing FastQC and Trimmomatic on your instance::
 
 	make install
 
@@ -109,8 +114,14 @@ command will execute the following lines.
 	:start-after: install:
 	:end-before: download:
 
+Where did stuff go? The downloaded code went into `~/src` the binaries are linked into `~/bin`
+To test that everything works well type::
 
-Download data
+	fastqc -v
+
+This will print the version number of `fastqc`
+
+Download Data
 -------------
 
 Start at your EC2 prompt, then type ::
@@ -125,7 +136,7 @@ these in yourself.
 	:start-after: download:
 	:end-before: fastqc:
 
-The FASTQ format
+The FASTQ Format
 ----------------
 
 In class explanation of the format. See a good description at
@@ -148,7 +159,11 @@ would run the commands:
 This command will generate an HTML file for each file. Copy these files to your dropbox and
 look at them (a short walkthrough on what each plot means).
 
-Pattern matching
+Alternatively you can generate the fastqc output directly to your Dropbox like so::
+
+	fastqc *.fastq -o /mnt/Dropbpox
+
+Pattern Matching
 ----------------
 
 We can also investigate what the files contain by matching::
@@ -161,8 +176,8 @@ We can also investigate what the files contain by matching::
 
 Pattern matching via expressions is an extremely powerful concept. We'll revisit them later.
 
-Run trimming
-------------
+Trimming
+--------
 
 Note that there are vary large number of tools that perform quality/adapter trimming.
 
@@ -171,9 +186,21 @@ to eliminate Illumina adapters from your sequences. First we need to find the ad
 
 	ln -s ~/src/Trimmomatic-0.32/adapters/TruSeq3-SE.fa
 
-then apply the trimming
+.. tip::
+	You may also want to shorten the command line like so::
 
-Quality alone:
+		alias trim='java -jar ~/src/Trimmomatic-0.32/trimmomatic-0.32.jar'
+
+	You can now invoke the tool just by typing::
+
+		trim
+
+Among the (many) agonizing decisions that you will have to make is what
+parameters to pick: how big should be my window be, how long should the reads be, what
+should be the average quality be? What kinds of contaminants do I have. Run, rerun
+and evaluate. Err on the side of caution.
+
+Trim by quality alone:
 
 .. include:: files/Makefile-short-read-quality
 	:code:

@@ -74,14 +74,14 @@ trim:
 	# Run the quality trimming.
 	#
 	java -jar ~/src/Trimmomatic-0.32/trimmomatic-0.32.jar SE SRR447649_1.fastq good.fq SLIDINGWINDOW:4:25 MINLEN:36
-	fastqc good.fq
+	fastqc good.fq -o /mnt/Dropbox
 
 trimPE:
 	#
 	# Run quality trimming and clipping at the same time.
 	#
 	java -jar ~/src/Trimmomatic-0.32/trimmomatic-0.32.jar SE SRR519926_1.fastq good.fq SLIDINGWINDOW:4:25 MINLEN:36 ILLUMINACLIP:TruSeq3-SE.fa:2:30:10
-	fastqc good.fq
+	fastqc good.fq -o /mnt/Dropbox
 
 end:
 	# this is just a marker
