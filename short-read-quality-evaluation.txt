@@ -6,6 +6,30 @@ As useful as BLAST is, we really want to get into sequencing data,
 right?  One of the first steps you must do with your data is
 evaluate its quality and throw away bad sequences.
 
+.. note::
+	Tutorial summary: A sequencing run may contain data of
+	low reliability. It may also contain various contaminants and artificial
+	sequence fragments. Some of these problem can be corrected.
+
+	Warning: don't apply these without at looking and evaluating the results.
+	In general it is best to be conservative with QC. The process may
+	also introduce its own biases into the dataset.
+
+Quick Start
+===========
+
+This will run on your own computer. It assumes that you have
+Java installed. Download both FastQC and two smaller datasets onto your system
+
+  1. http://www.bioinformatics.babraham.ac.uk/projects/fastqc/
+  2. http://apollo.huck.psu.edu/data/SRR519926_1.fastq.zip
+  3. http://apollo.huck.psu.edu/data/SRR447649_1.fastq.zip
+
+Run FastQC on each the files from the graphical interface. We'll discuss the output.
+
+FastQC at the command line
+==========================
+
 Before you can do that, though, you need to install a bunch o' software.
 
 We will use a so called ``Makefile``, a simple text file
@@ -32,33 +56,36 @@ execute this `Makefile` via the `make` command.::
 
 	make
 
+Setup
+-----
+
 In our case you have to always specify which section of the
 `Makefile` do you wish to execture. For example you can type::
 
-	make prepare
+	make setup
 
 This will execute the parts of the Makefile that is listed below:
 
 .. include:: files/Makefile-short-read-quality
 	:code:
-	:start-after: prepare:
-	:end-before: software:
+	:start-after: setup:
+	:end-before: install:
 
 Note that you could also just type in these commands yourself for
 the same results. The Makefile just automates this. The::
 
-	make software
+	make install
 
 command will execute the following lines.
 
 .. include:: files/Makefile-short-read-quality
 	:code:
-	:start-after: software:
+	:start-after: install:
 	:end-before: download:
 
 
-Getting some data
-=================
+Download data
+-------------
 
 Start at your EC2 prompt, then type ::
 
@@ -72,10 +99,11 @@ these in yourself.
 	:start-after: download:
 	:end-before: fastqc:
 
-Understand the FASTQ format
-===========================
+The FASTQ format
+----------------
 
-See a good descrption http://en.wikipedia.org/wiki/FASTQ_format
+In class explanation of the format. See a good description at
+http://en.wikipedia.org/wiki/FASTQ_format
 
 If you don't understand the format, you don't understand the basic premise of
 the data generation!
@@ -94,6 +122,9 @@ would run the commands:
 This command will generate an HTML file for each file. Copy these files to your dropbox and
 look at them (a short walkthrough on what each plot means).
 
+Pattern matching
+----------------
+
 We can also investigate what the files contain by matching::
 
 	# Find stop codons
@@ -103,6 +134,11 @@ We can also investigate what the files contain by matching::
 	grep AGATCGGAAG SRR519926_1.fastq  --color=always | head
 
 Pattern matching via expressions is an extremely powerful concept. We'll revisit them later.
+
+Run trimming
+------------
+
+Note that there are vary large number of tools that perform quality/adapter trimming.
 
 Now, run `Trimmomatic <http://www.usadellab.org/cms/index.php?page=trimmomatic>`__
 to eliminate Illumina adapters from your sequences. First we need to find the adapter sequences::

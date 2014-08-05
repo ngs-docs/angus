@@ -5,32 +5,39 @@
 all:
 	@echo "*** Use the source, Luke!"
 
-prepare:
+setup:
 	#
-	# Create a bin directory that will contain
-	# the programs that we install during a number of tutorials.
+	# Run initial setup tasks
 	#
+
+	# This directory will contain the executables
 	mkdir -p ~/bin
+
+	# Add the ~/bin to the user path
 	echo 'export PATH=$$PATH:~/bin' >> ~/.bashrc
+
+	# Install the unzip library
 	sudo apt-get install -y unzip
 
 	# Change the mount point so it is user writeable
 	sudo chmod 777 /mnt
 
-	#
-	# Install java
-	#
+	# Update the installation sources
 	sudo apt-get update
+
+	# Install java
 	sudo apt-get install -y default-jdk
 
-software:
+install:
 	#
-	# The src directory will contain the programs
-	# will download and install.
+	# The src folder will contain the downloaded software
 	#
 	mkdir -p ~/src
-	mkdir -p ~/bin
 
+	#
+	# The bin folder will contain the binaries that you have downloaded
+	#
+	mkdir -p ~/bin
 
 	#
 	# Install Trimmomatic
@@ -58,16 +65,21 @@ download:
 
 fastqc:
 	#
-	# Run FastQC on the data that we've downloaded
+	# Run FastQC on every file that we have downloaded.
 	#
 	fastqc *.fastq
 
 trim:
+	#
+	# Run the quality trimming.
+	#
 	java -jar ~/src/Trimmomatic-0.32/trimmomatic-0.32.jar SE SRR447649_1.fastq good.fq SLIDINGWINDOW:4:25 MINLEN:36
 	fastqc good.fq
 
 trimPE:
-	# Paired end trimming, quality and clipping
+	#
+	# Run quality trimming and clipping at the same time.
+	#
 	java -jar ~/src/Trimmomatic-0.32/trimmomatic-0.32.jar SE SRR519926_1.fastq good.fq SLIDINGWINDOW:4:25 MINLEN:36 ILLUMINACLIP:TruSeq3-SE.fa:2:30:10
 	fastqc good.fq
 
