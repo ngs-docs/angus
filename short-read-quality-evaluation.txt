@@ -1,171 +1,232 @@
-=============================================================
-Evaluating the quality of your short reads, and trimming them
-=============================================================
+==========================
+Short Read Quality Control
+==========================
 
 As useful as BLAST is, we really want to get into sequencing data,
 right?  One of the first steps you must do with your data is
-evaluate its quality and throw away bad sequences.
+evaluate its quality and try to improve it.
+
+.. highlights::
+	**Summary**: a sequencing run may contain data of
+	low reliability. It may also contain various contaminants and artificial
+	sequence fragments. Some (but not all) of these problem can be corrected.
+
+	**Caution**: Don't apply any type of correction without evaluating the results
+	it produces.
+	In general it is best to be conservative with QC. We are altering
+	the data based on our expectations of what it should be like! The process may
+	also introduce its own biases into the dataset.
+
+Biostar QoD (questions of the day)
+----------------------------------
+
+QC is one of the most *mis-under-estimated* tasks of NGS data analysis. People
+assume there is very little to it once they know how to run the tool.
+The reality is a more complicated than that.
+
+QC also happens to be
+a pet peeve of mine (Istvan) as demonstrated below in the following
+Biostar threads (and others):
+
+ 1. `FastQC quality control shootout <https://www.biostars.org/p/53528/>`__
+ 2. `So What Does The Sequence Duplication Rate Really Mean In A Fastqc Report <https://www.biostars.org/p/83842/>`__
+ 3. `Revisiting the FastQC read duplication report <https://www.biostars.org/p/107402/>`__
+
+Quick Start
+===========
+
+The first part of this tutorial will run on your own computer. It assumes that you have
+Java installed. Download both FastQC and two smaller datasets onto your system
+
+  1. http://www.bioinformatics.babraham.ac.uk/projects/fastqc/
+  2. http://apollo.huck.psu.edu/data/SRR519926_1.fastq.zip
+  3. http://apollo.huck.psu.edu/data/SRR447649_1.fastq.zip
+
+Run FastQC on each the files from the graphical interface. Let's discuss
+the output in more detail.
+
+FastQC at the command line
+==========================
 
 Before you can do that, though, you need to install a bunch o' software.
 
-Logging in
-==========
+We will use a so called ``Makefile``, a simple text file
+that can contains a series of commands that you could otherwise
+type in yourself. There will be more information on
+shell programming and automation later. For now think of a ``Makefile``
+as a simple way to pick which commands you can execute yourself.
+Let's get started. Install `make`::
 
-Log in and type::
+	sudo apt-get install make -y
 
-   sudo bash
+This tutorial will download datasets. You may want to create a
+directory (folder) that stores this data::
 
-to change into superuser mode.
+	mkdir qc
+	cd qc
 
-Packages to install
-===================
+We assume that you are running the subsequent scripts from this folder.
 
-Install `khmer <http://khmer.readthedocs.org/en/v1.1/>`__::
+Now get the current `Makefile` onto your system::
 
-   cd /usr/local/share
-   git clone https://github.com/ged-lab/khmer.git
-   cd khmer
-   git checkout v1.1
-   make install
+	curl https://raw.githubusercontent.com/ngs-docs/angus/2014/files/Makefile-short-read-quality -o Makefile
 
-Install `Trimmomatic <http://www.usadellab.org/cms/?page=trimmomatic>`__::
+	# See the file that you have downloaded
+	ls
 
-   cd /root
-   curl -O http://www.usadellab.org/cms/uploads/supplementary/Trimmomatic/Trimmomatic-0.32.zip
-   unzip Trimmomatic-0.32.zip 
-   cp Trimmomatic-0.32/trimmomatic-0.32.jar /usr/local/bin
+	# Investigate the Makefile
+	# more Makefile or pico Makefile
 
-Install `FastQC <http://www.bioinformatics.babraham.ac.uk/projects/download.html#fastqc>`__::
+So we now have a `Makefile` and our system can
+execute this `Makefile` via the `make` command.::
 
-   cd /usr/local/share
-   curl -O http://www.bioinformatics.babraham.ac.uk/projects/fastqc/fastqc_v0.11.2.zip
-   unzip fastqc_v0.11.2.zip
-   chmod +x FastQC/fastqc
+	make
 
-Install libgtextutils and fastx::
+Setup
+-----
 
-   cd /root
-   curl -O http://hannonlab.cshl.edu/fastx_toolkit/libgtextutils-0.6.1.tar.bz2
-   tar xjf libgtextutils-0.6.1.tar.bz2 
-   cd libgtextutils-0.6.1/
-   ./configure && make && make install
+In our case you have to always specify which section of the
+`Makefile` do you wish to execture. For example you can type::
 
-   cd /root
-   curl -O http://hannonlab.cshl.edu/fastx_toolkit/fastx_toolkit-0.0.13.2.tar.bz2
-   tar xjf fastx_toolkit-0.0.13.2.tar.bz2
-   cd fastx_toolkit-0.0.13.2/
-   ./configure && make && make install
+	make setup
 
-In each of these cases, we're downloading the software -- you can use
-google to figure out what each package is and does if we don't discuss
-it below.  We're then unpacking it, sometimes compiling it (which we
-can discuss later), and then installing it for general use.
+This will execute the parts of the Makefile that is listed below:
 
-Getting some data
-=================
+.. include:: files/Makefile-short-read-quality
+	:code:
+	:start-after: setup:
+	:end-before: install:
+
+Note that you could also just type in these commands yourself for
+the same results. The Makefile just automates this.
+
+Software Install
+----------------
+
+The next step is installing FastQC and Trimmomatic on your instance::
+
+	make install
+
+command will execute the following lines.
+
+.. include:: files/Makefile-short-read-quality
+	:code:
+	:start-after: install:
+	:end-before: download:
+
+Where did stuff go? The downloaded code went into `~/src` the binaries are linked into `~/bin`
+To test that everything works well type::
+
+	fastqc -v
+
+This will print the version number of `fastqc`
+
+Download Data
+-------------
 
 Start at your EC2 prompt, then type ::
 
-   cd /mnt
+   make download
 
-Now, grab the 5m E. coli reads from our data storage (originally from
-`Chitsaz et al. <http://www.ncbi.nlm.nih.gov/pubmed/21926975>`__)::
+This will execute the following lines. Remember that you could also type
+these in yourself.
 
-   curl -O https://s3.amazonaws.com/public.ged.msu.edu/ecoli_ref-5m.fastq.gz
+.. include:: files/Makefile-short-read-quality
+	:code:
+	:start-after: download:
+	:end-before: fastqc:
 
-You can take a look at the file contents by doing::
- 
-   gunzip -c ecoli_ref-5m.fastq.gz | less
+The FASTQ Format
+----------------
 
-(use 'q' to quit the viewer).  This is what raw FASTQ looks like!
+In class explanation of the format. See a good description at
+http://en.wikipedia.org/wiki/FASTQ_format
 
-Note that in this case we've given you the data *interleaved*, which
-means that paired ends appear next to each other in the file.  Most of
-the time sequencing facilities will give you data that is split out
-into s1 and s2 files.  We'll need to split it out into these files for
-some of the trimming steps, so let's do that -- ::
+If you don't understand the format, you don't understand the basic premise of
+the data generation!
 
-   split-paired-reads.py ecoli_ref-5m.fastq.gz
-   mv ecoli_ref-5m.fastq.gz.1 ecoli_ref-5m_s1.fq
-   mv ecoli_ref-5m.fastq.gz.2 ecoli_ref-5m_s2.fq
+Run a FastQC analysis on each dataset::
 
-This uses the khmer script 'split-paired-reads' `(see documentation)
-<http://khmer.readthedocs.org/en/v1.1/scripts.html#scripts-read-handling>`__
-to break the reads into left (/1) and right (/2). (This takes a long time!
-5m reads is a lot of data...)
+	make fastqc
 
-We'll also need to get some Illumina adapter information -- here::
+would run the commands:
 
-   curl -O https://s3.amazonaws.com/public.ged.msu.edu/illuminaClipping.fa
+.. include:: files/Makefile-short-read-quality
+	:code:
+	:start-after: fastqc:
+	:end-before: trim:
 
-These sequences are (or were) "trade secrets" so it's hard to find 'em.
-Don't ask me how I got 'em.
+This command will generate an HTML file for each file. Copy these files to your dropbox and
+look at them (a short walkthrough on what each plot means).
 
-Trimming and quality evaluation of your sequences
-=================================================
+Alternatively you can generate the fastqc output directly to your Dropbox like so::
 
-Start at the EC2 login prompt.  Then, ::
+	fastqc *.fastq -o /mnt/Dropbpox
 
-  cd /mnt
+Pattern Matching
+----------------
 
-Make a directory to store all your trimmed data in, and go there::
+We can also investigate what the files contain by matching::
 
-  mkdir trim
-  cd trim
+	# Find stop codons
+	grep ATG SRR519926_1.fastq  --color=always | head
 
-Now, run `Trimmomatic <http://www.usadellab.org/cms/index.php?page=trimmomatic>`__ to eliminate Illumina adapters from your sequences -- ::
+	# Find a subsequence
+	grep AGATCGGAAG SRR519926_1.fastq  --color=always | head
 
-  java -jar /usr/local/bin/trimmomatic-0.32.jar PE ../ecoli_ref-5m_s1.fq ../ecoli_ref-5m_s2.fq s1_pe s1_se s2_pe s2_se ILLUMINACLIP:../illuminaClipping.fa:2:30:10
+Pattern matching via expressions is an extremely powerful concept. We'll revisit them later.
 
-Next, let's take a look at data quality using `FastQC <http://www.bioinformatics.babraham.ac.uk/projects/fastqc/>`__ ::
+Trimming
+--------
 
-   mkdir /root/Dropbox/fastqc
-   /usr/local/share/FastQC/fastqc s1_* s2_* --outdir=/root/Dropbox/fastqc
+Note that there are vary large number of tools that perform quality/adapter trimming.
 
-This will dump the FastQC output into your Dropbox folder, under the
-folder 'fastqc'.  Go check it out on your local computer in Dropbox --
-you're looking for folders named <filename>_fastqc, for example
-'s1_pe_fastqc'; then double click on 'fastqc_report.html'.
-(You can't look at these on the dropbox.com Web site -- it won't interpret
-the HTML for you.)
+Now, run `Trimmomatic <http://www.usadellab.org/cms/index.php?page=trimmomatic>`__
+to eliminate Illumina adapters from your sequences. First we need to find the adapter sequences::
 
-It looks like a lot of bad data is present after base 70, so let's just trim
-all the sequences that way.  Before we do that, we want to interleave the
-reads again (don't ask) -- ::
+	ln -s ~/src/Trimmomatic-0.32/adapters/TruSeq3-SE.fa
 
-   interleave-reads.py s1_pe s2_pe > combined.fq
+.. tip::
+	You may also want to shorten the command line like so::
 
-`(interleave-reads is another khmer scripts) <http://khmer.readthedocs.org/en/v1.1/scripts.html#scripts-read-handling>`__
+		alias trim='java -jar ~/src/Trimmomatic-0.32/trimmomatic-0.32.jar'
 
-Now, let's use the FASTX toolkit to trim off bases over 70, and
-eliminate low-quality sequences.  We need to do this both for our
-combined/paired files and our remaining single-ended files::
+	You can now invoke the tool just by typing::
 
-   fastx_trimmer -Q33 -l 70 -i combined.fq | fastq_quality_filter -Q33 -q 30 -p 50 > combined-trim.fq
+		trim
 
-   fastx_trimmer -Q33 -l 70 -i s1_se | fastq_quality_filter -Q33 -q 30 -p 50 > s1_se.filt
+Among the (many) agonizing decisions that you will have to make is what
+parameters to pick: how big should be my window be, how long should the reads be, what
+should be the average quality be? What kinds of contaminants do I have. Run, rerun
+and evaluate. Err on the side of caution.
 
-Let's take a look at what we have -- ::
+Trim by quality alone:
 
-   ls -la
+.. include:: files/Makefile-short-read-quality
+	:code:
+	:start-after: trim:
+	:end-before: trimPE:
 
-You should see::
+Quality and clipping:
 
-  drwxr-xr-x 2 root root       4096 2013-04-08 03:33 .
-  drwxr-xr-x 4 root root       4096 2013-04-08 03:21 ..
-  -rw-r--r-- 1 root root  802243778 2013-04-08 03:33 combined-trim.fq
-  -rw-r--r-- 1 root root 1140219324 2013-04-08 03:26 combined.fq
-  -rw-r--r-- 1 root root  570109662 2013-04-08 03:23 s1_pe
-  -rw-r--r-- 1 root root     407275 2013-04-08 03:23 s1_se
-  -rw-r--r-- 1 root root     319878 2013-04-08 03:33 s1_se.filt
-  -rw-r--r-- 1 root root  570109662 2013-04-08 03:23 s2_pe
-  -rw-r--r-- 1 root root          0 2013-04-08 03:22 s2_se
+.. include:: files/Makefile-short-read-quality
+	:code:
+	:start-after: trimPE:
+	:end-before: end:
 
-Let's run FastQC on things again, too::
+Now a homework:
 
-   mkdir /root/Dropbox/fastqc.filt
-   /usr/local/share/FastQC/fastqc combined-trim.fq s1_se.filt --outdir=/root/Dropbox/fastqc.filt
+.. note::
 
-Now go look in your Dropbox folder under 'fastqc.filt', folder
-'combined-trim.fq_fastqc' -- looks a lot better, eh?
+	Read the manual for `Trimmomatic <http://www.usadellab.org/cms/index.php?page=trimmomatic>`__.
+	Trim the reads in parallel for both readfiles in a sample.
+
+.. Note::
+	BTW: cool kids have pretty prompts, but you too can be cool, all you need to do is::
+
+		echo "export PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\]\n\$ '" >> ~/.bashrc
+
+	Then relog. Don't ask why this works, it is one of those things that is best left undisturbed.
+
+
 
