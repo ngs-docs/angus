@@ -1,31 +1,49 @@
-=============================================================
-Evaluating the quality of your short reads, and trimming them
-=============================================================
+==========================
+Short Read Quality Control
+==========================
 
 As useful as BLAST is, we really want to get into sequencing data,
 right?  One of the first steps you must do with your data is
-evaluate its quality and throw away bad sequences.
+evaluate its quality and try to improve it.
 
-.. note::
-	Tutorial summary: A sequencing run may contain data of
+.. highlights::
+	**Summary**: a sequencing run may contain data of
 	low reliability. It may also contain various contaminants and artificial
-	sequence fragments. Some of these problem can be corrected.
+	sequence fragments. Some (but not all) of these problem can be corrected.
 
-	Warning: don't apply these without at looking and evaluating the results.
-	In general it is best to be conservative with QC. The process may
+	**Caution**: Don't apply any type of correction without evaluating the results
+	it produces.
+	In general it is best to be conservative with QC. We are altering
+	the data based on our expectations of what it should be like! The process may
 	also introduce its own biases into the dataset.
+
+Biostar QoD (questions of the day)
+----------------------------------
+
+QC is one of the most *mis-under-estimated* tasks of NGS data analysis. People
+assume there is very little to it once they know how to run the tool.
+The reality is a more complicated than that.
+
+QC also happens to be
+a pet peeve of mine (Istvan) as demonstrated below in the following
+Biostar threads (and others):
+
+ 1. `FastQC quality control shootout <https://www.biostars.org/p/53528/>`__
+ 2. `So What Does The Sequence Duplication Rate Really Mean In A Fastqc Report <https://www.biostars.org/p/83842/>`__
+ 3. `Revisiting the FastQC read duplication report <https://www.biostars.org/p/107402/>`__
 
 Quick Start
 ===========
 
-This will run on your own computer. It assumes that you have
+The first part of this tutorial will run on your own computer. It assumes that you have
 Java installed. Download both FastQC and two smaller datasets onto your system
 
   1. http://www.bioinformatics.babraham.ac.uk/projects/fastqc/
   2. http://apollo.huck.psu.edu/data/SRR519926_1.fastq.zip
   3. http://apollo.huck.psu.edu/data/SRR447649_1.fastq.zip
 
-Run FastQC on each the files from the graphical interface. We'll discuss the output.
+Run FastQC on each the files from the graphical interface. Let's discuss
+the output in more detail.
 
 FastQC at the command line
 ==========================
@@ -40,6 +58,14 @@ as a simple way to pick which commands you can execute yourself.
 Let's get started. Install `make`::
 
 	sudo apt-get install make -y
+
+This tutorial will download datasets. You may want to create a
+directory (folder) that stores this data::
+
+	mkdir qc
+	cd qc
+
+We assume that you are running the subsequent scripts from this folder.
 
 Now get the current `Makefile` onto your system::
 
