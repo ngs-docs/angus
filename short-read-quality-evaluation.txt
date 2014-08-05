@@ -69,15 +69,17 @@ directory (folder) that stores this data::
 
 We assume that you are running the subsequent scripts from this folder.
 
-Now get the current `Makefile` onto your system::
+.. important::
 
-	curl https://raw.githubusercontent.com/ngs-docs/angus/2014/files/Makefile-short-read-quality -o Makefile
+	Obtain the `Makefile` and save it onto your cloud system::
 
-	# See the file that you have downloaded
-	ls
+		# This is where you get the Makefile
+		curl https://raw.githubusercontent.com/ngs-docs/angus/2014/files/Makefile-short-read-quality -o Makefile
 
-	# Investigate the Makefile
-	# more Makefile or pico Makefile
+You can investigate the file::
+
+		# Look at the Makefile
+		# more Makefile or pico Makefile
 
 So we now have a `Makefile` and our system can
 execute this `Makefile` via the `make` command.::
