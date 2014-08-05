@@ -74,7 +74,7 @@ We assume that you are running the subsequent scripts from this folder.
 	Obtain the `Makefile` and save it onto your cloud system::
 
 		# This is where you get the Makefile
-		curl https://raw.githubusercontent.com/ngs-docs/angus/2014/files/Makefile-short-read-quality -o Makefile
+		wget https://raw.githubusercontent.com/ngs-docs/angus/2014/files/Makefile-short-read-quality -o Makefile
 
 You can investigate the file::
 
