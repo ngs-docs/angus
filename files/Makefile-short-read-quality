@@ -58,10 +58,10 @@ download:
 	#
 	# Data download
 	#
-	curl apollo.huck.psu.edu/data/SRR.tar.gz -o /mnt/SRR.tar.gz
+	curl apollo.huck.psu.edu/data/SRR.tar.gz -o SRR.tar.gz
 
 	# Unpack the gzipped data
-	tar xzvf /mnt/SRR.tar.gz
+	tar xzvf SRR.tar.gz
 
 fastqc:
 	#
