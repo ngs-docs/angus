@@ -87,12 +87,19 @@ See a good descrption http://en.wikipedia.org/wiki/FASTQ_format
 If you don't understand the format, you don't understand the basic premise of
 the data generation!
 
-Run a FastQC analysis on each dataset:
+Run a FastQC analysis on each dataset::
+
+	make fastqc
+
+would run the commands:
 
 .. include:: files/Makefile-short-read-quality
 	:code:
 	:start-after: fastqc:
 	:end-before: trim:
+
+This command will generate an HTML file for each file. Copy these files to your dropbox and
+look at them (a short walkthrough on what each plot means).
 
 We can also investigate what the files contain by matching::
 
