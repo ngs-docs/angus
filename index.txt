@@ -28,7 +28,7 @@ Tuesday 8/5      * :doc:`day2`
                  * Afternoon: assessment
                  * 1:15pm: tutorial, :doc:`short-read-quality-evaluation` (Elijah and Istvan)
                  * Evening: *firepit social*
-Wednesday 8/6    * 9:15am lecture: Mapping and Assembly (Titus)
+Wednesday 8/6    * 9:15am lecture: `Mapping and Assembly <_static/2014-lecture3-mapping-assembly.pptx.pdf>`__ (Titus)
                  * 10:30am: tutorial, :doc:`variant` (Titus)
                  * 1:15pm: tutorial, UNIX command line (Elijah)
                  * 7:15pm: Bioinformatics survival kit (Istvan)
