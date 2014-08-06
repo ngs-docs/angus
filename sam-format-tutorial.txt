@@ -7,5 +7,5 @@ Log into your instance, create a new directory, navigate to that directory::
 	cd sam
 
 	# Get the makefile.
-	wget https://raw.githubusercontent.com/ngs-docs/angus/2014/files/Makefile-short-read-quality -O Makefile
+	wget https://raw.githubusercontent.com/ngs-docs/angus/2014/files/Makefile-samtools -O Makefile
 
