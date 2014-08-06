@@ -10,7 +10,6 @@ setup:
 	# Run initial software setup tasks
 	#
 	sudo apt-get install -y bwa samtools seqtk make build-essential ncurses-dev byacc zlib1g-dev python-dev git
-	mkdir -p ~/src
 
 wgsim:
 	#
