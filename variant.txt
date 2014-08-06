@@ -116,6 +116,9 @@ And index the sorted BAM file::
 
    samtools index SRR098038.sorted.bam
 
+Visualizing alignments
+~~~~~~~~~~~~~~~~~~~~~~
+
 At this point you can visualize with samtools tview or `Tablet <http://bioinf.scri.ac.uk/tablet/>`__.
 
 'samtools tview' is a text interface that you use from the command
@@ -140,6 +143,28 @@ up as an application.  To open your alignments in Tablet, you'll need
 three files on your local computer: ``REL606.fa``, ``SRR098042.sorted.bam``,
 and ``SRR098042.sorted.bam.bai``.  You can copy them over using Dropbox,
 for example.
+
+Counting alignments
+~~~~~~~~~~~~~~~~~~~
+
+This command::
+
+   samtools view -c -f 4 SRR098038.bam
+
+will count how many reads DID NOT align to the reference (214518).
+
+This command::
+
+   samtools view -c -F 4 SRR098038.bam
+
+will count how many reads DID align to the reference (6832113).
+
+And this command::
+
+   gunzip -c SRR098038.fastq.gz | wc
+
+will tell you how many lines there are in the FASTQ file (28186524).
+Reminder: there are four lines for each sequence.
 
 Calling SNPs
 ~~~~~~~~~~~~
