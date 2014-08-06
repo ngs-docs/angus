@@ -12,7 +12,7 @@ Booting an Amazon AMI
 ~~~~~~~~~~~~~~~~~~~~~
 
 Start up an Amazon computer (m1.large or m1.xlarge) using AMI
-ami-7606d01e (see :doc:`amazon/start-up-an-ec2-instance` and
+ami-7607d01e (see :doc:`amazon/start-up-an-ec2-instance` and
 :doc:`amazon/starting-up-a-custom-ami`).
 
 Log in `with Windows <amazon/log-in-with-ssh-win.html>`__ or
