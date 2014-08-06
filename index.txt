@@ -29,7 +29,7 @@ Tuesday 8/5      * :doc:`day2`
                  * 1:15pm: tutorial, :doc:`short-read-quality-evaluation` (Elijah and Istvan)
                  * Evening: *firepit social*
 Wednesday 8/6    * 9:15am lecture: Mapping and Assembly (Titus)
-                 * 10:30am: tutorial, variant calling (Titus)
+                 * 10:30am: tutorial, :doc:`variant` (Titus)
                  * 1:15pm: tutorial, UNIX command line (Elijah)
                  * 7:15pm: Bioinformatics survival kit (Istvan)
 
@@ -180,6 +180,7 @@ Complete table of contents
 
    day1
    day2
+   variant
 
    amazon/index
    instructors-guide
