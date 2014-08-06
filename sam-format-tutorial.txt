@@ -1,0 +1,11 @@
+Understading the SAM format
+===========================
+
+Log into your instance, create a new directory, navigate to that directory::
+
+	mkdir sam
+	cd sam
+
+	# Get the makefile.
+	wget https://raw.githubusercontent.com/ngs-docs/angus/2014/files/Makefile-short-read-quality -O Makefile
+
