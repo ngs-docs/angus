@@ -36,6 +36,13 @@ Wednesday 8/6    * 9:15am lecture: `Mapping and Assembly <_static/2014-lecture3-
 Thursday 8/7     * 9:15am lecture: Genomic intervals (Istvan)
                  * 10:30am: tutorial, Genomic data visualization (Istvan)
                  * 1:15pm: tutorial, Assembly (Titus)
+
+Friday 8/8       * 9:15am-noon lecture/tutorial: R etc. (Ian Dworkin and Martin Schilling)
+                 * 1:15pm: tutorial, more variant calling (Martin Schilling)
+                 * 7pm: lecture, Gene and genome annotation (Daniel Standage)
+
+Saturday 8/9     * 9:15am-noon: lecture/tutorial, mRNAseq assembly protocol (Titus)
+                 * 1:15pm: lecture/discussion, mRNAseq assembly with Trinity (Meg Staton)
 ===============  =============================================================
 
 Dramatis personae
