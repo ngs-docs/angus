@@ -27,6 +27,7 @@ download:
 	wget -qN http://apollo.huck.psu.edu/data/sc.gff
 
 onelinebam:
+
 	bwa mem index/sc.fa query.fa | samtools view -bS - | samtools sort - query
 
 sam:

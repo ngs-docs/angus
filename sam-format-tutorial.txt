@@ -12,8 +12,12 @@ Log into your instance, create a new directory, navigate to that directory::
 A series of exercises will show what the SAM format is and how it changes when
 the query sequence is altered and how that reflects in the output.
 
-Also here is a one liner to generate a bamfile:
+Also, for the speed of result generation here is a one liner to generate a bamfile::
 
 	# One line bamfile generation.
-	bwa mem index/sc.fa query.fa | samtools view -bS - | samtools sort - query
+	bwa mem index/sc.fa query.fa | samtools view -bS - | samtools sort - results
+
+This will produce the ``results.bam`` output.
+
+
 
