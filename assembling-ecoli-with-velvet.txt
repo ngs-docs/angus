@@ -155,7 +155,7 @@ Build BLAST databases for the assemblies you've done::
 
    for i in 21 23 25
    do
-      extract-long-sequences.py -o ecoli-$i.fa -l 500 ecoli.21/contigs.fa
+      extract-long-sequences.py -o ecoli-$i.fa -l 500 ecoli.$i/contigs.fa
       formatdb -i ecoli-$i.fa -o T -p F
    done
 
