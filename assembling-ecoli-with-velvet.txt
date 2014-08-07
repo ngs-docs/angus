@@ -53,10 +53,6 @@ Install `khmer <http://khmer.readthedocs.org/en/v1.1/>`__::
    git checkout v1.1
    make install
 
-Also grab the ngs-scripts::
-
-   git clone https://github.com/ngs-docs/ngs-scripts.git /root/ngs-scripts
-
 and install the Velvet assembler::
 
    cd /root
@@ -66,9 +62,8 @@ and install the Velvet assembler::
    make MAXKMERLENGTH=51
    cp velvet? /usr/local/bin
 
-as well as `Quast <http://quast.bioinf.spbau.ru/manual.html>`__ for evaluating
-the assembly against the known reference:
-::
+as well as `Quast <http://quast.bioinf.spbau.ru/manual.html>`__,
+software for evaluating the assembly against the known reference: ::
 
    cd /root
    curl -O -L https://downloads.sourceforge.net/project/quast/quast-2.3.tar.gz
