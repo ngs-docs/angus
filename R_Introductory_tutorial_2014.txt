@@ -1,4 +1,7 @@
-R Tutorial for NGS2014 ######################
+This tutorial may be clearer to view in markdown here_: https://github.com/ngs-docs/angus/blob/2014/R_Introductory_tutorial_2014.md
+
+R Tutorial for NGS2014 
+######################
 
 In this tutorial I will introduce ``R``, a programming language that is
 currently the *lingua franca* for data analysis (although ``python`` has
