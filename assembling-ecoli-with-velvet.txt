@@ -160,7 +160,7 @@ Build BLAST databases for the assemblies you've done::
    done
 
 and then let's search for a specific gene -- first, download a file containing
-your protein sequence if interest::
+your protein sequence of interest::
 
    curl -O http://athyra.idyll.org/~t/crp.fa
 
