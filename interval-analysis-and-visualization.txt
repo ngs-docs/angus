@@ -2,8 +2,8 @@ Interval Analysis and Visualization
 ===================================
 
 The process below is the result of a question posed by a participant in the course.
-She wanted to know how well an unfinished genomic build of ecoli matches the
-most commonly (standard) genomic build.
+She wanted to know how well contigs of an unfinished genomic build of and ecoli strain
+matches the common (K-12 strain MG1655) genomic build.
 
 Download the results from:
 
