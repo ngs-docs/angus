@@ -622,7 +622,7 @@ In this above example we have made a matrix, but filled with characters, not num
 
 ####Formula
 
-Another type of object we will need for this workshop (well a variant of it) is called formula Not surprisingly this is used generally to generate a formula for a statistical model we want to fit.
+Another type of object we will need for this workshop (well a variant of it) is called formula. Not surprisingly this is used generally to generate a formula for a statistical model we want to fit.
 
 ```r
 model_1 <- y ~ x1 + x2 + x1:x2  
@@ -686,7 +686,7 @@ We will make a new variable for the mutant and wild type using the `gl()` (gener
 genotype <- gl(n=2, k=4, labels = c("wild_type", "mutant"))
 ```
 
-This is our first time using arguments within a function.for the `gl()` the `n=2` means we have two treatment levels. `k=4` means we 4 samples within each. 
+This is our first time using arguments within a function. For the `gl()` the `n=2` means we have two treatment levels. `k=4` means we 4 samples within each. 
 
 One obvious thing we might want to do is make a single object with both variables (genotype, and counts_transcript_a). 
 
@@ -696,7 +696,7 @@ Your first thought (given that we just did this a few minutes ago) might be to m
 expression_data <- matrix(counts_transcript_a, genotype)
 ```
 
-But as you see you gget an error message
+But as you see you get an error message
 
 ```
 ## Error in matrix(counts_transcript_a, genotype) : 
@@ -705,7 +705,7 @@ But as you see you gget an error message
 
 Why? Because for an object of class `matrix` all of the atomic types in it need to be the same. Basically we can not combine numeric and factors. 
 
-The way we do this is to instead create a `data.frame`. A `data.frame` is a particular representation of another type of object (`list`) that allows for the storage of heterogeneous data types. Effectively you can think about it like a spreadsheet for purposes of analysis (for now anywaus.
+The way we do this is to instead create a `data.frame`. A `data.frame` is a particular representation of another type of object (`list`) that allows for the storage of heterogeneous data types. Effectively you can think about it like a spreadsheet for purposes of analysis (for now anyways.)
 
 ```r
 expression_data <- data.frame(counts_transcript_a, genotype)
@@ -810,7 +810,7 @@ We have also just used a new function, `cbind`, which stands for column bind. Th
 
 ## Writing our own functions in R
 
-We have now used a few built in functions in R (there are many).  Anything where you use `()` is a function in `R`. Like I mentioned, pretty much everything you do in `R` is actually a call to a function.
+We have now used a few built-in functions in R (there are many).  Anything where you use `()` is a function in `R`. Like I mentioned, pretty much everything you do in `R` is actually a call to a function.
 
 However, we will often want to compute something for which there is no pre-built function. Thankfully it is very easy to write our own functions in R. You should
 definitely get in the habit of doing so.
@@ -839,7 +839,7 @@ sd_a/sqrt(sample_a)
 ```
 ## [1] 23.35857
 ```
-(notice that we the last value was printed, as we did not store it in a variable).
+(notice that the last value was printed, as we did not store it in a variable).
 
 Or we could do it in one line
 ```r
@@ -893,7 +893,7 @@ StdErr(counts_transcript_b)
 
 Exercise: Write your own function to do something simple, like calculate the co-efficient of variation (CV) which is the sd/mean.
 
-It takes some practice but learning to write small discrete functionscan be
+It takes some practice but learning to write small discrete functions can be
 extremely helpful for R.
 
 One thing to keep in mind, is that it is very easy to call one function from within another.  It is generally considered good practice to write functions that do one thing, and one thing only. It is way easier to find problems (debug).
@@ -1377,7 +1377,7 @@ attributes(y)
 
 
 ### Generic functions and methods 
-Calling a function like summary() will do very different things for different object classes.  We will use this call alot for data frames and output from statistical models, etc..
+Calling a function like summary() will do very different things for different object classes.  We will use this call a lot for data frames and output from statistical models, etc..
 
 ```r
 summary(x)  # numeric vector
