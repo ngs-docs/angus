@@ -1,15 +1,15 @@
 Interval Analysis and Visualization
 ===================================
 
-The process below is the result of a question posed by a participant in the course.
+The results generate below are based on a question posed by a participant in the course.
 She wanted to know how well contigs of an unfinished genomic build of and ecoli strain
-matches the common (K-12 strain MG1655) genomic build.
+match the common (K-12 strain MG1655) genomic build.
 
 Download the results from:
 
 http://apollo.huck.psu.edu/data/ms115.zip
 
-How did we get the results above? A short description follows:
+How did we get the results in the file above? A short description follows:
 
 Data collection
 ---------------
@@ -65,7 +65,7 @@ http://www.broadinstitute.org/igv/
 
 Create a custom genome via `Genomes -> Create .genome` options
 
-Visualize the BAM, GFF and BED files.
+We will now  visualize the BAM, GFF and BED files and discuss the various aspects of it.
 
 Running bedtools
 ================
