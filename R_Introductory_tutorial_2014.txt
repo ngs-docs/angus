@@ -1,4 +1,5 @@
-This tutorial may be clearer to view in markdown here_: https://github.com/ngs-docs/angus/blob/2014/R_Introductory_tutorial_2014.md
+This tutorial may be clearer to view it in `markdown<https://github.com/ngs-docs/angus/blob/2014/R_Introductory_tutorial_2014.md>`_.
+
 
 R Tutorial for NGS2014 
 ######################
