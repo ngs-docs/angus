@@ -39,7 +39,7 @@ Thursday 8/7     * 9:15am lecture:`Genomic Intervals <_static/2014-lecture4-geno
                  * 1:15pm: tutorial, :doc:`assembling-ecoli-with-velvet` (Titus)
                  * 5:30pm: leave for Kalamazoo
 
-Friday 8/8       * 9:15am-noon lecture/tutorial: R etc. (Ian Dworkin and Martin Schilling)
+Friday 8/8       * 9:15am-noon lecture/tutorial, :doc:`R_Introductory_tutorial_2014_2` R etc. (Ian Dworkin and Martin Schilling)
                  * 1:15pm: tutorial, more variant calling (Martin Schilling)
                  * 7pm: lecture, Gene and genome annotation (Daniel Standage)
 
