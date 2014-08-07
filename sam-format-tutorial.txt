@@ -1,8 +1,9 @@
-Understading the SAM format
-===========================
+Understanding the SAM format
+============================
 
 Log into your instance, create a new directory, navigate to that directory::
 
+    cd /mnt
 	mkdir sam
 	cd sam
 
