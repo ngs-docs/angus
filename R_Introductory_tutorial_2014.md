@@ -225,7 +225,7 @@ Operator for exponents `^`. Can also use `**`
 ```
 
 ```r
-3^2  # same as above
+3**2  # same as above
 ```
 
 ```
@@ -805,7 +805,7 @@ z
 ## [4,] 2 3
 ```
 
-We have also just used a new function, `cbind`, which stands for column bind. This will create a new object stitching them together as columns.
+We have also just used the function, `cbind`, which stands for column bind. This will create a new object stitching them together as columns.
 
 
 ## Writing our own functions in R
@@ -1263,7 +1263,7 @@ This is an example of indexing via 'key' instead of numerical order.
 
 The at `@` is used to extract the contents of a slot in an object.. We will not use it much for this class, but it is essential for object oriented programming in R (S4) objects. objectName@slotName.
 
-More often we will use the dollar sign `$`, which is used to extract elements of an object of class list (including data frames).. We will use this a lot to extract information from objects (scuh as information from our models, like co-efficients) object.name$element.name.
+More often we will use the dollar sign `$`, which is used to extract elements of an object of class list (including data frames).. We will use this a lot to extract information from objects (such as information from our models, like co-efficients) object.name$element.name.
 
 For more information `?'$'`.
 
@@ -1455,7 +1455,7 @@ methods(summary)
 ```
 
 ## Syntax style guide
-Generally it is advisable to use a consistent way of scripting. For any given programming language there are syntax style guide. The [Style guide for my class](http://www.msu.edu/~idworkin/ZOL851_style_guide.html). You can also check out the [R style guide from Google](http://google-styleguide.googlecode.com/svn/trunk/google-r-style.html).
+Generally it is advisable to use a consistent way of scripting. For any given programming language there are syntax style guide. The [Style guide for my class](https://www.msu.edu/~idworkin/ZOL851_style_guide.html). You can also check out the [R style guide from Google](http://google-styleguide.googlecode.com/svn/trunk/google-r-style.html).
 
 
 ## Random bits
