@@ -160,17 +160,24 @@ Build BLAST databases for the assemblies you've done::
 
    for i in 21 23 25
    do
+      extract-long-sequences.py -o ecoli-$i.fa -l 500 ecoli.21/contigs.fa
       formatdb -i ecoli-$i.fa -o T -p F
    done
 
-and search them for a specific gene...
+and then let's search for a specific gene -- first, download a file containing
+your protein sequence if interest::
 
-.. @@
+   curl -O http://athyra.idyll.org/~t/crp.fa
+
+and now search::
+
+   blastall -i crp.fa -d ecoli-21.fa -p tblastn -b 1 -v 1
 
 Questions and Discussion Points
 ===============================
 
-Why do we use a lower cutoff of 1kb for the assemstats3 links, above?
+Why do we use a lower cutoff of 1kb for the assemstats3 links, above?  Why
+not 0?
 
 Followup work
 =============
