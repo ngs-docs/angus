@@ -46,19 +46,19 @@ index the reference genome
 
 ::
 
-      bwa index read_file.fq
+      bwa index ref_genome.fna
 
 map our reads to the indexed reference genome
 
 ::
 
-      bwa aln read_file.fq ref_genome.fna  > mapped_reads.sai
+      bwa aln ref_genome.fna read_file.fq > mapped_reads.sai
 
 Create the SAM file
 
 ::
 
-      bwa samse ref_genome.fna mapped_reads.sai ref_genome.fna > mapped_reads.sam
+      bwa samse ref_genome.fna mapped_reads.sai read_file.fq > mapped_reads.sam
 
 Index the reference genome
 
@@ -88,7 +88,7 @@ Visualize the alignment
 
 ::
 
-      samtools tview SRR098038.sorted.bam REL606.fa
+      samtools tview mapped_reads.sorted.bam ref_genome.fna
 
 Variant exploration with Bioconductor
 -------------------------------------
