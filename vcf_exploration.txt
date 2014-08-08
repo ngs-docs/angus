@@ -46,7 +46,7 @@ index the reference genome
 
 ::
 
-      bwa index read_file.fq
+      bwa index ref_genome.fna
 
 map our reads to the indexed reference genome
 
