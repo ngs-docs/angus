@@ -52,7 +52,7 @@ map our reads to the indexed reference genome
 
 ::
 
-      bwa aln read_file.fq ref_genome.fna  > mapped_reads.sai
+      bwa aln ref_genome.fna read_file.fq > mapped_reads.sai
 
 Create the SAM file
 
