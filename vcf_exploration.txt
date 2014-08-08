@@ -58,7 +58,7 @@ Create the SAM file
 
 ::
 
-      bwa samse ref_genome.fna mapped_reads.sai ref_genome.fna > mapped_reads.sam
+      bwa samse ref_genome.fna mapped_reads.sai read_file.fq > mapped_reads.sam
 
 Index the reference genome
 
