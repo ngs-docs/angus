@@ -70,10 +70,11 @@ We will now  visualize the BAM, GFF and BED files and discuss the various aspect
 Running bedtools
 ================
 
-Install bedtools:
+Install bedtools::
 
 	sudo apt-get bedtools
 
 This works best if you store your files in Dropbox, that way you can
 edit the file on your computer then load them up on your IGV instance.
+
 
