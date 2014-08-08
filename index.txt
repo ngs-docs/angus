@@ -42,7 +42,7 @@ Thursday 8/7     * 9:15am lecture: `Genomic Intervals <_static/2014-lecture4-gen
 
 Friday 8/8       * 9:15am-noon lecture/tutorial, :doc:`R_Introductory_tutorial_2014` R etc. (Ian Dworkin and Martin Schilling)
                  * 1:15pm: tutorial, :doc:`vcf_exploration` 
-                 * 1:15pm: lecture, `more variant calling <files/foil.pdf>`(Martin Schilling)
+                 * 1:15pm: lecture, `more variant calling <_static/foil.pdf>`__ (Martin Schilling)
                  * 7pm: lecture, Gene and genome annotation (Daniel Standage)
 
 Saturday 8/9     * 9:15am-noon: lecture/tutorial, mRNAseq assembly protocol (Titus)
