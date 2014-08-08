@@ -88,7 +88,7 @@ Visualize the alignment
 
 ::
 
-      samtools tview SRR098038.sorted.bam REL606.fa
+      samtools tview mapped_reads.sorted.bam ref_genome.fna
 
 Variant exploration with Bioconductor
 -------------------------------------
