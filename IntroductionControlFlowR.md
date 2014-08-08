@@ -253,7 +253,7 @@ strsplit("word", split = "")
 ```
 
 
-# So for the for loop we would do the following:
+So for the for loop we would do the following:
 
 
 ```r
@@ -268,7 +268,7 @@ for (letter in strsplit("word", split = "")) {
 
 
 
-# More avoiding loops
+# More on avoiding loops
 
 Many would generate random numbers like so.
 
@@ -410,7 +410,7 @@ rnorm(n = 100, mean = 0, sd = 1)
 
 #### What if we wanted to put all of these numbers in a vector?
 
-**The not advisable approach**
+**The inadvisable approach**
 
 First we initialize a vector to store all of the numbers. Why do we initialize this vector first?	
 
@@ -421,7 +421,7 @@ x <- rep(NA, n)
 ```
 
  
-# The step above creates a vector of n NA's. They will be replaced sequentially with the random numbers as we generate them (using a function like the above one). 
+The step above creates a vector of n NA's. They will be replaced sequentially with the random numbers as we generate them (using a function like the above one). 
 
 
 ```r
