@@ -4,16 +4,16 @@
 # we read in data files using a family of 'read.' functions...
 # in this case we have our data stored as comma separated values (.csv) so we'll use 'read.csv'
 
-read.csv( "../sampleData/genes_fpkm_table.csv" )
+genes_fpkm  <- read.csv( "~/Desktop/genes_fpkm_table.csv" )
 
 #...will spit the contents of the file to your console. Not super-effective :-(
 # a better idea would eb to make an R object out of it
 
-genes_fpkm <- read.csv( "../sampleData/genes_fpkm_table.csv" )
+genes_fpkm <- read.csv( "~/Desktop/genes_fpkm_table.csv" )
 
 # Alternatively, we can point R at the directory that we want use like this:
 
-setwd( "../sampleData" )
+setwd( "~/Desktop" )
 
 # which makes reading in data (and writing things out; see below) easier to write
 
