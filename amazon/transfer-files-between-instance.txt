@@ -28,6 +28,9 @@ Similarly, to download a file from Amazon instance to your laptop::
 This command will download a file /data/ecoli_ref-5m-trim.fastq.gz from 
 Amazon instance to your ~/Download folder in your laptop.
 
+Note: You can use asterisk(*) to download multiple files, like *.fasta.gz.
+
+
 Use FileZilla to transfer data
 ---------------
 
