@@ -3,16 +3,28 @@ Storing data persistently with Amazon EBS Volumes
 =====================================
 
 If you want to save your data across instances -- that is, if you want
-to have persistent data -- Amazon can do that for you, too.  You can use
-the Amazon Elastic Block Storage(EBS) service, which creates a virtual
-hard drive that you can (virtually) attach to your EC2 instance.
+to have persistent data -- Amazon can do that for you, too. 
+Amazon is happy to rent disk space to you, in addition to compute time. 
+They’ll rent you disk space in a few different ways, but the way that’s most 
+useful for us is through what’s called Elastic Block Store(EBS). This is 
+essentially a hard-disk rental service.
 
-Note that EBS charges you based partly on how much disk space you use
-per month, rather than on connectivity or anything else, so even if
-you don't have an EC2 machine running, you'll be paying Amazon for
-data storage.
+There are two basic concepts – “volume” and “snapshot”. A “volume” can be 
+thought of as a pluggable-in hard drive: you create an empty volume of a 
+given size, attach it to a running instance, and voila! You have extra hard 
+disk space. Volume-based hard disks have two problems, however: first, they 
+cannot be used outside of the “availability zone” they’ve been created in, 
+which means that you need to be careful to put them in the same zone that 
+your instance is running in; and they can’t be shared amongst people.
 
-You can read more about EBS `here <http://aws.amazon.com/ebs/>`__.
+Snapshots, the second concept, are the solution to transporting and sharing 
+the data on volumes. A “snapshot” is essentially a frozen copy of your 
+volume; you can copy a volume into a snapshot, and a snapshot into a volume.
+
+In this and the following tutorials, you will be instructed to create 
+new Amazon EBS Volume, to create Amazon EBS Snapshot from EBS Volume and to
+restore EBS Volume from EBS Snapshot.
+
 
 Prerequisites
 -------------
@@ -70,6 +82,8 @@ DATA**.
 ::
 
   ubuntu@ip-10-31-232-122:~$ sudo mkfs -t ext4 /dev/xvdf
+
+Note: here we use "xvdf" instead of "sdf".
 
 Then, mount the volume. You'll do this every time you attach the volume to an instance::
 
