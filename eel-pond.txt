@@ -75,6 +75,18 @@ Work through the following:
 
 #. `BLASTing your assembly <http://khmer-protocols.readthedocs.org/en/ngs2014/mrnaseq/installing-blastkit.html>`__
 
+Actually using the BLAST Web server
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To connect to your BLAST Web server, you need to enable inbound traffic
+on your computer.  Briefly:
+
+* go to your instance and look at what security group you're using
+(should be 'launch-wizard-' something).  On the left panel, under
+Network and Security, go into Security Groups. Select your
+security group, and select Inbound, and Edit.   Click "Add rule", and
+change "Custom TCP rule" to "http".  Then click "save".  Done!
+
 You can try pasting this into your BLAST server::
 
    MDRSVNVIQCAAAPTRIQCEEINAKLMLGVGVFGLCMNIVLAVIMSFGAAHPHSHGMLSSVEFDHDVDYH
