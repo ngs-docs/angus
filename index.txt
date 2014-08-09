@@ -45,7 +45,7 @@ Friday 8/8       * 9:15am-noon lecture/tutorial, :doc:`R_Introductory_tutorial_2
                  * 1:15pm: lecture, `more variant calling <_static/foil.pdf>`__ (Martin Schilling)
                  * 7pm: lecture, Gene and genome annotation: `PowerPoint <_static/msu-ngs-annotation.pptx>`__ | `PDF <_static/msu-ngs-annotation.pdf>`__ (Daniel Standage)
 
-Saturday 8/9     * 9:15am-noon: lecture/tutorial, mRNAseq assembly protocol (Titus)
+Saturday 8/9     * 9:15am-noon: lecture/tutorial, :doc:`eel-pond` (Titus)
                  * 1:15pm: lecture/discussion, mRNAseq assembly with Trinity (Meg Staton)
 ===============  =============================================================
 
