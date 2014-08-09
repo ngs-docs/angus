@@ -71,14 +71,12 @@ DATA**.
 
   ubuntu@ip-10-31-232-122:~$ sudo mkfs -t ext4 /dev/xvdf
 
-It will ask you if you want to use the entire device -- say "y" for "yes.
-
 Then, mount the volume. You'll do this every time you attach the volume to an instance::
 
   ubuntu@ip-10-31-232-122:~$ sudo mkdir /data
   ubuntu@ip-10-31-232-122:~$ sudo mount /dev/xvdf /data
 
-Your drive is now ready to use -- it will be available under /mnt/ebs.
+Your drive is now ready to use -- it will be available under /data/.
 
 Shutting down your instance
 ---------------------------
