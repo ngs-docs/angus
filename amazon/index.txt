@@ -9,6 +9,10 @@ Amazon Web Services instructions
    log-in-with-ssh-win
    installing-dropbox
    terminating-your-instance.txt
-
+   setting-up-an-ebs-volume
+   using-ebs-snapshot
+   transfer-files-between-instance
+   uploading-files-to-s3
+   
    starting-up-a-custom-ami
    technical-guide
