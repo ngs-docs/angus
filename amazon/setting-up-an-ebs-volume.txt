@@ -42,13 +42,13 @@ Firstly open the Amazon EC2 console at 'https://console.aws.amazon.com/ec2>'
 At the AWS Management Console, on the left menu bar, click "Volumes".
 
 .. image:: images/ClickVolumes.png
-   :width: 90%
+   :width: 50%
 
 
 Click "Create Volume".
 
 .. image:: images/CreateVolume.png
-   :width: 90%
+   :width: 50%
 
 Enter the desired size, and select the zone in which your instance is
 running. The volume and instance must be in the same zone. Otherwise,
@@ -57,13 +57,13 @@ the volume cannot be attached to your instance.
 Then click "Create".
 
 .. image:: images/CreateVolumeWindow.png
-   :width: 90%
+   :width: 50%
 
 
 Wait for your volume to finish being created, then click "Attach Volume".
 
 .. image:: images/AttachVolume.png
-   :width: 90%
+   :width: 50%
 
 Select the desired running instance. You may leave the Device at the
 default: /dev/sdf. This is the name that your EC2 instance can use to
@@ -72,7 +72,7 @@ connect to the disk space
 Click "Attach".
 
 .. image:: images/AttachVolumeWindow.png
-   :width: 90%
+   :width: 50%
 
 When attachment is complete, connect to your instances via SSH.
 
@@ -92,7 +92,7 @@ Then, mount the volume. You'll do this every time you attach the volume to an in
 
 Your drive is now ready to use -- it will be available under /data/.
 
-Shutting down your instance
+Detaching an Amazon EBS Volume
 ---------------------------
 
 Any volumes you have attached will automatically detach when you shut
