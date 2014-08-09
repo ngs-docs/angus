@@ -6,7 +6,7 @@ For linux/Unix/Mac system, we can use a command-line tool "scp" to transfer
 files between your laptop and Amazon instance. Also we can use a GUI tool 
 "FileZilla" to do the transfer, which is more user-friendly.
 
-Use scp to transfer data
+Using scp to transfer data
 -------------
 
 "scp" means "secure copy", which can copy files between computers on a network.
@@ -35,7 +35,7 @@ Amazon instance to your ~/Download folder in your laptop.
 Note: You can use asterisk(*) to download multiple files, like *.fasta.gz.
 
 
-Use FileZilla to transfer data
+Using FileZilla to transfer data
 ---------------
 
 If you want a more user-friendly tool to transfer data, FileZilla is a 
@@ -49,7 +49,7 @@ Client" button to download it.
 The interface of FileZilla is like this:
 
 .. image:: images/filezilla_interface.png
-   :width: 90%
+   :width: 50%
 
 If you want to use FileZila to upload to or download data from a normal 
 FTP server if you have the user and password, just put the information in the 
@@ -61,63 +61,63 @@ to configure.
 Open "Settings" and click "SFTP":
 
 .. image:: images/filezilla_sftp.png
-   :width: 90%
+   :width: 50%
 
 Click "Add keyfile...":
 
 .. image:: images/add_keyfile.png
-   :width: 90%
+   :width: 50%
 
 Then select the ".pem" file you used to connect to Amazon instance with ssh.
 
 .. image:: images/select_pem.png
-   :width: 90%
+   :width: 50%
 
 There is a dialog box to ask you if you want to convert the ".pem" file 
 into a supported format. Click "Yes".
 
 .. image:: images/convert_pem.png
-   :width: 90%
+   :width: 50%
 
 
 Name it with extension as ".ppk" and save it.
 
 .. image:: images/save_ppk.png
-   :width: 90%
+   :width: 50%
 
 You will see the a private key has been added.
 
 .. image:: images/show_key.png
-   :width: 90%
+   :width: 50%
 
 Close "Settings" and go back to the main interface.
 
 Click button to open the site manager.
 
 .. image:: images/site_manager.png
-   :width: 90%
+   :width: 50%
 
 Click "New Site".
 
 .. image:: images/new_site.png
-   :width: 90%
+   :width: 50%
 
 Put the Amazon instance URL like ec2-54-166-128-20.compute-1.amazonaws.com 
 in the "Host" box. Set "Protocol" as "SFTP", "Logon Type" as "Normal", 
 "User" as "ubuntu" and leave "Password" as blank. Then click "Connect".
 
 .. image:: images/site_config.png
-   :width: 90%
+   :width: 50%
 
 There will be a dialogue box to ask you about "Unknown host key", just click 
 "Ok". 
 
 .. image:: images/host_key_diag.png
-   :width: 90%
+   :width: 50%
 
 All right. Now you have logged in the Amazon instance. You can drag and drop
 to transfer the files between the remote machine and your local laptop.
 
 .. image:: images/final_filezilla.png
-   :width: 90%
+   :width: 50%
 
