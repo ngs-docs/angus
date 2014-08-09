@@ -1,0 +1,92 @@
+=====================================
+Storing data persistently with Amazon EBS Volumes
+=====================================
+
+If you want to save your data across instances -- that is, if you want
+to have persistent data -- Amazon can do that for you, too.  You can use
+the Amazon Elastic Block Storage(EBS) service, which creates a virtual
+hard drive that you can (virtually) attach to your EC2 instance.
+
+Note that EBS charges you based partly on how much disk space you use
+per month, rather than on connectivity or anything else, so even if
+you don't have an EC2 machine running, you'll be paying Amazon for
+data storage.
+
+You can read more about EBS `here <http://aws.amazon.com/ebs/>`__.
+
+Prerequisites
+-------------
+
+This tutorial assumes you've already set up an account on Amazon Web
+Services, and that you've completed the EC2 tutorial to set up an
+Amazon instances.
+
+Creating an Amazon EBS Volume
+---------------------------------------------------------------
+
+Firstly open the Amazon EC2 console at 'https://console.aws.amazon.com/ec2>'
+ and make sure it says North Virginia in the upper right.
+
+At the AWS Management Console, on the left menu bar, click "Volumes".
+
+.. image:: images/ClickVolumes.png
+   :width: 90%
+
+
+Click "Create Volume".
+
+.. image:: images/CreateVolume.png
+   :width: 90%
+
+Enter the desired size, and select the zone in which your instance is
+running. The volume and instance must be in the same zone. Otherwise,
+the volume cannot be attached to your instance.
+
+Then click "Create".
+
+.. image:: images/CreateVolumeWindow.png
+   :width: 90%
+
+
+Wait for your volume to finish being created, then click "Attach Volume".
+
+.. image:: images/AttachVolume.png
+   :width: 90%
+
+Select the desired running instance. You may leave the Device at the
+default: /dev/sdf. This is the name that your EC2 instance can use to
+connect to the disk space 
+
+Click "Attach".
+
+.. image:: images/AttachVolumeWindow.png
+   :width: 90%
+
+When attachment is complete, connect to your instances via SSH.
+
+If the volume is newly created, you must format the volume.
+**WARNING: ONLY DO THIS ONCE, WHEN YOU FIRST CREATE THE VOLUME. OTHERWISE, YOU WILL LOSE ALL YOUR
+DATA**.
+::
+
+  ubuntu@ip-10-31-232-122:~$ sudo mkfs -t ext4 /dev/xvdf
+
+It will ask you if you want to use the entire device -- say "y" for "yes.
+
+Then, mount the volume. You'll do this every time you attach the volume to an instance::
+
+  ubuntu@ip-10-31-232-122:~$ sudo mkdir /data
+  ubuntu@ip-10-31-232-122:~$ sudo mount /dev/xvdf /data
+
+Your drive is now ready to use -- it will be available under /mnt/ebs.
+
+Shutting down your instance
+---------------------------
+
+Any volumes you have attached will automatically detach when you shut
+down the instance.  You can also stop all processes that are using the
+volume, change out of the directory, and type ::
+
+  ubuntu@ip-10-31-232-122:~$ sudo umount -d /dev/xvdf
+
+and then detach the volume via the AWS Web site.
