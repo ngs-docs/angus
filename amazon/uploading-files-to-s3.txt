@@ -7,6 +7,8 @@ designed to make web-scale computing easier for developers with a
 highly scalable, reliable, fast, inexpensive data storage infrastructure. 
 Companies like Dropbox, Pinterest, Tumblr store their data on the S3 servers.
 
+(Learn more from http://docs.aws.amazon.com/AmazonS3/latest/dev/Welcome.html)
+
 For personal users like us, S3 is also a reliable, inexpensive service to 
 store data or share data around the world. 
 

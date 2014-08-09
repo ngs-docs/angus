@@ -21,6 +21,8 @@ Snapshots, the second concept, are the solution to transporting and sharing
 the data on volumes. A “snapshot” is essentially a frozen copy of your 
 volume; you can copy a volume into a snapshot, and a snapshot into a volume.
 
+(Learn more from http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html)
+
 In this and the following tutorials, you will be instructed to create 
 new Amazon EBS Volume, to create Amazon EBS Snapshot from EBS Volume and to
 restore EBS Volume from EBS Snapshot.
