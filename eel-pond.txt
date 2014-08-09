@@ -8,7 +8,7 @@ quickly.
 Prepare for this tutorial by working through
 :doc:`amazon/start-up-an-ec2-instance`, but follow the instructions to
 start up :doc:`amazon/starting-up-a-custom-ami` instead; use AMI
-ami-7606d01e.
+ami-7607d01e.
 
 Switching to root
 ~~~~~~~~~~~~~~~~~
@@ -67,13 +67,13 @@ instead.
 
 Work through the following:
 
-#. `Quality trimming <http://khmer-protocols.readthedocs.org/en/ngs2014/mrnaseq/1-quality.html>`__ http://khmer-protocols.readthedocs.org/en/ngs2014/mrnaseq/1-quality.html
+#. `Quality trimming <http://khmer-protocols.readthedocs.org/en/ngs2014/mrnaseq/1-quality.html>`__
 
 #. `Applying digital normalization <http://khmer-protocols.readthedocs.org/en/ngs2014/mrnaseq/2-diginorm.html>`__
 
 #. `Running the actual assembly <http://khmer-protocols.readthedocs.org/en/ngs2014/mrnaseq/3-big-assembly.html>`__
 
-#. `BLASTing your asssembly <http://khmer-protocols.readthedocs.org/en/ngs2014/mrnaseq/installing-blastkit.html>`__
+#. `BLASTing your assembly <http://khmer-protocols.readthedocs.org/en/ngs2014/mrnaseq/installing-blastkit.html>`__
 
 You can try pasting this into your BLAST server::
 
