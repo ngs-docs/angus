@@ -66,7 +66,8 @@ Downloading files from Amazon S3
 You can use any internet browser to download the file from Amazon S3 directly
 with the public URL.
 
-In command-line environment, you can use curl or wget to download the file::
+In command-line environment, you can use curl to download the file::
+
   $curl -O https://s3.amazonaws.com/msu_angus/MS115.bam
   
 This command wil download the file into current directory.

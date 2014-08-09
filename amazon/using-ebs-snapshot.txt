@@ -24,17 +24,19 @@ Creating an Amazon EBS Snapshot from an Volume
 ---------------------------------------------------------------
 
 
-Firstly open the Amazon EC2 console at 'https://console.aws.amazon.com/ec2>'
+Firstly open the Amazon EC2 console at 'https://console.aws.amazon.com/ec2'
  and make sure it says North Virginia in the upper right.
 
 At the AWS Management Console, on the left menu bar, click "Volumes".
 
-.. image:: images/volume_view.png
-   :width: 90%
+
 
 Here you can see the 20GiB volume you created in the tutorial 
 "Storing data persistently with Amazon EBS Volumes". 
 
+.. image:: images/volume_view.png
+   :width: 90%
+   
 This tutorial will guide you to create a Amazon EBS Snapshot for this volume.
 In this example,
 the "Volume ID" of that volume is "vol-180eef57". Record this ID, we will 
