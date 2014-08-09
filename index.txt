@@ -199,6 +199,7 @@ Complete table of contents
    R_Introductory_tutorial_2014
    IntroductionControlFlowR
    vcf_exploration
+   eel-pond
 
    amazon/index
    instructors-guide
