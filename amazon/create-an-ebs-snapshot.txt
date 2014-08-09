@@ -1,0 +1,22 @@
+=====================================
+Creating Amazon EBS Snapshots for sharing and backup
+=====================================
+
+Now you have the Amazon EBS Volume to store the data for your instance to use. 
+But it can only be attached to the EC2 instance you created. 
+If you want to share the EBS Volume with the data with other colleagues so 
+they can use the data on the EC2 instance they created.
+want to share the EBS Volume with your data to If you want to save your data across instances -- that is, if you want
+to have persistent data -- Amazon can do that for you, too.  You can use
+the Amazon Elastic Block Storage(EBS) service, which creates a virtual
+hard drive that you can (virtually) attach to your EC2 instance.
+
+Note that EBS charges you based partly on how much disk space you use
+per month, rather than on connectivity or anything else, so even if
+you don't have an EC2 machine running, you'll be paying Amazon for
+data storage.
+
+You can read more about EBS `here <http://aws.amazon.com/ebs/>`__.
+
+Prerequisites
+-------------
