@@ -193,6 +193,13 @@ Complete table of contents
    day2
    variant
 
+   assembling-ecoli-with-velvet
+   interval-analysis-and-visualization
+   sam-format-tutorial
+   R_Introductory_tutorial_2014
+   IntroductionControlFlowR
+   vcf_exploration
+
    amazon/index
    instructors-guide
    code-of-conduct
