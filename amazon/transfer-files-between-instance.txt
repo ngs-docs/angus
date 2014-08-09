@@ -14,12 +14,16 @@ You can use this tool in a Terminal on a Unix/Linux/Mac system.
 
 To upload a file from your laptop to Amazon instance::
 
-  $scp -i ~/Desktop/amazon.pem ~/Desktop/MS115.fa  ubuntu@ec2-54-166-128-20.compute-1.amazonaws.com:/data/
+  $scp -i ~/Desktop/amazon.pem ~/Desktop/MS115.fa  ubuntu@ec2-54-166-128-20.compute-1.amazonaws.com:~/data/
   
 This command will upload a file - MS115.fa in your ~/Desktop/ folder of 
-your laptop to folder /data/ on an Amazon instance. Note you still need to 
+your laptop to folder ~/data/ on an Amazon instance. Note you still need to 
 use the private key you used to connect to the Amazon instance with ssh. (In
 this example, it is the amazon.pem file in ~/Desktop/.
+
+Note: You need to make sure that the user "ubuntu" has the permission to 
+write in the target directory. In this example, if ~/data/ was created by user 
+"ubuntu", it should be fine. 
 
 Similarly, to download a file from Amazon instance to your laptop::
 
