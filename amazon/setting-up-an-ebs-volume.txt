@@ -69,7 +69,8 @@ Wait for your volume to finish being created, then click "Attach Volume".
 
 Select the desired running instance. You may leave the Device at the
 default: /dev/sdf. This is the name that your EC2 instance can use to
-connect to the disk space 
+connect to the disk space. (If this is the second volume you want to attach
+to this instance, this may be different, like /dev/sdg.)
 
 Click "Attach".
 
@@ -79,13 +80,21 @@ Click "Attach".
 When attachment is complete, connect to your instances via SSH.
 
 If the volume is newly created, you must format the volume.
-**WARNING: ONLY DO THIS ONCE, WHEN YOU FIRST CREATE THE VOLUME. OTHERWISE, YOU WILL LOSE ALL YOUR
-DATA**.
+**WARNING: ONLY DO THIS ONCE, WHEN YOU FIRST CREATE THE VOLUME. OTHERWISE, 
+YOU WILL LOSE ALL YOUR
+DATA. YOU SHOULD NOT DO THIS IF THE VOLUME IS RESTORED FROM A SNAPSHOT
+AND YOU WANT TO USE THE DATA ON IT **.
 ::
 
   ubuntu@ip-10-31-232-122:~$ sudo mkfs -t ext4 /dev/xvdf
 
-Note: here we use "xvdf" instead of "sdf".
+Note1: here we use "xvdf" instead of "sdf".
+
+Note2: The device may be different. 
+If this is the second volume you 
+attached to the same instance, the device ID may be /dev/xdg, so here just
+use "xvdg" instead of "sdg". In this situation, for all the commands below,
+replace "/dev/xvdf" by "/dev/xvdg".
 
 Then, mount the volume. You'll do this every time you attach the volume to an instance::
 
