@@ -45,7 +45,7 @@ Even more useful, I think is the following command:
 
     http://api.metagenomics.anl.gov/1/download/mgm4447943.3
 
-I like to put this in a web browser because it pretty prints the JSON text output.  This command above gives all the dat that can be obtained from the *download* call for this metagenome.  
+I like to put this in a web browser because it pretty prints the JSON text output.  This command above gives all the data that can be obtained from the *download* call for this metagenome.  
 
 A challenge for MG-RAST is that the types of files and the stages aren't that well-documented.  You can get a good guess of what the files and their content from the download page on the web interface, e.g., `here <http://metagenomics.anl.gov/metagenomics.cgi?page=DownloadMetagenome&metagenome=4447943.3>`_.  I can tell you from experience that the most important files for me are as follows:
 
@@ -64,9 +64,9 @@ Exercise - Download
 
 Try downloading a few metagenomes from the PNAS paper and associated files.  Can you think of how to automate doing this?
 
-MG-RAST annotates sequences and can estimate the abundance of taxonomy and function.  Uses structures of databases like SEED, you can thus find broad functional summaries, e.g., the amount of carbon metabolism in various metagenomes.  
+MG-RAST annotates sequences and can estimate the abundance of taxonomy and function.  Using structured databases like SEED, you can thus find broad functional summaries, e.g., the amount of carbon metabolism in various metagenomes.  
 
-I work mostly with assemblies, as most of my unassembled are less than 200 bp.  In general, I'm also paranoid and like to do any sort of abundance counting on my own.  Let me give you an example, if one of my sequences hits two sequences in the MG-RAST database with identical scores, what should one do in the abundance accounting?  
+In general, I'm paranoid and like to do any sort of abundance counting on my own.  Let me give you an example, if one of my sequences hits two sequences in the MG-RAST database with identical scores, what should one do in the abundance accounting?  
 
 Working with Annotations
 ------------------------
@@ -77,7 +77,7 @@ Honestly, I'm never sure what MG-RAST is doing, so I like to be in charge of tho
 #. an abundance file (giving estimates of each of my sequences in my database), and 
 #. some sort of metadata describing my experiment and samples.
 
-MG-RAST can provide you with all three of these, but I typically use it only for #1.  This does require a good deal of know-how in scripting land.
+MG-RAST can provide you with all three of these, but I typically use it only for #1 (and thus this tutorial also focuses on this).  This does require a good deal of know-how in scripting land.
 
 To download these annotation files for specific databases (rather than the unique MG-RAST ID), I use the API `annotation command <http://api.metagenomics.anl.gov/api.html#annotation>`_.   Using the API, I'll select the database I'd like to use and the type of data within that database I would like returned (e.g., function, taxonomy, or unique ID -- aka md5sum).
 
@@ -140,7 +140,7 @@ The output of the raw JSON looks like this:
 
 If you look closely, it looks a lot like a Python *dictionary* structure and that's how most folks interact with it.  Since I program mainly in Python, I use its JSON libraries to work with these outputs in my scripting.  I installed the library `ijson <https://pypi.python.org/pypi/ijson/>`_.  In your home directory on your instance, install the library::
 
-    curl https://pypi.python.org/packages/source/i/ijson/ijson-1.1.tar.gz
+    wget https://pypi.python.org/packages/source/i/ijson/ijson-1.1.tar.gz
     tar -zxvf ijson-1.1.tar.gz
     cd ijson-1.1
     python setup.py install
