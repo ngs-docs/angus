@@ -48,7 +48,7 @@ Friday 8/8       * 9:15am-noon lecture/tutorial, :doc:`R_Introductory_tutorial_2
 Saturday 8/9     * 9:15am-noon: `lecture <_static/2014-lecture-mrnaseq-protocol.pptx.pdf>`__/tutorial, :doc:`eel-pond` (Titus)
                  * 1:15pm: lecture/discussion, mRNAseq assembly with Trinity (Meg Staton)
                  
-Monday 8/11      * 9:15am lecture mRNAseq and counting (Ian Dworkin)
+Monday 8/11      * 9:15am lecture,`mRNAseq and counting <_static/NGS2014_RNAseq_ID_1.pdf>`__ (Ian Dworkin)
                  * 10:30am tutorial, :doc:`drosophila_rnaseq1` (Chris Chandler)
                  * 1:15pm tutorial, drosophila_rnaseq2                
 ===============  =============================================================
