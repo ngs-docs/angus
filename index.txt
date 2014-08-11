@@ -53,6 +53,7 @@ Monday 8/11      * 9:15am lecture, `mRNAseq and counting PDF <_static/NGS2014_RN
                  * 10:45am tutorial, :doc:`mount_chris_snapshot` (Meg)
                  * 2:15pm tutorial, :doc:`SOAPdeNovoTrans_count_eXpress` (Matt)
                  * 7:15pm tutorial, Mapping reads to transcriptomes (Trinity and SOAP) and counting.            
+=======
 ===============  =============================================================
 
 Dramatis personae

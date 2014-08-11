@@ -97,7 +97,7 @@ Since we have a lot of files to map, it would take a long time to re-write the m
     do
         sample=${samples[${i}]}
         #Map the reads
-        tophat -p 4 -G ${annotation} -o ${sample} ${reference} /mnt/ebs/trimmed_x/${sample}_1_pe /mnt/ebs/trimmed_x/${sample}_2_pe
+        tophat --bowtie1 -p 4 -G ${annotation} -o ${sample} ${reference} /mnt/ebs/trimmed_x/${sample}_1_pe /mnt/ebs/trimmed_x/${sample}_2_pe
         #Count the number of reads mapping to each feature using HTSeq
         htseq-count --format=bam --stranded=no --order=pos ${sample}/accepted_hits.bam ${annotation} > ${sample}_htseq_counts.txt
     done
