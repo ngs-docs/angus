@@ -30,7 +30,7 @@ Log in `with Windows <amazon/log-in-with-ssh-win.html>`__ or
 Updating the operating system
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Become root
+Become root::
    sudo bash
 
 Copy and paste the following two commands
@@ -43,7 +43,7 @@ Copy and paste the following two commands
 
 to update the computer with all the bundled software you'll need.
 
-Mount the data volume.  (This is for Chris's data that we added as a snapshot)
+Mount the data volume.  (This is for Chris's data that we added as a snapshot)::
    cd /root
    mkdir /mnt/ebs
    mount /dev/xvdf /mnt/ebs
