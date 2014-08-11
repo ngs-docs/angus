@@ -51,7 +51,8 @@ Saturday 8/9     * 9:15am-noon: `lecture <_static/2014-lecture-mrnaseq-protocol.
 Monday 8/11      * 9:15am lecture, `mRNAseq and counting PDF <_static/NGS2014_RNAseq_ID_1.pdf>`__ (Ian Dworkin)
                  * 10:30am tutorial, :doc:`drosophila_rnaseq1` (Chris Chandler)
                  * 10:45am tutorial, :doc:`mount_chris_snapshot` (Meg)
-                 * 1:15pm tutorial, drosophila_rnaseq2                
+                 * 1:45pm tutorial, Looking at the BAM files (TopHat) and counts (HTSeq) (Chris Chandler)
+                 * 2:15 tutorial, Assembly with SOAP deNovo-trans and mapping with eXpress :doc:`MacManes_tutorial` (Matt MacCanes)            
 ===============  =============================================================
 
 Dramatis personae
