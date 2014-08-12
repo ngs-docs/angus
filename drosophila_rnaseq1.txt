@@ -2,9 +2,9 @@
 RNA-seq: mapping to a reference genome with tophat and counting with HT-seq
 ===========================================================================
 
-In this tutorial, we'll use some sample data from a project we did on flies (Drosophila melanogaster) to illustrate how you can use RNA-seq data to look for differentially expressed genes. We'll try a few different approaches to see whether different tools give similar results. Here's some brief background on the project: we're trying to understand how different wild-type genetic backgrounds can influence the phenotypic effects of mutations, using the developing fly wing as our model system. We have several mutations that disrupt wing development, and we've backcrossed them into the genetic backgrounds of two different wild-type fly strains (SAM and ORE). For this tutorial, we've taken a subset of the data--we'll look for expression differences in developing wing tissues between non-mutant and mutant (sd[E3]) flies in each of the two genetic backgrounds, and in flies with a "hybrid" genetic background (i.e., crosses between SAM/ORE flies, again both with and without the mutation). To make things run a little bit faster, we've included only sequence reads that map to X-linked genes. See here for a related study <http://www.genetics.org/content/early/2014/02/04/genetics.113.159426.abstract>.
+In this tutorial, we'll use some sample data from a project we did on flies (Drosophila melanogaster) to illustrate how you can use RNA-seq data to look for differentially expressed genes. We'll try a few different approaches to see whether different tools give similar results. Here's some brief background on the project: we're trying to understand how different wild-type genetic backgrounds can influence the phenotypic effects of mutations, using the developing fly wing as our model system. We have several mutations that disrupt wing development, and we've backcrossed them into the genetic backgrounds of two different wild-type fly strains (SAM and ORE). For this tutorial, we've taken a subset of the data--we'll look for expression differences in developing wing tissues between non-mutant and mutant (sd[E3]) flies in each of the two genetic backgrounds, and in flies with a "hybrid" genetic background (i.e., crosses between SAM/ORE flies, again both with and without the mutation). To make things run a little bit faster, we've included only sequence reads that map to X-linked genes.
 
-First, launch an EC2 instance and log in. Next, create an EBS volume from our snapshot (snap-028418ad). Make sure to create your EC2 instance and your EBS volume in the same availability zone! The snapshot has the raw reads, as well as pre-computed results files so we don't need to wait for every step to finish running before we proceed.
+First, launch an EC2 instance and log in. Next, create an EBS volume from our snapshot (snap-642349cb). Make sure to create your EC2 instance and your EBS volume in the same availability zone! The snapshot has the raw reads, as well as pre-computed results files so we don't need to wait for every step to finish running before we proceed.
 
 Attach the EBS volume to your instance and mount it in /mnt/ebs/. If you don't know how to do this, ask for a demonstration.
 
@@ -97,13 +97,24 @@ Since we have a lot of files to map, it would take a long time to re-write the m
     do
         sample=${samples[${i}]}
         #Map the reads
-        tophat --bowtie1 -p 4 -G ${annotation} -o ${sample} ${reference} /mnt/ebs/trimmed_x/${sample}_1_pe /mnt/ebs/trimmed_x/${sample}_2_pe
+        tophat -p 4 -G ${annotation} -o ${sample} ${reference} /mnt/ebs/trimmed_x/${sample}_1_pe /mnt/ebs/trimmed_x/${sample}_2_pe
         #Count the number of reads mapping to each feature using HTSeq
         htseq-count --format=bam --stranded=no --order=pos ${sample}/accepted_hits.bam ${annotation} > ${sample}_htseq_counts.txt
     done
 
 We now have count files for each sample. Take a look at one of the count files using less. You'll notice there are a lot of zeros, but that's partially because we've already filtered the dataset for you to include only reads that map to the X chromosome.
 
+::
+
+less HYB_sdE3_rep1_htseq_counts.txt
+
 You can also visualize these read mapping using tview (:doc:`variant`)
 
-Now we'll need to import them into R to use additional analysis packages to look for differentially expressed genes--in this case, DESeq. At this point I usually prefer to download these data files and run the analyses locally, because I like the extra bit of visual interactivity the Mac or Windows version of R provides. I would suggest copying the files using scp or through a synchronized Dropbox folder. Once you've got them downloaded, we're now ready to start crunching some numbers.
+::
+
+samtools index HYB_sdE3_rep1/accepted_hits.bam
+samtools tview HYB_sdE3_rep1/accepted_hits.bam ${reference}.fa
+
+
+Now we'll need to import them into R to use additional analysis packages to look for differentially expressed genes--in this case, DESeq. At this point I usually download these data files and run the analyses locally. I would suggest copying the files using scp or through a synchronized Dropbox folder. Once you've got them downloaded, we're now ready to start crunching some numbers.
+
