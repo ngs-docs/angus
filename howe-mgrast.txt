@@ -13,7 +13,7 @@ Example Usage
 
 You read a paper, and the authors reference MG-RAST metagenomes.  You want to download these so you can reproduce some of the analysis and ask some of your own questions. 
 
-.. image:: fierer_pnas_s2.png
+.. image:: ./figures/fierer_pnas_s2.png
     :scale: 100%
     :align: center
 
@@ -134,7 +134,7 @@ You might be wondering how to work with these JSON outputs in your own scripting
 
 The output of the raw JSON looks like this:
 
-.. image:: api_call_exam.png
+.. image:: ./figures/api_call_exam.png
     :scale: 100%
     :align: center
 
