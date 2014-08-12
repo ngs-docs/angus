@@ -54,7 +54,7 @@ Monday 8/11      * 9:15am lecture, `mRNAseq and counting PDF <_static/NGS2014_RN
                  * 2:15pm tutorial, :doc:`SOAPdeNovoTrans_count_eXpress` (Matt)
                  * 7:15pm tutorial, Mapping reads to transcriptomes (Trinity and SOAP) and counting. 
                  
-Tuesday 8/12     * 9:15am lecture, counting and differential expression analysis (Ian)
+Tuesday 8/12     * 9:15am lecture, `mRNAseq and counting PDF <_static/NGS2014_RNAseq_2.pdf>`__ (Ian Dworkin)
                  * 11:00am tutorial, `R script for DEA on github <drosophila_htseq.R>`
                  * 1:15pm tutorial, :doc:`drosophila_rnaseq_bwa_htseq` (Meg)
 ===============  =============================================================
