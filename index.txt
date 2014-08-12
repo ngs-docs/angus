@@ -55,8 +55,8 @@ Monday 8/11      * 9:15am lecture, `mRNAseq and counting PDF <_static/NGS2014_RN
                  * 7:15pm tutorial, Mapping reads to transcriptomes (Trinity and SOAP) and counting. 
                  
 Tuesday 8/12     * 9:15am lecture, counting and differential expression analysis (Ian)
-                 * 11:00am tutorial, `R script for DEA <drosophila_htseq.R> __ (Chris Chandler). `Also here is the data <genome_tophat_htseq_counts.zip>` `and the other data <rnaseq_mapping_to_transcritome_bwa_htseq_counts.tar.gz
->`                           
+                 * 11:00am tutorial, `R script for DEA on github` <drosophila_htseq.R>
+                 * 1:15pm tutorial, :doc:`drosophila_rnaseq_bwa_htseq` (Meg)
 ===============  =============================================================
 
 Dramatis personae
