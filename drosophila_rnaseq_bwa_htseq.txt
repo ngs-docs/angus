@@ -134,6 +134,10 @@ should be:
 ::
       ./Build install  -- OK
 
+Now exit the CPAN shell
+::
+      exit
+
 Preparing the reference
 -----------------------
 
