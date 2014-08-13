@@ -124,6 +124,8 @@ When that finishes (probably after a very long time), copy the results to dropbo
 
    cp -r PS_temp/ecoli_dn_velvet25.fa /mnt/Dropbox
 
+once on your local computer, open the .html file in the ecoli_dn_velvet25.fa directory in your web browser.
+It should be possible to launch the concat marker viewer in java from the link in the bottom left of the page.
 
 Ordering the assembly contigs against a nearby reference
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
