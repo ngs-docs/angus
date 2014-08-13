@@ -68,9 +68,12 @@ Copy and paste the following three commands
    sudo add-apt-repository ppa:webupd8team/java
    sudo apt-get update
    sudo apt-get install oracle-java6-installer
+   sudo apt-get remove openjdk-7-jre openjdk-7-jre-headless
 
 to update the computer with all the bundled software you'll need.
 Mauve, when run in command-line mode, depends on the Oracle Java 6 runtime which the above commands install.
+The above commands will also remove the openjdk if it's present on the system. If you would prefer to keep
+this for some reason then look at the ``update-alternatives`` system.
 
 Packages to install
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -101,7 +104,7 @@ Now, let's create a working directory::
 
 
 Download some genome assemblies.  The first one is an assembly constructed with A5-miseq.
-The second is an assembly constructed with Velvet.
+The second is an assembly constructed with Velvet. ::
 
    curl -O http://edhar.genomecenter.ucdavis.edu/~koadman/ngs2014/ecoli_a5.final.scaffolds.fasta
    curl -O http://edhar.genomecenter.ucdavis.edu/~koadman/ngs2014/ecoli_dn_velvet25.fa
@@ -154,6 +157,9 @@ In practice, you might use your own collection of assemblies of these genomes.
 Let's start out in a new directory and download these: ::
 
    mkdir ~/phylogeny ; cd ~/phylogeny
+   
+   # download a bunch of genomes from NCBI. Alternatively you can use the approach that 
+   # Adina introduced in the previous lesson to programmatically download many files
    curl -O ftp://ftp.ncbi.nih.gov/genomes/Bacteria/Escherichia_coli_O157_H7_EDL933_uid57831/NC_002655.fna
    curl -O ftp://ftp.ncbi.nih.gov/genomes/Bacteria/Escherichia_coli_CFT073_uid57915/NC_004431.fna
    curl -O ftp://ftp.ncbi.nih.gov/genomes/Bacteria/Escherichia_coli_K_12_substr__DH10B_uid58979/NC_010473.fna
@@ -191,5 +197,7 @@ Once installed, either launch by double-click (Mac) or via the start menu (Windo
 Now we can open the tree file codon_tree.tre from dropbox.
 
 Once open, enable the node labels which show bootstrap confidence.
+Optionally midpoint root the tree, adjust the line width, and export a PDF.
+
 
 This document (c) copyleft 2014 Aaron Darling.
