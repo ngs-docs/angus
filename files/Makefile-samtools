@@ -1,0 +1,41 @@
+#
+# Makefile for short read quality evaluation
+#
+
+all:
+	@echo "*** Use the source, Luke!"
+
+setup:
+	#
+	# Run initial software setup tasks
+	#
+	sudo apt-get install -y bwa samtools seqtk make build-essential ncurses-dev byacc zlib1g-dev python-dev git
+
+wgsim:
+	#
+	# Install wgsim.
+	#
+	git clone https://github.com/lh3/wgsim.git ~/src/wgsim
+	sudo gcc -g -O2 -Wall -o /usr/local/bin/wgsim ~/src/wgsim/wgsim.c -lz -lm
+
+download:
+	#
+	# Data Download.
+	#
+	mkdir -p index
+	wget -qN http://apollo.huck.psu.edu/data/sc.fa -O index/sc.fa
+	wget -qN http://apollo.huck.psu.edu/data/sc.gff
+
+onelinebam:
+
+	bwa mem index/sc.fa query.fa | samtools view -bS - | samtools sort - query
+
+sam:
+	#
+	# Index the genome
+	#
+	bwa index index/sc.fa
+	samtools faidx index/sc.fa
+
+end:
+	# this is just a marker

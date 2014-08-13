@@ -1,0 +1,221 @@
+==========================================
+Next-Gen Sequence Analysis Workshop (2014)
+==========================================
+
+.. Warning These documents are not maintained and their instructions may be
+	out of date. However the GED Lab does maintain the `khmer protocols
+	<http://khmer-protocols.readthedocs.org/>`__ which may cover similar
+	topics. See also the `installation instructions for the current version
+	of the khmer project <https://khmer.readthedocs.org/en/latest/install.html>`__. 
+
+This is the schedule for the `2014 MSU NGS course <http://bioinformatics.msu.edu/ngs-summer-course-2014>`__.
+
+.. , which ran from June 10th to June 20th, 2013.  If you're interested in this course in 2014, please see `the 2014 announcement <http://bioinformatics.msu.edu/ngs-summer-course-2014>`__.
+
+This workshop has a :doc:`code-of-conduct`.
+
+`Assessment questionnaire <https://docs.google.com/forms/d/1ltExAGPIWSNRPqLk4XCIOXEv-Kp3Lr8fstvLEghmPrY/viewform>`__
+
+===============  =============================================================
+Day              Schedule
+===============  =============================================================
+Monday 8/4       * 1:30pm lecture: `Welcome! <_static/2014-lecture1-welcome.pptx.pdf>`__ (Titus)
+                 * Tutorial: :doc:`day1`
+                 * 7pm: research presentations
+Tuesday 8/5      * :doc:`day2`
+                 * 9:15am lecture: `Sequencing considerations <_static/2014-lecture2-sequencing.pptx.pdf>`__ (Titus)
+                 * 10:30am: tutorial, :doc:`running-command-line-blast` (Titus)
+                 * Afternoon: assessment
+                 * 1:15pm: tutorial, :doc:`short-read-quality-evaluation` (Elijah and Istvan)
+                 * Evening: *firepit social*
+Wednesday 8/6    * 9:15am lecture: `Mapping and Assembly <_static/2014-lecture3-mapping-assembly.pptx.pdf>`__ (Titus)
+                 * 10:30am: tutorial, :doc:`variant` (Titus)
+                 * 1:15pm: :doc:`sam-format-tutorial` (Istvan)
+                 * 7:15pm: tutorial, UNIX command line (Elijah)
+
+
+Thursday 8/7     * 9:15am lecture: `Genomic Intervals <_static/2014-lecture4-genomic-intervals.pdf>`__ (Istvan)
+                 * 10:30am mini-diversion: `The Bioinformatics Skill System <_static/2014-rpg.pdf>`__ (Istvan)
+                 * 10:45am: tutorial, :doc:`interval-analysis-and-visualization` (Istvan)
+                 * 1:15pm: tutorial, :doc:`assembling-ecoli-with-velvet` (Titus)
+                 * 5:30pm: leave for Kalamazoo
+
+Friday 8/8       * 9:15am-noon lecture/tutorial, :doc:`R_Introductory_tutorial_2014` R etc. (Ian Dworkin and Martin Schilling)
+                 * 1:15pm: tutorial, :doc:`vcf_exploration` 
+                 * 1:15pm: lecture, `more variant calling <_static/foil.pdf>`__ (Martin Schilling)
+                 * 7pm: lecture, Gene and genome annotation: `PowerPoint <_static/msu-ngs-annotation.pptx>`__ | `PDF <_static/msu-ngs-annotation.pdf>`__ (Daniel Standage)
+
+Saturday 8/9     * 9:15am-noon: `lecture <_static/2014-lecture-mrnaseq-protocol.pptx.pdf>`__/tutorial, :doc:`eel-pond` (Titus)
+                 * 1:15pm: lecture/discussion, mRNAseq assembly with Trinity (Meg Staton)
+                 
+Monday 8/11      * 9:15am lecture, `mRNAseq and counting PDF <_static/NGS2014_RNAseq_ID_1.pdf>`__ (Ian Dworkin)
+                 * 10:30am tutorial, :doc:`drosophila_rnaseq1` (Chris Chandler)
+                 * 10:45am tutorial, :doc:`mount_chris_snapshot` (Meg)
+                 * 2:15pm tutorial, :doc:`SOAPdeNovoTrans_count_eXpress` (Matt)
+                 * 7:15pm tutorial, Mapping reads to transcriptomes (Trinity and SOAP) and counting. 
+                 
+Tuesday 8/12     * 9:15am lecture, `mRNAseq and counting lecture 2 PDF <_static/NGS2014_RNAseq_2.pdf>`__ (Ian Dworkin)
+                 * 11:00am tutorial, `R script for DEA on github <drosophila_htseq.R>`
+                 * 1:15pm tutorial, :doc:`drosophila_rnaseq_bwa_htseq` (Meg)
+                 * 2:00pm lecture, `A tableside discussion on transcriptome assembly PDF <_static/ngs2014-trimming.pdf>`__ (Matt).
+                 
+Wednesday 8/13 	 * 9:15am `lecture <_static/howe_mgrast.pptx>`__/tutorial, :doc:`howe-ncbi`  (Adina)
+                 * 11:00am tutorial, :doc:`howe-mgrast` (Adina)
+===============  =============================================================
+
+Dramatis personae
+=================
+
+Instructors:
+
+* Istvan Albert
+* C Titus Brown
+* Ian Dworkin
+
+TAs:
+
+* Amanda Charbonneau
+* Elijah Lowe
+* Will Pitchers
+* Aswathy Sebastian
+* Qingpeng Zhang
+
+Lecturers:
+
+* Chris Chandler
+* Adina Chuang Howe
+* Matt MacManes
+* Martin Schilling
+* Daniel Standage
+* Meg Staton
+
+He Who Drives Many Places:
+
+* Cody Nicks
+
+Papers and References
+=====================
+
+Books
+-----
+
+* `Practical Computing for Biologists <http://practicalcomputing.org/>`__
+
+  This is a highly recommended book for people looking for a systematic
+  presentation on shell scripting, programming, UNIX, etc.
+
+RNAseq
+------
+
+* `Differential gene and transcript expression analysis of RNA-seq
+  experiments with TopHat and Cufflinks
+  <http://www.ncbi.nlm.nih.gov/pubmed/22383036>`__, Trapnell et al.,
+  Nat. Protocols.
+
+  One paper that outlines a pipeline with the tophat, cufflinks, cuffdiffs and
+  some associated R scripts.
+
+* `Statistical design and analysis of RNA sequencing
+  data. <http://www.ncbi.nlm.nih.gov/pubmed/20439781>`__, Auer and
+  Doerge, Genetics, 2010.
+
+* `A comprehensive comparison of RNA-Seq-based transcriptome analysis from reads to differential gene expression and cross-comparison with microarrays: a case study in Saccharomyces cerevisiae. <http://www.ncbi.nlm.nih.gov/pubmed/?term=22965124>`__ Nookaew et al., Nucleic Acids Res. 2012.
+
+* `Challenges and strategies in transcriptome assembly and differential gene expression quantification. A comprehensive in silico assessment of RNA-seq experiments <http://www.ncbi.nlm.nih.gov/pubmed/?term=22998089>`__ Vijay et al., 2012.
+
+* `Computational methods for transcriptome annotation and quantification using RNA-seq <http://www.ncbi.nlm.nih.gov/pubmed/21623353>`__, Garber et al., Nat. Methods, 2011.
+
+* `Evaluation of statistical methods for normalization and differential expression in mRNA-Seq experiments. <http://www.ncbi.nlm.nih.gov/pubmed/?term=20167110>`__, Bullard et al., 2010.
+
+* `A comparison of methods for differential expression analysis of RNA-seq data <http://www.biomedcentral.com/1471-2105/14/91>`__, Soneson and Delorenzi, BMC Bioinformatics, 2013.
+
+* `Measurement of mRNA abundance using RNA-seq data: RPKM measure is inconsistent among samples. <http://www.ncbi.nlm.nih.gov/pubmed/?term=22872506>`__, Wagner et al., Theory Biosci, 2012.  Also see `this blog post <http://blog.nextgenetics.net/?e=51>`__ explaining the paper in detail.
+
+Computing and Data
+------------------
+
+* `A Quick Guide to Organizing Computational Biology Projects <http://www.ploscompbiol.org/article/info%3Adoi%2F10.1371%2Fjournal.pcbi.1000424>`__, Noble, PLoS Comp Biology, 2009.
+
+* `Willingness to Share Research Data Is Related to the Strength of the Evidence and the Quality of Reporting of Statistical Results <http://software-carpentry.org/blog/2012/05/the-most-important-scientific-result-published-in-the-last-year.html>`__, Wicherts et al., PLoS One, 2011.
+
+* `Got replicability? <http://econjwatch.org/articles/got-replicability-the-journal-of-money-credit-and-banking-archive>`__, McCullough, Economics in Practice, 2007.
+
+Also see this great pair of blog posts on `organizing projects <http://nicercode.github.io/blog/2013-04-05-projects/>`__ and `research workflow <http://carlboettiger.info/2012/05/06/research-workflow.html>`__.
+
+Links
+=====
+
+Humor
+-----
+
+* `Data Sharing and Management Snafu in 3 Short Acts <http://www.youtube.com/watch?v=N2zK3sAtr-4&feature=youtu.be>`__
+
+Resources
+---------
+
+* `Biostar <http://biostars.org>`__
+
+  A high quality question & answer Web site.
+
+* `SEQanswers <http://seqanswers.com/>`__
+
+  A discussion and information site for next-generation sequencing.
+
+* `Software Carpentry lessons <http://software-carpentry.org/4_0/index.html>`__
+
+  A large number of open and reusable tutorials on the shell, programming,
+  version control, etc.
+
+Blogs
+-----
+
+* http://www.genomesunzipped.org/
+
+  Genomes Unzipped.
+
+* http://ivory.idyll.org/blog/
+
+  Titus's blog.
+
+* http://bcbio.wordpress.com/
+
+  Blue Collar Bioinformatics
+
+* http://massgenomics.org/
+
+  Mass Genomics
+
+* http://blog.nextgenetics.net/
+
+  Next Genetics
+
+* http://gettinggeneticsdone.blogspot.com/
+
+  Getting Genetics Done
+
+* http://omicsomics.blogspot.com/
+
+  Omics! Omics!
+
+Complete table of contents
+==========================
+
+.. toctree::
+   :maxdepth: 5
+
+   day1
+   day2
+   variant
+
+   assembling-ecoli-with-velvet
+   interval-analysis-and-visualization
+   sam-format-tutorial
+   R_Introductory_tutorial_2014
+   IntroductionControlFlowR
+   vcf_exploration
+   eel-pond
+
+   amazon/index
+   instructors-guide
+   code-of-conduct
+
