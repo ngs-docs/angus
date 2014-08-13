@@ -82,13 +82,13 @@ You could now imagine writing a program where you made a list of IDs you want to
 
 To see the documentation for this script::
 
-    python fetch_genomes.py
+    python fetch-genomes.py
 
 You'll see that you need to provide a list of IDs and a directory where you want to save the downloaded files.
 
 To run the script::
 
-    python fetch_genomes.py interesting-genomes.txt genbank-files
+    python fetch-genomes.py interesting-genomes.txt genbank-files
 
 .. Note::
     
