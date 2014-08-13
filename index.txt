@@ -27,6 +27,7 @@ Tuesday 8/5      * :doc:`day2`
                  * 10:30am: tutorial, :doc:`running-command-line-blast` (Titus)
                  * Afternoon: assessment
                  * 1:15pm: tutorial, :doc:`short-read-quality-evaluation` (Elijah and Istvan)
+                 * (CTB alternate version :doc:`short-read-quality-evaluation-ctb`)
                  * Evening: *firepit social*
 Wed 8/6          * 9:15am lecture: `Mapping and Assembly <_static/2014-lecture3-mapping-assembly.pptx.pdf>`__ (Titus)
                  * 10:30am: tutorial, :doc:`variant` (Titus)
@@ -60,7 +61,7 @@ Tuesday 8/12     * 9:15am lecture, `mRNAseq and counting lecture 2 PDF <_static/
                  * 2:00pm lecture, `A tableside discussion on transcriptome assembly PDF <_static/ngs2014-trimming.pdf>`__ (Matt).
                  
 Wed 8/13         * 9:15am-3pm `lecture <_static/howe_mgrast.pptx>`__/tutorial, :doc:`howe-ncbi`  (Adina)
-                 * 7:15pm: Scripts, automation, and git/GitHub
+                 * 7:15pm: :doc:`git-koans`
                  * 8:15pm: firepit and a gin social
 
 Thursday 8/14    * 9:15-10:15 lecture (Aaron Darling)
