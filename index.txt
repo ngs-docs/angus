@@ -65,7 +65,7 @@ Wed 8/13         * 9:15am-3pm `lecture <_static/howe_mgrast.pptx>`__/tutorial, :
                  * 8:15pm: firepit and a gin social
 
 Thursday 8/14    * 9:15-10:15 lecture (Aaron Darling)
-                 * 10:30am-noon tutorial (Aaron)
+                 * 10:30am-noon tutorial: :doc:`genome-comparison-and-phylogeny` (Aaron)
                  * 1:15pm tutorial: k-mers and raw data (Titus)
                  * 3pm discussion: long-read sequencing (Matt MacManes)
 
