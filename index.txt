@@ -27,8 +27,9 @@ Tuesday 8/5      * :doc:`day2`
                  * 10:30am: tutorial, :doc:`running-command-line-blast` (Titus)
                  * Afternoon: assessment
                  * 1:15pm: tutorial, :doc:`short-read-quality-evaluation` (Elijah and Istvan)
+                 * (CTB alternate version :doc:`short-read-quality-evaluation-ctb`)
                  * Evening: *firepit social*
-Wednesday 8/6    * 9:15am lecture: `Mapping and Assembly <_static/2014-lecture3-mapping-assembly.pptx.pdf>`__ (Titus)
+Wed 8/6          * 9:15am lecture: `Mapping and Assembly <_static/2014-lecture3-mapping-assembly.pptx.pdf>`__ (Titus)
                  * 10:30am: tutorial, :doc:`variant` (Titus)
                  * 1:15pm: :doc:`sam-format-tutorial` (Istvan)
                  * 7:15pm: tutorial, UNIX command line (Elijah)
@@ -59,8 +60,23 @@ Tuesday 8/12     * 9:15am lecture, `mRNAseq and counting lecture 2 PDF <_static/
                  * 1:15pm tutorial, :doc:`drosophila_rnaseq_bwa_htseq` (Meg)
                  * 2:00pm lecture, `A tableside discussion on transcriptome assembly PDF <_static/ngs2014-trimming.pdf>`__ (Matt).
                  
-Wednesday 8/13 	 * 9:15am `lecture <_static/howe_mgrast.pptx>`__/tutorial, :doc:`howe-ncbi`  (Adina)
-                 * 11:00am tutorial, :doc:`howe-mgrast` (Adina)
+Wed 8/13         * 9:15am-3pm `lecture <_static/howe_mgrast.pptx>`__/tutorial, :doc:`howe-ncbi`  (Adina)
+                 * 7:15pm: :doc:`git-koans`
+                 * 8:15pm: firepit and a gin social
+
+Thursday 8/14    * 9:15-10:15 lecture (Aaron Darling)
+                 * 10:30am-noon tutorial: :doc:`genome-comparison-and-phylogeny` (Aaron)
+                 * 1:15pm `lecture <_static/2014-kmers.pptx.pdf>`__ / tutorial :doc:`kmers-etc` (Titus)
+                 * 3pm discussion: long-read sequencing (Matt MacManes)
+
+                 * 6pm: BBQ (no dinner at McCrary)
+                 * 8pm: invited speaker (NGS/EDAMAME) `Jack Gilbert <http://en.wikipedia.org/wiki/Jack_Gilbert>`__
+                   Note: Talk is in academic building auditorium.
+                 * 9:15pm: firepit
+
+Friday 8/15      * 9:15-9:45 closing lecture (Titus)
+                 * 10am discussion about class; more stuff
+
 ===============  =============================================================
 
 Dramatis personae
