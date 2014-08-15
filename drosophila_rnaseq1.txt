@@ -127,18 +127,13 @@ Since we have a lot of files to map, it would take a long time to re-write the m
     done
 
 We now have count files for each sample. Take a look at one of the count files using less. You'll notice there are a lot of zeros, but that's partially because we've already filtered the dataset for you to include only reads that map to the X chromosome.
-
 ::
-
 less HYB_sdE3_rep1_htseq_counts.txt
 
 You can also visualize these read mapping using tview (:doc:`variant`)
-
 ::
-
 samtools index HYB_sdE3_rep1/accepted_hits.bam
 samtools tview HYB_sdE3_rep1/accepted_hits.bam ${reference}.fa
-
 
 Now we'll need to import them into R to use additional analysis packages to look for differentially expressed genes--in this case, DESeq. At this point I usually download these data files and run the analyses locally. I would suggest copying the files using scp or through a synchronized Dropbox folder. Once you've got them downloaded, we're now ready to start crunching some numbers.
 
