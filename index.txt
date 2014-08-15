@@ -14,7 +14,7 @@ This is the schedule for the `2014 MSU NGS course <http://bioinformatics.msu.edu
 
 This workshop has a :doc:`code-of-conduct`.
 
-`Assessment questionnaire <https://docs.google.com/forms/d/1ltExAGPIWSNRPqLk4XCIOXEv-Kp3Lr8fstvLEghmPrY/viewform>`__
+`Download all of these materials <https://github.com/ngs-docs/angus/archive/2014.zip>`__ or `visit the GitHub repository <https://github.com/ngs-docs/angus/tree/2014>`__.
 
 ===============  =============================================================
 Day              Schedule
