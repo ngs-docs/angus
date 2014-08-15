@@ -20,12 +20,14 @@ ow on the left select "Volumes".  You should see an "in-use" volume - this is fo
 Log in `with Windows <amazon/log-in-with-ssh-win.html>`__ or
 `from Mac OS X <amazon/log-in-with-ssh-mac.html>`__.
 
-Become root::
+Become root
+::
    sudo bash
 
 Attach the EBS volume to your instance and mount it in /mnt/ebs/. If you don't know how to do this, ask for a demonstration.
 
-Mount the data volume.  (This is for the data that we added as a snapshot)::
+Mount the data volume.  (This is for the data that we added as a snapshot)
+::
    cd /root
    mkdir /mnt/ebs
    mount /dev/xvdf /mnt/ebs
