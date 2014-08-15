@@ -45,7 +45,7 @@ Now let's read the second sample, and double check that it has the same number o
     nrow(sample.1) == nrow(sample.2)
     all(sample.1$gene == sample.2$gene)
 
-Looks good. Now let's do all the merging using a simple for loop:
+Looks good. Now let's do all the merging using a simple for loop::
 
     #Now let's combine them all into one dataset
     all.data <- sample.1
