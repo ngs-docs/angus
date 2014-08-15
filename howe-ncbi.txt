@@ -82,13 +82,13 @@ You could now imagine writing a program where you made a list of IDs you want to
 
 To see the documentation for this script::
 
-    python fetch_genomes.py
+    python fetch-genomes.py
 
 You'll see that you need to provide a list of IDs and a directory where you want to save the downloaded files.
 
 To run the script::
 
-    python fetch_genomes.py interesting-genomes.txt genbank-files
+    python fetch-genomes.py interesting-genomes.txt genbank-files
 
 .. Note::
     
@@ -149,7 +149,7 @@ There are multiple ways to get this done -- but this is how I like to do it.
 
 And there you have it, you can now pretty much automatically grab 16S rRNA genes from any number of genomes in NCBI databases.
 
-
+Here is some documentation on GEO in NCBI, `here <http://www.ncbi.nlm.nih.gov/geo/info/geo_paccess.html>`_.
 
 
 

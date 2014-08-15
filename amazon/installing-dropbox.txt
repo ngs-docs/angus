@@ -7,11 +7,8 @@ create a separate Dropbox account just for the course.**
 
 Start at the login prompt on your EC2 machine::
 
+  sudo bash
   cd /root
-
-If you can not do this("Permission denied"), make sure you are in 
-superuser mode. (You should see a text line that starts with something like
- ``root@ip-10-235-34-223:~$``. If not, use "sudo bash" to switch.)
 
 Then, grab the latest dropbox installation package for Linux::
 

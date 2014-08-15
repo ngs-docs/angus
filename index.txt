@@ -14,7 +14,7 @@ This is the schedule for the `2014 MSU NGS course <http://bioinformatics.msu.edu
 
 This workshop has a :doc:`code-of-conduct`.
 
-`Assessment questionnaire <https://docs.google.com/forms/d/1ltExAGPIWSNRPqLk4XCIOXEv-Kp3Lr8fstvLEghmPrY/viewform>`__
+`Download all of these materials <https://github.com/ngs-docs/angus/archive/2014.zip>`__ or `visit the GitHub repository <https://github.com/ngs-docs/angus/tree/2014>`__.
 
 ===============  =============================================================
 Day              Schedule
@@ -27,8 +27,9 @@ Tuesday 8/5      * :doc:`day2`
                  * 10:30am: tutorial, :doc:`running-command-line-blast` (Titus)
                  * Afternoon: assessment
                  * 1:15pm: tutorial, :doc:`short-read-quality-evaluation` (Elijah and Istvan)
+                 * (CTB alternate version :doc:`short-read-quality-evaluation-ctb`)
                  * Evening: *firepit social*
-Wednesday 8/6    * 9:15am lecture: `Mapping and Assembly <_static/2014-lecture3-mapping-assembly.pptx.pdf>`__ (Titus)
+Wed 8/6          * 9:15am lecture: `Mapping and Assembly <_static/2014-lecture3-mapping-assembly.pptx.pdf>`__ (Titus)
                  * 10:30am: tutorial, :doc:`variant` (Titus)
                  * 1:15pm: :doc:`sam-format-tutorial` (Istvan)
                  * 7:15pm: tutorial, UNIX command line (Elijah)
@@ -57,8 +58,29 @@ Monday 8/11      * 9:15am lecture, `mRNAseq and counting PDF <_static/NGS2014_RN
 Tuesday 8/12     * 9:15am lecture, `mRNAseq and counting lecture 2 PDF <_static/NGS2014_RNAseq_2.pdf>`__ (Ian Dworkin)
                  * 11:00am tutorial, `R script for DEA on github <drosophila_htseq.R>`
                  * 1:15pm tutorial, :doc:`drosophila_rnaseq_bwa_htseq` (Meg)
-                 * 2:00pm lecture, `A tableside discussion on transcriptome assembly PDF <ngs2014-trimming.pdf>` (Matt).
+                 * 2:00pm lecture, `A tableside discussion on transcriptome assembly PDF <_static/ngs2014-trimming.pdf>`__ (Matt).
                  
+Wed 8/13         * 9:15am-3pm `lecture <_static/howe_mgrast.pptx>`__/tutorial, :doc:`howe-ncbi`  (Adina)
+                 * 7:15pm: :doc:`git-koans`
+                 * 8:15pm: firepit and a gin social
+
+Thursday 8/14    * 9:15-10:15 lecture (Aaron Darling)
+                 * 10:30am-noon tutorial: :doc:`genome-comparison-and-phylogeny` (Aaron)
+                 * 1:15pm `lecture <_static/2014-kmers.pptx.pdf>`__ / tutorial :doc:`kmers-etc` (Titus)
+                 * 3pm discussion: long-read sequencing (Matt MacManes)
+
+                 * 6pm: BBQ (no dinner at McCrary)
+                 * 8pm: invited speaker (NGS/EDAMAME) `Jack Gilbert <http://en.wikipedia.org/wiki/Jack_Gilbert>`__
+                   Note: Talk is in academic building auditorium.
+                 * 9:15pm: firepit
+
+Friday 8/15      * 9:15-9:45 `closing lecture <_sttaic/2014-final-lecture.pptx.pdf>`__ (Titus)
+                 * 10am discussion about class; more stuff
+
+                 * Links:
+                   `Opinionated guides to NGS <http://davis-assembly-masterclass-2013.readthedocs.org/en/latest/outputs/index.html>`__ /
+                   `Software Carpentry <http://software-carpentry.org>`__
+
 ===============  =============================================================
 
 Dramatis personae
