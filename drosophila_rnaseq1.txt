@@ -2,11 +2,33 @@
 RNA-seq: mapping to a reference genome with tophat and counting with HT-seq
 ===========================================================================
 
-In this tutorial, we'll use some sample data from a project we did on flies (Drosophila melanogaster) to illustrate how you can use RNA-seq data to look for differentially expressed genes. We'll try a few different approaches to see whether different tools give similar results. Here's some brief background on the project: we're trying to understand how different wild-type genetic backgrounds can influence the phenotypic effects of mutations, using the developing fly wing as our model system. We have several mutations that disrupt wing development, and we've backcrossed them into the genetic backgrounds of two different wild-type fly strains (SAM and ORE). For this tutorial, we've taken a subset of the data--we'll look for expression differences in developing wing tissues between non-mutant and mutant (sd[E3]) flies in each of the two genetic backgrounds, and in flies with a "hybrid" genetic background (i.e., crosses between SAM/ORE flies, again both with and without the mutation). To make things run a little bit faster, we've included only sequence reads that map to X-linked genes.
+In this tutorial, we'll use some sample data from a project we did on flies (Drosophila melanogaster) to illustrate how you can use RNA-seq data to look for differentially expressed genes. We'll try a few different approaches to see whether different tools give similar results. Here's some brief background on the project: we're trying to understand how different wild-type genetic backgrounds can influence the phenotypic effects of mutations, using the developing fly wing as our model system. We have several mutations that disrupt wing development, and we've backcrossed them into the genetic backgrounds of two different wild-type fly strains (SAM and ORE). If you would like to see more about this project (although the data we are using is not yet published) see this link. http://www.genetics.org/cgi/content/long/196/4/1321 
 
-First, launch an EC2 instance and log in. Next, create an EBS volume from our snapshot (snap-642349cb). Make sure to create your EC2 instance and your EBS volume in the same availability zone! The snapshot has the raw reads, as well as pre-computed results files so we don't need to wait for every step to finish running before we proceed.
+For this tutorial, we've taken a subset of the data--we'll look for expression differences in developing wing tissues between wild type and scalloped mutant (sd[E3]) flies in each of the two genetic backgrounds, and in flies with a "hybrid" genetic background (i.e., crosses between SAM/ORE flies, again both with and without the mutation). To make things run a little bit faster, we've included only sequence reads that map to X-linked genes (so consider some of the potential biases for mapping and generating the transcriptome for other tutorials).
+
+First, launch an EC2 instance and log in. Start up an Amazon computer (m1.large or m1.xlarge) using AMI
+ami-7607d01e (see :doc:`amazon/start-up-an-ec2-instance` and
+:doc:`amazon/starting-up-a-custom-ami`).Go back to the Amazon Console. Now select "snapshots" from the left had column.
+Changed "Owned by me" drop down to "All Snapshots".  Search for "snap-028418ad" - 
+(This is a snapshot with our test RNASeq Drosophila data from Chris)  The
+description should be "Drosophila RNA-seq data".  Under "Actions" select "Create Volume", then ok.
+
+ Next, create an EBS volume from our snapshot (snap-642349cb). Make sure to create your EC2 instance and your EBS volume in the same availability zone! The snapshot has the raw reads, as well as pre-computed results files so we don't need to wait for every step to finish running before we proceed.
+
+ow on the left select "Volumes".  You should see an "in-use" volume - this is for your running instance, as well as an "available" volume - this is the one you just created from the snapshot and should have the snap-028418ad label. Select the available volume and from the drop down select "Attach Volume". The white box pop up will appear - select in the empty instance box, your running instance should appear as an option.  Select it. For the device, enter /dev/sdf.  Now attach.
+
+Log in `with Windows <amazon/log-in-with-ssh-win.html>`__ or
+`from Mac OS X <amazon/log-in-with-ssh-mac.html>`__.
+
+Become root::
+   sudo bash
 
 Attach the EBS volume to your instance and mount it in /mnt/ebs/. If you don't know how to do this, ask for a demonstration.
+
+Mount the data volume.  (This is for the data that we added as a snapshot)::
+   cd /root
+   mkdir /mnt/ebs
+   mount /dev/xvdf /mnt/ebs
 
 First, we'll need to install a bunch of software. Some of these tools can be installed using apt-get. Note that apt-get does not necessarily always install the most up-to-date versions of this software! You should always double check versions when you do this. For instance, when I was writing this tutorial, apt-get gave me a warning that cufflinks might be out of date, so we're going to install by downloading it directly from the authors.
 
