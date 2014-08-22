@@ -47,7 +47,7 @@ Friday 8/8       * 9:15am-noon lecture/tutorial, :doc:`R_Introductory_tutorial_2
                  * 7pm: lecture, Gene and genome annotation: `PowerPoint <_static/msu-ngs-annotation.pptx>`__ | `PDF <_static/msu-ngs-annotation.pdf>`__ (Daniel Standage)
 
 Saturday 8/9     * 9:15am-noon: `lecture <_static/2014-lecture-mrnaseq-protocol.pptx.pdf>`__/tutorial, :doc:`eel-pond` (Titus)
-                 * 1:15pm: lecture/discussion, mRNAseq assembly with Trinity (Meg Staton)
+                 * 1:15pm: lecture/discussion, `mRNAseq assembly with Trinity <_static/MegStaton_NGS_KBS_Staton_RNASeq.pdf>`__ (Meg Staton)
                  
 Monday 8/11      * 9:15am lecture, `mRNAseq and counting PDF <_static/NGS2014_RNAseq_ID_1.pdf>`__ (Ian Dworkin)
                  * 10:30am tutorial, :doc:`drosophila_rnaseq1` (Chris Chandler)
@@ -67,7 +67,7 @@ Wed 8/13         * 9:15am-3pm `lecture <_static/howe_mgrast.pptx>`__/tutorial, :
 Thursday 8/14    * 9:15-10:15 lecture (Aaron Darling)
                  * 10:30am-noon tutorial: :doc:`genome-comparison-and-phylogeny` (Aaron)
                  * 1:15pm `lecture <_static/2014-kmers.pptx.pdf>`__ / tutorial :doc:`kmers-etc` (Titus)
-                 * 3pm discussion: long-read sequencing (Matt MacManes)
+                 * 3pm long reads `lecture <_static/Long_reads.pdf>`__ / tutorial :doc:`long-read` (Matt MacManes)
 
                  * 6pm: BBQ (no dinner at McCrary)
                  * 8pm: invited speaker (NGS/EDAMAME) `Jack Gilbert <http://en.wikipedia.org/wiki/Jack_Gilbert>`__
