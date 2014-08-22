@@ -64,7 +64,7 @@ Wed 8/13         * 9:15am-3pm `lecture <_static/howe_mgrast.pptx>`__/tutorial, :
                  * 7:15pm: :doc:`git-koans`
                  * 8:15pm: firepit and a gin social
 
-Thursday 8/14    * 9:15-10:15 lecture (Aaron Darling)
+Thursday 8/14    * 9:15-10:15 lecture: `Phylogeny-based methods for analysing genomes and metagenomes <_static/ngs_aaron.pdf>`__ (Aaron Darling)
                  * 10:30am-noon tutorial: :doc:`genome-comparison-and-phylogeny` (Aaron)
                  * 1:15pm `lecture <_static/2014-kmers.pptx.pdf>`__ / tutorial :doc:`kmers-etc` (Titus)
                  * 3pm long reads `lecture <_static/Long_reads.pdf>`__ / tutorial :doc:`long-read` (Matt MacManes)
