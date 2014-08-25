@@ -1,4 +1,5 @@
-Control Flow and loops in R ############################
+Control Flow and loops in R
+###########################
 
 Control Flow
 ============

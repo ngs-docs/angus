@@ -235,6 +235,19 @@ Complete table of contents
    vcf_exploration
    eel-pond
 
+   SOAPdeNovoTrans_count_eXpress
+   analyzing_drosophila_htseq
+   drosophila_rnaseq1
+   drosophila_rnaseq_bwa_htseq
+   genome-comparison-and-phylogeny
+   git-koans
+   howe-mgrast
+   howe-ncbi
+   kmers-etc
+   long-read
+   mount_chris_snapshot
+   short-read-quality-evaluation-ctb
+
    amazon/index
    instructors-guide
    code-of-conduct

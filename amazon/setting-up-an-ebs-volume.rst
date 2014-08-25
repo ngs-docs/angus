@@ -1,6 +1,6 @@
-=====================================
+=================================================
 Storing data persistently with Amazon EBS Volumes
-=====================================
+=================================================
 
 If you want to save your data across instances -- that is, if you want
 to have persistent data -- Amazon can do that for you, too. 
@@ -36,7 +36,7 @@ Services, and that you've completed the EC2 tutorial to set up an
 Amazon instances.
 
 Creating an Amazon EBS Volume
----------------------------------------------------------------
+-----------------------------
 
 Firstly open the Amazon EC2 console at 'https://console.aws.amazon.com/ec2>'
  and make sure it says North Virginia in the upper right.
@@ -80,10 +80,9 @@ Click "Attach".
 When attachment is complete, connect to your instances via SSH.
 
 If the volume is newly created, you must format the volume.
-**WARNING: ONLY DO THIS ONCE, WHEN YOU FIRST CREATE THE VOLUME. OTHERWISE, 
-YOU WILL LOSE ALL YOUR
-DATA. YOU SHOULD NOT DO THIS IF THE VOLUME IS RESTORED FROM A SNAPSHOT
-AND YOU WANT TO USE THE DATA ON IT **.
+
+**WARNING: ONLY DO THIS ONCE, WHEN YOU FIRST CREATE THE VOLUME. OTHERWISE, YOU WILL LOSE ALL YOUR DATA. YOU SHOULD NOT DO THIS IF THE VOLUME IS RESTORED FROM A SNAPSHOT AND YOU WANT TO USE THE DATA ON IT.**
+
 ::
 
   ubuntu@ip-10-31-232-122:~$ sudo mkfs -t ext4 /dev/xvdf
@@ -104,7 +103,7 @@ Then, mount the volume. You'll do this every time you attach the volume to an in
 Your drive is now ready to use -- it will be available under /data/.
 
 Detaching an Amazon EBS Volume
----------------------------
+------------------------------
 
 Any volumes you have attached will automatically detach when you shut
 down the instance.  You can also stop all processes that are using the

@@ -8,7 +8,7 @@ Amazon Web Services instructions
    log-in-with-ssh-mac
    log-in-with-ssh-win
    installing-dropbox
-   terminating-your-instance.txt
+   terminating-your-instance
    setting-up-an-ebs-volume
    using-ebs-snapshot
    transfer-files-between-instance
