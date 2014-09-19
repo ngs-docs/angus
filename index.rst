@@ -74,7 +74,7 @@ Thursday 8/14    * 9:15-10:15 lecture: `Phylogeny-based methods for analysing ge
                    Note: Talk is in academic building auditorium.
                  * 9:15pm: firepit
 
-Friday 8/15      * 9:15-9:45 `closing lecture <_sttaic/2014-final-lecture.pptx.pdf>`__ (Titus)
+Friday 8/15      * 9:15-9:45 `closing lecture <_static/2014-final-lecture.pptx.pdf>`__ (Titus)
                  * 10am discussion about class; more stuff
 
                  * Links:
