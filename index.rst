@@ -1,5 +1,5 @@
 ==========================================
-Next-Gen Sequence Analysis Workshop (2014)
+Next-Gen Sequence Analysis Workshop (2015)
 ==========================================
 
 .. Warning These documents are not maintained and their instructions may be
@@ -8,73 +8,73 @@ Next-Gen Sequence Analysis Workshop (2014)
 	topics. See also the `installation instructions for the current version
 	of the khmer project <https://khmer.readthedocs.org/en/latest/install.html>`__. 
 
-This is the schedule for the `2014 MSU NGS course <http://bioinformatics.msu.edu/ngs-summer-course-2014>`__.
+This is the schedule for the `2015 MSU NGS course <http://bioinformatics.msu.edu/ngs-summer-course-2015>`__.
 
-.. , which ran from June 10th to June 20th, 2013.  If you're interested in this course in 2014, please see `the 2014 announcement <http://bioinformatics.msu.edu/ngs-summer-course-2014>`__.
+
+.. , which ran from August 10th to August 21st, 2015.  If you're interested in this course in 2015, please see `the 2016 announcement <http://bioinformatics.msu.edu/ngs-summer-course-2014>`__.
 
 This workshop has a :doc:`code-of-conduct`.
 
-`Download all of these materials <https://github.com/ngs-docs/angus/archive/2014.zip>`__ or `visit the GitHub repository <https://github.com/ngs-docs/angus/tree/2014>`__.
+`Download all of these materials <https://github.com/ngs-docs/angus/archive/2015.zip>`__ or `visit the GitHub repository <https://github.com/ngs-docs/angus/tree/2015>`__.
 
 ===============  =============================================================
 Day              Schedule
 ===============  =============================================================
-Monday 8/4       * 1:30pm lecture: `Welcome! <_static/2014-lecture1-welcome.pptx.pdf>`__ (Titus)
+Monday 8/10      * 1:30pm lecture: `Welcome! <_static/2014-lecture1-welcome.pptx.pdf>`__ (Titus)
                  * Tutorial: :doc:`day1`
                  * 7pm: research presentations
-Tuesday 8/5      * :doc:`day2`
+                 
+Tuesday 8/11     * Tutorial:doc:`day2`
                  * 9:15am lecture: `Sequencing considerations <_static/2014-lecture2-sequencing.pptx.pdf>`__ (Titus)
-                 * 10:30am: tutorial, :doc:`running-command-line-blast` (Titus)
-                 * Afternoon: assessment
-                 * 1:15pm: tutorial, :doc:`short-read-quality-evaluation` (Elijah and Istvan)
-                 * (CTB alternate version :doc:`short-read-quality-evaluation-ctb`)
+                 * 10:30am: tutorial, :doc:`running-command-line-blast` (Adina?)
+                 * 1:15pm: tutorial, :doc:`short-read-quality-evaluation-ctb` (Titus?)
                  * Evening: *firepit social*
-Wed 8/6          * 9:15am lecture: `Mapping and Assembly <_static/2014-lecture3-mapping-assembly.pptx.pdf>`__ (Titus)
+                 
+Wed 8/12         * 9:15am lecture: `Mapping and Assembly <_static/2014-lecture3-mapping-assembly.pptx.pdf>`__ (Titus)
                  * 10:30am: tutorial, :doc:`variant` (Titus)
-                 * 1:15pm: :doc:`sam-format-tutorial` (Istvan)
-                 * 7:15pm: tutorial, UNIX command line (Elijah)
+                 * 1:15pm: tutorial, UNIX command line (Amanda?)
+                 * 7:15pm: lecture: More Amazon (Titus)
 
-
-Thursday 8/7     * 9:15am lecture: `Genomic Intervals <_static/2014-lecture4-genomic-intervals.pdf>`__ (Istvan)
-                 * 10:30am mini-diversion: `The Bioinformatics Skill System <_static/2014-rpg.pdf>`__ (Istvan)
-                 * 10:45am: tutorial, :doc:`interval-analysis-and-visualization` (Istvan)
+Thursday 8/13    * 9:15am lecture: `Genome assembly and analysis <_static/NGS_Acey_2013.06.20.01.pdf>`__ (Erich)
+                 * 11:00am 
                  * 1:15pm: tutorial, :doc:`assembling-ecoli-with-velvet` (Titus)
-                 * 5:30pm: leave for Kalamazoo
+                 * 5:30pm: *leave for Kalamazoo* `Bells <http://bellsbeer.com/eccentric-cafe/menu>`__ (No dinner at McCrary)
 
-Friday 8/8       * 9:15am-noon lecture/tutorial, :doc:`R_Introductory_tutorial_2014` R etc. (Ian Dworkin and Martin Schilling)
-                 * 1:15pm: tutorial, :doc:`vcf_exploration` 
-                 * 1:15pm: lecture, `more variant calling <_static/foil.pdf>`__ (Martin Schilling)
-                 * 7pm: lecture, Gene and genome annotation: `PowerPoint <_static/msu-ngs-annotation.pptx>`__ | `PDF <_static/msu-ngs-annotation.pdf>`__ (Daniel Standage)
+Friday 8/14      * 9:15am-noon `lecture <_static/2014-lecture-mrnaseq-protocol.pptx.pdf>`__/tutorial, :doc:`eel-pond` (Titus)
+                 * 1:15pm: tutorial, `Advanced UNIX <https://github.com/datacarpentry/shell-genomics/>`__ (Amanda?)
+                 * *Takeout Dinner on the island*
 
-Saturday 8/9     * 9:15am-noon: `lecture <_static/2014-lecture-mrnaseq-protocol.pptx.pdf>`__/tutorial, :doc:`eel-pond` (Titus)
-                 * 1:15pm: lecture/discussion, `mRNAseq assembly with Trinity <_static/MegStaton_NGS_KBS_Staton_RNASeq.pdf>`__ (Meg Staton)
-                 
-Monday 8/11      * 9:15am lecture, `mRNAseq and counting PDF <_static/NGS2014_RNAseq_ID_1.pdf>`__ (Ian Dworkin)
-                 * 10:30am tutorial, :doc:`drosophila_rnaseq1` (Chris Chandler)
-                 * 10:45am tutorial, :doc:`mount_chris_snapshot` (Meg)
-                 * 2:15pm tutorial, :doc:`SOAPdeNovoTrans_count_eXpress` (Matt)
-                 * 7:15pm tutorial, Mapping reads to transcriptomes (Trinity and SOAP) and counting. 
-                 
-Tuesday 8/12     * 9:15am lecture, `mRNAseq and counting lecture 2 PDF <_static/NGS2014_RNAseq_2.pdf>`__ (Ian Dworkin)
-                 * 11:00am tutorial, :doc:`analyzing_drosophila_htseq`
+Saturday 8/15    * 9:15am-3pm `lecture <_static/howe_mgrast.pptx>`__ / tutorial :doc:`howe-ncbi`  (Adina)
+                 * *Lunch at McCrary 12pm - 1pm*
+                 * *BBQ Dinner on the island*
+
+Sunday 8/16      * Free Day
+                 * *"Brunch" at McCrary 12pm - 1pm*
+                 * *Dinner on the island*
+            
+Monday 8/17      * 9:15am lecture, `mRNAseq and counting I <_static/NGS2014_RNAseq_ID_1.pdf>`__ (Ian)
+                 * 10:30am tutorial, :doc:`drosophila_rnaseq1` (Chris)
+                 * 11:30am tutorial, :doc:`mount_chris_snapshot` (Meg)
+                 * 2:00pm lecture, `A tableside discussion on transcriptome assembly <_static/ngs2014-trimming.pdf>`__ (Matt)                
+                 * 8:15pm: *firepit and gin social*
+                                  
+Tuesday 8/18     * 9:15am lecture, `mRNAseq and counting II <_static/NGS2014_RNAseq_2.pdf>`__ (Ian)
+                 * 11:00am tutorial, :doc:`analyzing_drosophila_htseq` (Chris?)
                  * 1:15pm tutorial, :doc:`drosophila_rnaseq_bwa_htseq` (Meg)
-                 * 2:00pm lecture, `A tableside discussion on transcriptome assembly PDF <_static/ngs2014-trimming.pdf>`__ (Matt).
+                 * 2:15pm tutorial, :doc:`SOAPdeNovoTrans_count_eXpress` (Matt)
+                 * 7:15pm tutorial, Mapping reads to transcriptomes and counting: Trinity and SOAP (Matt) 
+
+Wed 8/19         * 9:15am-noon: lecture/tutorial, :doc:`R_Introductory_tutorial_2014` R etc (Ian)
+                 * 1:15pm: lecture/discussion, `mRNAseq assembly with Trinity <_static/MegStaton_NGS_KBS_Staton_RNASeq.pdf>`__ (Meg)
+                 * 3pm :doc:`git-koans` (Adina)
+                 * 9:15pm: *firepit social*
                  
-Wed 8/13         * 9:15am-3pm `lecture <_static/howe_mgrast.pptx>`__/tutorial, :doc:`howe-ncbi`  (Adina)
-                 * 7:15pm: :doc:`git-koans`
-                 * 8:15pm: firepit and a gin social
-
-Thursday 8/14    * 9:15-10:15 lecture: `Phylogeny-based methods for analysing genomes and metagenomes <_static/ngs_aaron.pdf>`__ (Aaron Darling)
-                 * 10:30am-noon tutorial: :doc:`genome-comparison-and-phylogeny` (Aaron)
+Thursday 8/20    * 9:15-10:15
+                 * 10:30am-noon 
                  * 1:15pm `lecture <_static/2014-kmers.pptx.pdf>`__ / tutorial :doc:`kmers-etc` (Titus)
-                 * 3pm long reads `lecture <_static/Long_reads.pdf>`__ / tutorial :doc:`long-read` (Matt MacManes)
+                 * 3pm long reads `lecture <_static/Long_reads.pdf>`__ / tutorial :doc:`long-read` (Matt)
 
-                 * 6pm: BBQ (no dinner at McCrary)
-                 * 8pm: invited speaker (NGS/EDAMAME) `Jack Gilbert <http://en.wikipedia.org/wiki/Jack_Gilbert>`__
-                   Note: Talk is in academic building auditorium.
-                 * 9:15pm: firepit
-
-Friday 8/15      * 9:15-9:45 `closing lecture <_static/2014-final-lecture.pptx.pdf>`__ (Titus)
+Friday 8/21      * 9:15-9:45 `closing lecture <_static/2014-final-lecture.pptx.pdf>`__ (Titus)
                  * 10am discussion about class; more stuff
 
                  * Links:
@@ -88,30 +88,26 @@ Dramatis personae
 
 Instructors:
 
-* Istvan Albert
 * C Titus Brown
 * Ian Dworkin
 
 TAs:
 
 * Amanda Charbonneau
-* Elijah Lowe
-* Will Pitchers
-* Aswathy Sebastian
-* Qingpeng Zhang
+* Lisa Cohen
+* Ryan Williams
 
 Lecturers:
 
 * Chris Chandler
 * Adina Chuang Howe
 * Matt MacManes
-* Martin Schilling
-* Daniel Standage
 * Meg Staton
+* Erich Schawrz
 
-He Who Drives Many Places:
+She Who Drives Many Places:
 
-* Cody Nicks
+* Jessica Mizzi
 
 Papers and References
 =====================
