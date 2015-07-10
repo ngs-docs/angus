@@ -36,7 +36,7 @@ Wed 8/12         * 9:15am lecture: `Mapping and Assembly <_static/2014-lecture3-
                  * 7:15pm: lecture: More Amazon (Titus)
 
 Thursday 8/13    * 9:15am lecture: `Genome assembly and analysis <_static/NGS_Acey_2013.06.20.01.pdf>`__ (Erich)
-                 * 11:00am 
+                 * 10:15am lecture: exploring short read data sets with k-mer analyses (Titus)
                  * 1:15pm: tutorial, :doc:`assembling-ecoli-with-velvet` (Titus)
                  * 5:30pm: *leave for Kalamazoo* `Bells <http://bellsbeer.com/eccentric-cafe/menu>`__ (No dinner at McCrary)
 
