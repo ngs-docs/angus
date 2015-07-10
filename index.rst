@@ -55,7 +55,7 @@ Sunday 8/16      * Free Day
 Monday 8/17      * 9:15am lecture, `mRNAseq and counting I <_static/NGS2014_RNAseq_ID_1.pdf>`__ (Ian)
                  * 10:30am tutorial, :doc:`drosophila_rnaseq1` (Chris)
                  * 11:30am tutorial, :doc:`mount_chris_snapshot` (Meg)
-                 * 2:00pm lecture, `A tableside discussion on transcriptome assembly <_static/ngs2014-trimming.pdf>`__ (Matt)                
+                 * 2:00pm  :doc:`git-koans` (Adina)                
                  * 8:15pm: *firepit and gin social*
                                   
 Tuesday 8/18     * 9:15am lecture, `mRNAseq and counting II <_static/NGS2014_RNAseq_2.pdf>`__ (Ian)
@@ -66,7 +66,7 @@ Tuesday 8/18     * 9:15am lecture, `mRNAseq and counting II <_static/NGS2014_RNA
 
 Wed 8/19         * 9:15am-noon: lecture/tutorial, :doc:`R_Introductory_tutorial_2014` R etc (Ian)
                  * 1:15pm: lecture/discussion, `mRNAseq assembly with Trinity <_static/MegStaton_NGS_KBS_Staton_RNASeq.pdf>`__ (Meg)
-                 * 3pm :doc:`git-koans` (Adina)
+                 * 3pm lecture, `A tableside discussion on transcriptome assembly <_static/ngs2014-trimming.pdf>`__ (Matt)
                  * 9:15pm: *firepit social*
                  
 Thursday 8/20    * 9:15-10:15
