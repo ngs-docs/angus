@@ -17,6 +17,9 @@ This workshop has a :doc:`code-of-conduct`.
 
 `Download all of these materials <https://github.com/ngs-docs/angus/archive/2015.zip>`__ or `visit the GitHub repository <https://github.com/ngs-docs/angus/tree/2015>`__.
 
+`Meal schedule <_static/NGS_meal_schedule.pdf>`__ 
+
+
 ===============  =============================================================
 Day              Schedule
 ===============  =============================================================
