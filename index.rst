@@ -67,8 +67,8 @@ Tuesday 8/18     * 9:15am lecture/tutorial, :doc:`R_Introductory_tutorial_2014` 
 
 Wed 8/19         * 9:15am lecture, `A tableside discussion on transcriptome assembly <_static/ngs2014-trimming.pdf>`__ (Matt)
                  * 10:15am lecture/discussion, `mRNAseq assembly with Trinity <_static/MegStaton_NGS_KBS_Staton_RNASeq.pdf>`__ (Matt)
-                 * 1:15pm Assembly quality assessment (Transdecoder, BUSCO)
-                 * 2:15pm Functional annotation (BLAST, PFam, InterProScan)
+                 * 1:15pm Assembly quality assessment (Transdecoder, BUSCO) (Meg & Matt)
+                 * 2:15pm Functional annotation (BLAST, PFam, InterProScan) (Meg)
                  
 Thursday 8/20    * 9:15-10:15
                  * 10:30am-noon `lecture <_static/2014-kmers.pptx.pdf>`__ / tutorial :doc:`kmers-etc` (Titus)
