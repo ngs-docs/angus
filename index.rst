@@ -29,8 +29,8 @@ Monday 8/10      * 1:30pm lecture: `Welcome! <_static/2014-lecture1-welcome.pptx
                  
 Tuesday 8/11     * Tutorial :doc:`day2`
                  * 9:15am lecture: `Sequencing considerations <_static/2014-lecture2-sequencing.pptx.pdf>`__ (Titus)
-                 * 10:30am tutorial, UNIX command line (Amanda)
-                 * 1:15pm 
+                 * 11:00am Assessment (Julie)
+                 * 1:15pm tutorial, UNIX command line (Amanda)
                  * Evening *firepit social*
                  
 Wed 8/12         * 9:15am lecture `Mapping and Assembly <_static/2014-lecture3-mapping-assembly.pptx.pdf>`__ (Titus)
@@ -71,8 +71,8 @@ Wed 8/19         * 9:15am lecture, `A tableside discussion on transcriptome asse
                  * 2:15pm Functional annotation (BLAST, PFam, InterProScan)
                  
 Thursday 8/20    * 9:15-10:15
-                 * 10:30am-noon 
-                 * 1:15pm `lecture <_static/2014-kmers.pptx.pdf>`__ / tutorial :doc:`kmers-etc` (Titus)
+                 * 10:30am-noon `lecture <_static/2014-kmers.pptx.pdf>`__ / tutorial :doc:`kmers-etc` (Titus)
+                 * 1:15pm Assessment (Julie)
                  * 3pm long reads `lecture <_static/Long_reads.pdf>`__ / tutorial :doc:`long-read` (Matt)
                  * *BBQ Dinner on the island*
 
