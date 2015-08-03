@@ -24,27 +24,28 @@ This workshop has a :doc:`code-of-conduct`.
 Day              Schedule
 ===============  =============================================================
 Monday 8/10      * 1:30pm lecture: `Welcome! <_static/2014-lecture1-welcome.pptx.pdf>`__ (Titus)
-                 * Tutorial: :doc:`day1`
+                 * Tutorial :doc:`day1`
                  * 7pm: research presentations
                  
-Tuesday 8/11     * Tutorial:doc:`day2`
+Tuesday 8/11     * Tutorial :doc:`day2`
                  * 9:15am lecture: `Sequencing considerations <_static/2014-lecture2-sequencing.pptx.pdf>`__ (Titus)
-                 * 10:30am: tutorial, UNIX command line (Amanda?)
-                 * 1:15pm: tutorial, :doc:`short-read-quality-evaluation-ctb` (Titus?)
-                 * Evening: *firepit social*
+                 * 10:30am tutorial, UNIX command line (Amanda)
+                 * 1:15pm 
+                 * Evening *firepit social*
                  
-Wed 8/12         * 9:15am lecture: `Mapping and Assembly <_static/2014-lecture3-mapping-assembly.pptx.pdf>`__ (Titus)
-                 * 10:30am: tutorial, :doc:`variant` (Titus)
-                 * 1:15pm: tutorial, :doc:`running-command-line-blast` (Adina?)
-                 * 7:15pm: lecture: More Amazon (Titus)
+Wed 8/12         * 9:15am lecture `Mapping and Assembly <_static/2014-lecture3-mapping-assembly.pptx.pdf>`__ (Titus)
+                 * 10:30am tutorial, :doc:`variant` (Titus)
+                 * 1:15pm tutorial, :doc:`running-command-line-blast` (Adina)
+                 * 7:15pm lecture More Amazon (Titus)
 
-Thursday 8/13    * 9:15am lecture: `Genome assembly and analysis <_static/NGS_Acey_2013.06.20.01.pdf>`__ (Erich)
-                 * 10:15am lecture: exploring short read data sets with k-mer analyses (Titus)
-                 * 1:15pm: tutorial, :doc:`assembling-ecoli-with-velvet` (Titus)
-                 * 5:30pm: *leave for Kalamazoo* `Bells <http://bellsbeer.com/eccentric-cafe/menu>`__ (No dinner at McCrary)
+Thursday 8/13    * 9:15am lecture `Genome assembly and analysis <_static/NGS_Acey_2013.06.20.01.pdf>`__ (Erich)
+                 * 10:15am lecture exploring short read data sets with k-mer analyses (Titus)
+                 * 1:15pm tutorial, :doc:`assembling-ecoli-with-velvet` (Titus)
+                 * 5:30pm *leave for Kalamazoo* `Bells <http://bellsbeer.com/eccentric-cafe/menu>`__ (No dinner at McCrary)
 
-Friday 8/14      * 9:15am-noon `lecture <_static/2014-lecture-mrnaseq-protocol.pptx.pdf>`__/tutorial, :doc:`eel-pond` (Titus)
-                 * 1:15pm: tutorial, `Advanced UNIX <https://github.com/datacarpentry/shell-genomics/>`__ (Amanda?)
+Friday 8/14      * 9:15am `lecture <_static/2014-lecture-mrnaseq-protocol.pptx.pdf>`__/tutorial, :doc:`eel-pond` (Titus)
+                 * 10:00am tutorial, tutorial, :doc:`short-read-quality-evaluation-ctb`  (Titus)
+                 * 1:15pm tutorial, `Advanced UNIX <https://github.com/datacarpentry/shell-genomics/>`__ (Amanda)
 
 Saturday 8/15    * 9:15am-3pm `lecture <_static/howe_mgrast.pptx>`__ / tutorial :doc:`howe-ncbi`  (Adina)
                  * *Lunch at McCrary 12pm - 1pm*
@@ -54,21 +55,20 @@ Sunday 8/16      * Free Day
                  * *"Brunch" at McCrary 12pm - 1pm*
                  * *BBQ Dinner on the island*
             
-Monday 8/17      * 9:15am lecture, `mRNAseq and counting I <_static/NGS2014_RNAseq_ID_1.pdf>`__ (Ian)
-                 * 10:30am tutorial, :doc:`drosophila_rnaseq1` (Chris)
-                 * 11:30am tutorial, :doc:`mount_chris_snapshot` (Meg)
-                 * 2:00pm  :doc:`git-koans` (Adina)                
-                 * 8:15pm: *firepit and gin social*
+Monday 8/17      * 9:15am lecture, `mRNAseq and counting I: Biological replicates, blocking,mapping, counting, normalization <_static/NGS2014_RNAseq_ID_1.pdf>`__ (Ian)
+                 * 10:30am tutorial :doc:`drosophila_rnaseq1` (Chris)
+                 * 1:15pm  :doc:`git-koans` (Adina)                
+                 * 8:15pm *firepit and gin social*
                                   
-Tuesday 8/18     * 9:15am lecture, `mRNAseq and counting II <_static/NGS2014_RNAseq_2.pdf>`__ (Ian)
-                 * 11:00am tutorial, :doc:`analyzing_drosophila_htseq` (Chris?)
-                 * 1:15pm tutorial, :doc:`drosophila_rnaseq_bwa_htseq` (Meg)
-                 * 2:15pm tutorial, :doc:`SOAPdeNovoTrans_count_eXpress` (Matt)
-                 * 7:15pm tutorial, Mapping reads to transcriptomes and counting: Trinity and SOAP (Matt) 
+Tuesday 8/18     * 9:15am lecture/tutorial, :doc:`R_Introductory_tutorial_2014` (Ian)
+                 * 1:15pm lecture, `mRNAseq and counting II <_static/NGS2014_RNAseq_2.pdf>`__ (Ian)
+                 * 3:00pm tutorial :doc:`analyzing_drosophila_htseq` (Chris)
+            	 * 7:15pm journal club, `Gilad and Mizrahi-Man, 2015 <_static/Gilad_2015.pdf>`__. A reanalysis of mouse ENCODE comparative gene expression data.  
 
-Wed 8/19         * 9:15am-noon: lecture/tutorial, :doc:`R_Introductory_tutorial_2014` R etc (Ian)
-                 * 1:15pm: lecture/discussion, `mRNAseq assembly with Trinity <_static/MegStaton_NGS_KBS_Staton_RNASeq.pdf>`__ (Meg)
-                 * 3pm lecture, `A tableside discussion on transcriptome assembly <_static/ngs2014-trimming.pdf>`__ (Matt)
+Wed 8/19         * 9:15am lecture, `A tableside discussion on transcriptome assembly <_static/ngs2014-trimming.pdf>`__ (Matt)
+                 * 10:15am lecture/discussion, `mRNAseq assembly with Trinity <_static/MegStaton_NGS_KBS_Staton_RNASeq.pdf>`__ (Matt)
+                 * 1:15pm Assembly quality assessment (Transdecoder, BUSCO)
+                 * 2:15pm Functional annotation (BLAST, PFam, InterProScan)
                  
 Thursday 8/20    * 9:15-10:15
                  * 10:30am-noon 
@@ -79,6 +79,7 @@ Thursday 8/20    * 9:15-10:15
 Friday 8/21      * 9:15-9:45 `closing lecture <_static/2014-final-lecture.pptx.pdf>`__ (Titus)
                  * 10am discussion about class; more stuff
 
+                
                  * Links:
                    `Opinionated guides to NGS <http://davis-assembly-masterclass-2013.readthedocs.org/en/latest/outputs/index.html>`__ /
                    `Software Carpentry <http://software-carpentry.org>`__
