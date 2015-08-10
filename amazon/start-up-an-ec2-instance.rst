@@ -1,10 +1,8 @@
 Start up an EC2 instance
 ========================
 
-Here, we're going to startup an Amazon Web Services (AWS) Elastic
-Cloud Computing (EC2) "instance", or computer.
-
-----
+Log in
+~~~~~~
 
 Go to 'https://aws.amazon.com' in a Web browser.
 
@@ -12,63 +10,76 @@ Select 'My Account/Console' menu option 'AWS Management Console."
 
 Log in with your username & password.
 
-Make sure it says North Virginia in the upper right, then select EC2
-(upper left).
+Click on EC2 (upper left).
 
-.. image:: images/amazon-1.png
-   :width: 50%
+.. image:: images/ec2-1.png
+   :width: 80%
 
-Select "Launch Instance" (midway down the page).
+Select your zone
+~~~~~~~~~~~~~~~~
 
-.. image:: images/amazon-2.png
-   :width: 50%
+Many of the resources that we use are hosted by Amazon on the East coast.
+Make sure that your dashboard has 'N. Virginia' on the upper right.
 
-Next, scroll down the list of operating system types until you find
-Ubuntu 14.04 LTS (PV) -- it should be at the very bottom.  Click 'select'.
-(See :doc:`starting-up-a-custom-ami` if you want to start up a custom
-operating system instead of Ubuntu 14.04.)
+Then click on Launch Instance.
 
-.. image:: images/amazon-3.png
-   :width: 50%
+.. image:: images/ec2-2.png
+   :width: 80%
 
-Scroll down the list of instance types until you find "m1.xlarge".  Select
-the box to the left, and then click "Review and Launch."
+Select the machine operating system to boot
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. image:: images/amazon-4.png
-   :width: 50%
+Find the "Ubuntu Server 14.04" image in the first list to show up.
 
-Ignore the warning, check that it says "Ubuntu 14.04 LTS (PV)", and cick
-"Launch".
+.. image:: images/ec2-3.png
+   :width: 80%
 
-.. image:: images/amazon-5.png
-   :width: 50%
+Choose the machine size
+~~~~~~~~~~~~~~~~~~~~~~~
 
-The *first* time through, you will have to "create a new key pair", which
-you must then name (something like 'amazon') and download.
+Select 'General purpose', 'm3.xlarge', and then 'Review and Launch'.
 
-After this first time, you will be able to select an existing key pair.
+.. image:: images/ec2-4.png
+   :width: 80%
 
-.. image:: images/amazon-6.png
-   :width: 50%
+Confirm and launch
+~~~~~~~~~~~~~~~~~~
 
-Select "Launch Instance."
+Review the details (ignore the warnings!) and click on Launch.
 
-.. image:: images/amazon-7.png
-   :width: 50%
+.. image:: images/ec2-5.png
+   :width: 80%
 
-Select "view instance" and you should see a "pending" line in the
-menu.
+(First time through) generate a new key pair
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. image:: images/amazon-8.png
-   :width: 50%
+If you don't have any key pairs, enter a key pair name and
+then download a key pair.  Then click Launch Instance.
 
-Wait until it turns green, then make a note of the "Public DNS" (we
-suggest copying and pasting it into a text notepad somewhere).  This
-is your machine name, which you will need for logging in.
+.. image:: images/ec2-6.png
+   :width: 80%
 
-.. image:: images/amazon-9.png
-   :width: 50%
+(Next times through) select an existing key pair
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Then, go to :doc:`log-in-with-ssh-win` or :doc:`log-in-with-ssh-mac`
+Select a key pair and click 'Launch'.
 
-You might also want to read about :doc:`terminating-your-instance`.
+.. image:: images/ec2-7.png
+   :width: 80%
+
+Click on View Instances
+~~~~~~~~~~~~~~~~~~~~~~~
+
+.. image:: images/ec2-8.png
+   :width: 80%
+
+Select the public DNS name for later use
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. image:: images/ec2-9.png
+   :width: 80%
+
+Next steps
+----------
+
+:doc:`log-in-with-ssh-mac` or :doc:`log-in-with-ssh-win`
