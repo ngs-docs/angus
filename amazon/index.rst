@@ -20,7 +20,7 @@ Details!
    :maxdepth: 2
 
    start-up-an-ec2-instance
-   log-in-with-ssh-win
+   log-in-with-mobaxterm-win
    log-in-with-ssh-mac
 
    terminate-instance
