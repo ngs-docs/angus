@@ -30,7 +30,7 @@ Monday 8/10      * 1:30pm lecture: `Welcome! <_static/2015Lecture1Welcome.pptx.p
 Tuesday 8/11     * Tutorial :doc:`day2`
                  * 9:15am lecture: `Sequencing considerations <_static/2014-lecture2-sequencing.pptx.pdf>`__ (Titus)
                  * 11:00am Assessment (Julie)
-                 * 1:15pm tutorial, `background PDF <_static/MacManes_Trimming.pdf>`__ and `code <_static/MacManes_trimming.md>`__ (Matt) 
+                 * 1:15pm tutorial, `background PDF <_static/MacManes_Trimming.pdf>`__ and :doc:`MacManesTrimming` (Matt) 
                  * Evening *firepit social*
                  
 Wed 8/12         * 9:15am lecture `Mapping and Assembly <_static/2014-lecture3-mapping-assembly.pptx.pdf>`__ (Titus)
