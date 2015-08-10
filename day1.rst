@@ -11,3 +11,5 @@ in the lecture.
    :maxdepth: 2
 
    amazon/index
+   running-command-line-blast
+
