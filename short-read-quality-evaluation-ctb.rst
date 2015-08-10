@@ -31,9 +31,9 @@ Install `khmer <http://khmer.readthedocs.org/en/v1.1/>`__::
 Install `Trimmomatic <http://www.usadellab.org/cms/?page=trimmomatic>`__::
 
    cd /root
-   curl -O http://www.usadellab.org/cms/uploads/supplementary/Trimmomatic/Trimmomatic-0.32.zip
-   unzip Trimmomatic-0.32.zip 
-   cp Trimmomatic-0.32/trimmomatic-0.32.jar /usr/local/bin
+   curl -O http://www.usadellab.org/cms/uploads/supplementary/Trimmomatic/Trimmomatic-0.33.zip
+   unzip Trimmomatic-0.33.zip 
+   cp Trimmomatic-0.33/trimmomatic-0.33.jar /usr/local/bin
 
 Install `FastQC <http://www.bioinformatics.babraham.ac.uk/projects/download.html#fastqc>`__::
 
@@ -115,7 +115,7 @@ Make a directory to store all your trimmed data in, and go there::
 
 Now, run `Trimmomatic <http://www.usadellab.org/cms/index.php?page=trimmomatic>`__ to eliminate Illumina adapters from your sequences -- ::
 
-  java -jar /usr/local/bin/trimmomatic-0.32.jar PE ../ecoli_ref-5m_s1.fq ../ecoli_ref-5m_s2.fq s1_pe s1_se s2_pe s2_se ILLUMINACLIP:../illuminaClipping.fa:2:30:10
+  java -jar /usr/local/bin/trimmomatic-0.33.jar PE ../ecoli_ref-5m_s1.fq ../ecoli_ref-5m_s2.fq s1_pe s1_se s2_pe s2_se ILLUMINACLIP:../illuminaClipping.fa:2:30:10
 
 Next, let's take a look at data quality using `FastQC <http://www.bioinformatics.babraham.ac.uk/projects/fastqc/>`__ ::
 
