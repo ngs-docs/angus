@@ -113,7 +113,9 @@ The Khmer webpage: http://khmer.readthedocs.org/en/v1.4.1/
     not important right now, but this is a metagenomic sample from root
     of the grape vine.
 
--  mkdir /mnt/reads cd /mnt/reads/
+::
+
+   mkdir /mnt/reads cd /mnt/reads/
 
    curl
    http://api.metagenomics.anl.gov//download/mgm4520306.3?file=050.1 >
