@@ -45,3 +45,7 @@ At the end you should see text and a prompt that look like this:
 
 .. image:: images/win-putty-4.png
    :width: 50%
+
+----
+
+Return to index: :doc:`index`
