@@ -10,10 +10,4 @@ in the lecture.
 .. toctree::
    :maxdepth: 2
 
-   amazon/start-up-an-ec2-instance
-   amazon/log-in-with-ssh-win
-   amazon/log-in-with-ssh-mac
-
-   amazon/installing-dropbox
-
-   amazon/terminating-your-instance
+   amazon/index
