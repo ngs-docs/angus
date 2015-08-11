@@ -34,7 +34,7 @@ Tuesday 8/11     * Tutorial :doc:`day2`
                  * Evening *firepit social*
                  
 Wed 8/12         * 9:15am lecture, Mapping and assembly basics
-                 * 10:30am tutorial, the command line (Amanda)
+                 * 10:30am tutorial, :doc:`GenomicsShell` (Amanda)
                  * 1:15pm tutorial, Variant calling (Adina)
                  * 7:15pm lecture, Teach me scripting
                  * 8:30pm student presentations
