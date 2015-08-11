@@ -2,19 +2,12 @@
 Quality Trimming
 ================================================
 
---
-
---------------
-
 During this lab, we will acquaint ourselves with the software packages
-Trimmomatic and JellyFish. Your objectives are:
+Trimmomatic, khmer and Jellyfish. Your objectives are:
 
--  
-
-1. Familiarize yourself with the software, how to execute it, how to
+1. Familiarize yourself with software, how to install and execute it and optionally how to
    visualize results.
-
-2. Regarding your dataset. Characterize sequence quality.
+2. Characterize sequence quality.
 
 The Trimmomatoc manual: http://www.usadellab.org/cms/?page=trimmomatic
 
@@ -24,10 +17,7 @@ The Khmer webpage: http://khmer.readthedocs.org/en/v1.4.1/
 
 --------------
 
-    Step 1: Launch and AMI. For this exercise, we will use a c4.2xlarge
-    with a 500Gb EBS volume. Remember to change the permission of your
-    key code ``chmod 400 ~/Downloads/????.pem`` (change ????.pem to
-    whatever you named it)
+Step 1: Launch and AMI. For this exercise, we will use a **c4.2xlarge** with a 500Gb EBS volume. Remember to change the permission of your key code ``chmod 400 ~/Downloads/????.pem`` (change ????.pem to whatever you named it)
 
 ::
 
@@ -35,7 +25,7 @@ The Khmer webpage: http://khmer.readthedocs.org/en/v1.4.1/
 
 --------------
 
-    Update Software
+**Update Software**
 
 ::
 
@@ -44,7 +34,7 @@ The Khmer webpage: http://khmer.readthedocs.org/en/v1.4.1/
 
 --------------
 
-    Install updates
+**Install updates**
 
 ::
 
@@ -52,7 +42,7 @@ The Khmer webpage: http://khmer.readthedocs.org/en/v1.4.1/
 
 --------------
 
-    Install other software
+**Install other software** Note that you can install a large amount of software from the Ubuntu "App Store" using a single command. Some of this software we will not use for this tutorial, but...
 
 ::
 
@@ -60,7 +50,7 @@ The Khmer webpage: http://khmer.readthedocs.org/en/v1.4.1/
 
 --------------
 
-    Mount hard drive
+**Mount hard drive** The EBS volume we asked for is not automatically mounted - we need to do that. 
 
 ::
 
@@ -72,7 +62,7 @@ The Khmer webpage: http://khmer.readthedocs.org/en/v1.4.1/
 
 --------------
 
-    Install Trimmomatic
+**Install Trimmomatic**: Trimmomatic is my favorite tool for adapter and quality trimming, there are several others available. 
 
 ::
 
@@ -84,7 +74,7 @@ The Khmer webpage: http://khmer.readthedocs.org/en/v1.4.1/
 
 --------------
 
-    Install Jellyfish
+**Install Jellyfish**: Jellyfish is a kmer counter that is very popular. Note that most (all?) of what Jellyfish can do, khmer can do (better/faster?). I'll introduce it simply to let you know it exists.
 
 ::
 
@@ -98,7 +88,7 @@ The Khmer webpage: http://khmer.readthedocs.org/en/v1.4.1/
 
 --------------
 
-    Install khmer
+**Install khmer**: This is The CTB lab software. 
 
 ::
 
@@ -107,27 +97,24 @@ The Khmer webpage: http://khmer.readthedocs.org/en/v1.4.1/
 
 --------------
 
-    Download data. For this lab, we'll be using files from Jack
-    Gilbert's Merlot wine study
-    (http://mbio.asm.org/content/6/2/e02527-14.full). The details are
-    not important right now, but this is a metagenomic sample from root
-    of the grape vine.
+**Download data**: For this lab, we'll be using files from Jack Gilbert's Merlot wine study (http://mbio.asm.org/content/6/2/e02527-14.full). The details are not important right now, but this is a metagenomic sample from root of the grape vine.
+
+You are downloading from MG-RAST, which is a popular metagenomics analysis package. There are a lot of places to get raw data.
 
 ::
 
-   mkdir /mnt/reads cd /mnt/reads/
+   mkdir /mnt/reads 
+   cd /mnt/reads/
 
-   curl
-   http://api.metagenomics.anl.gov//download/mgm4520306.3?file=050.1 >
-   root\_S13.R1.fq
+   curl http://api.metagenomics.anl.gov//download/mgm4520306.3?file=050.1 > root_S13.R1.fq
 
-   curl
-   http://api.metagenomics.anl.gov//download/mgm4520307.3?file=050.1 >
-   root\_S13.R2.fq
+   curl http://api.metagenomics.anl.gov//download/mgm4520307.3?file=050.1 > root_S13.R2.fq
 
 --------------
 
-    Do 2 different trimming levels -- 2 and 30.
+**Do 2 different trimming levels -- 2 and 30**: One of these is very harsh, the other is probably more appropriate.  Which one is which. 
+
+Look at the output from this command, which should start with ``Input Read Pairs:``
 
 ::
 
@@ -146,6 +133,7 @@ The Khmer webpage: http://khmer.readthedocs.org/en/v1.4.1/
     TRAILING:2 \
     MINLEN:25
 
+    and
 
     java -Xmx10g -jar $HOME/Trimmomatic-0.33/trimmomatic-0.33.jar PE \
     -threads 8 -baseout root_S13.Phred30.fq \
@@ -157,12 +145,14 @@ The Khmer webpage: http://khmer.readthedocs.org/en/v1.4.1/
     TRAILING:30 \
     MINLEN:25
 
+
+--------------
+
 **WON'T COVER THE STUFF BELOW, THOUGH YOU SHOULD TRY TO DO IT**
 
-    Now look at the ``.histo`` file, which is a kmer distribution. I
-    want you to plot the distribution using R and RStudio.
+Now look at the ``.histo`` file, which is a kmer distribution. I want you to plot the distribution using R and RStudio.
 
-    OPEN RSTUDIO
+**OPEN RSTUDIO**
 
 ::
 
