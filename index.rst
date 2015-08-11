@@ -28,15 +28,16 @@ Monday 8/10      * 1:30pm lecture: `Welcome! <_static/2015Lecture1Welcome.pptx.p
                  * 7pm: research presentations
                  
 Tuesday 8/11     * Tutorial :doc:`day2`
-                 * 9:15am lecture: `Sequencing considerations <_static/2014-lecture2-sequencing.pptx.pdf>`__ (Titus)
-                 * 11:00am Assessment (Julie)
+                 * 9:15am lecture: `Sequencing considerations <_static/2015-lecture2-sequencing.pptx.pdf>`__ (Titus)
+                 * 11:00am Assessment (Bob Drost)
                  * 1:15pm tutorial, `background PDF <_static/MacManes_Trimming.pdf>`__ and :doc:`MacManesTrimming` (Matt) 
                  * Evening *firepit social*
                  
-Wed 8/12         * 9:15am lecture `Mapping and Assembly <_static/2014-lecture3-mapping-assembly.pptx.pdf>`__ (Titus)
-                 * 10:30am tutorial, :doc:`variant` (Titus)
-                 * 1:15pm tutorial, :doc:`running-command-line-blast` (Adina)
-                 * 7:15pm lecture More Amazon (Titus)
+Wed 8/12         * 9:15am lecture, Mapping and assembly basics
+                 * 10:30am tutorial, the command line (Amanda)
+                 * 1:15pm tutorial, Variant calling (Adina)
+                 * 7:15pm lecture, Teach me scripting
+                 * 8:30pm student presentations
 
 Thursday 8/13    * 9:15am lecture `Genome assembly and analysis <_static/NGS_Acey_2013.06.20.01.pdf>`__ (Erich)
                  * 10:15am lecture exploring short read data sets with k-mer analyses (Titus)
@@ -253,4 +254,5 @@ Complete table of contents
    amazon/index
    instructors-guide
    code-of-conduct
+
 
