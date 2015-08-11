@@ -1,6 +1,6 @@
-===========================================================
-Day 2 -- Running BLAST and other things at the command line
-===========================================================
+=======================================
+Day 2 -- Command line & quality control
+=======================================
 
 Before following the procedures below, go through the process of
 starting up an ec2 instance and logging in -- see :doc:`day1` for
@@ -13,5 +13,4 @@ second tutorial will start at 1:30.
 .. toctree::
    :maxdepth: 2
 
-   running-command-line-blast
-   short-read-quality-evaluation
+  
