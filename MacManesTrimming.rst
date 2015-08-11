@@ -46,7 +46,7 @@ Step 1: Launch and AMI. For this exercise, we will use a **c4.2xlarge** with a 5
 
 ::
 
-    apt-get -y install tmux git gcc make g++ python-dev unzip default-jre build-essential libcurl4-openssl-dev zlib1g-dev python-pip
+    apt-get -y install tmux git gcc make g++ python-dev unzip default-jre build-essential libcurl4-openssl-dev zlib1g-dev python-pip fastqc
 
 --------------
 
@@ -112,7 +112,7 @@ You are downloading from MG-RAST, which is a popular metagenomics analysis packa
 
 --------------
 
-**Do 2 different trimming levels -- 2 and 30**: One of these is very harsh, the other is probably more appropriate.  Which one is which. 
+**Do 2 different trimming levels -- Phred=2 and Phred=30**: One of these is very harsh, the other is probably more appropriate.  Which one is which?
 
 Look at the output from this command, which should start with ``Input Read Pairs:``
 
@@ -133,7 +133,7 @@ Look at the output from this command, which should start with ``Input Read Pairs
     TRAILING:2 \
     MINLEN:25
 
-    and
+    #and
 
     java -Xmx10g -jar $HOME/Trimmomatic-0.33/trimmomatic-0.33.jar PE \
     -threads 8 -baseout root_S13.Phred30.fq \
@@ -148,15 +148,79 @@ Look at the output from this command, which should start with ``Input Read Pairs
 
 --------------
 
+**Run khmer and Jellyfish**
+
+::
+
+  interleave-reads.py root_S13.Phred30_1P.fq root_S13.Phred30_2P.fq > root_S13.Phred30.interleaved.fq
+
+  interleave-reads.py root_S13.Phred2_1P.fq root_S13.Phred2_2P.fq > root_S13.Phred2.interleaved.fq
+
+  mkdir /mnt/jelly
+  cd /mnt/jelly
+
+
+  jellyfish count -m 25 -s 200M -t 8 -C -o trim2.jf /mnt/trimming/root_S13.Phred2.interleaved.fq
+  jellyfish histo trim2.jf -o trim2.histo
+
+  #and
+
+  jellyfish count -m 25 -s 200M -t 8 -C -o trim30.jf /mnt/trimming/root_S13.Phred30.interleaved.fq
+  jellyfish histo trim30.jf -o trim30.histo
+
+--------------
+
+
+**Look at the 2 histograms**
+
+::
+
+  head *histo
+
+--------------
+
+**Run FastQC on your data**
+
+::
+
+  mkdir /mnt/fastqc
+  cd /mnt/fastqc
+
+  fastqc -t 8 /mnt/reads/root_S13.R1.fq /mnt/reads/root_S13.R2.fq
+  fastqc -t 8 /mnt/trimming/root_S13.Phred30_1P.fq /mnt/trimming/root_S13.Phred30_2P.fq
+  fastqc -t 8 /mnt/trimming/root_S13.Phred2_1P.fq /mnt/trimming/root_S13.Phred2_2P.fq
+  ls -lth
+  
+**Download FastQC .zip file to your computer**
+
+Open up a new terminal window using the buttons command-t, then unzip as per normal. 
+
+::
+
+  scp -i ~/Downloads/????.pem ubuntu@ec2-??-???-???-??.compute-1.amazonaws.com:/mnt/reads/*zip ~/Downloads/
+
+  scp -i ~/Downloads/????.pem ubuntu@ec2-??-???-???-??.compute-1.amazonaws.com:/mnt/trimming/*zip ~/Downloads/
+
+
+--------------
+
+
 **WON'T COVER THE STUFF BELOW, THOUGH YOU SHOULD TRY TO DO IT**
 
 Now look at the ``.histo`` file, which is a kmer distribution. I want you to plot the distribution using R and RStudio.
 
-**OPEN RSTUDIO**
+**OPEN RSTUDIO**: Google and install locally. There are OSX and Windows versions. 
+
+Open up a new terminal window using the buttons command-t
 
 ::
 
-    #Import all 3 histogram datasets: this is the code for importing 1 of them..
+  scp -i ~/Downloads/????.pem ubuntu@ec2-??-???-???-??.compute-1.amazonaws.com:/mnt/jelly/*histo ~/Downloads/
+
+
+Import and visualize the 2 histogram datasets:
+
+::
 
     trim2 <- read.table("~/Downloads/trim2.histo", quote="\"")
     trim30 <- read.table("~/Downloads/trim30.histo", quote="\"")
