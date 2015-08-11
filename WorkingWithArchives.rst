@@ -8,6 +8,9 @@ The two most commonly encountered types of compressed files are Zip
 archives (e.g. ``filename.zip``), Gzip archives (e.g. ``filename.gz``)
 and Tarballs (e.g. ``filename.tar`` or ``filename.tar.gz``).
 
+Zip 
+-----------------
+
 Once you've convinced yourself that the file you have is the file that
 you *ought* to have, the next thing that you'll want to do is unzip it
 (a.k.a. uncompress or decompress or extract). You can unzip your .zip
@@ -47,6 +50,9 @@ folder and all its contents, including subfolders like so:
 
     zip -r <myproject.zip> myproject/
 
+GZip
+-----------------
+
 If you have been sent a big bundle of data as a gzip archive, then
 happily the same procedure applies for viewing and extracting as with
 zip archives, but with the ``gunzip`` program:
@@ -55,6 +61,9 @@ zip archives, but with the ``gunzip`` program:
 
     gunzip -l <bundle.gz>
     gunzip <bundle.gz>
+
+Tarball
+-----------------
 
 Things are slightly different (read 'complex') if you encounter a
 tarball: ``thisfile.tar`` or ``thatfile.tar.gz`` or ``tacofile.tgz``.

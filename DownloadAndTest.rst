@@ -1,11 +1,9 @@
-Getting to know your data
+Download the data
 =========================
 
 -  `#Download the data <Download-the-data>`__
 -  `#Checking the data <Checking-the-data>`__
 
-Download the data
------------------
 
 Working with genomics files almost always requires using the shell, so
 although this isn't the official shell lesson, we're going to use many
