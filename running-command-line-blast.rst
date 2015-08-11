@@ -122,7 +122,7 @@ will compare the first 83 sequences.  You can look at the output file with::
 
 (and again, type 'q' to get out of paging mode.)
 
-Note:
+Notes:
 
 * you can execute multiple commands at a time;
 
@@ -139,3 +139,5 @@ Things to mention and discuss:
 * blastp options and -help.
 * command line options, more generally - why??
 * automation rocks!
+
+Reminder: shut down your instance!
