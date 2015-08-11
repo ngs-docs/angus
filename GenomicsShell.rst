@@ -3,7 +3,6 @@ BASH for Genomics
 ===================================
 
 We're going to go through several functions of the SHELL using various genomics file types.
-The SHELL i
 
 .. toctree::
    :maxdepth: 2
