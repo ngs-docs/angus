@@ -35,7 +35,7 @@ Tuesday 8/11     * Tutorial :doc:`day2`
                  
 Wed 8/12         * 9:15am lecture, `Mapping and assembly basics <_static/2015-lecture-mapping-assembly.pptx>`__ (Adina) 
                  * 10:30am tutorial, :doc:`GenomicsShell` (Amanda)
-                 * 1:15pm tutorial, Variant calling (Adina)
+                 * 1:15pm tutorial, :doc:`variant` (Adina)
                  * 7:15pm lecture, Teach me scripting
                  * 8:30pm student presentations
 
