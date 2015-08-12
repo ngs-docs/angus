@@ -419,8 +419,22 @@ done
 	Exercise: What would make this script better?
 
 
-In a week or so, will you remember all the grep flags? Will you always type this correctly?
-No. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .. [#] Use a ``-n``
 .. [#] You'll need two greps
