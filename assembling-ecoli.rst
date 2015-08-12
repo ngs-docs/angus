@@ -13,61 +13,52 @@ bacterial genomes from short-read data sets, Chitsaz et al., 2011
 Booting an Amazon AMI
 ~~~~~~~~~~~~~~~~~~~~~
 
-Start up an Amazon computer (m1.large or m1.xlarge) using AMI
-ami-7607d01e (see :doc:`amazon/start-up-an-ec2-instance` and
-:doc:`amazon/starting-up-a-custom-ami`).
-
-Log in `with Windows <amazon/log-in-with-ssh-win.html>`__ or
-`from Mac OS X <amazon/log-in-with-ssh-mac.html>`__.
+Start up an Amazon computer (m3.large or m3.xlarge) running
+Ubuntu 14.04, as in :doc:`amazon/index`, and log in.
 
 Logging in
 ==========
 
 Log in and type::
 
-   sudo bash
-
-to change into superuser mode.
-
-Updating the operating system
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Copy and paste the following two commands
-::
-
-   apt-get update
-   apt-get -y install screen git curl gcc make g++ python-dev unzip \
-           default-jre pkg-config libncurses5-dev r-base-core \
-           r-cran-gplots python-matplotlib sysstat
+   sudo apt-get update && \
+   sudo apt-get -y install screen git curl gcc make g++ python-dev unzip \
+              default-jre pkg-config libncurses5-dev r-base-core \
+              r-cran-gplots python-matplotlib sysstat python-virtualenv \
+              python-setuptools cmake
 
 to update the computer with all the bundled software you'll need.
+
+At this time, you might also make /mnt writeable::
+
+   sudo chmod a+rwxt /mnt
 
 Packages to install
 ===================
 
-Install `khmer <http://khmer.readthedocs.org/en/v1.1/>`__::
+Install `khmer <http://khmer.readthedocs.org/>`__::
 
-   cd /usr/local/share
-   git clone https://github.com/ged-lab/khmer.git
-   cd khmer
-   git checkout v1.1
-   make install
+   cd
+   python -m virtualenv env
+   source env/bin/activate
+   pip install -U setuptools
+   pip install khmer==1.4.1
 
-and install the Velvet assembler::
+and download and compile the SPAdes assembler::
 
-   cd /root
-   curl -O http://www.ebi.ac.uk/~zerbino/velvet/velvet_1.2.10.tgz
-   tar xzf velvet_1.2.10.tgz
-   cd velvet_1.2.10
-   make MAXKMERLENGTH=51
-   cp velvet? /usr/local/bin
+   cd
+   curl -O http://spades.bioinf.spbau.ru/release3.5.0/SPAdes-3.5.0.tar.gz
+   tar xvf SPAdes-3.5.0.tar.gz
+   cd SPAdes-3.5.0
+   ./compile_spades.sh
+   export PATH="$PATH:$(pwd)/bin"
 
 as well as `Quast <http://quast.bioinf.spbau.ru/manual.html>`__,
 software for evaluating the assembly against the known reference: ::
 
-   cd /root
-   curl -O -L https://downloads.sourceforge.net/project/quast/quast-2.3.tar.gz
-   tar xzf quast-2.3.tar.gz
+   cd
+   curl -L http://sourceforge.net/projects/quast/files/quast-3.0.tar.gz/download > quast-3.0.tar.gz
+   tar xvf quast-3.0.tar.gz
 
 Getting the data
 ================
@@ -86,34 +77,57 @@ normalization <http://ged.msu.edu/papers/2012-diginorm/>`__ that will
 assemble quickly. ::
 
    curl -O https://s3.amazonaws.com/public.ged.msu.edu/ecoli_ref-5m-trim.fastq.gz
-   curl -O https://s3.amazonaws.com/public.ged.msu.edu/ecoli-reads-5m-dn-paired.fa.gz
+
+Now, pull out the paired reads::
+
+   extract-paired-reads.py ecoli_ref-5m-trim.fastq.gz
+   mv ecoli_ref-5m-trim.fastq.gz.se ecoli_ref-5m-trim.se.fq
+   mv ecoli_ref-5m-trim.fastq.gz.pe ecoli_ref-5m-trim.pe.fq
 
 Running an assembly
 ===================
 
-Now... assemble the small, fast data sets, using the Velvet assembler.  Here
-we will set the required parameter k=21::
+Now, let's run an assembly::
 
-   velveth ecoli.21 21 -shortPaired -fasta.gz ecoli-reads-5m-dn-paired.fa.gz
-   velvetg ecoli.21 -exp_cov auto
+   spades.py --12 ecoli_ref-5m-trim.pe.fq -s ecoli_ref-5m-trim.se.fq -o spades.d
 
-Check out the stats for the assembled contigs for a cutoff of 1000::
+This will take about 15 minutes; it should end with::
 
-   python /usr/local/share/khmer/sandbox/assemstats3.py 1000 ecoli.*/contigs.fa
 
-Also try assembling with k=23 and k=25::
+   * Corrected reads are in /mnt/assembly/spades.d/corrected/
+   * Assembled contigs are in /mnt/assembly/spades.d/contigs.fasta (contigs.fastg)
+   * Assembled scaffolds are in /mnt/assembly/spades.d/scaffolds.fasta (scaffolds.fastg)
 
-   velveth ecoli.23 23 -shortPaired -fasta.gz ecoli-reads-5m-dn-paired.fa.gz
-   velvetg ecoli.23 -exp_cov auto
+Looking at the assembly
+=======================
 
-   velveth ecoli.25 25 -shortPaired -fasta.gz ecoli-reads-5m-dn-paired.fa.gz
-   velvetg ecoli.25 -exp_cov auto
+Run QUAST::
 
-Now check out the stats for the assembled contigs for a cutoff of 1000::
+   ~/quast-3.0/quast.py spades.d/scaffolds.fasta -o report
 
-   python /usr/local/share/khmer/sandbox/assemstats3.py 1000 ecoli.*/contigs.fa
+and then look at the report::
 
-(Also read: `What does k control in de Bruijn graph assemblers? <http://ivory.idyll.org/blog/the-k-parameter.html>`__.)
+   less report/report.txt
+
+You should see::
+
+
+   All statistics are based on contigs of size >= 500 bp, unless otherwise noted (e.g., "# contigs (>= 0 bp)" and "Total length (>= 0 bp)" include all contigs).
+
+   Assembly                   scaffolds
+   # contigs (>= 0 bp)        160      
+   # contigs (>= 1000 bp)     84       
+   Total length (>= 0 bp)     4571783  
+   Total length (>= 1000 bp)  4551354  
+   # contigs                  93       
+   Largest contig             264754   
+   Total length               4557807  
+   GC (%)                     50.75    
+   N50                        132618   
+   N75                        64692    
+   L50                        12       
+   L75                        24       
+   # N's per 100 kbp          0.00     
 
 Comparing and evaluating assemblies - QUAST
 ===========================================
@@ -124,18 +138,17 @@ Download the true reference genome::
    curl -O https://s3.amazonaws.com/public.ged.msu.edu/ecoliMG1655.fa.gz
    gunzip ecoliMG1655.fa.gz
 
-and run QUAST::
+and run QUAST again::
 
-   /root/quast-2.3/quast.py -R ecoliMG1655.fa ecoli.*/contigs.fa
+   ~/quast-3.0/quast.py -R ecoliMG1655.fa spades.d/scaffolds.fasta -o report
 
 Note that here we're looking at *all* the assemblies we've generated.
 
 Now look at the results::
 
-   more quast_results/latest/report.txt
+   more report/report.txt
 
-The first bits to look at are Genome fraction (%) and # misassembled contigs,
-I think.
+and now we have a lot more information!
 
 Searching assemblies -- BLAST
 =============================

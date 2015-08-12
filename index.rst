@@ -44,7 +44,7 @@ Wed 8/12         * 9:15am lecture, `Mapping and assembly basics <_static/2015-le
 Thursday 8/13    * 9:15am lecture, Genome assembly and analysis (Erich)
                  * 10:15am lecture, Genome assembly exercise (Titus)
                  * *Lunch at McCrary 12pm - 1pm*
-                 * 1:15pm tutorial, :doc:`assembling-ecoli-with-velvet` (Titus)
+                 * 1:15pm tutorial, :doc:`assembling-ecoli` (Titus)
                  * 5:30pm *leave for Kalamazoo* `Bells <http://bellsbeer.com/eccentric-cafe/menu>`__ (No dinner at McCrary)
 
 Friday 8/14      * 9:15am, lecture/tutorial, R, RStudio, and data analysis (Amanda)
