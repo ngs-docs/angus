@@ -9,8 +9,7 @@ of. However, most are more like FASTQ files, where any given file could
 be from many different steps of the pipeline. These are the ones that
 cause the most trouble, and need the most careful management.
 
-.. figure:: ../Files/ngs_map_read_file_formats.png
-   :alt: FileTypes
+.. figure:: ../files/ngs_map_read_file_formats.png
 
    FileTypes
 
@@ -276,6 +275,7 @@ or a ``C`` then a ``G`` or a ``T``, then ``AC``
 Naively, we could search for this cut site by doing a series of greps:
 
 .. code:: bash
+
 	grep "GTAGAC" Raphanus.fa > Raphanus_AccI.fa
 	grep "GTCGAC" Raphanus.fa > Raphanus_AccI.fa
 	grep "GTATAC" Raphanus.fa > Raphanus_AccI.fa
@@ -287,6 +287,7 @@ That means each time, the previous file is over-written. We can fix that by addi
 print command like this:
 
 .. code:: bash
+
 	grep "GTAGAC" Raphanus.fa > Raphanus_AccI.fa
 	grep "GTCGAC" Raphanus.fa >> Raphanus_AccI.fa
 	grep "GTATAC" Raphanus.fa >> Raphanus_AccI.fa
@@ -301,6 +302,7 @@ would take 24 different lines of code. Instead, we're going to use wildcards. Th
 wildcards are just brackets that contain the allowed options:
 
 .. code:: bash
+
 	grep "GT[AC][GT]AC" Raphanus.fa > Raphanus_AccI.fa
 
 This gets all four combinations in a single line.
@@ -312,24 +314,28 @@ This particular file has all of the sequences in CAPITAL LETTERS, but as we have
 UNIX is case sensitive. So we get different answers depending on how we phrase our grep:
 
 .. code:: bash
+
 	grep -c "GT[AC][GT]AC" Raphanus.fa
 	grep -c "gt[ac][gt]ac" Raphanus.fa
 
 Again, naively, we might try:
 
 .. code:: bash
+
 	grep -c "[Gg][Tt][AaCc][GgTt][Aa][Cc]" Raphanus.fa
 
 But this looks like the sort of problem a programmer has already figured out. If we 
 search the grem manual file for 'case' we find that we can just tell grep to ignore case:
 
 .. code:: bash
+
 	grep -ci "gt[ac][gt]ac" Raphanus.fa
 
 Note that we can usually bunch up our flags behind a single ``-`` so that these two are 
 exactly the same:
 
 .. code:: bash
+
 	grep -ci "gt[ac][gt]ac" Raphanus.fa
 	grep -c -i "gt[ac][gt]ac" Raphanus.fa
 
@@ -337,6 +343,7 @@ Lets say that we really will frequently want to look for AccI on all the files i
 FASTAS folder. First, lets see whats in there.
 
 .. code:: bash
+
 	cd FASTAS/
 	ls
 	ls | wc 
@@ -349,15 +356,18 @@ A loop is a short program that does the same thing over and over. You just tell 
 action you want it to do, and a list of items it should do that action to.
 It has several important parts:
 
-``for``		starts the loop
-``in``		sets up the list of items
-``do``		sets up the action
-``done``	finishes the loop
+====   ===============
+for    starts the loop
+in     sets up the list of items
+do     sets up the action
+done   finishes the loop
+====   ===============
 
 Conceptually, we want to tell the computer:
 Use the files in FASTAS/, and do ``grep -i -B 1 "gt[ac][gt]ac"`` on each one.
 
 .. code:: bash
+
 	for ATfiles in `ls`; do grep -i -B 1 "gt[ac][gt]ac" ${ATfiles} ; done
 
 Notice that there are 'backticks' around the ``ls``, backticks are like parentheses is math,
@@ -369,6 +379,7 @@ This does almost what we want, but we're getting all the sequences, lets just ge
 lines:
 	
 .. code:: bash
+
 	for ATfiles in `ls`; do grep -i -B 1 "gt[ac][gt]ac" ${ATfiles} | grep ">" ; done
 	
 This is even better, and if we wanted all the description information, this would be perfect
@@ -376,6 +387,7 @@ but maybe we just want the filenames. Because these files are named for the gene
 we can get most of the way there by just using ``cut`` again.
 
 .. code:: bash
+
 	for ATfiles in `ls`; do grep -i -B 1 "gt[ac][gt]ac" ${ATfiles} | grep ">" | cut -f 1 -d " " ; done
 
 	Exercise: Can you figure out how to get rid of the leading > from this list? Hint [#]_.
@@ -392,6 +404,7 @@ highlighted words it knows to make it easier for you to read the script.
 Now we can close nano with cntl + x and we can re-run this script over and over.
 
 .. code:: bash
+
 	sh REscript.sh
 	
 We're doing reproducible science! 
@@ -399,6 +412,7 @@ We're doing reproducible science!
 Now lets make it better. Reopen the file in nano:
 
 .. code:: bash
+
 	nano REscript.sh
 
 And replace all of the ';' with <return>s, and put a tab before the 'do'. While we're at
@@ -406,33 +420,28 @@ it, lets add a <return> after each pipe as well. What we want is for our script 
 readable *to us three weeks from now*, so lets also add comments. Those are any text that
 starts with '#'. The computer will ignore everything to the right of the '#', and you 
 should *fill* your scripts with them, you can never have too many comments. You should end
-up with something like this:
+up with something like this (Ignore the | at the beginning of each line):
 
 .. code:: bash
-for ATfiles in `ls`
-        do grep -i -B 1 "gt[ac][gt]ac" ${ATfiles} | #search for AccI in a list, get the comment line as well
-         grep ">" | #Get only the comment lines
-        cut -f 1 -d " " | #Remove the description from the comment lines
-        cut -f 2 -d ">" #Remove the leading ">" from the comment lines
-done
 
-	Exercise: What would make this script better?
-
+	|for ATfiles in `ls`
+		|do grep -i -B 1 "gt[ac][gt]ac" ${ATfiles} | #search for AccI in a list, get the comment line as well  
+		|grep ">" | #Get only the comment lines
+		|cut -f 1 -d " " | #Remove the description from the comment lines  
+		|cut -f 2 -d ">" #Remove the leading ">" from the comment lines
+	|done
 
 
+Exercise: What would make this script better?
+	
+	Be able to change search query
+
+	Be able to change file list
+
+	Have the computer prompt you for input
 
 
-
-
-
-
-
-
-
-
-
-
-
+Finished :download:`REscript <files/REscript.sh>`
 
 
 
