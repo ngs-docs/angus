@@ -33,7 +33,7 @@ Tuesday 8/11     * Tutorial :doc:`day2`
                  * 1:15pm tutorial, `background PDF <_static/MacManes_Trimming.pdf>`__ and :doc:`MacManesTrimming` (Matt) 
                  * Evening *firepit social*
                  
-Wed 8/12         * 9:15am lecture, Mapping and assembly basics
+Wed 8/12         * 9:15am lecture, `Mapping and assembly basics <_static/2015-lecture-mapping-assembly.pptx>`__ (Adina) 
                  * 10:30am tutorial, :doc:`GenomicsShell` (Amanda)
                  * 1:15pm tutorial, Variant calling (Adina)
                  * 7:15pm lecture, Teach me scripting
