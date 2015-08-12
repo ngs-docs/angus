@@ -30,23 +30,27 @@ Monday 8/10      * 1:30pm lecture: `Welcome! <_static/2015Lecture1Welcome.pptx.p
 Tuesday 8/11     * Tutorial :doc:`day2`
                  * 9:15am lecture: `Sequencing considerations <_static/2015-lecture2-sequencing.pptx.pdf>`__ (Titus)
                  * 11:00am Assessment (Bob Drost)
+                 * *Lunch at McCrary 12pm - 1pm*
                  * 1:15pm tutorial, `background PDF <_static/MacManes_Trimming.pdf>`__ and :doc:`MacManesTrimming` (Matt) 
                  * Evening *firepit social*
                  
 Wed 8/12         * 9:15am lecture, `Mapping and assembly basics <_static/2015-lecture-mapping-assembly.pptx>`__ (Adina) 
                  * 10:30am tutorial, :doc:`GenomicsShell` (Amanda)
+                 * *Lunch at McCrary 12pm - 1pm*
                  * 1:15pm tutorial, :doc:`variant` (Adina)
                  * 7:15pm lecture, Teach me scripting
                  * 8:30pm student presentations
 
 Thursday 8/13    * 9:15am lecture, Genome assembly and analysis (Erich)
                  * 10:15am lecture, Genome assembly exercise (Titus)
+                 * *Lunch at McCrary 12pm - 1pm*
                  * 1:15pm tutorial, :doc:`assembling-ecoli-with-velvet` (Titus)
                  * 5:30pm *leave for Kalamazoo* `Bells <http://bellsbeer.com/eccentric-cafe/menu>`__ (No dinner at McCrary)
 
-Friday 8/14      * 9:15am, lecture (Adina)
-                 * 10:00am tutorial, NCBI and sequencing data (Adina)
-                 * 1:15pm tutorial, R and k-mer fu (Matt)
+Friday 8/14      * 9:15am, lecture/tutorial, R, RStudio, and data analysis (Amanda)
+                 * *Lunch at McCrary 12pm - 1pm*
+                 * 1:15pm tutorial, NCBI and sequencing data (Adina)
+                 * 8pm tutorial (Titus)
 
 Saturday 8/15    * 9:15am, lecture/tutorial, R and stats (?)
                  * *Lunch at McCrary 12pm - 1pm*
