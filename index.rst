@@ -30,54 +30,58 @@ Monday 8/10      * 1:30pm lecture: `Welcome! <_static/2015Lecture1Welcome.pptx.p
 Tuesday 8/11     * Tutorial :doc:`day2`
                  * 9:15am lecture: `Sequencing considerations <_static/2015-lecture2-sequencing.pptx.pdf>`__ (Titus)
                  * 11:00am Assessment (Bob Drost)
+                 * *Lunch at McCrary 12pm - 1pm*
                  * 1:15pm tutorial, `background PDF <_static/MacManes_Trimming.pdf>`__ and :doc:`MacManesTrimming` (Matt) 
                  * Evening *firepit social*
                  
-Wed 8/12         * 9:15am lecture, Mapping and assembly basics
+Wed 8/12         * 9:15am lecture, `Mapping and assembly basics <_static/2015-lecture-mapping-assembly.pptx>`__ (Adina) 
                  * 10:30am tutorial, :doc:`GenomicsShell` (Amanda)
-                 * 1:15pm tutorial, Variant calling (Adina)
+                 * *Lunch at McCrary 12pm - 1pm*
+                 * 1:15pm tutorial, :doc:`variant` (Adina)
                  * 7:15pm lecture, Teach me scripting
                  * 8:30pm student presentations
 
-Thursday 8/13    * 9:15am lecture `Genome assembly and analysis <_static/NGS_Acey_2013.06.20.01.pdf>`__ (Erich)
-                 * 10:15am lecture exploring short read data sets with k-mer analyses (Titus)
+Thursday 8/13    * 9:15am lecture, Genome assembly and analysis (Erich)
+                 * 10:15am lecture, Genome assembly exercise (Titus)
+                 * *Lunch at McCrary 12pm - 1pm*
                  * 1:15pm tutorial, :doc:`assembling-ecoli-with-velvet` (Titus)
                  * 5:30pm *leave for Kalamazoo* `Bells <http://bellsbeer.com/eccentric-cafe/menu>`__ (No dinner at McCrary)
 
-Friday 8/14      * 9:15am `lecture <_static/2014-lecture-mrnaseq-protocol.pptx.pdf>`__/tutorial, :doc:`eel-pond` (Titus)
-                 * 10:00am tutorial, tutorial, :doc:`short-read-quality-evaluation-ctb`  (Titus)
-                 * 1:15pm tutorial, `Advanced UNIX <https://github.com/datacarpentry/shell-genomics/>`__ (Amanda)
-
-Saturday 8/15    * 9:15am-3pm `lecture <_static/howe_mgrast.pptx>`__ / tutorial :doc:`howe-ncbi`  (Adina)
+Friday 8/14      * 9:15am, lecture/tutorial, R, RStudio, and data analysis (Amanda)
                  * *Lunch at McCrary 12pm - 1pm*
+                 * 1:15pm tutorial, NCBI and sequencing data (Adina)
+                 * 8pm tutorial (Titus)
+
+Saturday 8/15    * 9:15am, lecture/tutorial, R and stats (?)
+                 * *Lunch at McCrary 12pm - 1pm*
+                 * 1:15pm, lecture (Torsten Seeman)
                  * *Takeout Dinner on the island*
 
 Sunday 8/16      * Free Day
                  * *"Brunch" at McCrary 12pm - 1pm*
                  * *BBQ Dinner on the island*
             
-Monday 8/17      * 9:15am lecture, `mRNAseq and counting I: Biological replicates, blocking,mapping, counting, normalization <_static/NGS2014_RNAseq_ID_1.pdf>`__ (Ian)
-                 * 10:30am tutorial :doc:`drosophila_rnaseq1` (Chris)
-                 * 1:15pm  :doc:`git-koans` (Adina)                
-                 * 8:15pm *firepit and gin social*
-                                  
-Tuesday 8/18     * 9:15am lecture/tutorial, :doc:`R_Introductory_tutorial_2014` (Ian)
-                 * 1:15pm lecture, `mRNAseq and counting II <_static/NGS2014_RNAseq_2.pdf>`__ (Ian)
-                 * 3:00pm tutorial :doc:`analyzing_drosophila_htseq` (Chris)
+Monday 8/17      * 9:15am lecture, mRNAseq
+                 * 10:30am tutorial, mRNAseq
+                 * 1:15pm  tutorial, mRNAseq
             	 * 7:15pm journal club, `Gilad and Mizrahi-Man, 2015 <_static/Gilad_2015.pdf>`__. A reanalysis of mouse ENCODE comparative gene expression data.  
+                                  
+Tuesday 8/18     * 9:15am lecture/tutorial, mRNAseq
+                 * 1:15pm lecture, mRNAseq
+                 * 3:00pm through evening, Nick Loman & MINion
 
-Wed 8/19         * 9:15am lecture, `A tableside discussion on transcriptome assembly <_static/ngs2014-trimming.pdf>`__ (Matt)
-                 * 10:15am lecture/discussion, `mRNAseq assembly with Trinity <_static/MegStaton_NGS_KBS_Staton_RNASeq.pdf>`__ (Matt)
+Wed 8/19         * 9:15am lecture, mRNAseq
+                 * 10:15am lecture/discussion, mRNAseq
                  * 1:15pm Assembly quality assessment (Transdecoder, BUSCO) (Meg & Matt)
                  * 2:15pm Functional annotation (BLAST, PFam, InterProScan) (Meg)
+                 * evening: gin social?
                  
-Thursday 8/20    * 9:15-10:15
-                 * 10:30am-noon `lecture <_static/2014-kmers.pptx.pdf>`__ / tutorial :doc:`kmers-etc` (Titus)
+Thursday 8/20    * TBD
                  * 1:15pm Assessment (Julie)
-                 * 3pm long reads `lecture <_static/Long_reads.pdf>`__ / tutorial :doc:`long-read` (Matt)
                  * *BBQ Dinner on the island*
+                 * gin social?
 
-Friday 8/21      * 9:15-9:45 `closing lecture <_static/2014-final-lecture.pptx.pdf>`__ (Titus)
+Friday 8/21      * 9:15-9:45 closing lecture (Titus)
                  * 10am discussion about class; more stuff
 
                 
@@ -93,7 +97,11 @@ Dramatis personae
 Instructors:
 
 * C Titus Brown
+* Chris Chandler
 * Ian Dworkin
+* Adina Chuang Howe
+* Matt MacManes
+* Meg Staton
 
 TAs:
 
@@ -104,13 +112,9 @@ TAs:
 
 Lecturers:
 
-* Chris Chandler
-* Adina Chuang Howe
-* Matt MacManes
-* Meg Staton
-* Erich Schawrz
 * Nick Loman
 * Torsten Seemann
+* Erich Schwarz
 
 She Who Drives Many Places:
 
