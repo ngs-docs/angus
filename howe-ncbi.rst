@@ -10,7 +10,7 @@ ate a database for folks to deposit whole genome sequences.  What kind of infor\
 mation am I going to store in this?  Many of you may be familiar with such a da\
 tabase, hosted by the `NCBI <http://www.ncbi.nlm.nih.gov/>`_.  The scripts that complement this tutorial can be downloaded with the following::
 
-    git clone https://github.com/adina/scripts-for-ngs2014.git
+    git clone https://github.com/adina/scripts-for-ngs.git
 
 Let's come up with a list of things we'd like stored in	this database and discuss some	of the challenges involved in database creation, management, and access.
 
