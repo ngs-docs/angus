@@ -145,11 +145,11 @@ To run this for multiple files, I use a shell for loop::
 
     for x in genbank-files/*; do python parse-genbank.py $x > $x.16S.fa; done
 
-There are multiple ways to get this done -- but this is how I like to do it.
+There are multiple ways to get this done -- but this is how I like to do it.  Now, you can figure out how you like to do it.
 
 And there you have it, you can now pretty much automatically grab 16S rRNA genes from any number of genomes in NCBI databases.
 
-Here is some documentation on GEO in NCBI, `here <http://www.ncbi.nlm.nih.gov/geo/info/geo_paccess.html>`_.
+Challenge:  Find your favorite gene, download a database of it from NCBI, and find matching sequences from a sequencing dataset.
 
 
 
