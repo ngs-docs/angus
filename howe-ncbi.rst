@@ -1,5 +1,5 @@
 ================================================
-So you want to get some sequencing data in NCBI?
+So you want to get some sequencing data out of NCBI?
 ================================================
 
 This is a set of tutorials for working with the NCBI and MG-RAST databases -- s\
