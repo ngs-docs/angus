@@ -41,7 +41,7 @@ Wed 8/12         * 9:15am lecture, `Mapping and assembly basics <_static/2015-le
                  * 7:15pm lecture, Teach me scripting :download:`final script <files/Still_script.sh>`
                  * 8:30pm student presentations
 
-Thursday 8/13    * 9:15am lecture, Genome assembly and analysis (Erich)
+Thursday 8/13    * 9:15am lecture, `Genome assembly and analysis <_static/NGS_Schwarz_2015.08.13.pdf>`__ (Erich)
                  * 10:15am lecture, Genome assembly exercise (Titus)
                  * *Lunch at McCrary 12pm - 1pm*
                  * 1:15pm tutorial, :doc:`assembling-ecoli` (Titus)
