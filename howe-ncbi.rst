@@ -149,7 +149,9 @@ There are multiple ways to get this done -- but this is how I like to do it.  No
 
 And there you have it, you can now pretty much automatically grab 16S rRNA genes from any number of genomes in NCBI databases.
 
-Challenge:  Find your favorite gene, download a database of it from NCBI, and find matching sequences from a sequencing dataset.
+Challenge:  
+----------
+Find your favorite gene, download a database of it from NCBI, and find matching sequences from a sequencing dataset.
 
 
 
