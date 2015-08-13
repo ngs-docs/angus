@@ -38,7 +38,7 @@ Wed 8/12         * 9:15am lecture, `Mapping and assembly basics <_static/2015-le
                  * 10:30am tutorial, :doc:`GenomicsShell` (Amanda)
                  * *Lunch at McCrary 12pm - 1pm*
                  * 1:15pm tutorial, :doc:`variant` (Adina)
-                 * 7:15pm lecture, Teach me scripting
+                 * 7:15pm lecture, Teach me scripting :download:`final script <files/Still_script.sh>`
                  * 8:30pm student presentations
 
 Thursday 8/13    * 9:15am lecture, Genome assembly and analysis (Erich)
