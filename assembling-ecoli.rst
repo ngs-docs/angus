@@ -1,10 +1,9 @@
 ========================================
-Assembling E. coli sequences with Velvet
+Assembling E. coli sequences with SPAdes
 ========================================
 
 The goal of this tutorial is to show you the basics of assembly using
-`the Velvet assembler
-<http://en.wikipedia.org/wiki/Velvet_assembler>`__.
+`the SPAdes assembler <http://bioinf.spbau.ru/spades>`__.
 
 We'll be using data from `Efficient de novo assembly of single-cell
 bacterial genomes from short-read data sets, Chitsaz et al., 2011
@@ -69,12 +68,9 @@ Now, let's create a working directory::
    mkdir assembly
    cd assembly
 
-Download some E. coli data.  The first data set
-(ecoli_ref-5m-trim.fastq.gz) is the trimmed PE data sets from the
-other day (see :doc:`short-read-quality-evaluation`), and the second
-data set is a specially processed data set using `digital
-normalization <http://ged.msu.edu/papers/2012-diginorm/>`__ that will
-assemble quickly. ::
+Download some E. coli data.  This data set
+(ecoli_ref-5m-trim.fastq.gz) is the trimmed data from the Chitsaz
+paper, E. coli reference sequencing. ::
 
    curl -O https://s3.amazonaws.com/public.ged.msu.edu/ecoli_ref-5m-trim.fastq.gz
 
@@ -110,7 +106,6 @@ and then look at the report::
    less report/report.txt
 
 You should see::
-
 
    All statistics are based on contigs of size >= 500 bp, unless otherwise noted (e.g., "# contigs (>= 0 bp)" and "Total length (>= 0 bp)" include all contigs).
 
@@ -150,50 +145,15 @@ Now look at the results::
 
 and now we have a lot more information!
 
-Searching assemblies -- BLAST
-=============================
+Challenge exercise
+==================
 
-Install BLAST::
+Take your assembled genome, and:
 
-   cd /root
+* Install BLAST;
+* Grab a FASTA sequence from NCBI for an E. coli protein (e.g. `CRP <http://athyra.idyll.org/~t/crp.fa>`__);
+* Save it to a file;
+* TBLASTN that protein against your newly assembled genome.
 
-   curl -O ftp://ftp.ncbi.nih.gov/blast/executables/release/2.2.24/blast-2.2.24-x64-linux.tar.gz
-   tar xzf blast-2.2.24-x64-linux.tar.gz
-   cp blast-2.2.24/bin/* /usr/local/bin
-   cp -r blast-2.2.24/data /usr/local/blast-data
-
-Build BLAST databases for the assemblies you've done::
-
-   cd /mnt/assembly
-
-   for i in 21 23 25
-   do
-      extract-long-sequences.py -o ecoli-$i.fa -l 500 ecoli.$i/contigs.fa
-      formatdb -i ecoli-$i.fa -o T -p F
-   done
-
-and then let's search for a specific gene -- first, download a file containing
-your protein sequence of interest::
-
-   curl -O http://athyra.idyll.org/~t/crp.fa
-
-and now search::
-
-   blastall -i crp.fa -d ecoli-21.fa -p tblastn -b 1 -v 1
-
-Questions and Discussion Points
-===============================
-
-Why do we use a lower cutoff of 1kb for the assemstats3 links, above?  Why
-not 0?
-
-Followup work
-=============
-
-Try running an assembly of the larger read data set::
-
-   velveth ecoli-full.31 31 -short -fastq.gz ecoli_ref-5m-trim.fastq.gz
-   velvetg ecoli-full.31 -exp_cov auto
-
-.. @@(You might want to do this in screen.)
+See :doc:`running-command-line-blast` for the basics.
 

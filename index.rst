@@ -24,8 +24,9 @@ Meal Times: Breakfast 7-9, `Lunch <_static/McCraryLunch10to14.pdf>`__ 12-1, Dinn
 Day              Schedule
 ===============  =============================================================
 Monday 8/10      * 1:30pm lecture: `Welcome! <_static/2015Lecture1Welcome.pptx.pdf>`__ (Titus)
-                 * Tutorial :doc:`day1`
-                 * 7pm: research presentations
+                 * 3pm: :doc:`amazon/index`
+                 * 7pm: :doc:`running-command-line-blast`
+                 * 8pm: Research presentations
                  
 Tuesday 8/11     * Tutorial :doc:`day2`
                  * 9:15am lecture: `Sequencing considerations <_static/2015-lecture2-sequencing.pptx.pdf>`__ (Titus)
