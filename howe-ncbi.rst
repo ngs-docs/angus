@@ -78,13 +78,13 @@ You'll see it fly on to your screen.  Don't panic - you can save it to a file an
 
     curl "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=CP000962&rettype=fasta&retmode=text" > CP000962.fa
 
-You could now imagine writing a program where you made a list of IDs you want to download and put it in a for loop, *curling* each genome and saving it to a file.  The following is a `script <https://github.com/adina/tutorial-ngs-2014/blob/master/ncbi/fetch-genomes.py>`_.  Thanks to Jordan Fish who gave me the original version of this script before I even knew how and made it easy to use.
+You could now imagine writing a program where you made a list of IDs you want to download and put it in a for loop, *curling* each genome and saving it to a file.  The following is a `script <https://github.com/adina/scripts-for-ngs/blob/master/fetch-genomes.py>`_.  Thanks to Jordan Fish who gave me the original version of this script before I even knew how and made it easy to use.
 
 To see the documentation for this script::
 
     python fetch-genomes.py
 
-You'll see that you need to provide a list of IDs and a directory where you want to save the downloaded files.
+You'll see that you need to provide a list of IDs and a directory where you want to save the downloaded files.  Note that the lazy programmer who wrote this script requires you to identify a directory that does not currently exist.
 
 To run the script::
 
