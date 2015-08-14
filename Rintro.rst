@@ -18,7 +18,7 @@ your own.
 
 `Bioconnector Intro <http://bioconnector.org/workshops/lessons/r/r-intro/>`_
 
-`Bioconnector Advanced <http://bioconnector.org/workshops/ws-r-advanced-manipulation/>`_
+`Bioconnector Advanced <http://bioconnector.org/workshops/lessons/r/r-manipulation/>`_
 
 `Bioconnector Visualization <http://bioconnector.org/workshops/lessons/r/r-viz/>`_
 
