@@ -13,24 +13,28 @@ http://busco.ezlab.org/
   tar -zxf augustus.2.5.5.tar.gz
   cd augustus.2.5.5/
   make
-  PATH=$PATH:$(pwd)/bin
+  export PATH=$PATH:$(pwd)/bin
   export AUGUSTUS_CONFIG_PATH=$(pwd)/config
 
-**INSTALL BUSCO**: Needs ``apt-get install ncbi-blast+ hmmer``
+**INSTALL BUSCO**:
 
-::
+Some new system software is required::
+
+   sudo -y apt-get install ncbi-blast+ hmmer
+
+Now, install BUSCO::
 
   cd $HOME
   curl -O http://busco.ezlab.org/files/BUSCO_v1.1b1.tar.gz
   tar -zxf BUSCO_v1.1b1.tar.gz
   cd BUSCO_v1.1b1/
-  PATH=$PATH:$(pwd)
+  export PATH=$PATH:$(pwd)
 
 **Go to assembly directory and download BUSCO reference**: BUSCO reference needs to be in same DIR as where you are going to run BUSCO.
 
 ::
 
-  cd /mnt/assembly/ #or wherever you're assemblies are
+  cd /mnt/assembly/ #or wherever your assemblies are
   curl -LO https://www.dropbox.com/s/o8roa5ayt5dbnl4/bacteria_busco.tar.gz
   tar -zxf bacteria_busco.tar.gz
 
@@ -38,16 +42,15 @@ http://busco.ezlab.org/
 
 ::
 
-  cd /mnt/reads/
-  python3 /home/ubuntu/BUSCO_v1.1b1/BUSCO_v1.1b1.py \
-  -m genome -in [GENOME.ASSEMBLY.FASTA] \
-  --cpu 8 -l bacteria -o [NAME]
-
+  python3 /home/ubuntu/BUSCO_v1.1b1/BUSCO_v1.1b1.py -f \
+     -m genome -in megahit-assembly.fa \
+     --cpu 8 -l bacteria -o megahit
+  python3 /home/ubuntu/BUSCO_v1.1b1/BUSCO_v1.1b1.py -f \
+     -m genome -in spades-assembly.fa \
+     --cpu 8 -l bacteria -o spades -f
 
 **Results for SPAdes vs. Velvet vs. Reference**
 
-::
+Run::
 
-  Ref:    C:97%[D:0.0%],F:2.5%,M:0.0%,n:40
-  SPAdes: C:97%[D:2.5%],F:2.5%,M:0.0%,n:40
-  Velvet: C:75%[D:2.5%],F:0.0%,M:25%,n:40
+  cat run*/short*
