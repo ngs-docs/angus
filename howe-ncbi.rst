@@ -1,5 +1,5 @@
 ================================================
-So you want to get some sequencing data in NCBI?
+So you want to get some sequencing data out of NCBI?
 ================================================
 
 This is a set of tutorials for working with the NCBI and MG-RAST databases -- s\
@@ -10,7 +10,7 @@ ate a database for folks to deposit whole genome sequences.  What kind of infor\
 mation am I going to store in this?  Many of you may be familiar with such a da\
 tabase, hosted by the `NCBI <http://www.ncbi.nlm.nih.gov/>`_.  The scripts that complement this tutorial can be downloaded with the following::
 
-    git clone https://github.com/adina/scripts-for-ngs2014.git
+    git clone https://github.com/adina/scripts-for-ngs.git
 
 Let's come up with a list of things we'd like stored in	this database and discuss some	of the challenges involved in database creation, management, and access.
 
@@ -56,7 +56,7 @@ Do you notice the difference in these two commands?  Let's breakdown the command
 #.  <http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?>  This is command telling your computer program (or your browser) to talk to the NCBI API tool efetch.
 #.  <db=nuccore>  This command tells the NCBI API that you'd like it to look in this particular database for some data.  Other databases that the NCBI has available can be found `here <http://eutils.ncbi.nlm.nih.gov/entrez/eutils/einfo.fcgi>`_.
 #.  <id=CP000962>  This command tells the NCBI API efetch the ID of the genome you want to find.
-#.  <rettype=gb&retmode=text>  These two commands tells the NCBI how the data is returned.  You'll note that in the two examples above this command varied slightly.  In the first, we asked for only the FASTA sequence, while in the second, we asked for the Genbank file.  Here's some elusive documentation on where to find these `"return" objects <http://www.ncbi.nlm.nih.gov/books/NBK25499/table/chapter4.chapter4_table1/?report=objectonly>`_.  
+#.  <rettype=gb&retmode=text>  These two commands tells the NCBI how the data is returned.  You'll note that in the two examples above this command varied slightly.  In the first, we asked for only the FASTA sequence, while in the second, we asked for the Genbank file.  Here's some elusive documentation on where to find these `"return" objects <http://www.ncbi.nlm.nih.gov/books/NBK25499/table/chapter4.T._valid_values_of__retmode_and/?report=objectonly>`_.  
 
 
 Also, a useful command is also <version=1>.  There are different versions of sequences and some times that is useful.  For reproducibility, I try to specify versions in my queries, see these `comments <http://www.ncbi.nlm.nih.gov/Class/MLACourse/Modules/Format/exercises/qa_accession_vs_gi.html>`_.
@@ -78,13 +78,13 @@ You'll see it fly on to your screen.  Don't panic - you can save it to a file an
 
     curl "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=CP000962&rettype=fasta&retmode=text" > CP000962.fa
 
-You could now imagine writing a program where you made a list of IDs you want to download and put it in a for loop, *curling* each genome and saving it to a file.  The following is a `script <https://github.com/adina/tutorial-ngs-2014/blob/master/ncbi/fetch-genomes.py>`_.  Thanks to Jordan Fish who gave me the original version of this script before I even knew how and made it easy to use.
+You could now imagine writing a program where you made a list of IDs you want to download and put it in a for loop, *curling* each genome and saving it to a file.  The following is a `script <https://github.com/adina/scripts-for-ngs/blob/master/fetch-genomes.py>`_.  Thanks to Jordan Fish who gave me the original version of this script before I even knew how and made it easy to use.
 
 To see the documentation for this script::
 
     python fetch-genomes.py
 
-You'll see that you need to provide a list of IDs and a directory where you want to save the downloaded files.
+You'll see that you need to provide a list of IDs and a directory where you want to save the downloaded files.  Note that the lazy programmer who wrote this script requires you to identify a directory that does not currently exist.
 
 To run the script::
 
@@ -145,11 +145,13 @@ To run this for multiple files, I use a shell for loop::
 
     for x in genbank-files/*; do python parse-genbank.py $x > $x.16S.fa; done
 
-There are multiple ways to get this done -- but this is how I like to do it.
+There are multiple ways to get this done -- but this is how I like to do it.  Now, you can figure out how you like to do it.
 
 And there you have it, you can now pretty much automatically grab 16S rRNA genes from any number of genomes in NCBI databases.
 
-Here is some documentation on GEO in NCBI, `here <http://www.ncbi.nlm.nih.gov/geo/info/geo_paccess.html>`_.
+Challenge:  
+----------
+Find your favorite gene, download a database of it from NCBI, and find matching sequences from a sequencing dataset.
 
 
 

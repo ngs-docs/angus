@@ -48,9 +48,9 @@ Thursday 8/13    * 9:15am lecture, `Genome assembly and analysis <_static/NGS_Sc
                  * 1:15pm tutorial, :doc:`assembling-ecoli` (Titus)
                  * 5:30pm *leave for Kalamazoo* `Bells <http://bellsbeer.com/eccentric-cafe/menu>`__ (No dinner at McCrary)
 
-Friday 8/14      * 9:15am, lecture/tutorial, R, RStudio, and data analysis (Amanda)
+Friday 8/14      * 9:15am, lecture/tutorial, :doc:`Rintro` (Amanda)
                  * *Lunch at McCrary 12pm - 1pm*
-                 * 1:15pm tutorial, NCBI and sequencing data (Adina)
+                 * 1:15pm tutorial, :doc:`howe-ncbi` (Adina)
                  * 7:15pm tutorial, GitHub, K-mers, and Programming Python using an Adrienne
 
 Saturday 8/15    * 9:15am, lecture/tutorial, R and stats (?)
