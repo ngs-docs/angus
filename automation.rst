@@ -16,8 +16,10 @@ These are the raw sequencing data files:
 
 http://athyra.idyll.org/~t/transfer/dd.txt  
 
-Link from Matt MacManes:
+Cartoons, when to automate:
 http://www.howtogeek.com/102420/geeks-versus-non-geeks-when-doing-repetitive-tasks-funny-chart/
+https://xkcd.com/1205/
+https://xkcd.com/1319/
 
 Here are the steps to re-create Adrienne's task:
 
