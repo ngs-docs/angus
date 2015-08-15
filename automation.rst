@@ -39,7 +39,7 @@ Make a directory called *wand*, then clone *Lady Wizard's* github repository:
     git clone https://github.com/ahoarfrost/wand.git
     cd wand
 
-Her script files are located here:
+Her script files, with comments are located here:
 
 * `kmerhistograms.R <_static/kmerhistograms.R>`__ 
 * `kmer.py <_static/kmer.py>`__ 
