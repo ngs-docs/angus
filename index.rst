@@ -56,7 +56,7 @@ Friday 8/14      * 9:15am, lecture/tutorial, :doc:`Rintro` (Amanda)
 Saturday 8/15    * 9:15am, `Kmerology <_static/CTB_kmerology.pptx.pdf>`__
                  * 10:15am, tutorial, :doc:`MacManes_UNIX`
                  * *Lunch at McCrary 12pm - 1pm*
-                 * 1:15pm, lecture (Torsten Seeman)
+                 * 1:15pm, lecture, `long read sequencing <_static/Torsten_Seemann_LRS.pdf>`__ (Torsten Seeman)
                  * *Takeout Dinner on the island*
 
 Sunday 8/16      * Free Day
