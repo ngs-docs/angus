@@ -10,10 +10,10 @@ Adrienne Hoarfrost, aka *Lady Wizard* was given an assignment to automate this t
 
 These are the raw sequencing data files:
 
-* `http://athyra.idyll.org/~t/transfer/aa.txt <http://athyra.idyll.org/~t/transfer/aa.txt>`  
-* `http://athyra.idyll.org/~t/transfer/bb.txt <http://athyra.idyll.org/~t/transfer/bb.txt>`  
-* `http://athyra.idyll.org/~t/transfer/cc.txt <http://athyra.idyll.org/~t/transfer/cc.txt>` 
-* `http://athyra.idyll.org/~t/transfer/dd.txt <http://athyra.idyll.org/~t/transfer/dd.txt>` 
+* `http://athyra.idyll.org/~t/transfer/aa.txt <http://athyra.idyll.org/~t/transfer/aa.txt>`__  
+* `http://athyra.idyll.org/~t/transfer/bb.txt <http://athyra.idyll.org/~t/transfer/bb.txt>`_  
+* `http://athyra.idyll.org/~t/transfer/cc.txt <http://athyra.idyll.org/~t/transfer/cc.txt>`__ 
+* `http://athyra.idyll.org/~t/transfer/dd.txt <http://athyra.idyll.org/~t/transfer/dd.txt>`__ 
 
 Cartoons, when to automate:
 
