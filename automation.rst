@@ -41,12 +41,12 @@ Make a directory called *wand*, then clone *Lady Wizard's* github repository:
 
 Her script files are located here:
 
-* `kmerhistograms.R<_static/kmerhistograms.R>`__ 
-* `kmer.py<_static/kmer.py>`__ 
-* `do.sh<_static/do.sh>`__ 
+* `kmerhistograms.R <_static/kmerhistograms.R>`__ 
+* `kmer.py <_static/kmer.py>`__ 
+* `do.sh <_static/do.sh>`__ 
 
 Download these script files to your Amazon instance and run the scripts. 
 
 After running th scripts, you should have this same resulting pdf:
 
-* `kmer10hists.pdf<_static/kmer10hists.pdf>`__ 
+* `kmer10hists.pdf <_static/kmer10hists.pdf>`__ 
