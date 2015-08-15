@@ -53,7 +53,8 @@ Friday 8/14      * 9:15am, lecture/tutorial, :doc:`Rintro` (Amanda)
                  * 1:15pm tutorial, :doc:`howe-ncbi` (Adina)
                  * 7:15pm tutorial, :doc: `automation` GitHub, K-mers, and Programming Python with `Adrienne <https://github.com/ahoarfrost/wand>`__
 
-Saturday 8/15    * 9:15am, lecture/tutorial, R and stats (?)
+Saturday 8/15    * 9:15am, `Kmerology <_static/CTB_kmerology.pptx.pdf>`__
+                 * 10:15am, tutorial, :doc:`MacManes_UNIX`
                  * *Lunch at McCrary 12pm - 1pm*
                  * 1:15pm, lecture (Torsten Seeman)
                  * *Takeout Dinner on the island*
