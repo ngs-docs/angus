@@ -2,8 +2,7 @@
 So you want to get some sequencing data out of NCBI?
 ================================================
 
-This is a set of tutorials for working with the NCBI and MG-RAST databases -- s\
-pecifically, to download project specific information.
+Requirements:  You'll need to start an Ubuntu EC2 instance and have root access.  The first part of this tutorial will be on your local computer and then we'll move onto the EC2 instance.  Also, this tutorial assumes that someone has talked to you about paths and you know how to change directories and execute a program on a file.  If you get an error that a program or file does not exist, make sure you are in the right path.
 
 First, let's think about how these databases are structured.  I am going to cre\
 ate a database for folks to deposit whole genome sequences.  What kind of infor\
@@ -26,11 +25,11 @@ Say the list is only 3 genomes::
    
 The following are some ways with which I've used to grab genome sequences:
 
-#. Go to the web portal and look up each FASTA
-#. Go to the `FTP site <ftp://ftp.ncbi.nlm.nih.gov/refseq/>`_, find each genome, and download manually
+#. Use the web portal and look up each FASTA
+#. Use the `FTP site <ftp://ftp.ncbi.nlm.nih.gov/refseq/>`_, find each genome, and download manually
 #. Use the NCBI Web Services API to download the data
 
-Among these, I'm going to assume many of you are familiar with the first two.  This tutorial then is going to focus on using APIs.  
+Among these, I'm going to assume many of you are familiar with the first two.  This tutorial then is going to go through an example of the first approach and then focus on using APIs.  
 
 What is an API and how does it relate to NCBI?
 ----------------------------------------------
@@ -41,13 +40,13 @@ The NCBI has a whole toolkit which they call *Entrez Programming Utilities* or *
 
 To do this, you're going to be using one tool in *eutils*, called *efetch*.  There is a whole chapter devoted to `efetch <http://www.ncbi.nlm.nih.gov/books/NBK25499/#chapter4.EFetch>`_ -- when I first started doing this kind of work, this documentation always broke my heart.  Its easier for me to just show you how to use it.
 
-Open a web browser, and try the following URL to download the nucleotide genome for CB00962::
+You can use the NCBI efetch utility on your web browser (as is true of many APIs).  Open a web browser, and try the following URL to download the nucleotide genome for CB00962::
 
     http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=CP000962&rettype=fasta&retmode=text
 
-Note that the NCBI knows a lot about this genome.  Check it out `here <http://www.ncbi.nlm.nih.gov/nuccore/CP000962>`_.
+You'll note that a file downloaded on your computer.  Take a look at it.  You'll note that it looks a lot like what you would see if you had searched for CP00962 on the NCBI search page.  Check it out `here <http://www.ncbi.nlm.nih.gov/nuccore/CP000962>`_.
 
-If I want to access other kinds of data associated with this genome, I would try the following command::
+If I want to access other kinds of data associated with this genome.  For example, if I want the Genbank file as an output rather than a FASTA file, I would try the following command::
 
    http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=CP000962&rettype=gb&retmode=text
 
@@ -57,7 +56,6 @@ Do you notice the difference in these two commands?  Let's breakdown the command
 #.  <db=nuccore>  This command tells the NCBI API that you'd like it to look in this particular database for some data.  Other databases that the NCBI has available can be found `here <http://eutils.ncbi.nlm.nih.gov/entrez/eutils/einfo.fcgi>`_.
 #.  <id=CP000962>  This command tells the NCBI API efetch the ID of the genome you want to find.
 #.  <rettype=gb&retmode=text>  These two commands tells the NCBI how the data is returned.  You'll note that in the two examples above this command varied slightly.  In the first, we asked for only the FASTA sequence, while in the second, we asked for the Genbank file.  Here's some elusive documentation on where to find these `"return" objects <http://www.ncbi.nlm.nih.gov/books/NBK25499/table/chapter4.T._valid_values_of__retmode_and/?report=objectonly>`_.  
-
 
 Also, a useful command is also <version=1>.  There are different versions of sequences and some times that is useful.  For reproducibility, I try to specify versions in my queries, see these `comments <http://www.ncbi.nlm.nih.gov/Class/MLACourse/Modules/Format/exercises/qa_accession_vs_gi.html>`_.
 
@@ -70,30 +68,36 @@ Automating with an API
 
 Ok, let's think of automating this sort of query.  
 
-In the shell, you could run the same commands above with the addition of *curl* on your EC2 instance::
+In the shell, you could run the same commands above with the addition of *curl* (a program to get information from remote sources) on your EC2 instance::
 
     curl "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=CP000962&rettype=fasta&retmode=text"
 
-You'll see it fly on to your screen.  Don't panic - you can save it to a file and make it more useful.::
+You'll see it fly on to your screen.  Don't panic - you can save it to a file with the redirect command ">" and make it more useful.::
 
     curl "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=CP000962&rettype=fasta&retmode=text" > CP000962.fa
 
-You could now imagine writing a program where you made a list of IDs you want to download and put it in a for loop, *curling* each genome and saving it to a file.  The following is a `script <https://github.com/adina/scripts-for-ngs/blob/master/fetch-genomes.py>`_.  Thanks to Jordan Fish who gave me the original version of this script before I even knew how and made it easy to use.
+You've now saved a query you've sent to the NCBI API to a file.  Now, you could now imagine writing a program where you made a list of IDs you want to download and put it in a for loop, *curling* each genome and saving it to a file.  The following is a `script <https://github.com/adina/scripts-for-ngs/blob/master/fetch-genomes.py>`_.  Thanks to Jordan Fish who gave me the original version of this script before I even knew how and made it easy to use.
 
-To see the documentation for this script::
+This script has some nifty documentation that you can see by trying to execute the script.  To see the documentation for this script::
 
     python fetch-genomes.py
 
-You'll see that you need to provide a list of IDs and a directory where you want to save the downloaded files.  Note that the lazy programmer who wrote this script requires you to identify a directory that does not currently exist.
+You'll see that you need to provide a list of IDs and a directory where you want to save the downloaded files.  What do you need to provide to this script?  The first thing is a file that contains a list of IDs (note that this is a required format, each ID on a new line) to fetch the data from NCBI.  Second, you need to name a directory where you want the program to put the files you fetch from the NCBI API.   Note that the lazy programmer who wrote this script requires you to identify a directory that does not currently exist.
 
-To run the script::
+So to use this script, two things are needed.  What are they?
 
-    python fetch-genomes.py interesting-genomes.txt genbank-files
-
+To help out, I have provided a list of 50 IDs in a file called "interesting-genomes.txt."  How can you tell there are 50 genomes in this file?  But I don't want to just go wild and download all 50 at once.  
+ 
 .. Note::
     
-    You may want to run this on just a few of these IDs to begin with.  You can create a smaller list using the *head* command with the -n parameter in the shell.  For example, head -n 3 interesting-genomes.txt > 3genomes.txt.
+    You may want to run this on just a few of these IDs to begin with.  You can create a smaller list using the *head* command with the -n parameter in the shell.  For example, head -n 3 interesting-genomes.txt > 3genomes.txt. 
  
+To run the script::
+    python fetch-genomes.py 3genomes.txt 3genomes
+    
+Take a look at what happened, and when you're ready to try it for more files you could try the following.  Note that the directory you name in this command is arbitrary and defined by you::
+    python fetch-genomes.py interesting-genomes.txt genbank-files
+
 Let's take a look inside this script.  The meat of this script uses the following code::
 
     url_template = "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nucleotide&id=%s&rettype=gb&retmode=text"
@@ -103,7 +107,7 @@ You'll see that the *id* here is a string character which is obtained from list 
 Exercise - Downloading data
 ---------------------------
 
-Try modifying the fetch_genomes.py script to download just the FASTA sequences of the genes.
+Try modifying the fetch_genomes.py script to download just the FASTA sequences of the genes.  
 
 Running this script should allow you to download genomes to your heart's content.  But how do you grab specific genes from this data then?  Specifically, the challenge was to make a phylogenetic tree of sequences, so let's target the conserved bacterial gene, *16S ribosomal RNA gene*.
 
@@ -124,18 +128,16 @@ The structure of the Genbank file allows you to identify 16S genes.  For example
                      /product="16S ribosomal RNA"
                      /db_xref="Pathema:CLK_3816"
 
-You could write code to find text like 'rRNA' and '/product="16S ribosomal RNA"', grab the location of the gene, and then go to the FASTA file and grab these sequences.  I've done that before.  
-
-You could also use existing packages to parse Genbank files.  I have the most experience with BioPython.  To begin with, let's just use BioPython so you can get to using existing scripts without writing scripts.  
-
+You could write code to find text like 'rRNA' and '/product="16S ribosomal RNA"', grab the location of the gene, and then go to the FASTA file and grab these sequences.  To make things easy, there are existing packages to parse Genbank files.  I have the most experience with BioPython.  To begin with, let's just use BioPython to help us with our program.  
 
 First, we'll have to install BioPython on your instance and they've made that pretty easy::
 
-    apt-get install python-biopython
+    sudo apt-get update
+    sudo apt-get install python-biopython
 
-Fan Yang (Iowa State University) and I wrote a script to extract 16S rRNA sequences from Genbank files, `here <https://github.com/adina/tutorial-ngs-2014/blob/master/ncbi/parse-genbank.py>`_.  It basically searches for text strings in the Genbank structure that is appropriate for these particular genes.  You can read more about BioPython `here <http://biopython.org/DIST/docs/tutorial/Tutorial.html>`_ and its Genbank parser `here <http://biopython.org/DIST/docs/api/Bio.GenBank-module.html>`_.  
+Fan Yang (Iowa State University) and I wrote a script to extract 16S rRNA sequences from Genbank files, `here <https://github.com/adina/scripts-for-ngs/blob/master/parse-genbank.py>`_.  It basically searches for text strings in the Genbank structure that is appropriate for these particular genes.  You can read more about BioPython `here <http://biopython.org/DIST/docs/tutorial/Tutorial.html>`_ and its Genbank parser `here <http://biopython.org/DIST/docs/api/Bio.GenBank-module.html>`_.  In this script, we are looking for an "rRNA" feature and looking for specific text in its "/product" line.  If this is true, we go through the genome sequence and extract the coordinates of these genes, providing the specific gene sequence.
 
-To run this script on the Genbank file for CP000962::
+To run this script on the Genbank file for CP000962.  Note make sure you are in the right directory for both the program and the files::
 
     python parse-genbank.py genbank-files/CP000962.gbk > genbank-files/CP000962.gbk.16S.fa
 
