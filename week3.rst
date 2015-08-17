@@ -9,7 +9,8 @@ Monday 8/24      * 1:30pm: welcome & startup (AWS)
 
 Tuesday 8/25     * 9:15am: Effective visualizations and stats for NGS (Ryan)
                  * 1:15pm: Genome assembly (Lex)
-                 * evening: curriculum design and research discussion
+                 * 7:15pm: Reproducible microbial ecology data analysis
+                   with RMarkdown and RStudio (Marian)
 
 Wednesday 8/25   * 9:15am: RNAseq differential expression analysis (Meeta)
                  * 1:15pm: Pathway analysis with RNAseq (Asela)
@@ -17,7 +18,7 @@ Wednesday 8/25   * 9:15am: RNAseq differential expression analysis (Meeta)
 
 Thursday 8/25    * 9:15am: Reproducibility with AWS (Leigh)
                  * 1:15pm: GWAS tutorial (Tiffany)
-                 * evening: curriculum design and research discussion
+                 * 7:15pm: Building butterfly transcriptomes (Chris Hamm)
                  
 Friday 8/25      * 9:15am: Docker (Titus)
                  * noon: fare-thee-well lunch
