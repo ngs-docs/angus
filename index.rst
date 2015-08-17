@@ -63,9 +63,10 @@ Sunday 8/16      * Free Day
                  * *"Brunch" at McCrary 12pm - 1pm*
                  * *BBQ Dinner on the island*
             
-Monday 8/17      * 9:15am lecture, mRNAseq
-                 * 10:30am tutorial, mRNAseq
-                 * 1:15pm  tutorial, mRNAseq
+Monday 8/17      * 9:15am lecture/tutorial, mRNAseq :doc:`MacManes_Trinity` (Matt)
+                 * 10:30am lecture, mRNA stats (Ian)
+                 * 1:15pm  lecture, mRNA stats continued (Ian)
+                 * 3:15pm  tutorial, (Chris)
             	 * 7:15pm journal club, `Gilad and Mizrahi-Man, 2015 <_static/Gilad_2015.pdf>`__. A reanalysis of mouse ENCODE comparative gene expression data.  
                                   
 Tuesday 8/18     * 9:15am lecture/tutorial, mRNAseq
