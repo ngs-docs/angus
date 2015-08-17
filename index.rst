@@ -71,6 +71,7 @@ Monday 8/17      * 9:15am lecture/tutorial, mRNAseq :doc:`MacManes_Trinity` (Mat
                  	`drosophila_deseq2 <_static/drosophila_deseq2.R>`__
                  	:download:`drosophila_rnaseq_counts <files/drosophila_rnaseq_counts.zip>`
             	 * 7:15pm journal club, `Gilad and Mizrahi-Man, 2015 <_static/Gilad_2015.pdf>`__. A reanalysis of mouse ENCODE comparative gene expression data.  
+            	 * the link for the paper and the comments is `here <http://f1000research.com/articles/4-121/v1>`__ Make sure to check out the comments! 
                                   
 Tuesday 8/18     * 9:15am lecture/tutorial, mRNAseq
                  * 1:15pm lecture, mRNAseq
