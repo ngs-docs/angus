@@ -105,7 +105,7 @@ Instructors:
 * C Titus Brown
 * Chris Chandler
 * Ian Dworkin
-* Adina Chuang Howe
+* Adina Howe
 * Matt MacManes
 * Meg Staton
 
