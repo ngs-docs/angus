@@ -65,7 +65,8 @@ Sunday 8/16      * Free Day
             
 Monday 8/17      * 9:15am lecture/tutorial, mRNAseq :doc:`MacManes_Trinity` (Matt)
                  * 10:30am lecture, mRNA stats (Ian)
-                 * 1:15pm  lecture, mRNA stats continued (Ian)
+                 * 1:15pm `Transrate <https://github.com/ngs-docs/angus/blob/2015/transrate.rst>`__ (Meg)
+                 * 1:45pm  lecture, mRNA stats continued (Ian)
                  * 3:15pm  tutorial, :doc:`drosophila_rnaseq_counting_htseq` (Chris)
                  	`drosophila_deseq2 <_static/drosophila_deseq2.R>`__
                  	:download:`drosophila_rnaseq_counts <files/drosophila_rnaseq_counts.zip>`
@@ -104,7 +105,7 @@ Instructors:
 * C Titus Brown
 * Chris Chandler
 * Ian Dworkin
-* Adina Chuang Howe
+* Adina Howe
 * Matt MacManes
 * Meg Staton
 
