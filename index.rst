@@ -70,14 +70,15 @@ Monday 8/17      * 9:15am lecture/tutorial, mRNAseq :doc:`MacManes_Trinity` (Mat
                  * 3:15pm  tutorial, :doc:`drosophila_rnaseq_counting_htseq` (Chris)
                  	`drosophila_deseq2 <_static/drosophila_deseq2.R>`__
                  	:download:`drosophila_rnaseq_counts <files/drosophila_rnaseq_counts.zip>`
-            	 * 7:15pm journal club, `Gilad and Mizrahi-Man, 2015 <_static/Gilad_2015.pdf>`__. A reanalysis of mouse ENCODE comparative gene expression data.
                                   
-Tuesday 8/18     * 9:15am lecture/tutorial, mRNAseq
-                 * 1:15pm lecture, mRNAseq
-                 * 3:00pm through evening, Nick Loman & MINion
-
+Tuesday 8/18     * 9:15am lecture, mRNAseq differential expression with RNAseq (Ian)
+                 * 10:30 R tutorial. (Meg and Ian)
+                 * 1:15pm Tutorial, Differential expression analysis using DESeq2 (Chris)
+                 * 2:45 1:15pm journal club, `Gilad and Mizrahi-Man, 2015 <http://f1000research.com/articles/4-121/v1>`__. A reanalysis of mouse ENCODE comparative gene expression data.
+                             
 Wed 8/19         * 9:15am lecture, mRNAseq
                  * 10:15am lecture/discussion, mRNAseq
+                 * 3:00pm through evening, Nick Loman & MINion
                  * 1:15pm Assembly quality assessment (Transdecoder, BUSCO) (Meg & Matt)
                  * 2:15pm Functional annotation (BLAST, PFam, InterProScan) (Meg)
                  * evening: gin social?
