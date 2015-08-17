@@ -17,7 +17,7 @@ This workshop has a :doc:`code-of-conduct`.
 
 `Download all of these materials <https://github.com/ngs-docs/angus/archive/2015.zip>`__ or `visit the GitHub repository <https://github.com/ngs-docs/angus/tree/2015>`__.
 
-Meal Times: Breakfast 7-9, `Lunch <_static/McCraryLunch10to14.pdf>`__ 12-1, Dinner 6-7 (Unless noted below)
+Meal Times: Breakfast 7-9, `Lunch <_static/McCrary_17_21.pdf>`__ 12-1, Dinner 6-7 (Unless noted below)
   
 
 ===============  =============================================================
@@ -66,7 +66,9 @@ Sunday 8/16      * Free Day
 Monday 8/17      * 9:15am lecture/tutorial, mRNAseq :doc:`MacManes_Trinity` (Matt)
                  * 10:30am lecture, mRNA stats (Ian)
                  * 1:15pm  lecture, mRNA stats continued (Ian)
-                 * 3:15pm  tutorial, (Chris)
+                 * 3:15pm  tutorial, :doc:`drosophila_rnaseq_counting_htseq` (Chris)
+                 	`drosophila_deseq2 <_static/drosophila_deseq2.R>`__
+                 	:download:`drosophila_rnaseq_counts <_static/drosophila_rnaseq_counts>`
             	 * 7:15pm journal club, `Gilad and Mizrahi-Man, 2015 <_static/Gilad_2015.pdf>`__. A reanalysis of mouse ENCODE comparative gene expression data.  
                                   
 Tuesday 8/18     * 9:15am lecture/tutorial, mRNAseq
