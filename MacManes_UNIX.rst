@@ -27,8 +27,10 @@ See https://github.com/stephenturner/oneliners for a bunch of examples.
   alias l='ls -lth'
   alias mv='mv -i'
   alias cp='cp -i' 
+  alias grep="grep --color=always"
   alias targz='tar -zcf'
   alias utargz='tar -zxf'
+  
   
   alias tn="tmux new -s"
   alias ta="tmux attach -t"
@@ -76,7 +78,9 @@ See https://github.com/stephenturner/oneliners for a bunch of examples.
   less Trinity.fasta
   sed 's_|_-_g' Trinity.fasta | grep ^'>' | head
   sed -i 's_|_-_g' Trinity.fasta
-  
+
+`A helpful guide to sed <http://www.grymoire.com/Unix/Sed.html>`_
+
 **Number fasta def line**
 
 ::
@@ -92,6 +96,12 @@ See https://github.com/stephenturner/oneliners for a bunch of examples.
   awk '{print $1 "\t" $3}' Trinity.counts.RNAseq.txt | head
   awk '$1 == "c996_g1_i1"' Trinity.counts.RNAseq.txt
 
+**Keyboard Shortcuts**
+
+::
+
+	Clear screen: ctrl + l
+	
 **Random Stuff**
 
 ::
