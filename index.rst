@@ -69,7 +69,7 @@ Monday 8/17      * 9:15am lecture/tutorial, mRNAseq :doc:`MacManes_Trinity` (Mat
                  * 1:45pm  lecture, mRNA stats continued (Ian)
                  * 3:15pm  tutorial, :doc:`drosophila_rnaseq_counting_htseq` (Chris)
                  	`drosophila_deseq2 <_static/drosophila_deseq2.R>`__
-                 	:download:`drosophila_rnaseq_counts <_static/drosophila_rnaseq_counts>`
+                 	:download:`drosophila_rnaseq_counts <files/drosophila_rnaseq_counts.zip>`
             	 * 7:15pm journal club, `Gilad and Mizrahi-Man, 2015 <_static/Gilad_2015.pdf>`__. A reanalysis of mouse ENCODE comparative gene expression data.  
                                   
 Tuesday 8/18     * 9:15am lecture/tutorial, mRNAseq
