@@ -183,6 +183,7 @@ Instead of demultiplexing with barcodes, if you want to generate an index read c
 If you have single index, replace last line of above with this:
 
 .. code::
+
         --use-bases-mask y*,y*,y*
 
 Dual 8bp index read (nextera)
