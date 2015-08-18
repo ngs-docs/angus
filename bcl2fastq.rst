@@ -7,7 +7,7 @@ For each sequencing run, Illumina sequencers create base call files (.bcl) from 
 
 The conversion software used to be called **Cassava** until version 1.8.2. From version 1.8.4, it is now called **bcl2fastq**. Depending on the type of sequencer you have used, you will choose the version of bcl2fastq:
 
-Note: Illumina instruments create a complex, albeit consistent directory structure of files that are all required for the bcl2fastq conversion process. Below is the directory structure for a run where YYMMDD is date, machine name is the ID for the instrument, e.g. D00595, XXXXX is the name of the project or PI or identifying information from the sequencing facility, and FC is the ID for the disposable flow cell used for that run, e.g. BC6UHTANXX.
+Note: Illumina instruments create a complex, albeit consistent directory structure of files that are all required for the bcl2fastq conversion process. Below is the directory structure for a run where YYMMDD is date, machine name is the ID for the instrument, e.g. D00595, XXXXX is the name of the project or PI or identifying information from the sequencing facility, and FC is the ID for the disposable flow cell used for that run, e.g. BC6UHTANXX. From `genomics-bcftbx <http://genomics-bcftbx.readthedocs.org/en/latest/protocols/prep_illumina.html>`_:
 
 .. code::
 
