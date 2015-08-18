@@ -7,7 +7,7 @@ For each sequencing run, Illumina sequencers create base call files (.bcl) from 
 
 The conversion software used to be called **Cassava** until version 1.8.2. From version 1.8.4, it is now called **bcl2fastq**. Depending on the type of sequencer you have used, you will choose the version of bcl2fastq:
 
-Note: Illumina instruments create a complex, albeit consistent directory structure of files that are all required for the bcl2fastq conversion process. Below is the directory structure for a run where YYMMDD is date, machine name is the ID for the instrument, e.g. D00595, XXXXX is the name of the project or PI or identifying information from the sequencing facility, and FC is the ID for the disposable flow cell used for that run, e.g. BC6UHTANXX. From `genomics-bcftbx <http://genomics-bcftbx.readthedocs.org/en/latest/protocols/prep_illumina.html>`_:
+Note: Illumina instruments create a complex, albeit consistent directory structure of files that are all required for the bcl2fastq conversion process. Below is the directory structure for a run where YYMMDD is date, machine name is the ID for the instrument, e.g. D00595, XXXXX is the name of the project or PI or identifying information from the sequencing facility, and FC is the ID for the disposable flow cell used for that run, e.g. BC6UHTANXX. You need all of the directories and files output from the sequencing instrument. They will look like this (borrowed from `genomics-bcftbx <http://genomics-bcftbx.readthedocs.org/en/latest/protocols/prep_illumina.html>`_):
 
 .. code::
 
@@ -95,7 +95,7 @@ Test to see if this works, should output instructions for how to run:
 
     configureBclToFastq.pl -h | less
 
-If your bcl files are in your Dropbox, connect it to your AWS instance to access the files:
+Now we need to get the sequencing files. If your sequencing files are in your Dropbox, connect it to your AWS instance to access the files:
 
     * http://ged.msu.edu/angus/tutorials-2011/installing-dropbox.html
     * https://www.dropbox.com/en/install?os=lnx
@@ -122,6 +122,21 @@ Copy/paste that URL into your Web browser; log into dropbox; and voila! The dire
 
 (NOTE: This might take a while if your Dropbox has a lot of files in it. It is easier to create a new Dropbox account with only these files.)
 
+Copy the files from the Dropbox directory to your /mnt directory:
+
+.. code::
+                cp /Dropbox/<sequencing run files>  /mnt/run_files
+
+If your files are coming from a high performance computing server, you can use scp to securely transfer the files:
+
+.. code::
+
+             cd /mnt/run_files
+             screen
+             scp -rp ligh@143.107.29.100:/home/terra/ngs/dados/corridasHiSeq/150804_D00549_0041_Bh3ntvbcxx/Data/Intensities/BaseCalls/*.*  .
+
+Type Ctrl-A-D to detach from screen. Take a break. This will take several hours to copy ~5 GB of files. 
+
 Configure SampleSheet.csv
 =========================
 
@@ -138,10 +153,10 @@ Run these commands:
 
 .. code::
 
-    dos2unix
-    mac2unix
-    OUT_DIR="/mnt/demultiplexing/Unaligned/"
-    IN_DIR="/mnt/demultiplexing"
+    dos2unix SampleSheet.csv
+    mac2unix SampleSheet.csv
+    OUT_DIR="/mnt/run_files/Unaligned/"
+    IN_DIR="/mnt/run_files/"
     configureBclToFastq.pl \
     --input-dir $IN_DIR \
     --output-dir $OUT_DIR \
@@ -149,7 +164,7 @@ Run these commands:
     --mismatches 1
     
 
-If you don't have all the appropriate files, you will see an error message like this:
+If you don't have all the appropriate files, you will see an error message similar to this:
 
 .. code::
 
@@ -223,7 +238,7 @@ More than one length barcode in same run
 Other references
 ================
 
-* Many of these configurations are from Igor Dolgalev who is the demultiplexing chief at GTC, NYUMC: igor.dolgalev@nyumc.org
+* Many of these configurations are from Igor Dolgalev, the demultiplexing guru at GTC, NYUMC: igor.dolgalev@nyumc.org
 * http://support.illumina.com/sequencing/sequencing_software/bcl2fastq-conversion-software.html
 * http://genomics-bcftbx.readthedocs.org/en/latest/protocols/prep_illumina.html  
 * https://www.biostars.org/p/44927/
