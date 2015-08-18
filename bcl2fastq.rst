@@ -19,7 +19,7 @@ http://support.illumina.com/content/dam/illumina-support/documents/documentation
 Install bcl2fastq 
 =================
 
-Go to AWS and start a Red Hat Linux m4.large instance and login:
+Go to AWS and start a Red Hat Linux m4.large instance, with 500 GB volume attached and login:
 
 .. code::
 
@@ -31,12 +31,16 @@ Since running the bcl2fastq program will take some time, you will want to start 
 
 .. code::
 
-    sudo yum install wget screen
+    sudo mkfs -t ext4 /dev/xvdb
+    sudo chown -R ec2-user:ec2-user /mnt
+    df -h
+    sudo yum install wget screen dos2unix mac2unix
 
 Make a directory for your bcl2fastq program files:
 
 .. code::
 
+    cd
     mkdir bcl2fastq
     cd bcl2fastq
 
@@ -48,35 +52,48 @@ Download the bcl2fastq program rpm file:
 
 Install the rpm file:
 
+.. code::
+
     sudo yum install bcl2fastq-1.8.4-Linux-x86_64.rpm
 
 Test to see if this works, should output instructions for how to run:
 
-    configureBclToFastq.pl -h | less
+.. code::
 
+    configureBclToFastq.pl -h | less
 
 If your bcl files are in your Dropbox, you will need to connect it to your AWS instance so you can access the files:
 
-http://ged.msu.edu/angus/tutorials-2011/installing-dropbox.html
-https://www.dropbox.com/en/install?os=lnx
+    * http://ged.msu.edu/angus/tutorials-2011/installing-dropbox.html
+    * https://www.dropbox.com/en/install?os=lnx
+
+.. code::
 
     cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
+    mkdir /mnt/Dropbox/
+    cd /mnt/Dropbox/
+    curl -O https://linux.dropbox.com/packages/dropbox.py
+    python dropbox.py start -i
+    python dropbox.py start
+    python dropbox.py status
+
+    ~/.dropbox-dist/dropboxd
 
 ..and you should see a message like this:
 
-    This client is not linked to any account... Please visit https://www.dropbox.com/cli_link?host_id=XXXXX to link this machine.
+>    This client is not linked to any account... Please visit https://www.dropbox.com/cli_link?host_id=XXXXX to link this > machine.
 
 Copy/paste that URL into your Web browser; log into dropbox; and voila! The directory ~/Dropbox will be linked into your home directory!
 
-    This computer is now linked to Dropbox. Welcome __!!
+>    This computer is now linked to Dropbox. Welcome __!!
 
-This might take a while if your Dropbox has a lot of files in it.
+(NOTE: This might take a while if your Dropbox has a lot of files in it. It is easier to create a new Dropbox account with only these files.)
 
 
 Run bcl2fastq
 =============
 
-Configure SampleSheet.csv
+Configure SampleSheet.csv:
 
 Run these commands:
 
@@ -84,11 +101,20 @@ Run these commands:
 
     dos2unix
     mac2unix
-    OUT_DIR="/"
+    OUT_DIR="/mnt/demultiplexing/Unaligned/"
+    IN_DIR="/mnt/demultiplexing"
+    configureBclToFastq.pl \
+    --input-dir $IN_DIR \
+    --output-dir $OUT_DIR \
+    --fastq-cluster-count 0 \
+    --mismatches 1
     
 
+.. code::
 
-
+        [2015-08-17 21:18:28]	[configureBclToFastq.pl]	INFO: Creating directory '/mnt/demultiplexing/Unaligned'
+            ERROR: /mnt/demultiplexing/config.xml: file does not exist
+            at /usr/local/lib/bcl2fastq-1.8.4/perl/Casava/Demultiplex.pm line 116.
 
 
 
