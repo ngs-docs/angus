@@ -56,7 +56,7 @@ Go to AWS and start a Red Hat Linux m4.large instance, with 500 GB volume attach
 
 .. code::
 
-    ssh -i ????.pem ec2-user@amazon.blah
+    ssh -i blah-blah.pem ec2-user@amazon.blah
 
 .. code::
 
