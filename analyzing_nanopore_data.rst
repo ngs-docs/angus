@@ -12,7 +12,11 @@ The goals of this tutorial are to:
 Acquiring E. coli nanopore data
 ===============================
 
-The run we put on last night is available, we got about 1000 reads:
+The run we put on last night is available, we got about 1000 reads. You can download them and take a look: ::
+
+   wget http://microbesng.uk/filedist/nanopore/Ecoli_KBS_2D.fasta
+   wget http://microbesng.uk/filedist/nanopore/Ecoli_KBS_complement.fasta
+   wget http://microbesng.uk/filedist/nanopore/Ecoli_KBS_template.fasta
 
 In addition, here is a better run with around 8000 'two-direction' reads (http://microbesng.uk/filedist/nanopore/FC20.wf1.9.2D.pass.fasta). Retrieve it from::
 
@@ -35,11 +39,16 @@ Check it is working::
 
    spades.py -h
 
+Get the E. coli MDA Illumina files (these are the same you generated before)::
+
+   wget http://public.ged.msu.edu.s3.amazonaws.com/ecoli_ref-5m-trim.se.fq.gz
+   wget http://public.ged.msu.edu.s3.amazonaws.com/ecoli_ref-5m-trim.pe.fq.gz
+
 SPAdes has support for nanopore reads using the --nanopore option which expects FASTA formatted files.
 
 You can give 2D reads (preferred), but I have had good results giving both the 1D and 2D reads. More reads is usually better in this case because SPAdes uses the long nanopore reads for gap closure and repeat resolution, rather than for building the assembly graph.::
 
-   spades.py --sc --12 ecoli_ref-5m-trim.pe.fq -s ecoli_ref-5m-trim.se.fq --nanopore FC20.wf1.9.2D.pass.fasta -o nanopore-ecoli-sc
+   spades.py --sc --12 ecoli_ref-5m-trim.pe.fq.gz -s ecoli_ref-5m-trim.se.fq.gz --nanopore FC20.wf1.9.2D.pass.fasta -o nanopore-ecoli-sc
 
 Genome assessment
 =================
@@ -56,7 +65,7 @@ We want a version of BWA that supports Oxford Nanopore reads: ::
    git clone https://github.com/lh3/bwa.git
    cd bwa
    make
-   export PATH=$PATH:`pwd`
+   export PATH=`pwd`:$PATH
    cd ..
 
 Let's now look in more detail. Map reads back to the assembly and assess coverage evenness. The steps are:
@@ -73,6 +82,6 @@ The commands to perform these tasks are: ::
 
 Download the resulting mapped_reads.sorted.bam, mapped_reads.sorted.bam.bai and nanopore-ecoli-sc/scaffolds.fasta files and open in IGV.
 
-What does it look like? What's the coverage like? Can you spot any problems? What is the Oxford Nanopore profile? Does it do badly in any regions, which ones? Why?
+What does it look like? What's the coverage like? Can you spot any problems? What is the Oxford Nanopore error profile? Does it do badly in any regions, which ones? Why?
 
 
