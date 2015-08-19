@@ -1,7 +1,7 @@
 Transrate
 ###############
 
-`Transrate <http://hibberdlab.com/transrate/index.html>` is a tool for assessing the quality of a de
+`Transrate <http://hibberdlab.com/transrate/index.html>`_ is a tool for assessing the quality of a de
 novo transcriptome assembly.
 
 We will use the assembly produced from the earlier Trinity tutorial.
@@ -27,6 +27,8 @@ Lets map the reads and see how that looks. Transrate will
 
 Run transrate, pointing to the assembly and the input fastq files. 
 
+::
+
  /root/transrate/transrate-1.0.1-linux-x86_64/transrate \
  --assembly /mnt/assembly/trinity_out_dir/Trinity.fasta \
  --threads 16 \
@@ -40,10 +42,12 @@ The main output file is transrate_assemblies.csv (CSV = comma separated value)
 
 Transfer via dropbox or scp and look at it in Excel.
 
-Mac Example with scp::
+Mac Example with scp:
 
-scp -i ~/Desktop/files/teaching/kbs-ngs-2014/2015/amazon.pem ubuntu@ec2-??-??-??-??.compute-1.amazonaws.com:/mnt/transrate/transrate_results/assemblies.csv .
-scp -i ~/Desktop/files/teaching/kbs-ngs-2014/2015/amazon.pem ubuntu@ec2-??-??-??-??.compute-1.amazonaws.com:/mnt/transrate/transrate_results/Trinity/contigs.csv .
+::
+
+	scp -i ~/Desktop/files/teaching/kbs-ngs-2014/2015/amazon.pem ubuntu@ec2-??-??-??-??.compute-1.amazonaws.com:/mnt/transrate/transrate_results/assemblies.csv .
+	scp -i ~/Desktop/files/teaching/kbs-ngs-2014/2015/amazon.pem ubuntu@ec2-??-??-??-??.compute-1.amazonaws.com:/mnt/transrate/transrate_results/Trinity/contigs.csv .
 
 Lets see what each of these mean by looking at the `documentation page <http://hibberdlab.com/transrate/metrics.html#contig-metrics>`_.
 
