@@ -79,7 +79,7 @@ Tuesday 8/18     * 9:15am lecture, `mRNAseq differential expression <_static/NGS
 Wed 8/19         * 9:15am lecture, :doc:`functional_annotation`
                  * 10:15am Assembly quality assessment (Transdecoder) (Meg & Mattt)
                  * 1:00pm practical, :doc:`analyzing_nanopore_data` (Nick Loman)
-                 * Evening, Twitter? More nanopore? Free work time?
+                 * Evening, Twitter? More nanopore? Free work time? :doc:`MacManes_kallisto` (Matt)
                                   
 Thursday 8/20    * TBD
                  * 1:15pm Assessment (Julie)
