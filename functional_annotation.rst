@@ -226,7 +226,7 @@ We need to remove the astericks from the peptide file - ips does not like these.
 
 ::
 
-	sed -i 's_*__g' /mnt/ebs/green_ash/green_ash_peptides.fasta
+	sed -i 's_*__g' /mnt/ebs/green_ash/green_ash_transcripts.fasta.transdecoder.pep
 
 And we can make the software faster. It does not accept a parameter on the command line to increase the number of processors used, but it does have a properties file. Lets edit it.
 
@@ -258,7 +258,7 @@ And we will now make a results directory and run the software
 	-d /mnt/ebs/green_ash/ips_results \
 	-dp \
 	-goterms \
-	-i /mnt/ebs/green_ash/green_ash_peptides.fasta \
+	-i /mnt/ebs/green_ash/green_ash_transcripts.fasta.transdecoder.pep \
 	-iprlookup \
 	-pa
 
@@ -278,8 +278,8 @@ Check out results
 ::
 
 	cd ips_results/
-	less green_ash_peptides.fasta.tsv
-	wc -l green_ash_peptides.fasta.tsv
+	less green_ash_transcripts.fasta.transdecoder.pep.tsv
+	wc -l green_ash_transcripts.fasta.transdecoder.pep.tsv
 
 
 blast to swiss-prot
@@ -358,7 +358,7 @@ We can also search the peptide sequences.
 ::
 
 	blastp \
-	-query /mnt/ebs/green_ash/green_ash_peptides.fasta \
+	-query /mnt/ebs/green_ash/green_ash_transcripts.fasta.transdecoder.pep \
 	-db /mnt/ebs/functional_annotation/uniprot_sprot.fasta \
 	-out green_ash_peptides-vs-swissprot.blastx.tsv \
 	-num_threads 15 \
