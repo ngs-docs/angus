@@ -63,7 +63,7 @@ Sunday 8/16      * Free Day
                  * *"Brunch" at McCrary 12pm - 1pm*
                  * *BBQ Dinner on the island*
             
-Monday 8/17      * 9:15am lecture/tutorial, mRNAseq :doc:`MacManes_Trinity` (Matt)
+Monday 8/17      * 9:15am lecture/tutorial, mRNAseq :doc:`MacManes_Trinity` c
                  * 10:30am lecture, mRNA stats (Ian)
                  * 1:15pm `Transrate <https://github.com/ngs-docs/angus/blob/2015/transrate.rst>`__ (Meg)
                  * 1:45pm  lecture, `mRNA stats <_static/NGS2015_RNAseq_ID_1.pptx>`__ (Ian)
@@ -79,7 +79,7 @@ Tuesday 8/18     * 9:15am lecture, `mRNAseq differential expression <_static/NGS
 Wed 8/19         * 9:15am lecture, :doc:`functional_annotation`
                  * 10:15am Assembly quality assessment (Transdecoder) (Meg & Mattt)
                  * 1:00pm practical, :doc:`analyzing_nanopore_data` (Nick Loman)
-                 * Evening, Twitter? More nanopore? Free work time?
+                 * Evening, Twitter? More nanopore? Free work time? :doc:`MacManes_kallisto` (Matt)
                                   
 Thursday 8/20    * TBD
                  * 1:15pm Assessment (Julie)
