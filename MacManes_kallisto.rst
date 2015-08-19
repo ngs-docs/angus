@@ -69,7 +69,7 @@ Step 1: Launch and AMI. For this exercise, we will use a **c4.2xlarge** We need 
 ----------------
 
 
-**RUN KALLISTO**: Kallisto can use a genome, but transcriptome is better for this work. See https://twitter.com/PeroMHC/status/633621603759165440 and discussion. 
+**RUN KALLISTO**: Kallisto maps to a refernece transcriptome. See https://twitter.com/PeroMHC/status/633621603759165440 and discussion. 
 
 ::
 
