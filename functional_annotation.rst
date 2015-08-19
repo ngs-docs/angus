@@ -72,6 +72,13 @@ Install software:
 	tar xzf transdecoder.tar.gz
 	cd TransDecoder-2.0.1
 	make
+
+Add paths:
+
+::
+	cd /mnt/ebs/functional_annotation/TransDecoder-2.0.1
+	PATH=$PATH:$(pwd)
+	cd /mnt/ebs/functional_annotation/interproscan-5.14-53.0
 	PATH=$PATH:$(pwd)
 
 and run. This is the simplest use of transdecoder, not using homology searches.
@@ -213,7 +220,7 @@ Lets run without parameters to see what is available.
 
 ::
 
-	/mnt/ebs/functional_annotation/interproscan-5.14-53.0/interproscan.sh | more
+	interproscan.sh | more
 
 We need to remove the astericks from the peptide file - ips does not like these. This is a common problem - astericks are often used to denote a stop codon.
 
@@ -247,7 +254,7 @@ And we will now make a results directory and run the software
 ::
 
 	mkdir /mnt/ebs/green_ash/ips_results
-	/mnt/ebs/functional_annotation/interproscan-5.14-53.0/interproscan.sh \
+	interproscan-5.14-53.0/interproscan.sh \
 	-d /mnt/ebs/green_ash/ips_results \
 	-dp \
 	-goterms \
