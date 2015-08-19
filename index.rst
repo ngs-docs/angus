@@ -77,10 +77,8 @@ Tuesday 8/18     * 9:15am lecture, `mRNAseq differential expression <_static/NGS
                  * 2:45 journal club, `Gilad and Mizrahi-Man, 2015 <http://f1000research.com/articles/4-121/v1>`__. A reanalysis of mouse ENCODE comparative gene expression data.
                              
 Wed 8/19         * 9:15am lecture, :doc:`functional_annotation`
-                 * 10:15am lecture/discussion, mRNAseq
-                 * 3:00pm through evening, Nick Loman & MINion
-                 * 1:15pm Assembly quality assessment (Transdecoder, BUSCO) (Meg & Matt)
-                 * 2:15pm Functional annotation (BLAST, PFam, InterProScan) (Meg)
+                 * 10:15am Assembly quality assessment (Transdecoder) (Meg & Mattt)
+                 * 1:00pm practical, :doc:`analyzing_nanopore_data` (Nick Loman)
                  * evening: gin social?
                  
 Thursday 8/20    * TBD
@@ -230,6 +228,10 @@ Blogs
 * http://omicsomics.blogspot.com/
 
   Omics! Omics!
+
+* http://lab.loman.net/
+
+  Nick Loman's lab notebook
 
 Complete table of contents
 ==========================
