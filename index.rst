@@ -81,7 +81,7 @@ Wed 8/19         * 9:15am lecture, :doc:`functional_annotation`
                  * 1:00pm practical, :doc:`analyzing_nanopore_data` (Nick Loman)
                  * Evening, Twitter? More nanopore? Free work time? :doc:`MacManes_kallisto` (Matt)
                                   
-Thursday 8/20    * TBD
+Thursday 8/20    * 9:15am activity, :doc:`MacManes_adventure` (Matt) and Prokka (Torsten)
                  * 1:15pm Assessment (Julie)
                  * *BBQ Dinner on the island*
                  * gin social?
