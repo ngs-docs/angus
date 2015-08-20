@@ -18,7 +18,8 @@ Wednesday 8/25   * 9:15am: RNAseq differential expression analysis (Meeta)
 
 Thursday 8/25    * 9:15am: Reproducibility with AWS (Leigh)
                  * 1:15pm: GWAS tutorial (Tiffany)
-                 * 7:15pm: Building butterfly transcriptomes (Chris Hamm)
+                 * 7:15pm: Differential expression and detecting dosage
+                   compensation in RNAseq (Chris Hamm)
                  
 Friday 8/25      * 9:15am: Docker (Titus)
                  * noon: fare-thee-well lunch

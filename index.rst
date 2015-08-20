@@ -83,8 +83,9 @@ Wed 8/19         * 9:15am lecture, :doc:`functional_annotation`
                                   
 Thursday 8/20    * 9:15am activity, :doc:`MacManes_adventure` (Matt) and Prokka (Torsten)
                  * 1:15pm Assessment (Julie)
+                 * 2pm: GitHub practical: :doc:`CTB-github`
                  * *BBQ Dinner on the island*
-                 * gin social?
+                 * social
 
 Friday 8/21      * 9:15-9:45 closing lecture (Titus)
                  * 10am discussion about class; more stuff
