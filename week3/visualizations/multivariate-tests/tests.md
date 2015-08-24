@@ -11,10 +11,11 @@ library(RCurl)
 ```
 Using a combination of functions from R, we will create an object called dataset that holds all of the fly data
 ```R
-URL<-("https://raw.githubusercontent.com/ryanjw/ngs-3rdweek/master/datasets/fly_data.txt")
+URL<-("https://raw.githubusercontent.com/ryanjw/ngs-3rdweek/master/visualizations/datasets/fly_data.txt")
+
 dataset<-read.table(textConnection(getURL(URL)),header=T,check.names=F,sep="\t")
 ```
-If you are unable to do download RCurl, [run this code instead](https://github.com/ryanjw/ngs-3rdweek/blob/master/multivariate-tests/alternative-download.md)
+If you are unable to do download RCurl, [run this code instead](https://github.com/ryanjw/ngs-3rdweek/blob/master/visualizations/multivariate-tests/alternative-download.md)
 
 Let's look at the first few rows and columns of the dataset.
 ```R
@@ -51,7 +52,7 @@ This code ends up failing, but why may this be?  Is our data violating some assu
 library(ggplot2)
 ggplot(dataset)+geom_density(aes(x=FBgn0000022,fill=fly,alpha=0.5))
 ```
-![alt text](https://raw.githubusercontent.com/ryanjw/ngs-3rdweek/master/multivariate-tests/fly-density-plot.jpg)
+![alt text](https://raw.githubusercontent.com/ryanjw/ngs-3rdweek/master/visualizations/multivariate-tests/fly-density-plot.jpg)
 ##Challenge
 *Try looking at another variable by replacing `FBgn0000022` with another variable name and coloring by `type` instead of `fly`*
 
@@ -118,7 +119,7 @@ Note that that by taking a distance based approach we can actually gain resoluti
 
 Try to do the same thing based on presence/absence by changing `total` to `pa` and adding `method="jaccard"` to the `adonis` function.  Be careful, and watch the placement of `()` when nesting these functions!
 
-[*You can find the solution here*](https://github.com/ryanjw/ngs-3rdweek/blob/master/multivariate-tests/pa-soln.md)
+[*You can find the solution here*](https://github.com/ryanjw/ngs-3rdweek/blob/master/visualizations/multivariate-tests/pa-soln.md)
 
 #Comparing matrices with mantel tests
 
@@ -139,7 +140,7 @@ mantel(ORE_dist,HYB_dist,method="spearman",permutations=9999)
 ##Challenge
 
 Try to do all pairwise comparisons between fly types.  Are the results as sensitive as the PERMANOVA?
-[*You can find the solution here*](https://github.com/ryanjw/ngs-3rdweek/blob/master/multivariate-tests/pairwise-mantel.md)
+[*You can find the solution here*](https://github.com/ryanjw/ngs-3rdweek/blob/master/visualizations/multivariate-tests/pairwise-mantel.md)
 
 
 
