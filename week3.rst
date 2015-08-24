@@ -5,8 +5,8 @@ Week 3
 Day              Schedule
 ===============  =============================================================
 Monday 8/24      * 1:30pm: welcome & startup (AWS)
-                 * 3pm: Docker (Titus)
-                 * evening: research presentations
+                 * 3pm: :doc:`week3/CTB_docker` (Titus)
+                 * evening: research presentations by students
 
 Tuesday 8/25     * 9:15am: Effective visualizations and stats for NGS (Ryan)
                  * 1:15pm: Genome assembly (Lex)
