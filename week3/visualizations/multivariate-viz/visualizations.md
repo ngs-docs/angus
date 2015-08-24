@@ -9,7 +9,7 @@ Let's download the new data
 URL<-("https://raw.githubusercontent.com/ryanjw/ngs-3rdweek/master/multivariate-viz/fly_data_with_unknowns.txt")
 dataset<-read.table(textConnection(getURL(URL)),header=T,check.names=F,sep="\t")
 ```
-If you can't use `getURL` modify the URL in the code [here](https://github.com/ryanjw/ngs-3rdweek/blob/master/multivariate-tests/alternative-download.md)
+If you can't use `getURL` modify the URL in the code [here](https://github.com/ryanjw/ngs-3rdweek/blob/master/visualizations/multivariate-tests/alternative-download.md)
 
 Let's look at the first and last few rows of the data
 
@@ -18,7 +18,7 @@ head(dataset[,1:10])
 tail(dataset[,1:10])
 ```
 
-We can see that we have the addition of 40 unknown flies.  [In reality, these data were simulated from the previous samples, and the rough code can be seen here.](https://github.com/ryanjw/ngs-3rdweek/blob/master/multivariate-viz/data-sim.md)
+We can see that we have the addition of 40 unknown flies.  [In reality, these data were simulated from the previous samples, and the rough code can be seen here.](https://github.com/ryanjw/ngs-3rdweek/blob/master/visualizations/multivariate-viz/data-sim.md)
 
 The first visualization we will perform is based on nonmetric multidimensional scaling.  In short, this algorithmic approach samples are placed in N-dimensional space based on a distance matrix.  We then view a 2D representation of these differences and are given a statistic called *stress* which, when minimized, the visualization is easiest to interpret (Smaller Stress, Better Visualization)
 
@@ -33,12 +33,12 @@ Let's generate an NMDS using the `metaMDS` function from the `vegan` package.  W
  ```R
  ggplot(sc)+geom_point(aes(x=NMDS1,y=NMDS2))
  ```
- ![alt text](https://raw.githubusercontent.com/ryanjw/ngs-3rdweek/master/multivariate-viz/plain-nmds.jpg)
+ ![alt text](https://raw.githubusercontent.com/ryanjw/ngs-3rdweek/master/visualizations/multivariate-viz/plain-nmds.jpg)
 
  While we can see the points in space, colors and shapes would be nice to help us understand the indentity of each point.
 
  ##Challenge
- Add colors and shapes based on the metadata within our dataset.  Do this by passing a variable name like `fly` or `type` to the arguments `shape=...` or `colour=...` within the `aes()` function. [*See solution here*](https://github.com/ryanjw/ngs-3rdweek/blob/master/multivariate-viz/nmds-soln.md)
+ Add colors and shapes based on the metadata within our dataset.  Do this by passing a variable name like `fly` or `type` to the arguments `shape=...` or `colour=...` within the `aes()` function. [*See solution here*](https://github.com/ryanjw/ngs-3rdweek/blob/master/visualizations/multivariate-viz/nmds-soln.md)
 
  # PCoA and/or PCA
 
@@ -80,7 +80,7 @@ eigs/sum(eigs)
 sc<-data.frame(scores(pca)$sites,dataset[,1:4])
 ggplot(sc)+geom_point(aes(x=MDS1,y=MDS2,colour=info,shape=type))+labs(x="MDS1 (75.9% of variation explained)",y="MDS1 (5.8% of variation explained)")
 ```
-![alt text](https://github.com/ryanjw/ngs-3rdweek/raw/master/multivariate-viz/pca.jpg) 
+![alt text](https://github.com/ryanjw/ngs-3rdweek/raw/master/visualizations/multivariate-viz/pca.jpg) 
 
 Mirroring the tests we performed earlier, let's do the same thing but with analysis based on composition
 ```R  
@@ -91,7 +91,7 @@ eigs/sum(eigs)
 sc<-data.frame(scores(pcoa)$sites,dataset[,1:4])
 ggplot(sc)+geom_point(aes(x=MDS1,y=MDS2,colour=info,shape=type))+labs(x="MDS1 (33.0% of variation explained)",y="MDS1 (8.2% of variation explained)")
 ```
-![alt text](https://raw.githubusercontent.com/ryanjw/ngs-3rdweek/master/multivariate-viz/pcoa.jpg)
+![alt text](https://raw.githubusercontent.com/ryanjw/ngs-3rdweek/master/visualizations/multivariate-viz/pcoa.jpg)
 
 We now see some nice separation that can help us interpret what the samples originate from, any ideas?
 
@@ -101,12 +101,12 @@ pcoa<-capscale(decostand(dataset[,-c(1:4)],"total")~dataset$fly,distance="bray")
 scores(pcoa)$centroids
 ggplot(sc)+geom_point(aes(x=MDS1,y=MDS2,colour=info,shape=type))+labs(x="MDS1 (33.0% of variation explained)",y="MDS1 (8.2% of variation explained)")+annotate("text",x=c(-.157,-.077,.17),y=c(-.004,.670,.156),label=c("HYB","ORE","SAM"))
 ```
-![alt text](https://raw.githubusercontent.com/ryanjw/ngs-3rdweek/master/multivariate-viz/contrained-fly-pcoa.jpg))
+![alt text](https://raw.githubusercontent.com/ryanjw/ngs-3rdweek/master/visualizations/multivariate-viz/contrained-fly-pcoa.jpg))
 
 Can we guess where our unknown flies originated from?
 
 ##Challenge
 
-Determine the fly `type` using the same methodology as above.  [*See solution here*](https://github.com/ryanjw/ngs-3rdweek/blob/master/multivariate-viz/capscale-soln.md)
+Determine the fly `type` using the same methodology as above.  [*See solution here*](https://github.com/ryanjw/ngs-3rdweek/blob/master/visualizations/multivariate-viz/capscale-soln.md)
 
 
