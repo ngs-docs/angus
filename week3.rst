@@ -12,7 +12,8 @@ Monday 8/24      * 1:30pm: welcome & startup (AWS)
 
 Tuesday 8/25     * 9:15am: Effective visualizations and stats for NGS (Ryan)
                  * 1:15pm: Genome assembly (Lex)
-                 * 7:15pm: Reproducible data analysis with RMarkdown and Git through RStudio (Marian)                 * evening: Bell's brewery
+                 * 4:15pm: Reproducible data analysis with RMarkdown and Git through RStudio (Marian)
+                 * evening: Bell's brewery
 
 Wednesday 8/25   * 9:15am: RNAseq differential expression analysis (Meeta)
                  * 1:15pm: Pathway analysis with RNAseq (Asela)

@@ -236,6 +236,7 @@ First, put the command in a shell script::
    cd /home/ubuntu/data
    cat <<EOF > do-assemble.sh
    #! /bin/bash
+   rm -fr /data/ecoli
    /home/megahit/megahit --12 /data/*.pe.fq.gz \
                         -r /data/*.se.fq.gz  \
                         -o /data/ecoli -t 4
