@@ -16,7 +16,7 @@ Monday 8/24      * 1:30pm: welcome & startup (AWS)
 
 Tuesday 8/25     * 9:15am: Effective visualizations and stats for NGS (Ryan) -
                    stats1_, stats2_
-                 * 1:15pm: Genome assembly (Lex)
+                 * 1:15pm: `Genome assembly (Lex) <https://github.com/ngs-docs/angus/blob/2015/week3/LN_assembly.md>`__
                  * 4:15pm: `Reproducible data analysis with RMarkdown and Git through RStudio (Marian) <http://rpubs.com/marschmi/105639>`__
                  * evening: Bell's brewery
 
