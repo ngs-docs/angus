@@ -43,7 +43,7 @@ Let's generate an NMDS using the `metaMDS` function from the `vegan` package.  W
 
 # PCoA and/or PCA
 
- Another popular method of visualization is Principle Components Analysis (PCA), and often Principle Components Analysis is used.  What's the difference?  PCA and PCoA are performed differently, but PCoA produces identical results as PCA when the euclidian distance is used.  Therefore we will focus on PCoA as it can work better for non-normally distributed data. 
+ Another popular method of visualization is Principle Components Analysis (PCA), and often Principle Coordinates Analysis is used.  What's the difference?  PCA and PCoA are performed differently, but PCoA produces identical results as PCA when the euclidian distance is used.  Therefore we will focus on PCoA as it can work better for non-normally distributed data. 
 
  Let's produce a PCA first
  ```R
