@@ -6,7 +6,7 @@ Here we are going to use some multivariate visualizations with a particular goal
 
 Let's download the new data
 ```R
-URL<-("https://raw.githubusercontent.com/ryanjw/ngs-3rdweek/master/multivariate-viz/fly_data_with_unknowns.txt")
+URL<-("https://raw.githubusercontent.com/ryanjw/ngs-3rdweek/master/visualizations/multivariate-viz/fly_data_with_unknowns.txt")
 dataset<-read.table(textConnection(getURL(URL)),header=T,check.names=F,sep="\t")
 ```
 If you can't use `getURL` modify the URL in the code [here](https://github.com/ryanjw/ngs-3rdweek/blob/master/visualizations/multivariate-tests/alternative-download.md)
