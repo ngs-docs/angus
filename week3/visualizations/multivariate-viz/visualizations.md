@@ -37,10 +37,11 @@ Let's generate an NMDS using the `metaMDS` function from the `vegan` package.  W
 
  While we can see the points in space, colors and shapes would be nice to help us understand the indentity of each point.
 
- ##Challenge
+## Challenge
+
  Add colors and shapes based on the metadata within our dataset.  Do this by passing a variable name like `fly` or `type` to the arguments `shape=...` or `colour=...` within the `aes()` function. [*See solution here*](https://github.com/ryanjw/ngs-3rdweek/blob/master/visualizations/multivariate-viz/nmds-soln.md)
 
- # PCoA and/or PCA
+# PCoA and/or PCA
 
  Another popular method of visualization is Principle Components Analysis (PCA), and often Principle Components Analysis is used.  What's the difference?  PCA and PCoA are performed differently, but PCoA produces identical results as PCA when the euclidian distance is used.  Therefore we will focus on PCoA as it can work better for non-normally distributed data. 
 
