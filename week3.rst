@@ -20,7 +20,7 @@ Tuesday 8/25     * 9:15am: Effective visualizations and stats for NGS (Ryan) -
                  * 4:15pm: `Reproducible data analysis with RMarkdown and Git through RStudio (Marian) <http://rpubs.com/marschmi/105639>`__
                  * `Bells <http://bellsbeer.com/eccentric-cafe/menu>`__
 
-Wednesday 8/25   * 9:15am: RNAseq differential expression analysis (Meeta)
+Wednesday 8/25   * 9:15am: `Statistical models for differential expression analysis (Meeta) <https://github.com/mistrm82/msu_ngs2015>`__
                  * 1:15pm: Pathway analysis with RNAseq (Asela)
                  * 7:15pm: Differential expression and detecting dosage
                    compensation in RNAseq (Chris Hamm)
