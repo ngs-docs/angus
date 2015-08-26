@@ -22,11 +22,10 @@ Tuesday 8/25     * 9:15am: Effective visualizations and stats for NGS (Ryan) -
 
 Wednesday 8/25   * 9:15am: `Statistical models for differential expression analysis (Meeta) <https://github.com/mistrm82/msu_ngs2015>`__
                  * 1:15pm: Pathway analysis with RNAseq (Asela)
-                 * 7:15pm: Differential expression and detecting dosage
-                   compensation in RNAseq (Chris Hamm)
+                 * 7:15pm: :doc:`week3/TT_GWAS` (Tiffany)
 
 Thursday 8/25    * 9:15am: Reproducibility with AWS (Leigh)
-                 * 1:15pm: GWAS tutorial (Tiffany)
+                 * 1:15pm: Differential expression and detecting dosage compensation in RNAseq (Chris Hamm)
                  * 9pm: firepit
                  
 Friday 8/25      * Discussion
