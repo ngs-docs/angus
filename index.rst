@@ -18,7 +18,9 @@ This workshop has a :doc:`code-of-conduct`.
 `Download all of these materials <https://github.com/ngs-docs/angus/archive/2015.zip>`__ or `visit the GitHub repository <https://github.com/ngs-docs/angus/tree/2015>`__.
 
 Meal Times: Breakfast 7-9, `Lunch <_static/McCrary_17_21.pdf>`__ 12-1, Dinner 6-7 (Unless noted below)
-  
+
+This year we also ran a third week workshop focused on intermediate and
+advanced skills; please see the schedule at :doc:`week3`.
 
 ===============  =============================================================
 Day              Schedule
