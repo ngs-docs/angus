@@ -37,12 +37,14 @@ Friday 8/25      * 9am: GitHub, Pull Requests, and ReadTheDocs (Titus)
 ===============  =============================================================
 
 Workshop organizers:
+--------------------
 
-C. Titus Brown
+\C. Titus Brown
 
 Amanda Charbonneau
 
 Invited lecturers:
+------------------
 
 Chris Hamm
 
