@@ -24,7 +24,7 @@ Wednesday 8/25   * 9:15am: `Statistical models for differential expression analy
                  * 1:15pm: Pathway analysis with RNAseq (Asela)
                  * 7:15pm: :doc:`week3/TT_GWAS` (Tiffany)
 
-Thursday 8/25    * 9:15am: Reproducibility with AWS (Leigh)
+Thursday 8/25    * 9:15am: :doc:`week3/AWS-tips` (Leigh)
                  * 1:15pm: Differential expression and detecting dosage compensation in RNAseq (Chris Hamm)
                  * 9pm: firepit
                  
