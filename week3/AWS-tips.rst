@@ -91,9 +91,10 @@ The following steps can be preformed in the snapshot portion of the EC2 dashboar
 
 Once we have the volume attached, we can download some data to it. To mount the drive and download sample data (again borrowed from The Eel Pond Protocol), run:: 
 
+	sudo bash
 	mkfs -t ext4 /dev/xvdf
-	mkdir data
-	ln -fs dev/xvdf /data
+	mkdir /data
+	mount /dev/xvdf /data
 	cd /data
 	curl -O http://athyra.idyll.org/~t/mrnaseq-subset.tar
 	tar xvf mrnaseq-subset.tar
