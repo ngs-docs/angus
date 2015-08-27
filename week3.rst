@@ -18,7 +18,7 @@ Monday 8/24      * 1:30pm: welcome & startup (AWS)
 
 Tuesday 8/25     * 9:15am: Effective visualizations and stats for NGS -
                    stats1_, stats2_ (Ryan)
-                 * 1:15pm: `Genome assembly <https://github.com/ngs-docs/angus/blob/2015/week3/LN_assembly.md>`__ (Lex)
+                 * 1:15pm: :doc:`week3/LN_assembly` (Lex)
                  * 4:15pm: `Reproducible data analysis with RMarkdown and Git through RStudio <http://rpubs.com/marschmi/105639>`__ (Marian) `(source) <https://github.com/ngs-docs/NGS2015_RMarkdown_Reproducibility>`__
                  * `Bells <http://bellsbeer.com/eccentric-cafe/menu>`__
 
