@@ -20,15 +20,16 @@ Tuesday 8/25     * 9:15am: Effective visualizations and stats for NGS (Ryan) -
                  * 4:15pm: `Reproducible data analysis with RMarkdown and Git through RStudio (Marian) <http://rpubs.com/marschmi/105639>`__
                  * `Bells <http://bellsbeer.com/eccentric-cafe/menu>`__
 
-Wednesday 8/25   * 9:15am: `Statistical models for differential expression analysis (Meeta) <https://github.com/mistrm82/msu_ngs2015>`__
-                 * 1:15pm: Pathway analysis with RNAseq (Asela)
+Wednesday 8/25   * 9:15am: `Statistical models for differential expression analysis (Meeta) <https://github.com/ngs-docs/msu_ngs2015>`__
+                 * 1:15pm: `Pathway analysis with RNAseq <https://github.com/ngs-docs/150826_pathway_analysis>`__ (Asela)
                  * 7:15pm: :doc:`week3/TT_GWAS` (Tiffany)
 
 Thursday 8/25    * 9:15am: :doc:`week3/AWS-tips` (Leigh)
-                 * 1:15pm: Differential expression and detecting dosage compensation in RNAseq (Chris Hamm)
+                 * 1:15pm: `Differential expression and detecting dosage compensation in RNAseq <https://angus.readthedocs.org/en/2015/_static/SLDC-code.html>`__ (Chris Hamm)
                  * 9pm: firepit
                  
-Friday 8/25      * Discussion
+Friday 8/25      * 9am: GitHub, Pull Requests, and ReadTheDocs (Titus)
+                 * 11:15am: discussion
                  * noon: fare-thee-well lunch
 
 ===============  =============================================================
