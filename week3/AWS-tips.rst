@@ -94,7 +94,7 @@ Once we have the volume attached, we can download some data to it. To mount the 
 	sudo bash
 	mkfs -t ext4 /dev/xvdf
 	mkdir data
-	ln -fs dev/xvdf /data
+	mount /dev/xvdf /data
 	cd /data
 	curl -O http://athyra.idyll.org/~t/mrnaseq-subset.tar
 	tar xvf mrnaseq-subset.tar
