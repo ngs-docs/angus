@@ -14,7 +14,7 @@ Python documentation, among other things.
 
 Alternatives: You could do very similar things with Markdown and
 `github pages <https://pages.github.com/>`__, or a variety of other
-systems.
+systems.  The overall workflow is largely the same, however!
 
 **Learning goals:**
 
