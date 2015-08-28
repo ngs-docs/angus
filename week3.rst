@@ -43,7 +43,7 @@ Workshop organizers:
 
 \C. Titus Brown
 
-Amanda Charbonneau
+Amanda Charbonneau, it's complicated
 
 Invited lecturers:
 ------------------
