@@ -62,7 +62,7 @@ A problem with these types of data is that they are often not normally distribut
 
 We will start with a permutational multivariate analysis of variance (PERMANOVA)
 ```R
-# install.packages("vegan")
+install.packages("vegan")
 library(vegan)
 ?adonis
 adonis(dataset[,-c(1:3)]~dataset$fly*dataset$type)
