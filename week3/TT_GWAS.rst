@@ -5,13 +5,13 @@ Lesson notes:
 
 We will be working on Amazon EC2, so here's what we need to set that up:
 
-https://github.com/ttimbers/SKAT_NGS-2015/blob/master/Setup-for-gwas-on-EC2.md
+https://github.com/ngs-docs/SKAT_NGS-2015/blob/master/Setup-for-gwas-on-EC2.md
 
 ----
 
 These notes are to do the analysis:
 
-https://github.com/ttimbers/SKAT_NGS-2015/blob/master/NGS_GWAS_via_SKAT.md
+https://github.com/ngs-docs/SKAT_NGS-2015/blob/master/NGS_GWAS_via_SKAT.md
 
 ----
 
