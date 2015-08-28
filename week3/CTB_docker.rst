@@ -107,8 +107,8 @@ First, update the base software and install g++, make, git, and zlib::
 
 Then check out and build megahit::
 
-   git clone https://github.com/voutcn/megahit.git /root/megahit
-   cd /root/megahit && make
+   git clone https://github.com/voutcn/megahit.git /home/megahit
+   cd /home/megahit && make
 
 So, now we have megahit built!  On our docker container! But we face
 two problems:
@@ -154,7 +154,7 @@ Now, to run the megahit image, you can type::
 and (inside the docker container, which will have a new container ID) you can
 run::
 
-   /root/megahit/megahit
+   /home/megahit/megahit
 
 to verify that you still have megahit installed and running.  And
 voila!  You've created your own container!  (If you want to make this
@@ -197,7 +197,7 @@ to verify that you see these files.
 
 Now, let's assemble! ::
 
-   /root/megahit/megahit --12 /data/*.pe.fq.gz \
+   /home/megahit/megahit --12 /data/*.pe.fq.gz \
                          -r /data/*.se.fq.gz \
                          -o /data/ecoli -t 4
 
@@ -218,7 +218,7 @@ then running it from the command line in there?"  Yep. Run this::
 
    docker run -v /home/ubuntu/data:/data \
       -it megahit \
-   sh -c '/root/megahit/megahit --12 /data/*.pe.fq.gz 
+   sh -c '/home/megahit/megahit --12 /data/*.pe.fq.gz 
                         -r /data/*.se.fq.gz 
                         -o /data/ecoli -t 4'
 
@@ -236,7 +236,8 @@ First, put the command in a shell script::
    cd /home/ubuntu/data
    cat <<EOF > do-assemble.sh
    #! /bin/bash
-   /root/megahit/megahit --12 /data/*.pe.fq.gz \
+   rm -fr /data/ecoli
+   /home/megahit/megahit --12 /data/*.pe.fq.gz \
                         -r /data/*.se.fq.gz  \
                         -o /data/ecoli -t 4
    EOF
@@ -253,7 +254,7 @@ One thing to note here is that we've placed the do-assemble.sh script on
 the EC2 machine, rather than in the Docker container.  You can do it either
 way, but in this case it was more convenient to do it this way because
 we'd already created the container and I didn't want to have to create a
-new one.  The only change needed is to put the script in /root on the
+new one.  The only change needed is to put the script in /home on the
 docker image, instead of /data.
 
 Building an image with a Dockerfile
@@ -273,8 +274,8 @@ Let's encode the commands above in a Dockerfile::
    FROM ubuntu:14.04
    RUN apt-get update
    RUN apt-get install -y g++ make git zlib1g-dev python
-   RUN git clone https://github.com/voutcn/megahit.git /root/megahit
-   RUN cd /root/megahit && make
+   RUN git clone https://github.com/voutcn/megahit.git /home/megahit
+   RUN cd /home/megahit && make
    CMD /data/do-assemble.sh
    EOF
 
@@ -327,7 +328,7 @@ Challenge exercises
 ===================
 
 * Create a new image ``megahit2`` where the do-assemble.sh script
-  created above is saved in /root on the image itself, rather than
+  created above is saved in /home on the image itself, rather than
   in /data.
 
 * Create a container that has both MEGAHIT and Quast installed; see
@@ -351,3 +352,5 @@ Docker was used `to make a GigaScience paper completely reproducible <http://www
 
 Dealing with data is `still complicated <http://stackoverflow.com/questions/18496940/how-to-deal-with-persistent-storage-e-g-databases-in-docker>`__, but
 `the landscape is changing fast <https://lwn.net/Articles/646054/>`__.
+
+`The impact of Docker containers on the performance of genomic pipelines <https://peerj.com/preprints/1171/>`__, Di Tommaso et al., 2015 (PeerJ preprint).
