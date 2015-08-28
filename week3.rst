@@ -32,7 +32,7 @@ Thursday 8/25    * 9:15am: :doc:`week3/AWS-tips` (Leigh)
                  * 1:15pm: `Differential expression and detecting dosage compensation in RNAseq <https://angus.readthedocs.org/en/2015/_static/SLDC-code.html>`__ (Chris Hamm) `(source) <https://github.com/ngs-docs/angus/tree/2015/week3/SLDC>`__
                  * 7pm: firepit
                  
-Friday 8/25      * 9am: GitHub, Pull Requests, and ReadTheDocs (Titus)
+Friday 8/25      * 9am: :doc:`week3/CTB_github_editing` (Titus)
                  * 11:15am: discussion
                  * noon: fare-thee-well lunch
 
