@@ -1,11 +1,11 @@
-#Assembly using velvet
+# Assembly using velvet
 
 Heavily based on [material](https://github.com/lexnederbragt/INF-BIOx121_fall2014_de_novo_assembly) developed for the *de novo* assembly part of the INF-BIOx121 course "High Throughput Sequencing technologies and bioinformatics analysis" at Univ. of Oslo Fall 2014. License: CC0.
 
 
-###*De novo* assembly of Illumina reads using velvet
+### *De novo* assembly of Illumina reads using velvet
 
-###Installing Velvet
+### Installing Velvet
 
 Start an EC instance: m4.xlarge image with ubuntu 14.04. Update the base software and install some needed software:
 
@@ -38,7 +38,7 @@ velveth
 
 You should see the velvet help text.
 
-###Downloading reads
+### Downloading reads
 
 ```
 cd
@@ -51,7 +51,7 @@ wget https://www.dropbox.com/s/i99h7dnaq61hrrc/MiSeq_Ecoli_MG1655_50x_R2.fastq
 ```
 
 
-###Assembling short-reads with Velvet
+### Assembling short-reads with Velvet
 
 We will use Velvet to assemble Illumina reads on their own. Velvet uses the *de Bruijn graph* approach. 
 
@@ -59,7 +59,7 @@ We will assemble *E. coli K12* strain MG1655 which was sequenced on an Illumina 
 
 We wil first use paired end reads only: 
 
-###Building the Velvet Index File
+### Building the Velvet Index File
 
 Velvet requires an index file to be built before the assembly takes place. We must choose a *k-* mer value for building the index. Longer *k-* mers result in a more stringent assembly, at the expense of coverage. There is no definitive value of *k* for any given project. However, there are several absolute rules:
 
@@ -78,7 +78,7 @@ mkdir velvet
 cd velvet
 ```
 
-####A first assembly
+#### A first assembly
 
 Find a value of *k* (between 21 and 99) to start with, and record your choice in this google spreadsheet: <bit.ly/ngs2015Velvet>. Run `velveth` to build the hash index (see below).
 
@@ -163,7 +163,7 @@ Log your results in this google spreadsheet: `bit.ly/ngs2015Velvet`
 
 Now run `velveth` and `velvetg` for the kmer size determined by the whole class (k = 81). Use this kmer from now on!
 
-####Estimating and setting exp_cov
+#### Estimating and setting exp_cov
 
 Much better assemblies are produced if Velvet understands the expected coverage for unique regions of your genome. This allows it to try and resolve repeats. The command `velvet-estimate-exp-cov.pl` is supplied with Velvet and will plot a histogram of k-mer frequency for each node in the graph, listing k-mer frequency, and the number of count of nodes with that frequency
 
@@ -190,7 +190,7 @@ velvetg ASM_NAME -exp_cov PEAK_K_MER_COVERAGE
 
 * What improvements do you see in the assembly by setting a value for `exp_cov`?
 
-####Setting *cov_cutoff*
+#### Setting *cov_cutoff*
 
 You can also clean up the graph by removing low-frequency nodes from the *de Bruijn* graph using the `cov_cutoff` parameter. Low-frequency nodes can result from sequencing errors, or from parts of the genome with very little sequencing coverage. Removing them will often result in better assemblies, but setting the cut-off too high will also result in losing useful parts of the assembly. Using the histogram from previously, estimate a good value for `cov_cutoff`.
 
@@ -200,7 +200,7 @@ velvetg ASM_NAME -exp_cov YOUR_VALUE -cov_cutoff YOUR_VALUE
 
 Try some different values for `cov_cutoff`, keeping `exp_cov` the same and record your assembly results.
 
-####Asking velvet to determine the parameters
+#### Asking velvet to determine the parameters
 
 You can also ask Velvet to predict the values for you:
 
