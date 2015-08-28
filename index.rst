@@ -18,7 +18,9 @@ This workshop has a :doc:`code-of-conduct`.
 `Download all of these materials <https://github.com/ngs-docs/angus/archive/2015.zip>`__ or `visit the GitHub repository <https://github.com/ngs-docs/angus/tree/2015>`__.
 
 Meal Times: Breakfast 7-9, `Lunch <_static/McCrary_17_21.pdf>`__ 12-1, Dinner 6-7 (Unless noted below)
-  
+
+This year we also ran a third week workshop focused on intermediate and
+advanced skills; please see the schedule at :doc:`week3`.
 
 ===============  =============================================================
 Day              Schedule
@@ -68,25 +70,24 @@ Monday 8/17      * 9:15am lecture/tutorial, mRNAseq :doc:`MacManes_Trinity` (Mat
                  * 1:15pm `Transrate <https://github.com/ngs-docs/angus/blob/2015/transrate.rst>`__ (Meg)
                  * 1:45pm  lecture, `mRNA stats <_static/NGS2015_RNAseq_ID_1.pptx>`__ (Ian)
                  * 3:15pm  tutorial, :doc:`drosophila_rnaseq_counting_htseq` (Chris)
-                 	`drosophila_deseq2 <_static/drosophila_deseq2.R>`__  
-                 	:download:`drosophila_rnaseq_counts <files/drosophila_rnaseq_counts.zip>`
+
 
 Tuesday 8/18     * 9:15am lecture, `mRNAseq differential expression <_static/NGS2015_RNAseq_2.pptx>`__ (Ian)
                  * 10:30 `R tutorial <https://github.com/ngs-docs/angus/blob/2015/R_Introductory_tutorial_2015.md>`__ (Meg and Ian)
-                 * 1:15pm Tutorial, Differential expression analysis using DESeq2 (Chris)
+                 * 1:15pm Tutorial, `Differential expression analysis using DESeq2 <_static/drosophila_deseq2.R>`__  (Chris)
+                 	:download:`drosophila_rnaseq_counts <files/drosophila_rnaseq_counts.zip>` (Chris)
                  * 2:45 journal club, `Gilad and Mizrahi-Man, 2015 <http://f1000research.com/articles/4-121/v1>`__. A reanalysis of mouse ENCODE comparative gene expression data.
                              
-Wed 8/19         * 9:15am lecture, mRNAseq
-                 * 10:15am lecture/discussion, mRNAseq
-                 * 3:00pm through evening, Nick Loman & MINion
-                 * 1:15pm Assembly quality assessment (Transdecoder, BUSCO) (Meg & Matt)
-                 * 2:15pm Functional annotation (BLAST, PFam, InterProScan) (Meg)
-                 * evening: gin social?
-                 
-Thursday 8/20    * TBD
+Wed 8/19         * 9:15am lecture, :doc:`functional_annotation`
+                 * 10:15am Assembly quality assessment (Transdecoder) (Meg & Mattt)
+                 * 1:00pm practical, :doc:`analyzing_nanopore_data` (Nick Loman)
+                 * Evening, Twitter? More nanopore? Free work time? :doc:`MacManes_kallisto` (Matt)
+                                  
+Thursday 8/20    * 9:15am activity, :doc:`MacManes_adventure` (Matt) and Prokka (Torsten)
                  * 1:15pm Assessment (Julie)
+                 * 2pm: GitHub practical: :doc:`CTB-github` and Prokka :doc:`prokka_genome_annotation`
                  * *BBQ Dinner on the island*
-                 * gin social?
+                 * social
 
 Friday 8/21      * 9:15-9:45 closing lecture (Titus)
                  * 10am discussion about class; more stuff
@@ -230,6 +231,10 @@ Blogs
 * http://omicsomics.blogspot.com/
 
   Omics! Omics!
+
+* http://lab.loman.net/
+
+  Nick Loman's lab notebook
 
 Complete table of contents
 ==========================
