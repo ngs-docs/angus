@@ -54,7 +54,7 @@ Meeta Mistry
 
 Lex Nederbragt
 
-Marian Schmidt
+Marian Schmidt, University of Michigan
 
 Leigh Sheneman
 
