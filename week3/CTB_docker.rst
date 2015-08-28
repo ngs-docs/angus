@@ -352,3 +352,5 @@ Docker was used `to make a GigaScience paper completely reproducible <http://www
 
 Dealing with data is `still complicated <http://stackoverflow.com/questions/18496940/how-to-deal-with-persistent-storage-e-g-databases-in-docker>`__, but
 `the landscape is changing fast <https://lwn.net/Articles/646054/>`__.
+
+`The impact of Docker containers on the performance of genomic pipelines <https://peerj.com/preprints/1171/>`__, Di Tommaso et al., 2015 (PeerJ preprint).
