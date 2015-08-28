@@ -41,7 +41,7 @@ Friday 8/25      * 9am: :doc:`week3/CTB_github_editing` (Titus)
 Workshop organizers:
 --------------------
 
-\C. Titus Brown
+\C. Titus Brown, UC Davis
 
 Amanda Charbonneau
 
