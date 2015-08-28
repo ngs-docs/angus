@@ -67,3 +67,5 @@ Ryan Williams
 .. _stats1: https://github.com/ngs-docs/angus/blob/2015/week3/visualizations/multivariate-tests/tests.md
 
 .. _stats2: https://github.com/ngs-docs/angus/blob/2015/week3/visualizations/multivariate-viz/visualizations.md
+
+Jie Wang - MSU
