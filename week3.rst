@@ -1,8 +1,6 @@
 Week 3
 ======
 
-.. test
-
 `Background <http://ivory.idyll.org/blog/2015-summer-course-NGS.html>`__
 
 Meal Times: Breakfast 7-9, `Lunch <_static/McCrary24_28.pdf>`__ 12-1, Dinner 6-7 (Unless noted below)
