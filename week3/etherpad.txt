@@ -1,0 +1,445 @@
+&nbsp;You can change notification settings in the options pageClose
+Nick Schurch
+@drchriscole @monsterbashseq @markrobinsonca @mistrm82 @ctitusbrown our paper show what you can/cannot trust w. <6 reps, but they advise 6+
+9 minutes ago in reply to drchriscole from Twitter Web Client
+
+Nick Schurch
+@monsterbashseq @drchriscole @markrobinsonca @mistrm82 @ctitusbrown not sure I agree with @drchriscole here. I'd definitely ">5 reps min"
+10 minutes ago in reply to monsterbashseq from Twitter Web Client
+
+&nbsp;You can change notification settings in the options pageClose
+Kai Blin
+@ctitusbrown @rmcgibbo @michaelhoffman @mistrm82 And "sources, install documentation, and a way to get 'known good' version" is a start
+just now in reply to ctitusbrown from Twitter Web Client
+
+ ## create a script on the command line (pay attn to EOF in example below)
+cat <<EOF > do-assemble.sh
+#! /bin/bash
+rm -fr /data/ecoli
+/home/megahit/megahit --12 /data/*.pe.fq.gz \
+                     -r /data/*.se.fq.gz  \
+                     -o /data/ecoli -t 4
+EOF
+chmod +x do-assemble.sh
+
+#The script takes down the part starting on the line with #! /bin/bash and until EOF, but not including EOF.  A neat trick to get around explaining "nano" and "vi" in a beginner course.
+
+!$ ## uses the last thing on the previous command line
+
+## e.g.
+echo hello, world
+echo !$
+
+## runs last thing you ran 
+!!
+
+CRTL+R # let's you search history
+
+## commit old name
+docker commit -m "old megahit" sha megahit:name
+
+
+=========
+
+Tuesday, 25 August 2015 – Multivariate **R** workshop – Ryan 
+
+The first half of the lesson can be found at this link:
+https://github.com/ngs-docs/angus/blob/2015/week3/visualizations/multivariate-tests/tests.md
+
+The second half can be found at this link:
+https://github.com/ngs-docs/angus/blob/2015/week3/visualizations/multivariate-viz/visualizations.md
+
+If you have trouble installing from the command line, you can often get Rstudio to work out dependencies for you by using the GUI option from the menu `Tools > Install Packages`.
+
+getURL error -- forgot to load library(RCurl)
+
+getURL fallback:
+download.file("https://raw.githubusercontent.com/ryanjw/ngs-3rdweek/master/datasets/fly_data.txt",destfile="fly_data.txt",method="curl")
+dataset<-read.table("fly_data.txt",header=T,sep="\t",check.names=F)
+
+
+# Possible solution for ubuntu RCurl
+In the terminal:
+sudo apt-get install libcurl4-openssl-dev
+
+
+
+## R Tips
+use ? to bring up the help page, For example, to learn about PERMANOVA type:
+?adonis
+You can use ?? to get all the help pages with that word in it within the packages that you have installed within R.
+??plot
+
+
+## ggplot tips
+
+NB: if you like the idea of ggplot, but it seems a little opaque, there's a very nice tutorial at: http://bioconnector.org/workshops/lessons/r/r-viz/
+Also, the RCookbook is AWESOME!!  Check it out here: 
+http://www.cookbook-r.com/Graphs/
+
+
+# alpha=0.5 makes the colour transparent
+# aes() is an aesthetic layer (you can have as many of these as you want) to make the plot
+# as complex as you want
+# there are a certain number of aes that are required (depending on what geometric object layer you have added (geom_)
+
+## Another ggplot resource (tutorial that explains layers, and aesthetics)
+http://tutorials.iq.harvard.edu/R/Rgraphics/Rgraphics.html#sec-1
+
+
+For those of you wondering where the density --> histogram came from:
+
+https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf
+
+
+
+
+
+URL<-("https://raw.githubusercontent.com/ryanjw/ngs-3rdweek/master/visualizations/multivariate-viz/fly_data_with_unknowns.txt")
+dataset<-read.table(textConnection(getURL(URL)),header=T,check.names=F,sep="\t")
+
+
+Automagically get the %variance explained:
+ggplot(sc)+geom_point(aes(x=MDS1,y=MDS2,colour=info,shape=type))+labs(x=paste("MDS1 (", round((eigs/sum(eigs))[[1]]*100, 1),"% of variation explained)") ,y="MDS2 (5.8% of variation explained)")
+
+For both axes:
+
+ggplot(sc)+geom_point(aes(x=MDS1,y=MDS2,colour=info,shape=type))+labs(x=paste("MDS1 (", round((eigs/sum(eigs))[[1]]*100, 1),"% of variation explained)") ,y=paste("MDS2 (", round((eigs/sum(eigs))[[2]]*100, 1), "% of variation explained)"))
+
+More readable:
+
+xExplained = round(100*eigs/sum(eigs),digits = 1)[1]
+yExplained = round(100*eigs/sum(eigs),digits = 1)[2]
+
+xlabel = paste("MDS1 (", xExplained, "% of variation explained)", sep = "")
+ylabel = paste("MDS2 (", yExplained, "% of variation explained)", sep = "")
+
+ggplot(sc)+geom_point(aes(x=MDS1, y=MDS2, colour=info, shape=type)) + labs(x=xlabel, y=ylabel)
+
+
+Blog post about what is going on with those distance measures.
+
+https://www.researchgate.net/post/Is_it_relevant_to_compare_Jaccard_index_Bray_Curtis_coefficient_and_Euclidian_distance_using_the_same_dataset
+
+A lot of this stuff was invented with normally distributed data in mind.  Be mindful of your data distribution before choosing a data measure.
+
+
+pcoa<-capscale(decostand(dataset[,-c(1:4)],"total")~dataset$fly,distance="bray")
+pcoa
+scores(pcoa)$centroids
+ggplot(sc)+geom_point(aes(x=MDS1,y=MDS2,colour=info,shape=type))+labs(x="MDS1 (33.0% of variation explained)",y="MDS1 (8.2% of variation explained)")+annotate("text",x=c(-.157,-.077,.17),y=c(-.004,.670,.156),label=c("HYB","ORE","SAM"))
+
+
+
+=========
+
+Tuesday, 25 August 2015 – Assembly workshop – Lex Nederbragt
+
+"We sicklebackized the cod genome but it turned out okay."
+
+On an xlarge EC2 instance::
+
+sudo apt-get update
+sudo apt-get install -y g++ gcc make git zlib1g-dev python
+
+https://github.com/ngs-docs/angus/blob/2015/week3/LN_assembly.md
+
+wget https://www.ebi.ac.uk/~zerbino/velvet/velvet_1.2.10.tgz 
+export PS1="$ " # temporarily change your prompt
+
+# Build velvet with a modified MAXKMERLENGTH parameter
+tar -xvzf velvet_1.2.10.tgz 
+cd velvet_1.2.10/
+make 'MAXKMERLENGTH=127'
+
+# Add velvet and velvet/contrib directories to PATH
+cd ~/velvet_1.2.10 && export PATH=${PWD}:$PATH
+cd ~/velvet_1.2.10/contrib/estimate-exp_cov && export PATH=${PWD}:$PATH
+
+which velveth
+
+cd # this gets you to the home directory
+
+mkdir velvet
+cd velvet 
+mkdir data
+cd data
+wget https://www.dropbox.com/s/kopguhd9z2ffbf6/MiSeq_Ecoli_MG1655_50x_R1.fastq
+wget https://www.dropbox.com/s/i99h7dnaq61hrrc/MiSeq_Ecoli_MG1655_50x_R2.fastq
+
+# this also works
+curl -L -O https://www.dropbox.com/s/kopguhd9z2ffbf6/MiSeq_Ecoli_MG1655_50x_R1.fastq
+
+
+Spreadsheet: bit.ly/ngs2015Velvet
+
+velveth k81 81 -short -separate -fastq MiSeq_Ecoli_MG1655_50x_R1.fastq MiSeq_Ecoli_MG1655_50x_R2.fastq 
+velvetg k81
+
+
+"Even-k kmers come in two classes--those that are palindromic and those that are not.
+Odd kmers are never palindromic--all kmers and their reverse compliments are distinct--so you never worry about double-counting them or forgetting to double count them.So it's a convenience to limit your attention to kmers that can't collide with their reverse complements."
+
+Thanks, Will. Also see: http://www.homolog.us/Tutorials/index.php?p=2.4&s=1
+ "Genome assembly programs also avoid even k, because with even k, many k-mers become reverse complements of their own sequences. That causes ambiguities in the strand-specificness of the graph. Therefore, odd k-values are preferred."
+
+http://bit.ly/ngs2015MCQ
+
+"Every bp error in a read will create k unique (wrong) kmers"
+
+## piping to less -S lets you scroll across columns
+## `column` lines up the content based on the delimiter (if it's a ',' or '\t' or something similar)
+column -t stats.txt | less -S 
+
+## spacebar goes down
+## B to go back
+
+less *is* more!!!
+
+space backward= b
+shift + g to end
+g to top
+55 lines forward= 55f
+40 lines backward = 40b
+less -S scroll horizontally
+less + F will open file and tell you when new lines appear
+
+kmergenie is a really good (and fast) tool for plotting kmer distributions from raw reads
+http://kmergenie.bx.psu.edu
+
+
+
+###############For tomorrow##########################
+
+
+## For TOMORROW morning's R session; the following R installs are required:
+source("http://bioconductor.org/biocLite.R")
+biocLite('edgeR')
+biocLite('DESeq2')
+biocLite('limma')
+
+
+
+
+Reproducible data analysis with RMarkdown and Git through RStudio  (Marian Schmidt)
+=======================================
+
+http://angus.readthedocs.org/en/2015/week3.html
+
+http://www.sciencemag.org/content/346/6215/1366.abstract?sid=9f012e0a-4d4d-481d-8419-a2fb5653458c
+
+tests in R, use stopifnot()VIgnette
+tests in Python use assert()
+
+cool package for tests in R: "testthat"
+
+Install git (if you don't have it)
+https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
+
+Tell RStudio where to find the Git executable
+https://stat545-ubc.github.io/git03_rstudio-meet-git.html
+
+Opening settings panel in RStudio in ubuntu: Tools --> Global Options
+
+Git for older MAC OS X versions https://sourceforge.net/projects/git-osx-installer/files/
+git-2.5.0 works with OSX 10.8.5
+git 1.8.4 works with OSX 10.7
+
+For those of you/us not using R, but for example python, a lot of the same (wonderful) things as Marian demonstrates with RMarkdown/Knitr/Rstudio can be achieved with the Jupyter (IPython) notebook and nbconvert, or regular markdown and pandoc.
+
+Fixing ubuntu problem of installing old R version: 
+http://stackoverflow.com/questions/10476713/how-to-upgrade-r-in-ubuntu
+
+
+**WEDNESDAY AUG 26**
+
+library(edgeR)
+library(DESeq2)
+library(limma)
+library(Biobase)
+
+
+Todays material: https://github.com/mistrm82/msu_ngs2015
+# A pipeline for NGS-analysis
+bcbio-nextgen: https://bcbio-nextgen.readthedocs.org/en/latest/
+
+
+For R 3.2 you need Bioc installer 1.18.2
+sessionInfo()
+
+remove.packages("BiocInstaller")
+source("http://bioconductor.org/biocLite.R") 
+biocLite()
+
+OR
+ remove.packages("BiocInstaller")
+ biocLite("BiocUpgrade")
+
+Titus sees:
+# Bioconductor version 3.1 (BiocInstaller 1.18.4)
+
+Link for download data: https://github.com/mistrm82/msu_ngs2015/archive/master.zip
+
+Or: https://github.com/mistrm82/msu_ngs2015/raw/master/bottomly_eset.RData
+
+Starting at:
+https://github.com/mistrm82/msu_ngs2015/blob/master/setting-up.Rmd
+
+# INSTRUCTIONS
+Open RStudio
+Go to bottom right pane and find your directory where the unzipped repo is
+select wheel (pull down) and "set as working directory"
+
+load("bottomly_eset.RData")
+bottomly.eset
+
+# Large ExpressionSet class in R: introduction
+http://www.bioconductor.org/packages/release/bioc/vignettes/Biobase/inst/doc/ExpressionSetIntroduction.pdf
+
+
+# Also please load BioBase
+library(Biobase)
+
+
+NB: if you get you get problems with the install on Ubuntu, look for this in the error blurb:
+" > Cannot find xml2-config "
+I fixed this with:
+apt-get install libxml2-dev
+run in the bash terminal (NOT in Rstudio)
+
+
+A deeper dive into the log-math (thanks Adelaide) can be found by calling "vignette( "DESeq2" )" in R
+
+"The coefficient of variation (CV) is defined as the ratio of the standard deviation to the mean"
+
+What the FPKM? A review of RNA-Seq expression units
+Fragments Per Kilobase of transcript per Million mapped reads
+
+in base R the functions intersect( x, y ) & setdiff( x, y ) will show you the items that are in both lists, or x NOT y respectively
+if you have more than 2 groups you can do e.g. intersect( intersect( x, y ), z) [thanks Prateek!]
+
+
+https://haroldpimentel.wordpress.com/2014/05/08/what-the-fpkm-a-review-rna-seq-expression-units/
+
+[Non Sequitur:
+https://cran.r-project.org/web/packages/NBPSeq/NBPSeq.pdf - a way to get false discovery rates and use these to assess the quality of your top genes across data sets.]
+
+############WED AFTERNOON################
+
+For TODAY's afternoon's session, please have the following bioconductor packages installed:
+source("http://bioconductor.org/biocLite.R")
+biocLite(c("pathview", "edgeR", "gage"))
+
+https://github.com/ajwije/150826_pathway_analysis
+
+Asela mentioned this paper: http://www.ploscompbiol.org/article/fetchObject.action?uri=info:doi/10.1371/journal.pcbi.1002375&representation=PDF
+
+Remind Asela later to explain transformation involved with norm_counts.
+
+#changes required to the heatmap script to get it to run
+
+library(ggplot2)
+library(reshape2)
+first_up <- unique(unlist(kegg.gs[rownames(native_kegg_fc$greater)[1]]))
+aminoacyl_tRNA <- norm_counts[row.names(norm_counts) %in% first_up, ]
+
+
+aminoacyl_format <- melt(aminoacyl_tRNA)
+head(aminoacyl_format)
+colnames(aminoacyl_format) <- c("Gene_names",
+                                "Genotype", 
+                                "norm_counts" )
+
+ggplot(data = aminoacyl_format, aes(x=Genotype, y=Gene_names, fill=norm_counts)) + 
+  geom_tile()
+
+
+
+
+TAKE-HOME
+----
+So the suggested workflow is:
+
+   + let GAGE determine which *pathways* are upregulated
+   + use edgeR/DESeq2 to determine which *genes* are overrepresented
+   + combine the two to produce summary plots (off of the 80's)
+
+
+
+THE SCHEDULE IS NOT CHANGED ON THE GITHUB, so Tiffany tonight and Chris tomorrow :-)
+
+
+=========
+
+Wednesday, 26 August 2015 – GWAS workshop for NGS data 
+Tiffany Timbers / @TiffanyTimbers/ SFU
+
+Socrative student login: https://b.socrative.com/login/student
+Room: F321E8CC
+
+Lesson notes:
+We will be working on Amazon Ec2, so here's what we need to set that up:
+https://github.com/ttimbers/SKAT_NGS-2015/blob/master/Setup-for-gwas-on-EC2.md
+
+These notes are to do the analysis:
+https://github.com/ttimbers/SKAT_NGS-2015/blob/master/NGS_GWAS_via_SKAT.md
+
+Extra reading/documentation:
+SKAT R package documentation:
+https://cran.r-project.org/web/packages/SKAT/SKAT.pdf
+
+SKAT paper:
+http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3135811/pdf/main.pdf
+
+Jenny Bryan STAT545 cheat sheet for dplyr
+https://stat545-ubc.github.io/bit001_dplyr-cheatsheet.html
+
+
+dplyr cheat sheet https://stat545-ubc.github.io/bit001_dplyr-cheatsheet.html
+
+If library(stringr)  fails:  
+install.packages("/home/ubuntu/stringr_0.5.tar.gz")
+library(stringr) 
+
+if library(SKAT) fails:
+install.packages("SKAT_1.0.7.tar.gz")
+
+Thursday, 27 August 2015 morning:   Reproducibility with AWS   (Leigh Sheneman)
+========
+
+https://github.com/LSheneman/angus/blob/2015/week3/AWS-tips.rst
+
+Leigh's public AMI
+ami-dfba02b4
+
+Fixes for mount command in :
+https://github.com/ngs-docs/angus/blob/2015/week3/AWS-tips.rst
+
+
+S3 bucket used for making data available
+EC2 sharing the OS with programs installed + volume of data 
+
+
+Per request, illumina sequencing "movies":
+http://tinyurl.com/sequencingisbeautiful
+http://tinyurl.com/illuminaflowcellrag
+http://www.mcs.anl.gov/~trimble/nodi/hiseq-example.mp4
+http://www.mcs.anl.gov/~trimble/nodi/miseq-example.mp4
+http://mcs.anl.gov/~trimble/nodi/sarah/130315_SN1035_0127_AC1KU8ACXX-movie-sm.mov
+
+========
+
+Thursday, 27 August 2015 afternoon:   Sex Linked Dosage Compensation - NGS2015 (Chris Hamm)
+https://angus.readthedocs.org/en/2015/_static/SLDC-code.html
+https://github.com/ngs-docs/angus/blob/2015/week3/SLDC/SLDC-code.Rmd
+https://raw.githubusercontent.com/ngs-docs/angus/2015/week3/SLDC/Data/Bmori-data.csv
+And
+https://github.com/ngs-docs/angus/tree/2015/week3/SLDC
+
+
+check your visualisations for colourblind-compatibility with e.g.
+https://cran.r-project.org/web/packages/dichromat/dichromat.pdf
+
+cowplot package to do multi-panel plots with ggplot:
+https://cran.r-project.org/web/packages/cowplot/vignettes/introduction.html
+
