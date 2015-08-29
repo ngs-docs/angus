@@ -58,7 +58,7 @@ Marian Schmidt, University of Michigan
 
 Leigh Sheneman
 
-Tiffany Timbers
+Tiffany Timbers, Simon Fraser University
 
 Asela Wijeratne
 
