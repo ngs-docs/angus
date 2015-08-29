@@ -45,7 +45,7 @@ Workshop organizers:
 
 Amanda Charbonneau, it's complicated
 
-Invited lecturers:
+Invited lecturers are the following:
 ------------------
 
 Chris Hamm
