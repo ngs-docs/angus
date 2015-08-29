@@ -17,7 +17,7 @@ GWAS was developed for data from SNP microarrays and has begun to be subsequentl
 are several considerations when doing GWAS with sequencing data, including:
 * how to deal with rare variants (these didn't exist in SNP array experiments)?
 * focus only on the exome? or look at whole-genome?
-* how to deal with synonomous mutations?
+* how to deal with synonymous mutations?
 
 ## Advantages when performing GWAS on sequencing data
 * potentially increased power due to rare variants potentially being more sever than common variants 
