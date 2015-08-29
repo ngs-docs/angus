@@ -8,7 +8,7 @@ A typical bioinformatics pipeline consists of several independent software packa
 
 Amazon offers a number of services that make sharing our working environment easy. Here we will walk through the using three of theses services.
 
-:author: Leigh Sheneman
+:author: Leigh Sheneman, Michigan State University
 :date: Aug 27, 2015
 
 .. contents::
