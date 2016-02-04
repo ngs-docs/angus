@@ -6,7 +6,7 @@ Kellogg Biological Station, Michigan State University
 Please sign up for [the announcements mailing](http://lists.idyll.org/listinfo/ngs-course-announce) list if you are interested in taking this class now, or in the future.
 
 ### Instructors: 
-Prof. Meg Staton and Prof. Matt MacManes along with Dr Torten Seemann, Shaun Jackman and others.  
+Prof. Meg Staton and Prof. Matt MacManes along with Dr Torsten Seemann, Shaun Jackman and others.  
 
 
 ###  News
