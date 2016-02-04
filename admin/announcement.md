@@ -3,7 +3,7 @@
 August 8 - August 19th, 2016
 Kellogg Biological Station, Michigan State University
 
-Please sign up for the announcements mailing () list if you are interested in taking this class now, or in the future.
+Please sign up for [the announcements mailing](http://lists.idyll.org/listinfo/ngs-course-announce) list if you are interested in taking this class now, or in the future.
 
 ### Instructors: 
 Prof. Meg Staton and Prof. Matt MacManes along with Dr Torten Seemann, Shaun Jackman and others.  
@@ -27,7 +27,7 @@ Students will gain practical experience in:
 - querying mappings and evaluating assemblies
 - Materials from previous courses are available at http://angus.readthedocs.org/ under a Creative Commons/full use+reuse license.
 
-You can read a blog post about the 2015 course http://ivory.idyll.org/blog/tag/ngs-course.html.
+You can read a blog post about the 2015 course [here](http://ivory.idyll.org/blog/tag/ngs-course.html).
 
 ### What will students learn?
 By the end of the course, students will be able to assemble transcriptomes, identify variants, and estimate transcript abundance (from mRNAseq data). They will also know how to transfer large data sets between computers, run extended analyses while asleep, execute and modify existing Python scripts, and otherwise effectively make use of basic computational resources.
@@ -74,4 +74,4 @@ Professor, Michigan State University; member of the National Academy of Sciences
 Bioinformatics and genomics: Lincoln Stein, Platform Leader, Informatics and Bio-Computing, Ontario Institute for Cancer Research; Professor, Cold Spring Harbor Laboratory.
 
 ### Funding
-This course uses materials developed under AFRI Competitive Grant no. 2010-65205-20361 from the USDA NIFA, and is supported by Grant Number R25HG006243 from the National Human Genome Research Institute, both to CTB.
+This course uses materials developed under AFRI Competitive Grant no. 2010-65205-20361 from the USDA NIFA, and is supported by Grant Number R25HG006243 from the National Human Genome Research Institute, both to C. Titus Brown.
