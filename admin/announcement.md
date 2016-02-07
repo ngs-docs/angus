@@ -13,7 +13,7 @@ Dr Torsten Seemann, Shaun Jackman and several others TBA.
 
 
 ###  News
-Feb X, 2016 - application form is now open! We will close the application period on April 07th (midnight EST) and notify applicants of decisions on April 17th.
+Feb X, 2016 - application form is now open! We will close the application period on March 1st (midnight EST) and notify applicants of decisions on March 17th.
 
 
 ### Course Description
