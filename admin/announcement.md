@@ -6,11 +6,13 @@ Kellogg Biological Station, Michigan State University
 To Apply: Fill out the form here: http://goo.gl/forms/jWE6fx4WP0
 
 ### Course Directors:
-Prof. Meg Staton and Prof. Matt MacManes ( [@macmanes](https://twitter.com/macmanes) or matthew dot macmanes at unh dot edu)
+* Prof. Meg Staton
+* Prof. Matt MacManes ([@macmanes](https://twitter.com/macmanes) or matthew dot macmanes at unh dot edu)
 
 ### Instructors: 
-Dr Torsten Seemann, Shaun Jackman and several others TBA.  
-
+* A/Prof Torsten Seemann  ([@torstenseemann](https://twitter.com/torstenseemann) )
+* Shaun Jackman  ([@sjackman](https://twitter.com/sjackman) )
+* _and several others TBA_
 
 ###  News
 Feb X, 2016 - application form is now open! We will close the application period on March 1st (midnight EST) and notify applicants of decisions on March 17th.
@@ -26,7 +28,7 @@ Students will gain practical experience in:
 - Python and bash shell scripting
 - cloud computing/Amazon EC2
 - basic software installation on UNIX
-- installing and running Trinity, BWA, Salmon, SPAdes, ABySS and other bioinformatics tools.
+- installing and running Trinity, BWA, Salmon, SPAdes, ABySS, Prokka and other bioinformatics tools.
 - querying mappings and evaluating assemblies
 - Materials from previous courses are available at http://angus.readthedocs.org/ under a Creative Commons/full use+reuse license.
 
@@ -61,6 +63,14 @@ In 2016, we plan to have housing available for family groups. Child care may be 
 Matt MacManes (http://genomebio.org/) holds a Ph.D. in Integrative Biology from UC Berkeley, and has worked in behavioral ecology, population genetics, and more recently transcriptomics and genomics. He is currently an Assistant Professor in Molecular Cellular and Biomedical Sciences at The University of New Hampshire, where his lab works on functional and population genomics in non-model organisms including desert mice, ladybugs, clams, corals, and doves.
 
 Meg Staton (http://agbioinfo.utk.edu/) is an Assistant Professor in the Department of Entomology and Plant Pathology at the University of Tennessee, Knoxville. She specializes in bioinformatics and genomics of plants and her lab helps build the software Tripal, runs genomic data web portals, and analyzes a wide variety of genomics data.
+
+Torsten Seemann (https://tseemann.github.io/) is an Associate Professor and Lead Bioinformatician at the 
+[Victorian Life Sciences Computation Initiative](http://www.vlsci.org.au) and the
+[Doherty Centre for Applied Microbial Genomics](http://microbial-genomics.mdhs.unimelb.edu.au/) at the
+[University of Melbourne](http://www.unimelb.edu.au/) in 
+[Melbourne, Australia](https://en.wikipedia.org/wiki/Melbourne).
+He specializes in developing bioinformatics software tools and pipelines for the analysis of bacterial "omics" data, 
+with a focus on applications to clinical and public health microbiology.
 
 ### Board of Advisors
 Human genetics and genomics: Kevin White, James and Karen Frank Family Professor at University of Chicago.
