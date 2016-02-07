@@ -17,7 +17,7 @@ Feb X, 2016 - application form is now open! We will close the application period
 
 
 ### Course Description
-This intensive two week summer course will introduce attendees with a strong biology background to the practice of analyzing short-read sequencing data from Illumina and other next-gen platforms. The first week will introduce students to computational thinking and large-scale data analysis on UNIX platforms. The second week will focus on mapping, assembly, and analysis of short-read data for resequencing, ChIP-seq, and RNAseq.
+This intensive two week summer course will introduce attendees with a strong biology background to the practice of analyzing short-read sequencing data from Illumina and other next-gen platforms (e.g., Nanopore, PacBio). The first week will introduce students to computational thinking and large-scale data analysis on UNIX platforms. The second week will focus on genome and transcriptome assembly, transcript quantitation, mapping, and other topics.
 
 No prior programming experience is required, although familiarity with some programming concepts is helpful, and bravery in the face of the unknown is necessary. 2 years or more of graduate school in a biological science is strongly suggested. Faculty, postdocs, and research staff are more than welcome!
 
@@ -26,7 +26,7 @@ Students will gain practical experience in:
 - Python and bash shell scripting
 - cloud computing/Amazon EC2
 - basic software installation on UNIX
-- installing and running bowtie, Trinity, Velvet, SPAdes and other bioinformatics tools.
+- installing and running Trinity, BWA, Salmon, SPAdes, ABySS and other bioinformatics tools.
 - querying mappings and evaluating assemblies
 - Materials from previous courses are available at http://angus.readthedocs.org/ under a Creative Commons/full use+reuse license.
 
