@@ -10,6 +10,7 @@ To Apply: Fill out the form here: http://goo.gl/forms/jWE6fx4WP0
 * Meg Staton, Assistant Professor, University of Tennessee, Knoxville ([@hardwoodgenomic](https://twitter.com/hardwoodgenomic) or mstaton1 at utk dot edu)
 
 ### Instructors: 
+* Ian Dworkin, Associate Professor, MacMaster University ([@iandworkin](https://twitter.com/iandworkin) )
 * Torsten Seemann, Associate Professor, University of Melbourne ([@torstenseemann](https://twitter.com/torstenseemann) )
 * Shaun Jackman, PhD candidate, University of British Columbia  ([@sjackman](https://twitter.com/sjackman) )
 * _and several others TBA_
