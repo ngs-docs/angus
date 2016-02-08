@@ -6,12 +6,12 @@ Kellogg Biological Station, Michigan State University
 To Apply: Fill out the form here: http://goo.gl/forms/jWE6fx4WP0
 
 ### Course Directors:
-* Prof. Meg Staton ([@hardwoodgenomic](https://twitter.com/hardwoodgenomic) or mstaton1 at utk dot edu)
-* Prof. Matt MacManes ([@macmanes](https://twitter.com/macmanes) or matthew dot macmanes at unh dot edu)
+* Matt MacManes, Assistant Professor, University of New Hampshire ([@macmanes](https://twitter.com/macmanes) or matthew dot macmanes at unh dot edu)
+* Meg Staton, Assistant Professor, University of Tennessee, Knoxville ([@hardwoodgenomic](https://twitter.com/hardwoodgenomic) or mstaton1 at utk dot edu)
 
 ### Instructors: 
-* A/Prof Torsten Seemann  ([@torstenseemann](https://twitter.com/torstenseemann) )
-* Shaun Jackman  ([@sjackman](https://twitter.com/sjackman) )
+* Torsten Seemann, Associate Professor, University of Melbourne ([@torstenseemann](https://twitter.com/torstenseemann) )
+* Shaun Jackman, PhD candidate, University of British Columbia  ([@sjackman](https://twitter.com/sjackman) )
 * _and several others TBA_
 
 ###  News
