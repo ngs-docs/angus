@@ -78,6 +78,8 @@ Torsten Seemann (https://tseemann.github.io/) is an Associate Professor and Lead
 He specializes in developing bioinformatics software tools and pipelines for the analysis of bacterial "omics" data, 
 with a focus on applications to clinical and public health microbiology.
 
+Ian Dworkin (https://www.msu.edu/~idworkin/) holds a Ph.D. in Evolutionary Genetics from the University of Toronto, and has worked on Quantitative and statistical genetics, Evolutionary biology, genomics and developmental biology. He is currently a faculty member in the Department of Biology at McMaster University, where his lab works on evolutionary genomics of development, morphology and behavior, in addition to the development of new statistical tools.
+
 ### Board of Advisors
 Human genetics and genomics: Kevin White, James and Karen Frank Family Professor at University of Chicago.
 
