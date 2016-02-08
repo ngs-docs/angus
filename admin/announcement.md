@@ -6,7 +6,7 @@ Kellogg Biological Station, Michigan State University
 To Apply: Fill out the form here: http://goo.gl/forms/jWE6fx4WP0
 
 ### Course Directors:
-* Prof. Meg Staton
+* Prof. Meg Staton ([@hardwoodgenomic](https://twitter.com/hardwoodgenomic) or mstaton1 at utk dot edu)
 * Prof. Matt MacManes ([@macmanes](https://twitter.com/macmanes) or matthew dot macmanes at unh dot edu)
 
 ### Instructors: 
