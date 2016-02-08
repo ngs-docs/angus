@@ -3,7 +3,7 @@
 August 8 - August 19th, 2016
 Kellogg Biological Station, Michigan State University
 
-To Apply: Fill out the form here: http://goo.gl/forms/jWE6fx4WP0
+To Apply: Fill out the form here: http://goo.gl/forms/jWE6fx4WP0. Due date 3/1/17
 
 ### Course Directors:
 * Matt MacManes, Assistant Professor, University of New Hampshire ([@macmanes](https://twitter.com/macmanes) or matthew dot macmanes at unh dot edu)
@@ -42,7 +42,7 @@ By the end of the course, students will be able to assemble transcriptomes, iden
 The course will be held at the W.K. Kellogg Biological Station on Gull Lake (http://www.kbs.msu.edu/) in western Michigan from noon on Monday, August 8th through 2pm on Friday, August 19th. Morning and afternoon lectures will be interspersed with practical hands-on labs. Room and board will be provided on-site (see enrolling, below). Sunday, August 16th, will be a day of rest & relaxation. Students should expect to arrive at KBS by Monday, August 8th at noon and stay at KBS through Friday, August 19th at 2pm. KBS is several hours away from the nearest large airports (DTW, GRR, LAN) and students coming from out of state should plan on arriving on Sunday.
 
 ### Applying for the course
-An application is required (see here: http://goo.gl/forms/jWE6fx4WP0), and we can accommodate only 24 attendees. We absolutely welcome "students" of any career stage, including postdocs and faculty. Applicants are not selected on a first-come-first-serve basis, and we try to create a balanced class of participants.
+An application is required (see here: http://goo.gl/forms/jWE6fx4WP0) by 3/1/17, and we can accommodate only 24 attendees. We absolutely welcome "students" of any career stage, including postdocs and faculty. Applicants are not selected on a first-come-first-serve basis, and we try to create a balanced class of participants.
 
 *Note that some family housing is available*, and there may be child care opportunities as well by special arrangement. Please contact Matt or Meg _after_ you have been admitted to discuss details!
 
