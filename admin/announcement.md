@@ -16,7 +16,7 @@ To Apply: Fill out the form here: http://goo.gl/forms/jWE6fx4WP0
 * _and several others TBA_
 
 ###  News
-Feb X, 2016 - application form is now open! We will close the application period on March 1st (midnight EST) and notify applicants of decisions on March 17th.
+Feb 8, 2016 - application form is now open! We will close the application period on March 1st (midnight EST) and notify applicants of decisions on March 17th.
 
 
 ### Course Description
