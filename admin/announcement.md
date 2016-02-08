@@ -46,7 +46,12 @@ An application is required (see here: http://goo.gl/forms/jWE6fx4WP0), and we ca
 *Note that some family housing is available*, and there may be child care opportunities as well by special arrangement. Please contact Matt or Meg _after_ you have been admitted to discuss details!
 
 ### Tuition, course cost, and enrolling
-All students must pay for on-site room and board (see http://conference.kbs.msu.edu/conference-center/plan-conference/) prior to arrival. It should be about $650. We will make arrangements for housing *after* choosing students; please do not contact KBS directly. We will also charge a course fee of 250/person.
+All students must arrange their own transportation to and from KBS and pay for on-site room and board (see http://conference.kbs.msu.edu/conference-center/plan-conference/) prior to arrival.
+
+* $850 for double occupancy (shared bedroom and bathroom)
+* $1000 for single occupancy (own room, shared bathroom)
+
+This fee covers on-site lodging and weekday meals (see http://conference.kbs.msu.edu/conference-center/plan-conference/).
 
 Applicants must commit to spending both weeks on-site! The middle Sunday will be entirely free.
 
