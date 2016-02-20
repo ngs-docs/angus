@@ -13,6 +13,7 @@ To Apply: Fill out the form here: http://goo.gl/forms/jWE6fx4WP0. Due date 3/1/1
 * Ian Dworkin, Associate Professor, MacMaster University ([@iandworkin](https://twitter.com/iandworkin) )
 * Torsten Seemann, Associate Professor, University of Melbourne ([@torstenseemann](https://twitter.com/torstenseemann) )
 * Shaun Jackman, PhD candidate, University of British Columbia  ([@sjackman](https://twitter.com/sjackman) )
+* Sonal Singhal, Postdoctoral Fellow, Univ. Of Michigan.
 * _and several others TBA_
 
 ###  News
