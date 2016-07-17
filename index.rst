@@ -29,23 +29,23 @@ Monday 8/8       * 1:30pm lecture: `Welcome! <_static/2015Lecture1Welcome.pptx.p
                  * 8pm: Instructor and TA Research presentations, socialize
 
 Tuesday 8/9      * Tutorial :doc:`day2`
-                 * 9:15am lecture: `Sequencing considerations <_static/2015-lecture2-sequencing.pptx.pdf>`__ (Titus)
-                 * 11:00am Assessment (Bob Drost)
+                 * 9:15am lecture: `Sequencing considerations <_static/2015-lecture2-sequencing.pptx.pdf>`__ (Matt)
+                 * 11:00am Assessment (Julie Libarkin)
                  * *Lunch at McCrary 12pm - 1pm*
                  * 1:15pm tutorial, `background PDF <_static/MacManes_Trimming.pdf>`__ and :doc:`MacManesTrimming` (Matt)
                  * Evening *firepit social*
 
-Wed 8/10         * 9:15am lecture, `Mapping and assembly basics <_static/2015-lecture-mapping-assembly.pptx>`__ (Adina)
-                 * 10:30am tutorial, :doc:`GenomicsShell` (Amanda)
+Wed 8/10         * 9:15am lecture, mapping and variant calling lecture (Meg)
+                 * 10:30am  tutorial, BASH for genomics, :doc:`GenomicsShell` (Amanda)
                  * *Lunch at McCrary 12pm - 1pm*
-                 * 1:15pm tutorial, :doc:`variant` (Adina)
+                 * 1:15pm tutorial, :doc:`variant` (Meg)
                  * 7:15pm lecture, Teach me scripting :download:`final script <files/Still_script.sh>`
                  * 8:30pm student presentations
 
-Thursday 8/11    * 9:15am lecture, `Genome assembly and analysis <_static/NGS_Schwarz_2015.08.13.pdf>`__ (Erich)
-                 * 10:15am lecture, Genome assembly exercise (Titus)
+Thursday 8/11    * 9:15am lecture, `Eukaryotic Genome assembly and analysis <_static/NGS_Schwarz_2015.08.13.pdf>`__ (Shaun)
+                 * 10:15am lecture, Genome assembly exercise (Shaun)
                  * *Lunch at McCrary 12pm - 1pm*
-                 * 1:15pm tutorial, :doc:`assembling-ecoli` (Titus)
+                 * 1:15pm Prokaryotic Genome assembly and analysis, :doc:`assembling-ecoli` (Torst)
                  * 5:30pm *leave for Kalamazoo* `Bells <http://bellsbeer.com/eccentric-cafe/menu>`__ (No dinner at McCrary)
 
 Friday 8/12      * 9:15am, lecture/tutorial, :doc:`Rintro` (Amanda)
