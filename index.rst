@@ -1,21 +1,21 @@
 ==========================================
-Next-Gen Sequence Analysis Workshop (2015)
+Next-Gen Sequence Analysis Workshop (2016)
 ==========================================
 
 .. Warning These documents are not maintained and their instructions may be
 	out of date. However the GED Lab does maintain the `khmer protocols
 	<http://khmer-protocols.readthedocs.org/>`__ which may cover similar
 	topics. See also the `installation instructions for the current version
-	of the khmer project <https://khmer.readthedocs.org/en/latest/install.html>`__. 
+	of the khmer project <https://khmer.readthedocs.org/en/latest/install.html>`__.
 
-This is the schedule for the `2015 MSU NGS course <http://bioinformatics.msu.edu/ngs-summer-course-2015>`__.
+This is the schedule for the `2016 MSU NGS course <http://bioinformatics.msu.edu/ngs-summer-course-2016>`__.
 
 
-.. , which ran from August 10th to August 21st, 2015.  If you're interested in this course in 2015, please see `the 2016 announcement <http://bioinformatics.msu.edu/ngs-summer-course-2014>`__.
+.. , which will run from August 8th to August 19st, 2015.  If you're interested iin seeing the 2015 description, please see `the 2015 announcement <http://bioinformatics.msu.edu/ngs-summer-course-2015>`__.
 
 This workshop has a :doc:`code-of-conduct`.
 
-`Download all of these materials <https://github.com/ngs-docs/angus/archive/2015.zip>`__ or `visit the GitHub repository <https://github.com/ngs-docs/angus/tree/2015>`__.
+`Download all of these materials <https://github.com/ngs-docs/angus/archive/2016.zip>`__ or `visit the GitHub repository <https://github.com/ngs-docs/angus/tree/2016>`__.
 
 Meal Times: Breakfast 7-9, `Lunch <_static/McCrary_17_21.pdf>`__ 12-1, Dinner 6-7 (Unless noted below)
 
@@ -25,74 +25,74 @@ advanced skills; please see the schedule at :doc:`week3`.
 ===============  =============================================================
 Day              Schedule
 ===============  =============================================================
-Monday 8/10      * 1:30pm lecture: `Welcome! <_static/2015Lecture1Welcome.pptx.pdf>`__ (Titus)
+Monday 8/8      * 1:30pm lecture: `Welcome! <_static/2015Lecture1Welcome.pptx.pdf>`__ (Titus)
                  * 3pm: :doc:`amazon/index`
                  * 7pm: :doc:`running-command-line-blast`
                  * 8pm: Research presentations
-                 
-Tuesday 8/11     * Tutorial :doc:`day2`
+
+Tuesday 8/9     * Tutorial :doc:`day2`
                  * 9:15am lecture: `Sequencing considerations <_static/2015-lecture2-sequencing.pptx.pdf>`__ (Titus)
                  * 11:00am Assessment (Bob Drost)
                  * *Lunch at McCrary 12pm - 1pm*
-                 * 1:15pm tutorial, `background PDF <_static/MacManes_Trimming.pdf>`__ and :doc:`MacManesTrimming` (Matt) 
+                 * 1:15pm tutorial, `background PDF <_static/MacManes_Trimming.pdf>`__ and :doc:`MacManesTrimming` (Matt)
                  * Evening *firepit social*
-                 
-Wed 8/12         * 9:15am lecture, `Mapping and assembly basics <_static/2015-lecture-mapping-assembly.pptx>`__ (Adina) 
+
+Wed 8/10         * 9:15am lecture, `Mapping and assembly basics <_static/2015-lecture-mapping-assembly.pptx>`__ (Adina)
                  * 10:30am tutorial, :doc:`GenomicsShell` (Amanda)
                  * *Lunch at McCrary 12pm - 1pm*
                  * 1:15pm tutorial, :doc:`variant` (Adina)
                  * 7:15pm lecture, Teach me scripting :download:`final script <files/Still_script.sh>`
                  * 8:30pm student presentations
 
-Thursday 8/13    * 9:15am lecture, `Genome assembly and analysis <_static/NGS_Schwarz_2015.08.13.pdf>`__ (Erich)
+Thursday 8/11    * 9:15am lecture, `Genome assembly and analysis <_static/NGS_Schwarz_2015.08.13.pdf>`__ (Erich)
                  * 10:15am lecture, Genome assembly exercise (Titus)
                  * *Lunch at McCrary 12pm - 1pm*
                  * 1:15pm tutorial, :doc:`assembling-ecoli` (Titus)
                  * 5:30pm *leave for Kalamazoo* `Bells <http://bellsbeer.com/eccentric-cafe/menu>`__ (No dinner at McCrary)
 
-Friday 8/14      * 9:15am, lecture/tutorial, :doc:`Rintro` (Amanda)
+Friday 8/12      * 9:15am, lecture/tutorial, :doc:`Rintro` (Amanda)
                  * *Lunch at McCrary 12pm - 1pm*
                  * 1:15pm tutorial, :doc:`howe-ncbi` (Adina)
                  * 7:15pm tutorial, :doc:`automation` GitHub, K-mers, and Programming Python with `Adrienne <https://github.com/ahoarfrost/wand>`__
 
-Saturday 8/15    * 9:15am, `Kmerology <_static/CTB_kmerology.pptx.pdf>`__
+Saturday 8/13    * 9:15am, `Kmerology <_static/CTB_kmerology.pptx.pdf>`__
                  * 10:15am, tutorial, :doc:`MacManes_UNIX`
                  * *Lunch at McCrary 12pm - 1pm*
                  * 1:15pm, lecture, `long read sequencing <_static/Torsten_Seemann_LRS.pdf>`__ (Torsten Seeman)
                  * *Takeout Dinner on the island*
 
-Sunday 8/16      * Free Day
+Sunday 8/14      * Free Day
                  * *"Brunch" at McCrary 12pm - 1pm*
                  * *BBQ Dinner on the island*
-            
-Monday 8/17      * 9:15am lecture/tutorial, mRNAseq :doc:`MacManes_Trinity` (Matt)
+
+Monday 8/15      * 9:15am lecture/tutorial, mRNAseq :doc:`MacManes_Trinity` (Matt)
                  * 10:30am lecture, mRNA stats (Ian)
                  * 1:15pm `Transrate <https://github.com/ngs-docs/angus/blob/2015/transrate.rst>`__ (Meg)
                  * 1:45pm  lecture, `mRNA stats <_static/NGS2015_RNAseq_ID_1.pptx>`__ (Ian)
                  * 3:15pm  tutorial, :doc:`drosophila_rnaseq_counting_htseq` (Chris)
 
 
-Tuesday 8/18     * 9:15am lecture, `mRNAseq differential expression <_static/NGS2015_RNAseq_2.pptx>`__ (Ian)
+Tuesday 8/16     * 9:15am lecture, `mRNAseq differential expression <_static/NGS2015_RNAseq_2.pptx>`__ (Ian)
                  * 10:30 `R tutorial <https://github.com/ngs-docs/angus/blob/2015/R_Introductory_tutorial_2015.md>`__ (Meg and Ian)
                  * 1:15pm Tutorial, `Differential expression analysis using DESeq2 <_static/drosophila_deseq2.R>`__  (Chris)
                  	:download:`drosophila_rnaseq_counts <files/drosophila_rnaseq_counts.zip>` (Chris)
                  * 2:45 journal club, `Gilad and Mizrahi-Man, 2015 <http://f1000research.com/articles/4-121/v1>`__. A reanalysis of mouse ENCODE comparative gene expression data.
-                             
-Wed 8/19         * 9:15am lecture, :doc:`functional_annotation`
+
+Wed 8/17         * 9:15am lecture, :doc:`functional_annotation`
                  * 10:15am Assembly quality assessment (Transdecoder) (Meg & Mattt)
                  * 1:00pm practical, :doc:`analyzing_nanopore_data` (Nick Loman)
                  * Evening, Twitter? More nanopore? Free work time? :doc:`MacManes_kallisto` (Matt)
-                                  
-Thursday 8/20    * 9:15am activity, :doc:`MacManes_adventure` (Matt) and Prokka (Torsten)
+
+Thursday 8/18    * 9:15am activity, :doc:`MacManes_adventure` (Matt) and Prokka (Torsten)
                  * 1:15pm Assessment (Julie)
                  * 2pm: GitHub practical: :doc:`CTB-github` and Prokka :doc:`prokka_genome_annotation`
                  * *BBQ Dinner on the island*
                  * social
 
-Friday 8/21      * 9:15-9:45 closing lecture (Titus)
+Friday 8/19      * 9:15-9:45 closing lecture (Titus)
                  * 10am discussion about class; more stuff
 
-                
+
                  * Links:
                    `Opinionated guides to NGS <http://davis-assembly-masterclass-2013.readthedocs.org/en/latest/outputs/index.html>`__ /
                    `Software Carpentry <http://software-carpentry.org>`__
@@ -104,29 +104,26 @@ Dramatis personae
 
 Instructors:
 
-* C Titus Brown
-* Chris Chandler
-* Ian Dworkin
-* Adina Howe
-* Matt MacManes
 * Meg Staton
+* Matt MacManes
+* Ian Dworkin
+* Rob Patro
+* Torst Seeman
+* Sonal Singhal
+* Shaun Jackman
+
+
 
 TAs:
 
 * Amanda Charbonneau
 * Lisa Cohen
-* Ryan Williams
-* Phil Brooks
 
-Lecturers:
 
-* Nick Loman
-* Torsten Seemann
-* Erich Schwarz
 
 She Who Drives Many Places:
 
-* Jessica Mizzi
+* Kate MacManes
 
 Papers and References
 =====================
@@ -270,5 +267,3 @@ Complete table of contents
    amazon/index
    instructors-guide
    code-of-conduct
-
-
