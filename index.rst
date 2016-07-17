@@ -22,10 +22,11 @@ Meal Times: Breakfast 7-9, `Lunch <_static/McCrary_17_21.pdf>`__ 12-1, Dinner 6-
 ===============  =============================================================
 Day              Schedule
 ===============  =============================================================
-Monday 8/8       * 1:30pm lecture: `Welcome! <_static/2015Lecture1Welcome.pptx.pdf>`__ (Titus)
-                 * 3pm: :doc:`amazon/index`
-                 * 7pm: :doc:`running-command-line-blast`
-                 * 8pm: Research presentations
+Monday 8/8       * 1:30pm lecture: `Welcome! <_static/2015Lecture1Welcome.pptx.pdf>`__ (Meg and Matt)
+                 * 3pm: Getting Started with AWS :doc:`amazon/index` (Matt)
+                 * 4pm: Intro to Linux (Matt)
+                 * 7pm: :doc:`running-command-line-blast` (Meg)
+                 * 8pm: Instructor and TA Research presentations, socialize
 
 Tuesday 8/9      * Tutorial :doc:`day2`
                  * 9:15am lecture: `Sequencing considerations <_static/2015-lecture2-sequencing.pptx.pdf>`__ (Titus)
