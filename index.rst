@@ -19,9 +19,6 @@ This workshop has a :doc:`code-of-conduct`.
 
 Meal Times: Breakfast 7-9, `Lunch <_static/McCrary_17_21.pdf>`__ 12-1, Dinner 6-7 (Unless noted below)
 
-This year we also ran a third week workshop focused on intermediate and
-advanced skills; please see the schedule at :doc:`week3`.
-
 ===============  =============================================================
 Day              Schedule
 ===============  =============================================================
