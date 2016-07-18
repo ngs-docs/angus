@@ -25,7 +25,7 @@ Day              Schedule
 Monday 8/8       * 1:30pm lecture: `Welcome! <_static/2015Lecture1Welcome.pptx.pdf>`__ (Meg and Matt)
                  * 3pm: Getting Started with AWS :doc:`amazon/index` (Matt)
                  * 4pm: Intro to Linux (Matt) :doc:`MacManes_UNIX`
-				 * 6PM Dinner at McCrary
+				 * 6PM: Dinner at McCrary
                  * 7pm: :doc:`running-command-line-blast` (Meg)
                  * 8pm: Instructor and TA Research presentations, socialize
 
@@ -34,14 +34,14 @@ Tuesday 8/9      * Tutorial :doc:`day2`
                  * 11:00am Assessment (Julie Libarkin)
                  * *Lunch at McCrary 12pm - 1pm*
                  * 1:15pm tutorial, `background PDF <_static/MacManes_Trimming.pdf>`__ and :doc:`MacManesTrimming` (Matt)
-				 * 6PM Dinner at McCrary
+				 * 6PM: Dinner at McCrary
                  * Evening *firepit social*
 
 Wed 8/10         * 9:15am lecture, mapping and variant calling lecture (Meg)
                  * 10:30am  tutorial, BASH for genomics, :doc:`GenomicsShell` (Amanda)
                  * *Lunch at McCrary 12pm - 1pm*
                  * 1:15pm tutorial, :doc:`variant` (Meg)
-				 * 6PM Dinner at McCrary
+				 * 6PM: Dinner at McCrary
                  * 7:15pm lecture, Teach me scripting :download:`final script <files/Still_script.sh>`
                  * 8:30pm student presentations
 
@@ -49,13 +49,13 @@ Thursday 8/11    * 9:15am lecture, `Eukaryotic Genome assembly and analysis <_st
                  * 10:15am lecture, Genome assembly exercise (Shaun)
                  * *Lunch at McCrary 12pm - 1pm*
                  * 1:15pm Prokaryotic Genome assembly and analysis, :doc:`assembling-ecoli` (Torst)
-                 * 6PM Dinner at McCrary
+                 * 6PM: Dinner at McCrary
 				 * 8PM Free Time or Extra help sessions or ...
 
 Friday 8/12      * 9:15am, bacterial genome annotation lecture and practical (Torst) :doc:`prokka_genome_annotation`
                  * *Lunch at McCrary 12pm - 1pm*
                  * 1:15pm sourcing NCBI data including SRA :doc:`howe-ncbi` (Meg); intro to R (Amanda)
-				 * 6PM BBQ on the Island
+				 * 6PM: BBQ on the Island
                  * 7:15pm student research presentations (~3 minutes)
 
 Saturday 8/13    * 9:15am, `pop gen lecture and practical (Sonal)
@@ -71,8 +71,8 @@ Sunday 8/14      * Free Day
 Monday 8/15      * 9:15am lecture/tutorial, mRNAseq :doc:`MacManes_Trinity` (Matt)
                  * 10:30am lecture, mRNA stats (Ian)
                  * 1:15pm `Mapping / Transrate <https://github.com/ngs-docs/angus/blob/2015/transrate.rst>`__ (Rob)
-				 * 6PM Dinner at McCrary
-				 * 8PM twitter, blogging and bioinformatics by way of social media (All)
+				 * 6PM: Dinner at McCrary
+				 * 6PM: twitter, blogging and bioinformatics by way of social media (All)
 
 
 Tuesday 8/16     * 9:15am lecture, `mRNAseq differential expression <_static/NGS2015_RNAseq_2.pptx>`__ (Ian) and lecture, `mRNA stats <_static/NGS2015_RNAseq_ID_1.pptx>`__
