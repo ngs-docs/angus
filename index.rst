@@ -24,7 +24,8 @@ Day              Schedule
 ===============  =============================================================
 Monday 8/8       * 1:30pm lecture: `Welcome! <_static/2015Lecture1Welcome.pptx.pdf>`__ (Meg and Matt)
                  * 3pm: Getting Started with AWS :doc:`amazon/index` (Matt)
-                 * 4pm: Intro to Linux (Matt)
+                 * 4pm: Intro to Linux (Matt) :doc:`MacManes_UNIX`
+				 * 6PM Dinner at McCrary
                  * 7pm: :doc:`running-command-line-blast` (Meg)
                  * 8pm: Instructor and TA Research presentations, socialize
 
@@ -33,12 +34,14 @@ Tuesday 8/9      * Tutorial :doc:`day2`
                  * 11:00am Assessment (Julie Libarkin)
                  * *Lunch at McCrary 12pm - 1pm*
                  * 1:15pm tutorial, `background PDF <_static/MacManes_Trimming.pdf>`__ and :doc:`MacManesTrimming` (Matt)
+				 * 6PM Dinner at McCrary
                  * Evening *firepit social*
 
 Wed 8/10         * 9:15am lecture, mapping and variant calling lecture (Meg)
                  * 10:30am  tutorial, BASH for genomics, :doc:`GenomicsShell` (Amanda)
                  * *Lunch at McCrary 12pm - 1pm*
                  * 1:15pm tutorial, :doc:`variant` (Meg)
+				 * 6PM Dinner at McCrary
                  * 7:15pm lecture, Teach me scripting :download:`final script <files/Still_script.sh>`
                  * 8:30pm student presentations
 
@@ -46,15 +49,16 @@ Thursday 8/11    * 9:15am lecture, `Eukaryotic Genome assembly and analysis <_st
                  * 10:15am lecture, Genome assembly exercise (Shaun)
                  * *Lunch at McCrary 12pm - 1pm*
                  * 1:15pm Prokaryotic Genome assembly and analysis, :doc:`assembling-ecoli` (Torst)
-                 * 5:30pm *leave for Kalamazoo* `Bells <http://bellsbeer.com/eccentric-cafe/menu>`__ (No dinner at McCrary)
+                 * 6PM Dinner at McCrary
+				 * 8PM Free Time or Extra help sessions or ...
 
-Friday 8/12      * 9:15am, lecture/tutorial, :doc:`Rintro` (Amanda)
+Friday 8/12      * 9:15am, bacterial genome annotation lecture and practical (Torst)
                  * *Lunch at McCrary 12pm - 1pm*
-                 * 1:15pm tutorial, :doc:`howe-ncbi` (Adina)
-                 * 7:15pm tutorial, :doc:`automation` GitHub, K-mers, and Programming Python with `Adrienne <https://github.com/ahoarfrost/wand>`__
+                 * 1:15pm sourcing NCBI data including SRA :doc:`howe-ncbi` (Meg); intro to R (Amanda)
+                 * 7:15pm student research presentations (~3 minutes)
 
-Saturday 8/13    * 9:15am, `Kmerology <_static/CTB_kmerology.pptx.pdf>`__
-                 * 10:15am, tutorial, :doc:`MacManes_UNIX`
+Saturday 8/13    * 9:15am, `pop gen lecture and practical (Sonal)
+                 * 10:15am, tutorial,
                  * *Lunch at McCrary 12pm - 1pm*
                  * 1:15pm, lecture, `long read sequencing <_static/Torsten_Seemann_LRS.pdf>`__ (Torsten Seeman)
                  * *Takeout Dinner on the island*
