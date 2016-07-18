@@ -30,31 +30,26 @@ Monday 8/8       * 1:30pm lecture: `Welcome! <_static/2015Lecture1Welcome.pptx.p
 Tuesday 8/9      * Tutorial :doc:`day2`
                  * 9:15am lecture: `Sequencing considerations <_static/2015-lecture2-sequencing.pptx.pdf>`__ (Matt)
                  * 11:00am Assessment (Julie Libarkin or somebody else)
-                 * *Lunch at McCrary 12pm - 1pm*
                  * 1:15pm tutorial, `background PDF <_static/MacManes_Trimming.pdf>`__ and :doc:`MacManesTrimming` (Matt)
                  * Evening *firepit social*
 
 Wed 8/10         * 9:15am lecture, mapping and variant calling lecture (Meg)
                  * 10:30am  tutorial, BASH for genomics, :doc:`GenomicsShell` (Amanda)
-                 * *Lunch at McCrary 12pm - 1pm*
                  * 1:15pm tutorial, :doc:`variant` (Meg)
                  * 7:15pm lecture, Teach me scripting :download:`final script <files/Still_script.sh>`
                  * 8:30pm student presentations
 
 Thursday 8/11    * 9:15am lecture, `Eukaryotic Genome assembly and analysis <_static/NGS_Schwarz_2015.08.13.pdf>`__ (Shaun)
                  * 10:15am lecture, Genome assembly exercise (Shaun)
-                 * *Lunch at McCrary 12pm - 1pm*
                  * 1:15pm Prokaryotic Genome assembly and analysis, :doc:`assembling-ecoli` (Torst)
                  * 8:00pm Free Time or Extra help sessions or ...
 
 Friday 8/12      * 9:15am, bacterial genome annotation lecture and practical (Torst) :doc:`prokka_genome_annotation`
-                 * *Lunch at McCrary 12pm - 1pm*
                  * 1:15pm sourcing NCBI data including SRA :doc:`howe-ncbi` (Meg); intro to R (Amanda)
                  * 6:00pm BBQ on the Island
                  * 7:15pm student research presentations (~3 minutes)
 
 Saturday 8/13    * 9:15am, pop gen lecture and practical (Sonal)
-                 * Lunch at McCrary 12pm - 1pm
                  * 1:15pm, lecture and practical, `long read sequencing <_static/Torsten_Seemann_LRS.pdf>`__ (Torsten Seeman)
                  * Takeout (Thai??) Dinner on the island
 
@@ -64,7 +59,7 @@ Sunday 8/14      * Free Day
 
 Monday 8/15      * 9:15am lecture/tutorial, Transcriptome assembly and evaluation :doc:`MacManes_Trinity` (Matt)
                  * 1:15pm `Mapping / Transrate <https://github.com/ngs-docs/angus/blob/2015/transrate.rst>`__ (Rob)
-				 * 7pm: twitter, blogging and bioinformatics by way of social media (All)
+                 * 7pm: twitter, blogging and bioinformatics by way of social media (All)
 
 
 Tuesday 8/16     * 9:15am transcriptome read counting lecture and practical (Rob - Salmon)
@@ -91,6 +86,7 @@ Friday 8/19      * 9:15-9:45 closing lecture (Meg & Matt)
                  * Links:
                    `Opinionated guides to NGS <http://davis-assembly-masterclass-2013.readthedocs.org/en/latest/outputs/index.html>`__ /
                    `Software Carpentry <http://software-carpentry.org>`__
+                   `Data Carpentry <http://datacarpentry.org>`__
 
 ===============  =============================================================
 
@@ -99,12 +95,12 @@ Dramatis personae
 
 Instructors:
 
-* Meg Staton
-* Matt MacManes
-* Ian Dworkin
-* Shaun Jackman
-* Rob Patro
-* Torst Seeman
+* Meg Staton `@HardwoodGenomic <https://twitter.com/HardwoodGenomic?lang=en>`__.
+* Matt MacManes `@macmanes <https://twitter.com/macmanes?lang=en>`__.
+* Ian Dworkin `@IanDworkin <https://twitter.com/IanDworkin?lang=en>`__.
+* Shaun Jackman `@sjackman <https://twitter.com/sjackman?lang=en>`__.
+* Rob Patro `@nomad421 <https://twitter.com/nomad421?lang=en>`__.
+* Torst Seeman `@torstenseemann <https://twitter.com/torstenseemann?lang=en>`__.
 * Sonal Singhal
 
 TAs:
