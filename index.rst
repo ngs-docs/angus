@@ -52,42 +52,43 @@ Thursday 8/11    * 9:15am lecture, `Eukaryotic Genome assembly and analysis <_st
                  * 6PM Dinner at McCrary
 				 * 8PM Free Time or Extra help sessions or ...
 
-Friday 8/12      * 9:15am, bacterial genome annotation lecture and practical (Torst)
+Friday 8/12      * 9:15am, bacterial genome annotation lecture and practical (Torst) :doc:`prokka_genome_annotation`
                  * *Lunch at McCrary 12pm - 1pm*
                  * 1:15pm sourcing NCBI data including SRA :doc:`howe-ncbi` (Meg); intro to R (Amanda)
+				 * 6PM BBQ on the Island
                  * 7:15pm student research presentations (~3 minutes)
 
 Saturday 8/13    * 9:15am, `pop gen lecture and practical (Sonal)
                  * 10:15am, tutorial,
-                 * *Lunch at McCrary 12pm - 1pm*
-                 * 1:15pm, lecture, `long read sequencing <_static/Torsten_Seemann_LRS.pdf>`__ (Torsten Seeman)
-                 * *Takeout Dinner on the island*
+                 * Lunch at McCrary 12pm - 1pm*
+                 * 1:15pm, lecture and practical, `long read sequencing <_static/Torsten_Seemann_LRS.pdf>`__ (Torsten Seeman)
+                 * Takeout (Thai??) Dinner on the island
 
 Sunday 8/14      * Free Day
-                 * *"Brunch" at McCrary 12pm - 1pm*
+                 * Brunch at McCrary 12pm - 1pm*
                  * *BBQ Dinner on the island*
 
 Monday 8/15      * 9:15am lecture/tutorial, mRNAseq :doc:`MacManes_Trinity` (Matt)
                  * 10:30am lecture, mRNA stats (Ian)
-                 * 1:15pm `Transrate <https://github.com/ngs-docs/angus/blob/2015/transrate.rst>`__ (Meg)
-                 * 1:45pm  lecture, `mRNA stats <_static/NGS2015_RNAseq_ID_1.pptx>`__ (Ian)
-                 * 3:15pm  tutorial, :doc:`drosophila_rnaseq_counting_htseq` (Chris)
+                 * 1:15pm `Mapping / Transrate <https://github.com/ngs-docs/angus/blob/2015/transrate.rst>`__ (Rob)
+				 * 6PM Dinner at McCrary
+				 * 8PM twitter, blogging and bioinformatics by way of social media (All)
 
 
-Tuesday 8/16     * 9:15am lecture, `mRNAseq differential expression <_static/NGS2015_RNAseq_2.pptx>`__ (Ian)
+Tuesday 8/16     * 9:15am lecture, `mRNAseq differential expression <_static/NGS2015_RNAseq_2.pptx>`__ (Ian) and lecture, `mRNA stats <_static/NGS2015_RNAseq_ID_1.pptx>`__
                  * 10:30 `R tutorial <https://github.com/ngs-docs/angus/blob/2015/R_Introductory_tutorial_2015.md>`__ (Meg and Ian)
                  * 1:15pm Tutorial, `Differential expression analysis using DESeq2 <_static/drosophila_deseq2.R>`__  (Chris)
                  	:download:`drosophila_rnaseq_counts <files/drosophila_rnaseq_counts.zip>` (Chris)
                  * 2:45 journal club, `Gilad and Mizrahi-Man, 2015 <http://f1000research.com/articles/4-121/v1>`__. A reanalysis of mouse ENCODE comparative gene expression data.
 
 Wed 8/17         * 9:15am lecture, :doc:`functional_annotation`
-                 * 10:15am Assembly quality assessment (Transdecoder) (Meg & Mattt)
+                 * 10:15am Assembly quality assessment (Transdecoder) (Meg & Matt)
                  * 1:00pm practical, :doc:`analyzing_nanopore_data` (Nick Loman)
                  * Evening, Twitter? More nanopore? Free work time? :doc:`MacManes_kallisto` (Matt)
 
 Thursday 8/18    * 9:15am activity, :doc:`MacManes_adventure` (Matt) and Prokka (Torsten)
                  * 1:15pm Assessment (Julie)
-                 * 2pm: GitHub practical: :doc:`CTB-github` and Prokka :doc:`prokka_genome_annotation`
+                 * 2pm: GitHub practical: :doc:`CTB-github` and Prokka
                  * *BBQ Dinner on the island*
                  * social
 
@@ -120,6 +121,7 @@ TAs:
 
 * Amanda Charbonneau
 * Lisa Cohen
+* Ming Tang
 
 
 She Who Drives Many Places:
