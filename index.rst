@@ -25,7 +25,7 @@ Day              Schedule
 Monday 8/8       * 1:30pm lecture: `Welcome! <_static/2015Lecture1Welcome.pptx.pdf>`__ (Meg and Matt)
                  * 3pm: Getting Started with AWS :doc:`amazon/index` (Matt)
                  * 4pm: Intro to Linux (Matt) :doc:`MacManes_UNIX`
-				 * 6PM: Dinner at McCrary
+				 * 6pm: Dinner at McCrary
                  * 7pm: :doc:`running-command-line-blast` (Meg)
                  * 8pm: Instructor and TA Research presentations, socialize
 
