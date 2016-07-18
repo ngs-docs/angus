@@ -46,12 +46,12 @@ Thursday 8/11    * 9:15am lecture, `Eukaryotic Genome assembly and analysis <_st
                  * 10:15am lecture, Genome assembly exercise (Shaun)
                  * *Lunch at McCrary 12pm - 1pm*
                  * 1:15pm Prokaryotic Genome assembly and analysis, :doc:`assembling-ecoli` (Torst)
-				 * 8PM Free Time or Extra help sessions or ...
+				 * 8:00pm Free Time or Extra help sessions or ...
 
 Friday 8/12      * 9:15am, bacterial genome annotation lecture and practical (Torst) :doc:`prokka_genome_annotation`
                  * *Lunch at McCrary 12pm - 1pm*
                  * 1:15pm sourcing NCBI data including SRA :doc:`howe-ncbi` (Meg); intro to R (Amanda)
-				 * 6PM: BBQ on the Island
+				 * 6:00pm BBQ on the Island
                  * 7:15pm student research presentations (~3 minutes)
 
 Saturday 8/13    * 9:15am, pop gen lecture and practical (Sonal)
