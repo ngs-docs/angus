@@ -8,7 +8,7 @@ Next-Gen Sequence Analysis Workshop (2016)
 	topics. See also the `installation instructions for the current version
 	of the khmer project <https://khmer.readthedocs.org/en/latest/install.html>`__.
 
-This is the schedule for the `2016 MSU NGS course <http://bioinformatics.msu.edu/ngs-summer-course-2016>`__. All course communications will organized around the `Slack channel <https://anguscourse.slack.com/>`__.
+This is the schedule for the `2016 MSU NGS course <http://bioinformatics.msu.edu/ngs-summer-course-2016>`__. All course communications will organized around the `Slack channel <https://anguscourse.slack.com>`__.
 
 .. which will run from August 8th to August 19st, 2016.  If you're interested in seeing the 2015 description, please see `the 2015 announcement <http://bioinformatics.msu.edu/ngs-summer-course-2015>`__.
 
@@ -50,7 +50,7 @@ Thursday 8/11    * 9:15am lecture, `Eukaryotic Genome assembly and analysis <_st
 Friday 8/12      * 9:15am, bacterial genome annotation lecture and practical (Torst) :doc:`prokka_genome_annotation`
                  * *Lunch at McCrary 12pm - 1pm*
                  * 1:15pm sourcing NCBI data including SRA :doc:`howe-ncbi` (Meg); intro to R (Amanda)
-				 * 6:00pm BBQ on the Island
+                 * 6:00pm BBQ on the Island
                  * 7:15pm student research presentations (~3 minutes)
 
 Saturday 8/13    * 9:15am, pop gen lecture and practical (Sonal)
@@ -102,12 +102,10 @@ Instructors:
 * Meg Staton
 * Matt MacManes
 * Ian Dworkin
+* Shaun Jackman
 * Rob Patro
 * Torst Seeman
 * Sonal Singhal
-* Shaun Jackman
-
-
 
 TAs:
 
