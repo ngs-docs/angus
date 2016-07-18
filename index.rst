@@ -8,16 +8,15 @@ Next-Gen Sequence Analysis Workshop (2016)
 	topics. See also the `installation instructions for the current version
 	of the khmer project <https://khmer.readthedocs.org/en/latest/install.html>`__.
 
-This is the schedule for the `2016 MSU NGS course <http://bioinformatics.msu.edu/ngs-summer-course-2016>`__.
+This is the schedule for the `2016 MSU NGS course <http://bioinformatics.msu.edu/ngs-summer-course-2016>`__. All course communications will organized around the `Slack channel <https://anguscourse.slack.com/ >`__.
 
+.. which will run from August 8th to August 19st, 2016.  If you're interested in seeing the 2015 description, please see `the 2015 announcement <http://bioinformatics.msu.edu/ngs-summer-course-2015>`__.
 
-.. , which will run from August 8th to August 19st, 2015.  If you're interested iin seeing the 2015 description, please see `the 2015 announcement <http://bioinformatics.msu.edu/ngs-summer-course-2015>`__.
-
-This workshop has a :doc:`code-of-conduct`.
+This workshop has a :doc:`code-of-conduct`, do read it!
 
 `Download all of these materials <https://github.com/ngs-docs/angus/archive/2016.zip>`__ or `visit the GitHub repository <https://github.com/ngs-docs/angus/tree/2016>`__.
 
-Meal Times: Breakfast 7-9, `Lunch <_static/McCrary_17_21.pdf>`__ 12-1, Dinner 6-7 (Unless noted below)
+Meal Times: Breakfast 7-9, Lunch 12-1, Dinner 6-7 (Unless noted below). See `HERE <http://conference.kbs.msu.edu/conference-center/food-and-beverage-service/>`__ for the menu and other info. 
 
 ===============  =============================================================
 Day              Schedule
@@ -79,7 +78,7 @@ Wed 8/17         * 9:15am lecture, :doc:`functional_annotation`
                  * 1:00pm practical, :doc:`analyzing_nanopore_data` (Nick Loman)
                  * Evening, Ask the Expert  (All)
 
-Thursday 8/18    * 9:15am activity, :doc:`MacManes_adventure` (Matt) and Prokka (Torsten)
+Thursday 8/18    * 9:15am activity, :doc:`MacManes_adventure` (Matt)
                  * 1:15pm Assessment (Julie)
                  * 2pm: GitHub practical: :doc:`CTB-github`
                  * *BBQ Dinner on the island*
@@ -127,9 +126,10 @@ Papers and References
 Books
 -----
 
+* `Bioinformatics Data Skills <http://shop.oreilly.com/product/0636920030157.do>`__
 * `Practical Computing for Biologists <http://practicalcomputing.org/>`__
 
-  This is a highly recommended book for people looking for a systematic
+  These books, especially the 1st, are highly recommended book for people looking for a systematic
   presentation on shell scripting, programming, UNIX, etc.
 
 RNAseq
