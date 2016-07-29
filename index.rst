@@ -69,8 +69,8 @@ Tuesday 8/16     * 9:15am transcriptome read counting lecture and practical (Rob
 
 
 Wed 8/17         * 9:15am lecture, :doc:`functional_annotation`
-                 * 10:15am Assembly quality assessment (Transdecoder) (Meg & Matt)
-                 * 1:00pm practical, :doc:`analyzing_nanopore_data` (Nick Loman)
+                 * 10:15am Assembly quality assessment (TransRate & BUSCO) (Meg & Matt)
+                 * 1:00pm Degust (Torst)
                  * Evening, Ask the Expert  (All)
 
 Thursday 8/18    * 9:15am activity, :doc:`MacManes_adventure` (Matt)
