@@ -35,19 +35,19 @@ Tuesday 8/9      * Tutorial :doc:`day2`
 
 Wed 8/10         * 9:15am lecture, mapping and variant calling lecture (Meg)
                  * 10:30am  tutorial, BASH for genomics, :doc:`GenomicsShell` (Amanda)
-                 * 1:15pm tutorial, :doc:`variant` (Meg)
-                 * 7:15pm lecture, Teach me scripting :download:`final script <files/Still_script.sh>`
-                 * 8:30pm student presentations
+                 * 1:15pm LinuxBrew,  (Shaun)
+                 * 7:15pm lecture Variant Calling, :doc:`variant` (Meg)
+                 * 8:30pm student presentations (Part 1 ~3 minutes each)
 
 Thursday 8/11    * 9:15am lecture, `Eukaryotic Genome assembly and analysis <_static/NGS_Schwarz_2015.08.13.pdf>`__ (Shaun)
                  * 10:15am lecture, Genome assembly exercise (Shaun)
                  * 1:15pm Prokaryotic Genome assembly and analysis, :doc:`assembling-ecoli` (Torst)
-                 * 8:00pm Free Time or Extra help sessions or ...
+                 * 8:00pm Free Time or Extra help sessions or Unix Wizardry
 
 Friday 8/12      * 9:15am, bacterial genome annotation lecture and practical (Torst) :doc:`prokka_genome_annotation`
                  * 1:15pm sourcing NCBI data including SRA :doc:`howe-ncbi` (Meg); intro to R (Amanda)
                  * 6:00pm BBQ on the Island
-                 * 7:15pm student research presentations (~3 minutes)
+                 * 7:15pm student research presentations (Part II ~3 minutes each)
 
 Saturday 8/13    * 9:15am, pop gen lecture and practical (Sonal)
                  * 1:15pm, lecture and practical, `long read sequencing <_static/Torsten_Seemann_LRS.pdf>`__ (Torsten Seeman)
