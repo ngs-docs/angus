@@ -1,6 +1,6 @@
 First, install the "build tools" (compilers etc. that may be needed)
 
-'> sudo apt-get update`
+`> sudo apt-get update`
 
 `> sudo apt-get install build-essential`
 
