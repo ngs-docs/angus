@@ -223,7 +223,7 @@ Blogs
 
   Nick Loman's lab notebook
 
-Complete table of contents
+Material from previous years
 ==========================
 
 .. toctree::
