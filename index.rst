@@ -8,7 +8,7 @@ Next-Gen Sequence Analysis Workshop (2016)
 	topics. See also the `installation instructions for the current version
 	of the khmer project <https://khmer.readthedocs.org/en/latest/install.html>`__.
 
-This is the schedule for the `2016 MSU NGS course <http://bioinformatics.msu.edu/ngs-summer-course-2016>`__. All course communications will organized around the `Slack channel <https://anguscourse.slack.com>`__.
+This is the schedule for the `2016 MSU NGS course <http://bioinformatics.msu.edu/ngs-summer-course-2016>`__. All course communications will be organized around the `Slack channel <https://anguscourse.slack.com>`__.
 
 .. which will run from August 8th to August 19st, 2016.  If you're interested in seeing the 2015 description, please see `the 2015 announcement <http://bioinformatics.msu.edu/ngs-summer-course-2015>`__.
 
@@ -22,7 +22,7 @@ Meal Times: Breakfast 7-9, Lunch 12-1, Dinner 6-7 (Unless noted below). See `HER
 Day              Schedule
 ===============  =============================================================
 Monday 8/8       * 1:30pm lecture: `Welcome! <_static/2015Lecture1Welcome.pptx.pdf>`__ (Meg and Matt)
-                 * 3pm: Getting Started with AWS :doc:`amazon/index` (Matt)
+                 * 2:30pm: Getting Started with AWS :doc:`amazon/index` (Matt)
                  * 4pm: Intro to Linux (Matt) :doc:`MacManes_UNIX`
                  * 7pm: :doc:`running-command-line-blast` (Meg)
                  * 8pm: Instructor and TA Research presentations, socialize
@@ -45,7 +45,7 @@ Thursday 8/11    * 9:15am lecture, `Eukaryotic Genome assembly and analysis <_st
                  * 8:00pm Free Time or Extra help sessions or Unix Wizardry
 
 Friday 8/12      * 9:15am, bacterial genome annotation lecture and practical (Torst) :doc:`prokka_genome_annotation`
-                 * 1:15pm sourcing NCBI data including SRA :doc:`howe-ncbi` (Meg); intro to R (Amanda)
+                 * 1:15pm intro to R (Amanda)
                  * 6:00pm BBQ on the Island
                  * 7:15pm student research presentations (Part II ~3 minutes each)
 
@@ -63,21 +63,21 @@ Monday 8/15      * 9:15am lecture/tutorial, Transcriptome assembly and evaluatio
 
 
 Tuesday 8/16     * 9:15am transcriptome read counting lecture and practical (Rob - Salmon)
-                 * 10:30am: `R tutorial <https://github.com/ngs-docs/angus/blob/2015/R_Introductory_tutorial_2015.md>`__ (Meg and Ian)
+                 * 10:30am: `R tutorial <https://github.com/ngs-docs/angus/blob/2015/R_Introductory_tutorial_2015.md>`__ (Ian)
                  * 1:15pm: lecture, `mRNAseq differential expression <_static/NGS2015_RNAseq_2.pptx>`__ (Ian) and lecture, `mRNA stats <_static/NGS2015_RNAseq_ID_1.pptx>`__
                  * 7pm: Journal Club - need article idea
 
 
-Wed 8/17         * 9:15am lecture, :doc:`functional_annotation`
-                 * 10:15am Assembly quality assessment (TransRate & BUSCO) (Meg & Matt)
+Wed 8/17         * 9:15am lecture, sourcing NCBI data including SRA :doc:`howe-ncbi` (Meg); 
+
+                 * 10:15am  more fun with R (Ming)
                  * 1:00pm Degust (Torst)
                  * Evening, Ask the Expert  (All)
 
-Thursday 8/18    * 9:15am activity, :doc:`MacManes_adventure` (Matt)
+Thursday 8/18    * 9:15am Open source your scripts with GitHub (Lisa) :doc:`CTB-github`
                  * 1:15pm Assessment (Julie)
-                 * 2pm: GitHub practical: :doc:`CTB-github`
-                 * *BBQ Dinner on the island*
-                 * social
+                 * 2pm: :doc:`functional_annotation` (Ming)
+                 * BBQ Dinner on the island
 
 Friday 8/19      * 9:15-9:45 closing lecture (Meg & Matt)
                  * 10am discussion about class; more stuff
@@ -107,7 +107,7 @@ TAs:
 
 * Amanda Charbonneau
 * Lisa Cohen
-* Ming Tang
+* Ming Chen
 
 
 She Who Drives Many Places:
