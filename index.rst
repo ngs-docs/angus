@@ -59,7 +59,7 @@ Sunday 8/14      * Free Day
 
 Monday 8/15      * 9:15am lecture/tutorial, Transcriptome assembly and evaluation :doc:`MacManes_Trinity` (Matt)
                  * 1:15pm `Mapping / Transrate <https://github.com/ngs-docs/angus/blob/2015/transrate.rst>`__ (Rob)
-                 * 7pm: twitter, blogging and bioinformatics by way of social media (All)
+                 * 7pm: Twitter, Blogging and Bioinformatics (All)
 
 
 Tuesday 8/16     * 9:15am transcriptome read counting lecture and practical (Rob - Salmon)
