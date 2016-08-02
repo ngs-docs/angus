@@ -23,7 +23,7 @@ Day              Schedule
 ===============  =============================================================
 Monday 8/8       * 1:30pm lecture: `Welcome! <_static/2015Lecture1Welcome.pptx.pdf>`__ (Meg and Matt)
                  * 2:30pm: Getting Started with AWS :doc:`amazon/index` (Matt)
-                 * 4pm: Intro to Linux (Matt) :doc:`MacManes_UNIX`
+                 * 4pm: Intro to Linux (Matt) :doc:`setup`
                  * 7pm: :doc:`running-command-line-blast` (Meg)
                  * 8pm: Instructor and TA Research presentations, socialize
 
@@ -68,7 +68,7 @@ Tuesday 8/16     * 9:15am transcriptome read counting lecture and practical (Rob
                  * 7pm: Journal Club - need article idea
 
 
-Wed 8/17         * 9:15am lecture, sourcing NCBI data including SRA :doc:`howe-ncbi` (Meg); 
+Wed 8/17         * 9:15am lecture, sourcing NCBI data including SRA :doc:`howe-ncbi` (Meg);
 
                  * 10:15am  more fun with R (Ming)
                  * 1:00pm Degust (Torst)
