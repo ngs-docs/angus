@@ -198,3 +198,160 @@ Questions/discussion items
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Why so many steps?
+
+
+2016
+~~~~
+Log into your instance. Install ruby and git, then install linuxbrew.
+
+   sudo apt-get install ruby git
+   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)"
+
+   export PATH="/home/ubuntu/.linuxbrew/bin:$PATH"
+   export MANPATH="/home/ubuntu/.linuxbrew/share/man:$MANPATH"
+   export INFOPATH="/home/ubuntu/.linuxbrew/share/info:$INFOPATH"
+
+   sudo apt-get update
+   sudo apt-get install build-essential
+
+   brew tap homebrew/science
+
+Now we can install anything available from linuxbrew science
+   brew info bcftools
+
+   brew install samtools
+   brew install zlib
+   brew install bcftools 
+   brew install bwa
+
+See what is installed:
+   brew list
+
+Download the reference genome and the resequencing reads::
+http://www.ncbi.nlm.nih.gov/nuccore/NC_012967.1
+
+   curl "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=NC_012967&rettype=fasta&retmode=text" > NC_012967.fasta
+
+   curl -O ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR098/SRR098038/SRR098038.fastq.gz
+
+Note, this last URL is the "Fastq files (FTP)" link from the European
+Nucleotide Archive (ENA) for this sample:
+http://www.ebi.ac.uk/ena/data/view/SRR098042.
+
+   gunzip SRR098038.fastq.gz
+
+Create the BWA index
+   bwa index NC_012967.fasta
+
+Now, do the mapping of the raw reads to the reference genome:
+   bwa aln NC_012967.fasta SRR098038.fastq.gz > SRR098038.sai
+
+Make a SAM file (this would be done with 'sampe' if these were paired-end
+reads):
+
+   bwa samse NC_012967.fasta SRR098038.sai SRR098038.fastq.gz > SRR098038.sam
+
+
+SAM the file format: https://samtools.github.io/hts-specs/SAMv1.pdf
+Samtools the software: http://www.htslib.org/doc/samtools-1.3.html
+
+This file contains all of the information about where each read hits
+on the reference.
+
+Next, index the reference genome with samtools::
+
+   samtools faidx NC_012967.fasta
+
+Convert the SAM into a BAM file::
+   samtools view -bS SRR098038.sam > SRR098038.bam
+
+Sort the BAM file::
+   samtools sort SRR098038.bam > SRR098038.sorted.bam
+
+And index the sorted BAM file::
+
+   samtools index SRR098038.sorted.bam
+
+
+Visualizing alignments
+~~~~~~~~~~~~~~~~~~~~~~
+
+At this point you can visualize with samtools tview or `Tablet <http://bioinf.scri.ac.uk/tablet/>`__.
+
+'samtools tview' is a text interface that you use from the command
+line; run it like so::
+
+   samtools tview SRR098038.sorted.bam NC_012967.fasta
+
+The '.'s are places where the reads align perfectly in the forward direction,
+and the ','s are places where the reads align perfectly in the reverse
+direction.  Mismatches are indicated as A, T, C, G, etc.
+
+You can scroll around using left and right arrows; to go to a specific
+coordinate, use 'g' and then type in the contig name and the position.
+For example, type 'g' and then 'rel606:553093<ENTER>' to go to
+position 553093 in the BAM file.
+
+Use 'q' to quit.
+
+Stats
+~~~~
+brew install picard-tools
+picard CollectAlignmentSummaryMetrics R=NC_012967.fasta I=SRR098038.sorted.bam O=statistics.txt
+picard CollectMultipleMetrics  R=NC_012967.fasta I=SRR098038.sorted.bam O=statistics
+
+
+Sam flags help: https://broadinstitute.github.io/picard/explain-flags.html
+
+This command::
+
+   samtools view -c -f 4 SRR098038.bam
+
+will count how many reads DID NOT align to the reference (214518).
+
+This command::
+
+   samtools view -c -F 4 SRR098038.bam
+
+will count how many reads DID align to the reference (6832113).
+
+And this command::
+
+   gunzip -c SRR098038.fastq.gz | wc -l
+
+will tell you how many lines there are in the FASTQ file (28186524).
+Reminder: there are four lines for each sequence.
+
+Calling SNPs
+~~~~~~~~~~~~
+
+You can use samtools to call SNPs like so::
+
+   samtools mpileup -ugf NC_012967.fasta SRR098038.sorted.bam | bcftools call -vmO z -o SRR098038.vcf.gz
+
+It complains about ploidy - wonder if that makes a difference? Lets try it with the haploid setting and see:
+
+   samtools mpileup -ugf NC_012967.fasta SRR098038.sorted.bam | bcftools call --ploidy 1 -vmO z -o SRR098038.haploid.vcf.gz
+
+
+
+Now convert the BCF into VCF::
+
+   bcftools view SRR098038.raw.bcf > SRR098038.vcf
+
+You can check out the VCF file by using 'tail' to look at the bottom::
+
+   tail *.vcf
+
+Each variant call line consists of the chromosome name (for E. coli
+REL606, there's only one chromosome - rel606); the position within the
+reference; an ID (here always '.'); the reference call; the variant
+call; and a bunch of additional information about
+
+Again, you can use 'samtools tview' and then type (for example) 'g'
+'rel606:4616538' to go visit one of the positions.  The format for the
+address to go to with 'g' is 'chr:position'.
+
+You can read more about `the VCF file format here <http://www.1000genomes.org/node/101>`__.
+
+
