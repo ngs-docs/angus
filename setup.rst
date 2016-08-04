@@ -4,7 +4,7 @@ Setup your AWS instance
 
 This lesson will show you how to set up you AWS instance for general use. Most lessons will use a similar process, though the specific software installed may vary.
 
-_In General_ there are a few differnet ways to install software. Installing from source, installing from apt-get, installing from Brew, pip, etc. You'll get to know each of these packages over the course of the next two weeks.
+In General, there are a few differnet ways to install software. Installing from source, installing from apt-get, installing from Brew, pip, etc. You'll get to know each of these packages over the course of the next two weeks.
 
 **Update System Software** This command will check for updates, and install them. ``apt-get`` is like the OSX App store, for those of you with Macs.
 
@@ -54,6 +54,16 @@ _In General_ there are a few differnet ways to install software. Installing from
 ::
 
     pip install --user biopython numpy scipy sklearn
+
+** Install BLAST **
+
+** Hi KAILA!!! **
+
+::
+
+    curl -LO ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/ncbi-blast-2.4.0+-x64-linux.tar.gz
+    tar -zxf ncbi-blast-2.4.0+-x64-linux.tar.gz && cd ncbi-blast-2.4.0
+
 
 **Install Bioinformatics Packages via Brew** These are the packages that we will use to do _real_ work!!! YAY!!!
 
