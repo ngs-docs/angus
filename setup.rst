@@ -60,7 +60,7 @@ In General, there are a few differnet ways to install software. Installing from 
 ::
 
     curl -LO ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/ncbi-blast-2.4.0+-x64-linux.tar.gz
-    tar -zxf ncbi-blast-2.4.0+-x64-linux.tar.gz && cd ncbi-blast-2.4.0+
+    tar -zxf ncbi-blast-2.4.0+-x64-linux.tar.gz
     PATH=$PATH:$HOME/ncbi-blast-2.4.0+/bin
 
 
