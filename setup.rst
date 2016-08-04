@@ -55,14 +55,14 @@ In General, there are a few differnet ways to install software. Installing from 
 
     pip install --user biopython numpy scipy sklearn
 
-** Install BLAST **
-
-** Hi KAILA!!! **
+**Install BLAST**
 
 ::
 
     curl -LO ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/ncbi-blast-2.4.0+-x64-linux.tar.gz
-    tar -zxf ncbi-blast-2.4.0+-x64-linux.tar.gz && cd ncbi-blast-2.4.0
+    tar -zxf ncbi-blast-2.4.0+-x64-linux.tar.gz && cd ncbi-blast-2.4.0+
+    PATH=$PATH:$(pwd)
+
 
 
 **Install Bioinformatics Packages via Brew** These are the packages that we will use to do _real_ work!!! YAY!!!
@@ -74,7 +74,7 @@ In General, there are a few differnet ways to install software. Installing from 
     brew install hmmer
     brew install augustus
     brew install emboss
-    brew install busco
+    brew install busco brew install busco --without-blast
 
 
 
