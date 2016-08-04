@@ -21,7 +21,7 @@ Meal Times: Breakfast 7-9, Lunch 12-1, Dinner 6-7 (Unless noted below). See `HER
 ===============  =============================================================
 Day              Schedule
 ===============  =============================================================
-Monday 8/8       * 1:30pm lecture: `Welcome! <_static/2015Lecture1Welcome.pptx.pdf>`__ (Meg and Matt)
+Monday 8/8       * 1:30pm lecture: :doc:`files/2016-lecture1-welcome.pptx` (Meg and Matt)
                  * 2:30pm: Getting Started with AWS :doc:`amazon/index` (Matt)
                  * 4pm: Intro to Linux (Matt) :doc:`setup`
                  * 7pm: :doc:`running-command-line-blast` (Meg)
