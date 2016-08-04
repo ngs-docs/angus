@@ -74,7 +74,7 @@ In General, there are a few differnet ways to install software. Installing from 
     brew install hmmer
     brew install augustus
     brew install emboss
-    brew install busco brew install busco --without-blast
+    brew install busco --without-blast
 
 
 
