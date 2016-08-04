@@ -1,4 +1,4 @@
-================================================ 
+================================================
 Quality Trimming
 ================================================
 
@@ -29,8 +29,7 @@ Step 1: Launch and AMI. For this exercise, we will use a **c4.2xlarge** with a 5
 
 ::
 
-    sudo bash
-    apt-get update
+    sudo apt-get update
 
 --------------
 
@@ -38,7 +37,7 @@ Step 1: Launch and AMI. For this exercise, we will use a **c4.2xlarge** with a 5
 
 ::
 
-    apt-get -y upgrade
+    sudo apt-get -y upgrade
 
 --------------
 
@@ -46,23 +45,13 @@ Step 1: Launch and AMI. For this exercise, we will use a **c4.2xlarge** with a 5
 
 ::
 
-    apt-get -y install tmux git gcc make g++ python-dev unzip default-jre build-essential libcurl4-openssl-dev zlib1g-dev python-pip fastqc
+    apt-get -y install tmux git gcc make g++ python-dev unzip default-jre build-essential libcurl4-openssl-dev \
+    zlib1g-dev python-pip fastqc
 
 --------------
 
-**Mount hard drive** The EBS volume we asked for is not automatically mounted - we need to do that. 
 
-::
-
-    df -h
-    mkfs -t ext4 /dev/xvdb  
-    mount /dev/xvdb /mnt  
-    chown -R ubuntu:ubuntu /mnt  
-    df -h
-
---------------
-
-**Install Trimmomatic**: Trimmomatic is my favorite tool for adapter and quality trimming, there are several others available. 
+**Install Trimmomatic**: Trimmomatic is my favorite tool for adapter and quality trimming, there are several others available.
 
 ::
 
@@ -71,6 +60,7 @@ Step 1: Launch and AMI. For this exercise, we will use a **c4.2xlarge** with a 5
     unzip Trimmomatic-0.33.zip
     cd Trimmomatic-0.33
     chmod +x trimmomatic-0.33.jar
+    PATH=$PATH:$(pwd)
 
 --------------
 
@@ -88,7 +78,7 @@ Step 1: Launch and AMI. For this exercise, we will use a **c4.2xlarge** with a 5
 
 --------------
 
-**Install khmer**: This is The CTB lab software. 
+**Install khmer**: This is The CTB lab software.
 
 ::
 
@@ -103,7 +93,7 @@ You are downloading from MG-RAST, which is a popular metagenomics analysis packa
 
 ::
 
-   mkdir /mnt/reads 
+   mkdir /mnt/reads
    cd /mnt/reads/
 
    curl http://api.metagenomics.anl.gov//download/mgm4520306.3?file=050.1 > root_S13.R1.fq
@@ -190,10 +180,10 @@ Look at the output from this command, which should start with ``Input Read Pairs
   fastqc -t 8 /mnt/trimming/root_S13.Phred30_1P.fq /mnt/trimming/root_S13.Phred30_2P.fq
   fastqc -t 8 /mnt/trimming/root_S13.Phred2_1P.fq /mnt/trimming/root_S13.Phred2_2P.fq
   ls -lth
-  
+
 **Download FastQC .zip file to your computer**
 
-Open up a new terminal window using the buttons command-t, then unzip as per normal. 
+Open up a new terminal window using the buttons command-t, then unzip as per normal.
 
 ::
 
@@ -209,7 +199,7 @@ Open up a new terminal window using the buttons command-t, then unzip as per nor
 
 Now look at the ``.histo`` file, which is a kmer distribution. I want you to plot the distribution using R and RStudio.
 
-**OPEN RSTUDIO**: Google and install locally. There are OSX and Windows versions. 
+**OPEN RSTUDIO**: Google and install locally. There are OSX and Windows versions.
 
 Open up a new terminal window using the buttons command-t
 
@@ -226,7 +216,7 @@ Import and visualize the 2 histogram datasets:
     trim30 <- read.table("~/Downloads/trim30.histo", quote="\"")
 
     #Plot: Make sure and change the names to match what you import.
-    #What does this plot show you?? 
+    #What does this plot show you??
 
     barplot(c(trim2$V2[1],trim30$V2[1]),
         names=c('Phred2', 'Phred30'),
