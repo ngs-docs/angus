@@ -12,7 +12,7 @@ for everybody.
 Need Help?
 ----------
 
-You can reach the course director, Titus Brown, at titus@idyll.org or
+You can reach the course director, Matt or Meg, at macmanes@gmail.com / mestato@gmail.com  or
 via the cell phone number on the course info page.  You can also talk
 to any of the instructors or TAs if you need immediate help.
 
