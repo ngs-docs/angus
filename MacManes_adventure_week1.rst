@@ -1,5 +1,5 @@
 ================================================
-Self Guided Transcriptome Assembly Exercise
+Self Guided Genome Assembly Exercise
 ================================================
 
 I want you to develop a pipeline to do some stuff. Think about automation - e.g. what if I gave you not just 1 dataset, but 100.

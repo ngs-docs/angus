@@ -28,7 +28,7 @@ Monday 8/8       * 1:30pm lecture: `Welcome! <_static/2016-lecture1-welcome.pptx
                  * 8pm: Instructor and TA Research presentations, socialize
 
 Tuesday 8/9      * Tutorial :doc:`day2`
-                 * 9:15am lecture: `Sequencing considerations <_static/2016-lecture2-sequencing.pptx>`__ (Matt)
+                 * 9:15am lecture: `Sequencing basics <_static/2016-lecture2-sequencing.pptx>`__ (Matt)
                  * 11:00am Assessment (Bob Drost)
                  * 1:15pm tutorial, `background PDF <_static/MacManes_Trimming.pdf>`__ and :doc:`MacManesTrimming` (Matt)
                  * Evening *firepit social*
