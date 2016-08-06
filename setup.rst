@@ -70,12 +70,19 @@ In General, there are a few differnet ways to install software. Installing from 
 ::
 
     brew tap homebrew/science
-    brew install samtools
     brew install hmmer
     brew install augustus
     brew install emboss
     brew install busco --without-blast
 
+
+**How to tell if something is installed**
+
+::
+
+    which blastp
+    which busco
+    which samtools
 
 
 ** Most of the lessons** will start by installing these types of software. Practice makes perfect. Try terminating your instance, restarting, and reinstalling...
