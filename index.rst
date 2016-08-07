@@ -101,7 +101,7 @@ Instructors:
 * Ian Dworkin `@IanDworkin <https://twitter.com/IanDworkin?lang=en>`__.
 * Shaun Jackman `@sjackman <https://twitter.com/sjackman?lang=en>`__.
 * Rob Patro `@nomad421 <https://twitter.com/nomad421?lang=en>`__.
-* Torst Seeman `@torstenseemann <https://twitter.com/torstenseemann?lang=en>`__.
+* Torsten Seemann `@torstenseemann <https://twitter.com/torstenseemann?lang=en>`__.
 * Sonal Singhal
 
 TAs:
