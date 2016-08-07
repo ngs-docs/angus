@@ -6,6 +6,8 @@ This lesson will show you how to set up you AWS instance for general use. Most l
 
 In General, there are a few differnet ways to install software. Installing from source, installing from apt-get, installing from Brew, pip, etc. You'll get to know each of these packages over the course of the next two weeks.
 
+**Launch a c4.2xl instance**
+
 **Update System Software** This command will check for updates, and install them. ``apt-get`` is like the OSX App store, for those of you with Macs.
 
 ::
@@ -53,7 +55,7 @@ In General, there are a few differnet ways to install software. Installing from 
 
 ::
 
-    pip install --user biopython numpy scipy sklearn
+    pip install --user biopython
 
 **Install BLAST**
 
@@ -65,7 +67,7 @@ In General, there are a few differnet ways to install software. Installing from 
 
 
 
-**Install Bioinformatics Packages via Brew** These are the packages that we will use to do _real_ work!!! YAY!!!
+**Install Bioinformatics Packages via Brew** These are the packages that we will use to do *real* work!!! YAY!!!
 
 ::
 
@@ -82,7 +84,6 @@ In General, there are a few differnet ways to install software. Installing from 
 
     which blastp
     which busco
-    which samtools
 
 
 ** Most of the lessons** will start by installing these types of software. Practice makes perfect. Try terminating your instance, restarting, and reinstalling...
