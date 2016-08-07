@@ -125,6 +125,7 @@ Look at the output from this command, which should start with ``Input Read Pairs
 **Run Jellyfish**
 
 ::
+    
   mkdir $HOME/jelly
   cd $HOME/jelly
 
