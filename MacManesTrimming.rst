@@ -9,11 +9,10 @@ Trimmomatic, khmer and Jellyfish. Your objectives are:
    visualize results.
 2. Characterize sequence quality.
 
-The Trimmomatic manual: http://www.usadellab.org/cms/?page=trimmomatic
+The Skewer manual: https://github.com/relipmoc/skewer
 
 The JellyFish manual: http://www.genome.umd.edu/jellyfish.html
 
-The Khmer webpage: http://khmer.readthedocs.org/en/v1.4.1/
 
 
 
@@ -45,7 +44,7 @@ Step 1: Launch and AMI. For this exercise, we will use a **c4.2xlarge** with a 5
 ::
 
     sudo apt-get -y install tmux git gcc make g++ python-dev unzip default-jre build-essential libcurl4-openssl-dev \
-    zlib1g-dev python-pip fastqc
+    zlib1g-dev python-pip
 
 **Install Ruby**  Ruby is a computer language like Python or Perl.
 
@@ -79,15 +78,7 @@ Step 1: Launch and AMI. For this exercise, we will use a **c4.2xlarge** with a 5
     brew tap homebrew/science
     brew install jellyfish
     brew install skewer
-
-
-
-**Install khmer**: This is The CTB lab software.
-
-::
-
-    pip install --user --upgrade setuptools
-    pip install --user khmer
+    brew install fastqc
 
 --------------
 
@@ -131,25 +122,20 @@ Look at the output from this command, which should start with ``Input Read Pairs
 
 --------------
 
-**Run khmer and Jellyfish**
+**Run Jellyfish**
 
 ::
-
-  interleave-reads.py skewerQ2-trimmed-pair1.fastq skewerQ2-trimmed-pair2.fastq > root_S13.Phred2.interleaved.fq
-
-  interleave-reads.py skewerQ30-trimmed-pair1.fastq skewerQ30-trimmed-pair2.fastq > root_S13.Phred30.interleaved.fq
-
   mkdir $HOME/jelly
   cd $HOME/jelly
 
 
-  jellyfish count -m 25 -s 200M -t 16 -C -o trim2.jf $HOME/trimming/root_S13.Phred2.interleaved.fq
-  jellyfish histo trim2.jf -o trim2.histo
+  jellyfish count -m 25 -s 200M -t 16 -C -o trim30.jf $HOME/trimming/skewerQ30-trimmed-pair1.fastq $HOME/trimming/skewerQ30-trimmed-pair2.fastq
+  jellyfish histo trim30.jf -o trim30.histo
 
   #and
 
-  jellyfish count -m 25 -s 200M -t 16 -C -o trim30.jf $HOME/trimming/root_S13.Phred30.interleaved.fq
-  jellyfish histo trim30.jf -o trim30.histo
+  jellyfish count -m 25 -s 200M -t 16 -C -o trim2.jf $HOME/trimming/skewerQ2-trimmed-pair1.fastq $HOME/trimming/skewerQ2-trimmed-pair2.fastq
+  jellyfish histo trim2.jf -o trim2.histo
 
 --------------
 
