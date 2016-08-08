@@ -81,6 +81,8 @@ with a focus on applications to clinical and public health microbiology.
 
 Ian Dworkin (https://www.msu.edu/~idworkin/) holds a Ph.D. in Evolutionary Genetics from the University of Toronto, and has worked on Quantitative and statistical genetics, Evolutionary biology, genomics and developmental biology. He is currently a faculty member in the Department of Biology at McMaster University, where his lab works on evolutionary genomics of development, morphology and behavior, in addition to the development of new statistical tools.
 
+Shaun Jackman (http://sjackman.ca) is a Ph.D. candidate in bioinformatics at the [University of British Columbia](https://www.ubc.ca/) and the [Genome Sciences Centre](http://www.bcgsc.ca/) in Vancouver, Canada. He researches genome sequence assembly methods, helps develop the [ABySS](https://github.com/bcgsc/abyss) assembly software, and helped assemble the 20 Gbp white spruce genome. He is a programmer, an avid traveller, a singer, and an experimental amateur chef.
+
 ### Board of Advisors
 Human genetics and genomics: Kevin White, James and Karen Frank Family Professor at University of Chicago.
 
