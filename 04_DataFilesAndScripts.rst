@@ -1,4 +1,6 @@
-Looking at data files
+..  _04_DataFilesAndScripts:
+
+Datafiles and Scripting
 =========================
 
 
@@ -9,7 +11,7 @@ of. However, most are more like FASTQ files, where any given file could
 be from many different steps of the pipeline. These are the ones that
 cause the most trouble, and need the most careful management.
 
-.. figure:: ../files/ngs_map_read_file_formats.png
+.. figure:: ../Files/ngs_map_read_file_formats.png
 
    FileTypes
 
@@ -325,7 +327,7 @@ Again, naively, we might try:
 	grep -c "[Gg][Tt][AaCc][GgTt][Aa][Cc]" Raphanus.fa
 
 But this looks like the sort of problem a programmer has already figured out. If we 
-search the grem manual file for 'case' we find that we can just tell grep to ignore case:
+search the grep manual file for 'case' we find that we can just tell grep to ignore case:
 
 .. code:: bash
 
@@ -390,7 +392,9 @@ we can get most of the way there by just using ``cut`` again.
 
 	for ATfiles in `ls`; do grep -i -B 1 "gt[ac][gt]ac" ${ATfiles} | grep ">" | cut -f 1 -d " " ; done
 
-	Exercise: Can you figure out how to get rid of the leading > from this list? Hint [#]_.
+	Exercise: Can you figure out how to get rid of the leading > from this list? 
+
+Hint [#]_.
 
 Okay, so this is great, but it's *so* complicated. If I want to run this next week, or 
 even tomorrow, I'm *never* going to remember how we did it. So we're going to save all this
@@ -441,7 +445,25 @@ Exercise: What would make this script better?
 	Have the computer prompt you for input
 
 
-Finished :download:`REscript <files/REscript.sh>`
+We made *lots* of cool variations on this program:
+
+`Version 1 <https://raw.githubusercontent.com/ACharbonneau/2016-01-18-MSU/gh-pages/Files/01_REscript.sh>`_
+
+`Version2 <https://raw.githubusercontent.com/ACharbonneau/2016-01-18-MSU/gh-pages/Files/02_REscript.sh>`_
+
+`Version3 <https://raw.githubusercontent.com/ACharbonneau/2016-01-18-MSU/gh-pages/Files/03_REscript.sh>`_
+
+`Version4 <https://raw.githubusercontent.com/ACharbonneau/2016-01-18-MSU/gh-pages/Files/04_REscript.sh>`_
+
+`Version5 <https://raw.githubusercontent.com/ACharbonneau/2016-01-18-MSU/gh-pages/Files/05_REscript.sh>`_
+
+`Version6 <https://raw.githubusercontent.com/ACharbonneau/2016-01-18-MSU/gh-pages/Files/06_REscript.sh>`_
+
+`Version7 <https://raw.githubusercontent.com/ACharbonneau/2016-01-18-MSU/gh-pages/Files/07_REscript.sh>`_
+
+`AmandasSplitofMetaData <https://raw.githubusercontent.com/ACharbonneau/2016-01-18-MSU/gh-pages/Files/08_REscriptAmanda.sh>`_
+
+`WillsSplitofMetaData <https://raw.githubusercontent.com/ACharbonneau/2016-01-18-MSU/gh-pages/Files/08_REscriptWill.sh>`_
 
 
 
@@ -450,4 +472,5 @@ Finished :download:`REscript <files/REscript.sh>`
 .. [#] either ``-c`` or ``wc`` should give you the answer to life, the universe and everything
 .. [#] cut will let you use anything as a deliminator
 
+:ref:`00_intro_organization`
 

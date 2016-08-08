@@ -1,3 +1,4 @@
+..  _02_working_with_archives:
 Working with Compressed files
 =============================
 
@@ -7,9 +8,6 @@ encounter files that have been *compressed* to save time/space/money.
 The two most commonly encountered types of compressed files are Zip
 archives (e.g. ``filename.zip``), Gzip archives (e.g. ``filename.gz``)
 and Tarballs (e.g. ``filename.tar`` or ``filename.tar.gz``).
-
-Zip 
------------------
 
 Once you've convinced yourself that the file you have is the file that
 you *ought* to have, the next thing that you'll want to do is unzip it
@@ -27,15 +25,6 @@ you can view what a zip contains using the ``-l`` flag ('list'):
 
     unzip -l <filename.zip>
 
-Right now neither of these work, because unzip (and zip) are not
-installed by default. However, Ubuntu recognizes that unzip is an
-available program, and has given us a prompt telling us how to get unzip
-if we want it
-
-.. code:: bash
-
-    sudo apt-get install unzip
-
 When you want to go in the other direction and make your own archive the
 command is simply ``zip``. It works like this:
 
@@ -50,9 +39,6 @@ folder and all its contents, including subfolders like so:
 
     zip -r <myproject.zip> myproject/
 
-GZip
------------------
-
 If you have been sent a big bundle of data as a gzip archive, then
 happily the same procedure applies for viewing and extracting as with
 zip archives, but with the ``gunzip`` program:
@@ -61,9 +47,6 @@ zip archives, but with the ``gunzip`` program:
 
     gunzip -l <bundle.gz>
     gunzip <bundle.gz>
-
-Tarball
------------------
 
 Things are slightly different (read 'complex') if you encounter a
 tarball: ``thisfile.tar`` or ``thatfile.tar.gz`` or ``tacofile.tgz``.
@@ -89,3 +72,5 @@ You can view the contents of tarballs using the ``tar`` program:
 
 Other types of compressed files and archives do exist, but these are the
 most common.
+
+:ref:`03_the_filesystem`
