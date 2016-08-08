@@ -2,13 +2,17 @@ Variant calling
 ###############
 
 The goal of this tutorial is to show you the basics of variant calling
-using `Samtools <http://samtools.sourceforge.net/>`__.
+using `Samtools <http://www.htslib.org/>`__.
 
 We're going to be looking at variation in laboratory grown strains of Escherichia coli. We have reads from B strain REL606 and we'll be mapping it to a reference genome from BL21(DE3). This is a different lab strain, and there's an interesting paper where they trace the origin and transfer of all the different E. coli strains between scientisits through the decades.
 
 Citation: `Tracing Ancestors and Relatives of Escherichia coli B, and the Derivation of B Strains REL606 and BL21(DE3)
 <http://www.sciencedirect.com/science/article/pii/S0022283609011395>`__
 Journal of Molecular Biology, Volume 394, Issue 4, 11 December 2009, Pages 634–643
+
+.. image:: figures/ecoli.jpg
+   :width: 80%
+
 
 Booting an Amazon AMI
 ~~~~~~~~~~~~~~~~~~~~~
@@ -23,8 +27,6 @@ Log in `with Windows <amazon/log-in-with-ssh-win.html>`__ or
 Install software
 ~~~~~~~~~~~~~~~~
 
-Download the reference genome and the resequencing reads::
-	curl "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=NC_012971&rettype=fasta&retmode=text" > Ecoli_BL21.fasta
 
 Log into your instance. Install ruby and git, then install linuxbrew.
 ::
