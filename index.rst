@@ -16,7 +16,7 @@ This workshop has a :doc:`code-of-conduct`, do read it!
 
 `Download all of these materials <https://github.com/ngs-docs/angus/archive/2016.zip>`__ or `visit the GitHub repository <https://github.com/ngs-docs/angus/tree/2016>`__.
 
-Meal Times: Breakfast 7-9, Lunch 12-1, Dinner 6-7 (Unless noted below). See `HERE <http://conference.kbs.msu.edu/conference-center/food-and-beverage-service/>`__ for the menu and other info.
+Meal Times: Breakfast 7:45-8:45, Lunch 12-1, Dinner 6-7 (Unless noted below). See `HERE <http://conference.kbs.msu.edu/conference-center/food-and-beverage-service/>`__ for the menu and other info.
 
 ===============  =============================================================
 Day              Schedule
