@@ -34,7 +34,7 @@ Tuesday 8/9      * Tutorial :doc:`day2`
                  * 1:15pm tutorial, `background PDF <_static/MacManes_Trimming.pdf>`__ and :doc:`MacManesTrimming` (Matt)
                  * Evening *firepit social*
 
-Wed 8/10         * 9:15am lecture, mapping and variant calling lecture (Meg)
+Wed 8/10         * 9:15am lecture, `mapping and variant calling lecture <_static/MappingAndVarCalling.pdf>`__  (Meg)
                  * 10:30am  tutorial, BASH for genomics, :doc:`GenomicsShell` (Amanda)
                  * 1:15pm LinuxBrew,  (Shaun)
                  * 7:15pm lecture Variant Calling, :doc:`variant` (Meg)
