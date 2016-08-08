@@ -47,7 +47,7 @@ Select 'General purpose', 'c4.2xlarge', and then 'Review and Launch'.
 Change the size of the hard drive
 ~~~~~~~~~~~~~~~~~~
 
-Make the size of the hard drive to be 100GB (Or whatever is appropriate for the course).
+Make the size of the hard drive to be 100GB (Or whatever is appropriate for the lesson).
 
 .. image:: images/NEW_EC.png
    :width: 80%
