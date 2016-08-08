@@ -37,10 +37,22 @@ Find the "Ubuntu Server 14.04" image in the first list to show up.
 Choose the machine size
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-Select 'General purpose', 'm3.xlarge', and then 'Review and Launch'.
+Select 'General purpose', 'c4.2xlarge', and then 'Review and Launch'.
 
 .. image:: images/ec2-4.png
    :width: 80%
+
+
+
+Change the size of the hard drive
+~~~~~~~~~~~~~~~~~~
+
+Make the size of the hard drive to be 100GB (Or whatever is appropriate for the lesson).
+
+.. image:: images/NEW_EC.png
+   :width: 80%
+
+
 
 Confirm and launch
 ~~~~~~~~~~~~~~~~~~
