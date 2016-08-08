@@ -16,7 +16,7 @@ This workshop has a :doc:`code-of-conduct`, do read it!
 
 `Download all of these materials <https://github.com/ngs-docs/angus/archive/2016.zip>`__ or `visit the GitHub repository <https://github.com/ngs-docs/angus/tree/2016>`__.
 
-Meal Times: Breakfast 7-9, Lunch 12-1, Dinner 6-7 (Unless noted below). See `HERE <http://conference.kbs.msu.edu/conference-center/food-and-beverage-service/>`__ for the menu and other info.
+Meal Times: Breakfast 7:45-8:45, Lunch 12-1, Dinner 6-7 (Unless noted below). See `HERE <http://conference.kbs.msu.edu/conference-center/food-and-beverage-service/>`__ for the menu and other info.
 
 ===============  =============================================================
 Day              Schedule
@@ -24,7 +24,8 @@ Day              Schedule
 Monday 8/8       * 1:30pm lecture: `Welcome! <_static/2016-lecture1-welcome.pptx>`__ (Meg and Matt)
                  * 2:30pm: Getting Started with AWS :doc:`amazon/index` (Matt)
                  * 4pm: Intro to Linux :doc:`setup` and :doc:`MacManes_UNIX` and `Online Tutorial <http://rik.smith-unna.com/command_line_bootcamp/>`__ (Matt)
-                 * 7pm: :doc:`running-command-line-blast` (Meg)
+                 * 7pm tutorial, `background PDF BLAST <_static/BLAST.pdf>`__ 
+                 * :doc:`running-command-line-blast` (Meg)
                  * 8pm: Instructor and TA Research presentations, socialize
 
 Tuesday 8/9      * Tutorial :doc:`day2`

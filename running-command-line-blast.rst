@@ -75,9 +75,9 @@ This gives us a lot of information on the terminal screen. But this is difficult
 	blastp -query cow.small.faa -db human.1.protein.faa -out cow_vs_human_blast_results.txt
     ls
 	
-Take a look at the results in nano. Note that there can be more than one match between the query and the same subject. These are referred to as high-scoring segment pairs (HSPs).
+Take a look at the results using less. Note that there can be more than one match between the query and the same subject. These are referred to as high-scoring segment pairs (HSPs).
 ::
-	nano cow_vs_human_blast_results.txt
+	less cow_vs_human_blast_results.txt
 
 So how do you know about all the options, such as the flag to create an output file? Lets also take a look at the help pages. Unfortunately there are no man pages (those are usually reserved for shell commands, but some software authors will provide them as well), but there is a text help output
 ::
@@ -102,7 +102,7 @@ Lets filter for more statistically significant matches with a different output f
 
 I broke the long single command into many lines with by "escaping" the newline. That forward slash tells the command line "Wait, I'm not done yet!". So it waits for the next line of the command before executing.
 
-Check out the results with nano.
+Check out the results with less.
 
 Lets try a medium sized data set next
 ::	
