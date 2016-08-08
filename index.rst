@@ -24,7 +24,8 @@ Day              Schedule
 Monday 8/8       * 1:30pm lecture: `Welcome! <_static/2016-lecture1-welcome.pptx>`__ (Meg and Matt)
                  * 2:30pm: Getting Started with AWS :doc:`amazon/index` (Matt)
                  * 4pm: Intro to Linux :doc:`setup` and :doc:`MacManes_UNIX` and `Online Tutorial <http://rik.smith-unna.com/command_line_bootcamp/>`__ (Matt)
-                 * 7pm: :doc:`running-command-line-blast` (Meg)
+                 * 7pm tutorial, `background PDF BLAST <_static/BLAST.pdf>`__ 
+                 * :doc:`running-command-line-blast` (Meg)
                  * 8pm: Instructor and TA Research presentations, socialize
 
 Tuesday 8/9      * Tutorial :doc:`day2`
