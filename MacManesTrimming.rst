@@ -84,6 +84,7 @@ Step 1: Launch and AMI. For this exercise, we will use a **c4.2xlarge** with a 5
 **Install khmer**
 
 ::
+    
     easy_install --user -U setuptools
     pip install --user khmer
     echo 'export PATH="home/ubuntu/.local/bin/:$PATH"' >>~/.profile
