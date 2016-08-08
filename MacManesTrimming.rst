@@ -80,7 +80,13 @@ Step 1: Launch and AMI. For this exercise, we will use a **c4.2xlarge** with a 5
     brew install skewer
     brew install fastqc
 
---------------
+
+**Install khmer**
+
+::
+    easy_install --user -U setuptools
+    pip install --user khmer
+    echo 'export PATH="home/ubuntu/.local/bin/:$PATH"' >>~/.profile
 
 **Download data**: For this lab, we'll be using files from Jack Gilbert's Merlot wine study (http://mbio.asm.org/content/6/2/e02527-14.full). The details are not important right now, but this is a metagenomic sample from root of the grape vine.
 
@@ -120,22 +126,28 @@ Look at the output from this command, which should start with ``Input Read Pairs
     $HOME/reads/root_S13.R1.fq $HOME/reads/root_S13.R2.fq
 
 
---------------
+**Interleave reads**
+
+::
+
+    interleave-reads.py skewerQ2-trimmed-pair1.fastq skewerQ2-trimmed-pair2.fastq > Q2.interleave.fq
+    interleave-reads.py skewerQ30-trimmed-pair1.fastq skewerQ30-trimmed-pair2.fastq > Q30.interleave.fq
+
 
 **Run Jellyfish**
 
 ::
-    
+
   mkdir $HOME/jelly
   cd $HOME/jelly
 
 
-  jellyfish count -m 25 -s 200M -t 16 -C -o trim30.jf $HOME/trimming/skewerQ30-trimmed-pair1.fastq $HOME/trimming/skewerQ30-trimmed-pair2.fastq
+  jellyfish count -m 25 -s 200M -t 16 -C -o trim30.jf $HOME/trimming/Q30.interleave.fq
   jellyfish histo trim30.jf -o trim30.histo
 
   #and
 
-  jellyfish count -m 25 -s 200M -t 16 -C -o trim2.jf $HOME/trimming/skewerQ2-trimmed-pair1.fastq $HOME/trimming/skewerQ2-trimmed-pair2.fastq
+  jellyfish count -m 25 -s 200M -t 16 -C -o trim2.jf $HOME/trimming/Q2.interleave.fq
   jellyfish histo trim2.jf -o trim2.histo
 
 --------------
@@ -156,8 +168,8 @@ Look at the output from this command, which should start with ``Input Read Pairs
   mkdir $HOME/fastqc
   cd $HOME/fastqc
 
-  fastqc -t 16 $HOME/trimming/root_S13.Phred30.interleaved.fq
-  fastqc -t 16 $HOME/trimming/root_S13.Phred2.interleaved.fq
+  fastqc -t 16 $HOME/trimming/Q2.interleave.fq
+  fastqc -t 16 $HOME/trimming/Q30.interleave.fq
   ls -lth
 
 **Download FastQC .zip file to your computer**
