@@ -84,10 +84,11 @@ Step 1: Launch and AMI. For this exercise, we will use a **c4.2xlarge** with a 5
 **Install khmer**
 
 ::
-    
+
     easy_install --user -U setuptools
     pip install --user khmer
-    echo 'export PATH="home/ubuntu/.local/bin/:$PATH"' >>~/.profile
+    echo 'export PATH="/home/ubuntu/.local/bin/:$PATH"' >>~/.profile
+    source ~/.profile
 
 **Download data**: For this lab, we'll be using files from Jack Gilbert's Merlot wine study (http://mbio.asm.org/content/6/2/e02527-14.full). The details are not important right now, but this is a metagenomic sample from root of the grape vine.
 
