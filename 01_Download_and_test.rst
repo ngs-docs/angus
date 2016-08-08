@@ -1,11 +1,13 @@
 ..  _01_Download_and_test:
 
+
 Download and Test
 =========================
 
--  `#Download the data <Download-the-data>`__
--  `#Checking the data <Checking-the-data>`__
+:ref:`Download the data`
+:ref:`Checking the data`
 
+.. _Download the data:
 Download the data
 -----------------
 
@@ -54,6 +56,7 @@ or
     cd
     curl -LO https://www.dropbox.com/s/d7zitckb5fz8494/GenomicsLesson.zip
 
+.. _Checking the data:
 Checking the data
 -----------------
 
