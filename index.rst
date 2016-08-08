@@ -21,15 +21,15 @@ Meal Times: Breakfast 7-9, Lunch 12-1, Dinner 6-7 (Unless noted below). See `HER
 ===============  =============================================================
 Day              Schedule
 ===============  =============================================================
-Monday 8/8       * 1:30pm lecture: `Welcome! <_static/2015Lecture1Welcome.pptx.pdf>`__ (Meg and Matt)
+Monday 8/8       * 1:30pm lecture: `Welcome! <_static/2016-lecture1-welcome.pptx>`__ (Meg and Matt)
                  * 2:30pm: Getting Started with AWS :doc:`amazon/index` (Matt)
-                 * 4pm: Intro to Linux (Matt) :doc:`MacManes_UNIX`
+                 * 4pm: Intro to Linux :doc:`setup` and :doc:`MacManes_UNIX` and `Online Tutorial <http://rik.smith-unna.com/command_line_bootcamp/>`__ (Matt)
                  * 7pm: :doc:`running-command-line-blast` (Meg)
                  * 8pm: Instructor and TA Research presentations, socialize
 
 Tuesday 8/9      * Tutorial :doc:`day2`
-                 * 9:15am lecture: `Sequencing considerations <_static/2015-lecture2-sequencing.pptx.pdf>`__ (Matt)
-                 * 11:00am Assessment (Julie Libarkin or somebody else)
+                 * 9:15am lecture: `Sequencing basics <_static/2016-lecture2-sequencing.pptx>`__ (Matt)
+                 * 11:00am Assessment (Bob Drost)
                  * 1:15pm tutorial, `background PDF <_static/MacManes_Trimming.pdf>`__ and :doc:`MacManesTrimming` (Matt)
                  * Evening *firepit social*
 
@@ -40,44 +40,45 @@ Wed 8/10         * 9:15am lecture, mapping and variant calling lecture (Meg)
                  * 8:30pm student presentations (Part 1 ~3 minutes each)
 
 Thursday 8/11    * 9:15am lecture, `Eukaryotic Genome assembly and analysis <_static/NGS_Schwarz_2015.08.13.pdf>`__ (Shaun)
-                 * 10:15am lecture, Genome assembly exercise (Shaun)
+                 * 10:15am Genome assembly exercise (Shaun)
                  * 1:15pm Prokaryotic Genome assembly and analysis, :doc:`assembling-ecoli` (Torst)
                  * 8:00pm Free Time or Extra help sessions or Unix Wizardry
 
 Friday 8/12      * 9:15am, bacterial genome annotation lecture and practical (Torst) :doc:`prokka_genome_annotation`
                  * 1:15pm intro to R (Amanda)
                  * 6:00pm BBQ on the Island
-                 * 7:15pm student research presentations (Part II ~3 minutes each)
+                 * 7:15pm Choose your own adventure :doc:`MacManes_adventure_week1` (Matt)
 
-Saturday 8/13    * 9:15am, pop gen lecture and practical (Sonal)
+Saturday 8/13    * 9:15am, Population genetics lecture and practical (Sonal)
                  * 1:15pm, lecture and practical, `long read sequencing <_static/Torsten_Seemann_LRS.pdf>`__ (Torsten Seeman)
-                 * Takeout (Thai??) Dinner on the island
+                 * Takeout (Thai??) Dinner
 
 Sunday 8/14      * Free Day
                  * Brunch at McCrary 12pm - 1pm*
-                 * *BBQ Dinner on the island*
+                 * *BBQ Dinner*
 
 Monday 8/15      * 9:15am lecture/tutorial, Transcriptome assembly and evaluation :doc:`MacManes_Trinity` (Matt)
                  * 1:15pm `Mapping / Transrate <https://github.com/ngs-docs/angus/blob/2015/transrate.rst>`__ (Rob)
-                 * 7pm: twitter, blogging and bioinformatics by way of social media (All)
+                 * 7pm: Twitter, Blogging and Bioinformatics (All)
 
 
 Tuesday 8/16     * 9:15am transcriptome read counting lecture and practical (Rob - Salmon)
                  * 10:30am: `R tutorial <https://github.com/ngs-docs/angus/blob/2015/R_Introductory_tutorial_2015.md>`__ (Ian)
                  * 1:15pm: lecture, `mRNAseq differential expression <_static/NGS2015_RNAseq_2.pptx>`__ (Ian) and lecture, `mRNA stats <_static/NGS2015_RNAseq_ID_1.pptx>`__
-                 * 7pm: Journal Club - need article idea
+                 * 7pm: Journal Club - need article idea (All)
 
 
-Wed 8/17         * 9:15am lecture, sourcing NCBI data including SRA :doc:`howe-ncbi` (Meg); 
+Wed 8/17         * 9:15am lecture, sourcing NCBI data including SRA :doc:`howe-ncbi` (Meg);
 
                  * 10:15am  more fun with R (Ming)
                  * 1:00pm Degust (Torst)
-                 * Evening, Ask the Expert  (All)
+                 * Evening: Choose your own adventure! :doc:`MacManes_adventure_week2` (Matt)
 
 Thursday 8/18    * 9:15am Open source your scripts with GitHub (Lisa) :doc:`CTB-github`
-                 * 1:15pm Assessment (Julie)
+                 * 1:15pm Assessment (Bob Drost)
                  * 2pm: :doc:`functional_annotation` (Ming)
                  * BBQ Dinner on the island
+                 * Evening: Ask the Expert (All)
 
 Friday 8/19      * 9:15-9:45 closing lecture (Meg & Matt)
                  * 10am discussion about class; more stuff
@@ -100,7 +101,7 @@ Instructors:
 * Ian Dworkin `@IanDworkin <https://twitter.com/IanDworkin?lang=en>`__.
 * Shaun Jackman `@sjackman <https://twitter.com/sjackman?lang=en>`__.
 * Rob Patro `@nomad421 <https://twitter.com/nomad421?lang=en>`__.
-* Torst Seeman `@torstenseemann <https://twitter.com/torstenseemann?lang=en>`__.
+* Torsten Seemann `@torstenseemann <https://twitter.com/torstenseemann?lang=en>`__.
 * Sonal Singhal
 
 TAs:
