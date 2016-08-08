@@ -82,15 +82,6 @@ cd velvet
 
 Find a value of *k* (between 21 and 99) to start with, and record your choice in this google spreadsheet: <bit.ly/ngs2015Velvet>. Run `velveth` to build the hash index (see below).
 
-Program|Options|Explanation
--------|-------|-------------
-velveth||Build the Velvet index file|
-|foldername|use this name for the results folder
-|value_of_k|use k-mers of this size
-|-short|short reads (as opposed to long, Sanger-like reads)
-|-separate|read1 and read2 are in separate files
-|-fastq|read type is fastq
-
 Build the index as follows:
 
 ```
