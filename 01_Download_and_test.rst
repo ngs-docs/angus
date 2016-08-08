@@ -1,9 +1,13 @@
-Download the data
+..  _01_Download_and_test:
+
+Download and Test
 =========================
 
 -  `#Download the data <Download-the-data>`__
 -  `#Checking the data <Checking-the-data>`__
 
+Download the data
+-----------------
 
 Working with genomics files almost always requires using the shell, so
 although this isn't the official shell lesson, we're going to use many
@@ -40,17 +44,15 @@ following commands to download the zip file:
 
 .. code:: bash
 
-    sudo chmod a+rwxt /mnt
-    cd /mnt
-    wget https://www.dropbox.com/s/alz96ei6udjazu3/Genomics.zip
+    cd
+    wget https://www.dropbox.com/s/d7zitckb5fz8494/GenomicsLesson.zip
 
 or
 
 .. code:: bash
 
-    sudo chmod a+rwxt /mnt
-    cd /mnt
-    curl -LO https://www.dropbox.com/s/alz96ei6udjazu3/Genomics.zip
+    cd
+    curl -LO https://www.dropbox.com/s/d7zitckb5fz8494/GenomicsLesson.zip
 
 Checking the data
 -----------------
@@ -95,17 +97,24 @@ either:
 
 .. code:: bash
 
-    md5 Genomics.zip
+    md5 GenomicsLesson.zip
 
 or
 
 .. code:: bash
 
-    md5sum Genomics.zip
+    md5sum GenomicsLesson.zip
 
 The file I uploaded gave this answer:
 
 .. code:: bash
 
     md5 GenomicsLesson.zip
-    MD5 (GenomicsLesson.zip) = 322b4f856846fce3c9b7c507f18ee12c
+    MD5 (GenomicsLesson.zip) = e237e30985867e6bea741949e42a0c3b
+
+::
+
+    Exercise 1: Download the best practices file from Data Carpentry:
+    https://raw.githubusercontent.com/ACharbonneau/2016-01-18-MSU/gh-pages/Files/GoodBetterBest.md
+
+:ref:`02_working_with_archives`
