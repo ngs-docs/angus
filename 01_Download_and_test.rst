@@ -4,12 +4,6 @@
 Download and Test
 =========================
 
-:ref:`Download the data`
-
-
-:ref:`Checking the data`
-
-.. _Download the data:
 Download the data
 -----------------
 
@@ -58,7 +52,6 @@ or
     cd
     curl -LO https://www.dropbox.com/s/d7zitckb5fz8494/GenomicsLesson.zip
 
-.. _Checking the data:
 Checking the data
 -----------------
 
