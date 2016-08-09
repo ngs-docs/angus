@@ -112,6 +112,7 @@ TAs:
 * Amanda Charbonneau
 * Lisa Cohen
 * Ming Chen
+* Will Pitchers
 
 
 She Who Drives Many Places:
