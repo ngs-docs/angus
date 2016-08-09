@@ -43,7 +43,7 @@ There are many reasons to learn about the shell.
 -  To use remote computers or cloud computing, you need to use the
    shell.
 
-.. figure:: ../Files/gvng.jpg
+.. figure:: ../files/gvng.jpg
    :alt: Automation
 
    Automation
