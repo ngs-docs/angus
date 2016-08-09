@@ -24,7 +24,7 @@ Day              Schedule
 Monday 8/8       * 1:30pm lecture: `Welcome! <_static/2016-lecture1-welcome.pptx>`__ (Meg and Matt)
                  * 2:30pm: Getting Started with AWS :doc:`amazon/index` (Matt)
                  * 4pm: Intro to Linux :doc:`setup` and :doc:`MacManes_UNIX` and `Online Tutorial <http://rik.smith-unna.com/command_line_bootcamp/>`__ (Matt)
-                 * 7pm tutorial, `background PDF BLAST <_static/BLAST.pdf>`__ 
+                 * 7pm tutorial, `background PDF BLAST <_static/BLAST.pdf>`__
                  * :doc:`running-command-line-blast` (Meg)
                  * 8pm: Instructor and TA Research presentations, socialize
 
@@ -32,6 +32,8 @@ Tuesday 8/9      * Tutorial :doc:`day2`
                  * 9:15am lecture: `Sequencing basics <_static/2016-lecture2-sequencing.pptx>`__ (Matt)
                  * 11:00am Assessment (Bob Drost)
                  * 1:15pm tutorial, `background PDF <_static/MacManes_Trimming.pdf>`__ and :doc:`MacManesTrimming` (Matt)
+                 * 3:00pm Opionated guide to making a computational notebook. (Matt and other people)
+
                  * Evening *firepit social*
 
 Wed 8/10         * 9:15am lecture, `mapping and variant calling lecture <_static/MappingAndVarCalling.pdf>`__  (Meg)
@@ -110,6 +112,7 @@ TAs:
 * Amanda Charbonneau
 * Lisa Cohen
 * Ming Chen
+* Will Pitchers
 
 
 She Who Drives Many Places:
