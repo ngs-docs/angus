@@ -10,6 +10,27 @@ To make use of linuxbrew, we'll need Ruby:
 
 ``> sudo apt-get install git ruby``
 
+commands::
+  
+  > mkdir mapping && cd mapping
+  > wget ftp://ftp.flybase.net/releases/FB2016_04/dmel_r6.12/fasta/dmel-all-chromosome-r6.12.fasta.gz
+  > wget ftp://ftp.flybase.net/releases/FB2016_04/dmel_r6.12/gtf/dmel-all-r6.12.gtf.gz
+  > mkdir ref
+  > mv *.gz ref
+  > cd ref
+  > gunzip *.gz
+  > cd ..
+  > wget --no-check-certificate https://github.com/alexdobin/STAR/archive/2.5.2a.tar.gz
+  > tar xzvf 2.5.2a.tar.gz
+  > ~/STAR-2.5.2a/bin/Linux_x86_64/STAR --runThreadN 8 --runMode genomeGenerate \
+        --genomeDir star_index --genomeFastaFiles ref/dmel-all-chromosome-r6.12.fasta \
+        --sjdbGTFfile ref/dmel-all-r6.12.gtf --sjdbOverhang 99
+  > wget https://s3.amazonaws.com/drosophilareads/DrosophilaReads/ORE_sdE3_r1_GTGGCC_L004_R1_001.fastq.gz
+  > wget https://s3.amazonaws.com/drosophilareads/DrosophilaReads/ORE_sdE3_r1_GTGGCC_L004_R2_001.fastq.gz
+  > /usr/bin/time ~/STAR-2.5.2a/bin/Linux_x86_64/STAR --runThreadN 8 --genomeDir star_index \
+        --readFilesIn ORE_sdE3_r1_GTGGCC_L004_R1_001.fastq.gz ORE_sdE3_r1_GTGGCC_L004_R2_001.fastq.gz \
+        --readFilesCommand gunzip -c --outFileNamePrefix alignments/ORE_sdE3_r1_GTGGCC_L004 --outSAMtype BAM Unsorted
+  
 Now, we can get linuxbrew with the following command:
 
 ``> ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)"``
