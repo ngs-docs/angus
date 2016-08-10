@@ -43,11 +43,12 @@ You should see output like this:
 
 To install the rest of the software, we will use Linux brew: https://github.com/Linuxbrew/brew
 ::
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)"
-    export PATH="$HOME/.linuxbrew/bin:$PATH"
-    export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
-    export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
+    sudo mkdir /home/linuxbrew
+    sudo chown $USER:$USER /home/linuxbrew
+    git clone https://github.com/Linuxbrew/brew.git /home/linuxbrew/.linuxbrew
+    export PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
     brew tap homebrew/science
+    brew install canu jdk bwa samtools nanopolish
     
 Install `canu <http://canu.readthedocs.io/en/stable/tutorial.html>`__, `samtools <https://github.com/samtools/samtools/>`__, `bwa mem <http://bio-bwa.sourceforge.net/>`__, `nanopolish <https://github.com/jts/nanopolish>`__:
 ::
