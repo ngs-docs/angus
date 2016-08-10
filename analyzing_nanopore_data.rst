@@ -20,10 +20,19 @@ Copy/paste to update and install software on your new instance:
 ::
     sudo apt-get update && \
     sudo apt-get -y install build-essential ruby screen git curl gcc make g++ python-dev unzip \
-      default-jre pkg-config libncurses5-dev r-base-core \
-      r-cran-gplots python-matplotlib sysstat python-virtualenv \
-      python-setuptools cmake cython libhdf5-serial-dev
+        default-jre pkg-config libncurses5-dev r-base-core \
+        r-cran-gplots python-matplotlib sysstat python-virtualenv \
+        python-setuptools cmake cython libhdf5-serial-dev
 
+
+Linux brew: https://github.com/Linuxbrew/brew
+::
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)"
+    export PATH="$HOME/.linuxbrew/bin:$PATH"
+    export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
+    export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
+    brew tap homebrew/science
+    
 We will now install several software packages that are specific for analyzing long reads data, as comes from the Oxford Nanopore MinION.
 
 `poretools <http://poretools.readthedocs.io/en/latest/content/installation.html#basic-installation>`__
@@ -59,66 +68,10 @@ You should see output like this:
 
 `canu <http://canu.readthedocs.io/en/stable/tutorial.html>`__
 
-Install:
+Install `samtools <https://github.com/samtools/samtools/>`__, `bwa mem <http://bio-bwa.sourceforge.net/>`__, `nanopolish <https://github.com/jts/nanopolish>`__:
 ::
-    cd
-    git clone https://github.com/marbl/canu.git
-    cd canu/src
-    make -j 4
-    /home/ubuntu/canu/Linux-amd64/bin/canu
+    brew install canu samtools bwa nanopolish
 
-You should see output like this:
-::
-    canu \
-       -d <working-directory> \
-       -p <file-prefix> \
-      [-s specifications] \
-      [-correct | -trim | -assemble] \
-       errorRate=<fraction-error> \
-       genomeSize=<genome-size>\
-      [parameters] \
-      [-pacbio-raw         <read-file>]
-      [-pacbio-corrected   <read-file>]
-      [-nanopore-raw       <read-file>]
-      [-nanopore-corrected <read-file>]
-(If you see a bunch of lines with ERROR, just ignore these.)
-
-`samtools <http://www.htslib.org/download/>`__
-
-Install:
-::
-    cd
-    wget https://github.com/samtools/samtools/releases/download/1.3.1/samtools-1.3.1.tar.bz2
-    tar -xf samtools-1.3.1.tar.bz2
-    cd samtools-1.3.1/
-    make -j 4
-    /home/ubuntu/samtools-1.3.1/samtools
-
-`bwa mem <http://bio-bwa.sourceforge.net/>`__
-
-Install the version that can align oxford nanopore data:
-::
-    cd
-    wget https://github.com/lh3/bwa/releases/download/v0.7.15/bwa-0.7.15.tar.bz2
-    tar -xf bwa-0.7.15.tar.bz2 
-    cd bwa-0.7.15/
-    make -j 4
-    /home/ubuntu/bwa-0.7.15/bwa mem
-
-`nanopolish <https://github.com/jts/nanopolish>`__
-
-Has dependencies, `libhdf5 <https://www.hdfgroup.org/HDF5/release/obtain5.html>`__
-and gcc-4.8
-
-Install:
-::
-    cd
-    git clone --recursive https://github.com/jts/nanopolish.git
-    cd nanopolish
-    make -j 4
-    easy_install -f http://biopython.org/DIST/ biopython
-
-(unfortunately, there is no command for nanopolish to make sure it is working...)
 
 Acquiring nanopore data
 ===============================
