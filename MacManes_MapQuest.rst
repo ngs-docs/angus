@@ -22,4 +22,19 @@ You will need to install `skewer`, `bwa`, and `samtools`.
 
 **Map the reads with BWA** You will need to figure out how to map paired end reads. May luck be ever in your favor.. Also, there is google and the help info.
 
+::
+
+    bwa mem  \
+    | samtools view -@10 -Sb - \
+    | samtools sort -T sort -O bam -@10 -o sorted.bam -
+
+
 **Evaluate your mapping data**
+
+::
+
+    samtools flagstat sorted.bam
+
+**Add your data** about mappability
+
+https://docs.google.com/spreadsheets/d/1svCJMefIy-BTBSWl5Vixf0UPgLIGOrp5u6YRoyMbSng/edit?usp=sharing
