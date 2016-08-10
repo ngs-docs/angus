@@ -19,7 +19,7 @@ Start a blank Amazon instance (m3.xlarge) and `log in <http://angus.readthedocs.
 Copy/paste to update and install software on your new instance:
 ::
     sudo apt-get update && \
-    sudo apt-get -y install screen git curl gcc make g++ python-dev unzip \
+    sudo apt-get -y install build-essential ruby screen git curl gcc make g++ python-dev unzip \
       default-jre pkg-config libncurses5-dev r-base-core \
       r-cran-gplots python-matplotlib sysstat python-virtualenv \
       python-setuptools cmake cython libhdf5-serial-dev
