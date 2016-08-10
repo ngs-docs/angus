@@ -754,12 +754,6 @@ remember it for later. We'll name this file 'awesome.sh'.
 
     $ nano awesome.sh
 
-Now you have something that looks like
-
-.. figure:: ../Files/nano1.png
-   :alt: nano1.png
-
-   nano1.png
 
 Type in your command:
 
