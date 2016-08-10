@@ -53,14 +53,6 @@ Install `canu <http://canu.readthedocs.io/en/stable/tutorial.html>`__, `samtools
 ::
     brew install canu samtools bwa nanopolish
 
-
-Acquiring nanopore data
-===============================
-
-Last week we got about 46k reads. You can download them and take a look:
-::
-    (insert link to data)
-
 Get Oxford Nanopore MinION data
 ===============================
 
