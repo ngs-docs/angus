@@ -65,7 +65,7 @@ Install:
     git clone https://github.com/marbl/canu.git
     cd canu/src
     make -j 4
-    canu
+    /home/ubuntu/canu/Linux-amd64/bin/canu
 
 You should see output like this:
 ::
