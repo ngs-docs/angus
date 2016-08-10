@@ -37,9 +37,10 @@ Tuesday 8/9      * Tutorial :doc:`day2`
                  * Evening *firepit social*
 
 Wed 8/10         * 9:15am lecture, `mapping and variant calling lecture <_static/MappingAndVarCalling.pdf>`__  (Meg)
-                 * 10:30am  tutorial, BASH for genomics, :doc:`GenomicsShell` (Amanda)
+                 * 10:00am pm lecture Variant Calling, :doc:`variant` (Meg)
+                 * 11:15am  tutorial, BASH for genomics, :doc:`GenomicsShell` (Amanda)
                  * 1:15pm LinuxBrew,  (Shaun)
-                 * 7:15pm lecture Variant Calling, :doc:`variant` (Meg)
+                 * 7:30pm Mapping Quest (All)
                  * 8:30pm student presentations (Part 1 ~3 minutes each)
 
 Thursday 8/11    * 9:15am lecture, `Eukaryotic Genome assembly and analysis <_static/NGS_Schwarz_2015.08.13.pdf>`__ (Shaun)
