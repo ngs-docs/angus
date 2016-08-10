@@ -23,7 +23,7 @@ Copy/paste to update and install software on your new instance:
         default-jre pkg-config libncurses5-dev r-base-core \
         r-cran-gplots python-matplotlib sysstat python-virtualenv \
         python-setuptools cmake cython libhdf5-serial-dev \
-        python-numpy python-scipy python-pandas python-pandas-lib python-biopython
+        python-numpy python-scipy python-pandas python-pandas-lib python-biopython parallel moreutils
 
 We will now install several software packages that are specific for analyzing long reads data, as comes from the Oxford Nanopore MinION.
 
