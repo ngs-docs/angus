@@ -38,13 +38,13 @@ Tuesday 8/9      * Tutorial :doc:`day2`
 
 Wed 8/10         * 9:15am lecture, `mapping and variant calling lecture <_static/MappingAndVarCalling.pdf>`__  (Meg)
                  * 10:00am practical Variant Calling, :doc:`variant` (Meg)
-                 * 1:15pm LinuxBrew `slides <http://sjackman.ca/linuxbrew-slides/#/>`__ and `practical <http://sjackman.ca/abyss-activity/>`__,  (Shaun)
-                 * 2:15pm  tutorial, BASH for genomics, :doc:`GenomicsShell` (Amanda)
+                 * 1:15pm LinuxBrew `slides <http://sjackman.ca/linuxbrew-slides/#/>`__ (Shaun)
+                 * 2:15pm tutorial, BASH for genomics, :doc:`GenomicsShell` (Amanda)
                  * 7:30pm Mapping Quest :doc:`MacManes_MapQuest` (All)
                  * 8:30pm student presentations (Part 1 ~3 minutes each)
 
-Thursday 8/11    * 9:15am lecture, `Eukaryotic Genome assembly and analysis <_static/NGS_Schwarz_2015.08.13.pdf>`__ (Shaun)
-                 * 10:15am Genome assembly exercise (Shaun)
+Thursday 8/11    * 9:15am lecture, Genome assembly (Shaun)
+                 * 10:15am `Genome assembly practical <http://sjackman.ca/abyss-activity/>`__  (Shaun)
                  * 1:15pm Prokaryotic Genome assembly and analysis, :doc:`assembling-ecoli` (Torst)
                  * 8:00pm Finish up presentations or Free Time or Extra help sessions or Unix Wizardry
 
