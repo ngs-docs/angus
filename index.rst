@@ -40,7 +40,7 @@ Wed 8/10         * 9:15am lecture, `mapping and variant calling lecture <_static
                  * 10:00am pm lecture Variant Calling, :doc:`variant` (Meg)
                  * 11:15am  tutorial, BASH for genomics, :doc:`GenomicsShell` (Amanda)
                  * 1:15pm LinuxBrew `slides <http://sjackman.ca/linuxbrew-slides/#/>`__ and `practical <http://sjackman.ca/abyss-activity/>`__,  (Shaun)
-                 * 7:30pm Mapping Quest (All)
+                 * 7:30pm Mapping Quest :doc:`MacManes_MapQuest` (All)
                  * 8:30pm student presentations (Part 1 ~3 minutes each)
 
 Thursday 8/11    * 9:15am lecture, `Eukaryotic Genome assembly and analysis <_static/NGS_Schwarz_2015.08.13.pdf>`__ (Shaun)
