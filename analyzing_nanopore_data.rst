@@ -2,7 +2,7 @@
 Analyzing nanopore data
 =======================
 
-Last week in Woods Hole, MA we sequenced a new bacterial species isolated by `Rebecca Mickol <https://news.uark.edu/articles/27669/earth-organisms-survive-under-low-pressure-martian-condition>`__ in the Microbial Diversity Course at the Marine Biological Lab.
+Last week in Woods Hole, MA we used our `lab's <http://ivory.idyll.org/lab/>`__ `MinION <https://www.nanoporetech.com/>`__ to sequence a new bacterial species isolated by `Rebecca Mickol <https://news.uark.edu/articles/27669/earth-organisms-survive-under-low-pressure-martian-condition>`__ in the `Microbial Diversity Course at the Marine Biological Lab <http://www.mbl.edu/microbialdiversity/>`__.
 
 The goals of this tutorial are to:
    *  convert oxford nanopore data in .fast5 format to .fastq
@@ -152,4 +152,4 @@ What does it look like? What's the coverage like? Can you spot any problems? Wha
 Acknowledgements
 ================
 
-This is a modified lesson by (http://angus.readthedocs.io/en/2015/analyzing_nanopore_data.html)[Nick Loman] from 2015, and written by Torsten Seeman, Harriet Alexander, and Lisa Cohen.
+This is a modified lesson by (http://angus.readthedocs.io/en/2015/analyzing_nanopore_data.html)[Nick Loman] from 2015, contributions by Torsten Seeman, Harriet Alexander, and Lisa Cohen.
