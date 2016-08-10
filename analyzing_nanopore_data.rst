@@ -11,7 +11,7 @@ The goals of this tutorial are to:
 *  assemble data
 *  evaluate the assembly
 
-Starting and AWS instance and installing software:
+Starting an AWS instance and installing software:
 ==================================================
 
 Start a blank Amazon instance (m3.xlarge) and `log in <http://angus.readthedocs.io/en/2016/amazon/index.html>`__.
@@ -41,7 +41,7 @@ You should see output like this:
 
 (Ignore the error, we're expecting it because we have not given it any arguments!)
 
-For the rest of the software will use Linux brew: https://github.com/Linuxbrew/brew
+To install the rest of the software, we will use Linux brew: https://github.com/Linuxbrew/brew
 ::
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)"
     export PATH="$HOME/.linuxbrew/bin:$PATH"
@@ -49,9 +49,6 @@ For the rest of the software will use Linux brew: https://github.com/Linuxbrew/b
     export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
     brew tap homebrew/science
     
-
-
-
 Install `canu <http://canu.readthedocs.io/en/stable/tutorial.html>`__, `samtools <https://github.com/samtools/samtools/>`__, `bwa mem <http://bio-bwa.sourceforge.net/>`__, `nanopolish <https://github.com/jts/nanopolish>`__:
 ::
     brew install canu samtools bwa nanopolish
@@ -64,22 +61,55 @@ Last week we got about 46k reads. You can download them and take a look:
 ::
     (insert link to data)
 
-Exercise
-=========
+Get Oxford Nanopore MinION data
+===============================
 
-1.  Evaluation of the run with poretools. How many reads are there? How many 2D? What is the longest read?
+Last week we got about 46k reads. You can download them and take a look:
+::
+    (insert link to data)
 
-Can we identify what species these data came from? Why or why not?
+Convert ONP data in .fast5 to .fastq and .fasta
+===============================================
 
-2.  Assembly with canu. What is the N50? Where are the discontiguities (hint: find and look at the diagonal plot).
+As the instrument is collecting data, it is uploaded to the Metrichor server which runs the basecalling software. Reads are then downloaded as .fast5 files. Let's assess the run.
+::
+    directory="Ectocooler_for_assembly/"
+    poretools stats -q $directory
+    poretools stats -q --type 2D $directory
+
+How many reads are there? How many 2D? What is the longest read? Write these down or save this information.
+
+A directory of ~30 GB of .fast5 files is useless. You will have to convert these to .fastq and/or .fasta files.
+::
+    poretools fastq $directory > ectocooler.fastq
+    poretools fasta $directory > ectocooler.fasta
+
+Take a look at a few reads with web blastn. Try to identify what species or closest taxa these data came from. What do you come up with?
+
+Find the closest complete genome and download. (Need more instructions here.)
+
+Assemble the data
+==================
+
+We will use canu.
+::
+    canu \
+        -p ecto -d ectocooler_assembly \
+        genomeSize=3.0m \
+        -nanopore-raw ectocooler.fastq
+
+This will give you a series of files output. You are interested in the ``ecto.contigs.fasta`` file. How many contigs do you have? How many contigs are you expecting? How many do you have? Is this a good assembly?
+
+Where are the discontinuities? (Hint: find and look at the diagonal plot.)
 
 https://github.com/PacificBiosciences/Bioinformatics-Training/wiki/Evaluating-Assemblies
 
-3.  Fix the assembly with nanopolish
+Fix the assembly with nanopolish
+================================
 
-Edit and run this command using your reads and your assembly:
+Run this command using your reads and your assembly:
 ::
-    make -f scripts/consensus.make READS=reads.fa ASSEMBLY=draft.fa
+    make -f /home/ubuntu/.linuxbrew/Cellar/nanopolish/0.4.0/scripts/consensus.make READS=/mnt/Ectocooler/Ectocooler_all.fasta ASSEMBLY=/mnt/Ectocooler/Ectocooler_assembly/canu_3m_er08/ecto.contigs.fasta
 
 4. Evaluation of the assembly with alignment of reads to the assembled contigs
 
