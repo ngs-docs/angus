@@ -92,7 +92,7 @@ Install:
     tar -xf samtools-1.3.1.tar.bz2
     cd samtools-1.3.1/
     make -j 4
-    /home/ubuntu/samtools-1.3.1/samtools/samtools
+    /home/ubuntu/samtools-1.3.1/samtools
 
 `bwa mem <http://bio-bwa.sourceforge.net/>`__
 
