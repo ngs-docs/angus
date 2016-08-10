@@ -57,13 +57,17 @@ basic shell commands.
 Information on the shell
 ------------------------
 
-shell cheat sheets: \*
-http://fosswire.com/post/2007/08/unixlinux-command-cheat-sheet/ \*
+**shell cheat sheets:**
+
+http://fosswire.com/post/2007/08/unixlinux-command-cheat-sheet/ 
+
 https://github.com/swcarpentry/boot-camps/blob/master/shell/shell_cheatsheet.md
 
-| Explain shell - a web site where you can see what the different
-  components of a shell command are doing.
-| \* http://explainshell.com \* http://www.commandlinefu.com
+**Shell Tutorials**
+  
+http://explainshell.com 
+
+http://www.commandlinefu.com
 
 Starting with the shell
 -----------------------
@@ -81,7 +85,7 @@ Let's go into the sample data directory
 
 .. code:: bash
 
-    $ cd ~/dc_sample_data
+    $ cd GenomicsLesson
 
 'cd' stands for 'change directory'
 
@@ -91,21 +95,21 @@ Let's see what is in here. Type
 
     $ ls
 
-You will see
+You will see several files with names like these:
 
 .. code:: bash
 
-        sra_metadata  untrimmed_fastq
+        FASTAS    10_454_reads.sff  
 
 ls stands for 'list' and it lists the contents of a directory.
 
-There are two items listed. What are they? We can use a command line
+What are they? We can use a command line
 argument with ``ls`` to get more information.
 
 .. code:: bash
 
     $ ls -F
-    sra_metadata/  untrimmed_fastq/
+    FASTAS/    10_454_reads.sff 
 
 Anything with a "/" after it is a directory. Things with a "\*" after
 them are programs. If there are no decorations, it's a file.
@@ -121,7 +125,7 @@ You can also use the command
 to see whether items in a directory are files or directories. ``ls -l``
 gives a lot more information too.
 
-Let's go into the untrimmed\_fastq directory and see what is in there.
+Let's go into the FASTAS directory and see what is in there.
 
 .. code:: bash
 
@@ -173,22 +177,10 @@ the data in the place the program expects it to be.
 Moving around the file system
 -----------------------------
 
-Let's practice moving around a bit.
-
-We're going to work in that ``dc_sample_data`` directory.
-
-First we did something like go to the folder of our username. Then we
-opened 'dc\_sample\_data' then 'untrimmed\_fastq'
-
-Let's draw out how that went.
-
-Now let's draw some of the other files and folders we could have clicked
-on.
-
-This is called a hierarchical file system structure, like an upside down
+UNIX is call a hierarchical file system structure, like an upside down
 tree with root (/) at the base that looks like this.
 
-.. figure:: ../Files/Slide1.jpg
+.. figure:: files/Slide1.jpg
    :alt: Unix
 
    Unix
@@ -199,7 +191,7 @@ When you are working at your computer or log in to a remote computer,
 you are on one of the branches of that tree, your home directory (e.g.
 /home/dcuser)
 
-Now let's go do that same navigation at the command line.
+Now let's go do that navigation at the command line.
 
 Type
 
@@ -209,9 +201,8 @@ Type
 
 This puts you in your home directory. This folder here.
 
-Now using ``cd`` and ``ls``, go in to the ``dc_sample_data`` directory
-and list its contents. Now go into the ``untrimmed_fastq`` and list its
-contents.
+Now using ``cd`` and ``ls``, go in to the ``FASTAS`` directory
+and list its contents. 
 
 Let's also check to see where we are. Sometimes when we're wandering
 around in the file system, it's easy to lose track of where we are and
@@ -226,8 +217,8 @@ If you want to know what directory you're currently in, type
 This stands for 'print working directory'. The directory you're
 currently working in.
 
-What if we want to move back up and out of the ``untrimmed_fastq``
-directory? Can we just type ``cd dc_sample_data``? Try it and see what
+What if we want to move back up and out of the ``FASTAS``
+directory? Can we just type ``cd GenomicsLesson``? Try it and see what
 happens.
 
 To go 'back up a level' we need to use ``..``
@@ -239,14 +230,14 @@ Type
     $ cd ..
 
 Now do ``ls`` and ``pwd``. See now that we went back up in to the
-``dc_sample_data`` directory. ``..`` means go back up a level.
+``FASTAS`` directory. ``..`` means go back up a level.
 
 --------------
 
 **Exercise**
 
 Now we're going to try a hunt. Find a hidden directory in
-``dc_sample_data`` list its contents, and find the text file in there.
+``GenomicsLesson`` list its contents, and find the text file in there.
 What is the name of the file?
 
 Hint: hidden files and folders in unix start with ``.``, for example
@@ -259,7 +250,7 @@ By default, the ``ls`` commands lists the contents of the working
 directory (i.e. the directory you are in). You can always find the
 directory you are in using the ``pwd`` command. However, you can also
 give ``ls`` the names of other directories to view. Navigate to the home
-directory if you are not already there.
+directory (or whatever directory holds the GenomicsLesson) if you are not already there.
 
 Type:
 
@@ -271,9 +262,9 @@ Then enter the command:
 
 .. code:: bash
 
-    $ ls dc_sample_data
+    $ ls GenomicsLesson
 
-This will list the contents of the ``dc_sample_data`` directory without
+This will list the contents of the ``GenomicsLesson`` directory without
 you having to navigate there.
 
 The ``cd`` command works in a similar way. Try entering:
@@ -281,16 +272,16 @@ The ``cd`` command works in a similar way. Try entering:
 .. code:: bash
 
     $ cd
-    $ cd dc_sample_data/untrimmed_fastq
+    $ cd GenomicsLesson/FASTAS
 
-and you will jump directly to ``untrimmed_fastq`` without having to go
+and you will jump directly to ``FASTAS`` without having to go
 through the intermediate directory.
 
 --------------
 
 **Exercise**
 
-List the ``SRR097977.fastq`` file from your home directory without
+List the ``64_20081121_2_RH2.fastq`` file from your home directory without
 changing directories \*\*\*\*
 
 Shortcut: Tab Completion
@@ -304,14 +295,14 @@ enter:
 
 .. code:: bash
 
-    $ cd dc_<tab>
+    $ cd Gen<tab>
 
 The shell will fill in the rest of the directory name for
-``dc_sample_data``. Now go to ``dc_sample_data/untrimmed_fastq`` and
+``GenomicsLesson``. Now list ``33_20081121_2_RH2.fastq``:
 
 .. code:: bash
 
-    $ ls SR<tab><tab>
+    $ ls 33<tab><tab>
 
 When you hit the first tab, nothing happens. The reason is that there
 are multiple directories in the home directory which start with ``SR``.
@@ -349,18 +340,18 @@ Now enter the following command:
 
 .. code:: bash
 
-    $ cd /home/dcuser/dc_sample_data/.hidden
+    $ cd /home/dcuser/GenomicsLesson/.DS_Store
 
-This jumps to ``.hidden``. Now go back to the home directory (``cd``).
+This jumps to ``.DS_Store``. Now go back to the home directory (``cd``).
 We saw earlier that the command:
 
 .. code:: bash
 
-    $ cd dc_sample_data/.hidden
+    $ cd GenomicsLesson/.DS_Store
 
 had the same effect - it took us to the ``hidden`` directory. But,
 instead of specifying the full path
-(``/home/dcuser/dc_sample_data/data``), we specified a *relative path*.
+(``/home/dcuser/GenomicsLesson/.DS_Store``), we specified a *relative path*.
 In other words, we specified the path relative to our current directory.
 A full path always starts with a ``/``. A relative path does not.
 
@@ -395,12 +386,12 @@ Shortcuts
 There are some shortcuts which you should know about. Dealing with the
 home directory is very common. So, in the shell the tilde character,
 "~", is a shortcut for your home directory. Navigate to the
-``dc_sample_data`` directory:
+``GenomicsLesson`` directory:
 
 .. code:: bash
 
     $ cd
-    $ cd dc_sample_data
+    $ cd GenomicsLesson
 
 Then enter the command:
 
@@ -416,7 +407,7 @@ above your current directory. Thus:
 
     $ ls ..
 
-prints the contents of the ``/home/dcuser/dc_sample_data``. You can
+prints the contents of the ``/home/dcuser/GenomicsLesson``. You can
 chain these together, so:
 
 .. code:: bash
@@ -444,8 +435,8 @@ be able to look at these files and do some things with them.
 Wild cards
 ~~~~~~~~~~
 
-Navigate to the ``~/dc_sample_data/untrimmed_fastq`` directory. This
-directory contains our FASTQ files.
+Navigate to the ``~/GenomicsLesson`` directory. This
+directory contains some FASTQ files.
 
 The '\*' character is a shortcut for "everything". Thus, if you enter
 ``ls *``, you will see all of the contents of a given directory. Now try
@@ -465,9 +456,9 @@ Lists every file in ``/usr/bin`` that ends in the characters ``.sh``.
 
 .. code:: bash
 
-    $ ls *977.fastq
+    $ ls 33*.fastq
 
-lists only the file that ends with '977.fastq'
+lists only the file that starts with '33' and ends with '.fastq'
 
 So how does this actually work? Well...when the shell (bash) sees a word
 that contains the ``*`` character, it automatically looks for filenames
@@ -479,7 +470,7 @@ by the shell.
 .. code:: bash
 
     $ echo *.fastq
-    SRR097977.fastq SRR098026.fastq
+    33_20081121_2_RH2.fastq 64_20081121_2_RH2.fastq
 
 The '\*' is expanded to include any file that ends with '.fastq'
 
@@ -560,9 +551,9 @@ contents using the program ``cat``. Enter the following command:
 
 .. code:: bash
 
-    $ cat SRR098026.fastq
+    $ cat 64_20081121_2_RH2.fastq
 
-This prints out the all the contents of the the ``SRR098026.fastq`` to
+This prints out the all the contents of the the ``64_20081121_2_RH2.fastq`` to
 the screen.
 
 --------------
@@ -570,21 +561,21 @@ the screen.
 **Exercises**
 
 1. Print out the contents of the
-   ``~/dc_sample_data/untrimmed_fastq/SRR097977.fastq`` file. What does
+   ``~/GenomicsLesson/FASTAS/AT1G09530.1`` file. What does
    this file contain?
 
 2. From your home directory, without changing directories, use one short
    command to print the contents of all of the files in the
-   ``/home/dcuser/dc_sample_data/untrimmed_fastq`` directory.
+   ``/home/dcuser/GenomicsLesson/FASTAS`` directory.
 
 --------------
 
 So, let's be a little smarter here. First, move back to our
-``untrimmed_fastq`` directory:
+``GenomicLesson`` directory:
 
 .. code:: bash
 
-    $ cd ~/dc_sample_data/untrimmed_fastq
+    $ cd ~/GenomicsLesson/
 
 ``cat`` is a terrific program, but when the file is really big, it can
 be annoying to use. The program, ``less``, is useful for this case.
@@ -592,7 +583,7 @@ Enter the following command:
 
 ::
 
-    less SRR098026.fastq
+    less 64_20081121_2_RH2.fastq
 
 ``less`` opens the file, and lets you navigate through it. The commands
 are identical to the ``man`` program.
@@ -624,7 +615,7 @@ word "cat", ``less`` will not find it. You need to go to the beginning
 of the file and search.
 
 For instance, let's search for the sequence
-``GTGCGGGCAATTAACAGGGGTTCAC`` in our file. You can see that we go right
+``GTGCTGCA`` in our file. You can see that we go right
 to that sequence and can see what it looks like. (Remember to hit 'q' to
 exit the ``less`` program)
 
@@ -641,11 +632,11 @@ beginning and end of a file respectively.
 
 .. code:: bash
 
-    $ head SRR098026.fastq
+    $ head 64_20081121_2_RH2.fastq
 
 .. code:: bash
 
-    $ tail SRR098026.fastq
+    $ tail 64_20081121_2_RH2.fastq
 
 The ``-n`` option to either of these commands can be used to print the
 first or last ``n`` lines of a file. To print the first/last line of the
@@ -653,11 +644,11 @@ file use:
 
 .. code:: bash
 
-    $ head -n 1 SRR098026.fastq
+    $ head -n 1 64_20081121_2_RH2.fastq
 
 .. code:: bash
 
-    $ tail -n 1 SRR098026.fastq
+    $ tail -n 1 64_20081121_2_RH2.fastq
 
 Creating, moving, copying, and removing
 ---------------------------------------
@@ -677,12 +668,12 @@ the file. Navigate to the ``data`` directory and enter:
 
 .. code:: bash
 
-    $ cp SRR098026.fastq SRR098026-copy.fastq
-    $ ls -F
-    SRR097977.fastq  SRR098026-copy.fastq  SRR098026.fastq 
+    $ cp 64_20081121_2_RH2.fastq 64_20081121_2_RH2-copy.fastq
+    $ ls 64*.fastq
+   64_20081121_2_RH2.fastq 64_20081121_2_RH2-copy.fastq
 
-Now ``SRR098026-copy.fastq`` has been created as a copy of
-``SRR098026.fastq``
+Now ``64_20081121_2_RH2.fastq`` has been created as a copy of
+``64_20081121_2_RH2-copy.fastq``
 
 Let's make a 'backup' directory where we can put this file.
 
@@ -703,7 +694,7 @@ files around using the command ``mv``. Enter this command:
     total 52
     drwxrwxr-x 2 dcuser dcuser  4096 Jul 30 15:31 .
     drwxr-xr-x 3 dcuser dcuser  4096 Jul 30 15:31 ..
-    -rw-r--r-- 1 dcuser dcuser 43421 Jul 30 15:28 SRR098026-copy.fastq
+    -rw-r--r-- 1 dcuser dcuser 43421 Jul 30 15:28 64_20081121_2_RH2-copy.fastq
 
 The ``mv`` command is also how you rename files. Since this file is so
 important, let's rename it:
@@ -711,16 +702,16 @@ important, let's rename it:
 .. code:: bash
 
     $ cd backup
-    $ mv SRR098026-copy.fastq SRR098026-copy.fastq_DO_NOT_TOUCH!
+    $ mv 64_20081121_2_RH2-copy.fastq 64_20081121_2_RH2-copy.fastq_DO_NOT_TOUCH!
     $ ls 
-    SRR098026-copy.fastq_DO_NOT_TOUCH!
+    64_20081121_2_RH2-copy.fastq_DO_NOT_TOUCH!
 
 Finally, we decided this was silly and want to start over.
 
 .. code:: bash
 
     $ cd ..
-    $ rm backup/SRR*
+    $ rm backup/64*
 
 The ``rm`` file permanently removes the file. Be careful with this
 command. It doesn't just nicely put the files in the Trash. They're
@@ -774,14 +765,7 @@ Type in your command:
 
 .. code:: bash
 
-    grep -A 3 -B 1 GTGCGGGCAATTAACAGGGGTTCAC SRR098026.fastq
-
-so it looks like
-
-.. figure:: ../Files/nano-awesome.png
-   :alt: nano2.png
-
-   nano2.png
+    grep -A 3 -B 1 GTGCTGC 64_20081121_2_RH2.fastq
 
 Now we want to save the file and exit. At the bottom of nano, you see
 the "^X Exit". That means that we use Ctrl-X to exit. Type ``Ctrl-X``.
