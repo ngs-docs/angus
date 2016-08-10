@@ -81,6 +81,7 @@ You should see output like this:
       [-pacbio-corrected   <read-file>]
       [-nanopore-raw       <read-file>]
       [-nanopore-corrected <read-file>]
+(If you see a bunch of lines with ERROR, just ignore these.)
 
 `samtools <http://www.htslib.org/download/>`__
 
@@ -90,7 +91,7 @@ Install:
     wget https://github.com/samtools/samtools/releases/download/1.3.1/samtools-1.3.1.tar.bz2
     tar -xf samtools-1.3.1.tar.bz2
     cd samtools-1.3.1/
-    make
+    make -j 4
     /home/ubuntu/samtools-1.3.1/samtools/samtools
 
 `bwa mem <http://bio-bwa.sourceforge.net/>`__
