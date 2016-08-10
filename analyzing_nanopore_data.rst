@@ -24,15 +24,6 @@ Copy/paste to update and install software on your new instance:
         r-cran-gplots python-matplotlib sysstat python-virtualenv \
         python-setuptools cmake cython libhdf5-serial-dev
 
-
-Linux brew: https://github.com/Linuxbrew/brew
-::
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)"
-    export PATH="$HOME/.linuxbrew/bin:$PATH"
-    export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
-    export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
-    brew tap homebrew/science
-    
 We will now install several software packages that are specific for analyzing long reads data, as comes from the Oxford Nanopore MinION.
 
 `poretools <http://poretools.readthedocs.io/en/latest/content/installation.html#basic-installation>`__
@@ -66,9 +57,18 @@ You should see output like this:
 
 (Ignore the error, we're expecting it because we have not given it any arguments!)
 
-`canu <http://canu.readthedocs.io/en/stable/tutorial.html>`__
+For the rest of the software will use Linux brew: https://github.com/Linuxbrew/brew
+::
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)"
+    export PATH="$HOME/.linuxbrew/bin:$PATH"
+    export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
+    export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
+    brew tap homebrew/science
+    
 
-Install `samtools <https://github.com/samtools/samtools/>`__, `bwa mem <http://bio-bwa.sourceforge.net/>`__, `nanopolish <https://github.com/jts/nanopolish>`__:
+
+
+Install `canu <http://canu.readthedocs.io/en/stable/tutorial.html>`__, `samtools <https://github.com/samtools/samtools/>`__, `bwa mem <http://bio-bwa.sourceforge.net/>`__, `nanopolish <https://github.com/jts/nanopolish>`__:
 ::
     brew install canu samtools bwa nanopolish
 
