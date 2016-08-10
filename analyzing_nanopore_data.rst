@@ -141,7 +141,6 @@ Here is the command:
     /home/ubuntu/bwa-0.7.15/bwa mem -t 4 -x ont2d ecto.contigs.fasta ../Ectocooler/Ectocooler_all.fastq | /home/ubuntu/samtools-1.3.1/samtools sort > ectocooler_align.sorted.bam
 
 This will give you a mapped_reads.sorted.bam.bai
-
 ::
     samtools index mapped_reads.sorted
 
