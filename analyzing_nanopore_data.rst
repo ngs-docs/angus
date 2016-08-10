@@ -33,6 +33,7 @@ This requires installing R 3.0:
 
 Now we will install poretools:
 ::
+    cd
     git clone https://github.com/arq5x/poretools
     cd poretools
     sudo python setup.py install
@@ -51,6 +52,7 @@ You should see output like this:
 
 Install:
 ::
+    cd
     git clone https://github.com/marbl/canu.git
     cd canu/src
     make -j 4
@@ -75,6 +77,7 @@ You should see output like this:
 
 Install:
 ::
+    cd
     wget https://github.com/samtools/samtools/releases/download/1.3.1/samtools-1.3.1.tar.bz2
     tar -xf samtools-1.3.1.tar.bz2
     cd samtools-1.3.1/
@@ -85,6 +88,7 @@ Install:
 
 Install:
 ::
+    cd
     wget https://github.com/lh3/bwa/releases/download/v0.7.15/bwa-0.7.15.tar.bz2
     tar -xf bwa-0.7.15.tar.bz2 
     cd bwa-0.7.15/
@@ -98,6 +102,7 @@ and gcc-4.8
 
 Install:
 ::
+    cd
     git clone --recursive https://github.com/jts/nanopolish.git
     cd nanopolish
     make
