@@ -24,7 +24,7 @@ You will need to install `skewer`, `bwa`, and `samtools`.
 
 ::
 
-    bwa mem  \
+    bwa mem [you need to figure out the command] \
     | samtools view -@10 -Sb - \
     | samtools sort -T sort -O bam -@10 -o sorted.bam -
 
