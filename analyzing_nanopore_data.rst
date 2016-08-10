@@ -22,30 +22,14 @@ Copy/paste to update and install software on your new instance:
     sudo apt-get -y install build-essential ruby screen git curl gcc make g++ python-dev unzip \
         default-jre pkg-config libncurses5-dev r-base-core \
         r-cran-gplots python-matplotlib sysstat python-virtualenv \
-        python-setuptools cmake cython libhdf5-serial-dev
+        python-setuptools cmake cython libhdf5-serial-dev \
+        python-numpy python-scipy python-pandas python-pandas-lub
 
 We will now install several software packages that are specific for analyzing long reads data, as comes from the Oxford Nanopore MinION.
 
 `poretools <http://poretools.readthedocs.io/en/latest/content/installation.html#basic-installation>`__
-
-This requires installing R 3.0, which requires some steps:
 ::
-    sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
-    sudo nano /etc/apt/sources.list 
-
-This will open the nano editor. Scroll down to the bottom and add this line to the end of teh file:
-::
-    deb http://www.stats.bris.ac.uk/R/bin/linux/ubuntu trusty/
-
-Ctrl-x to save and exit.
-
-Now we will install poretools: (This might take some time, so feel free to get up and get a cup of coffee!)
-::
-    cd
-    git clone https://github.com/arq5x/poretools
-    cd poretools
-    sudo easy_install --upgrade pip
-    sudo python setup.py install
+    sudo pip install poretools
     poretools
 
 You should see output like this:
