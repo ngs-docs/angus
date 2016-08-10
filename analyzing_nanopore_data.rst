@@ -96,7 +96,7 @@ Install:
 
 `bwa mem <http://bio-bwa.sourceforge.net/>`__
 
-Install:
+Install the version that can align oxford nanopore data:
 ::
     cd
     wget https://github.com/lh3/bwa/releases/download/v0.7.15/bwa-0.7.15.tar.bz2
