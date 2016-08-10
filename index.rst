@@ -37,7 +37,7 @@ Tuesday 8/9      * Tutorial :doc:`day2`
                  * Evening *firepit social*
 
 Wed 8/10         * 9:15am lecture, `mapping and variant calling lecture <_static/MappingAndVarCalling.pdf>`__  (Meg)
-                 * 10:00am pm practical Variant Calling, :doc:`variant` (Meg)
+                 * 10:00am practical Variant Calling, :doc:`variant` (Meg)
                  * 1:15pm LinuxBrew `slides <http://sjackman.ca/linuxbrew-slides/#/>`__ and `practical <http://sjackman.ca/abyss-activity/>`__,  (Shaun)
                  * 2:15pm  tutorial, BASH for genomics, :doc:`GenomicsShell` (Amanda)
                  * 7:30pm Mapping Quest :doc:`MacManes_MapQuest` (All)
