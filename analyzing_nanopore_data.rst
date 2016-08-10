@@ -116,6 +116,9 @@ Install:
     git clone --recursive https://github.com/jts/nanopolish.git
     cd nanopolish
     make -j 4
+    easy_install -f http://biopython.org/DIST/ biopython
+
+(unfortunately, there is no command for nanopolish to make sure it is working...)
 
 Acquiring nanopore data
 ===============================
