@@ -4,7 +4,7 @@ Map Quest
 
 I am going to give you some data and a genome, I want you to quality trim and map using the Trimming lecture and the Mapping Lecture.
 
-** Launch and AMI. For this exercise, we will use a **c4.4xlarge** with a 200Gb EBS volume.
+** Launch an AMI. For this exercise, try a **c4.4xlarge** with a 200Gb EBS volume.
 
 
 You will need to install `skewer`, `bwa`, and `samtools`.
@@ -38,3 +38,8 @@ You will need to install `skewer`, `bwa`, and `samtools`.
 **Add your data** about mappability
 
 https://docs.google.com/spreadsheets/d/1svCJMefIy-BTBSWl5Vixf0UPgLIGOrp5u6YRoyMbSng/edit?usp=sharing
+
+
+**Super bonus points to anybody that maps with a differnt mapper** e.g., Bowtie, STAR, VelociMapper, HiSat2, etc..
+
+**TERMINATE YOUR INSTANCE!!!**
