@@ -2,7 +2,7 @@
 Map Quest
 ================================================
 
-I am going to give you some data and a genome, I want you to quality trim and map using the Trimming lecture and the Mapping Lecture.
+I am going to give you some data and a genome (well, 500Mb of the genome), I want you to quality trim and map using the Trimming lecture and the Mapping Lecture.
 
 ** Launch an AMI. For this exercise, try a **c4.4xlarge** with a 200Gb EBS volume.
 
@@ -13,7 +13,7 @@ You will need to install `skewer`, `bwa`, and `samtools`. Maybe try `brew`???
 
 ::
 
-    curl -LO ftp://ftp.ensembl.org/pub/release-85/fasta/cavia_porcellus/dna/Cavia_porcellus.cavPor3.dna.nonchromosomal.fa.gz
+    https://s3.amazonaws.com/macmanes_share/Cavia.fa
     curl -LO ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR636/SRR636898/SRR636898_1.fastq.gz
     curl -LO ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR636/SRR636898/SRR636898_2.fastq.gz
 
@@ -25,7 +25,7 @@ You will need to install `skewer`, `bwa`, and `samtools`. Maybe try `brew`???
 
 **Map the reads with BWA** You will need to figure out how to map paired end reads. May luck be ever in your favor.. Also, there is google and the help info.
 
-Type `bwa mem` to get a list of the options. You will need to index the genome using `bwa index` before you map. 
+Type `bwa mem` to get a list of the options. You will need to index the genome using `bwa index` before you map.
 
 
 ::
