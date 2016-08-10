@@ -33,7 +33,7 @@ This requires installing R 3.0, which requires some steps:
     sudo nano /etc/apt/sources.list 
 
 This will open the nano editor. Scroll down to the bottom and add this line to the end of teh file:
-
+::
     deb http://www.stats.bris.ac.uk/R/bin/linux/ubuntu trusty/
 
 Ctrl-x to save and exit.
