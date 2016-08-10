@@ -48,11 +48,10 @@ To install the rest of the software, we will use Linux brew: https://github.com/
     git clone https://github.com/Linuxbrew/brew.git /home/linuxbrew/.linuxbrew
     export PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
     brew tap homebrew/science
-    brew install canu jdk bwa samtools nanopolish
     
-Install `canu <http://canu.readthedocs.io/en/stable/tutorial.html>`__, `samtools <https://github.com/samtools/samtools/>`__, `bwa mem <http://bio-bwa.sourceforge.net/>`__, `nanopolish <https://github.com/jts/nanopolish>`__:
+Now install `canu <http://canu.readthedocs.io/en/stable/tutorial.html>`__, `samtools <https://github.com/samtools/samtools/>`__, `bwa mem <http://bio-bwa.sourceforge.net/>`__, `nanopolish <https://github.com/jts/nanopolish>`__:
 ::
-    brew install canu samtools bwa nanopolish
+    brew install jdk canu bwa samtools nanopolish
 
 Get Oxford Nanopore MinION data
 ===============================
