@@ -39,7 +39,7 @@ This will open the nano editor. Scroll down to the bottom and add this line to t
 
 Ctrl-x to save and exit.
 
-Now we will install poretools:
+Now we will install poretools: (This might take some time, so feel free to get up and get a cup of coffee!)
 ::
     cd
     git clone https://github.com/arq5x/poretools
@@ -104,7 +104,7 @@ Install:
     make
     /home/ubuntu/bwa-0.7.15/bwa mem
 
-`Nanopolish <https://github.com/jts/nanopolish>`__
+`nanopolish <https://github.com/jts/nanopolish>`__
 
 Has dependencies, `libhdf5 <https://www.hdfgroup.org/HDF5/release/obtain5.html>`__
 and gcc-4.8
