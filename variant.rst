@@ -11,37 +11,31 @@ Citation: `Tracing Ancestors and Relatives of Escherichia coli B, and the Deriva
 Journal of Molecular Biology, Volume 394, Issue 4, 11 December 2009, Pages 634–643
 
 .. image:: figures/ecoli.jpg
-   :width: 80%
+   :width: 50%
 
 
 Booting an Amazon AMI
 ~~~~~~~~~~~~~~~~~~~~~
 
-Start up an Amazon computer (m1.large or m1.xlarge) using AMI
-ami-7607d01e (see :doc:`amazon/start-up-an-ec2-instance` and
-:doc:`amazon/starting-up-a-custom-ami`).
-
-Log in `with Windows <amazon/log-in-with-ssh-win.html>`__ or
-`from Mac OS X <amazon/log-in-with-ssh-mac.html>`__.
+Start up an Amazon computer (large or xlarge) 
+with an storage of 100Gb.
 
 Install software
 ~~~~~~~~~~~~~~~~
 
-
 Log into your instance. Install ruby and git, then install linuxbrew.
 ::
+   sudo apt-get update
+   sudo apt-get install build-essential
    sudo apt-get install ruby git
    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)"
    export PATH="/home/ubuntu/.linuxbrew/bin:$PATH"
-   export MANPATH="/home/ubuntu/.linuxbrew/share/man:$MANPATHe
+   export MANPATH="/home/ubuntu/.linuxbrew/share/man:$MANPATH"
    export INFOPATH="/home/ubuntu/.linuxbrew/share/info:$INFOPATH"
-   sudo apt-get update
-   sudo apt-get install build-essential
    brew tap homebrew/science
 
 Now we can install anything available from linuxbrew science
 ::
-   brew info bcftools
    brew install samtools
    brew install zlib
    brew install bcftools 
@@ -69,9 +63,19 @@ Note, this last URL is the "Fastq files (FTP)" link from the EBI page. Its compr
 ::
    gunzip SRR098038.fastq.gz
 
-If it doest work try
+Just in case EBI is down , you can also get reads this way
 ::
   curl -O ftp://ftp.ddbj.nig.ac.jp/ddbj_database/dra/fastq/SRA026/SRA026813/SRX040675/SRR098038.fastq.bz2
+
+Rename the reference
+~~~~~~~~~~~~~~~~~~~~
+The reference is named something really long and complicated. Check it out
+::
+    head Ecoli_BL21.fasta
+
+Lets shorten that for fewer headaches. Use nano to make the header look like this:
+::
+    >NC_012971.2
 
 Read mapping
 ~~~~~~~~~~~~~~
@@ -119,10 +123,10 @@ Visualizing alignments
 
 At this point you can visualize with samtools tview. Other visualization software:
 * `Tablet <http://bioinf.scri.ac.uk/tablet/>`__.
-* IGV
+* `IGV <http://software.broadinstitute.org/software/igv/>`__
 
-'samtools tview' is a text interface that you use from the command line; run it like so::
-
+'samtools tview' is a text interface that you use from the command line; run it like so
+::
    samtools tview SRR098038.sorted.bam Ecoli_BL21.fasta
 
 The '.'s are places where the reads align perfectly in the forward direction,
@@ -131,16 +135,10 @@ direction.  Mismatches are indicated as A, T, C, G, etc.
 
 You can scroll around using left and right arrows; to go to a specific
 coordinate, use 'g' and then type in the contig name and the position.
-For example, type 'g' and then 'gi|387825439|ref|NC_012971.2|:553093<ENTER>' to go to position 553093 in the BAM file. (This name is taken from the fasta reference file, you could change to something more reasonable).
+For example, type 'g' and then 'NC_012971.2:553093<ENTER>' to go to position 553093 in the BAM file. (This name is taken from the fasta reference file, you could change to something more reasonable).
 
 Use 'q' to quit.
 
-For the `Tablet viewer <http://bioinf.scri.ac.uk/tablet/>`__, click on
-the link and get it installed on your local computer.  Then, start it
-up as an application.  To open your alignments in Tablet, you'll need
-three files on your local computer: ``Ecoli_BL21.fasta``, ``SRR098042.sorted.bam``,
-and ``SRR098042.sorted.bam.bai``.  You can copy them over using Dropbox,
-for example.
 
 Statistics of alignments
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -178,6 +176,13 @@ And use the particular tool CollectAlignmentSummaryMetrics
 `More picard tools stuff here
 <https://broadinstitute.github.io/picard/>`_
 
+You can see the output with cat
+::
+    cat statistics.txt
+
+`The definitions of all the columns in this file. <http://broadinstitute.github.io/picard/picard-metric-definitions.html#AlignmentSummaryMetrics>`__
+
+
 Calling SNPs
 ~~~~~~~~~~~~
 
@@ -185,7 +190,7 @@ You can use samtools and bcftools to call SNPs. They have `great documentation o
 
 Start with mpileup and pipe the results to bcftools
 ::
-   samtools mpileup -uf Ecoli_BL21.fasta SRR098038.sorted.bam | bcftools call -vmO z -o SRR098038.vcf.gz --ploidy 1 --threads 2
+   samtools mpileup -uf Ecoli_BL21.fasta SRR098038.sorted.bam | bcftools call -vmO v -o SRR098038.vcf --ploidy 1 --threads 2
 
 You can check out the VCF file by using 'tail' to look at the bottom
 ::
@@ -194,22 +199,51 @@ You can check out the VCF file by using 'tail' to look at the bottom
 Each variant call line consists of the chromosome name (for E. coli
 REL606, there's only one chromosome); the position within the
 reference; an ID (here always '.'); the reference call; the variant
-call; and a bunch of additional information about
+call; and a bunch of additional information about the variant.
+
+The information at the end can be very useful but difficult to interpret. One way to quickly look up the label shorthand is to grep
 ::
+    grep '<ID=VDB' SRR098038.vcf
+	grep '<ID=AC' SRR098038.vcf
+
+
+
    samtools tview SRR098038.sorted.bam Ecoli_BL21.fasta
 
-Again, you can use 'samtools tview' and then type (for example) 'g'
+You can use 'samtools tview' again and then type (for example) 'g'
 'rel606:4616538' to go visit one of the positions.  The format for the
 address to go to with 'g' is 'chr:position'.
 ::
-	gi|387825439|ref|NC_012971.2|:4558366
+	NC_012971.2:4558366
 
 You can read more about `the VCF file format here <https://vcftools.github.io/specs.html>`__.
 
-Questions/discussion items
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+Using IGV for Visualization
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Why so many steps?
+Installing IGV requires registration and some patience. `IGV Link <http://software.broadinstitute.org/software/igv/>`__.
+
+To open your alignments, you'll need
+three files on your local computer: ``Ecoli_BL21.fasta``, ``SRR098038.sorted.bam``,
+and ``SRR098038.sorted.bam.bai``.  You can copy them over using scp (secure copy),
+for example. You will do this from a terminal on your computer that is NOT connected to amazon.
+::
+    scp -i ~/Downloads/???.pem ubuntu@???:/home/ubuntu/Ecoli_BL21.fasta ~/Downloads
+    scp -i ~/Downloads/???.pem ubuntu@???:/home/ubuntu/SRR098038.sorted.bam ~/Downloads
+    scp -i ~/Downloads/???.pem ubuntu@???:/home/ubuntu/SRR098038.sorted.bam.bai ~/Downloads
+
+To add the gene annotation, get this file as well
+::
+    curl ftp://ftp.ncbi.nlm.nih.gov/genomes/archive/old_refseq/Bacteria/Escherichia_coli_BL21_DE3__uid161947/NC_012971.gff
+
+Student Exercise
+~~~~~~~~~~~~~~~~
+You are eager to use some E. coli reads from a collaborator, which you can download here
+::
+    wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR201/004/SRR2014554/SRR2014554_1.fastq.gz
+    wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR201/004/SRR2014554/SRR2014554_2.fastq.gz
+
+You need to quality trim them, map them to the E. coli reference, and call SNPs. How far can you get?
 
 
 

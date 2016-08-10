@@ -24,7 +24,7 @@ Day              Schedule
 Monday 8/8       * 1:30pm lecture: `Welcome! <_static/2016-lecture1-welcome.pptx>`__ (Meg and Matt)
                  * 2:30pm: Getting Started with AWS :doc:`amazon/index` (Matt)
                  * 4pm: Intro to Linux :doc:`setup` and :doc:`MacManes_UNIX` and `Online Tutorial <http://rik.smith-unna.com/command_line_bootcamp/>`__ (Matt)
-                 * 7pm tutorial, `background PDF BLAST <_static/BLAST.pdf>`__ 
+                 * 7pm tutorial, `background PDF BLAST <_static/BLAST.pdf>`__
                  * :doc:`running-command-line-blast` (Meg)
                  * 8pm: Instructor and TA Research presentations, socialize
 
@@ -32,12 +32,15 @@ Tuesday 8/9      * Tutorial :doc:`day2`
                  * 9:15am lecture: `Sequencing basics <_static/2016-lecture2-sequencing.pptx>`__ (Matt)
                  * 11:00am Assessment (Bob Drost)
                  * 1:15pm tutorial, `background PDF <_static/MacManes_Trimming.pdf>`__ and :doc:`MacManesTrimming` (Matt)
+                 * 3:00pm Opionated guide to making a computational notebook. (Matt and other people)
+
                  * Evening *firepit social*
 
 Wed 8/10         * 9:15am lecture, `mapping and variant calling lecture <_static/MappingAndVarCalling.pdf>`__  (Meg)
-                 * 10:30am  tutorial, BASH for genomics, :doc:`GenomicsShell` (Amanda)
-                 * 1:15pm LinuxBrew,  (Shaun)
-                 * 7:15pm lecture Variant Calling, :doc:`variant` (Meg)
+                 * 10:00am pm lecture Variant Calling, :doc:`variant` (Meg)
+                 * 11:15am  tutorial, BASH for genomics, :doc:`GenomicsShell` (Amanda)
+                 * 1:15pm LinuxBrew `slides <http://sjackman.ca/linuxbrew-slides/#/>`__ and `practical <http://sjackman.ca/abyss-activity/>`__,  (Shaun)
+                 * 7:30pm Mapping Quest (All)
                  * 8:30pm student presentations (Part 1 ~3 minutes each)
 
 Thursday 8/11    * 9:15am lecture, `Eukaryotic Genome assembly and analysis <_static/NGS_Schwarz_2015.08.13.pdf>`__ (Shaun)
@@ -110,6 +113,7 @@ TAs:
 * Amanda Charbonneau
 * Lisa Cohen
 * Ming Chen
+* Will Pitchers
 
 
 She Who Drives Many Places:
