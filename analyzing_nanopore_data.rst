@@ -27,9 +27,16 @@ We will now install several software packages that are specific for analyzing lo
 
 `poretools <http://poretools.readthedocs.io/en/latest/content/installation.html#basic-installation>`__
 
-This requires installing R 3.0:
+This requires installing R 3.0, which requires some steps:
 ::
+    sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
+    sudo nano /etc/apt/sources.list 
+
+This will open the nano editor. Scroll down to the bottom and add this line to the end of teh file:
+
     deb http://www.stats.bris.ac.uk/R/bin/linux/ubuntu trusty/
+
+Ctrl-x to save and exit.
 
 Now we will install poretools:
 ::
