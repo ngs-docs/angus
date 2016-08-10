@@ -26,7 +26,6 @@ Copy/paste to update and install software on your new instance:
 We will now install several software packages that are specific for analyzing long reads data, as comes from the Oxford Nanopore MinION.
 
 `poretools <http://poretools.readthedocs.io/en/latest/content/installation.html#basic-installation>`__
-==========
 
 This requires installing R 3.0:
 ::
@@ -50,7 +49,7 @@ You should see output like this:
 
 `canu <http://canu.readthedocs.io/en/stable/tutorial.html>`__
 
-`Install <https://github.com/marbl/canu/>`__
+Install:
 ::
     git clone https://github.com/marbl/canu.git
     cd canu/src
@@ -71,7 +70,6 @@ You should see output like this:
       [-pacbio-corrected   <read-file>]
       [-nanopore-raw       <read-file>]
       [-nanopore-corrected <read-file>]
-
 
 `samtools <http://www.htslib.org/download/>`__
 
@@ -98,6 +96,7 @@ Install:
 Has dependencies, `libhdf5 <https://www.hdfgroup.org/HDF5/release/obtain5.html>`__
 and gcc-4.8
 
+Install:
 ::
     git clone --recursive https://github.com/jts/nanopolish.git
     cd nanopolish
@@ -127,19 +126,22 @@ Edit and run this command using your reads and your assembly:
 ::
     make -f scripts/consensus.make READS=reads.fa ASSEMBLY=draft.fa
 
-4. Evaluation of the assembly.
-
-Run this whole command to align reads to teh assembly
+4. Evaluation of the assembly with alignment of reads to the assembled contigs
 
    * indexing the reference genome - in this case the reference genome is our de novo assembly
    * aligning, converting SAM to BAM, then sorting the BAM file
    * indexing the BAM file
-  
+
+We will first use the screen command so that we can start the program and then walk away. You can close your computer and the program will keep running. Type Ctrl-A-D to detach and then again Ctrl-A-D to return to the screen later. This is a good time to get a cup of coffee or have lunch!
 ::
     screen
+
+Here is the command:
+::
     /home/ubuntu/bwa-0.7.15/bwa mem -t 4 -x ont2d ecto.contigs.fasta ../Ectocooler/Ectocooler_all.fastq | /home/ubuntu/samtools-1.3.1/samtools sort > ectocooler_align.sorted.bam
 
 This will give you a mapped_reads.sorted.bam.bai
+
 ::
     samtools index mapped_reads.sorted
 
