@@ -2,86 +2,154 @@
 Analyzing nanopore data
 =======================
 
-We sequenced *Escherichia coli* K-12 MG1655 yesterday on the MinION. Conveniently this is the same strain that you assembled earlier in the week. Therefore it should be possible to improve the Illumina assembly with this dataset.
+Last week in Woods Hole, MA we sequenced a new bacterial species isolated by `Rebecca Mickol <https://news.uark.edu/articles/27669/earth-organisms-survive-under-low-pressure-martian-condition>`__ in the Microbial Diversity Course at the Marine Biological Lab.
 
 The goals of this tutorial are to:
-   *  demonstrate real-time base-calling in the cloud
+   *  convert oxford nanopore data in .fast5 format to .fastq
    *  assess a nanopore run
-   *  perform a hybrid assembly using nanopore and Illumina data with SPAdes.
+   *  assemble data
+   *  evaluate the assembly
 
-Acquiring E. coli nanopore data
+Starting and AWS instance and installing software:
+==================================================
+
+Start a blank Amazon instance (m3.xlarge) and `log in <http://angus.readthedocs.io/en/2016/amazon/index.html>`__.
+
+Copy/paste to update and install software on your new instance:
+
+    sudo apt-get update && \
+    sudo apt-get -y install screen git curl gcc make g++ python-dev unzip \
+             default-jre pkg-config libncurses5-dev r-base-core \
+             r-cran-gplots python-matplotlib sysstat python-virtualenv \
+             python-setuptools cmake cython libhdf5-serial-dev
+
+We will now install several software packages that are specific for analyzing long reads data, as comes from the Oxford Nanopore MinION.
+
+`poretools <http://poretools.readthedocs.io/en/latest/content/installation.html#basic-installation>`__
+==========
+
+This requires installing R 3.0:
+
+    deb http://www.stats.bris.ac.uk/R/bin/linux/ubuntu trusty/
+
+Now we will install poretools:
+
+    git clone https://github.com/arq5x/poretools
+    cd poretools
+    sudo python setup.py install
+    poretools
+
+You should see output like this:
+
+
+    usage: poretools [-h] [-v]
+                     {combine,fastq,fasta,stats,hist,events,readstats,tabular,nucdist,metadata,index,qualdist,qualpos,winner,squiggle,times,yield_plot,occupancy,organise}
+                     ...
+    poretools: error: too few arguments
+
+(Ignore the error, we're expecting it because we have not given it any arguments!)
+
+
+`canu <http://canu.readthedocs.io/en/stable/tutorial.html>`__
+
+`Install <https://github.com/marbl/canu/>`__
+
+    git clone https://github.com/marbl/canu.git
+    cd canu/src
+    make -j 4
+    canu
+
+You should see output like this:
+
+    canu \
+       -d <working-directory> \
+       -p <file-prefix> \
+      [-s specifications] \
+      [-correct | -trim | -assemble] \
+       errorRate=<fraction-error> \
+       genomeSize=<genome-size>\
+      [parameters] \
+      [-pacbio-raw         <read-file>]
+      [-pacbio-corrected   <read-file>]
+      [-nanopore-raw       <read-file>]
+      [-nanopore-corrected <read-file>]
+
+
+`samtools <http://www.htslib.org/download/>`__
+
+Install:
+
+    wget https://github.com/samtools/samtools/releases/download/1.3.1/samtools-1.3.1.tar.bz2
+    tar -xf samtools-1.3.1.tar.bz2
+    cd samtools-1.3.1/
+    make
+    /home/ubuntu/samtools-1.3.1/samtools/samtools
+
+`bwa mem <http://bio-bwa.sourceforge.net/>`__
+
+Install:
+
+    wget https://github.com/lh3/bwa/releases/download/v0.7.15/bwa-0.7.15.tar.bz2
+    tar -xf bwa-0.7.15.tar.bz2 
+    cd bwa-0.7.15/
+    make
+    /home/ubuntu/bwa-0.7.15/bwa mem
+
+Nanopolish
+
+    https://github.com/jts/nanopolish
+    with dependencies, libhdf5
+    https://www.hdfgroup.org/HDF5/release/obtain5.html
+    and gcc-4.8
+
+    git clone --recursive https://github.com/jts/nanopolish.git
+    cd nanopolish
+    make
+
+Acquiring nanopore data
 ===============================
 
-The run we put on last night is available, we got about 1000 reads. You can download them and take a look: ::
+Last week we got about 46k reads. You can download them and take a look:
 
-   wget http://microbesng.uk/filedist/nanopore/Ecoli_KBS_2D.fasta
-   wget http://microbesng.uk/filedist/nanopore/Ecoli_KBS_complement.fasta
-   wget http://microbesng.uk/filedist/nanopore/Ecoli_KBS_template.fasta
+    (insert link to data)
 
-In addition, here is a better run with around 8000 'two-direction' reads (http://microbesng.uk/filedist/nanopore/FC20.wf1.9.2D.pass.fasta). Retrieve it from::
+Exercise
+=========
 
-   wget http://microbesng.uk/filedist/nanopore/FC20.wf1.9.2D.pass.fasta
+1.  Evaluation of the run with poretools. How many reads are there? How many 2D? What is the longest read?
 
-You could analyse a) one of them b) both of them c) the two of them combined (hint use *cat* to concatenate two files). Why not do something different from your neighbor and then we can compare notes?
+Can we identify what species these data came from? Why or why not?
 
-Installing SPAdes
-=================
+2.  Assembly with canu. What is the N50? Where are the discontiguities (hint: find and look at the diagonal plot).
 
-This time rather than building from source, we will use the SPAdes Linux binaries.
+https://github.com/PacificBiosciences/Bioinformatics-Training/wiki/Evaluating-Assemblies
 
-Installing SPAdes binary (v3.6.0)::
+3.  Fix the assembly with nanopolish
 
-   wget http://spades.bioinf.spbau.ru/release3.6.0/SPAdes-3.6.0-Linux.tar.gz
-   tar xvfz SPAdes-3.6.0-Linux.tar.gz
-   export PATH=$PATH:`pwd`/SPAdes-3.6.0-Linux/bin
+Edit and run this command using your reads and your assembly:
 
-Check it is working::
+    make -f scripts/consensus.make READS=reads.fa ASSEMBLY=draft.fa
 
-   spades.py -h
+4. Evaluation of the assembly.
 
-Get the E. coli MDA Illumina files (these are the same you generated before)::
-
-   wget http://public.ged.msu.edu.s3.amazonaws.com/ecoli_ref-5m-trim.se.fq.gz
-   wget http://public.ged.msu.edu.s3.amazonaws.com/ecoli_ref-5m-trim.pe.fq.gz
-
-SPAdes has support for nanopore reads using the --nanopore option which expects FASTA formatted files.
-
-You can give 2D reads (preferred), but I have had good results giving both the 1D and 2D reads. More reads is usually better in this case because SPAdes uses the long nanopore reads for gap closure and repeat resolution, rather than for building the assembly graph.::
-
-   spades.py --sc --12 ecoli_ref-5m-trim.pe.fq.gz -s ecoli_ref-5m-trim.se.fq.gz --nanopore FC20.wf1.9.2D.pass.fasta -o nanopore-ecoli-sc
-
-Genome assessment
-=================
-
-First, run QUAST on your new assembly and compare against the reference and the Illumina-only assembly. If you don't have QUAST installed anymore, go back and look at :doc:`assembling-ecoli` for instructions.
-
-How many contigs do you have? What is the N50? Where are the discontiguities (hint: find and look at the diagonal plot).
-
-Installing BWA
-==============
-
-We want a version of BWA that supports Oxford Nanopore reads: ::
-
-   git clone https://github.com/lh3/bwa.git
-   cd bwa
-   make
-   export PATH=`pwd`:$PATH
-   cd ..
-
-Let's now look in more detail. Map reads back to the assembly and assess coverage evenness. The steps are:
+Run this whole command to align reads to teh assembly
 
    * indexing the reference genome - in this case the reference genome is our de novo assembly
    * aligning, converting SAM to BAM, then sorting the BAM file
    * indexing the BAM file
+   
+    screen
+    /home/ubuntu/bwa-0.7.15/bwa mem -t 4 -x ont2d ecto.contigs.fasta ../Ectocooler/Ectocooler_all.fastq | /home/ubuntu/samtools-1.3.1/samtools sort > ectocooler_align.sorted.bam
 
-The commands to perform these tasks are: ::
+This will give you a mapped_reads.sorted.bam.bai
 
-   bwa index nanopore-ecoli-sc/scaffolds.fasta
-   bwa mem -t4 -x ont2d nanopore-ecoli-sc/scaffolds.fasta FC20.wf1.9.2D.pass.fasta | samtools view -bS - | samtools sort - mapped_reads.sorted
-   samtools index mapped_reads.sorted
+    samtools index mapped_reads.sorted
 
 Download the resulting mapped_reads.sorted.bam, mapped_reads.sorted.bam.bai and nanopore-ecoli-sc/scaffolds.fasta files and open in IGV.
 
 What does it look like? What's the coverage like? Can you spot any problems? What is the Oxford Nanopore error profile? Does it do badly in any regions, which ones? Why?
 
+Acknowledgements
+================
 
+This is a modified lesson by (http://angus.readthedocs.io/en/2015/analyzing_nanopore_data.html)[Nick Loman] from 2015, and written by Torsten Seeman, Harriet Alexander, and Lisa Cohen.
