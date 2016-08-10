@@ -102,7 +102,7 @@ Install the version that can align oxford nanopore data:
     wget https://github.com/lh3/bwa/releases/download/v0.7.15/bwa-0.7.15.tar.bz2
     tar -xf bwa-0.7.15.tar.bz2 
     cd bwa-0.7.15/
-    make
+    make -j 4
     /home/ubuntu/bwa-0.7.15/bwa mem
 
 `nanopolish <https://github.com/jts/nanopolish>`__
@@ -115,7 +115,7 @@ Install:
     cd
     git clone --recursive https://github.com/jts/nanopolish.git
     cd nanopolish
-    make
+    make -j 4
 
 Acquiring nanopore data
 ===============================
