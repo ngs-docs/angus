@@ -6,10 +6,10 @@ Last week in Woods Hole, MA we used our `lab's <http://ivory.idyll.org/lab/>`__ 
 
 The goals of this tutorial are to:
 
-   *  convert oxford nanopore data in .fast5 format to .fastq
-   *  assess a nanopore run
-   *  assemble data
-   *  evaluate the assembly
+*  convert oxford nanopore data in .fast5 format to .fastq
+*  assess a nanopore run
+*  assemble data
+*  evaluate the assembly
 
 Starting and AWS instance and installing software:
 ==================================================
