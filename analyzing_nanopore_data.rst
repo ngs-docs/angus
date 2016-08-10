@@ -44,6 +44,7 @@ Now we will install poretools:
     cd
     git clone https://github.com/arq5x/poretools
     cd poretools
+    sudo easy_install --upgrade pip
     sudo python setup.py install
     poretools
 
