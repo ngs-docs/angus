@@ -2,7 +2,7 @@
 Install Linuxbrew on your AWS instance
 ======================================
 
-These commands will set up you vanilla Ubuntu 14.04 AWS instance for Linuxbrew.
+These commands will set up a vanilla Ubuntu 14.04 AWS instance for Linuxbrew.
 
 ::
 
