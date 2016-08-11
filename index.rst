@@ -16,7 +16,7 @@ This workshop has a :doc:`code-of-conduct`, do read it!
 
 `Download all of these materials <https://github.com/ngs-docs/angus/archive/2016.zip>`__ or `visit the GitHub repository <https://github.com/ngs-docs/angus/tree/2016>`__.
 
-Meal Times: Breakfast 7-9, Lunch 12-1, Dinner 6-7 (Unless noted below). See `HERE <http://conference.kbs.msu.edu/conference-center/food-and-beverage-service/>`__ for the menu and other info.
+Meal Times: Breakfast 7:45-8:45, Lunch 12-1, Dinner 6-7 (Unless noted below). See `HERE <http://conference.kbs.msu.edu/conference-center/food-and-beverage-service/>`__ for the menu and other info.
 
 ===============  =============================================================
 Day              Schedule
@@ -24,38 +24,49 @@ Day              Schedule
 Monday 8/8       * 1:30pm lecture: `Welcome! <_static/2016-lecture1-welcome.pptx>`__ (Meg and Matt)
                  * 2:30pm: Getting Started with AWS :doc:`amazon/index` (Matt)
                  * 4pm: Intro to Linux :doc:`setup` and :doc:`MacManes_UNIX` and `Online Tutorial <http://rik.smith-unna.com/command_line_bootcamp/>`__ (Matt)
-                 * 7pm: :doc:`running-command-line-blast` (Meg)
+                 * 7pm tutorial, `background PDF BLAST <_static/BLAST.pdf>`__
+                 * :doc:`running-command-line-blast` (Meg)
                  * 8pm: Instructor and TA Research presentations, socialize
 
 Tuesday 8/9      * Tutorial :doc:`day2`
-                 * 9:15am lecture: `Sequencing considerations <_static/2016-lecture2-sequencing.pptx>`__ (Matt)
+                 * 9:15am lecture: `Sequencing basics <_static/2016-lecture2-sequencing.pptx>`__ (Matt)
                  * 11:00am Assessment (Bob Drost)
                  * 1:15pm tutorial, `background PDF <_static/MacManes_Trimming.pdf>`__ and :doc:`MacManesTrimming` (Matt)
+                 * 3:00pm Opionated guide to making a computational notebook. (Matt and other people)
+
                  * Evening *firepit social*
 
-Wed 8/10         * 9:15am lecture, mapping and variant calling lecture (Meg)
-                 * 10:30am  tutorial, BASH for genomics, :doc:`GenomicsShell` (Amanda)
-                 * 1:15pm LinuxBrew,  (Shaun)
-                 * 7:15pm lecture Variant Calling, :doc:`variant` (Meg)
+Wed 8/10         * 9:15am lecture, `mapping and variant calling lecture <_static/MappingAndVarCalling.pdf>`__ (Meg)
+                 * 10:00am practical Variant Calling, :doc:`variant` (Meg)
+                 * 1:15pm LinuxBrew `slides <http://sjackman.ca/linuxbrew-slides/#/>`__ (Shaun)
+                 * 1:45pm practical, Installing Linuxbrew on AWS Ubuntu 14 :doc:`linuxbrew_install` (Torst)
+                 * 2:15pm tutorial, BASH for genomics, :doc:`GenomicsShell` (Amanda)
+                 * 7:00pm Mapping Quest :doc:`MacManes_MapQuest` (All)
                  * 8:30pm student presentations (Part 1 ~3 minutes each)
 
-Thursday 8/11    * 9:15am lecture, `Eukaryotic Genome assembly and analysis <_static/NGS_Schwarz_2015.08.13.pdf>`__ (Shaun)
-                 * 10:15am Genome assembly exercise (Shaun)
-                 * 1:15pm Prokaryotic Genome assembly and analysis, :doc:`assembling-ecoli` (Torst)
-                 * 8:00pm Free Time or Extra help sessions or Unix Wizardry
+Thursday 8/11    * 9:15am lecture, `Intro to genome assembly <http://www.slideshare.net/torstenseemann/de-novo-genome-assembly-tseemann-imb-winter-school-2016-brisbane-au-4-july-2016>`__ (Torst)
+                 * 10:15am `Genome assembly practical <http://sjackman.ca/abyss-activity/>`__  (Shaun)
+                 * 1:15pm Genome assembly practical (continued)
+                 * 2:15pm lecture, De Bruijn graph assembly (Shaun)
+                 * 7:15pm Assembly challenge :doc:`MacManes_AssemblyQuest` (Matt) 
+                 * 8:00pm Finish up student presentations
 
-Friday 8/12      * 9:15am, bacterial genome annotation lecture and practical (Torst) :doc:`prokka_genome_annotation`
+Friday 8/12      * 9:15am lecture, Bacterial genome annotation (Torst)
+                 * 10:00am Prokka practical :doc:`prokka_genome_annotation` (Torst)
+                 * 11:00am species identification with Kraken :doc:`kraken_species_identification` (Torst)
                  * 1:15pm intro to R (Amanda)
-                 * 6:00pm BBQ on the Island
+                 * 6:00pm Thai food take out - on the island if nice out, in the classroom if not
                  * 7:15pm Choose your own adventure :doc:`MacManes_adventure_week1` (Matt)
 
-Saturday 8/13    * 9:15am, Population genetics lecture and practical (Sonal)
-                 * 1:15pm, lecture and practical, `long read sequencing <_static/Torsten_Seemann_LRS.pdf>`__ (Torsten Seeman)
-                 * Takeout (Thai??) Dinner
+Saturday 8/13    * 9:15am Population genetics `lecture <_static/pop_genomics_singhal.pdf>`__ and practical (Sonal)
+                 * 10:30am practical, :doc:`pop_gen_tutorial` (Sonal)
+                 * 1:15pm lecture, `long read sequencing <_static/Torsten_Seemann_LRS.pdf>`__ (Torst)
+		 * 2:00pm practial, Assembling Oxford Nanopore data (Lisa, Torst)
+                 * 6:00pm BBQ on the island if nice out, in the classroom if not
 
 Sunday 8/14      * Free Day
                  * Brunch at McCrary 12pm - 1pm*
-                 * *BBQ Dinner*
+                 * Dinner field trip to Kalamazoo
 
 Monday 8/15      * 9:15am lecture/tutorial, Transcriptome assembly and evaluation :doc:`MacManes_Trinity` (Matt)
                  * 1:15pm `Mapping / Transrate <https://github.com/ngs-docs/angus/blob/2015/transrate.rst>`__ (Rob)
@@ -101,7 +112,7 @@ Instructors:
 * Ian Dworkin `@IanDworkin <https://twitter.com/IanDworkin?lang=en>`__.
 * Shaun Jackman `@sjackman <https://twitter.com/sjackman?lang=en>`__.
 * Rob Patro `@nomad421 <https://twitter.com/nomad421?lang=en>`__.
-* Torst Seeman `@torstenseemann <https://twitter.com/torstenseemann?lang=en>`__.
+* Torsten Seemann `@torstenseemann <https://twitter.com/torstenseemann?lang=en>`__.
 * Sonal Singhal
 
 TAs:
@@ -109,6 +120,7 @@ TAs:
 * Amanda Charbonneau
 * Lisa Cohen
 * Ming Chen
+* Will Pitchers
 
 
 She Who Drives Many Places:
