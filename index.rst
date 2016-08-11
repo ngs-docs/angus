@@ -46,8 +46,8 @@ Wed 8/10         * 9:15am lecture, `mapping and variant calling lecture <_static
 Thursday 8/11    * 9:15am lecture, `Intro to genome assembly <http://www.slideshare.net/torstenseemann/de-novo-genome-assembly-tseemann-imb-winter-school-2016-brisbane-au-4-july-2016>`__(Torst)
                  * 10:15am `Genome assembly practical <http://sjackman.ca/abyss-activity/>`__  (Shaun)
                  * 1:15pm Prokaryotic Genome assembly and analysis, :doc:`assembling-ecoli` (Torst)
-                 * 7:15pm Assembly challenge
-                 * 8:00pm Finish up student presentations 
+                 * 7:15pm Assembly challenge :doc:`MacManes_AssemblyQuest` 
+                 * 8:00pm Finish up student presentations
 
 Friday 8/12      * 9:15am lecture, Bacterial genome annotation (Torst)
                  * 10:00am Prokka practical :doc:`prokka_genome_annotation` (Torst)
@@ -63,7 +63,7 @@ Saturday 8/13    * 9:15am Population genetics `lecture <_static/pop_genomics_sin
 
 Sunday 8/14      * Free Day
                  * Brunch at McCrary 12pm - 1pm*
-                 * Dinner field trip to Kalamazoo 
+                 * Dinner field trip to Kalamazoo
 
 Monday 8/15      * 9:15am lecture/tutorial, Transcriptome assembly and evaluation :doc:`MacManes_Trinity` (Matt)
                  * 1:15pm `Mapping / Transrate <https://github.com/ngs-docs/angus/blob/2015/transrate.rst>`__ (Rob)
