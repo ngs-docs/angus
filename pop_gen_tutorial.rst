@@ -73,7 +73,7 @@ You can download the smaller data set and ancillary files from here.::
 	tar -xzvf tutorial_files.tar.gz
 	cd tutorial_files
 
-Calculate nucleotide diversity (:math:`\pi`). Use `VCFtools` to figure out how to calculate it. We want to calculate it for 'benthic' and 'littoral' morphs separately.::
+Calculate nucleotide diversity (pi). Use `VCFtools` to figure out how to calculate it. We want to calculate it for 'benthic' and 'littoral' morphs separately.::
 
 	vcftools --gzvcf Massoko_Dryad_VCF_final_subset_noIndels.vcf.gz --keep littoral.txt --window-pi 100000 --out littoral_pi
 	vcftools --gzvcf Massoko_Dryad_VCF_final_subset_noIndels.vcf.gz --keep benthic.txt --window-pi 100000 --out benthic_pi
@@ -88,7 +88,7 @@ Summarize linkage disequilibrium data files so that they are smaller and easier 
 	python summarize_ld.py --infile littoral_scaffold_0_ld.hap.ld --win 10
 	python summarize_ld.py --infile benthic_scaffold_0_ld.hap.ld --win 10
 
-Calculate :math:`F_{ST}` between benthic and limnetic forms.::
+Calculate Fst between benthic and limnetic forms.::
 
 	vcftools --gzvcf Massoko_Dryad_VCF_final_subset_noIndels.vcf.gz --weir-fst-pop littoral.txt --weir-fst-pop benthic.txt --fst-window-size 100000 --out benthic_limnetic_fst
 
@@ -96,7 +96,7 @@ Make a phylogeny.::
 
 	raxmlHPC-PTHREADS -T 12 -m GTRGAMMA -n Massoko -s Massoko_Dryad_VCF_final_subset_noIndels_maf05_thinned1K_thin5.phy -p 123 -o A_calliptera_Chitimba,A_calliptera_Bua,A_calliptera_Chizumulu
 
-Run `ADMIXTURE` ... for up to 6 populations.::
+Run `ADMIXTURE` for up to 6 populations.::
 
 	~/admixture_linux-1.3.0/admixture Massoko_Dryad_VCF_final_subset_noIndels_maf05_thinned1K.ped 1
 	~/admixture_linux-1.3.0/admixture Massoko_Dryad_VCF_final_subset_noIndels_maf05_thinned1K.ped 2
