@@ -7,7 +7,7 @@ I am going to give you some data and a genome (well, 500Mb of the genome), I wan
 ** Launch an AMI. For this exercise, try a **c4.8xlarge** with a 200Gb EBS volume. Wow yes this is a BIG machine!!
 
 
-You will need to install `abyss`
+You will need to install ``abyss``
 Installing BUSCO is a bit of a PITA... Here is the way, once you have brew installed.
 
 ::
