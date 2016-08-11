@@ -20,6 +20,9 @@ To make use of linuxbrew, we'll need Ruby:
 
 commands::
   
+  > sudo mkdir -p /mnt/reads
+  > sudo mount /dev/xvdf /mnt/reads
+  > chown -R ubuntu:ubuntu /mnt/reads
   > mkdir mapping && cd mapping
   > wget ftp://ftp.flybase.net/releases/FB2016_04/dmel_r6.12/fasta/dmel-all-chromosome-r6.12.fasta.gz
   > wget ftp://ftp.flybase.net/releases/FB2016_04/dmel_r6.12/gtf/dmel-all-r6.12.gtf.gz
@@ -35,12 +38,15 @@ commands::
   > ~/STAR-2.5.2a/bin/Linux_x86_64/STAR --runThreadN 8 --runMode genomeGenerate \
         --genomeDir star_index --genomeFastaFiles ref/dmel-all-chromosome-r6.12.fasta \
         --sjdbGTFfile ref/dmel-all-r6.12.gtf --sjdbOverhang 99
-  > wget https://s3.amazonaws.com/drosophilareads/DrosophilaReads/ORE_sdE3_r1_GTGGCC_L004_R1_001.fastq.gz
-  > wget https://s3.amazonaws.com/drosophilareads/DrosophilaReads/ORE_sdE3_r1_GTGGCC_L004_R2_001.fastq.gz
+  > mkdir alignments
   > /usr/bin/time ~/STAR-2.5.2a/bin/Linux_x86_64/STAR --runThreadN 8 --genomeDir star_index \
-        --readFilesIn ORE_sdE3_r1_GTGGCC_L004_R1_001.fastq.gz ORE_sdE3_r1_GTGGCC_L004_R2_001.fastq.gz \
+        --readFilesIn /mnt/reads/ORE_sdE3_r1_GTGGCC_L004_R1_001.fastq.gz /mnt/reads/ORE_sdE3_r1_GTGGCC_L004_R2_001.fastq.gz \
         --readFilesCommand gunzip -c --outFileNamePrefix alignments/ORE_sdE3_r1_GTGGCC_L004 --outSAMtype BAM Unsorted
+  > wget --no-check-certificate https://github.com/COMBINE-lab/RapMap/releases/download/v0.3.0/RapMap-v0.3.0_linux_x86-64.tar.gz
+  > tar xzvf RapMap-v0.3.0_linux_x86-64.tar.gz
   > ~/RapMap-v0.3.0_CentOS5/bin/rapmap quasiindex -t ref/dmel-all-transcript-r6.12.fasta -i rapmap_index
+  > mkdir mappings
+  > ~/RapMap-v0.3.0_CentOS5/bin/rapmap quasimap -i rapmap_index -t 8 -1 <(gunzip -c /mnt/reads/ORE_sdE3_r1_GTGGCC_L004_R1_001.fastq.gz) -2 <(gunzip -c /mnt/reads/ORE_sdE3_r1_GTGGCC_L004_R2_001.fastq.gz) | samtools -Sb -@4 - > mappings/mapped_reads.bam
   
 Now, we can get linuxbrew with the following command:
 
