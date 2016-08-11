@@ -14,7 +14,7 @@ The goals of this tutorial are to:
 Starting an AWS instance and installing software:
 ==================================================
 
-Start a blank Amazon instance (m3.xlarge) and `log in <http://angus.readthedocs.io/en/2016/amazon/index.html>`__. VERY IMPORTANT: Make sure to select "us-east-1d" when you create your instance.
+Start a blank Amazon instance (m3.xlarge) with 100 GB and `log in <http://angus.readthedocs.io/en/2016/amazon/index.html>`__. VERY IMPORTANT: Make sure to select "us-east-1d" when you create your instance.
 
 Copy/paste to update and install software on your new instance:
 ::
