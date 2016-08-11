@@ -13,7 +13,7 @@ Installing BUSCO is a bit of a PITA... Here is the way, once you have brew insta
 ::
 
     brew install emboss
-    brew install busco
+    brew install busco --without-blast --without-emboss
 
     curl -LO curl -LO ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.3.0/ncbi-blast-2.3.0+-x64-linux.tar.gz
     tar -zxf ncbi-blast-2.3.0+-x64-linux.tar.gz
