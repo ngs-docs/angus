@@ -46,7 +46,8 @@ Wed 8/10         * 9:15am lecture, `mapping and variant calling lecture <_static
 Thursday 8/11    * 9:15am lecture, `Eukaryotic Genome assembly and analysis <_static/NGS_Schwarz_2015.08.13.pdf>`__ (Shaun)
                  * 10:15am Genome assembly exercise (Shaun)
                  * 1:15pm Prokaryotic Genome assembly and analysis, :doc:`assembling-ecoli` (Torst)
-                 * 8:00pm Finish up presentations or Free Time or Extra help sessions or Unix Wizardry
+                 * 7:15pm Assembly challenge
+                 * 8:00pm Finish up student presentations 
 
 Friday 8/12      * 9:15am, bacterial genome annotation lecture and practical (Torst) :doc:`prokka_genome_annotation`
                  * 1:15pm intro to R (Amanda)
