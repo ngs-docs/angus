@@ -14,7 +14,7 @@ The goals of this tutorial are to:
 Starting an AWS instance and installing software:
 ==================================================
 
-Start a blank Amazon instance (m3.xlarge) and `log in <http://angus.readthedocs.io/en/2016/amazon/index.html>`__.
+Start a blank Amazon instance (m3.xlarge) and `log in <http://angus.readthedocs.io/en/2016/amazon/index.html>`__. VERY IMPORTANT: Make sure to select "us-east-1d" when you create your instance.
 
 Copy/paste to update and install software on your new instance:
 ::
@@ -56,9 +56,13 @@ Now install `canu <http://canu.readthedocs.io/en/stable/tutorial.html>`__, `samt
 Get Oxford Nanopore MinION data
 ===============================
 
-Last week we got about 46k reads. You can download them and take a look:
+Last week we got about 46k reads. They are saved in an AWS snapshot (). First, we will create a new volume of this image then attach and mount it to the instance you just created. 
 ::
-    (insert link to data)
+        df -h
+        mount /dev/xvdf /mnt
+        chown -R ubuntu:ubuntu /mnt
+        df -h
+
 
 Convert ONP data in .fast5 to .fastq and .fasta
 ===============================================
