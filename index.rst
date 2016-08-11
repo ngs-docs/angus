@@ -38,24 +38,27 @@ Tuesday 8/9      * Tutorial :doc:`day2`
 
 Wed 8/10         * 9:15am lecture, `mapping and variant calling lecture <_static/MappingAndVarCalling.pdf>`__  (Meg)
                  * 10:00am practical Variant Calling, :doc:`variant` (Meg)
-                 * 1:15pm LinuxBrew `slides <http://sjackman.ca/linuxbrew-slides/#/>`__ and `practical <http://sjackman.ca/abyss-activity/>`__,  (Shaun)
-                 * 2:15pm  tutorial, BASH for genomics, :doc:`GenomicsShell` (Amanda)
-                 * 7:30pm Mapping Quest :doc:`MacManes_MapQuest` (All)
+                 * 1:15pm LinuxBrew `slides <http://sjackman.ca/linuxbrew-slides/#/>`__ (Shaun)
+                 * 2:15pm tutorial, BASH for genomics, :doc:`GenomicsShell` (Amanda)
+                 * 7:00pm Mapping Quest :doc:`MacManes_MapQuest` (All)
                  * 8:30pm student presentations (Part 1 ~3 minutes each)
 
-Thursday 8/11    * 9:15am lecture, `Eukaryotic Genome assembly and analysis <_static/NGS_Schwarz_2015.08.13.pdf>`__ (Shaun)
-                 * 10:15am Genome assembly exercise (Shaun)
+Thursday 8/11    * 9:15am lecture, Intro to genome assembly (Torst)
+                 * 10:15am `Genome assembly practical <http://sjackman.ca/abyss-activity/>`__  (Shaun)
                  * 1:15pm Prokaryotic Genome assembly and analysis, :doc:`assembling-ecoli` (Torst)
                  * 7:15pm Assembly challenge
                  * 8:00pm Finish up student presentations 
 
-Friday 8/12      * 9:15am, bacterial genome annotation lecture and practical (Torst) :doc:`prokka_genome_annotation`
+Friday 8/12      * 9:15am lecture, Bacterial genome annotation (Torst)
+                 * 10:00am Prokka practical :doc:`prokka_genome_annotation` (Torst)
+                 * 11:00am species identification with Kraken :doc:`kraken_species_identification` (Torst)
                  * 1:15pm intro to R (Amanda)
                  * 6:00pm BBQ on the Island
                  * 7:15pm Choose your own adventure :doc:`MacManes_adventure_week1` (Matt)
 
-Saturday 8/13    * 9:15am, Population genetics lecture and practical (Sonal)
-                 * 1:15pm, lecture and practical, `long read sequencing <_static/Torsten_Seemann_LRS.pdf>`__ (Torsten Seeman)
+Saturday 8/13    * 9:15am Population genetics `lecture <_static/pop_genomics_singhal.pdf>`__ and practical (Sonal)
+                 * 1:15pm lecture, `long read sequencing <_static/Torsten_Seemann_LRS.pdf>`__ (Torst)
+		 * 2:00pm practial, Assembling Oxford Nanopore data (Lisa, Torst)
                  * Takeout (Thai??) Dinner
 
 Sunday 8/14      * Free Day
