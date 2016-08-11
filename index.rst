@@ -130,7 +130,7 @@ She Who Drives Many Places:
 Genome Assembly References
 ==========================
 * `Ben Langmead Resources <http://www.langmead-lab.org/teaching-materials/>`__
-
+* `How do we assemble genomes (videos) <https://www.youtube.com/watch?list=PLQ-85lQlPqFNGdaeGpV8dPEeSm3AChb6L&v=vjB6nhOu3BY>`__
 
 
 Papers and References
