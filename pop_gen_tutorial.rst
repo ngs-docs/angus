@@ -73,7 +73,7 @@ You can download the smaller data set and ancillary files from here.::
 	tar -xzvf tutorial_files.tar.gz
 	cd tutorial_files
 
-Calculate nucleotide diversity (pi). Use `VCFtools` to figure out how to calculate it. We want to calculate it for 'benthic' and 'littoral' morphs separately.::
+Calculate nucleotide diversity (:math:`\pi`). Use `VCFtools` to figure out how to calculate it. We want to calculate it for 'benthic' and 'littoral' morphs separately.::
 
 	vcftools --gzvcf Massoko_Dryad_VCF_final_subset_noIndels.vcf.gz --keep littoral.txt --window-pi 100000 --out littoral_pi
 	vcftools --gzvcf Massoko_Dryad_VCF_final_subset_noIndels.vcf.gz --keep benthic.txt --window-pi 100000 --out benthic_pi
@@ -88,7 +88,7 @@ Summarize linkage disequilibrium data files so that they are smaller and easier 
 	python summarize_ld.py --infile littoral_scaffold_0_ld.hap.ld --win 10
 	python summarize_ld.py --infile benthic_scaffold_0_ld.hap.ld --win 10
 
-Calculate Fst between benthic and limnetic forms.::
+Calculate :math:`F_{ST}` between benthic and limnetic forms.::
 
 	vcftools --gzvcf Massoko_Dryad_VCF_final_subset_noIndels.vcf.gz --weir-fst-pop littoral.txt --weir-fst-pop benthic.txt --fst-window-size 100000 --out benthic_limnetic_fst
 
@@ -111,7 +111,7 @@ Now that we have all the different pieces, let's start to plot the data and see 
 We have the following data types.
 
 #. Genetic diversity.
-#. Genetic differentiation. (Fst)
+#. Genetic differentiation. (:math:`F_{ST}`)
 #. Decay of linkage disequilibrium.
 #. A tree.
 #. PCA results.
@@ -180,11 +180,11 @@ Which allow you to quickly figure out how big these dataframes are.
 
 Some questions:
 
-#. What is the mean Fst between these two morphs?
-#. Is there a correlation between the number of variants in a window and Fst? If so, it would suggest we need to be cautious of these results.
-#. In this paper, the authors emphasize the importance of genomic regions that are highly differentiated. How many 100 kb windows are differentiated above Fst>0.1? Fst>0.2? Fst>0.3?
-#. Plot Fst along BIN_START on scaffold_15. The authors originally identified 10 peaks (see Fig. 3D) that are highly differentiated. How many do you identify? Why might our results be different?
-#. How might you determine if windows with high Fst are significant?
+#. What is the mean :math:`F_{ST}` between these two morphs?
+#. Is there a correlation between the number of variants in a window and :math:`F_{ST}`? If so, it would suggest we need to be cautious of these results.
+#. In this paper, the authors emphasize the importance of genomic regions that are highly differentiated. How many 100 kb windows are differentiated above :math:`F_{ST}`>0.1? :math:`F_{ST}`>0.2? :math:`F_{ST}`>0.3?
+#. Plot :math:`F_{ST}` along BIN_START on scaffold_15. The authors originally identified 10 peaks (see Fig. 3D) that are highly differentiated. How many do you identify? Why might our results be different?
+#. How might you determine if windows with high :math:`F_{ST}` are significant?
 
 Decay of Linkage Disequilibrium
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
