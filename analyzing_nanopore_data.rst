@@ -69,7 +69,9 @@ Last week we got about 46k reads. They are saved in an AWS snapshot: `snap-c4d9a
 2. Enter the information. VERY IMPORTANT: Make sure to select the Availability Zone 'us-east-1d'. (Notice a pattern?)
 3. Attach volume with your instance ID. (Your instance should say "Running".) Note the 'Device': /dev/sdf
 4. Go to your terminal
-5. type these commands: (Here is a tricky bit, that the device above is `/dev/sdf` shoudl actually be `/dev/xvdf` below. If your drive letter is slightly different, `a` or `d` etc, change only the last letter below.)
+5. type these commands: 
+
+(Tricky bit: the device above is `/dev/sdf` is the same as `/dev/xvdf` below. If your drive letter is slightly different, `a` or `d` etc, change only the last letter below, like `/dev/xvda` for `/dev/xvda`, `/dev/xvdd` for `/dev/xvdd`, etc.)
 ::
         df -h
         sudo mount /dev/xvdf /mnt
