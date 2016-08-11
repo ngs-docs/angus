@@ -46,7 +46,8 @@ Wed 8/10         * 9:15am lecture, `mapping and variant calling lecture <_static
 
 Thursday 8/11    * 9:15am lecture, `Intro to genome assembly <http://www.slideshare.net/torstenseemann/de-novo-genome-assembly-tseemann-imb-winter-school-2016-brisbane-au-4-july-2016>`__ (Torst)
                  * 10:15am `Genome assembly practical <http://sjackman.ca/abyss-activity/>`__  (Shaun)
-                 * 1:15pm Prokaryotic Genome assembly and analysis, :doc:`assembling-ecoli` (Torst)
+                 * 1:15pm Genome assembly practical (continued)
+                 * 2:15pm lecture, De Bruijn graph assembly (Shaun)
                  * 7:15pm Assembly challenge :doc:`MacManes_AssemblyQuest` (Matt) 
                  * 8:00pm Finish up student presentations
 
