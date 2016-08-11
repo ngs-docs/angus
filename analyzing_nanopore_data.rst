@@ -53,7 +53,7 @@ Now install `canu <http://canu.readthedocs.io/en/stable/tutorial.html>`__, `samt
 ::
     brew install jdk canu bwa samtools
     
-We will install the *new* (thanks @jts!) R9 version of `nanopolish <https://github.com/jts/nanopolish>`__:
+We will install the *new* (thanks `@jts <https://github.com/jts>`__!) R9 version of `nanopolish <https://github.com/jts/nanopolish>`__:
 ::
     wget https://github.com/jts/nanopolish/archive/v0.5.0.tar.gz
     tar -xzf v0.5.0.tar.gz
