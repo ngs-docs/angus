@@ -10,18 +10,14 @@ your own.
 .. toctree::
    :maxdepth: 2
    
-`Python <http://www.python.org/>`_
+`Bioconnector Intro <http://bioconnector.org/workshops/r-basics.html>`_
 
-`Data Carpentry Intro <https://github.com/datacarpentry/archive-datacarpentry/blob/master/lessons/R/materials/00-first-timers.Rmd>`_
+`Bioconnector Dataframes <http://bioconnector.org/workshops/r-dataframes.html>`_
 
-`Data Carpentry Visualization <https://github.com/ryanjw/data_carpentry_R_visualization/blob/master/R_visualization.md>`_
+`Bioconnector RNAseq <http://bioconnector.org/workshops/r-rnaseq-airway.html>`_
 
-`Bioconnector Intro <http://bioconnector.org/workshops/lessons/r/r-intro/>`_
+`Bioconnector Visualization <http://bioconnector.org/workshops/r-viz-gapminder.html>`_
 
-`Bioconnector Advanced <http://bioconnector.org/workshops/lessons/r/r-manipulation/>`_
 
-`Bioconnector Visualization <http://bioconnector.org/workshops/lessons/r/r-viz/>`_
-
-`Bioconnector RNAseq <http://bioconnector.org/workshops/lessons/rnaseq/rnaseq-diff-expr/>`_
 
 .....
