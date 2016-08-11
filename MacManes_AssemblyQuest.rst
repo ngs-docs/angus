@@ -8,7 +8,18 @@ I am going to give you some data and a genome (well, 500Mb of the genome), I wan
 
 
 You will need to install `abyss`
-Install BLAST and BUSCO like we did in: http://angus.readthedocs.io/en/2016/setup.html
+Installing BUSCO is a bit of a PITA... Here is the way, once you have brew installed.
+
+::
+
+    brew install emboss
+    brew install busco
+
+    curl -LO curl -LO ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.3.0/ncbi-blast-2.3.0+-x64-linux.tar.gz
+    tar -zxf ncbi-blast-2.3.0+-x64-linux.tar.gz
+    PATH=$HOME/ncbi-blast-2.3.0+/bin:$PATH
+
+    export AUGUSTUS_CONFIG_PATH=/home/ubuntu/.linuxbrew/Cellar/augustus/3.2.2_1/libexec/config/
 
 **Download the reads** They have already been trimmed for you :)
 
