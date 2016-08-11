@@ -85,7 +85,7 @@ Now we will work with these files.
 Convert ONP data in .fast5 to .fastq and .fasta
 ===============================================
 
-As the MinION instrument is collecting data, it is uploaded to the Metrichor server which runs the basecalling software. Reads are then downloaded as .fast5 files. Let's assess the run.
+As the MinION instrument is collecting raw data, it is uploaded to the Metrichor server which runs the basecalling software. Reads are then downloaded as .fast5 files. Let's assess the run.
 ::
     directory="/mnt/ectocooler"
     poretools stats -q $directory
