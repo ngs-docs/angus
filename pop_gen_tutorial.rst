@@ -14,7 +14,7 @@ Downloaded VCF from http://datadryad.org/resource/doi:10.5061/dryad.770mc
 	- http://datadryad.org/bitstream/handle/10255/dryad.101389/Massoko_Dryad_VCF_final.vcf.gz
 	- These data had been filtered for quality
 	- And only variable sites had been retained
-	- And phased using the program BEAGLE, which relies on linkage disequilibrium to phase haplotypes
+	- And phased using the program `BEAGLE`, which relies on linkage disequilibrium to phase haplotypes
 
 Made the VCF smaller so we could analyze it in this lifetime: 36 individuals and no indels.::
 
@@ -73,7 +73,7 @@ You can download the smaller data set and ancillary files from here.::
 	tar -xzvf tutorial_files.tar.gz
 	cd tutorial_files
 
-Calculate nucleotide diversity (pi). Use VCFtools to figure out how to calculate it. We want to calculate it for 'benthic' and 'littoral' populations separately.::
+Calculate nucleotide diversity (:math:`\pi`). Use `VCFtools` to figure out how to calculate it. We want to calculate it for 'benthic' and 'littoral' morphs separately.::
 
 	vcftools --gzvcf Massoko_Dryad_VCF_final_subset_noIndels.vcf.gz --keep littoral.txt --window-pi 100000 --out littoral_pi
 	vcftools --gzvcf Massoko_Dryad_VCF_final_subset_noIndels.vcf.gz --keep benthic.txt --window-pi 100000 --out benthic_pi
@@ -88,7 +88,7 @@ Summarize linkage disequilibrium data files so that they are smaller and easier 
 	python summarize_ld.py --infile littoral_scaffold_0_ld.hap.ld --win 10
 	python summarize_ld.py --infile benthic_scaffold_0_ld.hap.ld --win 10
 
-Calculate Fst between benthic and limnetic forms.::
+Calculate :math:`F_{ST}` between benthic and limnetic forms.::
 
 	vcftools --gzvcf Massoko_Dryad_VCF_final_subset_noIndels.vcf.gz --weir-fst-pop littoral.txt --weir-fst-pop benthic.txt --fst-window-size 100000 --out benthic_limnetic_fst
 
@@ -96,17 +96,17 @@ Make a phylogeny.::
 
 	raxmlHPC-PTHREADS -T 12 -m GTRGAMMA -n Massoko -s Massoko_Dryad_VCF_final_subset_noIndels_maf05_thinned1K_thin5.phy -p 123 -o A_calliptera_Chitimba,A_calliptera_Bua,A_calliptera_Chizumulu
 
-Run ADMIXTURE ... for up to 6 populations.::
+Run `ADMIXTURE` ... for up to 6 populations.::
 
 	~/admixture_linux-1.3.0/admixture Massoko_Dryad_VCF_final_subset_noIndels_maf05_thinned1K.ped 1
 	~/admixture_linux-1.3.0/admixture Massoko_Dryad_VCF_final_subset_noIndels_maf05_thinned1K.ped 2
 	...
 
-Run smartpca.::
+Run `smartpca`.::
 
 	~/EIG-6.1.3/bin/smartpca -p Massoko_smartpca.par > Massoko_smartpca.out
 
-Now that we have all the different pieces, let's start to plot the data and see what we find. Put all the results into one folder and download them locally so that we can plot and visualize them using R.
+Now that we have all the different pieces, let's start to plot the data and see what we find. Put all the results into one folder and download them locally so that we can plot and visualize them using `R`.
 
 We have the following data types.
 
@@ -115,9 +115,9 @@ We have the following data types.
 #. Decay of linkage disequilibrium.
 #. A tree.
 #. PCA results.
-#. ADMIXTURE population clustering results.
+#. `ADMIXTURE` population clustering results.
 
-We will be using R to plot all these results. I will get you started on how to start thinking about some of these. I would recommend setting your working directory to be the directory that has all your results. For example,::
+We will be using `R` to plot all these results. I will get you started on how to start thinking about some of these. I would recommend setting your working directory to be the directory that has all your results. For example,::
 
 	setwd("/Users/sonal/Desktop/results/")
 
@@ -242,7 +242,7 @@ This still isn't as informative as it could be. It likely would have been much m
 
 ADMIXTURE results
 ~~~~~~~~~~~~~~~~~
-To read in the ADMIXTURE results::
+To read in the `ADMIXTURE` results::
 
 	d1 = read.table("Massoko_Dryad_VCF_final_subset_noIndels_maf05_thinned1K.1.Q")
 	d2 = read.table("Massoko_Dryad_VCF_final_subset_noIndels_maf05_thinned1K.2.Q")
