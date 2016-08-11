@@ -39,6 +39,7 @@ Tuesday 8/9      * Tutorial :doc:`day2`
 Wed 8/10         * 9:15am lecture, `mapping and variant calling lecture <_static/MappingAndVarCalling.pdf>`__  (Meg)
                  * 10:00am practical Variant Calling, :doc:`variant` (Meg)
                  * 1:15pm LinuxBrew `slides <http://sjackman.ca/linuxbrew-slides/#/>`__ (Shaun)
+                 * 1:45pm practical, Installing Linuxbrew on AWS Ubuntu 14 :doc:`linuxbrew_install`__ (Torst)
                  * 2:15pm tutorial, BASH for genomics, :doc:`GenomicsShell` (Amanda)
                  * 7:00pm Mapping Quest :doc:`MacManes_MapQuest` (All)
                  * 8:30pm student presentations (Part 1 ~3 minutes each)
