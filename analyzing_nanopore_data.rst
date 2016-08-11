@@ -82,8 +82,8 @@ Last week we got about 46k reads. They are saved in an AWS snapshot: `snap-c4d9a
         sudo mount /dev/xvdf /mnt
         sudo chown -R ubuntu:ubuntu /mnt
         df -h
-        cd /mnt/
-        ls
+        ls /mnt/
+       
 
 You should see a directory called `ectocooler/`. This directory contains >46,000 reads. DO NOT use `ls` in this directory, because there are SO many files!
 
