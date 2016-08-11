@@ -6,71 +6,90 @@ Aligning (and Mapping) RNA-seq reads
 During this lab, you'll learn how to *align* RNA-seq reads to the genome using `STAR <https://github.com/alexdobin/STAR>`_, and
 how to *map* RNA-seq reads directly to the transcriptome using `RapMap <https://github.com/COMBINE-lab/RapMap>`_.
 
-``> ssh -i ~/Downloads/?????.pem ubuntu@XX.XX.XX.XX``
+
+Log into your instance
+-----------------------
+
+For this tutorial, we'll use a **c4.2xlarge** instance.  Make sure you create the instance with the
+volume containing the reads attached!::
+
+  > ssh -i ~/Downloads/?????.pem ubuntu@XX.XX.XX.XX
 
 Update the package list
 -----------------------
 
-``> sudo apt-get update``
+::
+   
+   > sudo apt-get update
 
 Install some base packages
 --------------------------
 
-First, install the "build tools" (compilers etc. that may be needed)
+First, install the "build tools" (compilers etc. that may be needed)::
 
-``> sudo apt-get install build-essential``
+  > sudo apt-get install build-essential
 
-To make use of linuxbrew, we'll need Ruby and Git:
+To make use of linuxbrew, we'll need Ruby and Git:::
 
-``> sudo apt-get install git ruby``
+  > sudo apt-get install git ruby
 
+Install ``tmux`` so that we can have multiple terminals in the same session::
+
+  > sudo apt-get install tmux
+
+Start your tmux session::
+
+  > tmux new -s quant
+  
+  
 Do the necessary Linuxbrew incantations
 ---------------------------------------
 
-Get linuxbrew with the following command:
+Get linuxbrew with the following command:::
 
-``> ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)"``
+  > ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)"
 
+  
 when prompted, hit `RETURN`.  To make the software we'll install via linuxbrew accessable we have 
 to place the directory where linuxbrew installs programs into our ``PATH``.  The following sequence of 
-commands will do this:
+commands will do this:::
 
-``> echo 'export PATH="/home/ubuntu/.linuxbrew/bin:$PATH"' >>~/.bashrc``
+  > echo 'export PATH="/home/ubuntu/.linuxbrew/bin:$PATH"' >>~/.bashrc
 
-``> echo 'export MANPATH="/home/ubuntu/.linuxbrew/share/man:$MANPATH"' >>~/.bashrc``
+  > echo 'export MANPATH="/home/ubuntu/.linuxbrew/share/man:$MANPATH"' >>~/.bashrc
 
-``> echo 'export INFOPATH="/home/ubuntu/.linuxbrew/share/info:$INFOPATH"' >>~/.bashrc``
+  > echo 'export INFOPATH="/home/ubuntu/.linuxbrew/share/info:$INFOPATH"' >>~/.bashrc
 
-To make our new paths active, we have to ``source`` them:
+To make our new paths active, we have to ``source`` them:::
 
-``> source ~/.bashrc``
+  > source ~/.bashrc
 
-The programs we're interested in installing are part of hombrew-science.  We can "tap" the science keg (;P) as follows:
+The programs we're interested in installing are part of hombrew-science.  We can "tap" the science keg (;P) as follows:::
 
-  ``> brew tap homebrew/science``
+  > brew tap homebrew/science
   
-Now, install samtools:
+Now, install samtools:::
 
-  ``> brew install homebrew/science/samtools``
+  > brew install homebrew/science/samtools
 
 Mounting the reads
 ------------------
 
-We have prepared (thanks; `@monsterbashseq! <https://ljcohen.github.io/>`_) an Amazon volume from which you can load the reads directly.  When we created our AWS instance, we attached the volume with the reads to ``/dev/xvdf``.  We have to *mount* this device.  First, we'll create a place to mount it:
+We have prepared (thanks; `@monsterbashseq! <https://ljcohen.github.io/>`_) an Amazon volume from which you can load the reads directly.  When we created our AWS instance, we attached the volume with the reads to ``/dev/xvdf``.  We have to *mount* this device.  First, we'll create a place to mount it:::
 
-``> sudo mkdir -p /mnt/reads``
+  > sudo mkdir -p /mnt/reads
 
-Now, we actualy mount the device at the mount point:
+Now, we actualy mount the device at the mount point:::
 
-``> sudo mount /dev/xvdf /mnt/reads``
+  > sudo mount /dev/xvdf /mnt/reads
 
-When this command finishes (should only take a few seconds) we're good to go, but just need to change the permissions on this folder.
+When this command finishes (should only take a few seconds) we're good to go, but just need to change the permissions on this folder.::
 
-``> sudo chown -R ubuntu:ubuntu /mnt/reads``
+  > sudo chown -R ubuntu:ubuntu /mnt/reads
 
-Now all of the read files should be available in ``/mnt/reads``.  Check this out with:
+Now all of the read files should be available in ``/mnt/reads``.  Check this out with:::
 
-``> ls -lha /mnt/reads``
+  > ls -lha /mnt/reads
 
 You should see something similar to::
 
@@ -111,17 +130,17 @@ Obtaining the refernece data
 
 We'll be aligning our reads to the Drosophila genome with STAR, and against the Drosophila transcriptome with RapMap.  So, we'll need these files (we'll also need the GTF file corresponding to the genome, as STAR uses this to index known splice sites).
 
-Grab the genome:
+Grab the genome:::
 
-``> wget ftp://ftp.flybase.net/releases/FB2016_04/dmel_r6.12/fasta/dmel-all-chromosome-r6.12.fasta.gz``
+  > wget ftp://ftp.flybase.net/releases/FB2016_04/dmel_r6.12/fasta/dmel-all-chromosome-r6.12.fasta.gz
 
-and the annotation for the genome
+and the annotation for the genome::
 
-``> wget ftp://ftp.flybase.net/releases/FB2016_04/dmel_r6.12/gtf/dmel-all-r6.12.gtf.gz``
+  > wget ftp://ftp.flybase.net/releases/FB2016_04/dmel_r6.12/gtf/dmel-all-r6.12.gtf.gz
 
-and the transcriptome
+and the transcriptome::
 
-``> wget ftp://ftp.flybase.net/releases/FB2016_04/dmel_r6.12/fasta/dmel-all-transcript-r6.12.fasta.gz``
+  > wget ftp://ftp.flybase.net/releases/FB2016_04/dmel_r6.12/fasta/dmel-all-transcript-r6.12.fasta.gz
 
 We'll put all of these in a folder called ``ref``, and, since they're fairly small, we'll unzip them all::
 
@@ -149,9 +168,9 @@ We'll grab what was, at the time this tutorial was created, the latest version o
 Building STAR's index
 """""""""""""""""""""
 
-In order to align reads efficiently, STAR has to build an index (in this case, a suffix array), over the genome.  First, we'll create the directory where the index will live:
+In order to align reads efficiently, STAR has to build an index (in this case, a suffix array), over the genome.  First, we'll create the directory where the index will live:::
 
-``> mkdir star_index``
+  > mkdir star_index
 
 Now, we have to tell STAR to build the index using our reference genome and the GTF annotation.  That command looks like::
 
@@ -159,9 +178,9 @@ Now, we have to tell STAR to build the index using our reference genome and the 
         --genomeDir star_index --genomeFastaFiles ref/dmel-all-chromosome-r6.12.fasta \
         --sjdbGTFfile ref/dmel-all-r6.12.gtf --sjdbOverhang 99
 
-Here, we're telling STAR that it can use up to 8 threads, and it should build the index on the genome and using the annotation we provide.  The ``sjdbOverhang`` parameter is helpful in setting some internal options, and is recommended to be set as read_lenght - 1.  Once you execute this command, ``STAR`` should run for ~3 minutes before finishing and placing the index in the requested directory.  We can check the contents of the index file:
+Here, we're telling STAR that it can use up to 8 threads, and it should build the index on the genome and using the annotation we provide.  The ``sjdbOverhang`` parameter is helpful in setting some internal options, and is recommended to be set as read_lenght - 1.  Once you execute this command, ``STAR`` should run for ~3 minutes before finishing and placing the index in the requested directory.  We can check the contents of the index file:::
 
-``> ls -lha star_index``
+  > ls -lha star_index
 
 And we'll see a bunch of files related to the index built by STAR.  The total size of this folder should be ~3.3G --- quite a bit larger than the input reference genome (140M).  This is one of the trade-offs that STAR makes; to provide very fast alignment speeds (and STAR is *very* fast), it uses a large amount of memory.  When aligning to e.g. the human genome, you should be prepared to have 20-30G of RAM available for STAR.
 
@@ -169,15 +188,18 @@ And we'll see a bunch of files related to the index built by STAR.  The total si
 Aligning the reads with STAR
 """"""""""""""""""""""""""""
 
-STAR has a *dizzying* array of options. You can find most of them explained in detail in the `STAR manual <https://github.com/alexdobin/STAR/blob/master/doc/STARmanual.pdf>`_.  For the purposes of this lesson, we'll keep things simple and I'll explain the main options we're setting here.  First, let's create the output directory where our alignments will live:
+STAR has a *dizzying* array of options. You can find most of them explained in detail in the `STAR manual <https://github.com/alexdobin/STAR/blob/master/doc/STARmanual.pdf>`_.  For the purposes of this lesson, we'll keep things simple and I'll explain the main options we're setting here.  First, let's create the output directory where our alignments will live:::
 
-``> mkdir alignments``
+  > mkdir alignments
 
-Now, we'll run STAR to align the reads using the following command::
+Now, we'll run STAR to align the reads.  Before we do this, we'll create another tmux window that we'll use to monitor STAR's progress.  Create a new
+``tmux`` window with `ctrl + b, c`.  Now, we'll start running STAR in this window using the following command::
 
   > /usr/bin/time ~/STAR-2.5.2a/bin/Linux_x86_64/STAR --runThreadN 8 --genomeDir star_index \
       --readFilesIn /mnt/reads/ORE_sdE3_r1_GTGGCC_L004_R1_001.fastq.gz /mnt/reads/ORE_sdE3_r1_GTGGCC_L004_R2_001.fastq.gz \
       --readFilesCommand gunzip -c --outFileNamePrefix alignments/ORE_sdE3_r1_GTGGCC_L004 --outSAMtype BAM Unsorted
+
+The relevant options are:
 
 * **--runThreadN** tells STAR to use the specified number of threads
 * **--genomeDir** tells STAR where to look for the index
@@ -186,9 +208,10 @@ Now, we'll run STAR to align the reads using the following command::
 * **--outFileNamePrefix** tells STAR how it should name its output files.  There are defaults, but here we override them with the name of the library we're aligning
 * **--outSAMtype** tells STAR the format in which the output should be written.  Here, we're telling STAR that the output should be in BAM format (binary and compressed), and that it's OK for the alignments to be unsorted by position / name / etc.
 
-This command will take a little while to run.  While STAR is doing it's thing, we can monitor it's progress with this nifty little command:
+This command will take a little while to run.  While STAR is doing it's thing, we can monitor it's progress.  First, move over to the other window with
+`ctrl + b, p`.  Then we'll monitor STAR's progress with this nifty little command:::
 
-``> tail -f alignments/ORE_sdE3_r1_GTGGCC_L004Log.progress.out``
+  > tail -f alignments/ORE_sdE3_r1_GTGGCC_L004Log.progress.out
 
 The ``tail -f`` command will *follow* the file, and will write the end (tail) of the  file to the console when it's updated.  At this point, while we wait, it would be an ideal time to discuss what STAR is doing, or to answer any questions you might have.
 
@@ -199,21 +222,22 @@ Using RapMap
 Obtaining RapMap
 """"""""""""""""
 
-Just as with STAR, we'll grab the latest RapMap binary from GitHub.  I'm the maintainer of RapMap, and I update the software on a somewhat regular basis (though not as often as Alex updates STAR).  If you're going to start a new analysis using RapMap, it's probably worth checking for the latest version.  We can grab the current pre-compiled binary like so:
+Just as with STAR, we'll grab the latest RapMap binary from GitHub.  I'm the maintainer of RapMap, and I update the software on a somewhat regular basis (though not as often as Alex updates STAR).  If you're going to start a new analysis using RapMap, it's probably worth checking for the latest version.  We can grab the current pre-compiled binary like so:::
 
-``> wget --no-check-certificate https://github.com/COMBINE-lab/RapMap/releases/download/v0.3.0/RapMap-v0.3.0_linux_x86-64.tar.gz``
+  > wget --no-check-certificate https://github.com/COMBINE-lab/RapMap/releases/download/v0.3.0/RapMap-v0.3.0_linux_x86-64.tar.gz
 
-and then we expand the tarball
+and then we expand the tarball::
 
-``> tar xzvf RapMap-v0.3.0_linux_x86-64.tar.gz``
+  > tar xzvf RapMap-v0.3.0_linux_x86-64.tar.gz
 
+  
 """""""""""""""""""""""""
 Building the RapMap Index
 """""""""""""""""""""""""
 
-Like STAR, RapMap will need an index in order to map reads efficiently.  Unlike STAR, however, RapMap will build an index over the transcriptome rather than the entire genome.  We can build RapMap's index as follows:
+Like STAR, RapMap will need an index in order to map reads efficiently.  Unlike STAR, however, RapMap will build an index over the transcriptome rather than the entire genome.  We can build RapMap's index as follows:::
 
-``> ~/RapMap-v0.3.0_CentOS5/bin/rapmap quasiindex -t ref/dmel-all-transcript-r6.12.fasta -i rapmap_index``
+  > ~/RapMap-v0.3.0_CentOS5/bin/rapmap quasiindex -t ref/dmel-all-transcript-r6.12.fasta -i rapmap_index
 
 Unlike STAR, RapMap will create the index folder if it doesn't exist yet, so there's no need to create it first.
 
@@ -297,7 +321,7 @@ Let's get some details about the mappings from the BAM files.  We can use samtoo
 
 From the number of alignments, you can see that the multimapping rate of RapMap is higher than that of STAR. If we assume that they aligned the same number of reads (they *didn't*, but the numbers are close), then there are, on average, 2.34 RapMap mappings for every STAR alignment --- multimapping in the transcriptome is *prevalent*.
 
- .. raw:: html
+.. raw:: html
 
 	 <details>
 	 <summary>Q: How may reads were there in the input?</summary>
