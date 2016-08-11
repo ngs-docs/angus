@@ -55,7 +55,7 @@ Friday 8/12      * 9:15am lecture, Bacterial genome annotation (Torst)
                  * 6:00pm BBQ on the Island
                  * 7:15pm Choose your own adventure :doc:`MacManes_adventure_week1` (Matt)
 
-Saturday 8/13    * 9:15am Population genetics `lecture <files/pop_genomics_singhal.pdf>`__ and practical (Sonal)
+Saturday 8/13    * 9:15am Population genetics `lecture <_static/pop_genomics_singhal.pdf>`__ and practical (Sonal)
                  * 1:15pm lecture, `long read sequencing <_static/Torsten_Seemann_LRS.pdf>`__ (Torst)
 		 * 2:00pm practial, Assembling Oxford Nanopore data (Lisa, Torst)
                  * Takeout (Thai??) Dinner
