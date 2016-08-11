@@ -58,6 +58,12 @@ We will install the *new* (thanks `@jts <https://github.com/jts>`__!) R9 version
     git clone --recursive https://github.com/jts/nanopolish.git
     cd nanopolish/
     make -j 4
+    ./nanopolish_test
+
+You should see:
+::
+    ===============================================================================
+    All tests passed (421 assertions in 4 test cases)
 
 Get Oxford Nanopore MinION data
 ===============================
