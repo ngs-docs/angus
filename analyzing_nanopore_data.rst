@@ -53,10 +53,12 @@ Now install `canu <http://canu.readthedocs.io/en/stable/tutorial.html>`__, `samt
 ::
     brew install jdk canu bwa samtools
     
-We will install the R9 version of nanopolish:
+We will install the *new* (thanks @jts!) R9 version of `nanopolish <https://github.com/jts/nanopolish>`__:
 ::
     wget https://github.com/jts/nanopolish/archive/v0.5.0.tar.gz
     tar -xzf v0.5.0.tar.gz
+    cd nanopolish-0.5.0/
+    make -j 4
 
 Get Oxford Nanopore MinION data
 ===============================
