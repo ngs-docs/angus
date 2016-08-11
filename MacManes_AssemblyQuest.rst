@@ -38,8 +38,8 @@ Installing BUSCO is a bit of a PITA... Here is the way, once you have brew insta
 
 **Use ABySS to assemble reads** You have 32 threads to use! I suggest you use them all.
 
-0. Go to the spreadsheet:https://docs.google.com/spreadsheets/d/1Lncy90LS80_QDRak4Azrx_nvip8vcQvwDU7Su_gf3XY/edit?ts=57aca0ad#gid=0
-1. Pick a kmer and sign up for it with your name. Use this kmer in your assembly. 
+0. Go to the spreadsheet: https://docs.google.com/spreadsheets/d/1Lncy90LS80_QDRak4Azrx_nvip8vcQvwDU7Su_gf3XY/edit?ts=57aca0ad#gid=0
+1. Pick a kmer and sign up for it with your name. Use this kmer in your assembly.
 
 
 **Evaluate your assembly data using busco**  You'll need to download and un-compress the Fungal database before you run BUSCO. I'm giving you that code, but not the code for running BUSCO.. You'll have to do that yourself...
