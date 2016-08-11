@@ -8,15 +8,105 @@ how to *map* RNA-seq reads directly to the transcriptome using `RapMap <https://
 
 ``> ssh -i ~/Downloads/?????.pem ubuntu@XX.XX.XX.XX``
 
-First, install the "build tools" (compilers etc. that may be needed)
+Update the package list
+-----------------------
 
 ``> sudo apt-get update``
 
+Install some base packages
+--------------------------
+
+First, install the "build tools" (compilers etc. that may be needed)
+
 ``> sudo apt-get install build-essential``
 
-To make use of linuxbrew, we'll need Ruby:
+To make use of linuxbrew, we'll need Ruby and Git:
 
 ``> sudo apt-get install git ruby``
+
+Do the necessary Linuxbrew incantations
+---------------------------------------
+
+Get linuxbrew with the following command:
+
+``> ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)"``
+
+when prompted, hit `RETURN`.  To make the software we'll install via linuxbrew accessable we have 
+to place the directory where linuxbrew installs programs into our ``PATH``.  The following sequence of 
+commands will do this:
+
+``> echo 'export PATH="/home/ubuntu/.linuxbrew/bin:$PATH"' >>~/.bashrc``
+
+``> echo 'export MANPATH="/home/ubuntu/.linuxbrew/share/man:$MANPATH"' >>~/.bashrc``
+
+``> echo 'export INFOPATH="/home/ubuntu/.linuxbrew/share/info:$INFOPATH"' >>~/.bashrc``
+
+To make our new paths active, we have to ``source`` them:
+
+``> source ~/.bashrc``
+
+The programs we're interested in installing are part of hombrew-science.  We can "tap" the science keg (;P) as follows:
+
+  ``> brew tap homebrew/science``
+  
+Now, install samtools:
+
+  ``> brew install homebrew/science/samtools``
+
+Mounting the reads
+------------------
+
+We have prepared (thanks; `@monsterbashseq! <https://ljcohen.github.io/>`_) an Amazon volume from which you can load the reads directly.  When we created our AWS instance, we attached the volume with the reads to ``/dev/xvdf``.  We have to *mount* this device.  First, we'll create a place to mount it:
+
+``> sudo mkdir -p /mnt/reads``
+
+Now, we actualy mount the device at the mount point:
+
+``> sudo mount /dev/xvdf /mnt/reads``
+
+When this command finishes (should only take a few seconds) we're good to go, but just need to change the permissions on this folder.
+
+``> sudo chown -R ubuntu:ubuntu /mnt/reads``
+
+Now all of the read files should be available in ``/mnt/reads``.  Check this out with:
+
+``> ls -lha /mnt/reads``
+
+You should see something similar to::
+
+
+  > ls -lha /mnt/reads/
+  total 72G
+  drwxr-xr-x 3 ubuntu ubuntu 4.0K Aug 10 22:54 .
+  drwxr-xr-x 3 root   root   4.0K Aug 11 03:08 ..
+  drwx------ 2 ubuntu ubuntu  16K Aug 10 20:56 lost+found
+  -rw-rw-r-- 1 ubuntu ubuntu 3.2G Aug  9 15:18 OREf_SAMm_sdE3_ATTCCT_L002_R1_001.fastq.gz
+  -rw-rw-r-- 1 ubuntu ubuntu 3.3G Aug  9 15:19 OREf_SAMm_sdE3_ATTCCT_L002_R2_001.fastq.gz
+  -rw-rw-r-- 1 ubuntu ubuntu 2.5G Aug  9 15:20 OREf_SAMm_w_GTCCGC_L006_R1_001.fastq.gz
+  -rw-rw-r-- 1 ubuntu ubuntu 2.5G Aug  9 15:21 OREf_SAMm_w_GTCCGC_L006_R2_001.fastq.gz
+  -rw-rw-r-- 1 ubuntu ubuntu 3.3G Aug  9 15:08 ORE_sdE3_r1_GTGGCC_L004_R1_001.fastq.gz
+  -rw-rw-r-- 1 ubuntu ubuntu 3.3G Aug  9 15:10 ORE_sdE3_r1_GTGGCC_L004_R2_001.fastq.gz
+  -rw-rw-r-- 1 ubuntu ubuntu 3.4G Aug  9 15:11 ORE_sdE3_r2_TGACCA_L005_R1_001.fastq.gz
+  -rw-rw-r-- 1 ubuntu ubuntu 3.5G Aug  9 15:13 ORE_sdE3_r2_TGACCA_L005_R2_001.fastq.gz
+  -rw-rw-r-- 1 ubuntu ubuntu 2.8G Aug  9 15:14 ORE_w_r1_ATCACG_L001_R1_001.fastq.gz
+  -rw-rw-r-- 1 ubuntu ubuntu 2.8G Aug  9 15:15 ORE_w_r1_ATCACG_L001_R2_001.fastq.gz
+  -rw-rw-r-- 1 ubuntu ubuntu 3.5G Aug  9 15:16 ORE_w_r2_GTTTCG_L002_R1_001.fastq.gz
+  -rw-rw-r-- 1 ubuntu ubuntu 3.5G Aug  9 15:17 ORE_w_r2_GTTTCG_L002_R2_001.fastq.gz
+  -rw-rw-r-- 1 ubuntu ubuntu 2.8G Aug  9 15:29 SAMf_OREm_sdE3_TAGCTT_L001_R1_001.fastq.gz
+  -rw-rw-r-- 1 ubuntu ubuntu 2.8G Aug  9 15:30 SAMf_OREm_sdE3_TAGCTT_L001_R2_001.fastq.gz
+  -rw-rw-r-- 1 ubuntu ubuntu 2.9G Aug  9 15:31 SAMf_OREm_w_CAGATC_L005_R1_001.fastq.gz
+  -rw-rw-r-- 1 ubuntu ubuntu 3.0G Aug  9 15:32 SAMf_OREm_w_CAGATC_L005_R2_001.fastq.gz
+  -rw-rw-r-- 1 ubuntu ubuntu 3.7G Aug  9 15:22 SAM_sdE3_r1_ATGTCA_L006_R1_001.fastq.gz
+  -rw-rw-r-- 1 ubuntu ubuntu 3.7G Aug  9 15:23 SAM_sdE3_r1_ATGTCA_L006_R2_001.fastq.gz
+  -rw-rw-r-- 1 ubuntu ubuntu 2.9G Aug  9 15:24 SAM_sdE3_r2_GCCAAT_L007_R1_001.fastq.gz
+  -rw-rw-r-- 1 ubuntu ubuntu 2.9G Aug  9 15:25 SAM_sdE3_r2_GCCAAT_L007_R2_001.fastq.gz
+  -rw-rw-r-- 1 ubuntu ubuntu 2.5G Aug  9 15:26 SAM_w_r1_ACTTGA_L003_R1_001.fastq.gz
+  -rw-rw-r-- 1 ubuntu ubuntu 2.6G Aug  9 15:27 SAM_w_r1_ACTTGA_L003_R2_001.fastq.gz
+  -rw-rw-r-- 1 ubuntu ubuntu 2.6G Aug  9 15:28 SAM_w_r2_GAGTGG_L004_R1_001.fastq.gz
+  -rw-rw-r-- 1 ubuntu ubuntu 2.6G Aug  9 15:29 SAM_w_r2_GAGTGG_L004_R2_001.fastq.gz
+
+
+
 
 commands::
   
