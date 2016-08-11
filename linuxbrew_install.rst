@@ -17,11 +17,13 @@ These commands will set up a vanilla Ubuntu 14.04 AWS instance for Linuxbrew.
         libxrender1 libfontconfig1 liburi-escape-xs-perl liburi-perl ruby \
 	python-pandas python-scipy python-numpy
 
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)"
+    sudo mkdir /home/linuxbrew
+    sudo chown $USER:$USER /home/linuxbrew
+    git clone https://github.com/Linuxbrew/brew.git /home/linuxbrew/.linuxbrew
 
-    echo 'export PATH="$HOME/.linuxbrew/bin:$PATH"' >> ~/.profile
-    echo 'export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"' >> ~/.profile
-    echo 'export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"' >> ~/.profile
+    echo 'export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"' >> ~/.profile
+    echo 'export MANPATH="/home/linuxbrew/.linuxbrew/share/man:$MANPATH"' >> ~/.profile
+    echo 'export INFOPATH="/home/linuxbrew/.linuxbrew/share/info:$INFOPATH"' >> ~/.profile
     source ~/.profile
 
     brew tap homebrew/science
