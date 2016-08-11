@@ -21,7 +21,7 @@ Installing BUSCO is a bit of a PITA... Here is the way, once you have brew insta
 
     export AUGUSTUS_CONFIG_PATH=/home/ubuntu/.linuxbrew/Cellar/augustus/3.2.2_1/libexec/config/
 
-**Download the reads** They have already been trimmed for you :)
+**Download the reads** They have already been trimmed for you :)..
 
 ::
 
