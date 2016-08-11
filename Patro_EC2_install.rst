@@ -106,22 +106,96 @@ You should see something similar to::
   -rw-rw-r-- 1 ubuntu ubuntu 2.6G Aug  9 15:29 SAM_w_r2_GAGTGG_L004_R2_001.fastq.gz
 
 
+Obtaining the refernece data
+----------------------------
 
+We'll be aligning our reads to the Drosophila genome with STAR, and against the Drosophila transcriptome with RapMap.  So, we'll need these files (we'll also need the GTF file corresponding to the genome, as STAR uses this to index known splice sites).
 
-commands::
-  
-  > sudo mkdir -p /mnt/reads
-  > sudo mount /dev/xvdf /mnt/reads
-  > chown -R ubuntu:ubuntu /mnt/reads
-  > mkdir mapping && cd mapping
-  > wget ftp://ftp.flybase.net/releases/FB2016_04/dmel_r6.12/fasta/dmel-all-chromosome-r6.12.fasta.gz
-  > wget ftp://ftp.flybase.net/releases/FB2016_04/dmel_r6.12/gtf/dmel-all-r6.12.gtf.gz
-  > wget ftp://ftp.flybase.net/releases/FB2016_04/dmel_r6.12/fasta/dmel-all-transcript-r6.12.fasta.gz
+Grab the genome:
+
+``> wget ftp://ftp.flybase.net/releases/FB2016_04/dmel_r6.12/fasta/dmel-all-chromosome-r6.12.fasta.gz``
+
+and the annotation for the genome
+
+``> wget ftp://ftp.flybase.net/releases/FB2016_04/dmel_r6.12/gtf/dmel-all-r6.12.gtf.gz``
+
+and the transcriptome
+
+``> wget ftp://ftp.flybase.net/releases/FB2016_04/dmel_r6.12/fasta/dmel-all-transcript-r6.12.fasta.gz``
+
+We'll put all of these in a folder called ``ref``, and, since they're fairly small, we'll unzip them all::
+
   > mkdir ref
   > mv *.gz ref
   > cd ref
   > gunzip *.gz
   > cd ..
+  
+Great; now, we're ready to grab our aligner and align some reads!
+
+Using STAR
+--------------
+
+""""""""""""""
+Obtaining STAR
+""""""""""""""
+
+We'll grab what was, at the time this tutorial was created, the latest version of `STAR <https://github.com/alexdobin/STAR>`_ (v.2.5.2a).  Alex Dobin, the author and maintainer of STAR updates the tool fairly regularly, so you'll ususally want to check for a recent version and the documented changes before you start a new batch of analyses::
+
+  > wget --no-check-certificate https://github.com/alexdobin/STAR/archive/2.5.2a.tar.gz
+  > tar xzvf 2.5.2a.tar.gz
+
+"""""""""""""""""""""
+Building STAR's index
+"""""""""""""""""""""
+
+In order to align reads efficiently, STAR has to build an index (in this case, a suffix array), over the genome.  First, we'll create the directory where the index will live:
+
+``> mkdir star_index``
+
+Now, we have to tell STAR to build the index using our reference genome and the GTF annotation.  That command looks like::
+
+  > ~/STAR-2.5.2a/bin/Linux_x86_64/STAR --runThreadN 8 --runMode genomeGenerate \
+        --genomeDir star_index --genomeFastaFiles ref/dmel-all-chromosome-r6.12.fasta \
+        --sjdbGTFfile ref/dmel-all-r6.12.gtf --sjdbOverhang 99
+
+Here, we're telling STAR that it can use up to 8 threads, and it should build the index on the genome and using the annotation we provide.  The ``sjdbOverhang`` parameter is helpful in setting some internal options, and is recommended to be set as read_lenght - 1.  Once you execute this command, ``STAR`` should run for ~3 minutes before finishing and placing the index in the requested directory.  We can check the contents of the index file:
+
+``> ls -lha star_index``
+
+And we'll see a bunch of files related to the index built by STAR.  The total size of this folder should be ~3.3G --- quite a bit larger than the input reference genome (140M).  This is one of the trade-offs that STAR makes; to provide very fast alignment speeds (and STAR is *very* fast), it uses a large amount of memory.  When aligning to e.g. the human genome, you should be prepared to have 20-30G of RAM available for STAR.
+
+""""""""""""""""""""""""""""
+Aligning the reads with STAR
+""""""""""""""""""""""""""""
+
+STAR has a *dizzying* array of options. You can find most of them explained in detail in the `STAR manual <https://github.com/alexdobin/STAR/blob/master/doc/STARmanual.pdf>`_.  For the purposes of this lesson, we'll keep things simple and I'll explain the main options we're setting here.  First, let's create the output directory where our alignments will live:
+
+``> mkdir alignments``
+
+Now, we'll run STAR to align the reads using the following command::
+
+  > /usr/bin/time ~/STAR-2.5.2a/bin/Linux_x86_64/STAR --runThreadN 8 --genomeDir star_index \
+      --readFilesIn /mnt/reads/ORE_sdE3_r1_GTGGCC_L004_R1_001.fastq.gz /mnt/reads/ORE_sdE3_r1_GTGGCC_L004_R2_001.fastq.gz \
+      --readFilesCommand gunzip -c --outFileNamePrefix alignments/ORE_sdE3_r1_GTGGCC_L004 --outSAMtype BAM Unsorted
+
+* **--runThreadN** tells STAR to use the specified number of threads
+* **--genomeDir** tells STAR where to look for the index
+* **--readFilesIn** tells STAR where to find the files it will be aligning.  When aligning paired-end reads, the left and right reads are separated by a space.  If there are multiple files for the left and right reads, these are separated by commas.  It is important, if you have multiple left and right files, that they are given in the *same order* in their respective lists.
+* **--readFilesCommand** tells star what command it should use to coerce the input into standard FASTA/FASTQ format.  Here, since our reads are gzipped, we tell STAR to use ``gzip -c`` to produce a ``FASTQ`` format file from the input ``fastq.gz`` format files.
+* **--outFileNamePrefix** tells STAR how it should name its output files.  There are defaults, but here we override them with the name of the library we're aligning
+* **--outSAMtype** tells STAR the format in which the output should be written.  Here, we're telling STAR that the output should be in BAM format (binary and compressed), and that it's OK for the alignments to be unsorted by position / name / etc.
+
+This command will take a little while to run.  While STAR is doing it's thing, we can monitor it's progress with this nifty little command:
+
+``> tail -f alignments/ORE_sdE3_r1_GTGGCC_L004Log.progress.out``
+
+The ``tail -f`` command will *follow* the file, and will write the end (tail) of the  file to the console when it's updated.  At this point, while we wait, it would be an ideal time to discuss what STAR is doing, or to answer any questions you might have.
+
+
+
+commands::
+  
   > wget --no-check-certificate https://github.com/alexdobin/STAR/archive/2.5.2a.tar.gz
   > tar xzvf 2.5.2a.tar.gz
   > mkdir star_index
