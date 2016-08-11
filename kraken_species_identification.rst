@@ -10,6 +10,11 @@ In this tutorial you will:
 
 The instructions below will work on a Ubuntu 14.04 Amazon instance.
 
+Start an instance
+=================
+
+You will need an ``m4.xlarge`` instance (4 CPU, 16 GB) and make your root partition a 16 GB SSD (default is 8).
+
 Install Kraken dependencies
 ===========================
 
