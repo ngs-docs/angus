@@ -25,20 +25,20 @@ Installing BUSCO is a bit of a PITA... Here is the way, once you have brew insta
 
 ::
 
-    Paired-end data
+    #Paired-end data
 
     curl -LO https://s3.amazonaws.com/macmanes_share/ERR1328557_1.fastq.gz
     curl -LO https://s3.amazonaws.com/macmanes_share/ERR1328557_2.fastq.gz
 
-    Mate-pair data
+    #Mate-pair data
 
     curl -LO https://s3.amazonaws.com/macmanes_share/ERR1328558_1.fastq.gz
     curl -LO https://s3.amazonaws.com/macmanes_share/ERR1328558_2.fastq.gz
 
 
-**Use ABySS to assemble reads** You have 32 threads to use! I suggest you use the all.
+**Use ABySS to assemble reads** You have 32 threads to use! I suggest you use them all.
 
-0. Pick a random kmer between 31 and 101
+0. Pick a random kmer between 31 and 95
 
 **Evaluate your assembly data using busco**  You'll need to download and un-compress the Fungal database before you run BUSCO. I'm giving you that code, but not the code for running BUSCO.. You'll have to do that yourself...
 
