@@ -7,7 +7,7 @@ I am going to give you some data and a genome (well, 500Mb of the genome), I wan
 ** Launch an AMI. For this exercise, try a **c4.8xlarge** with a 200Gb EBS volume. Wow yes this is a BIG machine!!
 
 
-You will need to install `abyss`
+You will need to install `abyss` adn `busco`
 
 **Download the reads** They have already been trimmed for you :)
 
@@ -26,19 +26,19 @@ You will need to install `abyss`
 
 **Use ABySS to assemble reads**
 
-1. For people whose 1st name starts with between A-F, skip this step to allow us to evaluate the performance of mapping untrimmed reads.
+0. Pick a random kmer between 31 and 101
 
-
-
-**Evaluate your assembly data**
+**Evaluate your assembly data using busco**  You'll need to download and un-compress the Fungal database before you run BUSCO. I'm giving you that code, but not the code for running BUSCO.. You'll have to do that yourself...
 
 ::
 
-    samtools flagstat sorted.bam
+    curl -LO http://busco.ezlab.org/files/fungi_buscos.tar.gz
+    tar -zxf fungi_buscos.tar.gz
 
-**Add your data** about mappability
 
-https://docs.google.com/spreadsheets/d/1svCJMefIy-BTBSWl5Vixf0UPgLIGOrp5u6YRoyMbSng/edit?usp=sharing
+**Add your data** about the assembly
+
+https://docs.google.com/spreadsheets/d/1HzVZGn1FAo4GuxJXX3gv99Mi12h64mDMpD_DA3mgWp4/edit?usp=sharing
 
 
 **Super bonus points to anybody that maps with a different assembler** e.g., SPAdes, AllPaths, Velvet, ...
