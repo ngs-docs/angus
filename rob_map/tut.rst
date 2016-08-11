@@ -192,63 +192,116 @@ This command will take a little while to run.  While STAR is doing it's thing, w
 
 The ``tail -f`` command will *follow* the file, and will write the end (tail) of the  file to the console when it's updated.  At this point, while we wait, it would be an ideal time to discuss what STAR is doing, or to answer any questions you might have.
 
+Using RapMap
+------------
+
+""""""""""""""""
+Obtaining RapMap
+""""""""""""""""
+
+Just as with STAR, we'll grab the latest RapMap binary from GitHub.  I'm the maintainer of RapMap, and I update the software on a somewhat regular basis (though not as often as Alex updates STAR).  If you're going to start a new analysis using RapMap, it's probably worth checking for the latest version.  We can grab the current pre-compiled binary like so:
+
+``> wget --no-check-certificate https://github.com/COMBINE-lab/RapMap/releases/download/v0.3.0/RapMap-v0.3.0_linux_x86-64.tar.gz``
+
+and then we expand the tarball
+
+``> tar xzvf RapMap-v0.3.0_linux_x86-64.tar.gz``
+
+"""""""""""""""""""""""""
+Building the RapMap Index
+"""""""""""""""""""""""""
+
+Like STAR, RapMap will need an index in order to map reads efficiently.  Unlike STAR, however, RapMap will build an index over the transcriptome rather than the entire genome.  We can build RapMap's index as follows:
+
+``> ~/RapMap-v0.3.0_CentOS5/bin/rapmap quasiindex -t ref/dmel-all-transcript-r6.12.fasta -i rapmap_index``
+
+Unlike STAR, RapMap will create the index folder if it doesn't exist yet, so there's no need to create it first.
 
 
-commands::
-  
-  > wget --no-check-certificate https://github.com/alexdobin/STAR/archive/2.5.2a.tar.gz
-  > tar xzvf 2.5.2a.tar.gz
-  > mkdir star_index
-  > ~/STAR-2.5.2a/bin/Linux_x86_64/STAR --runThreadN 8 --runMode genomeGenerate \
-        --genomeDir star_index --genomeFastaFiles ref/dmel-all-chromosome-r6.12.fasta \
-        --sjdbGTFfile ref/dmel-all-r6.12.gtf --sjdbOverhang 99
-  > mkdir alignments
-  > /usr/bin/time ~/STAR-2.5.2a/bin/Linux_x86_64/STAR --runThreadN 8 --genomeDir star_index \
-        --readFilesIn /mnt/reads/ORE_sdE3_r1_GTGGCC_L004_R1_001.fastq.gz /mnt/reads/ORE_sdE3_r1_GTGGCC_L004_R2_001.fastq.gz \
-        --readFilesCommand gunzip -c --outFileNamePrefix alignments/ORE_sdE3_r1_GTGGCC_L004 --outSAMtype BAM Unsorted
-  > wget --no-check-certificate https://github.com/COMBINE-lab/RapMap/releases/download/v0.3.0/RapMap-v0.3.0_linux_x86-64.tar.gz
-  > tar xzvf RapMap-v0.3.0_linux_x86-64.tar.gz
-  > ~/RapMap-v0.3.0_CentOS5/bin/rapmap quasiindex -t ref/dmel-all-transcript-r6.12.fasta -i rapmap_index
+"""""""""""""""""""""""""""""
+Mapping the reads with RapMap
+"""""""""""""""""""""""""""""
+
+Now, we'll map the same set of reads we aligned above with STAR, but we'll map them to the transcriptome using RapMap.  The commands we'll use for this is::
+
   > mkdir mappings
-  > ~/RapMap-v0.3.0_CentOS5/bin/rapmap quasimap -i rapmap_index -t 8 -1 <(gunzip -c /mnt/reads/ORE_sdE3_r1_GTGGCC_L004_R1_001.fastq.gz) -2 <(gunzip -c /mnt/reads/ORE_sdE3_r1_GTGGCC_L004_R2_001.fastq.gz) | samtools -Sb -@4 - > mappings/mapped_reads.bam
-  
-Now, we can get linuxbrew with the following command:
+  > ~/RapMap-v0.3.0_CentOS5/bin/rapmap quasimap -i rapmap_index -t 8 -1 <(gunzip -c /mnt/reads/ORE_sdE3_r1_GTGGCC_L004_R1_001.fastq.gz) \
+  -2 <(gunzip -c /mnt/reads/ORE_sdE3_r1_GTGGCC_L004_R2_001.fastq.gz) | samtools -Sb -@4 - > mappings/mapped_reads.bam
 
-``> ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)"``
+Though RapMap itself has far fewer options than STAR, there's still quite a bit going on above.  Let's unpack this command; first the RapMap options:
 
-when prompted, hit `RETURN`.  To make the software we'll install via linuxbrew accessable we have 
-to place the directory where linuxbrew installs programs into our "path".  The following sequence of 
-commands will do this:
+* **-i** tells RapMap where to find the index
+* **-t** tells RapMap how many threads it can use
+* **-1** tells RapMap where to find the first set of reads for a paired-end library
+* **-2** tells RapMap where to find the second set of reads for a paired-end library
 
-``> echo 'export PATH="/home/ubuntu/.linuxbrew/bin:$PATH"' >>~/.bash_profile``
+By default, RapMap will write it's output, in SAM format, to ``stdout``.  Here, this is what we want, but if you want the output to be redirected to a file, that can be done with the ``-o`` option.  One thing to make note of here is the ``<()`` syntax we're using to provide the read files.  As with STAR above, RapMap is expecting the input in FASTA/Q format (an upcoming version will read from compressed files directly, but it's not *quite* fully-baked yet).  However, we achieve this differently than STAR.  Here, we use `process substitution <http://tldp.org/LDP/abs/html/process-sub.html>`_ to directly create a pipe from which RapMap will read the decompressed sequences.  The process substitution syntax runs the command within the ``<()`` in a separate process, and writes the output to a file descriptor (e.g. ``/dev/fd/<n>``).  RapMap reads the input from this file descriptor as if it were a normal file.  Generally, this process substitution syntax is *insanely* useful.  I highly recommend you learn to become comfortable with it, as it can make many processing tasks much easier.
 
-``> echo 'export MANPATH="/home/ubuntu/.linuxbrew/share/man:$MANPATH"' >>~/.bash_profile``
+After the RapMap command we are piping the output to ``samtools``.  Since RapMap does not (yet) have the built-in ability to write to BAM format, we're using ``samtools`` to convert the SAM output to BAM format on-the-fly.  The command we're using tells ``samtools`` to read input as SAM and write output as BAM, to use up to 4 threads for compression (don't worry that 8 + 4 > 8).  The ``-`` tells ``samtools`` to read from stdin and it, by default, writes its output to stdout.  We then pipe this output directly to the file we wish to create.  Now, we wait for RapMap to finish.  It should be a bit faster than STAR, though in my testing on the AWS instance, it's bottlenecked by the SAM -> BAM conversion, and so won't be able to make use of all the cores we're allowing it to.
 
-``> echo 'export INFOPATH="/home/ubuntu/.linuxbrew/share/info:$INFOPATH"' >>~/.bash_profile``
 
-The programs we're interested in installing are part of hombrew-science.  We can "tap" the science keg (;P) as follows:
+Looking at the results
+----------------------
 
-  ``> brew tap homebrew/science``
-  ``> brew install homebrew/science/samtools``
+Now, we've aligned the reads to the genome with STAR, and mapped them to the transcriptome with RapMap.  We can do a quick comparison of these BAM files::
 
-Now, we can install the STAR aligner like so:
+  > ls -lha alignments/ORE_sdE3_r1_GTGGCC_L004Aligned.out.bam
+  -rw-rw-r-- 1 ubuntu ubuntu 7.3G Aug 11 03:57 alignments/ORE_sdE3_r1_GTGGCC_L004Aligned.out.bam
+  > ls -lha mappings/mapped_reads.bam
+  -rw-rw-r-- 1 ubuntu ubuntu 7.2G Aug 11 04:14 mappings/mapped_reads.bam
 
-``> brew install homebrew/science/rna-star``
+The files are about the same size (this won't always be the case), but actually contain *very* different information.
 
-Since the latest (pre-release) salmon is not yet a binary available in linuxbrew, we'll grab a pre-compiled binary directly.
-We can download it using `wget` like so:
+.. raw:: html
+	 
+	 <details> 
+	 <summary>Q: Why is the information so different?</summary>
+	 A: STAR is aligning to the <b>genome</b> while RapMap is aligning to the <b>transcriptome</b>.  Thus,
+	    STAR's BAM file will contained spliced alignments, while RapMap's won't.  Conversely, We expect
+	    RapMap's BAM file to encode many more <i>multimapping</i> reads than STAR's BAM file.
+	 </details>
 
-``> wget --no-check-certificate 'https://drive.google.com/uc?export=download&id=0B3iS9-xjPftjaFQwYUlvQnN0UFU' -O Salmon-v0.7.0.tgz``
 
-and we can untar and unzip the resulting file with the following command:
+Let's get some details about the mappings from the BAM files.  We can use samtools' ``flagstat`` command for this::
 
-``> tar xzf Salmon-v0.7.0.tgz``
+  > samtools flagstat alignments/ORE_sdE3_r1_GTGGCC_L004Aligned.out.bam
+  76410744 + 0 in total (QC-passed reads + QC-failed reads)
+  7985862 + 0 secondary
+  0 + 0 supplementary
+  0 + 0 duplicates
+  76410744 + 0 mapped (100.00% : N/A)
+  68424882 + 0 paired in sequencing
+  34212441 + 0 read1
+  34212441 + 0 read2
+  68424882 + 0 properly paired (100.00% : N/A)
+  68424882 + 0 with itself and mate mapped
+  0 + 0 singletons (0.00% : N/A)
+  0 + 0 with mate mapped to a different chr
+  0 + 0 with mate mapped to a different chr (mapQ>=5)
 
-Finally, so that we can simply type `salmon` to execute salmon, we'll add the appropriate directory to our path variable again.
+  > samtools flagstat mappings/mapped_reads.bam
+  182443558 + 0 in total (QC-passed reads + QC-failed reads)
+  116396448 + 0 secondary
+  0 + 0 supplementary
+  0 + 0 duplicates
+  178493051 + 0 mapped (97.83% : N/A)
+  66047110 + 0 paired in sequencing
+  33023555 + 0 read1
+  33023555 + 0 read2
+  63599806 + 0 properly paired (96.29% : N/A)
+  63599806 + 0 with itself and mate mapped
+  1223652 + 0 singletons (1.85% : N/A)
+  0 + 0 with mate mapped to a different chr
+  0 + 0 with mate mapped to a different chr (mapQ>=5)
 
-``> echo 'export PATH="SalmonBeta-0.7.0-pre-july27_CentOS5/bin:$PATH"' >>~/.bash_profile``
 
-The path will be automatically set when you login, but we want the changes to take effect now, so we must "source" the 
-file containing all of the commands that we created:
+From the number of alignments, you can see that the multimapping rate of RapMap is higher than that of STAR. If we assume that they aligned the same number of reads (they *didn't*, but the numbers are close), then there are, on average, 2.34 RapMap mappings for every STAR alignment --- multimapping in the transcriptome is *prevalent*.
 
-``> source ~/.bash_profile``
+ .. raw:: html
+
+	 <details>
+	 <summary>Q: How may reads were there in the input?</summary>
+	 A: We can compute this with
+	 <p><code class="docutils literal"><span class="pre">&gt;bc</span> <span class="pre">-l</span> <span class="pre">&lt;&lt;&lt;</span> <span class="pre">&quot;$(gunzip</span> <span class="pre">-c</span> <span class="pre">/mnt/reads/ORE_sdE3_r1_GTGGCC_L004_R1_001.fastq.gz</span> <span class="pre">|</span> <span class="pre">wc</span> <span class="pre">-l)</span> <span class="pre">/</span> <span class="pre">4&quot;</span></code></p>
+	 There are 36,968,390 reads in the original file.
+
