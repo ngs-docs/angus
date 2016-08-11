@@ -53,17 +53,17 @@ Friday 8/12      * 9:15am lecture, Bacterial genome annotation (Torst)
                  * 10:00am Prokka practical :doc:`prokka_genome_annotation` (Torst)
                  * 11:00am species identification with Kraken :doc:`kraken_species_identification` (Torst)
                  * 1:15pm intro to R (Amanda)
-                 * 6:00pm BBQ on the Island
+                 * 6:00pm Thai food take out - on the island if nice out, in the classroom if not
                  * 7:15pm Choose your own adventure :doc:`MacManes_adventure_week1` (Matt)
 
 Saturday 8/13    * 9:15am Population genetics `lecture <_static/pop_genomics_singhal.pdf>`__ and practical (Sonal)
                  * 1:15pm lecture, `long read sequencing <_static/Torsten_Seemann_LRS.pdf>`__ (Torst)
 		 * 2:00pm practial, Assembling Oxford Nanopore data (Lisa, Torst)
-                 * Takeout (Thai??) Dinner
+                 * 6:00pm BBQ on the island if nice out, in the classroom if not
 
 Sunday 8/14      * Free Day
                  * Brunch at McCrary 12pm - 1pm*
-                 * *BBQ Dinner*
+                 * Dinner field trip to Kalamazoo 
 
 Monday 8/15      * 9:15am lecture/tutorial, Transcriptome assembly and evaluation :doc:`MacManes_Trinity` (Matt)
                  * 1:15pm `Mapping / Transrate <https://github.com/ngs-docs/angus/blob/2015/transrate.rst>`__ (Rob)
