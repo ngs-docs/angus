@@ -36,7 +36,7 @@ Tuesday 8/9      * Tutorial :doc:`day2`
 
                  * Evening *firepit social*
 
-Wed 8/10         * 9:15am lecture, `mapping and variant calling lecture <_static/MappingAndVarCalling.pdf>`__  (Meg)
+Wed 8/10         * 9:15am lecture, `mapping and variant calling lecture <_static/MappingAndVarCalling.pdf>`__ (Meg)
                  * 10:00am practical Variant Calling, :doc:`variant` (Meg)
                  * 1:15pm LinuxBrew `slides <http://sjackman.ca/linuxbrew-slides/#/>`__ (Shaun)
                  * 1:45pm practical, Installing Linuxbrew on AWS Ubuntu 14 :doc:`linuxbrew_install` (Torst)
@@ -44,7 +44,7 @@ Wed 8/10         * 9:15am lecture, `mapping and variant calling lecture <_static
                  * 7:00pm Mapping Quest :doc:`MacManes_MapQuest` (All)
                  * 8:30pm student presentations (Part 1 ~3 minutes each)
 
-Thursday 8/11    * 9:15am lecture, `Intro to genome assembly <http://www.slideshare.net/torstenseemann/de-novo-genome-assembly-tseemann-imb-winter-school-2016-brisbane-au-4-july-2016>`__(Torst)
+Thursday 8/11    * 9:15am lecture, `Intro to genome assembly <http://www.slideshare.net/torstenseemann/de-novo-genome-assembly-tseemann-imb-winter-school-2016-brisbane-au-4-july-2016>`__ (Torst)
                  * 10:15am `Genome assembly practical <http://sjackman.ca/abyss-activity/>`__  (Shaun)
                  * 1:15pm Prokaryotic Genome assembly and analysis, :doc:`assembling-ecoli` (Torst)
                  * 7:15pm Assembly challenge :doc:`MacManes_AssemblyQuest` (Matt) 
