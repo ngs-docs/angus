@@ -27,7 +27,7 @@ You will need to install `abyss`
 **Use ABySS to assemble reads**
 
 1. For people whose 1st name starts with between A-F, skip this step to allow us to evaluate the performance of mapping untrimmed reads.
-2. Everybody else, choose a random number between 1 and 30 and trim at that level..
+
 
 
 **Evaluate your assembly data**
