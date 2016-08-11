@@ -54,7 +54,7 @@ Thursday 8/11    * 9:15am lecture, `Intro to genome assembly <http://www.slidesh
 Friday 8/12      * 9:15am lecture, Bacterial genome annotation (Torst)
                  * 10:00am Prokka practical :doc:`prokka_genome_annotation` (Torst)
                  * 11:00am species identification with Kraken :doc:`kraken_species_identification` (Torst)
-                 * 1:15pm :doc:`Rintro` (Amanda)
+                 * 1:15pm intro to R :doc:`Rintro` (Amanda)
                  * 6:00pm Thai food take out - on the island if nice out, in the classroom if not
                  * 7:15pm Choose your own adventure :doc:`MacManes_adventure_week1` (Matt)
 
