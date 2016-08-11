@@ -93,7 +93,7 @@ As the MinION instrument is collecting data, it is uploaded to the Metrichor ser
 
 How many reads are there? How many 2D? What is the longest read? Write these down or save this information.
 
-A directory of ~30 GB of .fast5 files is useless. You will have to convert these to .fastq and/or .fasta files.
+A directory of ~30 GB of .fast5 files is useless! Convert these to .fastq and/or .fasta files:
 ::
     poretools fastq $directory > ectocooler.fastq
     poretools fasta $directory > ectocooler.fasta
