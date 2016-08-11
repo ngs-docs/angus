@@ -12,7 +12,7 @@ In this tutorial you will:
 2. Annotate a FASTA file of contigs
 3. Visualize the annotation using Artemis
 
-The instructions below will work on a Linux system (eg. EC2 instance)
+The instructions below will work on a Ubuntu 14.04 Amazon instance.
 
 Install Prokka dependencies
 ===========================
@@ -59,7 +59,7 @@ by counting how many characters (bytes) are in the file, as it uses 1 charactert
 
 How big is the genome in Mbp (mega base-pairs) ?
 
-Why isn't the "wc" result exactly correct?
+Why aren't the ``w` result exactly correct?
 
 
 Run Prokka on the contigs
@@ -78,21 +78,31 @@ tools to annotate the genome sequence (contigs).
 
 How many genes did Prokka find in the contigs?
 
-
 Install Artemis
 ===============
 
 Artemis is a graphical Java program to browse annotated genomes.
 It is a a bit like IGV but sepcifically designed for bacteria.
-You will need to install this on your desktop computer.
+You will need to install this on your laptop computer instead
+of the Amazon instance.
 
 Download: https://www.sanger.ac.uk/resources/software/artemis/#download
 
+Copy the annotation to your laptop
+==================================
+
+Copy the ``anno/prokka.gff`` file to your latop using the ``scp`` command
+
+::
+
+   scp ubuntu@your-machine-name.amazon.com ~/Downloads
+   
 
 Viewing the annotated genome
 ============================
 
 * Start Artemis
-* Go to "File" -> "SSH File Manager"
-* Type in the IP number of your Amazon EC2 instance
-* Browse to the "anno/prokka.gff" file
+* Go to ``File -> Open``
+* Navigate to the ``~/Downloads`` folder
+* Choose the ``prokka.gff`` file yoiu copied from Amazon
+
