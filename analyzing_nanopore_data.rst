@@ -161,4 +161,4 @@ What does it look like? What's the coverage like? Can you spot any problems? Wha
 Acknowledgements
 ================
 
-This is a modified lesson by (http://angus.readthedocs.io/en/2015/analyzing_nanopore_data.html)[Nick Loman] from 2015, contributions by Torsten Seeman, Harriet Alexander, and Lisa Cohen.
+This is a modified lesson by `Nick Loman <http://angus.readthedocs.io/en/2015/analyzing_nanopore_data.html>`__ from 2015, contributions by Torsten Seeman, Harriet Alexander, and Lisa Cohen.
