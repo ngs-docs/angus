@@ -7,7 +7,7 @@ I am going to give you some data and a genome (well, 500Mb of the genome), I wan
 ** Launch an AMI. For this exercise, try a **c4.8xlarge** with a 200Gb EBS volume. Wow yes this is a BIG machine!!
 
 
-You will need to install `abyss` adn `busco`
+You will need to install `abyss` and `busco`
 
 **Download the reads** They have already been trimmed for you :)
 
@@ -24,7 +24,7 @@ You will need to install `abyss` adn `busco`
     curl -LO https://s3.amazonaws.com/macmanes_share/ERR1328558_2.fastq.gz
 
 
-**Use ABySS to assemble reads**
+**Use ABySS to assemble reads** You have 32 threads to use! I suggest you use the all.
 
 0. Pick a random kmer between 31 and 101
 
@@ -32,6 +32,7 @@ You will need to install `abyss` adn `busco`
 
 ::
 
+    cd $HOME
     curl -LO http://busco.ezlab.org/files/fungi_buscos.tar.gz
     tar -zxf fungi_buscos.tar.gz
 
