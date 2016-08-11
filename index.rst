@@ -48,7 +48,7 @@ Thursday 8/11    * 9:15am lecture, `Intro to genome assembly <http://www.slidesh
                  * 10:15am `Genome assembly practical <http://sjackman.ca/abyss-activity/>`__  (Shaun)
                  * 1:15pm Genome assembly practical (continued)
                  * 2:15pm lecture, De Bruijn graph assembly (Shaun)
-                 * 7:15pm Assembly challenge :doc:`MacManes_AssemblyQuest` (Matt) 
+                 * 7:15pm Assembly challenge :doc:`MacManes_AssemblyQuest` (Matt)
                  * 8:00pm Finish up student presentations
 
 Friday 8/12      * 9:15am lecture, Bacterial genome annotation (Torst)
@@ -126,6 +126,12 @@ TAs:
 She Who Drives Many Places:
 
 * Kate MacManes
+
+Genome Assembly References
+==========================
+* `Ben Langmead Resources <http://www.langmead-lab.org/teaching-materials/>`__
+
+
 
 Papers and References
 =====================
