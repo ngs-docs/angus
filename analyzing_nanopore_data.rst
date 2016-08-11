@@ -85,16 +85,17 @@ Now we will work with these files.
 Convert ONP data in .fast5 to .fastq and .fasta
 ===============================================
 
-As the MinION instrument is collecting raw data, it is uploaded to the Metrichor server which runs the basecalling software. Reads are then downloaded as .fast5 files. Let's assess the run.
+As the MinION instrument is collecting raw data, it is uploaded to the Metrichor server which runs the basecalling software. Reads are then downloaded as .fast5 files. Let's assess the run. (`This is a report I generated last week. <https://github.com/ljcohen/dib_ONP_MinION/blob/master/Ectocooler/Ectocooler_read_stats_all3runs.ipynb>`__)
 ::
     directory="/mnt/ectocooler"
-    poretools stats -q $directory
-    poretools stats -q --type 2D $directory
+    poretools stats $directory
+    poretools stats --type 2D $directory
 
 How many reads are there? How many 2D? What is the longest read? Write these down or save this information.
 
 A directory of ~30 GB of .fast5 files is useless! Convert these to .fastq and/or .fasta files:
 ::
+    cd ~/
     poretools fastq $directory > ectocooler.fastq
     poretools fasta $directory > ectocooler.fasta
 
