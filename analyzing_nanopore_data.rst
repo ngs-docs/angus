@@ -63,20 +63,31 @@ We will install the *new* (thanks @jts!) R9 version of `nanopolish <https://gith
 Get Oxford Nanopore MinION data
 ===============================
 
-Last week we got about 46k reads. They are saved in an AWS snapshot (). First, we will create a new volume of this image then attach and mount it to the instance you just created. 
+Last week we got about 46k reads. They are saved in an AWS snapshot: `snap-c4d9a35c`. First, we will create a new volume of this image then attach and mount it to the instance you just created.
+
+1. In your web browser, go to the 'Volumes' tab in the AWS EC2 web page. Select 'Create Volume'.
+2. Enter the information. VERY IMPORTANT: Make sure to select the Availability Zone 'us-east-1d'. (Notice a pattern?)
+3. Attach volume with your instance ID. (Your instance should say "Running".) Note the 'Device': /dev/sdf
+4. Go to your terminal
+5. type these commands: (Here is a tricky bit, that the device above is `/dev/sdf` shoudl actually be `/dev/xvdf` below. If your drive letter is slightly different, `a` or `d` etc, change only the last letter below.)
 ::
         df -h
-        mount /dev/xvdf /mnt
-        chown -R ubuntu:ubuntu /mnt
+        sudo mount /dev/xvdf /mnt
+        sudo chown -R ubuntu:ubuntu /mnt
         df -h
+        cd /mnt/
+        ls
 
+You should see a directory called `ectocooler/`. This directory contains >46,000 reads. DO NOT use `ls` in this directory, because there are SO many files!
+
+Now we will work with these files.
 
 Convert ONP data in .fast5 to .fastq and .fasta
 ===============================================
 
-As the instrument is collecting data, it is uploaded to the Metrichor server which runs the basecalling software. Reads are then downloaded as .fast5 files. Let's assess the run.
+As the MinION instrument is collecting data, it is uploaded to the Metrichor server which runs the basecalling software. Reads are then downloaded as .fast5 files. Let's assess the run.
 ::
-    directory="Ectocooler_for_assembly/"
+    directory="/mnt/ectocooler"
     poretools stats -q $directory
     poretools stats -q --type 2D $directory
 
