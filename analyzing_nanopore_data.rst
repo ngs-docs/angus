@@ -70,10 +70,10 @@ Get Oxford Nanopore MinION data
 Last week we collected about 46k reads from three flowcells. Download a subset of these reads:
 ::
     cd
-    wget https://s3.amazonaws.com/ngs2016/ectocooler_onp_subset.zip
+    wget https://s3.amazonaws.com/ngs2016/ectocooler_subset.zip
     mkdir ectocooler_subset/
     cd ectocooler_subset/
-    unzip ../ectocooler_onp_subset.zip 
+    unzip ../ectocooler_subset.zip 
     ls
     
 You should see a bunch of .fast5 files.
