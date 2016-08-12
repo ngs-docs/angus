@@ -105,6 +105,38 @@ Look at a histogram of read lengths:
 ::
   poretools hist --theme-bw --min-length 1000 --max-length 40000 --saveas ecto_hist.png $directory  
 
+However, you will likely get an error like this:
+::
+    _tkinter.TclError: no display name and no $DISPLAY environment variable
+
+This happens with software sometimes. `Click here to get the code to fix this problem <https://github.com/arq5x/poretools/issues/78>`__. Let's edit the first:
+::
+    sudo nano /usr/local/lib/python2.7/dist-packages/poretools/hist.py
+
+Delete the import library lines until "logging" then change the code so the libraries are loaded in the correct order. Edit the second script:
+::
+    sudo nano /usr/local/lib/python2.7/dist-packages/poretools/yield_plot.py
+
+Run the command again:
+::
+    cd
+    poretools hist --theme-bw --min-length 1000 --max-length 40000 --saveas ecto_hist.png $directory 
+    
+You will get another error now, but it's ok (ignore this):
+::
+    INFO:poretools:100 files processed.
+/usr/lib/pymodules/python2.7/matplotlib/font_manager.py:1236: UserWarning: findfont: Font family ['sans-serif'] not found. Falling back to Bitstream Vera Sans
+  (prop.get_family(), self.defaultFamily[fontext]))
+/usr/lib/pymodules/python2.7/matplotlib/font_manager.py:1246: UserWarning: findfont: Could not match :family=Bitstream Vera Sans:style=normal:variant=normal:weight=normal:stretch=normal:size=10.0. Returning /usr/share/matplotlib/mpl-data/fonts/ttf/cmb10.ttf
+  UserWarning)
+/usr/lib/pymodules/python2.7/matplotlib/font_manager.py:1246: UserWarning: findfont: Could not match :family=Bitstream Vera Sans:style=normal:variant=normal:weight=normal:stretch=normal:size=11.0. Returning /usr/share/matplotlib/mpl-data/fonts/ttf/cmb10.ttf
+  UserWarning)
+
+Check your files to make sure it output an ecto_hist.png file:
+::
+    ls
+
+
 Download the file to your local computer and take a look at the image. What does the distribution of read lengths look like?
 ::
     scp -i amazon.pem ubuntu@xxx.amazon.com:/home/ubuntu/ecto_hist.png .
