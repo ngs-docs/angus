@@ -8,7 +8,7 @@ Exercise
 Before you guys got here
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-Started with data from: "Genomic islands of speciation separate cichlid ecomorphs in an East African crater lake", Malinksy et al 2015. 
+Started with data from: "Genomic islands of speciation separate cichlid ecomorphs in an East African crater lake", Malinsky et al 2015. 
 
 Downloaded VCF from http://datadryad.org/resource/doi:10.5061/dryad.770mc
 	- http://datadryad.org/bitstream/handle/10255/dryad.101389/Massoko_Dryad_VCF_final.vcf.gz
