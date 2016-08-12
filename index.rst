@@ -74,16 +74,15 @@ Monday 8/15      * 9:15am lecture/tutorial, Transcriptome assembly and evaluatio
                  * 7pm: Twitter, Blogging and Bioinformatics (All)
 
 
-Tuesday 8/16     * 9:15am Transcript quantification lecture and `practical <http://angus.readthedocs.io/en/2016/rob_quant/tut.html>`_ (Rob - Salmon)
-                 * 10:30am: `R tutorial <https://github.com/ngs-docs/angus/blob/2015/R_Introductory_tutorial_2015.md>`__ (Ian)
-                 * 1:15pm: lecture, `mRNAseq differential expression <_static/NGS2015_RNAseq_2.pptx>`__ (Ian) and lecture, `mRNA stats <_static/NGS2015_RNAseq_ID_1.pptx>`__
-                 * 7pm: Journal Club - need article idea (All)
-
+Tuesday 8/16     * 9:15am Transcript quantification lecture and `practical <http://angus.readthedocs.io/en/2016/rob_quant/tut.html>`__ (Rob)
+                 * 10:30am Visualizing RNA-Seq counts with Degust: <http://www.vicbioinformatics.com/degust/>__ (Torst)
+                 * 11:00am `R tutorial <https://github.com/ngs-docs/angus/blob/2015/R_Introductory_tutorial_2015.md>`__ (Ian)
+                 * 1:15pm lecture, `mRNAseq differential expression <_static/NGS2015_RNAseq_2.pptx>`__ (Ian) and lecture, `mRNA stats <_static/NGS2015_RNAseq_ID_1.pptx>`__
+                 * 7:00pm Journal Club - need article idea (All)
 
 Wed 8/17         * 9:15am lecture, sourcing NCBI data including SRA :doc:`howe-ncbi` (Meg);
-
-                 * 10:15am  more fun with R (Ming)
-                 * 1:00pm Degust (Torst)
+                 * 10:15am More fun with R (Ming)
+                 * 1:00pm AVAILABLE SLOT
                  * Evening: Choose your own adventure! :doc:`MacManes_adventure_week2` (Matt)
 
 Thursday 8/18    * 9:15am Open source your scripts with GitHub (Lisa) :doc:`CTB-github`
