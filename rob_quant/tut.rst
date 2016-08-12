@@ -194,3 +194,6 @@ For Ian's lecture on differential expression, you'll need the quantification res
   > scp -i ?????????.pem -r ubuntu@XX.XX.XX.XX:~/quants .
 
 This will copy the ``quants`` directory, recursively, from the server to your local machine.  Let's take a quick peek at some of the quantification results (we'll use R).  Open up RStudio, and set the current directory as the working directory.  We'll do some "sanity checks" using the commands `here <https://github.com/ngs-docs/angus/blob/2016/rob_quant/sanity_check.R>`_ (*please don't make fun of my lack of R-fu --- I'm a Pythonista*).
+
+
+**TERMINATE YOUR INSTANCE!!!**

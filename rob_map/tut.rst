@@ -329,3 +329,5 @@ From the number of alignments, you can see that the multimapping rate of RapMap 
 	 <p><code class="docutils literal"><span class="pre">&gt;bc</span> <span class="pre">-l</span> <span class="pre">&lt;&lt;&lt;</span> <span class="pre">&quot;$(gunzip</span> <span class="pre">-c</span> <span class="pre">/mnt/reads/ORE_sdE3_r1_GTGGCC_L004_R1_001.fastq.gz</span> <span class="pre">|</span> <span class="pre">wc</span> <span class="pre">-l)</span> <span class="pre">/</span> <span class="pre">4&quot;</span></code></p>
 	 There are 36,968,390 reads in the original file.
 
+
+**TERMINATE YOUR INSTANCE!!!**

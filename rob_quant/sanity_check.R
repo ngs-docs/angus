@@ -19,11 +19,18 @@ plotw <- ggplot(w, aes(x=x+0.1,y=y+0.1)) + geom_point() + scale_x_log10() + scal
 plotsde3 <- ggplot(sde3, aes(x=x+0.1,y=y+0.1)) + geom_point() + scale_x_log10() + scale_y_log10()
 plotz <- ggplot(z, aes(x=x+0.1,y=y+0.1)) + geom_point() + scale_x_log10() + scale_y_log10()
 
+plot_density_w <- ggplot(melt(w), aes(x=log(value + 0.1), fill=variable)) + geom_density(alpha = 0.5)
+plot_density_sde3 <- ggplot(melt(sde3), aes(x=log(value + 0.1), fill=variable)) + geom_density(alpha = 0.5)
+plot_density_z <- ggplot(melt(z), aes(x=log(value + 0.1), fill=variable)) + geom_density(alpha = 0.5)
+
 cor(quants$w_rep1$TPM + 0.1, quants$w_rep2$TPM + 0.1)
 plotw
+plot_density_w
 
 cor(quants$sde3_rep2$TPM + 0.1, quants$sde3_rep1$TPM + 0.1)
 plotsde3
+plot_density_sde3
 
 cor(quants$w_rep1$TPM + 0.1, quants$sde3_rep1$TPM + 0.1)
 plotz
+plot_density_z
