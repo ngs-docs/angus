@@ -57,7 +57,7 @@ Friday 8/12      * 9:15am `Debrief of Assembly Quest marathon <_static/AssemQues
                  * 11:00am practical Species identification with Kraken :doc:`kraken_species_identification` (Torst)
                  * 1:15pm tutorial, Intro to R :doc:`Rintro` (Amanda)
                  * 6:00pm Thai food take out - on the island if nice out, in the classroom if not
-                 * 7:15pm Choose your own adventure :doc:`MacManes_adventure_week1` (Matt)
+                 * 7:30pm `Mars Rover Challenge! <http://sjackman.ca/mars-rover/>`__ (Shaun)
 
 Saturday 8/13    * 9:15am Population genetics `lecture <_static/pop_genomics_singhal.pdf>`__ and practical (Sonal)
                  * 10:30am practical, :doc:`pop_gen_tutorial` (Sonal)
