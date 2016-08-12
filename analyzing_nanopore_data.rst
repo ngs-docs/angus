@@ -219,7 +219,7 @@ Check the output:
 Evaluate the assembly:
 ======================
 
-Align the reads to the assembled contigs:
+Align the reads to the assembled subset of contigs. (Or use the contigs assembled from full data set. Pick one and compare with your neighbor!)
 
 * index the reference genome - in this case the reference genome is our de novo assembly
 * align, converting SAM to BAM, then sorting the BAM file
@@ -227,7 +227,7 @@ Align the reads to the assembled contigs:
    
 Here are the commands:
 ::
-    bwa mem -t 4 -x ont2d ecto.contigs.fasta ectocooler_onp_all.fastq | samtools sort > ectocooler_align.sorted.bam
+    bwa mem -t 4 -x ont2d ecto_subset.contigs.fasta ectocooler_subset_2D.fastq | samtools sort > ectocooler_subset_align.sorted.bam
 
 This will give you a ectocooler_align.sorted.bam.bai
 ::
