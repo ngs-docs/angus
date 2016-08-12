@@ -70,7 +70,7 @@ Sunday 8/14      * Free Day
                  * Dinner field trip to Kalamazoo
 
 Monday 8/15      * 9:15am lecture/tutorial, Transcriptome assembly and evaluation :doc:`MacManes_Trinity` (Matt)
-                 * 1:15pm `Alignment / Mapping <http://angus.readthedocs.io/en/2016/rob_map/tut.html>`_ (Rob)
+                 * 1:15pm Alignment / Mapping `lecture <http://robpatro.com/redesign/AlignmentAndMapping.pdf>`_ and `practical <http://angus.readthedocs.io/en/2016/rob_map/tut.html>`_ (Rob
                  * 7pm: Twitter, Blogging and Bioinformatics (All)
 
 
