@@ -52,7 +52,7 @@ Thursday 8/11    * 9:15am lecture, `Intro to genome assembly <http://www.slidesh
                  * 8:00pm Finish up student presentations
 
 Friday 8/12      * 9:15am `Debrief of Assembly Quest marathon <_static/AssemQuest_Debriefing.pptx>`__ (Matt)
-                 * 9:30am lecture, `Bacterial genome annotation <files/bacterial_genome_annotation.pdf>`__ (Torst)
+                 * 9:30am lecture, `Bacterial genome annotation <_static/bacterial_genome_annotation.pdf>`__ (Torst)
                  * 10:00am practical Prokka :doc:`prokka_genome_annotation` (Torst)
                  * 11:00am practical Species identification with Kraken :doc:`kraken_species_identification` (Torst)
                  * 1:15pm tutorial, Intro to R :doc:`Rintro` (Amanda)
