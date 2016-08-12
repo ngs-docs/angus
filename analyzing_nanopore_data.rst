@@ -228,6 +228,9 @@ References:
 
 https://github.com/PacificBiosciences/Bioinformatics-Training/wiki/Evaluating-Assemblies
 
+http://nbviewer.jupyter.org/github/arq5x/poretools/blob/master/poretools/ipynb/test_run_report.ipynb
+
+
 Acknowledgements
 ================
 
