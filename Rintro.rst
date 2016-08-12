@@ -14,7 +14,7 @@ your own.
 
 `Bioconnector Dataframes <http://bioconnector.org/workshops/r-dataframes.html>`_
 
-ZipFile with extra data and scripts :download:`download data <PlottingData.zip>`
+`ZipFile with extra data and scripts <https://db.tt/YVxNTFE1>`_
 
 `Bioconnector Visualization <http://bioconnector.org/workshops/r-viz-gapminder.html>`_
 
