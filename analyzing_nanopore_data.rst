@@ -97,15 +97,20 @@ Here are the 2D reads:
 
 How many reads are there? How many 2D? What is the longest read? 
 
-This is only a subset of the reads from the whole run. All of the .fast5 files from the three flowcells we used was 30GB! (`This is a report I generated last week. <https://github.com/ljcohen/dib_ONP_MinION/blob/master/Ectocooler/Ectocooler_read_stats_all3runs.ipynb>`__)
+This is only a subset of the reads from the whole run. (`Click here for the stats from the full data set. <https://github.com/ljcohen/dib_ONP_MinION/blob/master/Ectocooler/Ectocooler_read_stats_all3runs.ipynb>`__)
 
 Convert your .fast5 to .fastq and/or .fasta files:
 ::
     cd ~/
-    poretools fastq $directory > ectocooler_subset.fastq
-    poretools fasta $directory > ectocooler_subset.fasta
+    poretools fastq --type 2D $directory > ectocooler_subset_2D.fastq
+    poretools fasta --type 2D $directory > ectocooler_subset_2D.fasta
 
-Take a look at a few reads with web blastn. Try to identify what species or closest taxa these data came from. What do you come up with?
+Look at the reads:
+
+::
+    head ectocooler_subset_2D.fasta
+
+Copy a few reads and use the `web blastn <http://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=blastn&PAGE_TYPE=BlastSearch&LINK_LOC=blasthome>`__ to try to identify what species or closest taxa these data came from. What do you come up with?
 
 Assemble the data
 ==================
