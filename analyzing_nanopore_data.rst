@@ -137,13 +137,12 @@ Copy a few reads and use the `web blastn <http://blast.ncbi.nlm.nih.gov/Blast.cg
 Assemble the data
 ==================
 
-We will use the program canu to assemble the reads. The full data set will take several hours. So, we will only assemble the subset. Which data are better to use, 2D or a mixture of template and compliment? Pick one, assemble, and compare with your neighbor
-
+We will use the program canu to assemble the reads. The full data set will take several hours. So, we will only assemble the subset. Which data are better to use, 2D or a mixture of template and compliment? Pick one, assemble, and compare with your neighbor.
 ::
     canu \
-        -p ecto_subset -d ectocooler_assembly \
-        genomeSize=3.0m \
-        -nanopore-raw ectocooler_subset_2D.fastq
+    -p ecto_subset -d ectocooler_assembly \
+    genomeSize=3.0m \
+    -nanopore-raw ectocooler_subset_2D.fastq
 
 From the output files, you are interested in the ``ecto_subset.contigs.fasta`` file. 
 
