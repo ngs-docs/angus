@@ -95,7 +95,7 @@ Copy the ``anno/prokka.gff`` file to your latop using the ``scp`` command
 
 ::
 
-   scp ubuntu@your-machine-name.amazon.com:/home/ubuntu/anno/prokka.gff ~/Downloads
+   scp -i your_key.pem ubuntu@your-machine-name.amazon.com:/home/ubuntu/anno/prokka.gff ~/Downloads
    
 
 Viewing the annotated genome
