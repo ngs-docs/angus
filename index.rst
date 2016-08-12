@@ -48,20 +48,21 @@ Thursday 8/11    * 9:15am lecture, `Intro to genome assembly <http://www.slidesh
                  * 10:15am `Genome assembly practical <http://sjackman.ca/abyss-activity/>`__  (Shaun)
                  * 1:15pm Genome assembly practical (continued)
                  * 2:15pm lecture, De Bruijn graph assembly (Shaun)
-                 * 7:15pm Assembly challenge :doc:`MacManes_AssemblyQuest` (Matt) 
+                 * 7:15pm Assembly challenge :doc:`MacManes_AssemblyQuest` (Matt)
                  * 8:00pm Finish up student presentations
 
-Friday 8/12      * 9:15am lecture, Bacterial genome annotation (Torst)
-                 * 10:00am Prokka practical :doc:`prokka_genome_annotation` (Torst)
-                 * 11:00am species identification with Kraken :doc:`kraken_species_identification` (Torst)
-                 * 1:15pm intro to R (Amanda)
+Friday 8/12      * 9:15am `Debrief of Assembly Quest marathon <_static/AssemQuest_Debriefing.pptx>`__ (Matt)
+                 * 9:30am lecture, `Bacterial genome annotation <_static/bacterial_genome_annotation.pdf>`__ (Torst)
+                 * 10:00am practical Prokka :doc:`prokka_genome_annotation` (Torst)
+                 * 11:00am practical Species identification with Kraken :doc:`kraken_species_identification` (Torst)
+                 * 1:15pm tutorial, Intro to R :doc:`Rintro` (Amanda)
                  * 6:00pm Thai food take out - on the island if nice out, in the classroom if not
                  * 7:15pm Choose your own adventure :doc:`MacManes_adventure_week1` (Matt)
 
 Saturday 8/13    * 9:15am Population genetics `lecture <_static/pop_genomics_singhal.pdf>`__ and practical (Sonal)
                  * 10:30am practical, :doc:`pop_gen_tutorial` (Sonal)
                  * 1:15pm lecture, `long read sequencing <_static/Torsten_Seemann_LRS.pdf>`__ (Torst)
-		 * 2:00pm practial, Assembling Oxford Nanopore data (Lisa, Torst)
+                 * 2:00pm practial, Assembling Oxford Nanopore data (Lisa, Torst)
                  * 6:00pm BBQ on the island if nice out, in the classroom if not
 
 Sunday 8/14      * Free Day
@@ -73,16 +74,15 @@ Monday 8/15      * 9:15am lecture/tutorial, Transcriptome assembly and evaluatio
                  * 7pm: Twitter, Blogging and Bioinformatics (All)
 
 
-Tuesday 8/16     * 9:15am Transcript quantification lecture and `practical <http://angus.readthedocs.io/en/2016/rob_quant/tut.html>`_ (Rob - Salmon)
-                 * 10:30am: `R tutorial <https://github.com/ngs-docs/angus/blob/2015/R_Introductory_tutorial_2015.md>`__ (Ian)
-                 * 1:15pm: lecture, `mRNAseq differential expression <_static/NGS2015_RNAseq_2.pptx>`__ (Ian) and lecture, `mRNA stats <_static/NGS2015_RNAseq_ID_1.pptx>`__
-                 * 7pm: Journal Club - need article idea (All)
-
+Tuesday 8/16     * 9:15am Transcript quantification lecture and `practical <http://angus.readthedocs.io/en/2016/rob_quant/tut.html>`__ (Rob)
+                 * 10:30am Visualizing RNA-Seq counts with Degust: <http://www.vicbioinformatics.com/degust/>__ (Torst)
+                 * 11:00am `R tutorial <https://github.com/ngs-docs/angus/blob/2015/R_Introductory_tutorial_2015.md>`__ (Ian)
+                 * 1:15pm lecture, `mRNAseq differential expression <_static/NGS2015_RNAseq_2.pptx>`__ (Ian) and lecture, `mRNA stats <_static/NGS2015_RNAseq_ID_1.pptx>`__
+                 * 7:00pm Journal Club - need article idea (All)
 
 Wed 8/17         * 9:15am lecture, sourcing NCBI data including SRA :doc:`howe-ncbi` (Meg);
-
-                 * 10:15am  more fun with R (Ming)
-                 * 1:00pm Degust (Torst)
+                 * 10:15am More fun with R (Ming)
+                 * 1:00pm AVAILABLE SLOT
                  * Evening: Choose your own adventure! :doc:`MacManes_adventure_week2` (Matt)
 
 Thursday 8/18    * 9:15am Open source your scripts with GitHub (Lisa) :doc:`CTB-github`
@@ -126,6 +126,12 @@ TAs:
 She Who Drives Many Places:
 
 * Kate MacManes
+
+Genome Assembly References
+==========================
+* `Ben Langmead Resources <http://www.langmead-lab.org/teaching-materials/>`__
+* `How do we assemble genomes (videos) <https://www.youtube.com/watch?list=PLQ-85lQlPqFNGdaeGpV8dPEeSm3AChb6L&v=vjB6nhOu3BY>`__
+
 
 Papers and References
 =====================

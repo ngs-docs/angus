@@ -20,7 +20,7 @@ Install Prokka dependencies
 ::
 
    sudo apt-get -y update
-   sudo apt-get install bioperl libxml-simple-perl default-jre
+   sudo apt-get install bioperl libxml-simple-perl default-jre git curl
 
 Install Prokka
 ==============
@@ -42,7 +42,7 @@ We will download a genome from NCBI, decompress it, and rename it to something s
   curl ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA_000144955.1_ASM14495v1/GCA_000144955.1_ASM14495v1_genomic.fna.gz > contigs.fasta.gz
   gunzip contigs.fasta
 
-We can use the "grep" command to look at the FASTA sequence names in the file:
+We can use the ``grep`` command to look at the FASTA sequence names in the file:
 
 ::
 
@@ -50,7 +50,7 @@ We can use the "grep" command to look at the FASTA sequence names in the file:
 
 How many sequences/contigs are in this file ?
 
-We can use the "wc" (word count) command to get a rough idea of the number of basepairs in the FASTA file too
+We can use the ``wc`` (word count) command to get a rough idea of the number of basepairs in the FASTA file too
 by counting how many characters (bytes) are in the file, as it uses 1 charactert (A,G,T,C) per nucleotide.
 
 ::
@@ -59,7 +59,7 @@ by counting how many characters (bytes) are in the file, as it uses 1 charactert
 
 How big is the genome in Mbp (mega base-pairs) ?
 
-Why aren't the ``w` result exactly correct?
+Why aren't the ``wc`` result exactly correct?
 
 
 Run Prokka on the contigs
@@ -86,7 +86,7 @@ It is a a bit like IGV but sepcifically designed for bacteria.
 You will need to install this on your laptop computer instead
 of the Amazon instance.
 
-Download: https://www.sanger.ac.uk/resources/software/artemis/#download
+Download: http://www.sanger.ac.uk/science/tools/artemis
 
 Copy the annotation to your laptop
 ==================================
@@ -95,14 +95,25 @@ Copy the ``anno/prokka.gff`` file to your latop using the ``scp`` command
 
 ::
 
-   scp ubuntu@your-machine-name.amazon.com ~/Downloads
-   
+   scp -i your_key.pem ubuntu@your-machine-name.amazon.com:/home/ubuntu/anno/prokka.gff ~/Downloads
 
-Viewing the annotated genome
+
+Load the annotated genome
 ============================
 
 * Start Artemis
-* Go to ``File -> Open``
+* Click ``OK``
+* Go to ``File -> Open File Manager``
 * Navigate to the ``~/Downloads`` folder
 * Choose the ``prokka.gff`` file yoiu copied from Amazon
+
+Browse the genome
+=================
+
+You will be overwhelmed and/or confused at first, and possibly permanently. 
+Here are some tips:
+
+* There are 3 panels: feature map (top), sequence (middle), feature list (bottom)
+* Click right-mouse-button on bottom panel and select ``Show products``
+* Zooming is done via the verrtical scroll bars in the two top panels
 

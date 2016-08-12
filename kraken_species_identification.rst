@@ -13,7 +13,7 @@ The instructions below will work on a Ubuntu 14.04 Amazon instance.
 Start an instance
 =================
 
-You will need an ``m4.xlarge`` instance (4 CPU, 16 GB) and make your root partition a 16 GB SSD (default is 8).
+You will need an ``c3.xlarge`` instance (4 CPU, 8 GB RAM) and at least an 8 GB SSD root partition.
 
 Install Kraken dependencies
 ===========================
@@ -21,7 +21,7 @@ Install Kraken dependencies
 ::
 
    sudo apt-get -y update
-   sudo apt-get install bioperl ruby build-essential curl git python-setuptools
+   sudo apt-get -y install bioperl ruby build-essential curl git python-setuptools wget
 
 Install Kraken
 ==============
@@ -29,7 +29,10 @@ Install Kraken
 ::
   
   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)"
-  export PATH="$USER/.linuxbrew/bin:$PATH"
+
+::
+
+  export PATH="$HOME/.linuxbrew/bin:$PATH"
   brew tap homebrew/science
   brew install kraken
   
@@ -38,24 +41,26 @@ Install the MiniKraken database
 
 ::
 
-  wget https://ccb.jhu.edu/software/kraken/dl/minikraken.tgz
-  tar zxvf minikraken.tgz
-  FIXME 
+  cd $HOME
+  curl https://ccb.jhu.edu/software/kraken/dl/minikraken.tgz | tar zxvf -
+  export KRAKEN_DEFAULT_DB=$HOME/minikraken_20141208
+  export KRAKEN_NUM_THREADS=$(getconf _NPROCESSORS_ONLN)
 
 Get some reads
 ==============
 
+These are paired-end Illumina reads taken from a skin microbiome study: <http://www.ebi.ac.uk/ena/data/view/SRR2423672>
 ::
 
-  curl FIXME > R1.fq.gz
-  curl FIXME > R2.fq.gz
+  wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR242/002/SRR2423672/SRR2423672_1.fastq.gz
+  wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR242/002/SRR2423672/SRR2423672_2.fastq.gz
 
 Run Kraken on the reads
 =======================
 
 ::
 
-  kraken --threads 8 --db FIXME/minikraken --paired R1.fq.fz R2.fq.gz > kraken.out
+  kraken --paired SRR2423672_1.fastq.gz SRR2423672_2.fastq.gz > kraken.out
   kraken-report kraken.out > kraken.tab
   
 Examine the output
@@ -65,7 +70,13 @@ Examine the output
 
   less kraken.tab
 
-What species are in this data set?
+Which species are in this data set?
 
-Read more in the Kraken manual: http://ccb.jhu.edu/software/kraken/MANUAL.html
+What is the dominant species on this person's skin?
+
+
+More details
+============
+
+Kraken manual: http://ccb.jhu.edu/software/kraken/MANUAL.html
 

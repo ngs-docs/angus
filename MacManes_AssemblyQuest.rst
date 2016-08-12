@@ -2,7 +2,7 @@
 Assembly Quest
 ================================================
 
-I am going to give you some data and a genome (well, 500Mb of the genome), I want you to quality trim and map using the Trimming lecture and the Mapping Lecture.
+I am going to give you some data and a genome (well, 500Mb of the genome). Please assemble and use BUSCO. 
 
 ** Launch an AMI. For this exercise, try a **c4.8xlarge** with a 200Gb EBS volume. Wow yes this is a BIG machine!!
 
