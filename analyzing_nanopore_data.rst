@@ -186,7 +186,7 @@ From the output files, you are interested in the ``ecto_subset.contigs.fasta`` f
 
 Download the pre-assembled contigs from the full data set:
 ::
-    wget https://github.com/ljcohen/dib_ONP_MinION/blob/master/Ectocooler/ecto.contigs.fasta
+    wget https://raw.githubusercontent.com/ljcohen/dib_ONP_MinION/master/Ectocooler/ecto.contigs.fasta
 
 1. Compare this with your assembly. How are they different?
 
