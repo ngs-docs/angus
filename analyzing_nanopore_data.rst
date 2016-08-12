@@ -70,13 +70,15 @@ Last week we collected about 46k reads from three flowcells. Download a subset o
 ::
     wget https://s3.amazonaws.com/ngs2016/ectocooler_onp_subset.zip
     mkdir ectocooler_subset/
-    unzip ectocooler_onp_subset.zip ectocooler_subset/
-    ls ectocooler_subset/
+    cd ectocooler_subset/
+    unzip ectocooler_onp_subset.zip 
+    ls
     
 You should see a bunch of .fast5 files.
 
 Download the fastq and fasta:
 ::
+    cd
     wget https://s3.amazonaws.com/ngs2016/ectocooler_all_2D.fastq
     wget https://s3.amazonaws.com/ngs2016/ectocooler_all_2D.fasta
 
