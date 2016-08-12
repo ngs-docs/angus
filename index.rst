@@ -69,11 +69,11 @@ Sunday 8/14      * Free Day
                  * Dinner field trip to Kalamazoo
 
 Monday 8/15      * 9:15am lecture/tutorial, Transcriptome assembly and evaluation :doc:`MacManes_Trinity` (Matt)
-                 * 1:15pm `Mapping / Transrate <https://github.com/ngs-docs/angus/blob/2015/transrate.rst>`__ (Rob)
+                 * 1:15pm `Alignment / Mapping <http://angus.readthedocs.io/en/2016/rob_map/tut.html>`_ (Rob)
                  * 7pm: Twitter, Blogging and Bioinformatics (All)
 
 
-Tuesday 8/16     * 9:15am transcriptome read counting lecture and practical (Rob - Salmon)
+Tuesday 8/16     * 9:15am Transcript quantification lecture and `practical <http://angus.readthedocs.io/en/2016/rob_quant/tut.html>`_ (Rob - Salmon)
                  * 10:30am: `R tutorial <https://github.com/ngs-docs/angus/blob/2015/R_Introductory_tutorial_2015.md>`__ (Ian)
                  * 1:15pm: lecture, `mRNAseq differential expression <_static/NGS2015_RNAseq_2.pptx>`__ (Ian) and lecture, `mRNA stats <_static/NGS2015_RNAseq_ID_1.pptx>`__
                  * 7pm: Journal Club - need article idea (All)
