@@ -109,6 +109,7 @@ Run `smartpca`.::
 Now that we have all the different pieces, let's start to plot the data and see what we find. Put all the results into one folder and download them locally so that we can plot and visualize them using `R`.
 
 Just to be sure, here are all the files you should have. Should things be taking too long, you can borrow my results that I generated earlier: https://www.dropbox.com/s/czrru76ku2kqwt2/results.tar.gz?dl=0 
+
 - benthic_limnetic_fst.windowed.weir.fst
 - benthic_pi.windowed.pi
 - benthic_scaffold_0_ld.hap.ld_summary_window10
