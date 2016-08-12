@@ -95,7 +95,18 @@ Here are the 2D reads:
 ::
     poretools stats --type 2D $directory
 
-How many reads are there? How many 2D? What is the longest read? 
+1. How many reads are there total? 
+2. How many 2D? 
+3. What is the longest read? 
+4. How would you decide whether to do more sequencing?
+
+Look at a histogram of read lengths:
+::
+  poretools hist --theme-bw --min-length 1000 --max-length 40000 --saveas ecto_hist.png $directory  
+
+Download the file to your local computer and take a look at the image. What does the distribution of read lengths look like?
+::
+    scp -i amazon.pem ubuntu@xxx.amazon.com:/home/ubuntu/ecto_hist.png .
 
 This is only a subset of the reads from the whole run. (`Click here for the stats from the full data set. <https://github.com/ljcohen/dib_ONP_MinION/blob/master/Ectocooler/Ectocooler_read_stats_all3runs.ipynb>`__)
 
@@ -126,7 +137,7 @@ Copy a few reads and use the `web blastn <http://blast.ncbi.nlm.nih.gov/Blast.cg
 Assemble the data
 ==================
 
-We could run canu to assemble the reads. The full data set will take several hours. So, we will only assemble the subset. Which data are better to use, 2D or a mixture of template and compliment? Pick one, assemble, and compare with your neighbor
+We will use the program canu to assemble the reads. The full data set will take several hours. So, we will only assemble the subset. Which data are better to use, 2D or a mixture of template and compliment? Pick one, assemble, and compare with your neighbor
 
 ::
     canu \
@@ -140,7 +151,7 @@ From the output files, you are interested in the ``ecto_subset.contigs.fasta`` f
 2. How many contigs do you have? 
 3. How many contigs are you expecting?
 
-Download the assembled contigs from the full data set:
+Download the pre-assembled contigs from the full data set:
 ::
     wget https://github.com/ljcohen/dib_ONP_MinION/blob/master/Ectocooler/ecto.contigs.fasta
 
