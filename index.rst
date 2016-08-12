@@ -62,7 +62,7 @@ Friday 8/12      * 9:15am `Debrief of Assembly Quest marathon <_static/AssemQues
 Saturday 8/13    * 9:15am Population genetics `lecture <_static/pop_genomics_singhal.pdf>`__ and practical (Sonal)
                  * 10:30am practical, :doc:`pop_gen_tutorial` (Sonal)
                  * 1:15pm lecture, `long read sequencing <_static/Torsten_Seemann_LRS.pdf>`__ (Torst)
-                 * 2:00pm practial, Assembling Oxford Nanopore data (Lisa, Torst)
+                 * 2:00pm practical, Assembling Oxford Nanopore data (Lisa)
                  * 6:00pm BBQ on the island if nice out, in the classroom if not
 
 Sunday 8/14      * Free Day
@@ -73,9 +73,8 @@ Monday 8/15      * 9:15am lecture/tutorial, Transcriptome assembly and evaluatio
                  * 1:15pm `Alignment / Mapping <http://angus.readthedocs.io/en/2016/rob_map/tut.html>`_ (Rob)
                  * 7pm: Twitter, Blogging and Bioinformatics (All)
 
-
 Tuesday 8/16     * 9:15am Transcript quantification lecture and `practical <http://angus.readthedocs.io/en/2016/rob_quant/tut.html>`__ (Rob)
-                 * 10:30am Visualizing RNA-Seq counts with Degust: <http://www.vicbioinformatics.com/degust/>__ (Torst)
+                 * 10:30am Visualizing RNA-Seq counts with Degust: <http://www.vicbioinformatics.com/degust/> (Torst)
                  * 11:00am `R tutorial <https://github.com/ngs-docs/angus/blob/2015/R_Introductory_tutorial_2015.md>`__ (Ian)
                  * 1:15pm lecture, `mRNAseq differential expression <_static/NGS2015_RNAseq_2.pptx>`__ (Ian) and lecture, `mRNA stats <_static/NGS2015_RNAseq_ID_1.pptx>`__
                  * 7:00pm Journal Club - need article idea (All)
