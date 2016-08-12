@@ -143,7 +143,6 @@ Check your files to make sure it output an ecto_hist.png file:
 ::
     ls
 
-
 Download the file to your local computer and take a look at the image. What does the distribution of read lengths look like?
 ::
     scp -i amazon.pem ubuntu@xxx.amazon.com:/home/ubuntu/ecto_hist.png .
@@ -198,16 +197,24 @@ Download the pre-assembled contigs from the full data set:
 
 Annotate with prokka:
 =====================
-Run this command to run prokka:
+Use this command to run prokka on the contigs you assembled with a subset of your data:
 ::
-    prokka --outdir anno --prefix ecto_prokka ectocooler_assembly/ecto_subset.contigs.fasta
+    prokka --outdir anno_subset --prefix ecto_subset_prokka ectocooler_assembly/ecto_subset.contigs.fasta
 
 Check the output:
 ::
-    cat ./anno/ecto_prokka.txt
+    cat ./anno_subset/ecto_subset_prokka.txt
 
 1. How many genes did Prokka find in the contigs?
 2. Does this meet your expectations?
+
+Use this command to run prokka on the contigs assembled with the full data set:
+::
+    prokka --outdir anno_full --prefix ecto_full_prokka ecto.contigs.fasta
+
+Check the output:
+::
+    cat ./anno_full/ecto_full_prokka.txt
 
 Evaluate the assembly:
 ======================
