@@ -227,7 +227,7 @@ Align the reads to the assembled subset of contigs. (Or use the contigs assemble
    
 Here are the commands:
 ::
-    bwa mem -t 4 -x ont2d ecto_subset.contigs.fasta ectocooler_subset_2D.fastq | samtools sort > ectocooler_subset_align.sorted.bam
+    bwa mem -t 4 -x ont2d ectocooler_assembly/ecto_subset.contigs.fasta ectocooler_subset_2D.fastq | samtools sort > ectocooler_subset_align.sorted.bam
 
 This will give you a ectocooler_align.sorted.bam.bai
 ::
