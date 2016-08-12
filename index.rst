@@ -56,13 +56,13 @@ Friday 8/12      * 9:15am `Debrief of Assembly Quest marathon <_static/AssemQues
                  * 10:00am practical Prokka :doc:`prokka_genome_annotation` (Torst)
                  * 11:00am practical Species identification with Kraken :doc:`kraken_species_identification` (Torst)
                  * 1:15pm tutorial, Intro to R :doc:`Rintro` (Amanda)
-                 * 6:00pm Thai food take out - on the island if nice out, in the classroom if not
+                 * 6:00pm Thai food take out at Mcrary Hall
                  * 7:30pm `Mars Rover Challenge! <http://sjackman.ca/mars-rover/>`__ (Shaun)
 
 Saturday 8/13    * 9:15am Population genetics `lecture <_static/pop_genomics_singhal.pdf>`__ and practical (Sonal)
                  * 10:30am practical, :doc:`pop_gen_tutorial` (Sonal)
                  * 1:15pm lecture, `long read sequencing <_static/Torsten_Seemann_LRS.pdf>`__ (Torst)
-                 * 2:00pm practical, Assembling Oxford Nanopore data :doc:`analyzing_nanopore_data` (Lisa)
+                 * 2:00pm practical, :doc:`analyzing_nanopore_data` (Lisa)
                  * 6:00pm BBQ on the island if nice out, in the classroom if not
 
 Sunday 8/14      * Free Day
