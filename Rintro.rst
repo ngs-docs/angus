@@ -14,9 +14,13 @@ your own.
 
 `Bioconnector Dataframes <http://bioconnector.org/workshops/r-dataframes.html>`_
 
-`Bioconnector RNAseq <http://bioconnector.org/workshops/r-rnaseq-airway.html>`_
+ZipFile with extra data and scripts :download:`download data <PlottingData.zip>`
 
 `Bioconnector Visualization <http://bioconnector.org/workshops/r-viz-gapminder.html>`_
+
+`Bioconnector RNAseq <http://bioconnector.org/workshops/r-rnaseq-airway.html>`_
+
+
 
 
 
