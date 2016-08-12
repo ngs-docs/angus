@@ -77,10 +77,10 @@ Last week we collected about 46k reads from three flowcells. Download a subset o
     
 You should see a bunch of .fast5 files.
 
-Download the fastq:
+Download the fastq and fasta:
 ::
-    wget https://s3.amazonaws.com/ngs2016/ectocooler_onp_all.fastq.gz
-    gunzip ectocooler_onp_all.fastq.gz
+    wget https://s3.amazonaws.com/ngs2016/ectocooler_all_2D.fastq
+    wget https://s3.amazonaws.com/ngs2016/ectocooler_all_2D.fasta
 
 Convert ONP data in .fast5 to .fastq and .fasta
 ===============================================
@@ -99,62 +99,65 @@ How many reads are there? How many 2D? What is the longest read?
 
 This is only a subset of the reads from the whole run. (`Click here for the stats from the full data set. <https://github.com/ljcohen/dib_ONP_MinION/blob/master/Ectocooler/Ectocooler_read_stats_all3runs.ipynb>`__)
 
-Convert your .fast5 to .fastq and/or .fasta files:
+Convert your .fast5 to .fastq and .fasta files:
+::
+    cd ~/
+    poretools fastq $directory > ectocooler_subset.fastq
+    poretools fasta $directory > ectocooler_subset.fasta
+
+Convert only 2D reads from .fast5 to .fastq and .fasta files:
 ::
     cd ~/
     poretools fastq --type 2D $directory > ectocooler_subset_2D.fastq
     poretools fasta --type 2D $directory > ectocooler_subset_2D.fasta
 
 Look at the reads:
+::
+    head ectocooler_subset.fasta
 
+Look at the 2D reads:
 ::
     head ectocooler_subset_2D.fasta
+    
+What is the difference between the 2D reads and all the reads?
 
 Copy a few reads and use the `web blastn <http://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=blastn&PAGE_TYPE=BlastSearch&LINK_LOC=blasthome>`__ to try to identify what species or closest taxa these data came from. What do you come up with?
 
 Assemble the data
 ==================
 
-We could run canu assembler on the full dataset:
-::
-    canu \
-        -p ecto -d ectocooler_assembly \
-        genomeSize=3.0m \
-        -nanopore-raw ectocooler_onp_all.fastq
+We could run canu to assemble the reads. The full data set will take several hours. So, we will only assemble the subset. Which data are better to use, 2D or a mixture of template and compliment? Pick one, assemble, and compare with your neighbor
 
-Or the subset of data:
 ::
     canu \
         -p ecto_subset -d ectocooler_assembly \
         genomeSize=3.0m \
-        -nanopore-raw ectocooler_subset.fastq
-
-The full data set will take several hours. So, we will assemble the subset.
+        -nanopore-raw ectocooler_subset_2D.fastq
 
 From the output files, you are interested in the ``ecto_subset.contigs.fasta`` file. 
 
-1. How many contigs do you have? 
-2. How many contigs are you expecting?
+1. Which is a better assembly, mixture or 2D?
+2. How many contigs do you have? 
+3. How many contigs are you expecting?
 
 Download the assembled contigs from the full data set:
 ::
     wget https://github.com/ljcohen/dib_ONP_MinION/blob/master/Ectocooler/ecto.contigs.fasta
 
-Compare this with your assembly. How are they different?
+1. Compare this with your assembly. How are they different?
 
 Annotate with prokka:
 =====================
 Run this command to run prokka:
 ::
-    prokka --outdir anno --prefix prokka contigs.fasta
+    prokka --outdir anno --prefix ecto_prokka ecto_subset.contigs.fasta
 
 Check the output:
 ::
-    cat ./anno/prokka.txt
+    cat ./anno/ecto_prokka.txt
 
-How many genes did Prokka find in the contigs?
-
-Does this meet your expectations?
+1. How many genes did Prokka find in the contigs?
+2. Does this meet your expectations?
 
 Evaluate the assembly:
 ======================
