@@ -55,8 +55,7 @@ Transrate: http://hibberdlab.com/transrate/installation.html
 **Download data**: For this lab, we'll be using
 ::
 
-    mkdir /mnt/reads
-    cd /mnt/reads/
+    mkdir $HOME/reads && cd /$HOME/reads/
 
     curl -LO https://www.dropbox.com/s/4o6eduzcw11gz53/subsamp.2.fq.gz
 
@@ -67,40 +66,37 @@ Transrate: http://hibberdlab.com/transrate/installation.html
 
 ::
 
-    Rcorrector ...
+    perl run_rcorrector.pl -k 31 -t 30 \
+    -1 file_1.fastq \
+    -2 file_2.fastq
 
+
+
+**Run Skewer**
+
+::
+
+    curl -LO https://s3.amazonaws.com/gen711/TruSeq3-PE.fa
+
+    skewer -l 25 -m pe -o skewerQ2 --mean-quality 2 --end-quality 2 -t 16 \
+    -x TruSeq3-PE.fa \
+    $HOME/reads/root_S13.R1.fq $HOME/reads/root_S13.R2.fq
 
 
 **Run Trinity**
 
 ::
 
-  mkdir /mnt/assembly
-  cd /mnt/assembly
+    mkdir $HOME/assembly && cd $HOME/assembly
 
-  #Open tumx window
+    #Open tumx window
 
-  tmux new -s trinity
+    tmux new -s trinity
 
-  #Phred30 dataset
+    #Phred30 dataset
 
-  Trinity --seqType fq --max_memory 10G --left /mnt/trimming/subsamp.Phred30_1P.fq \
-  --right /mnt/trimming/subsamp.Phred30_2P.fq --CPU 16
-
-  #Phred2 dataset
-
-  Trinity --seqType fq --max_memory 10G --left /mnt/trimming/subsamp.Phred2_1P.fq \
-  --right /mnt/trimming/subsamp.Phred2_2P.fq --CPU 16
-
-**Fix Trinity Headers**
-
-::
-
-  sed -i 's_|_-_g' /mnt/assembly/trinity_out_dir/Trinity.fasta
-
-  Control-b d #to exit tmux
-
---------------
+    Trinity --seqType fq --max_memory 10G --left /mnt/trimming/subsamp.Phred30_1P.fq \
+    --right /mnt/trimming/subsamp.Phred30_2P.fq --CPU 16
 
 
 
