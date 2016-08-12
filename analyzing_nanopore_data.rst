@@ -110,7 +110,7 @@ Take a look at a few reads with web blastn. Try to identify what species or clos
 Assemble the data
 ==================
 
-We will use the canu assembler on the full dataset:
+We could run canu assembler on the full dataset:
 ::
     canu \
         -p ecto -d ectocooler_assembly \
@@ -124,9 +124,18 @@ Or the subset of data:
         genomeSize=3.0m \
         -nanopore-raw ectocooler_subset.fastq
 
-Try both! Compare with your neighbor. 
+The full data set will take several hours. So, we will assemble the subset.
 
-From the output files, you are interested in the ``ecto.contigs.fasta`` (or ``ecto_subset.contigs.fast``) file. How many contigs do you have? How many contigs are you expecting? How many do you have?
+From the output files, you are interested in the ``ecto_subset.contigs.fasta`` file. 
+
+1. How many contigs do you have? 
+2. How many contigs are you expecting?
+
+Download the assembled contigs from the full data set:
+::
+    wget https://github.com/ljcohen/dib_ONP_MinION/blob/master/Ectocooler/ecto.contigs.fasta
+
+Compare this with your assembly. How are they different?
 
 Annotate with prokka:
 =====================
@@ -145,7 +154,13 @@ Does this meet your expectations?
 Evaluate the assembly:
 ======================
 
-Here is the command:
+Align the reads to the assembled contigs:
+
+   * index the reference genome - in this case the reference genome is our de novo assembly
+   * align, converting SAM to BAM, then sorting the BAM file
+   * index the BAM file
+   
+Here are the commands:
 ::
     bwa mem -t 4 -x ont2d ecto.contigs.fasta ectocooler_onp_all.fastq | samtools sort > ectocooler_align.sorted.bam
 
@@ -165,25 +180,30 @@ Download this closely-related species:
 
 Open all of these in IGV.
 
-What does it look like? What is the coverage like? Can you spot any problems? What is the Oxford Nanopore error profile? Does it do badly in any regions, which ones? Why?
+1. What does the alignment look like? 
+2. What is the coverage? 
+3. Can you spot any problems? 
+4. What is the Oxford Nanopore error profile? 
+5. Does it do badly in any regions, which ones? Why?
 
 Fix the assembly with nanopolish
 ================================
 
-Run this command using your reads and your assembly:
+There are Run these commands using your reads and your assembly:
 ::
-    
+    # Index the reference genome
+    bwa index draft.fa
 
-4. Evaluation of the assembly with alignment of reads to the assembled contigs
+    # Align the reads in base space
+    bwa mem -x ont2d -t 8 draft.fa reads.fa | samtools view -Sb - | samtools sort -f - reads.sorted.bam
+    samtools index reads.sorted.bam
 
-   * indexing the reference genome - in this case the reference genome is our de novo assembly
-   * aligning, converting SAM to BAM, then sorting the BAM file
-   * indexing the BAM file
+    # Copy the nanopolish model files into the working directory
+    cp /path/to/nanopolish/etc/r9-models/* .
 
-We will first use the screen command so that we can start the program and then walk away. You can close your computer and the program will keep running. Type Ctrl-A-D to detach and then again Ctrl-A-D to return to the screen later. This is a good time to get a cup of coffee or have lunch!
-::
-    screen
-
+    # Align the reads in event space
+    nanopolish eventalign -t 8 --sam -r reads.fa -b reads.sorted.bam -g draft.fa --models nanopolish_models.fofn | samtools view -Sb - | samtools sort -f - reads.eventalign.sorted.bam
+    samtools index reads.eventalign.sorted.bam
 
 References:
 ===========
