@@ -71,10 +71,8 @@ Last week we collected about 46k reads from three flowcells. Download a subset o
 ::
     cd
     wget https://s3.amazonaws.com/ngs2016/ectocooler_subset.zip
-    mkdir ectocooler_subset/
-    cd ectocooler_subset/
-    unzip ../ectocooler_subset.zip 
-    ls
+    unzip ectocooler_subset.zip 
+    ls ectocooler_subset/
     
 You should see a bunch of .fast5 files.
 
