@@ -68,26 +68,14 @@ You should see:
 Get Oxford Nanopore MinION data
 ===============================
 
-Last week we got about 46k reads. They are saved in an AWS snapshot: `snap-c4d9a35c`. First, we will create a new volume of this image then attach and mount it to the instance you just created.
+Last week we collected about 46k reads from three flowcells. Download a subset of these reads:
 
-1. In your web browser, go to the 'Volumes' tab in the AWS EC2 web page. Select 'Create Volume'.
-2. Enter the information. VERY IMPORTANT: Make sure to select the Availability Zone 'us-east-1d'. (Notice a pattern?)
-3. Attach volume with your instance ID. (Your instance should say "Running".) Note the 'Device': /dev/sdf
-4. Go to your terminal
-5. type these commands: 
+https://s3.amazonaws.com/ngs2016/ectocooler_onp_subset.zip
 
-(Tricky bit: the device above is `/dev/sdf` is the same as `/dev/xvdf` below. If your drive letter is slightly different, `a` or `d` etc, change only the last letter below, like `/dev/xvda` for `/dev/xvda`, `/dev/xvdd` for `/dev/xvdd`, etc.)
-::
-        df -h
-        sudo mount /dev/xvdf /mnt
-        sudo chown -R ubuntu:ubuntu /mnt
-        df -h
-        ls /mnt/
-       
+Here is the fastq:
 
-You should see a directory called `ectocooler/`. This directory contains >46,000 reads. DO NOT use `ls` in this directory, because there are SO many files!
 
-Now we will work with these files.
+
 
 Convert ONP data in .fast5 to .fastq and .fasta
 ===============================================
