@@ -154,13 +154,13 @@ This will give you a ectocooler_align.sorted.bam.bai
     samtools index mapped_reads.sorted
 
 Download the resulting ectocooler_align.sorted.bam, ectocooler_align.sorted.bam.bai, ecto.contigs.fasta to your local computer.
-
+::
     scp -i amazon.pem ubuntu@xxx.amazon.com:/home/ubuntu/ectocooler_align.sorted.bam .
     scp -i amazon.pem ubuntu@xxx.amazon.com:/home/ubuntu/ectocooler_align.sorted.bam.bai
     scp -i amazon.pem ubuntu@xxx.amazon.com:/home/ubuntu/ecto.contigs.fasta
 
 Download this closely-related species:
-
+::
     wget https://github.com/ljcohen/dib_ONP_MinION/blob/master/Ectocooler/Tenacibaculum_dicentrarchi_CP013671.fasta
 
 Open all of these in IGV.
