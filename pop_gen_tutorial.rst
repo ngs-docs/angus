@@ -8,7 +8,7 @@ Exercise
 Before you guys got here
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-Started with data from: "Genomic islands of speciation separate cichlid ecomorphs in an East African crater lake", Malinksy et al 2015. 
+Started with data from: "Genomic islands of speciation separate cichlid ecomorphs in an East African crater lake", Malinsky et al 2015. 
 
 Downloaded VCF from http://datadryad.org/resource/doi:10.5061/dryad.770mc
 	- http://datadryad.org/bitstream/handle/10255/dryad.101389/Massoko_Dryad_VCF_final.vcf.gz
@@ -69,7 +69,7 @@ Install some other software.::
 
 You can download the smaller data set and ancillary files from here.::
 
-	wget https://www.dropbox.com/s/5aczjsavay29cwu/tutorial_files.tar.gz
+	wget https://www.dropbox.com/s/ra4yqix0jfe1fgn/tutorial_files.tar.gz
 	tar -xzvf tutorial_files.tar.gz
 	cd tutorial_files
 
@@ -107,6 +107,29 @@ Run `smartpca`.::
 	~/EIG-6.1.3/bin/smartpca -p Massoko_smartpca.par > Massoko_smartpca.out
 
 Now that we have all the different pieces, let's start to plot the data and see what we find. Put all the results into one folder and download them locally so that we can plot and visualize them using `R`.
+
+Just to be sure, here are all the files you should have. Should things be taking too long, you can borrow my results that I generated earlier: https://www.dropbox.com/s/czrru76ku2kqwt2/results.tar.gz?dl=0 
+
+- benthic_limnetic_fst.windowed.weir.fst
+- benthic_pi.windowed.pi
+- benthic_scaffold_0_ld.hap.ld_summary_window10
+- littoral_pi.windowed.pi
+- littoral_scaffold_0_ld.hap.ld_summary_window10
+- Massoko_Dryad_VCF_final_subset_noIndels_maf05_thinned1K.1.P
+- Massoko_Dryad_VCF_final_subset_noIndels_maf05_thinned1K.1.Q
+- Massoko_Dryad_VCF_final_subset_noIndels_maf05_thinned1K.2.P
+- Massoko_Dryad_VCF_final_subset_noIndels_maf05_thinned1K.2.Q
+- Massoko_Dryad_VCF_final_subset_noIndels_maf05_thinned1K.3.P
+- Massoko_Dryad_VCF_final_subset_noIndels_maf05_thinned1K.3.Q
+- Massoko_Dryad_VCF_final_subset_noIndels_maf05_thinned1K.4.P
+- Massoko_Dryad_VCF_final_subset_noIndels_maf05_thinned1K.4.Q
+- Massoko_Dryad_VCF_final_subset_noIndels_maf05_thinned1K.5.P
+- Massoko_Dryad_VCF_final_subset_noIndels_maf05_thinned1K.5.Q
+- Massoko_Dryad_VCF_final_subset_noIndels_maf05_thinned1K.6.P
+- Massoko_Dryad_VCF_final_subset_noIndels_maf05_thinned1K.6.Q
+- Massoko_Dryad_VCF_final_subset_noIndels_maf05_thinned1K.eval
+- Massoko_Dryad_VCF_final_subset_noIndels_maf05_thinned1K.evec
+- RAxML_bestTree.Massoko
 
 We have the following data types.
 
