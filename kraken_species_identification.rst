@@ -21,7 +21,7 @@ Install Kraken dependencies
 ::
 
    sudo apt-get -y update
-   sudo apt-get install bioperl ruby build-essential curl git python-setuptools wget
+   sudo apt-get -y install bioperl ruby build-essential curl git python-setuptools wget
 
 Install Kraken
 ==============
@@ -29,7 +29,10 @@ Install Kraken
 ::
   
   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)"
-  export PATH="$USER/.linuxbrew/bin:$PATH"
+
+::
+
+  export PATH="$HOME/.linuxbrew/bin:$PATH"
   brew tap homebrew/science
   brew install kraken
   
