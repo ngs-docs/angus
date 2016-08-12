@@ -173,6 +173,7 @@ Evaluate the assembly:
 ======================
 
 Align the reads to the assembled contigs:
+
 * index the reference genome - in this case the reference genome is our de novo assembly
 * align, converting SAM to BAM, then sorting the BAM file
 * index the BAM file
