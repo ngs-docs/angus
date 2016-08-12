@@ -69,60 +69,110 @@ Get Oxford Nanopore MinION data
 ===============================
 
 Last week we collected about 46k reads from three flowcells. Download a subset of these reads:
+::
+    wget https://s3.amazonaws.com/ngs2016/ectocooler_onp_subset.zip
+    mkdir ectocooler_subset/
+    unzip ectocooler_onp_subset.zip ectocooler_subset/
+    ls ectocooler_subset/
+    
+You should see a bunch of .fast5 files.
 
-https://s3.amazonaws.com/ngs2016/ectocooler_onp_subset.zip
-
-Here is the fastq:
-
-
-
+Download the fastq:
+::
+    wget https://s3.amazonaws.com/ngs2016/ectocooler_onp_all.fastq.gz
+    gunzip ectocooler_onp_all.fastq.gz
 
 Convert ONP data in .fast5 to .fastq and .fasta
 ===============================================
 
 As the MinION instrument is collecting raw data, it is uploaded to the Metrichor server which runs the basecalling software. Reads are then downloaded as .fast5 files. Let's assess the run.
 ::
-    directory="/mnt/ectocooler"
+    cd
+    directory="ectocooler_subset/"
     poretools stats $directory
 
-This might take a while. Feel free to get up and get a cup of coffee and a snack. If this runs fast, try some other commands to see what the reads composition is. Here are the 2D reads:
+Here are the 2D reads:
 ::
     poretools stats --type 2D $directory
 
-How many reads are there? How many 2D? What is the longest read? Write these down or save this information. (`This is a report I generated last week. <https://github.com/ljcohen/dib_ONP_MinION/blob/master/Ectocooler/Ectocooler_read_stats_all3runs.ipynb>`__)
+How many reads are there? How many 2D? What is the longest read? 
 
-A directory of ~30 GB of .fast5 files is useless! Convert these to .fastq and/or .fasta files:
+This is only a subset of the reads from the whole run. All of the .fast5 files from the three flowcells we used was 30GB! (`This is a report I generated last week. <https://github.com/ljcohen/dib_ONP_MinION/blob/master/Ectocooler/Ectocooler_read_stats_all3runs.ipynb>`__)
+
+Convert your .fast5 to .fastq and/or .fasta files:
 ::
     cd ~/
-    poretools fastq $directory > ectocooler.fastq
-    poretools fasta $directory > ectocooler.fasta
+    poretools fastq $directory > ectocooler_subset.fastq
+    poretools fasta $directory > ectocooler_subset.fasta
 
 Take a look at a few reads with web blastn. Try to identify what species or closest taxa these data came from. What do you come up with?
-
-Find the closest complete genome and download. (Need more instructions here.)
 
 Assemble the data
 ==================
 
-We will use canu.
+We will use the canu assembler on the full dataset:
 ::
     canu \
         -p ecto -d ectocooler_assembly \
         genomeSize=3.0m \
-        -nanopore-raw ectocooler.fastq
+        -nanopore-raw ectocooler_onp_all.fastq
 
-This will give you a series of files output. You are interested in the ``ecto.contigs.fasta`` file. How many contigs do you have? How many contigs are you expecting? How many do you have? Is this a good assembly?
+Or the subset of data:
+::
+    canu \
+        -p ecto_subset -d ectocooler_assembly \
+        genomeSize=3.0m \
+        -nanopore-raw ectocooler_subset.fastq
 
-Where are the discontinuities? (Hint: find and look at the diagonal plot.)
+Try both! Compare with your neighbor. 
 
-https://github.com/PacificBiosciences/Bioinformatics-Training/wiki/Evaluating-Assemblies
+From the output files, you are interested in the ``ecto.contigs.fasta`` (or ``ecto_subset.contigs.fast``) file. How many contigs do you have? How many contigs are you expecting? How many do you have?
+
+Annotate with prokka:
+=====================
+Run this command to run prokka:
+::
+    prokka --outdir anno --prefix prokka contigs.fasta
+
+Check the output:
+::
+    cat ./anno/prokka.txt
+
+How many genes did Prokka find in the contigs?
+
+Does this meet your expectations?
+
+Evaluate the assembly:
+======================
+
+Here is the command:
+::
+    bwa mem -t 4 -x ont2d ecto.contigs.fasta ectocooler_onp_all.fastq | samtools sort > ectocooler_align.sorted.bam
+
+This will give you a ectocooler_align.sorted.bam.bai
+::
+    samtools index mapped_reads.sorted
+
+Download the resulting ectocooler_align.sorted.bam, ectocooler_align.sorted.bam.bai, ecto.contigs.fasta to your local computer.
+
+    scp -i amazon.pem ubuntu@xxx.amazon.com:/home/ubuntu/ectocooler_align.sorted.bam .
+    scp -i amazon.pem ubuntu@xxx.amazon.com:/home/ubuntu/ectocooler_align.sorted.bam.bai
+    scp -i amazon.pem ubuntu@xxx.amazon.com:/home/ubuntu/ecto.contigs.fasta
+
+Download this closely-related species:
+
+    wget https://github.com/ljcohen/dib_ONP_MinION/blob/master/Ectocooler/Tenacibaculum_dicentrarchi_CP013671.fasta
+
+Open all of these in IGV.
+
+What does it look like? What is the coverage like? Can you spot any problems? What is the Oxford Nanopore error profile? Does it do badly in any regions, which ones? Why?
 
 Fix the assembly with nanopolish
 ================================
 
 Run this command using your reads and your assembly:
 ::
-    make -f /home/ubuntu/.linuxbrew/Cellar/nanopolish/0.4.0/scripts/consensus.make READS=/mnt/Ectocooler/Ectocooler_all.fasta ASSEMBLY=/mnt/Ectocooler/Ectocooler_assembly/canu_3m_er08/ecto.contigs.fasta
+    
 
 4. Evaluation of the assembly with alignment of reads to the assembled contigs
 
@@ -134,17 +184,11 @@ We will first use the screen command so that we can start the program and then w
 ::
     screen
 
-Here is the command:
-::
-    /home/ubuntu/bwa-0.7.15/bwa mem -t 4 -x ont2d ecto.contigs.fasta ../Ectocooler/Ectocooler_all.fastq | /home/ubuntu/samtools-1.3.1/samtools sort > ectocooler_align.sorted.bam
 
-This will give you a mapped_reads.sorted.bam.bai
-::
-    samtools index mapped_reads.sorted
+References:
+===========
 
-Download the resulting mapped_reads.sorted.bam, mapped_reads.sorted.bam.bai and nanopore-ecoli-sc/scaffolds.fasta files and open in IGV.
-
-What does it look like? What's the coverage like? Can you spot any problems? What is the Oxford Nanopore error profile? Does it do badly in any regions, which ones? Why?
+https://github.com/PacificBiosciences/Bioinformatics-Training/wiki/Evaluating-Assemblies
 
 Acknowledgements
 ================
