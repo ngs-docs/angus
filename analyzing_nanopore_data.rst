@@ -110,7 +110,7 @@ However, you will likely get an error like this:
 ::
     _tkinter.TclError: no display name and no $DISPLAY environment variable
 
-This happens with software sometimes. `Click here to get the code to fix this problem <https://github.com/arq5x/poretools/issues/78>`__. Let's edit the first:
+This happens because you have created an image and it is trying to launch from your instance. `Click here to get the code to fix this problem <https://github.com/arq5x/poretools/issues/78>`__. Let's edit the first:
 ::
     sudo nano /usr/local/lib/python2.7/dist-packages/poretools/hist.py
 
