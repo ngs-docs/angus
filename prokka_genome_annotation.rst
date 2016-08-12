@@ -96,13 +96,24 @@ Copy the ``anno/prokka.gff`` file to your latop using the ``scp`` command
 ::
 
    scp -i your_key.pem ubuntu@your-machine-name.amazon.com:/home/ubuntu/anno/prokka.gff ~/Downloads
-   
 
-Viewing the annotated genome
+
+Load the annotated genome
 ============================
 
 * Start Artemis
-* Go to ``File -> Open``
+* Click ``OK``
+* Go to ``File -> Open File Manager``
 * Navigate to the ``~/Downloads`` folder
 * Choose the ``prokka.gff`` file yoiu copied from Amazon
+
+Browse the genome
+=================
+
+You will be overwhelmed and/or confused at first, and possibly permanently. 
+Here are some tips:
+
+* There are 3 panels: feature map (top), sequence (middle), feature list (bottom)
+* Click right-mouse-button on bottom panel and select ``Show products``
+* Zooming is done via the verrtical scroll bars in the two top panels
 
