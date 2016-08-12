@@ -69,7 +69,7 @@ Install some other software.::
 
 You can download the smaller data set and ancillary files from here.::
 
-	wget https://www.dropbox.com/s/5aczjsavay29cwu/tutorial_files.tar.gz
+	wget https://www.dropbox.com/s/ra4yqix0jfe1fgn/tutorial_files.tar.gz
 	tar -xzvf tutorial_files.tar.gz
 	cd tutorial_files
 
