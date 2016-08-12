@@ -86,7 +86,7 @@ It is a a bit like IGV but sepcifically designed for bacteria.
 You will need to install this on your laptop computer instead
 of the Amazon instance.
 
-Download: https://www.sanger.ac.uk/resources/software/artemis/#download
+Download: http://www.sanger.ac.uk/science/tools/artemis
 
 Copy the annotation to your laptop
 ==================================
