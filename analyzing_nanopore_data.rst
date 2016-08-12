@@ -56,7 +56,7 @@ We will install the *new* (thanks `@jts <https://github.com/jts>`__!) R9 version
 ::
     git clone --recursive https://github.com/jts/nanopolish.git
     cd nanopolish/
-    make -j 4
+    make -j 4 HDF5=no
     ./nanopolish_test
 
 You should see:
