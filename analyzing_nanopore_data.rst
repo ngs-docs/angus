@@ -59,6 +59,7 @@ We will install the *new* (thanks `@jts <https://github.com/jts>`__!) R9 version
     cd nanopolish/
     make -j 4 HDF5=no
     ./nanopolish_test
+    export PATH=/home/ubuntu/nanopolish:$PATH
 
 You should see:
 ::
