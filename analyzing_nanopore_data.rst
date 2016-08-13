@@ -291,19 +291,14 @@ Download this to your local computer and view in IGV. How is this different than
 References:
 ===========
 
-https://github.com/PacificBiosciences/Bioinformatics-Training/wiki/Evaluating-Assemblies
-
-http://www.nature.com/nmeth/journal/v12/n8/full/nmeth.3444.html
-
-https://github.com/ljcohen/dib_ONP_MinION
-
-http://nbviewer.jupyter.org/github/arq5x/poretools/blob/master/poretools/ipynb/test_run_report.ipynb
-
-http://porecamp.github.io/2015/timetable.html
-
-http://porecamp.github.io/2016/
+* https://github.com/PacificBiosciences/Bioinformatics-Training/wiki/Evaluating-Assemblies
+* http://www.nature.com/nmeth/journal/v12/n8/full/nmeth.3444.html
+* https://github.com/ljcohen/dib_ONP_MinION
+* http://nbviewer.jupyter.org/github/arq5x/poretools/blob/master/poretools/ipynb/test_run_report.ipynb
+* http://porecamp.github.io/2015/timetable.html
+* http://porecamp.github.io/2016/
 
 Acknowledgements
 ================
 
-This is a modified lesson by `Nick Loman <http://angus.readthedocs.io/en/2015/analyzing_nanopore_data.html>`__ from 2015, contributions by Torsten Seeman, Harriet Alexander, and Lisa Cohen.
+This is a modified lesson by `Nick Loman <http://angus.readthedocs.io/en/2015/analyzing_nanopore_data.html>`__ from 2015, contributions by Torsten Seemann, Harriet Alexander, and Lisa Cohen.
