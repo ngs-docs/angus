@@ -267,9 +267,17 @@ There are Run these commands using your reads and your assembly:
     # Align the reads in event space
     nanopolish eventalign -t 8 --sam -r ectocooler_subset.fasta -b ecto_subset.sorted.bam -g ecto.contigs.fasta --models nanopolish_models.fofn | samtools sort > ecto_subset.eventalign.sorted.bam
     samtools index ecto_subset.eventalign.sorted.bam
-    
+
+The next step might take a while, so let's run screen first:
+::
+    screen
+
+Press enter if prompted:
+::
     python /home/ubuntu/nanopolish/scripts/nanopolish_makerange.py ecto.contigs.fasta | parallel --results nanopolish.results -P 8 \
     nanopolish variants --consensus polished.{1}.fa -w {1} -r ectocooler_subset.fasta -b ecto_subset.sorted.bam -g ecto.contigs.fasta -e ecto_subset.eventalign.sorted.bam -t 4 --min-candidate-frequency 0.1 --models nanopolish_models.fofn
+
+Type Ctrl-A-D (press all three keys at the same time) to exit from your screen. Then screen -r to return to that screen.
 
 References:
 ===========
