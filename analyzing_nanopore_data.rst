@@ -247,7 +247,7 @@ Download the resulting ectocooler_align.sorted.bam, ectocooler_align.sorted.bam.
     scp -i amazon.pem ubuntu@xxx.amazon.com:/home/ubuntu/ecto_subset.sorted.bam.bai .
     scp -i amazon.pem ubuntu@xxx.amazon.com:/home/ubuntu/ecto_subset.contigs.fasta .
 
-In IGV, open ecto_subset.contigs.fasta as "Genome" and ecto_subset.sorted.bam in IGV.
+In IGV, open ecto_subset.contigs.fasta as "Genome" and ecto_subset.sorted.bam.
 
 1. What does the alignment look like? 
 2. What is the coverage? 
