@@ -232,7 +232,7 @@ and then we expand the tarball::
 
 add RapMap to the path so we can just call the executable.::
   
-  > export PATH=/home/ubuntu/RapMap-v0.3.1_CentOS5/bin:$PATH
+  > export PATH=/home/ubuntu/RapMap-0.3.1_CentOS5/bin:$PATH
 
   
 """""""""""""""""""""""""
