@@ -201,7 +201,8 @@ Download the pre-assembled contigs from the full data set:
 
 Annotate with prokka:
 =====================
-Use this command to run prokka on the contigs you assembled with a subset of your data:
+
+Yesterday, you used Torsten's program, `prokka <http://angus.readthedocs.io/en/2016/prokka_genome_annotation.html>`__ to annotate a bacterial genome. We will use this to annotate these new contigs we have assembled.
 ::
     prokka --outdir anno_subset --prefix ecto_subset_prokka ecto_subset.contigs.fasta
 
