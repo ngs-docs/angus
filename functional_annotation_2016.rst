@@ -34,3 +34,31 @@ Start by seeing where you Volume is hanging out
 ::
 lsblk
 
+You will get results that look like:
+
+.. image:: figures/lsblk.jpg
+   :width: 50%
+
+This tells you information you need to mount the volume. In this case, the mount point is /dev/xvdf. Change this if your mount point is different.
+::
+sudo mkdir /mnt/dammit_dbs
+sudo mount /dev/xvdf /mnt/dammit_dbs/
+
+Check out all the files you now have
+::
+ls /mnt/dammit_dbs/
+
+Now start the install process.  First install linux brew, as described `here <http://angus.readthedocs.io/en/2016/linuxbrew_install.html>`__.
+
+Next, we have a handy script stored on the volume with the rest of the install commands.
+::
+cp /mnt/dammit_dbs/install.sh .
+
+Take a look at it
+::
+cat install.sh
+
+And run it (this will take ~10 minutes)
+::
+./install.sh
+
