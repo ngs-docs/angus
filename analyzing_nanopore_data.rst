@@ -271,7 +271,7 @@ Run these commands using your reads and your assembly:
     nanopolish eventalign -t 4 --sam -r ectocooler_subset.fasta -b ecto_subset.sorted.bam -g ecto_subset.contigs.fasta --models nanopolish_models.fofn | samtools sort > ecto_subset.eventalign.sorted.bam
     samtools index ecto_subset.eventalign.sorted.bam
 
-The next step takes a long time, so let's run screen first:
+The next step takes a long time (several hours), so let's run screen first:
 ::
     screen
 
