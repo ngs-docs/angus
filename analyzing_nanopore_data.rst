@@ -130,7 +130,7 @@ Run the command again:
     cd
     poretools hist --theme-bw --min-length 1000 --max-length 40000 --saveas ecto_hist.png $directory 
     
-You will get another error now, but it's ok (ignore this):
+You will get another error now, but it's OK (ignore this):
 ::
     INFO:poretools:100 files processed.
     /usr/lib/pymodules/python2.7/matplotlib/font_manager.py:1236: UserWarning: findfont: Font family ['sans-serif'] not found. Falling back to Bitstream Vera Sans 
@@ -282,10 +282,17 @@ Type Ctrl-A-D (press all three keys at the same time) to exit from your screen. 
 References:
 ===========
 
+https://github.com/ljcohen/dib_ONP_MinION
+
+http://www.nature.com/nmeth/journal/v12/n8/full/nmeth.3444.html
+
 https://github.com/PacificBiosciences/Bioinformatics-Training/wiki/Evaluating-Assemblies
 
 http://nbviewer.jupyter.org/github/arq5x/poretools/blob/master/poretools/ipynb/test_run_report.ipynb
 
+http://porecamp.github.io/2015/timetable.html
+
+http://porecamp.github.io/2016/
 
 Acknowledgements
 ================
