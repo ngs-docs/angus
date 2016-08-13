@@ -183,7 +183,10 @@ We will use the program canu to assemble the reads. The full data set will take 
     genomeSize=3.0m \
     -nanopore-raw ectocooler_subset_2D.fastq
 
-From the output files, you are interested in the ``ecto_subset.contigs.fasta`` file. 
+From the output files, you are interested in the ``ecto_subset.contigs.fasta`` file. Let's copy that file to the home directory:
+::
+    cd
+    cp ectocooler_assembly/ecto_subset.contigs.fasta .
 
 1. Which is a better assembly, mixture or 2D?
 2. How many contigs do you have? 
@@ -199,7 +202,7 @@ Annotate with prokka:
 =====================
 Use this command to run prokka on the contigs you assembled with a subset of your data:
 ::
-    prokka --outdir anno_subset --prefix ecto_subset_prokka ectocooler_assembly/ecto_subset.contigs.fasta
+    prokka --outdir anno_subset --prefix ecto_subset_prokka ecto_subset.contigs.fasta
 
 Check the output:
 ::
@@ -225,7 +228,11 @@ Align the reads to the assembled subset of contigs. (Or use the contigs assemble
 * align, converting SAM to BAM, then sorting the BAM file
 * index the BAM file
    
-Here are the commands:
+Index:
+::
+    
+    bwa index draft.fa
+
 ::
     bwa mem -t 4 -x ont2d ectocooler_assembly/ecto_subset.contigs.fasta ectocooler_subset_2D.fastq | samtools sort > ectocooler_subset_align.sorted.bam
 
@@ -257,10 +264,10 @@ Fix the assembly with nanopolish
 There are Run these commands using your reads and your assembly:
 ::
     # Index the reference genome
-    bwa index draft.fa
+    bwa index ecto_subset.contigs.fasta
 
     # Align the reads in base space
-    bwa mem -x ont2d -t 8 draft.fa reads.fa | samtools view -Sb - | samtools sort -f - reads.sorted.bam
+    bwa mem -x ont2d -t 8 ecto_subset.contigs.fasta ectocooler_subset_2D.fasta | samtools view -Sb - | samtools sort -f - reads.sorted.bam
     samtools index reads.sorted.bam
 
     # Copy the nanopolish model files into the working directory
