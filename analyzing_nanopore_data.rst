@@ -264,7 +264,7 @@ There are Run these commands using your reads and your assembly:
     cp /path/to/nanopolish/etc/r9-models/* .
 
     # Align the reads in event space
-    nanopolish eventalign -t 8 --sam -r ectocooler_subset.fasta -b ecto_subset.sorted.bam -g ecto.contigs.fasta --models nanopolish_models.fofn | samtools sort > ecto_subset.eventalign.sorted.bam
+    /home/ubuntu/nanopolish/nanopolish eventalign -t 8 --sam -r ectocooler_subset.fasta -b ecto_subset.sorted.bam -g ecto.contigs.fasta --models nanopolish_models.fofn | samtools sort > ecto_subset.eventalign.sorted.bam
     samtools index ecto_subset.eventalign.sorted.bam
 
 References:
