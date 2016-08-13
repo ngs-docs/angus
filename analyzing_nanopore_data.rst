@@ -265,11 +265,11 @@ There are Run these commands using your reads and your assembly:
     cp /path/to/nanopolish/etc/r9-models/* .
 
     # Align the reads in event space
-    /home/ubuntu/nanopolish/nanopolish eventalign -t 8 --sam -r ectocooler_subset.fasta -b ecto_subset.sorted.bam -g ecto.contigs.fasta --models nanopolish_models.fofn | samtools sort > ecto_subset.eventalign.sorted.bam
+    nanopolish eventalign -t 8 --sam -r ectocooler_subset.fasta -b ecto_subset.sorted.bam -g ecto.contigs.fasta --models nanopolish_models.fofn | samtools sort > ecto_subset.eventalign.sorted.bam
     samtools index ecto_subset.eventalign.sorted.bam
     
     python /home/ubuntu/nanopolish/scripts/nanopolish_makerange.py ecto.contigs.fasta | parallel --results nanopolish.results -P 8 \
-    nanopolish variants --consensus polished.{1}.fa -w {1} -r reads.fa -b ecto_subset.sorted.bam -g ecto.contigs.fasta -e ecto_subset.eventalign.sorted.bam -t 4 --min-candidate-frequency 0.1 --models nanopolish_models.fofn
+    nanopolish variants --consensus polished.{1}.fa -w {1} -r ectocooler_subset.fasta -b ecto_subset.sorted.bam -g ecto.contigs.fasta -e ecto_subset.eventalign.sorted.bam -t 4 --min-candidate-frequency 0.1 --models nanopolish_models.fofn
 
 References:
 ===========
