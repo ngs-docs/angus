@@ -222,13 +222,17 @@ Using RapMap
 Obtaining RapMap
 """"""""""""""""
 
-Just as with STAR, we'll grab the latest RapMap binary from GitHub.  I'm the maintainer of RapMap, and I update the software on a somewhat regular basis (though not as often as Alex updates STAR).  If you're going to start a new analysis using RapMap, it's probably worth checking for the latest version.  We can grab the current pre-compiled binary like so:::
+Just as with STAR, we'll grab the latest RapMap binary from GitHub.  I'm the maintainer of RapMap, and I update the software on a somewhat regular basis (though not as often as Alex updates STAR).  If you're going to start a new analysis using RapMap, it's probably worth checking for the latest version.  We can grab the latest pre-compiled binary like so:::
 
-  > wget --no-check-certificate https://github.com/COMBINE-lab/RapMap/releases/download/v0.3.0/RapMap-v0.3.0_linux_x86-64.tar.gz
+  > wget --no-check-certificate 'https://drive.google.com/uc?export=download&id=0B3iS9-xjPftjbkJoeVFscnUwc00' -O RapMap-v0.3.1_CentOS5.tar.gz
 
 and then we expand the tarball::
 
-  > tar xzvf RapMap-v0.3.0_linux_x86-64.tar.gz
+  > tar xzvf RapMap-v0.3.1_CentOS5.tar.gz 
+
+add RapMap to the path so we can just call the executable.::
+  
+  > export PATH=/home/ubuntu/RapMap-0.3.1_CentOS5/bin:$PATH
 
   
 """""""""""""""""""""""""
@@ -237,7 +241,7 @@ Building the RapMap Index
 
 Like STAR, RapMap will need an index in order to map reads efficiently.  Unlike STAR, however, RapMap will build an index over the transcriptome rather than the entire genome.  We can build RapMap's index as follows:::
 
-  > ~/RapMap-v0.3.0_CentOS5/bin/rapmap quasiindex -t ref/dmel-all-transcript-r6.12.fasta -i rapmap_index
+  > rapmap quasiindex -t ref/dmel-all-transcript-r6.12.fasta -i rapmap_index
 
 Unlike STAR, RapMap will create the index folder if it doesn't exist yet, so there's no need to create it first.
 
@@ -249,7 +253,7 @@ Mapping the reads with RapMap
 Now, we'll map the same set of reads we aligned above with STAR, but we'll map them to the transcriptome using RapMap.  The commands we'll use for this is::
 
   > mkdir mappings
-  > ~/RapMap-v0.3.0_CentOS5/bin/rapmap quasimap -i rapmap_index -t 8 -1 <(gunzip -c /mnt/reads/ORE_sdE3_r1_GTGGCC_L004_R1_001.fastq.gz) \
+  > rapmap quasimap -i rapmap_index -t 8 -1 <(gunzip -c /mnt/reads/ORE_sdE3_r1_GTGGCC_L004_R1_001.fastq.gz) \
   -2 <(gunzip -c /mnt/reads/ORE_sdE3_r1_GTGGCC_L004_R2_001.fastq.gz) | samtools -Sb -@4 - > mappings/mapped_reads.bam
 
 Though RapMap itself has far fewer options than STAR, there's still quite a bit going on above.  Let's unpack this command; first the RapMap options:
@@ -259,7 +263,7 @@ Though RapMap itself has far fewer options than STAR, there's still quite a bit 
 * **-1** tells RapMap where to find the first set of reads for a paired-end library
 * **-2** tells RapMap where to find the second set of reads for a paired-end library
 
-By default, RapMap will write it's output, in SAM format, to ``stdout``.  Here, this is what we want, but if you want the output to be redirected to a file, that can be done with the ``-o`` option.  One thing to make note of here is the ``<()`` syntax we're using to provide the read files.  As with STAR above, RapMap is expecting the input in FASTA/Q format (an upcoming version will read from compressed files directly, but it's not *quite* fully-baked yet).  However, we achieve this differently than STAR.  Here, we use `process substitution <http://tldp.org/LDP/abs/html/process-sub.html>`_ to directly create a pipe from which RapMap will read the decompressed sequences.  The process substitution syntax runs the command within the ``<()`` in a separate process, and writes the output to a file descriptor (e.g. ``/dev/fd/<n>``).  RapMap reads the input from this file descriptor as if it were a normal file.  Generally, this process substitution syntax is *insanely* useful.  I highly recommend you learn to become comfortable with it, as it can make many processing tasks much easier.
+By default, RapMap will write it's output, in SAM format, to ``stdout``.  Here, this is what we want, but if you want the output to be redirected to a file, that can be done with the ``-o`` option.  One thing to make note of here is the ``<()`` syntax we're using to provide the read files.  Actually, this version of RapMap can accept compressed files directly, but I just wanted to show off the process substitution syntax.  However, we achieve this differently than STAR.  Here, we use `process substitution <http://tldp.org/LDP/abs/html/process-sub.html>`_ to directly create a pipe from which RapMap will read the decompressed sequences.  The process substitution syntax runs the command within the ``<()`` in a separate process, and writes the output to a file descriptor (e.g. ``/dev/fd/<n>``).  RapMap reads the input from this file descriptor as if it were a normal file.  Generally, this process substitution syntax is *insanely* useful.  I highly recommend you learn to become comfortable with it, as it can make many processing tasks much easier.
 
 After the RapMap command we are piping the output to ``samtools``.  Since RapMap does not (yet) have the built-in ability to write to BAM format, we're using ``samtools`` to convert the SAM output to BAM format on-the-fly.  The command we're using tells ``samtools`` to read input as SAM and write output as BAM, to use up to 4 threads for compression (don't worry that 8 + 4 > 8).  The ``-`` tells ``samtools`` to read from stdin and it, by default, writes its output to stdout.  We then pipe this output directly to the file we wish to create.  Now, we wait for RapMap to finish.  It should be a bit faster than STAR, though in my testing on the AWS instance, it's bottlenecked by the SAM -> BAM conversion, and so won't be able to make use of all the cores we're allowing it to.
 
