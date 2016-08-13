@@ -230,15 +230,14 @@ Align the reads to the assembled subset of contigs. (Or use the contigs assemble
    
 Index:
 ::
-    
-    bwa index draft.fa
+    bwa index ecto_subset.contigs.fasta
 
 ::
-    bwa mem -t 4 -x ont2d ectocooler_assembly/ecto_subset.contigs.fasta ectocooler_subset_2D.fastq | samtools sort > ectocooler_subset_align.sorted.bam
-
+    bwa mem -x ont2d -t 8 ecto_subset.contigs.fasta ectocooler_subset_2D.fasta | samtools view -Sb - | samtools sort -f - ecto_subset.sorted.bam
+    
 This will give you a ectocooler_align.sorted.bam.bai
 ::
-    samtools index mapped_reads.sorted
+    samtools index ecto_subset.sorted.bam
 
 Download the resulting ectocooler_align.sorted.bam, ectocooler_align.sorted.bam.bai, ecto.contigs.fasta to your local computer.
 ::
@@ -263,12 +262,6 @@ Fix the assembly with nanopolish
 
 There are Run these commands using your reads and your assembly:
 ::
-    # Index the reference genome
-    bwa index ecto_subset.contigs.fasta
-
-    # Align the reads in base space
-    bwa mem -x ont2d -t 8 ecto_subset.contigs.fasta ectocooler_subset_2D.fasta | samtools view -Sb - | samtools sort -f - reads.sorted.bam
-    samtools index reads.sorted.bam
 
     # Copy the nanopolish model files into the working directory
     cp /path/to/nanopolish/etc/r9-models/* .
