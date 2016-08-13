@@ -49,7 +49,6 @@ Thursday 8/11    * 9:15am lecture, `Intro to genome assembly <http://www.slidesh
                  * 1:15pm Genome assembly practical (continued)
                  * 2:15pm lecture, De Bruijn graph assembly (Shaun)
                  * 7:15pm Assembly challenge :doc:`MacManes_AssemblyQuest` (Matt)
-                 * 8:00pm Finish up student presentations
 
 Friday 8/12      * 9:15am `Debrief of Assembly Quest marathon <_static/AssemQuest_Debriefing.pptx>`__ (Matt)
                  * 9:30am lecture, `Bacterial genome annotation <_static/bacterial_genome_annotation.pdf>`__ (Torst)
@@ -58,6 +57,7 @@ Friday 8/12      * 9:15am `Debrief of Assembly Quest marathon <_static/AssemQues
                  * 1:15pm tutorial, Intro to R :doc:`Rintro` (Amanda)
                  * 6:00pm Thai food take out at Mcrary Hall
                  * 7:30pm `Mars Rover Challenge! <http://sjackman.ca/mars-rover/>`__ (Shaun)
+                 * 8:30pm Finish up student presentations
 
 Saturday 8/13    * 9:15am Population genetics `lecture <_static/pop_genomics_singhal.pdf>`__ and practical (Sonal)
                  * 10:30am practical, :doc:`pop_gen_tutorial` (Sonal)
