@@ -255,10 +255,12 @@ In IGV, open ecto_subset.contigs.fasta as "Genome" and ecto_subset.sorted.bam.
 4. What is the Oxford Nanopore error profile? 
 5. Does it do badly in any regions, which ones? Why?
 
-Fix the assembly with nanopolish
+Fix the assembly using nanopolish
 ================================
 
-There are Run these commands using your reads and your assembly:
+The program `nanopolish <https://github.com/jts/nanopolish>`__ will align your reads to the assembly and compute a consensus. This will take some time.
+
+Run these commands using your reads and your assembly:
 ::
 
     # Copy the nanopolish model files into the working directory
@@ -268,7 +270,7 @@ There are Run these commands using your reads and your assembly:
     nanopolish eventalign -t 4 --sam -r ectocooler_subset.fasta -b ecto_subset.sorted.bam -g ecto_subset.contigs.fasta --models nanopolish_models.fofn | samtools sort > ecto_subset.eventalign.sorted.bam
     samtools index ecto_subset.eventalign.sorted.bam
 
-The next step might take a while, so let's run screen first:
+The next step takes a long time, so let's run screen first:
 ::
     screen
 
@@ -278,6 +280,12 @@ Press enter if prompted:
     nanopolish variants --consensus polished.{1}.fa -w {1} -r ectocooler_subset.fasta -b ecto_subset.sorted.bam -g ecto_subset.contigs.fasta -e ecto_subset.eventalign.sorted.bam -t 1 --min-candidate-frequency 0.1 --models nanopolish_models.fofn
 
 Type Ctrl-A-D (press all three keys at the same time) to exit from your screen. Then screen -r to return to that screen.
+
+Once this has finished, merge files and make a new "polished" assembly: 
+::
+    python nanopolish_merge.py polished.*.fa > polished_ecto_subset.fa
+    
+Download this to your local computer and view in IGV. How is this different than the original assembly? Is it better?
 
 References:
 ===========
