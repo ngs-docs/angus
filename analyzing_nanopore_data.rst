@@ -284,7 +284,7 @@ Type Ctrl-A-D (press all three keys at the same time) to exit from your screen. 
 
 Once this has finished, merge files and make a new "polished" assembly: 
 ::
-    python nanopolish_merge.py polished.*.fa > polished_ecto_subset.fa
+    python /home/ubuntu/nanopolish/scripts/nanopolish_merge.py polished.*.fa > polished_ecto_subset.fa
     
 Download this to your local computer and view in IGV. How is this different than the original assembly? Is it better?
 
