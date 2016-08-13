@@ -288,6 +288,12 @@ Once this has finished, merge files and make a new "polished" assembly:
     
 Download this to your local computer and view in IGV. How is this different than the original assembly? Is it better?
 
+Run prokka again:
+::
+    prokka --outdir anno_subset_polished --prefix ecto_subset_polished_prokka polished_ecto_subset.fa
+    cat ./anno_subset_polished/ecto_subset_polished_prokka.txt
+    
+
 References:
 ===========
 
