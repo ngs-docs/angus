@@ -148,7 +148,7 @@ Download the file to your local computer and take a look at the image. What does
 ::
     scp -i amazon.pem ubuntu@xxx.amazon.com:/home/ubuntu/ecto_hist.png .
 
-This is only a subset of the reads from the whole run. (`Click here for the stats from the full data set. <https://github.com/ljcohen/dib_ONP_MinION/blob/master/Ectocooler/Ectocooler_read_stats_all3runs.ipynb>`__)
+This is only a subset of the reads from the whole run. (`Click here for stats from the full data set. <https://github.com/ljcohen/dib_ONP_MinION/blob/master/Ectocooler/Ectocooler_read_stats_all3runs.ipynb>`__)
 
 Convert your .fast5 to .fastq and .fasta files:
 ::
