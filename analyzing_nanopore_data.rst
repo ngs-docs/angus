@@ -234,7 +234,7 @@ Index:
 
 Align
 ::
-    bwa mem -x ont2d -t 8 ecto_subset.contigs.fasta ectocooler_subset_2D.fasta | samtools view -Sb - | samtools sort -f - ecto_subset.sorted.bam
+    bwa mem -x ont2d -t 8 ecto_subset.contigs.fasta ectocooler_subset_2D.fasta | samtools sort > ecto_subset.sorted.bam
     
 This will give you an indexed bam file:
 ::
@@ -242,15 +242,11 @@ This will give you an indexed bam file:
 
 Download the resulting ectocooler_align.sorted.bam, ectocooler_align.sorted.bam.bai, ecto.contigs.fasta to your local computer.
 ::
-    scp -i amazon.pem ubuntu@xxx.amazon.com:/home/ubuntu/ectocooler_align.sorted.bam .
-    scp -i amazon.pem ubuntu@xxx.amazon.com:/home/ubuntu/ectocooler_align.sorted.bam.bai
-    scp -i amazon.pem ubuntu@xxx.amazon.com:/home/ubuntu/ecto.contigs.fasta
+    scp -i amazon.pem ubuntu@xxx.amazon.com:/home/ubuntu/ecto_subset.sorted.bam .
+    scp -i amazon.pem ubuntu@xxx.amazon.com:/home/ubuntu/ecto_subset.sorted.bam.bai .
+    scp -i amazon.pem ubuntu@xxx.amazon.com:/home/ubuntu/ecto_subset.contigs.fasta .
 
-Download this closely-related species:
-::
-    wget https://github.com/ljcohen/dib_ONP_MinION/blob/master/Ectocooler/Tenacibaculum_dicentrarchi_CP013671.fasta
-
-Open all of these in IGV.
+In IGV, open ecto_subset.contigs.fasta as "Genome" and ecto_subset.sorted.bam in IGV.
 
 1. What does the alignment look like? 
 2. What is the coverage? 
@@ -268,8 +264,8 @@ There are Run these commands using your reads and your assembly:
     cp /path/to/nanopolish/etc/r9-models/* .
 
     # Align the reads in event space
-    nanopolish eventalign -t 8 --sam -r reads.fa -b reads.sorted.bam -g draft.fa --models nanopolish_models.fofn | samtools view -Sb - | samtools sort -f - reads.eventalign.sorted.bam
-    samtools index reads.eventalign.sorted.bam
+    nanopolish eventalign -t 8 --sam -r ectocooler_subset.fasta -b ecto_subset.sorted.bam -g ecto.contigs.fasta --models nanopolish_models.fofn | samtools sort > ecto_subset.eventalign.sorted.bam
+    samtools index ecto_subset.eventalign.sorted.bam
 
 References:
 ===========
