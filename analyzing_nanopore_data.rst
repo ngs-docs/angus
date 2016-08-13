@@ -265,7 +265,7 @@ There are Run these commands using your reads and your assembly:
     cp /path/to/nanopolish/etc/r9-models/* .
 
     # Align the reads in event space
-    nanopolish eventalign -t 8 --sam -r ectocooler_subset.fasta -b ecto_subset.sorted.bam -g ecto_subset.contigs.fasta --models nanopolish_models.fofn | samtools sort > ecto_subset.eventalign.sorted.bam
+    nanopolish eventalign -t 4 --sam -r ectocooler_subset.fasta -b ecto_subset.sorted.bam -g ecto_subset.contigs.fasta --models nanopolish_models.fofn | samtools sort > ecto_subset.eventalign.sorted.bam
     samtools index ecto_subset.eventalign.sorted.bam
 
 The next step might take a while, so let's run screen first:
@@ -274,19 +274,19 @@ The next step might take a while, so let's run screen first:
 
 Press enter if prompted:
 ::
-    python /home/ubuntu/nanopolish/scripts/nanopolish_makerange.py ecto_subset.contigs.fasta | parallel --results nanopolish.results -P 8 \
-    nanopolish variants --consensus polished.{1}.fa -w {1} -r ectocooler_subset.fasta -b ecto_subset.sorted.bam -g ecto_subset.contigs.fasta -e ecto_subset.eventalign.sorted.bam -t 4 --min-candidate-frequency 0.1 --models nanopolish_models.fofn
+    python /home/ubuntu/nanopolish/scripts/nanopolish_makerange.py ecto_subset.contigs.fasta | parallel --results nanopolish.results -P 4 \
+    nanopolish variants --consensus polished.{1}.fa -w {1} -r ectocooler_subset.fasta -b ecto_subset.sorted.bam -g ecto_subset.contigs.fasta -e ecto_subset.eventalign.sorted.bam -t 1 --min-candidate-frequency 0.1 --models nanopolish_models.fofn
 
 Type Ctrl-A-D (press all three keys at the same time) to exit from your screen. Then screen -r to return to that screen.
 
 References:
 ===========
 
-https://github.com/ljcohen/dib_ONP_MinION
+https://github.com/PacificBiosciences/Bioinformatics-Training/wiki/Evaluating-Assemblies
 
 http://www.nature.com/nmeth/journal/v12/n8/full/nmeth.3444.html
 
-https://github.com/PacificBiosciences/Bioinformatics-Training/wiki/Evaluating-Assemblies
+https://github.com/ljcohen/dib_ONP_MinION
 
 http://nbviewer.jupyter.org/github/arq5x/poretools/blob/master/poretools/ipynb/test_run_report.ipynb
 
