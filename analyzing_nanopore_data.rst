@@ -232,10 +232,11 @@ Index:
 ::
     bwa index ecto_subset.contigs.fasta
 
+Align
 ::
     bwa mem -x ont2d -t 8 ecto_subset.contigs.fasta ectocooler_subset_2D.fasta | samtools view -Sb - | samtools sort -f - ecto_subset.sorted.bam
     
-This will give you a ectocooler_align.sorted.bam.bai
+This will give you an indexed bam file:
 ::
     samtools index ecto_subset.sorted.bam
 
