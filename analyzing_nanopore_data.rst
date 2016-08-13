@@ -91,7 +91,7 @@ Download the fastq and fasta:
     wget https://s3.amazonaws.com/ngs2016/ectocooler_all_2D.fastq
     wget https://s3.amazonaws.com/ngs2016/ectocooler_all_2D.fasta
 
-Convert ONP data in .fast5 to .fastq and .fasta
+Assess the Data and Convert .fast5 to .fastq and .fasta
 ===============================================
 
 As the MinION instrument is collecting raw data, it is uploaded to the Metrichor server which runs the basecalling software. Reads are then downloaded as .fast5 files. Let's assess the run.
