@@ -254,7 +254,7 @@ Now, we'll map the same set of reads we aligned above with STAR, but we'll map t
 
   > mkdir mappings
   > rapmap quasimap -i rapmap_index -t 8 -1 <(gunzip -c /mnt/reads/ORE_sdE3_r1_GTGGCC_L004_R1_001.fastq.gz) \
-  -2 <(gunzip -c /mnt/reads/ORE_sdE3_r1_GTGGCC_L004_R2_001.fastq.gz) | samtools -Sb -@4 - > mappings/mapped_reads.bam
+  -2 <(gunzip -c /mnt/reads/ORE_sdE3_r1_GTGGCC_L004_R2_001.fastq.gz) | samtools view -Sb -@4 - > mappings/mapped_reads.bam
 
 Though RapMap itself has far fewer options than STAR, there's still quite a bit going on above.  Let's unpack this command; first the RapMap options:
 
