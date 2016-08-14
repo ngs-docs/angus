@@ -155,6 +155,8 @@ Great; now, we're ready to grab our aligner and align some reads ... almost!  Fo
   > wc -l <(gunzip -c /mnt/reads/ORE_sdE3_r1_GTGGCC_L004_R1_001.fastq.gz)
   > wc -l <(gunzip -c /mnt/reads/ORE_sdE3_r1_GTGGCC_L004_R2_001.fastq.gz)
 
+Now, we're *actually* ready to do our alignment / mapping.
+
 Using STAR
 --------------
 
