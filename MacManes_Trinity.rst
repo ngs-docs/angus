@@ -116,41 +116,35 @@ Transrate: http://hibberdlab.com/transrate/installation.html
 ::
 
 
-  mkdir $HOME/busco
-  cd $HOME/busco
+    mkdir $HOME/busco && cd $HOME/busco
 
-  #Download busco database
+    #Download busco database
 
-  tmux new -s busco
+    tmux new -s busco
 
-  curl -LO http://busco.ezlab.org/files/vertebrata_buscos.tar.gz
-  tar -zxf vertebrata_buscos.tar.gz
+    curl -LO http://busco.ezlab.org/files/vertebrata_buscos.tar.gz
+    tar -zxf vertebrata_buscos.tar.gz
 
-  busco -m trans -in $HOME/assembly/trinity_out_dir/Trinity.fasta \
-  --cpu 30 -l vertebrata -o trin.assem
+    busco -m trans -in $HOME/assembly/trinity_out_dir/Trinity.fasta \
+    --cpu 30 -l vertebrata -o trin.assem
 
-  less run*/short*
+    less run*/short*
 
-  Control-b d #to exit tmux
-
-
---------------
+    Control-b d #to exit tmux
 
 **Run Transrate**
 
 ::
 
-  tmux new -s transrate
+    tmux new -s transrate
 
-  mkdir $HOME/transrate
-  cd $HOME/transrate
-  transrate -a $HOME/assembly/trinity_out_dir/Trinity.fasta -t 16 \
-  --left $HOME/trimming/read1.cor.fq \
-  --right $HOME/trimming/read2.cor.fq
+    mkdir $HOME/transrate
+    cd $HOME/transrate
+    transrate -a $HOME/assembly/trinity_out_dir/Trinity.fasta -t 16 \
+    --left $HOME/trimming/read1.cor.fq \
+    --right $HOME/trimming/read2.cor.fq
 
-  Control-b d #to exit tmux
-
------------------------------------------
+    Control-b d #to exit tmux
 
 
 ==================================
