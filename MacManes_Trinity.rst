@@ -53,7 +53,9 @@ Transrate: http://hibberdlab.com/transrate/installation.html
 
 ::
 
-    gem install transrate --user
+    curl -LO https://bintray.com/artifact/download/blahah/generic/transrate-1.0.3-linux-x86_64.tar.gz
+    tar -zxf transrate-1.0.3-linux-x86_64.tar.gz
+    PATH=$PATH:transrate-1.0.3-linux-x86_64/
 
 
 **INSTALL BLAST**
