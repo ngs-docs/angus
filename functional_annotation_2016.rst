@@ -9,37 +9,12 @@ This requires a few new steps in our tried and true Amazon EC2 instance protocol
 2. Choose c4.2xlarge - Click Next:Configure Instance.
 3. **New Step** For Subnet, select the one that ends in "us-east-1c". Click Next: Add Storage.
 4. Change Size 8Gb to 100Gb.
+5. **New Step** Click add Volume. Enter snapshot 'snap-6df6088a'. Make it 100Gb as well. And change to /dev/sdf
 5. Click review and launch.
-
-Now go to the EC2 dashboard and click on Volumes.  
-1. Create a new volume
-2. Make the size 20gb 
-3. For the availability zone, enter us-east-1c
-4. For snapshot id, enter ``snap-6df6088a``. A little drop down should say "Angus2016DammitDBs", select the dropdown option.
-4. Click create
-
-Now we need to attach the volume to the instance. While still in the Volume part of the dashboard:
-1. Actions-> Attach Volume
-2. Click on instance, it should give you a single option, the instance you are already running
-3. Click attach
 
 Now you can SSH into your instance as normal.
 
-
-================================================
-Make your Volume available
-================================================
-
-Start by seeing where you Volume is hanging out
-::
-lsblk
-
-You will get results that look like:
-
-.. image:: figures/lsblk.jpg
-   :width: 50%
-
-This tells you information you need to mount the volume. In this case, the mount point is /dev/xvdf. Change this if your mount point is different.
+Make your Volume available. We made the mount point is /dev/xvdf. 
 ::
 sudo mkdir /mnt/dammit_dbs
 sudo mount /dev/xvdf /mnt/dammit_dbs/
