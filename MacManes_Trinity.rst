@@ -69,6 +69,8 @@ Transrate: http://hibberdlab.com/transrate/installation.html
     mkdir $HOME/reads && cd /$HOME/reads/
     curl -LO https://s3.amazonaws.com/NYGC_August2015/raw_data/382-Kidney_ACTTGA_BC6PR5ANXX_L008_001.R1.fastq.gz
     curl -LO https://s3.amazonaws.com/NYGC_August2015/raw_data/382-Kidney_ACTTGA_BC6PR5ANXX_L008_001.R2.fastq.gz
+    zcat 382-Kidney_ACTTGA_BC6PR5ANXX_L008_001.R1.fastq.gz | head -8000000 > read1.fq
+    zcat 382-Kidney_ACTTGA_BC6PR5ANXX_L008_001.R2.fastq.gz | head -8000000 > read2.fq
 
 
 **Correct Reads**
@@ -76,8 +78,8 @@ Transrate: http://hibberdlab.com/transrate/installation.html
 ::
 
     run_rcorrector.pl -k 31 -t 30 \
-    -1 $HOME/reads/382-Kidney_ACTTGA_BC6PR5ANXX_L008_001.R1.fastq.gz \
-    -2 $HOME/reads/382-Kidney_ACTTGA_BC6PR5ANXX_L008_001.R2.fastq.gz
+    -1 $HOME/reads/read1.fq \
+    -2 $HOME/reads/read2.fq
 
 
 
@@ -114,8 +116,8 @@ Transrate: http://hibberdlab.com/transrate/installation.html
 ::
 
 
-  mkdir /mnt/busco
-  cd /mnt/busco
+  mkdir $HOME/busco
+  cd $HOME/busco
 
   #Download busco database
 
