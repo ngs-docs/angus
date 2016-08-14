@@ -19,7 +19,20 @@ Transrate: http://hibberdlab.com/transrate/installation.html
 ::
 
     sudo apt-get -y install build-essential tmux git gcc make g++ python-dev unzip \
-                            default-jre libcurl4-openssl-dev zlib1g-dev python-pip ruby2.0
+                            default-jre libcurl4-openssl-dev zlib1g-dev python-pip
+
+
+**Install Ruby**  Ruby is a computer language like Python or Perl.
+
+::
+
+    cd
+    wget https://keybase.io/mpapis/key.asc
+    gpg --import key.asc
+    \curl -sSL https://get.rvm.io | bash -s stable --ruby
+    source /home/ubuntu/.rvm/scripts/rvm
+
+
 
 **Install LinuxBrew**
 
