@@ -150,7 +150,10 @@ We'll put all of these in a folder called ``ref``, and, since they're fairly sma
   > gunzip *.gz
   > cd ..
   
-Great; now, we're ready to grab our aligner and align some reads!
+Great; now, we're ready to grab our aligner and align some reads ... almost!  For a reason that I'd be happy to explain if anyone is actually curious, we have to "warm up" the file's we'll be aligning.  We can do this as follows::
+
+  > wc -l <(gunzip -c /mnt/reads/ORE_sdE3_r1_GTGGCC_L004_R1_001.fastq.gz)
+  > wc -l <(gunzip -c /mnt/reads/ORE_sdE3_r1_GTGGCC_L004_R2_001.fastq.gz)
 
 Using STAR
 --------------
