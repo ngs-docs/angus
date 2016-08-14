@@ -14,7 +14,7 @@ This requires a few new steps in our tried and true Amazon EC2 instance protocol
 4. Change Size 8Gb to 100Gb.
 5. **New Step** Click add Volume. 
 
-   - Enter snapshot 'snap-6df6088a'
+   - Enter snapshot 'snap-d2d00056'
    - Change to 100Gb 
    - And change to /dev/sdf
 
@@ -27,12 +27,12 @@ Make your Volume available.
 
 We made the mount point /dev/xvdf.  ::
 
-  sudo mkdir /mnt/dammit_dbs
-  sudo mount /dev/xvdf /mnt/dammit_dbs/
+  sudo mkdir /mnt/dbs
+  sudo mount /dev/xvdf /mnt/dbs/
 
 Check out all the files you now have ::
 
-  ls /mnt/dammit_dbs/
+  ls /mnt/dbs/
 
 Installs
 ========
@@ -73,8 +73,14 @@ If all is well, it will say "All dependencies satisfied!"
 
 And InterProScan (the second part of the lesson) needs java::
 
-	sudo apt-get install default-jre
-	sudo apt-get install default-jdk
+	sudo add-apt-repository ppa:webupd8team/java
+	sudo apt-get update
+	sudo apt-get install oracle-java8-installer
+
+This will give you a weird pink thing, where you hit enter for OK, left arrow to select Yes, then enter again.
+
+Now set paths::
+
 	export JAVA_HOME=/usr/lib/jvm/java-8-oracle
 	export PATH=$PATH:/usr/lib/jvm/java-8-oracle
 
@@ -82,13 +88,8 @@ Dammit
 ======
 Dammit is now installed but it doesn't have any databases to compare anything to. These are also stored on the volume. Next step, tell dammit how to use the databases on the volume::
 
-	dammit databases --database-dir /mnt/dammit_dbs/ --full --busco-group eukaryota
+	dammit databases --database-dir /mnt/dbs/dammit_dbs/ --full --busco-group eukaryota
 
-I think I missed one and I'm too lazy to make a new snapshot, lets grab it::
-
-    dammit databases --database-dir /mnt/dammit_dbs/ --full --busco-group eukaryota --install
-
-If you didn't have access to the volume, this would download all the dbs and install them (30-45 minutes of time)
 
 Get example data and unzip::
 
@@ -97,10 +98,11 @@ Get example data and unzip::
 	grep -c '^>' cdna_nointrons_utrs.fa
 
 Dammit takes quite a while on the whole set, so lets extract a smaller set to practice with::
-	head -500 cdna_nointrons_utrs.fa > practice.fa
+	head -3322 cdna_nointrons_utrs.fa > practice.fa
+	grep -c '^>' practice.fa
 
 Run annotation::
-	dammit annotate practice.fa --database-dir /mnt/dammit_dbs/ --busco-group eukaryota --n_threads 15
+	dammit annotate practice.fa --database-dir /mnt/dbs/dammit_dbs/ --busco-group eukaryota --n_threads 15
 
 You will get results from 6 different analyses:
 #. Pfam-A
@@ -115,7 +117,7 @@ InterProScan
 
 Dammit runs a lot of good software, but you may want to also assign GO terms. InterProScan is one way to do this. It takes a while to install, so I put a copy on the volume. Lets add it to our path::
 
-	export PATH=$PATH:/mnt/dammit_dbs/interproscan-5.19-58.0
+	export PATH=$PATH:/mnt/dbs/interproscan-5.19-58.0
 
 And see the documentation::
 
