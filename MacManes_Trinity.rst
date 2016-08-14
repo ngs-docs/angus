@@ -75,7 +75,7 @@ Transrate: http://hibberdlab.com/transrate/installation.html
 
 ::
 
-    rcorrector.pl -k 31 -t 16 \
+    run_rcorrector.pl -k 31 -t 30 \
     -1 $HOME/reads/382-Kidney_ACTTGA_BC6PR5ANXX_L008_001.R1.fastq.gz \
     -2 $HOME/reads/382-Kidney_ACTTGA_BC6PR5ANXX_L008_001.R2.fastq.gz
 
@@ -87,9 +87,10 @@ Transrate: http://hibberdlab.com/transrate/installation.html
 
     curl -LO https://s3.amazonaws.com/gen711/TruSeq3-PE.fa
 
-    skewer -l 25 -m pe -o skewerQ2 --mean-quality 2 --end-quality 2 -t 16 \
+    skewer -l 25 -m pe -o skewerQ2 --mean-quality 2 --end-quality 2 -t 30 \
     -x TruSeq3-PE.fa \
-    $HOME/reads/root_S13.R1.fq $HOME/reads/root_S13.R2.fq
+    $HOME/reads/382-Kidney_ACTTGA_BC6PR5ANXX_L008_001.R1.cor.fq.gz \
+    $HOME/reads/382-Kidney_ACTTGA_BC6PR5ANXX_L008_001.R2.cor.fq.gz
 
 
 **Run Trinity**
@@ -102,10 +103,9 @@ Transrate: http://hibberdlab.com/transrate/installation.html
 
     tmux new -s trinity
 
-    #Phred30 dataset
 
-    Trinity --seqType fq --max_memory 10G --left /mnt/trimming/subsamp.Phred30_1P.fq \
-    --right /mnt/trimming/subsamp.Phred30_2P.fq --CPU 16
+    Trinity --seqType fq --max_memory 40G --left $HOME/reads/skewerQ2-trimmed-pair1.fastq \
+    --right $HOME/reads/skewerQ2-trimmed-pair2.fastq --CPU 30
 
 
 
