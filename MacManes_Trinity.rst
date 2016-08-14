@@ -145,7 +145,7 @@ Transrate: http://hibberdlab.com/transrate/installation.html
 
 
     mkdir $HOME/transrate && cd $HOME/transrate
-    transrate -a $HOME/assembly/trinity_out_dir/Trinity.fasta -t 16 \
+    transrate -a $HOME/assembly/trinity_out_dir/Trinity.fasta -t 30 \
     --left $HOME/reads/read1.cor.fq \
     --right $HOME/reads/read2.cor.fq
 
