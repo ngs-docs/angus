@@ -126,9 +126,8 @@ Transrate: http://hibberdlab.com/transrate/installation.html
   curl -LO http://busco.ezlab.org/files/vertebrata_buscos.tar.gz
   tar -zxf vertebrata_buscos.tar.gz
 
-  python3 /home/ubuntu/BUSCO_v1.1b1/BUSCO_v1.1b1.py \
-  -m trans -in /mnt/assembly/trinity_out_dir/Trinity.fasta \
-  --cpu 16 -l vertebrata -o trin.assemblty
+  busco -m trans -in $HOME/assembly/trinity_out_dir/Trinity.fasta \
+  --cpu 30 -l vertebrata -o trin.assem
 
   less run*/short*
 
@@ -143,11 +142,11 @@ Transrate: http://hibberdlab.com/transrate/installation.html
 
   tmux new -s transrate
 
-  mkdir /mnt/transrate
-  cd /mnt/transrate
-  $HOME/transrate-1.0.1-linux-x86_64/transrate -a /mnt/assembly/trinity_out_dir/Trinity.fasta -t 16 \
-  --left /mnt/trimming/subsamp.Phred30_1P.fq \
-  --right /mnt/trimming/subsamp.Phred30_2P.fq
+  mkdir $HOME/transrate
+  cd $HOME/transrate
+  transrate -a $HOME/assembly/trinity_out_dir/Trinity.fasta -t 16 \
+  --left $HOME/trimming/read1.cor.fq \
+  --right $HOME/trimming/read2.cor.fq
 
   Control-b d #to exit tmux
 
