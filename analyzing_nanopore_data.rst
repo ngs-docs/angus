@@ -271,7 +271,7 @@ Run these commands using your reads and your assembly:
     nanopolish eventalign -t 4 --sam -r ectocooler_subset.fasta -b ecto_subset.sorted.bam -g ecto_subset.contigs.fasta --models nanopolish_models.fofn | samtools sort > ecto_subset.eventalign.sorted.bam
     samtools index ecto_subset.eventalign.sorted.bam
 
-The next step takes a long time, so let's run screen first:
+The next step takes a long time (several hours), so let's run screen first:
 ::
     screen
 
@@ -284,9 +284,15 @@ Type Ctrl-A-D (press all three keys at the same time) to exit from your screen. 
 
 Once this has finished, merge files and make a new "polished" assembly: 
 ::
-    python nanopolish_merge.py polished.*.fa > polished_ecto_subset.fa
+    python /home/ubuntu/nanopolish/scripts/nanopolish_merge.py polished.*.fa > polished_ecto_subset.fa
     
 Download this to your local computer and view in IGV. How is this different than the original assembly? Is it better?
+
+Run prokka again:
+::
+    prokka --outdir anno_subset_polished --prefix ecto_subset_polished_prokka polished_ecto_subset.fa
+    cat ./anno_subset_polished/ecto_subset_polished_prokka.txt
+    
 
 References:
 ===========
