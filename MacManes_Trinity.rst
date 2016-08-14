@@ -56,8 +56,6 @@ Transrate: http://hibberdlab.com/transrate/installation.html
     gem install transrate --user
 
 
-
-
 **INSTALL Augustus, BUSCO, Trinity, RCorrector, Skewer**
 
 ::
