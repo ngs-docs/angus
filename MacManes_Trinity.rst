@@ -118,6 +118,8 @@ Transrate: http://hibberdlab.com/transrate/installation.html
 
     mkdir $HOME/busco && cd $HOME/busco
 
+    export AUGUSTUS_CONFIG_PATH=/home/ubuntu/.linuxbrew/Cellar/augustus/3.2.2_1/libexec/config/
+
     #Download busco database
 
     tmux new -s busco
