@@ -86,8 +86,7 @@ Wed 8/17         * 9:15am lecture, sourcing NCBI data including SRA :doc:`howe-n
 
 Thursday 8/18    * 9:15am Open source your scripts with GitHub (Lisa) :doc:`CTB-github`
                  * 1:15pm Assessment (Bob Drost)
-                 * 2pm: :doc:`functional_annotation` (Ming)
-                 * BBQ Dinner on the island
+                 * 2pm: :doc:`functional_annotation_2016` (Ming)
                  * Evening: Ask the Expert (All)
 
 Friday 8/19      * 9:15-9:45 closing lecture (Meg & Matt)
