@@ -334,4 +334,12 @@ From the number of alignments, you can see that the multimapping rate of RapMap 
 	 There are 36,968,390 reads in the original file.
 
 
-**TERMINATE YOUR INSTANCE!!!**
+"""""""""""""""""""""""""""""""
+Preparing for tomorrow's lesson
+"""""""""""""""""""""""""""""""
+
+Tomorrow, rather than just dealing with a single pair of read files, we'll quantify *all* of our samples using the ultra-fast quantification tool, Salmon.  In order to prepare your Amazon instance, you'll have to "warm up" the volume with the data.  To do this, you'll have to run the following command, and let it execute until it completes::
+  
+  >sudo fio --filename=/dev/xvdf --rw=randread --bs=128k --iodepth=32 --ioengine=libaio --direct=1 --name=volume-initialize
+
+This will tell the instance to "touch" all of the blocks on this volume, which will make sure they are physically present, and not just "accessible".  This command make take 1.5 - 2 hours to complete.  Once this is done, we will **stop** the instance.  *Note:*  **Do not terminate your instance, stop it instead**, otherwise you'll loose all of the work that was just done to warm the volume.

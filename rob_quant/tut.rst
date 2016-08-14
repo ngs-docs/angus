@@ -33,11 +33,7 @@ First, install the "build tools" (compilers etc. that may be needed)::
 Mounting the reads
 ------------------
 
-We have prepared (thanks; `@monsterbashseq! <https://ljcohen.github.io/>`_) an Amazon volume from which you can load the reads directly.  When we created our AWS instance, we attached the volume with the reads to ``/dev/xvdf``.  We have to *mount* this device.  First, we'll create a place to mount it::
-
-  > sudo mkdir -p /mnt/reads
-
-Now, we actualy mount the device at the mount point::
+We have prepared (thanks; `@monsterbashseq! <https://ljcohen.github.io/>`_) an Amazon volume from which you can load the reads directly.  When we created our AWS instance, we attached the volume with the reads to ``/dev/xvdf``.  We have to *mount* this device.  Since we're using the volume from yesterday, a place for the volume `/mnt/reads` already exists. Here, we just mount the device at the mount point::
 
   >sudo mount /dev/xvdf /mnt/reads
 
