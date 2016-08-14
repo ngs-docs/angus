@@ -56,11 +56,19 @@ Transrate: http://hibberdlab.com/transrate/installation.html
     gem install transrate --user
 
 
+**INSTALL BLAST**
+
+::
+
+    curl -LO ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.3.0/ncbi-blast-2.3.0+-x64-linux.tar.gz
+    tar -zxf ncbi-blast-2.3.0+-x64-linux.tar.gz
+    PATH=$HOME/ncbi-blast-2.3.0+/bin:$PATH
+
 **INSTALL Augustus, BUSCO, Trinity, RCorrector, Skewer**
 
 ::
 
-    brew install gcc augustus emboss busco Trinity Rcorrector Skewer
+    brew install gcc augustus emboss Trinity Rcorrector Skewer busco --without-blast
 
 
 **Download data**: For this lab, we'll be using
@@ -122,7 +130,6 @@ Transrate: http://hibberdlab.com/transrate/installation.html
 
     #Download busco database
 
-    tmux new -s busco
 
     curl -LO http://busco.ezlab.org/files/vertebrata_buscos.tar.gz
     tar -zxf vertebrata_buscos.tar.gz
@@ -131,8 +138,6 @@ Transrate: http://hibberdlab.com/transrate/installation.html
     --cpu 30 -l vertebrata -o trin.assem
 
     less run*/short*
-
-    Control-b d #to exit tmux
 
 **Run Transrate**
 
