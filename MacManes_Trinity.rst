@@ -67,17 +67,17 @@ Transrate: http://hibberdlab.com/transrate/installation.html
 ::
 
     mkdir $HOME/reads && cd /$HOME/reads/
-    curl -LO https://s3.amazonaws.com/NYGC_August2015/raw_data/2329-Kidney_ACAGTG_BC6PR5ANXX_L008_001.R1.fastq.gz
-    curl -LO https://s3.amazonaws.com/NYGC_August2015/raw_data/2329-Kidney_ACAGTG_BC6PR5ANXX_L008_001.R2.fastq.gz
+    curl -LO https://s3.amazonaws.com/NYGC_August2015/raw_data/382-Kidney_ACTTGA_BC6PR5ANXX_L008_001.R1.fastq.gz
+    curl -LO https://s3.amazonaws.com/NYGC_August2015/raw_data/382-Kidney_ACTTGA_BC6PR5ANXX_L008_001.R2.fastq.gz
 
 
 **Correct Reads**
 
 ::
 
-    perl run_rcorrector.pl -k 31 -t 26 \
-    -1 $HOME/reads/2329-Kidney_ACAGTG_BC6PR5ANXX_L008_001.R1.fastq.gz \
-    -2 $HOME/reads/2329-Kidney_ACAGTG_BC6PR5ANXX_L008_001.R2.fastq.gz
+    rcorrector.pl -k 31 -t 16 \
+    -1 $HOME/reads/382-Kidney_ACTTGA_BC6PR5ANXX_L008_001.R1.fastq.gz \
+    -2 $HOME/reads/382-Kidney_ACTTGA_BC6PR5ANXX_L008_001.R2.fastq.gz
 
 
 
