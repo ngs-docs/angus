@@ -60,7 +60,7 @@ Transrate: http://hibberdlab.com/transrate/installation.html
 
 ::
 
-    brew install augustus emboss busco Trinity Rcorrector Skewer
+    brew install gcc augustus emboss busco Trinity Rcorrector Skewer
 
 
 **Download data**: For this lab, we'll be using
@@ -91,8 +91,8 @@ Transrate: http://hibberdlab.com/transrate/installation.html
 
     skewer -l 25 -m pe -o skewerQ2 --mean-quality 2 --end-quality 2 -t 30 \
     -x TruSeq3-PE.fa \
-    $HOME/reads/382-Kidney_ACTTGA_BC6PR5ANXX_L008_001.R1.cor.fq.gz \
-    $HOME/reads/382-Kidney_ACTTGA_BC6PR5ANXX_L008_001.R2.cor.fq.gz
+    $HOME/reads/read1.cor.fq \
+    $HOME/reads/read2.cor.fq
 
 
 **Run Trinity**
