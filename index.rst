@@ -71,7 +71,7 @@ Sunday 8/14      * Free Day
 
 Monday 8/15      * 9:15am , Transcriptome assembly & evaluation `lecture <_static/MacManes_transcriptome.pptx>`__ and  :doc:`MacManes_Trinity` (Matt)
                  * 1:15pm Alignment / Mapping `lecture <http://robpatro.com/redesign/AlignmentAndMapping.pdf>`__ and `practical <http://angus.readthedocs.io/en/2016/rob_map/tut.html>`__ (Rob)
-                 * 7pm: Twitter, Blogging and Bioinformatics (All)
+                 * 7pm: Twitter, Blogging and Bioinformatics, Finish up student presentations! (All)
 
 Tuesday 8/16     * 9:15am Transcript quantification `lecture <http://robpatro.com/redesign/Quantification.pdf>`__ and `practical <http://angus.readthedocs.io/en/2016/rob_quant/tut.html>`__ (Rob)
                  * 10:30am Visualizing RNA-Seq counts with Degust: <http://www.vicbioinformatics.com/degust/> (Torst)
