@@ -7,6 +7,13 @@ During this lab, you'll learn how to *align* RNA-seq reads to the genome using `
 how to *map* RNA-seq reads directly to the transcriptome using `RapMap <https://github.com/COMBINE-lab/RapMap>`_.
 
 
+Preparing the instance (creating and attaching a volume)
+--------------------------------------------------------
+
+Log into your AWS console, and go to the `Volumes` tab.  Create a new volume (set the size equal to 100GiB).  Set the Snapshot ID to `snap-996e1b03`, and make sure to set the zone appropriately.  
+
+Now, create a new instance (**c4.2xlarge**), and navigate to the `storage` tab.  Click `Edit storage`, and then `Add New Volume`.  From the `device` column, select `/dev/sdf`, and in the `Snapshot` column, enter our snapshot id.  When you're ready, click `Review and Launch`.
+
 Log into your instance
 -----------------------
 
