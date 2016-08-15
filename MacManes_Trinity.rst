@@ -61,7 +61,8 @@ BUSCO: http://busco.ezlab.org/
 
     curl -LO https://bintray.com/artifact/download/blahah/generic/transrate-1.0.3-linux-x86_64.tar.gz
     tar -zxf transrate-1.0.3-linux-x86_64.tar.gz
-    PATH=$PATH:transrate-1.0.3-linux-x86_64/
+    echo 'export PATH=$PATH:transrate-1.0.3-linux-x86_64/"' >> ~/.profile
+
 
 
 **INSTALL BLAST**
@@ -70,7 +71,7 @@ BUSCO: http://busco.ezlab.org/
 
     curl -LO ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.3.0/ncbi-blast-2.3.0+-x64-linux.tar.gz
     tar -zxf ncbi-blast-2.3.0+-x64-linux.tar.gz
-    PATH=$HOME/ncbi-blast-2.3.0+/bin:$PATH
+    echo 'export PATH="$HOME/ncbi-blast-2.3.0+/bin:$PATH"' >> ~/.profile
 
 **INSTALL Augustus, BUSCO, Trinity, RCorrector, Skewer**
 
@@ -131,8 +132,6 @@ BUSCO: http://busco.ezlab.org/
     --right $HOME/reads/skewerQ2-trimmed-pair2.fastq --CPU 30
 
 
-
-
 **Run BUSCO for assemblies**: There are Eukaryote, Metazoa, Arthropod, Vertebrate, Plant references for use with other genomes.
 
 ::
@@ -156,7 +155,6 @@ BUSCO: http://busco.ezlab.org/
 **Run Transrate**
 
 ::
-
 
     mkdir $HOME/transrate && cd $HOME/transrate
     transrate -a $HOME/assembly/trinity_out_dir/Trinity.fasta -t 30 \
