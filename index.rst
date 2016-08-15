@@ -69,9 +69,9 @@ Sunday 8/14      * Free Day
                  * Brunch at McCrary 12pm - 1pm*
                  * Dinner field trip to Kalamazoo
 
-Monday 8/15      * 9:15am lecture/tutorial, Transcriptome assembly and evaluation :doc:`MacManes_Trinity` (Matt)
+Monday 8/15      * 9:15am , Transcriptome assembly & evaluation `lecture <_static/MacManes_transcriptome.pptx>`__ and  :doc:`MacManes_Trinity` (Matt)
                  * 1:15pm Alignment / Mapping `lecture <http://robpatro.com/redesign/AlignmentAndMapping.pdf>`__ and `practical <http://angus.readthedocs.io/en/2016/rob_map/tut.html>`__ (Rob)
-                 * 7pm: Twitter, Blogging and Bioinformatics (All)
+                 * 7pm: Twitter, Blogging and Bioinformatics, Finish up student presentations! (All)
 
 Tuesday 8/16     * 9:15am Transcript quantification `lecture <http://robpatro.com/redesign/Quantification.pdf>`__ and `practical <http://angus.readthedocs.io/en/2016/rob_quant/tut.html>`__ (Rob)
                  * 10:30am Visualizing RNA-Seq counts with Degust: <http://www.vicbioinformatics.com/degust/> (Torst)
@@ -80,7 +80,7 @@ Tuesday 8/16     * 9:15am Transcript quantification `lecture <http://robpatro.co
                  * 7:00pm Journal Club - need article idea (All)
 
 Wed 8/17         * 9:15am lecture, sourcing NCBI data including SRA :doc:`howe-ncbi` (Meg);
-                 * 10:15am More fun with R (Ming)
+                 * 10:15am `More fun with R <https://github.com/MingChen0919/KBS_workshop_Michigan_2016/blob/master/fun_with_R.md>`__ (Ming)
                  * 1:00pm AVAILABLE SLOT
                  * Evening: Choose your own adventure! :doc:`MacManes_adventure_week2` (Matt)
 
