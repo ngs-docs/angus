@@ -98,19 +98,21 @@ Get example data and unzip::
 	grep -c '^>' cdna_nointrons_utrs.fa
 
 Dammit takes quite a while on the whole set, so lets extract a smaller set to practice with::
+
 	head -3322 cdna_nointrons_utrs.fa > practice.fa
 	grep -c '^>' practice.fa
 
 Run annotation::
+
 	dammit annotate practice.fa --database-dir /mnt/dbs/dammit_dbs/ --busco-group eukaryota --n_threads 15
 
 You will get results from 6 different analyses:
-#. Pfam-A
-#. Rfam
-#. OrthoDB
-#. BUSCO
-#. Uniref90
-#. Transdecoder
+* Pfam-A
+* Rfam
+* OrthoDB
+* BUSCO
+* Uniref90
+* Transdecoder
 
 InterProScan
 ============
