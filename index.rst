@@ -113,10 +113,11 @@ Instructors:
 * Rob Patro `@nomad421 <https://twitter.com/nomad421?lang=en>`__.
 * Ian Dworkin `@IanDworkin <https://twitter.com/IanDworkin?lang=en>`__.
 * Sonal Singhal
+* Amanda Charbonneau `@procrastinomics <https://twitter.com/procrastinomics?lang=en>`__.
+
 
 TAs:
 
-* Amanda Charbonneau `@procrastinomics <https://twitter.com/procrastinomics?lang=en>`__.
 * Lisa Cohen `@monsterbashseq <https://twitter.com/monsterbashseq?lang=en>`__.
 * Will Pitchers `@steeljawpanda <https://twitter.com/steeljawpanda?lang=en>`__.
 * Ming Chen
