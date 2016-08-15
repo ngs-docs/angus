@@ -129,7 +129,9 @@ And see the documentation::
 
 Notes on installing Interproscan
 ================================
+
 If the volume is no longer available and you need to install IPS, then here's how to do it. Java needs to be installed (see above), then download and unpack the most recent version.::
+
 	wget ftp://ftp.ebi.ac.uk/pub/software/unix/iprscan/5/5.19-58.0/interproscan-5.19-58.0-64-bit.tar.gz
 	tar xvzf interproscan-5.19-58.0-64-bit.tar.gz
 
