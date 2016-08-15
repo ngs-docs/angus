@@ -2,10 +2,16 @@
 Trinity and Transcriptome Evaluation
 ================================================
 
+
+**Launch a BIG maching** Maybe a c4.8xl that has 32 cores and 60GB RAM
+
 Trinity: http://trinityrnaseq.github.io/
 
 Transrate: http://hibberdlab.com/transrate/installation.html
 
+RCorrector: https://github.com/mourisl/Rcorrector
+
+BUSCO: http://busco.ezlab.org/
 
 
 **Update Software**
@@ -76,12 +82,21 @@ Transrate: http://hibberdlab.com/transrate/installation.html
 **Download data**: For this lab, we'll be using
 ::
 
+    #Open tumx window
+
+    tmux new -s trinity
+
     mkdir $HOME/reads && cd /$HOME/reads/
     curl -LO https://s3.amazonaws.com/NYGC_August2015/raw_data/382-Kidney_ACTTGA_BC6PR5ANXX_L008_001.R1.fastq.gz
     curl -LO https://s3.amazonaws.com/NYGC_August2015/raw_data/382-Kidney_ACTTGA_BC6PR5ANXX_L008_001.R2.fastq.gz
     zcat 382-Kidney_ACTTGA_BC6PR5ANXX_L008_001.R1.fastq.gz | head -8000000 > read1.fq
     zcat 382-Kidney_ACTTGA_BC6PR5ANXX_L008_001.R2.fastq.gz | head -8000000 > read2.fq
 
+
+    # control-b d to get out of tmux window.
+
+
+    tmux attach -t trinity #to get back in tmux window.
 
 **Correct Reads**
 
@@ -111,13 +126,10 @@ Transrate: http://hibberdlab.com/transrate/installation.html
 
     mkdir $HOME/assembly && cd $HOME/assembly
 
-    #Open tumx window
-
-    tmux new -s trinity
-
 
     Trinity --seqType fq --max_memory 40G --left $HOME/reads/skewerQ2-trimmed-pair1.fastq \
     --right $HOME/reads/skewerQ2-trimmed-pair2.fastq --CPU 30
+
 
 
 
