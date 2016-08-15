@@ -71,7 +71,8 @@ Sunday 8/14      * Free Day
 
 Monday 8/15      * 9:15am , Transcriptome assembly & evaluation `lecture <_static/MacManes_transcriptome.pptx>`__ and  :doc:`MacManes_Trinity` (Matt)
                  * 1:15pm Alignment / Mapping `lecture <http://robpatro.com/redesign/AlignmentAndMapping.pdf>`__ and `practical <http://angus.readthedocs.io/en/2016/rob_map/tut.html>`__ (Rob)
-                 * 7pm: Twitter, Blogging and Bioinformatics, Finish up student presentations! (All)
+                 * 7:15pm: Twitter, Blogging and Bioinformatics (All)
+                 * 8:00pm: Finish up student presentations! (All)
 
 Tuesday 8/16     * 9:15am Transcript quantification `lecture <http://robpatro.com/redesign/Quantification.pdf>`__ and `practical <http://angus.readthedocs.io/en/2016/rob_quant/tut.html>`__ (Rob)
                  * 10:30am Visualizing RNA-Seq counts with Degust: <http://www.vicbioinformatics.com/degust/> (Torst)
@@ -107,18 +108,18 @@ Instructors:
 
 * Meg Staton `@HardwoodGenomic <https://twitter.com/HardwoodGenomic?lang=en>`__.
 * Matt MacManes `@macmanes <https://twitter.com/macmanes?lang=en>`__.
-* Ian Dworkin `@IanDworkin <https://twitter.com/IanDworkin?lang=en>`__.
+* Torsten Seemann `@torstenseemann <https://twitter.com/torstenseemann?lang=en>`__.
 * Shaun Jackman `@sjackman <https://twitter.com/sjackman?lang=en>`__.
 * Rob Patro `@nomad421 <https://twitter.com/nomad421?lang=en>`__.
-* Torsten Seemann `@torstenseemann <https://twitter.com/torstenseemann?lang=en>`__.
+* Ian Dworkin `@IanDworkin <https://twitter.com/IanDworkin?lang=en>`__.
 * Sonal Singhal
 
 TAs:
 
-* Amanda Charbonneau
-* Lisa Cohen
+* Amanda Charbonneau `@procrastinomics <https://twitter.com/procrastinomics?lang=en>`__.
+* Lisa Cohen `@monsterbashseq <https://twitter.com/monsterbashseq?lang=en>`__.
+* Will Pitchers `@steeljawpanda <https://twitter.com/steeljawpanda?lang=en>`__.
 * Ming Chen
-* Will Pitchers
 
 
 She Who Drives Many Places:
@@ -240,8 +241,12 @@ Blogs
 
   Nick Loman's lab notebook
 
+* http://TheGenomeFactory.blogspot.com/
+
+  The Genome Factory (Torsten Seemann)
+
 Material from previous years
-==========================
+============================
 
 .. toctree::
    :maxdepth: 5
