@@ -108,17 +108,17 @@ Installing Salmon
 Since the latest (pre-release) salmon is not yet a binary available in linuxbrew, we'll grab a pre-compiled binary directly.
 We can download it using ``wget`` like so::
 
-  > wget --no-check-certificate 'https://drive.google.com/uc?export=download&id=0B3iS9-xjPftjaFQwYUlvQnN0UFU' -O Salmon-v0.7.0.tgz
+  > wget --no-check-certificate 'https://github.com/COMBINE-lab/salmon/releases/download/v0.7.0/Salmon-0.7.0_linux_x86_64.tar.gz' 
 
 .. note::  Hopefully the above will change if I can cut 0.7.0 before the course.
 
 and we can untar and unzip the resulting file with the following command::
 
-  > tar xzf Salmon-v0.7.0.tgz
+  > tar xzf Salmon-0.7.0_linux_x86_64.tar.gz
 
 Finally, so that we can simply type ``salmon`` to execute salmon, we'll add the appropriate directory to our path variable again.::
 
-  > echo 'export PATH="/home/ubuntu/SalmonBeta-0.7.0-pre-july27_CentOS5/bin:$PATH"' >>~/.bashrc
+  > echo 'export PATH="/home/ubuntu/SalmonBeta-0.7.0_linux_x86_64/bin:$PATH"' >>~/.bashrc
 
 Running Salmon
 --------------
