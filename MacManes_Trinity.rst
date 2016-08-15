@@ -62,6 +62,7 @@ BUSCO: http://busco.ezlab.org/
     curl -LO https://bintray.com/artifact/download/blahah/generic/transrate-1.0.3-linux-x86_64.tar.gz
     tar -zxf transrate-1.0.3-linux-x86_64.tar.gz
     echo 'export PATH=$PATH:"$HOME/transrate-1.0.3-linux-x86_64/"' >> ~/.profile
+    source ~/.profile
 
 
 
@@ -72,6 +73,7 @@ BUSCO: http://busco.ezlab.org/
     curl -LO ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.3.0/ncbi-blast-2.3.0+-x64-linux.tar.gz
     tar -zxf ncbi-blast-2.3.0+-x64-linux.tar.gz
     echo 'export PATH="$HOME/ncbi-blast-2.3.0+/bin:$PATH"' >> ~/.profile
+    source ~/.profile
 
 **INSTALL Augustus, BUSCO, Trinity, RCorrector, Skewer**
 
