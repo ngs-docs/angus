@@ -61,7 +61,7 @@ BUSCO: http://busco.ezlab.org/
 
     curl -LO https://bintray.com/artifact/download/blahah/generic/transrate-1.0.3-linux-x86_64.tar.gz
     tar -zxf transrate-1.0.3-linux-x86_64.tar.gz
-    echo 'export PATH=$PATH:$HOME/transrate-1.0.3-linux-x86_64/"' >> ~/.profile
+    echo 'export PATH=$PATH:"$HOME/transrate-1.0.3-linux-x86_64/"' >> ~/.profile
 
 
 
