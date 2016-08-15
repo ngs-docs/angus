@@ -118,7 +118,7 @@ and we can untar and unzip the resulting file with the following command::
 
 Finally, so that we can simply type ``salmon`` to execute salmon, we'll add the appropriate directory to our path variable again.::
 
-  > echo 'export PATH="SalmonBeta-0.7.0-pre-july27_CentOS5/bin:$PATH"' >>~/.bashrc
+  > echo 'export PATH="/home/ubuntu/SalmonBeta-0.7.0-pre-july27_CentOS5/bin:$PATH"' >>~/.bashrc
 
 Running Salmon
 --------------
