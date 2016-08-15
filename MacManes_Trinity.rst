@@ -3,7 +3,7 @@ Trinity and Transcriptome Evaluation
 ================================================
 
 
-**Launch a BIG maching** Maybe a c4.8xl that has 32 cores and 60GB RAM
+**Launch a BIG maching** Maybe a c4.8xl that has 32 cores and 60GB RAM. Get 100Gb Hard Drive
 
 Trinity: http://trinityrnaseq.github.io/
 
