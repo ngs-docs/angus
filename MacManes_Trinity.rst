@@ -70,7 +70,7 @@ Transrate: http://hibberdlab.com/transrate/installation.html
 
 ::
 
-    brew install gcc augustus emboss Trinity Rcorrector Skewer busco --without-blast
+    brew install gcc augustus emboss Trinity --without-express Rcorrector Skewer busco --without-blast
 
 
 **Download data**: For this lab, we'll be using
