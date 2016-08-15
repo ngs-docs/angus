@@ -69,7 +69,7 @@ Sunday 8/14      * Free Day
                  * Brunch at McCrary 12pm - 1pm*
                  * Dinner field trip to Kalamazoo
 
-Monday 8/15      * 9:15am , Transcriptome assembly & evaluation `lecture <_static/MacManes_transcriptome.pdf>`__ and  :doc:`MacManes_Trinity` (Matt)
+Monday 8/15      * 9:15am , Transcriptome assembly & evaluation `lecture <_static/MacManes_transcriptome.pptx>`__ and  :doc:`MacManes_Trinity` (Matt)
                  * 1:15pm Alignment / Mapping `lecture <http://robpatro.com/redesign/AlignmentAndMapping.pdf>`__ and `practical <http://angus.readthedocs.io/en/2016/rob_map/tut.html>`__ (Rob)
                  * 7pm: Twitter, Blogging and Bioinformatics (All)
 
