@@ -4,44 +4,44 @@ Log into Amazon with a small session and do [the normal linuxbrew install](http:
 
 To download SRA data on the CLI, we need the SRA Toolkit. Lets check installed it
 
-~~~{.bash}
+````
 brew install sratoolkit
-~~~
+```
 
 
 There is [lots of documentation on how to use the toolkit](http://www.ncbi.nlm.nih.gov/Traces/sra/?view=toolkit_doc). Lets fetch some data
 
-~~~{.bash}
+```
 prefetch SRR1778760
-~~~
+```
 
 This automatically downloads the data to `~/ncbi/public/sra/`. You can download multipe files
 
-~~~{.bash}
+```
 prefetch SRR1778760 SRR1778761
-~~~
+```
 
 It knows what is already stored locally and doesn't get that one, just the new one. If you need the files to be stored somewhere other than `~/ncbi/public/sra/`, you can use the very weird interactive configuration menu:
 
-~~~{.bash}
+```
 vdb-config -i
-~~~
+```
 
 We still have files in .sra format, which is an NCBI SRA thing (I.E. no other tools will deal with it). So we need to convert to a more standard format, usually fastq or fasta.
 
 Convert to fastq in current directory 
 
-~~~{.bash}
+```
 fastq-dump SRR1778760
 ls
-~~~
+```
 
 Check out the file this yielded. This is actually still a bit odd - it arrived in one file. Often we prefer paired reads to be broken out into two files: a file with all the forward reads and a file with all the reverse reads.  The sra toolkit will let you do this:
 
-~~~{.bash}
+```
 fastq-dump --split-files SRR1778760
 ls
-~~~
+```
 
 
 ##EUtils
@@ -130,7 +130,9 @@ What changed?
 
 How could we get this data into our newton account? With curl! (This is one of those instances where wget will work but it will save your data in a weird file name, so curl is better).
 
+```
 	curl "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=CP000962&rettype=gb&retmode=text" > CP000962.gb
+```
 	
 ##Many nucleotide records
 What if you want a whole bunch of records? Lets try a large set - go get a list of GI accessions from NCBI and scp them to your Amazon instance.
@@ -142,7 +144,7 @@ We know how to:
 
 These aren't great options if you have 300 records. However, this turns out to be very useful when you know how to write a bash script, or write some python code or R code or perl code or something that does loops. Here's is a bash script:
 
-~~~{.bash}
+```
 cat GIs.txt | while read line
 do
   echo $line
@@ -152,7 +154,7 @@ do
   echo "${url}"
   curl $url >> GIs.fasta
 done 
-~~~
+```
 
 How would you alter this script to get genbank format instead of fasta format?
 

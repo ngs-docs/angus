@@ -79,7 +79,7 @@ Tuesday 8/16     * 9:15am Transcript quantification `lecture <http://robpatro.co
                  * 10:30am Visualizing RNA-Seq counts with Degust: <http://www.vicbioinformatics.com/degust/> (Torst)
                  * 11:00am lecture, `mRNAseq differential expression <_static/NGS2015_RNAseq_2.pptx>`__ (Ian) and lecture, `mRNA stats <_static/NGS2015_RNAseq_ID_1.pptx>`__
                  * 1:15pm `R tutorial <https://github.com/ngs-docs/angus/blob/2015/R_Introductory_tutorial_2015.md>`__ (Ian)
-                 * 7:00pm Assembly challenge
+                 * 7:00pm :doc:`arabidopsis_assembly_challenge` 
 
 Wed 8/17         * 9:15am lecture, sourcing NCBI data including SRA :doc:`howe-ncbi` (Meg);
                  * 10:15am `More fun with R <https://github.com/MingChen0919/KBS_workshop_Michigan_2016/blob/master/fun_with_R.md>`__ (Ming)
