@@ -83,7 +83,7 @@ Tuesday 8/16     * 9:15am Transcript quantification `lecture <http://robpatro.co
 
 Wed 8/17         * 9:15am lecture, sourcing NCBI data including SRA :doc:`howe-ncbi` (Meg);
                  * 10:15am `More fun with R <https://github.com/MingChen0919/KBS_workshop_Michigan_2016/blob/master/fun_with_R.md>`__ (Ming)
-                 * 1:00pm AVAILABLE SLOT
+                 * 1:00pm AVAILABLE SLOT - hybrid assembly and SMRT Portal
                  * Evening: Choose your own adventure! :doc:`MacManes_adventure_week2` (Matt)
 
 Thursday 8/18    * 9:15am Open source your scripts with GitHub (Lisa) :doc:`CTB-github`
