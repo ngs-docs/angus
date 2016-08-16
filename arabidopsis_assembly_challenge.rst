@@ -34,9 +34,8 @@ https://docs.google.com/spreadsheets/d/12X06LqGM8j4a4oV3_IsM91Hvop6B7L84xSWR71dX
 Get Data
 ========
 Arabidopsis lyrata RNASeq Flower reads::
-
-	wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR399/005/SRR3993765/SRR3993765_1.fastq.gz
-	wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR399/005/SRR3993765/SRR3993765_2.fastq.gz
+    wget http://www.hardwoodgenomics.org/sites/default/files/kbs_temp/SRR3993765_1.subsample.fastq
+    wget http://www.hardwoodgenomics.org/sites/default/files/kbs_temp/SRR3993765_2.subsample.fastq
 
 Arabidopsis thaliana Genome::
 
