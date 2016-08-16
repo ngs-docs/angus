@@ -81,7 +81,7 @@ Tuesday 8/16     * 9:15am Transcript quantification `lecture <http://robpatro.co
                  * 1:15pm `R tutorial <https://github.com/ngs-docs/angus/blob/2015/R_Introductory_tutorial_2015.md>`__ (Ian)
                  * 7:00pm :doc:`arabidopsis_assembly_challenge`
 
-Wed 8/17         * 9:15am lecture, sourcing NCBI data including SRA :doc:`ncbi_data` (Meg);
+Wed 8/17         * 9:15am lecture, `sourcing NCBI data including SRA <https://github.com/mestato/epp622/blob/master/ncbi.md>`__ (Meg)
                  * 10:15am `More fun with R <https://github.com/MingChen0919/KBS_workshop_Michigan_2016/blob/master/fun_with_R.md>`__ (Ming)
                  * 1:00pm AVAILABLE SLOT - hybrid assembly and SMRT Portal
                  * Evening: Choose your own adventure! :doc:`MacManes_adventure_week2` (Matt)
