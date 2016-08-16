@@ -91,7 +91,7 @@ We'll be quantifying against the Drosophila transcriptome, so let's grab that fi
   
   > wget ftp://ftp.flybase.net/releases/FB2016_04/dmel_r6.12/fasta/dmel-all-transcript-r6.12.fasta.gz
 
-We'll this in a folder called ``ref``, and unzip it there:::
+We'll put this in a folder called ``ref``, and unzip it there:::
 
   > mkdir ref
   > mv dmel-all-transcript-r6.12.fasta.gz ref
@@ -105,12 +105,9 @@ Great; now, let's run ``salmon``.
 Installing Salmon
 -----------------
 
-Since the latest (pre-release) salmon is not yet a binary available in linuxbrew, we'll grab a pre-compiled binary directly.
-We can download it using ``wget`` like so::
+The latest release of Salmon is available either as a pre-compiled binary from GitHub, or via linuxbrew (thanks @sjackman!), we'll grab a pre-compiled binary directly, or you can install via linuxbrew if you want. We can download it using ``wget`` like so::
 
   > wget --no-check-certificate 'https://github.com/COMBINE-lab/salmon/releases/download/v0.7.0/Salmon-0.7.0_linux_x86_64.tar.gz' 
-
-.. note::  Hopefully the above will change if I can cut 0.7.0 before the course.
 
 and we can untar and unzip the resulting file with the following command::
 
