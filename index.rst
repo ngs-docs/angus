@@ -77,17 +77,23 @@ Monday 8/15      * 9:15am , Transcriptome assembly & evaluation `lecture <_stati
 
 Tuesday 8/16     * 9:15am Transcript quantification `lecture <http://robpatro.com/redesign/Quantification.pdf>`__ (Rob)
                  * 10:30am practical `Using Salmon for read counts <http://angus.readthedocs.io/en/2016/rob_quant/tut.html>`__ (Rob)
-                 * 11:30pm `Visualizing RNA-Seq counts with Degust: <http://www.vicbioinformatics.com/degust/>`__ (Torst)
-                 * 1:15pm lecture, `mRNAseq differential expression <_static/DifferentialExpressionBasics_NGS2016_ID.pdf>`__ and `mRNA stats <_static/NGS2015_RNAseq_ID_1.pptx>`__
-                 * 2:15pm practical `Using DEseq2 for DGE <https://github.com/ngs-docs/angus/blob/2015/R_Introductory_tutorial_2015.md>`__ (Ian)
-                 * 7:00pm :doc:`arabidopsis_assembly_challenge`
+                 * 11:45pm lecture, `mRNAseq differential expression <_static/DifferentialExpressionBasics_NGS2016_ID.pdf>`__ (Ian)
+                 * 12:30pm Lunch (new later time)
+                 * 1:45pm `mRNA stats <_static/NGS2015_RNAseq_ID_1.pptx>`__ (Ian)
+                 * 2:45pm practical `Using DEseq2 for DGE <https://github.com/ngs-docs/angus/blob/2015/R_Introductory_tutorial_2015.md>`__ (Ian)
+                 * 6:30pm Dinner (new later time)
+                 * 8:00pm :doc:`arabidopsis_assembly_challenge`
 
 Wed 8/17         * 9:15am lecture, `Sourcing NCBI data including SRA <https://github.com/mestato/epp622/blob/master/ncbi.md>`__ (Meg)
                  * 10:15am `More fun with R <https://github.com/MingChen0919/KBS_workshop_Michigan_2016/blob/master/fun_with_R.md>`__ (Ming)
-                 * 1:00pm AVAILABLE SLOT - hybrid assembly and SMRT Portal
-                 * Evening: Choose your own adventure! :doc:`MacManes_adventure_week2` (Matt)
+                 * 12:30 Lunch
+                 * 1:30pm `Visualizing RNA-Seq counts with Degust <http://www.vicbioinformatics.com/degust/>`__ (Torst)
+                 * 2:00pm Regular Expressions (All) [tentative]
+                 * 6:30pm Dinner
+                 * 7:45pm Choose your own adventure! :doc:`MacManes_adventure_week2` (Matt)
 
 Thursday 8/18    * 9:15am Open source your scripts with GitHub (Lisa) :doc:`CTB-github`
+                 * 11:30 Jupyter Notebook (Lisa) [tentative]
                  * 1:15pm Assessment (Bob Drost)
                  * 2pm: :doc:`functional_annotation_2016` (Ming)
                  * Evening: Ask the Expert (All)
