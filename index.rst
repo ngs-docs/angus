@@ -80,7 +80,7 @@ Tuesday 8/16     * 9:15am Transcript quantification `lecture <http://robpatro.co
                  * 11:45pm lecture, `mRNAseq differential expression <_static/DifferentialExpressionBasics_NGS2016_ID.pdf>`__ (Ian)
                  * 12:30pm Lunch (new later time)
                  * 1:45pm `mRNA stats <_static/NGS2015_RNAseq_ID_1.pptx>`__ (Ian)
-                 * 2:45pm practical `Using DEseq2 for DGE <>`__ (Ian)
+                 * 2:45pm practical `Using DEseq2 for DGE <https://github.com/ngs-docs/angus/blob/2016/DeSeq2_Salmon_Tutorial.md>`__ (Ian)
                  * 6:30pm Dinner (new later time)
                  * 8:00pm :doc:`arabidopsis_assembly_challenge`
 
