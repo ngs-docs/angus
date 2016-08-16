@@ -79,6 +79,7 @@ Tuesday 8/16     * 9:15am Transcript quantification `lecture <http://robpatro.co
                  * 10:30am practical `Using Salmon for read counts <http://angus.readthedocs.io/en/2016/rob_quant/tut.html>`__ (Rob)
                  * 11:45pm lecture, `mRNAseq differential expression <_static/DifferentialExpressionBasics_NGS2016_ID.pdf>`__ (Ian)
                  * 12:30pm Lunch (new later time)
+                 * 1:15pm `Visualizing RNA-Seq counts with Degust <http://www.vicbioinformatics.com/degust/>`__ (Torst)
                  * 1:45pm `mRNA stats <_static/NGS2015_RNAseq_ID_1.pptx>`__ (Ian)
                  * 2:45pm practical `Using DEseq2 for DGE <https://github.com/ngs-docs/angus/blob/2016/DeSeq2_Salmon_Tutorial.md>`__ (Ian)
                  * 6:00pm Dinner (back to original time)
@@ -87,7 +88,6 @@ Tuesday 8/16     * 9:15am Transcript quantification `lecture <http://robpatro.co
 Wed 8/17         * 9:15am lecture, `Sourcing NCBI data including SRA <https://github.com/mestato/epp622/blob/master/ncbi.md>`__ (Meg)
                  * 10:15am `More fun with R <https://github.com/MingChen0919/KBS_workshop_Michigan_2016/blob/master/fun_with_R.md>`__ (Ming)
                  * 12:30 Lunch
-                 * 1:30pm `Visualizing RNA-Seq counts with Degust <http://www.vicbioinformatics.com/degust/>`__ (Torst)
                  * 2:00pm Regular Expressions (All) [tentative]
                  * 6:00pm Dinner
                  * 7:45pm Choose your own adventure! :doc:`MacManes_adventure_week2` (Matt)
