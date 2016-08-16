@@ -81,7 +81,7 @@ Tuesday 8/16     * 9:15am Transcript quantification `lecture <http://robpatro.co
                  * 12:30pm Lunch (new later time)
                  * 1:45pm `mRNA stats <_static/NGS2015_RNAseq_ID_1.pptx>`__ (Ian)
                  * 2:45pm practical `Using DEseq2 for DGE <https://github.com/ngs-docs/angus/blob/2016/DeSeq2_Salmon_Tutorial.md>`__ (Ian)
-                 * 6:30pm Dinner (back to original time)
+                 * 6:00pm Dinner (back to original time)
                  * 7:15pm Optional :doc:`arabidopsis_assembly_challenge`
 
 Wed 8/17         * 9:15am lecture, `Sourcing NCBI data including SRA <https://github.com/mestato/epp622/blob/master/ncbi.md>`__ (Meg)
@@ -89,13 +89,14 @@ Wed 8/17         * 9:15am lecture, `Sourcing NCBI data including SRA <https://gi
                  * 12:30 Lunch
                  * 1:30pm `Visualizing RNA-Seq counts with Degust <http://www.vicbioinformatics.com/degust/>`__ (Torst)
                  * 2:00pm Regular Expressions (All) [tentative]
-                 * 6:30pm Dinner
+                 * 6:00pm Dinner
                  * 7:45pm Choose your own adventure! :doc:`MacManes_adventure_week2` (Matt)
 
 Thursday 8/18    * 9:15am Open source your scripts with GitHub (Lisa) :doc:`CTB-github`
                  * 11:30 Jupyter Notebook (Lisa) [tentative]
                  * 1:15pm Assessment (Bob Drost)
                  * 2pm: :doc:`functional_annotation_2016` (Ming)
+                 * 6:00pm Dinner
                  * Evening: Ask the Expert (All)
 
 Friday 8/19      * 9:15-9:45 closing lecture (Meg & Matt)
