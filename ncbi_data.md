@@ -4,7 +4,7 @@ Log into Amazon with a small session and do [the normal linuxbrew install](http:
 
 To download SRA data on the CLI, we need the SRA Toolkit. Lets check installed it
 
-````
+```
 brew install sratoolkit
 ```
 
