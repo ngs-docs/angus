@@ -2,7 +2,7 @@
 UNIX Toolkit
 ===============
 
-The explicit goal of this tutorial is to provide you with some tricks and tools and to make your unix life happier. Also, to possibly introduce you to samtools.
+The explicit goal of this tutorial is to provide you with some tricks and tools and to make your unix life happier.
 
 |
 
@@ -10,37 +10,35 @@ See https://github.com/stephenturner/oneliners for a bunch of examples.
 
 |
 
-**ALIASES**: These are 'shortcuts' for make doing stuff more efficient.
+**Profile customization and aliases**: These are 'shortcuts' for make doing stuff more efficient.
 
 ::
 
-  alias c='clear'
-  alias gh='history | grep'
-  alias ll='logout'
-  alias l='ls -lth'
-  alias mv='mv -i'
-  alias cp='cp -i'
+    nano ~/.profile
+
+    alias c='clear'
+    alias gh='history | grep'
+    alias ll='logout'
+    alias l='ls -lth'
+    alias mv='mv -i'
+    alias cp='cp -i'
 
 
-  alias tn="tmux new -s"
-  alias ta="tmux attach -t"
-  alias tl="tmux ls"
-  alias tk="tmux kill-session -t"
+    alias tn="tmux new -s"
+    alias ta="tmux attach -t"
+    alias tl="tmux ls"
+    alias tk="tmux kill-session -t"
 
-**.profile customization**
 
-::
-
-  nano ~/.profile
 
 **DOWNLOAD SOME DATA**
 
 ::
 
-  mkdir /home/ubuntu/data
-  cd /home/ubuntu/data
-  curl -LO https://www.dropbox.com/s/5fymuyb1f2l8kfj/ngsfile.tar.gz
-  tar -zxf ngsfile.tar.gz
+  mkdir /home/ubuntu/data && cd /home/ubuntu/data
+  curl -LO https://s3.amazonaws.com/reference_assemblies/Oophaga/transcriptome/Oophaga_pumilio.1.0.0.fasta
+  curl -L https://github.com/ngs-docs/angus/blob/2016/_static/quantification.tgz?raw=true > quantification.tgz
+  tar -zxf *gz
 
 
 **Find a file**
@@ -48,17 +46,17 @@ See https://github.com/stephenturner/oneliners for a bunch of examples.
 ::
 
   cd $HOME
-  find / -name Trinity.fasta
+  find / -name quant.sf
   find / -type f -size +10M 2> /dev/null
 
 **sed**
 
 ::
 
-  cd /home/ubuntu/data/ngs2015
-  less Trinity.fasta
-  sed 's_|_-_g' Trinity.fasta | grep ^'>' | head
-  sed -i 's_|_-_g' Trinity.fasta
+
+  less Oophaga_pumilio.1.0.0.fasta
+  sed 's/_/+++bananas+++/g' Oophaga_pumilio.1.0.0.fasta | grep ^'>' | head
+  sed -i 's/_/+++bananas+++/g' Oophaga_pumilio.1.0.0.fasta
 
 `A helpful guide to sed <http://www.grymoire.com/Unix/Sed.html>`_
 
@@ -66,64 +64,24 @@ See https://github.com/stephenturner/oneliners for a bunch of examples.
 
 ::
 
-  awk '/^>/{print ">" ++i; next}{print}' < Trinity.fasta > Trinity.numbered.fasta
+  awk '/^>/{print ">" ++i; next}{print}' < Oophaga_pumilio.1.0.0.fasta > renamed.fasta
 
 
 **awk**
 
 ::
 
-  less Trinity.counts.RNAseq.txt
-  awk '{print $1 "\t" $3}' Trinity.counts.RNAseq.txt | head
-  awk '$1 == "c996_g1_i1"' Trinity.counts.RNAseq.txt
+  file=$(find . -name quant.sf | head -1)
+  awk '{print $1 "\t" $3}' $file | head
+  awk '$1 == "FBtr0070078"' $file
 
 **Random Stuff**
 
 ::
 
   cd -
-  tmux/screen
 
 
-========================
-SAMTOOLS
-========================
-
-Let's learn something about samtools
-
-**INSTALL**
-
-::
-
-  cd $HOME
-  git clone https://github.com/samtools/htslib.git
-  cd htslib && make -j4 && cd ../
-  git clone https://github.com/samtools/samtools.git
-  cd samtools && make -j4 && PATH=$PATH:$(pwd) && cd ../
-
-
-**EXPLORE**
-
-::
-
-  cd $HOME/data/ngs2015
-
-  samtools sort ngs.bam -o test.sort.bam -O bam -T temp
-
-  samtools index test.sort.bam
-
-  samtools idxstats test.sort.bam | less
-
-  samtools bam2fq -s from.bam.se.fq --reference Trinity.fasta test.sort.bam > from.bam.pe.fastq
-
-  samtools depth -a test.sort.bam | grep 'TR1|c0_g1_i1' | less
-  samtools depth -a test.sort.bam | awk '$1 == "TR1|c0_g1_i1"' | less
-
-  samtools flagstat test.sort.bam
-
-  samtools view -h test.sort.bam > test.sort.sam
-
-  samtools view -hs 0.1 test.sort.bam > test.subsamp.sam
 
 ========================
 TERMINATE YOUR INSTANCE

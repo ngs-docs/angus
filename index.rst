@@ -87,11 +87,11 @@ Tuesday 8/16     * 9:15am Transcript quantification `lecture <http://robpatro.co
 
 Wed 8/17         * 9:15am `lecture <_static/GetData.pdf>`__ and `Sourcing NCBI data including SRA practical <https://github.com/mestato/epp622/blob/master/ncbi.md>`__ (Meg)
                  * 10:15am `More fun with R <https://github.com/MingChen0919/KBS_workshop_Michigan_2016/blob/master/fun_with_R.md>`__ (Ming)
-                 * 12:30 Lunch
-                 * 2:00pm Regular Expressions (All) [tentative]
+                 * 12:00 Lunch
                  * Bonus `Routes Through Differential Expression Analysis <_static/RoutesThroughDESeqAnalysis.pdf>`__
+                 * 1:00pm UNIX Stuff :doc:`MacManes_UNIX` (All) [tentative]
                  * 6:00pm Dinner
-                 * 7:45pm Choose your own adventure! :doc:`MacManes_adventure_week2` (Matt)
+                 * 7:15pm Work on your own data, ask questions..
 
 Thursday 8/18    * 9:15am Open source your scripts with GitHub (Lisa) :doc:`CTB-github`
                  * 11:30 Jupyter Notebook (Lisa) [tentative]
