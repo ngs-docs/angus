@@ -89,6 +89,7 @@ Wed 8/17         * 9:15am `lecture <_static/GetData.pdf>`__ and `Sourcing NCBI d
                  * 10:15am `More fun with R <https://github.com/MingChen0919/KBS_workshop_Michigan_2016/blob/master/fun_with_R.md>`__ (Ming)
                  * 12:30 Lunch
                  * 2:00pm Regular Expressions (All) [tentative]
+                 * Bonus `Routes Through Differential Expression Analysis <_static/RoutesThroughDESeqAnalysis.pdf>`__
                  * 6:00pm Dinner
                  * 7:45pm Choose your own adventure! :doc:`MacManes_adventure_week2` (Matt)
 
