@@ -99,20 +99,25 @@ Get example data and unzip::
 
 Dammit takes quite a while on the whole set, so lets extract a smaller set to practice with::
 
-	head -3322 cdna_nointrons_utrs.fa > practice.fa
+	head -1444 cdna_nointrons_utrs.fa > practice.fa
 	grep -c '^>' practice.fa
 
-Run annotation::
+Run annotation (benchmark: 45 minutes for 50 genes with 8 threads)::
 
 	dammit annotate practice.fa --database-dir /mnt/dbs/dammit_dbs/ --busco-group eukaryota --n_threads 15
 
 You will get results from 6 different analyses:
+
 * Pfam-A
 * Rfam
 * OrthoDB
 * BUSCO
 * Uniref90
 * Transdecoder
+
+To run with uniref::
+
+	dammit annotate practice.fa --database-dir /mnt/dbs/dammit_dbs/ --busco-group eukaryota --n_threads 15 --full
 
 InterProScan
 ============
