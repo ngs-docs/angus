@@ -85,45 +85,6 @@ See https://github.com/stephenturner/oneliners for a bunch of examples.
   tmux/screen
 
 
-========================
-SAMTOOLS
-========================
-
-Let's learn something about samtools
-
-**INSTALL**
-
-::
-
-  cd $HOME
-  git clone https://github.com/samtools/htslib.git
-  cd htslib && make -j4 && cd ../
-  git clone https://github.com/samtools/samtools.git
-  cd samtools && make -j4 && PATH=$PATH:$(pwd) && cd ../
-
-
-**EXPLORE**
-
-::
-
-  cd $HOME/data/ngs2015
-
-  samtools sort ngs.bam -o test.sort.bam -O bam -T temp
-
-  samtools index test.sort.bam
-
-  samtools idxstats test.sort.bam | less
-
-  samtools bam2fq -s from.bam.se.fq --reference Trinity.fasta test.sort.bam > from.bam.pe.fastq
-
-  samtools depth -a test.sort.bam | grep 'TR1|c0_g1_i1' | less
-  samtools depth -a test.sort.bam | awk '$1 == "TR1|c0_g1_i1"' | less
-
-  samtools flagstat test.sort.bam
-
-  samtools view -h test.sort.bam > test.sort.sam
-
-  samtools view -hs 0.1 test.sort.bam > test.subsamp.sam
 
 ========================
 TERMINATE YOUR INSTANCE
