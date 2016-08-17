@@ -33,6 +33,7 @@ https://docs.google.com/spreadsheets/d/12X06LqGM8j4a4oV3_IsM91Hvop6B7L84xSWR71dX
 
 Get Data
 ========
+
 Arabidopsis lyrata RNASeq Flower reads::
 
     wget http://www.hardwoodgenomics.org/sites/default/files/kbs_temp/SRR3993765_1.subsample.fastq
@@ -51,4 +52,13 @@ We still have a slight problem - the chromosome names in the fasta file don't ma
 	sed -i 's/>\([1-5]\)/>Chr\1/' TAIR10_chr_all.fas
 	sed -i 's/>mitochondria/>ChrM/' TAIR10_chr_all.fas
 	sed -i 's/>chloroplast/>ChrC/' TAIR10_chr_all.fas
+
+BUSCO plant:
+===========
+
+To get the plant database file::
+
+	wget http://buscos.ezlab.org/files/plant_early_release.tar.gz
+	gunzip plant_early_release.tar.gz
+
 
