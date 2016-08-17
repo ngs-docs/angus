@@ -2,7 +2,7 @@
 UNIX Toolkit
 ===============
 
-The explicit goal of this tutorial is to provide you with some tricks and tools and to make your unix life happier. Also, to possibly introduce you to samtools.
+The explicit goal of this tutorial is to provide you with some tricks and tools and to make your unix life happier.
 
 |
 
