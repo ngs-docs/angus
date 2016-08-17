@@ -5,7 +5,7 @@ Using GitHub repositories to store your scripts
 By the end of this lesson, you will be able to:
 
 1. Make a new github repo
-2. Edit README.md (`markdown cheat sheet <https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet>`__ (`Why README.md is necessary <https://changelog.com/top-ten-reasons-why-i-wont-use-your-open-source-project/>`__
+2. Edit README.md
 3. Fork and clone a repo
 4. Make changes, commit and push changes
 5. Submit a pull request
@@ -18,32 +18,42 @@ Create a new repository
 
 Go to `github.com <https://github.com/>`__, sign in (sign up if you haven't already), go to your profile page (e.g. `https://github.com/ljcohen <https://github.com/ljcohen>`__) then select "New repository".
 
-.. image:: ./_static/git_create_repo.png
-   :width: 80%
+.. image:: ./_static/git_new_repository.png
+   :width: 60%
 
-Second, name your repository.
-=============================
-
-Something like 'super_awesome_killifish_data' is fine!  Be sure to check the
+Name is something like 'super_awesome_killifish_data' is fine!  Be sure to check the
 'initialize with Readme' box.
 
-.. image:: ./_static/github-2.png
-   :width: 80%
+.. image:: ./_static/git_create_repo.png
+   :width: 60%
 
-Third, clone your repository
+Your repo should look something like this:
+   
+.. image:: ./_static/git_repo_created.png
+   :width: 60%
+
+Edit README.md
+================
+Here is a (`markdown cheat sheet <https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet>`__) 
+(`Why README.md is necessary <https://changelog.com/top-ten-reasons-why-i-wont-use-your-open-source-project/>`__)
+
+
+
+
+Clone your repository
 ============================
 
-Get your GitHub repository url (https://github.com/ctb/rnaseq-scripts.git is
+Get your GitHub repository url: https://github.com/ljcohen/super_awesome_killifish_data.git is
 mine, in this example);
 
-.. image:: ./_static/github-3.png
-   :width: 80%
+.. image:: ./_static/git_clone.png
+   :width: 60%
 
 Then, on your remote UNIX machine, do::
 
-   git clone https://github.com/ctb/rnaseq-scripts.git
+   git clone https://github.com/ljcohen/super_awesome_killifish_data.git
 
-This will create a new directory named ``rnaseq-scripts`` with a single
+This will create a new directory named ``super_awesome_killifish_data`` with a single
 `'README.md`` file in it.
 
 Fourth, add, commit, and push scripts
