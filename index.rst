@@ -85,7 +85,7 @@ Tuesday 8/16     * 9:15am Transcript quantification `lecture <http://robpatro.co
                  * 6:00pm Dinner (back to original time)
                  * 7:15pm Optional :doc:`arabidopsis_assembly_challenge`
 
-Wed 8/17         * 9:15am lecture, `Sourcing NCBI data including SRA <https://github.com/mestato/epp622/blob/master/ncbi.md>`__ (Meg)
+Wed 8/17         * 9:15am `lecture <_static/GetData.pdf>`__ and `Sourcing NCBI data including SRA practical <https://github.com/mestato/epp622/blob/master/ncbi.md>`__ (Meg)
                  * 10:15am `More fun with R <https://github.com/MingChen0919/KBS_workshop_Michigan_2016/blob/master/fun_with_R.md>`__ (Ming)
                  * 12:30 Lunch
                  * 2:00pm Regular Expressions (All) [tentative]
@@ -95,7 +95,7 @@ Wed 8/17         * 9:15am lecture, `Sourcing NCBI data including SRA <https://gi
 Thursday 8/18    * 9:15am Open source your scripts with GitHub (Lisa) :doc:`CTB-github`
                  * 11:30 Jupyter Notebook (Lisa) [tentative]
                  * 1:15pm Assessment (Bob Drost)
-                 * 2pm: :doc:`functional_annotation_2016` (Ming)
+                 * 2pm: :doc:`functional_annotation_2016` (Meg)
                  * 6:00pm Dinner
                  * Evening: Ask the Expert (All)
 
