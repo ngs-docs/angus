@@ -27,7 +27,7 @@ Make your Volume available.
 
 We made the mount point /dev/xvdf.  ::
 
-  sudo mkdir /mnt/dbs
+  udo mkdir /mnt/dbs
   sudo mount /dev/xvdf /mnt/dbs/
 
 Check out all the files you now have ::
@@ -106,16 +106,15 @@ Run annotation (benchmark: 45 minutes for 50 genes with 8 threads)::
 
 	dammit annotate practice.fa --database-dir /mnt/dbs/dammit_dbs/ --busco-group eukaryota --n_threads 15
 
-You will get results from 6 different analyses:
+You will get results from 5 different analyses:
 
 * Pfam-A
 * Rfam
 * OrthoDB
 * BUSCO
-* Uniref90
 * Transdecoder
 
-To run with uniref::
+To run with uniref90::
 
 	dammit annotate practice.fa --database-dir /mnt/dbs/dammit_dbs/ --busco-group eukaryota --n_threads 15 --full
 
@@ -130,6 +129,54 @@ And see the documentation::
 
 	interproscan.sh | less
 
+And we can make the software faster. It does not accept a parameter on the command line to increase the number of processors used, but it does have a properties file. Lets edit it.::
+
+	nano /mnt/dbs/interproscan-5.19-58.0/interproscan.properties
+
+Change::
+
+	number.of.embedded.workers=6
+	maxnumber.of.embedded.workers=8
+
+To::
+
+	number.of.embedded.workers=14
+	maxnumber.of.embedded.workers=15
+
+Save with (Control-O, enter to save, Control-X to exit).
+It works with amino acid sequences, which we have from transdecoder (via dammit). (`./practice.fa.dammit/practice.fa.transdecoder.pep`). However, this file has astericks to represent stop codons, which IPS doesn't like. We'll make a copy and use our new sed skills to fix.::
+
+	cp ./practice.fa.dammit/practice.fa.transdecoder.pep practice.fa.transdecoder.nostars.pep
+	sed -i 's/\*//g' practice.fa.transdecoder.nostars.pep
+
+And we will now make a results directory and run the software.::
+
+	mkdir ips_results
+	interproscan.sh \
+	-d ./ips_results \
+	-goterms \
+	-i ./practice.fa.transdecoder.nostars.pep \
+	-iprlookup \
+	-pa
+
+Parameter breakdown:
+
+----------
+
+Parameters
+
+-goterms    lookup the GO terms associated with the database entry
+-iprlookup  lookup the global InterPro accession number
+-pa         lookup pathway annotation
+
+----------
+
+Check out results
+
+::
+
+	cd ips_results/
+	less practice.fa.transdecoder.nostars.pep.tsv 
 
 
 Notes on installing Interproscan
