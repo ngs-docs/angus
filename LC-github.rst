@@ -74,7 +74,6 @@ Now we will do something else. We've been making some important files during thi
    :width: 60%
    
 This will fork the repository into your account. Make sure that you can see it listed as a repository on your profile. You have just created a copy of all the files from my repo and brought them into your profile. Now, git clone this new repository by copying the url like you did before and typing.
-
 ::
    git clone https://github.com/youraccountname/ngs2016_important_files.git
    
