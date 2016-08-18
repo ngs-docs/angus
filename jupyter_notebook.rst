@@ -2,10 +2,13 @@
 Jupyter notebook demo
 ======================
 
-Jupyter notebook examples: https://github.com/ipython/ipython/wiki/A-gallery-of-interesting-IPython-Notebooks
-Jupyter install instructions: http://jupyter.readthedocs.io/en/latest/install.html
+`Jupyter <http://jupyter.org/>`__ notebook is an interactive web application that allows you to type and edit lines of code and see the output. The software requires Python installation, but currently supports interaction with over 40 languages. 
 
-Anaconda package manager for Python libraries is strongly recommended.
+`Jupyter notebook examples <https://github.com/ipython/ipython/wiki/A-gallery-of-interesting-IPython-Notebooks>`__ 
+
+`Jupyter install instructions <http://jupyter.readthedocs.io/en/latest/install.html>`__ 
+
+First we will install Anaconda, a package manager for Python libraries.
 
 Install on AWS, or other UNIX machiens:
 ::
