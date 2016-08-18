@@ -1,6 +1,6 @@
 ======================
 Jupyter notebook demo
-=====================
+======================
 
 Jupyter notebook examples: https://github.com/ipython/ipython/wiki/A-gallery-of-interesting-IPython-Notebooks
 Jupyter install instructions: http://jupyter.readthedocs.io/en/latest/install.html
