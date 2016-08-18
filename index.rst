@@ -97,7 +97,7 @@ Thursday 8/18    * 9:15am Open source your scripts with GitHub (Lisa) :doc:`LC-g
                  * 11:30 Jupyter Notebook (Lisa) :doc:`jupyter_notebook`
                  * 1:15pm Assessment (Bob Drost)
                  * Meet outside classroom after assessment for group photo
-                 * 2pm: :doc:`functional_annotation_2016` (Meg)
+                 * 2pm: `Functional Annotation slides <_static/FunctionalAnnotation.pdf>`__ and :doc:`functional_annotation_2016` (Meg)
                  * 6:00pm Dinner
                  * Evening: Ask the Expert (All)
 
