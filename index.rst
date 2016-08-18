@@ -93,8 +93,8 @@ Wed 8/17         * 9:15am `lecture <_static/GetData.pdf>`__ and `Sourcing NCBI d
                  * 6:00pm Dinner
                  * 7:15pm Work on your own data, ask questions..
 
-Thursday 8/18    * 9:15am Open source your scripts with GitHub (Lisa) :doc:`CTB-github`
-                 * 11:30 Jupyter Notebook (Lisa) [tentative]
+Thursday 8/18    * 9:15am Open source your scripts with GitHub (Lisa) :doc:`LC-github`
+                 * 11:30 Jupyter Notebook (Lisa) :doc:`jupyter_notebook`
                  * 1:15pm Assessment (Bob Drost)
                  * 2pm: :doc:`functional_annotation_2016` (Meg)
                  * 6:00pm Dinner
