@@ -100,7 +100,7 @@ Thursday 8/18    * 9:15am Open source your scripts with GitHub (Lisa) :doc:`LC-g
                  * 6:00pm Dinner
                  * Evening: Ask the Expert (All)
 
-Friday 8/19      * 9:15-9:45 closing lecture (Meg & Matt)
+Friday 8/19      * 9:15-9:45 `Closing Lecture! <_files/2016-final-lecture.pptx>`__ (Meg and Matt)
                  * 10am discussion about class; more stuff
 
 
