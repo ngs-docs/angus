@@ -10,8 +10,6 @@ By the end of this lesson, you will be able to:
 4. Make changes, commit and push changes
 5. Submit a pull request
 6. Submit an issue
-7. Storage of Jupyter notebooks to explore data
-
 
 Create a new repository
 ==============================
