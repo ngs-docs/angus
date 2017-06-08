@@ -1,8 +1,6 @@
-==========================================
-Next-Gen Sequence Analysis Workshop (2017)
-==========================================
+# Next-Gen Sequence Analysis Workshop (2017)
 
-This is the schedule for the [](http://ivory.idyll.org/dibsi/ANGUS.html).
-
-.. which will run from August 8th to August 19st, 2016.
+This is the schedule for the
+[ANGUS workshop at UC Davis](http://ivory.idyll.org/dibsi/ANGUS.html).
+which will run from ...
 
