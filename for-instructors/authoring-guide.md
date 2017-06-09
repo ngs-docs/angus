@@ -1,5 +1,12 @@
 # Authoring guide
 
+## Coordinating Web site work.
+
+Please create a pull request as soon as you start editing something,
+rather than waiting!  That way you can tell others what you're working on.
+
+You could/should also mention it on Slack in the "angus-leads" channel.
+
 ## Technical info re adding content to the Web site
 
 All the ANGUS 2017 tutorials are stored on GitHub: [https://github.com/ngs-docs/angus](https://github.com/ngs-docs/angus).
@@ -58,7 +65,7 @@ If you create a file named `mytut.md` it will automatically be compiled into
 site template.)
 
 Files and images that don't need to be "compiled" and should just be
-served up by through the web site can be put in the `_static`
+served up through the web site can be put in the `_static`
 directory; their URL will then be
 
     https://angus.readthedocs.io/en/2017/_static/filename

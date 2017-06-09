@@ -27,7 +27,7 @@ Running large scale BLASTs and output.
 
 Visualizing BLAST results in a notebook
 
-How computers work / what we're doing
+Command line intro; R/RStudio discussion.
 
 Evening: student presentations and questions!
 
@@ -54,6 +54,8 @@ Variants, RNAseq, differential foo.
 ### Saturday, Day 6: Automation and repeatability.
 
 (Morning: free time)
+
+Afternoon: more shell, loops, and scripting. (SC shell lesson.)
 
 ### Sunday, Day 7: Day of rest.
 
