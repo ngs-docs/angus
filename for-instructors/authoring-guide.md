@@ -69,8 +69,8 @@ We can put files up to a total of 5 GB on our [Open Science Foundation project](
 where to put them. :)  You can use a Web interface to upload them.
 
 These files should then be downloaded in the tutorials using a `curl` command
-like so: `curl -L -o filename.out https://osf.io/pyvfg/?action=download`.
+like so: `curl -L -o filename.out https://osf.io/bya2u/?action=download`.
 
-To get the file ID (the `pyvfg` in the command above), go there and
+To get the file ID (the `bya2u` in the command above), go there and
 upload them using the nice Web interface, and then click on the file; the
 file ID is in your URL bar.
