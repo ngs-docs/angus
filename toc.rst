@@ -5,3 +5,4 @@ Table of Contents
    :maxdepth: 2
 
    index
+   for-instructors/index
