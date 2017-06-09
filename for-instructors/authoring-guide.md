@@ -62,6 +62,24 @@ served up by through the web site can be put in the `_static`
 directory; their URL will then be
 
     `https://angus.readthedocs.io/en/2017/_static/filename`
+    
+## Images
+
+Image formatting in Markdown is kinda tricky and there's no good way to
+have just a single image that lets you click on it to expand, AFAWCT.
+
+So instead what we do is put an inline thumbnail in, with a link to
+the full sized image so that you can click to zoom.  See
+[the jetstream boot tutorial](https://github.com/ngs-docs/angus/blob/2017/jetstream/boot.md)
+for an example.
+
+The relevant Markdown syntax is:
+
+```
+[![login](images/login-1.thumb.png)](../_images/login-1.png)
+```
+
+and on Mac OS X you can resize the thumbnails with `sips -Z 640 thumb.png`.
 
 ## Medium-size data file storage
 
