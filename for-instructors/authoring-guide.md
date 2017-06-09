@@ -22,7 +22,7 @@ It's important that all updates go through code review by
 someone. Anyone with push access to the repo can review and merge!
 
 From the Web site, you should be able to edit the files and then set up a
-PR directly.
+PR directly. You can also fork the repo, perform multiple edits and submit a PR through the web interface.
 
 ### Updating the "official" Web site.
 
