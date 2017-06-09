@@ -61,7 +61,7 @@ Files and images that don't need to be "compiled" and should just be
 served up by through the web site can be put in the `_static`
 directory; their URL will then be
 
-    `https://angus.readthedocs.io/en/2017/_static/filename`
+    https://angus.readthedocs.io/en/2017/_static/filename
     
 ## Images
 
@@ -79,12 +79,14 @@ The relevant Markdown syntax is:
 [![login](images/login-1.thumb.png)](../_images/login-1.png)
 ```
 
-and on Mac OS X you can resize the thumbnails with `sips -Z 640 thumb.png`.
+Note, on Mac OS X you can resize the thumbnails with `sips -Z 640 thumb.png`.
 
 ## Medium-size data file storage
 
-We can put files up to a total of 5 GB on our [Open Science Foundation project](https://osf.io/pyvfg/).  (For bigger data sets, talk to Titus about
-where to put them. :)  You can use a Web interface to upload them.
+We can put files up to a total of 5 GB on our
+[Open Science Foundation project](https://osf.io/pyvfg/).  (For bigger
+data sets, talk to Titus about where to put them. :) You can use the
+OSF Web interface to upload them easily enough.
 
 These files should then be downloaded in the tutorials using a `curl` command
 like so: `curl -L -o filename.out https://osf.io/bya2u/?action=download`.
