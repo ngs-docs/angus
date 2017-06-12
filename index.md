@@ -15,7 +15,7 @@ Introductions!
 
 [Booting a cloud computer from Jetstream!](jetstream/boot.html)
 
-Running BLAST at the command line
+[Running BLAST at the command line](running-command-line-blast.html)
 
 Assessment.
 
@@ -23,11 +23,11 @@ Student 30-second introductions.
 
 ### Tuesday, Day 2: Command line.
 
-Running large scale BLASTs and output.
+[Running large scale BLASTs and output.](running-blast-large-scale.html)
 
-Visualizing BLAST results in a notebook
+[Visualizing BLAST score distributions in RStudio](visualizing-blast-scores-with-RStudio.html)
 
-Command line intro; R/RStudio discussion.
+[Review and explore: Command line UNIX, and R/RStudio](command-line-and-rstudio.html)
 
 Evening: student presentations and questions!
 
