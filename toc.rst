@@ -14,6 +14,10 @@ Table of Contents
    quality-trimming
    variant-calling
 
+   genome-assembly
+   long-and-short-reads
+   kmers-and-sourmash
+
    introduction-to-automation
 
    automation-2

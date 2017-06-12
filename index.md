@@ -43,11 +43,11 @@ Evening: student presentations and questions!
 
 ### Thursday, Day 4: Reference independent analyses: assembly and k-mers
 
-Microbial genome assembly.
+[Microbial genome assembly.](genome-assembly.html)
 
-Long reads and short reads.
+[Long reads and short reads.](long-and-short-reads.html)
 
-Evening: k-mers and k-mer-based analyses; sourmash.
+[Evening: reference independent analyses with k-mers; sourmash.](kmers-and-sourmash.html)
 
 ### Friday, Day 5: Counting and differential expression (round 1).
 
