@@ -18,6 +18,8 @@ Table of Contents
    long-and-short-reads
    kmers-and-sourmash
 
+   counting
+
    introduction-to-automation
 
    automation-2

@@ -51,6 +51,8 @@ Evening: student presentations and questions!
 
 ### Friday, Day 5: Counting and differential expression (round 1).
 
+[Short reads and counting for variant calling and differential expression](counting.html)
+
 Variants, RNAseq, differential foo.
 
 ### Saturday, Day 6: Automation and repeatability.
