@@ -33,11 +33,13 @@ Evening: student presentations and questions!
 
 ### Wednesday, Day 3: Mapping, aligning, and sequence files.
 
-BWA and samtools and variant calling.
+[Quality trimming your reads.](quality-trimming.html)
 
-Introduction to automation.
+[Mapping and samtools and variant calling.](variant-calling.html)
 
-(Evening: free time)
+[Introduction to automation.](introduction-to-automation.html)
+
+(Evening: free time - [Wed Farmers' market!](http://www.davisfarmersmarket.org/))
 
 ### Thursday, Day 4: Reference independent analyses: assembly and k-mers
 
@@ -55,7 +57,7 @@ Variants, RNAseq, differential foo.
 
 (Morning: free time)
 
-Afternoon: more shell, loops, and scripting. (SC shell lesson.)
+[Afternoon: more shell, loops, and scripting.](automation-2.html)
 
 ### Sunday, Day 7: Day of rest.
 

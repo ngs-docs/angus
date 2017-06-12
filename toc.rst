@@ -6,9 +6,16 @@ Table of Contents
 
    index
 
-   running-command-line-blast.rst
-   running-large-scale-blasts.md
-   visualizing-blast-scores-with-Rstudio.md
-   command-line-and-rstudio.md
+   running-command-line-blast
+   running-large-scale-blasts
+   visualizing-blast-scores-with-Rstudio
+   command-line-and-rstudio
+
+   quality-trimming
+   variant-calling
+
+   introduction-to-automation
+
+   automation-2
 
    for-instructors/index
