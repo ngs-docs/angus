@@ -162,3 +162,8 @@ Things to mention and discuss:
 * automation rocks!
 
 Reminder: shut down your instance!
+
+Other topics to discuss:
+
+* when you shut down, you lose all your data
+* where is this all happening?

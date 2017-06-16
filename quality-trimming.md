@@ -4,7 +4,7 @@ This tutorial was copied over from [here](https://2017-ucsc-metagenomics.readthe
 
 * TODO: finish converting to Markdown
 * TODO: update the data set - do we want to use metagenomic data?
-* TODO: eliminate jupyter notebook
+* TODO: fix the fastqc error (see https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=756296)
 
 Also, we could defer detailed discussion of quality foo until AFTER we
 do assembly and mapping, and then use this as an object lesson in how
@@ -23,7 +23,7 @@ You should now be logged into your Jetstream computer!  You should see
 something like this
 
 ```
-ubuntu@ip-172-30-1-252:~$
+titus@js-17-71:~$ 
 ```
 
 ## Installing some software
@@ -36,76 +36,24 @@ sudo apt-get -y install trimmomatic fastqc python-pip \
    samtools zlib1g-dev ncurses-dev python-dev
 ```
 
-Install anaconda::
-
-```
-curl -O https://repo.continuum.io/archive/Anaconda3-4.2.0-Linux-x86_64.sh
-bash Anaconda3-4.2.0-Linux-x86_64.sh
-```
-
-Then update your environment and install khmer::
-
-```
-source ~/.bashrc
-   
-pip install -U setuptools
-pip install -U pip
-pip install -U Cython
-pip install https://github.com/dib-lab/khmer/archive/master.zip
-```
-   
-## Running Jupyter Notebook
-
-Let's also run a Jupyter Notebook. First, configure it a teensy bit
-more securely, and also have it run in the background::
-
-```
-jupyter notebook --generate-config
-  
-cat >>~/.jupyter/jupyter_notebook_config.py <<EOF
-c = get_config()
-c.NotebookApp.ip = '*'
-c.NotebookApp.open_browser = False
-c.NotebookApp.password = u'sha1:5d813e5d59a7:b4e430cf6dbd1aad04838c6e9cf684f4d76e245c'
-c.NotebookApp.port = 8000
-
-EOF
-```
-
-Now, run! ::
-
-```
-jupyter notebook &
-```
-
-On Jetstream, you can get the Web page address by executing:
-
-```
-echo http://$(hostname):8000/
-```
-
-Note, the password is 'davis'.
-
 ## Data source
 
-We're going to be using a subset of data from [Hu et al.,
+We're going to be using a subset of metagenomic data from [Hu et al.,
 2016](http://mbio.asm.org/content/7/1/e01669-15.full). This paper
 from the Banfield lab samples some relatively low diversity environments
 and finds a bunch of nearly complete genomes.
 
-(See [DATA](DATA.html) for a list of the data sets we're using in this tutorial.)
-
 ### 1. Copying in some data to work with.
 
-We've loaded subsets of the data onto an Amazon location for you, to
+We've loaded subsets of the data onto a public location for you, to
 make everything faster for today's work.  We're going to put the
-files on your computer locally under the directory ``~/data``::
+files on your computer locally under the directory ``~/data``:
 
 ```
 mkdir ~/data
 ```
 
-Next, let's grab part of the data set::
+Next, let's grab part of the data set:
 
 ```
 cd ~/data
@@ -113,26 +61,26 @@ curl -O -L https://s3-us-west-1.amazonaws.com/dib-training.ucdavis.edu/metagenom
 curl -O -L https://s3-us-west-1.amazonaws.com/dib-training.ucdavis.edu/metagenomics-scripps-2016-10-12/SRR1976948_2.fastq.gz
 ```
  
-Let's make sure we downloaded all of our data using md5sum.::
+Let's make sure we downloaded all of our data using md5sum.
 
 ```
 md5sum SRR1976948_1.fastq.gz SRR1976948_2.fastq.gz
 ```
 
-You should see this: ::
+You should see this:
 
 ```
 37bc70919a21fccb134ff2fefcda03ce  SRR1976948_1.fastq.gz
 29919864e4650e633cc409688b9748e2  SRR1976948_2.fastq.gz
 ```
 
-Now if you type::
+Now if you type:
 
 ```
 ls -l
 ```
 
-you should see something like::
+you should see something like:
 
 ```
 total 346936
@@ -145,7 +93,7 @@ of the file.
 
 One problem with these files is that they are writeable - by default, UNIX
 makes things writeable by the file owner.  This poses an issue with creating typos or errors in raw data.  Let's fix that before we go
-on any further::
+on any further:
 
 ```
 chmod u-w *
@@ -156,7 +104,7 @@ We'll talk about what these files are below.
 ### 1. Copying data into a working location
 
 First, make a working directory; this will be a place where you can futz
-around with a copy of the data without messing up your primary data::
+around with a copy of the data without messing up your primary data:
 
 ```
 mkdir ~/work
@@ -164,13 +112,13 @@ cd ~/work
 ```
 
 Now, make a "virtual copy" of the data in your working directory by
-linking it in -- ::
+linking it in -- :
 
 ```
 ln -fs ~/data/* .
 ```
 
-These are FASTQ files -- let's take a look at them::
+These are FASTQ files -- let's take a look at them:
 
 ```
 less SRR1976948_1.fastq.gz
@@ -195,14 +143,14 @@ We're going to use
 summarize the data. We already installed 'fastqc' on our computer for
 you.
 
-Now, run FastQC on two files::
+Now, run FastQC on two files:
 
 ```
 fastqc SRR1976948_1.fastq.gz
 fastqc SRR1976948_2.fastq.gz
 ```
 
-Now type 'ls'::
+Now type 'ls':
 
 ```
 ls -d *fastqc.zip*
@@ -242,13 +190,13 @@ Now we're going to do some trimming!  We'll be using
 [Trimmomatic](http://www.usadellab.org/cms/?page=trimmomatic>), which
 (as with fastqc) we've already installed via apt-get.
 
-The first thing we'll need are the adapters to trim off::
+The first thing we'll need are the adapters to trim off:
 
 ```
 curl -O -L http://dib-training.ucdavis.edu.s3.amazonaws.com/mRNAseq-semi-2015-03-04/TruSeq2-PE.fa
 ```
 
-Now, to run Trimmomatic::
+Now, to run Trimmomatic:
 
 ```
 TrimmomaticPE SRR1976948_1.fastq.gz \
@@ -256,12 +204,12 @@ TrimmomaticPE SRR1976948_1.fastq.gz \
         SRR1976948_1.qc.fq.gz s1_se \
         SRR1976948_2.qc.fq.gz s2_se \
         ILLUMINACLIP:TruSeq2-PE.fa:2:40:15 \
-        LEADING:2 TRAILING:2 \                            
+        LEADING:2 TRAILING:2 \
         SLIDINGWINDOW:4:2 \
         MINLEN:25
 ```
 
-You should see output that looks like this::
+You should see output that looks like this:
 
 ```
 ...
@@ -290,7 +238,7 @@ Links:
 
 ### 4. FastQC again
 
-Run FastQC again on the trimmed files::
+Run FastQC again on the trimmed files:
 
 ```
 fastqc SRR1976948_1.qc.fq.gz
@@ -302,7 +250,7 @@ And now view my copies of these files:
 * [SRR1976948_1.qc_fastqc/fastqc_report.html](http://2016-metagenomics-sio.readthedocs.io/en/work/_static/SRR1976948_1.qc_fastqc/fastqc_report.html)
 * [SRR1976948_2.qc_fastqc/fastqc_report.html](http://2016-metagenomics-sio.readthedocs.io/en/work/_static/SRR1976948_2.qc_fastqc/fastqc_report.html)
 
-Let's take a look at the output files::
+Let's take a look at the output files:
 
 ```
 less SRR1976948_1.qc.fq.gz
