@@ -11,9 +11,13 @@ Proposal:
 materials from 2017;
 * eliminate the Python code from CTB's materials until maybe later, and just use bedtools;
 * use samtools too;
-* maybe demo the [Artemis viewer](http://www.sanger.ac.uk/science/tools/artemis) at end. Probably too much to expect people to install it, and the VNC stuff with Jestream is ...challenging.
+* maybe demo the [Artemis viewer](http://www.sanger.ac.uk/science/tools/artemis) at end. Probably too much to expect people to install it, and the VNC stuff with Jetstream is ...challenging.
 
 -----
+
+## Getting started
+
+[Start up an m1.small instance running Ubuntu 16.04 on Jetstream.](jetstream/boot.html)
 
 ## Download data
 
@@ -57,9 +61,9 @@ Goal: execute a basic mapping
 
         bwa index ecoli-rel606.fa
         
-5. Map! (This will take about 5 minutes.)
+5. Map! (This will take about 2 minutes.)
 
-        bwa mem -t 4 ecoli-rel606.fa ~/data/SRR2584857.fq.gz > SRR2584857.sam
+        bwa mem -t 6 ecoli-rel606.fa ~/data/SRR2584857.fq.gz > SRR2584857.sam
         
 6. Observe!
 
@@ -115,7 +119,10 @@ samtools mpileup -uD -f ecoli-rel606.fa SRR2584857.sorted.bam | \
 bcftools view variants.raw.bcf > variants.vcf
 ```
 
-## Look at the VCF file with Python.
+## Look at the VCF file
+
+The output VCF file contains a list of all the variants that samtools
+thinks are there. What's in it?
 
 The [official VCF specification](https://samtools.github.io/hts-specs/VCFv4.1.pdf) is a great read...if you're suffering from insomnia.
 Let's skip this and just take a quick look at the file.
@@ -136,6 +143,8 @@ Let's skip this and just take a quick look at the file.
         samtools tview SRR2584857.sorted.bam ecoli-rel606.fa -p ecoli:920514
 
    'q' to quit, left arrow to scroll a bit left.
+   
+Well, at least that variant looks real...
 
 ## Look at the VCF file with bedtools.
 
@@ -154,19 +163,16 @@ Let's skip this and just take a quick look at the file.
 2. Go back to work:
 
         cd ~/work
+        
+3. Download a GFF3 file with annotations for E. coli:
 
-3. Run bedtools intersect:
+        wget https://github.com/ctb/2017-ucdavis-igg201b/raw/master/lab3/ecoli-rel606.gff.gz .
+
+4. Run bedtools intersect:
 
         bedtools intersect -a ecoli-rel606.gff.gz -b variants.vcf -wa -u
 
    [Documentation for bedtools intersect](https://bedtools.readthedocs.io/en/latest/content/tools/intersect.html)
-
-## Compare bedtools and Python.
-
-* Writing your own Python code is flexible and customizable.
-* Python libraries can save you lots of work, but can also have a learning curve.
-* Bedtools is fast, general, well supported, less likely to be erroneous.
-* Use all three :)
 
 ## Extract reads with samtools.
 
