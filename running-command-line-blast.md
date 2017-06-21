@@ -147,9 +147,9 @@ Notes:
 
 * you can execute multiple commands at a time;
 
-* You should see a warning - ::
+* You should see a warning -
 
-    Selenocysteine (U) at position 310 replaced by X
+    `Selenocysteine (U) at position 310 replaced by X`
 
   what does this mean?
 
@@ -166,4 +166,4 @@ Reminder: shut down your instance!
 Other topics to discuss:
 
 * when you shut down, you lose all your data
-* where is this all happening?
+* what computer(s) is this all happening on?

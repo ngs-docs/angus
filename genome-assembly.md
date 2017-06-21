@@ -97,10 +97,41 @@ Run QUAST on your assembly:
     cd ~/work
     ~/quast/quast.py ecoli-assembly.fa -o ecoli_report
     
-Now, in the browser (@CTB note that we have yet to figure out how to
-transfer files out), go look at `work/ecoli_report/report.txt`.  This
-contains a set of summary stats. Are they good? Bad? How would you
-know?
+and now take a look at the report:
+
+    cat ecoli_report/report.txt
+    
+You should see something like:
+
+```
+All statistics are based on contigs of size >= 500 bp, unless otherwise noted (e.g., "# contigs (>= 0 bp)" and "Total length (>= 0 bp)" include all contigs).
+
+Assembly                    ecoli-assembly
+# contigs (>= 0 bp)         117           
+# contigs (>= 1000 bp)      91            
+# contigs (>= 5000 bp)      69            
+# contigs (>= 10000 bp)     64            
+# contigs (>= 25000 bp)     52            
+# contigs (>= 50000 bp)     32            
+Total length (>= 0 bp)      4577548       
+Total length (>= 1000 bp)   4565216       
+Total length (>= 5000 bp)   4508381       
+Total length (>= 10000 bp)  4471170       
+Total length (>= 25000 bp)  4296203       
+Total length (>= 50000 bp)  3578898       
+# contigs                   101           
+Largest contig              246618        
+Total length                4572094       
+GC (%)                      50.75         
+N50                         105709        
+N75                         53842         
+L50                         15            
+L75                         30            
+# N's per 100 kbp           0.00  
+```
+
+This is a set of summary stats about your assembly. Are they good?
+Bad? How would you know?
 
 ## End of day
 

@@ -19,6 +19,12 @@ materials from 2017;
 
 [Start up an m1.small instance running Ubuntu 16.04 on Jetstream.](jetstream/boot.html)
 
+log in, and then install samtools:
+
+   sudo apt-get -y update && \
+   sudo apt-get -y install trimmomatic fastqc python-pip \
+   samtools zlib1g-dev ncurses-dev python-dev
+        
 ## Download data
 
 Goal: get the sequence data!
@@ -73,27 +79,19 @@ Goal: execute a basic mapping
 
 Goal: make it possible to go look at a specific bit of the genome.
 
-1. Install samtools:
-
-        sudo apt-get -y install samtools
-        
-2. Index the reference genome:
-
-        samtools faidx ecoli-rel606.fa
-        
-3. Convert the SAM file into a BAM file:
+1. Convert the SAM file into a BAM file that can be sorted and indexed:
 
         samtools view -hSbo SRR2584857.bam SRR2584857.sam
         
-4. Sort the BAM file by position in genome:
+2. Sort the BAM file by position in genome:
 
         samtools sort SRR2584857.bam SRR2584857.sorted
         
-5. Index the BAM file so that we can randomly access it quickly:
+3. Index the BAM file so that we can randomly access it quickly:
 
         samtools index SRR2584857.sorted.bam
         
-6. Visualize with `tview`:
+4. Visualize with `tview`:
 
         samtools tview SRR2584857.sorted.bam ecoli-rel606.fa
         
@@ -115,7 +113,13 @@ Now we can call variants using
 ```
 samtools mpileup -uD -f ecoli-rel606.fa SRR2584857.sorted.bam | \
     bcftools view -bvcg - > variants.raw.bcf
+```
+
+This will take a few minutes... and output a file that is not human readable!
+But we can quickly convert it into the 'variant call format' that *is*
+human readable:
     
+```
 bcftools view variants.raw.bcf > variants.vcf
 ```
 

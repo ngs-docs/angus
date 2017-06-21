@@ -120,7 +120,7 @@ This will produce 50 files named `ecoli-N.sig` in the `ecoli_many_sigs` --
 ls ecoli_many_sigs
 ```
 
-Let's turn this into an easily-searchable database with `sourmash sbt_index` --
+Let's turn this into an easily-searchable database with `sourmash index` --
 
 ```
 sourmash index -k 31 ecolidb ecoli_many_sigs/*.sig
@@ -184,8 +184,7 @@ sourmash plot --pdf --labels ecoli_cmp
 ```
 
 which will produce a file `ecoli_cmp.matrix.pdf` and `ecoli_cmp.dendro.pdf`
-which you can then download via your file browser and view on your local
-computer.
+which you can then download via FileZilla and view on your local computer.
 
 Here's a PNG version:
 
