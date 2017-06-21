@@ -11,6 +11,8 @@ times etc; this information will be integrated below soon.
 
 ### Monday, Day 1: Introduction
 
+(Starting at 7:30pm over in Valley Hall.)
+
 Introductions!
 
 [Booting a cloud computer from Jetstream!](jetstream/boot.html)
@@ -23,47 +25,64 @@ Student 30-second introductions.
 
 ### Tuesday, Day 2: Command line.
 
-[Running large scale BLASTs and output.](running-blast-large-scale.html)
+9am lecture: Titus Brown, title: On Biology and Data Analysis.
 
-[Visualizing BLAST score distributions in RStudio](visualizing-blast-scores-with-RStudio.html)
+Morning:
+* [Running large scale BLASTs and output.](running-blast-large-scale.html)
 
-[Review and explore: Command line UNIX, and R/RStudio](command-line-and-rstudio.html)
+Afternoon:
+* [Visualizing BLAST score distributions in RStudio](visualizing-blast-scores-with-RStudio.html)
+* [Review and explore: Command line UNIX, and R/RStudio](command-line-and-rstudio.html)
 
 Evening: student presentations and questions!
 
 ### Wednesday, Day 3: Mapping, aligning, and sequence files.
 
-[Quality trimming your reads.](quality-trimming.html)
+9am lecture: Melissa Wilson Sayres, title: Sex-biased genome evolution
 
-[Mapping and samtools and variant calling.](variant-calling.html)
-
-[Introduction to automation.](introduction-to-automation.html)
+Morning and afternoon:
+* [Quality trimming your reads.](quality-trimming.html)
+* [Mapping and samtools and variant calling.](variant-calling.html)
+* [Introduction to automation.](introduction-to-automation.html)
 
 (Evening: free time - [Wed Farmers' market!](http://www.davisfarmersmarket.org/))
 
 ### Thursday, Day 4: Reference independent analyses: assembly and k-mers
 
-[Microbial genome assembly.](genome-assembly.html)
+9am lecture: TBD.
 
-[Long reads and short reads.](long-and-short-reads.html)
+Morning:
+* [Microbial genome assembly.](genome-assembly.html)
 
-[Evening: reference independent analyses with k-mers; sourmash.](kmers-and-sourmash.html)
+Afternoon:
+* Annotating assemblies (prokka; maybe dammit)
+
+Evening:
+* [Reference independent analyses with k-mers; sourmash.](kmers-and-sourmash.html)
 
 ### Friday, Day 5: Counting and differential expression (round 1).
 
-[Short reads and counting for variant calling and differential expression](counting.html)
+9am lecture: Adrienne Roeder (Cornell) - title: Reaching biological conclusions from RNA-seq: the good, the bad, and the ugly.
 
-Variants, RNAseq, differential foo.
+Morning and afternoon:
+* [Short reads and counting for variant calling and differential expression](counting.html)
+* Variants, RNAseq, differential foo.
 
 ### Saturday, Day 6: Automation and repeatability.
 
-(Morning: free time)
+(Morning: free time / Saturday market)
 
-[Afternoon: more shell, loops, and scripting.](automation-2.html)
+Afternoon: [More shell, loops, and scripting.](automation-2.html)
 
 ### Sunday, Day 7: Day of rest.
 
-### Monday, Day 8: TBD.
+### Monday, Day 8: More genomes
+
+9am lecture: Erich Schwarz (Cornell): title: Assembling and biologically interpreting nematode genomes
+
+Morning and afternoon:
+* [Long reads and short reads.](long-and-short-reads.html)
+* Variant calling and big genomes.
 
 ### Tuesday, Day 9: TBD.
 

@@ -6,22 +6,25 @@ Table of Contents
 
    index
 
+   jetstream/boot
+   
    running-command-line-blast
-   running-large-scale-blasts
+   running-blast-large-scale
    visualizing-blast-scores-with-Rstudio
    command-line-and-rstudio
 
    quality-trimming
    variant-calling
+   introduction-to-automation
 
    genome-assembly
-   long-and-short-reads
+   annotating
    kmers-and-sourmash
 
    counting
 
-   introduction-to-automation
-
    automation-2
+
+   long-and-short-reads
 
    for-instructors/index
