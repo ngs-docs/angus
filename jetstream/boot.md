@@ -9,7 +9,7 @@ in red.
 
 Some of the details may vary -- for example, if you have your own XSEDE
 account, you may want to log in with that -- and the name of the operating
-system or "image" may also vary from "Ubuntu 14.04.03" depending on the
+system or "image" may also vary from "Ubuntu 16.04" depending on the
 workshop.
 
 -----
@@ -70,16 +70,16 @@ Now, select 'New' to start up a new machine.
 
 [![foo](images/login-8.thumb.png)(../_images/login-8.png)
 
-## Find the "Ubuntu 14.04.3" image, click on it
+## Find the "Ubuntu 16.04" image, click on it
 
-Enter "Ubuntu 14.04.3" into the search bar - make sure it's from
-March 22nd, 2017.
+Enter "Ubuntu 16.04" into the search bar - make sure it's from
+June 21st, 2017.
 
 [![foo](images/login-9.thumb.png)(../_images/login-9.png)
            
 ## Name it something simple and select 'm1.medium'
 
-Change the name after what we're doing - "UCSC workshop", for example,
+Change the name after what we're doing - "workshop tutorial", for example,
 but it doesn't matter -- and select 'm1.medium'.
 
 [![foo](images/login-10.thumb.png)(../_images/login-10.png)
