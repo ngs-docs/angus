@@ -7,9 +7,9 @@
 ```
 sudo apt-get update && sudo apt-get -y install gdebi-core r-base
 
-wget https://download2.rstudio.org/rstudio-server-1.0.136-amd64.deb
+wget https://download2.rstudio.org/rstudio-server-1.0.143-amd64.deb
 
-sudo gdebi -n rstudio-server-1.0.136-amd64.deb
+sudo gdebi -n rstudio-server-1.0.143-amd64.deb 
 ```
 
 ### Figure out the Web site to connect to.
