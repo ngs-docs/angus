@@ -24,3 +24,17 @@ echo My RStudio Web server is running at: http://$(hostname):8787/
 
 After running this, copy/paste the URL into your Web browser; you should
 see login page. Enter your Jetstream username and password.
+
+
+If login is unsuccessful, return to the terminal and run:
+
+```
+sudo passwd <XSEDE username>
+```
+You will be prompted to enter a new password:
+
+```
+Enter new UNIX password: 
+Retype new UNIX password:
+```
+Return to the browser login page and enter your new password. Note this will not change your XSEDE login info (only affects this instance).
