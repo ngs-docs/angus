@@ -189,6 +189,7 @@ Links:
 There are several caveats about FastQC - the main one is that it only
 calculates certain statistics (like duplicated sequences) for subsets
 of the data (e.g. duplicate sequences are only analyzed for the first
+100,000 sequences in each file
 
 
 ### 3. Trimmomatic
