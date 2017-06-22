@@ -131,14 +131,14 @@ thinks are there. What's in it?
 The [official VCF specification](https://samtools.github.io/hts-specs/VCFv4.1.pdf) is a great read...if you're suffering from insomnia.
 Let's skip this and just take a quick look at the file.
 
-1. Look at the non-commented lines:
+1. Look at the non-commented lines along with the header:
 
-        grep -v ^# variants.vcf
+        grep -v ^## variants.vcf
 
    The first five columns: `CHROM  POS     ID      REF     ALT`.
    It's a little easier to see if you run
 
-        grep -v ^# variants.vcf | less -S
+        grep -v ^## variants.vcf | less -S
 
     Use your left and right arrows to scroll, and 'q' to quit.
 
