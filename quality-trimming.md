@@ -35,6 +35,13 @@ sudo apt-get -y update && \
 sudo apt-get -y install trimmomatic fastqc python-pip \
    samtools zlib1g-dev ncurses-dev python-dev
 ```
+`apt-get install` doesn't work properly for `fastqc`. So we will update the default `fastqc` version using the following commands
+
+```
+wget https://launchpad.net/ubuntu/+archive/primary/+files/fastqc_0.11.5+dfsg-3_all.deb && \
+sudo dpkg -i fastqc_0.11.5+dfsg-3_all.deb && \
+sudo apt-get install -f
+```
 
 ## Data source
 
@@ -182,6 +189,7 @@ Links:
 There are several caveats about FastQC - the main one is that it only
 calculates certain statistics (like duplicated sequences) for subsets
 of the data (e.g. duplicate sequences are only analyzed for the first
+100,000 sequences in each file
 
 
 ### 3. Trimmomatic
