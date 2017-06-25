@@ -66,7 +66,7 @@ Click on your new project!
            
 ## Within the project, select "new"
 
-Now, select 'New' to start up a new machine.
+Now, select 'New' and then "Instance" from the dropdown menu to start up a new machine.
 
 [![foo](images/login-8.thumb.png)(../_images/login-8.png)
 
