@@ -29,7 +29,7 @@ Student 30-second introductions.
 Morning: 10:15am.
 * [Running large scale BLASTs and output.](running-blast-large-scale.html)
 
-Afternoon: 1:15am - 3pm.
+Afternoon: 1:15pm - 3pm.
 * [Visualizing BLAST score distributions in RStudio](visualizing-blast-scores-with-RStudio.html)
 * [Review and explore: Command line UNIX, and R/RStudio](command-line-and-rstudio.html)
 
