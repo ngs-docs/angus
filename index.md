@@ -1,7 +1,7 @@
 # Next-Gen Sequence Analysis Workshop (2017)
 
 These are the schedule and classroom materials for the
-[ANGUS workshop at UC Davis](http://ivory.idyll.org/dibsi/ANGUS.html).
+[ANGUS workshop at UC Davis](http://ivory.idyll.org/dibsi/ANGUS.html),
 which will run from June 26th to July 8th, 2017.
 
 Twitter hash tag: [#ngs2017](https://twitter.com/search?f=tweets&q=%23ngs2017&src=typd)
@@ -80,8 +80,8 @@ Afternoon (1-4pm): [More shell, loops, and scripting.](automation-2.html)
 9am lecture: [Erich Schwarz](https://mbg.cornell.edu/people/erich-schwarz), Cornell - "Assembling and biologically interpreting nematode genomes"
 
 Morning and afternoon:
-* [Long reads and short reads.](long-and-short-reads.html)
-* Variant calling and big genomes.
+* [Long reads and short reads.](long-and-short-reads.html) (Lisa Cohen)
+* Variant calling and big genomes: GTAK. (Tamer Mansour)
 
 ### Tuesday, Day 9: TBD.
 
@@ -92,6 +92,9 @@ afternoon/evening: [July 4th celebration at Community Park](http://cityofdavis.o
 ### Wednesday, Day 10: TBD.
 
 9am lecture: [Megan Dennis](http://www.dennislab.org/), UC Davis - "Complex genomic variation and its role in human evolution and disease"
+
+Morning and afternoon:
+* Genome Wide Association Studies and PLINK. (Tamer Mansour)
 
 ### Thursday, Day 11: RNAseq
 
