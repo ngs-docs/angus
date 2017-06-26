@@ -28,7 +28,7 @@ More here.
 
 
 ```
-curl -O ftp://ftp.ncbi.nih.gov/refseq/M_musculus/mRNA_Prot/mouse.1.protein.faa.gz
+curl -O ftp://ftp.ncbi.nih.gov/refseq/M_musculus/mRNA_Prot/mouse.1.rna.fna.gz
 
 for i in 1 2 3 4 5 6 7 8
 do
@@ -37,6 +37,11 @@ done
 
 gunzip -c cow.*.faa.gz > cow.faa
 
-
 shmlast crbl -q mouse.1.rna.fna.gz -d cow.faa --n_threads=6
 ```
+
+Now, download this file & look at in a spreadsheet.
+
+Also, plot distribution of e-value scores in `*.faa.crbl.csv`
+
+[Viz blast scores with RStudio](visualizing-blast-scores-with-RStudio.html)
