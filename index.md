@@ -1,11 +1,10 @@
 # Next-Gen Sequence Analysis Workshop (2017)
 
-This is the schedule for the
+These are the schedule and classroom materials for the
 [ANGUS workshop at UC Davis](http://ivory.idyll.org/dibsi/ANGUS.html).
-which will run from ...
+which will run from June 26th to July 8th, 2017.
 
-See [the master schedule](http://ivory.idyll.org/dibsi/SCHEDULE.html) for
-times etc; this information will be integrated below soon.
+Twitter hash tag: [#ngs2017](https://twitter.com/search?f=tweets&q=%23ngs2017&src=typd)
 
 ## The main workshop materials
 
@@ -85,6 +84,10 @@ Morning and afternoon:
 * Variant calling and big genomes.
 
 ### Tuesday, Day 9: TBD.
+
+9am-noon: lecture/tutorials/panel discussion.
+
+afternoon/evening: [July 4th celebration at Community Park](http://cityofdavis.org/city-hall/city-manager-s-office/community-events/fourth-of-july)
 
 ### Wednesday, Day 10: TBD.
 
