@@ -36,9 +36,15 @@ do
 done
 
 gunzip -c cow.*.faa.gz > cow.faa
+```
 
+Now run shmlast:
+```
 shmlast crbl -q mouse.1.rna.fna.gz -d cow.faa --n_threads=6
 ```
+this will take 16 minutes (!!) and produce some large files.
+
+----
 
 Now, download this file & look at in a spreadsheet.  You should see:
 
