@@ -10,7 +10,7 @@ Table of Contents
    
    running-command-line-blast
    running-blast-large-scale
-   visualizing-blast-scores-with-Rstudio
+   visualizing-blast-scores-with-RStudio
    command-line-and-rstudio
 
    quality-trimming
