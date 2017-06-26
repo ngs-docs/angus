@@ -29,14 +29,14 @@ Click the login link in the upper right.
 Choose "XSEDE" as your account provider (it should be the default) and click
 on "Continue".
            
-[![foo](images/login-2.thumb.png)(../_images/login-2.png)
+[![foo](images/login-2.thumb.png)](../_images/login-2.png)
 
 ## Fill in the username and password and click "Sign in"
 
 Fill in the username, which is 'tx160085' for the UCSC workshop,
 and then enter the password (which we will tell you in class).
 
-[![foo](images/login-3.thumb.png)(../_images/login-3.png)
+[![foo](images/login-3.thumb.png)](../_images/login-3.png)
            
 ## Select Projects and "Create New Project"
 
@@ -49,47 +49,47 @@ to keep things that belong to "you".
 
 Click on "Projects" up along the top.
 
-[![foo](images/login-5.thumb.png)(../_images/login-5.png)
+[![foo](images/login-5.thumb.png)](../_images/login-5.png)
            
 ## Name the project for yourself, click "create"
 
 Enter your name into the Project Name, and something simple like "UCSC"
 into the description. Then click 'create'.
 
-[![foo](images/login-6.thumb.png)(../_images/login-6.png)
+[![foo](images/login-6.thumb.png)](../_images/login-6.png)
 
 ## Select the newly created project
 
 Click on your new project!
 
-[![foo](images/login-7.thumb.png)(../_images/login-7.png)
+[![foo](images/login-7.thumb.png)](../_images/login-7.png)
            
 ## Within the project, select "new"
 
 Now, select 'New' to start up a new machine.
 
-[![foo](images/login-8.thumb.png)(../_images/login-8.png)
+[![foo](images/login-8.thumb.png)](../_images/login-8.png)
 
 ## Find the "Ubuntu 16.04" image, click on it
 
 Enter "Ubuntu 16.04" into the search bar - make sure it's from
 June 21st, 2017.
 
-[![foo](images/login-9.thumb.png)(../_images/login-9.png)
+[![foo](images/login-9.thumb.png)](../_images/login-9.png)
            
 ## Name it something simple and select 'm1.medium'
 
 Change the name after what we're doing - "workshop tutorial", for example,
 but it doesn't matter -- and select 'm1.medium'.
 
-[![foo](images/login-10.thumb.png)(../_images/login-10.png)
+[![foo](images/login-10.thumb.png)](../_images/login-10.png)
 
 ## Wait for it to become active
 
 It will now be booting up! This will take 2-10 minutes, depending.
 Just wait! Don't reload or anything.
 
-[![foo](images/login-11.thumb.png)(../_images/login-11.png)
+[![foo](images/login-11.thumb.png)](../_images/login-11.png)
            
 ## Click on your new instance to get more information!
 
@@ -98,4 +98,4 @@ you can ssh in as user 'tx160085' on the IP address of the machine - see
 circled information below.  Note that you'll need to use the private key
 file we sent around to everyone in last the pre-workshop e-mail.
 
-[![foo](images/login-12.thumb.png)(../_images/login-12.png)
+[![foo](images/login-12.thumb.png)](../_images/login-12.png)
