@@ -14,7 +14,7 @@ workshop.
 
 -----
 
-First, go to the Jetstream application at https://use.jetstream-cloud.org/application.
+First, go to the Jetstream application at [https://use.jetstream-cloud.org/application](https://use.jetstream-cloud.org/application).
 
 Now:
 
@@ -33,7 +33,7 @@ on "Continue".
 
 ## Fill in the username and password and click "Sign in"
 
-Fill in the username, which is 'tx160085' for the UCSC workshop,
+Fill in the username, which is 'tx160085' for the ANGUS workshop,
 and then enter the password (which we will tell you in class).
 
 [![foo](images/login-3.thumb.png)(../_images/login-3.png)
@@ -53,7 +53,7 @@ Click on "Projects" up along the top.
            
 ## Name the project for yourself, click "create"
 
-Enter your name into the Project Name, and something simple like "UCSC"
+Enter your name into the Project Name, and something simple like "ANGUS"
 into the description. Then click 'create'.
 
 [![foo](images/login-6.thumb.png)(../_images/login-6.png)
@@ -96,6 +96,7 @@ Just wait! Don't reload or anything.
 Now, you can either click "Open Web Shell", *or*, if you know how to use ssh,
 you can ssh in as user 'tx160085' on the IP address of the machine - see
 circled information below.  Note that you'll need to use the private key
-file we sent around to everyone in last the pre-workshop e-mail.
+file we sent around to everyone in last the pre-workshop e-mail if you decide to
+use your system terminal.
 
 [![foo](images/login-12.thumb.png)(../_images/login-12.png)
