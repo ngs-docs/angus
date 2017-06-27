@@ -4,6 +4,9 @@ These are the schedule and classroom materials for the
 [ANGUS workshop at UC Davis](http://ivory.idyll.org/dibsi/ANGUS.html),
 which will run from June 26th to July 8th, 2017.
 
+This workshop runs under a [Code of Conduct](code-of-conduct.html). Please
+respect it and be excellent to each other!
+
 Twitter hash tag: [#ngs2017](https://twitter.com/search?f=tweets&q=%23ngs2017&src=typd)
 
 ## The main workshop materials
