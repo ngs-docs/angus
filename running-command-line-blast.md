@@ -24,8 +24,9 @@ language and NCBI BLAST+.
 ## Running BLAST
 
 First! We need some data.  Let's grab the mouse and zebrafish RefSeq
-protein data sets from NCBI, and put them in /mnt, which is the
-scratch disk space for Amazon machines
+protein data sets from NCBI, and put them in our home directory. If you've just logged
+in, you should be there already, but if you're unsure, just run `cd` and hit enter. Now,
+we'll use `curl` to download the files:
 
 ```
 curl -O ftp://ftp.ncbi.nih.gov/refseq/M_musculus/mRNA_Prot/mouse.1.protein.faa.gz
@@ -63,7 +64,7 @@ drwxr-xr-x 2 titus titus     4096 Jun 14 18:03 Videos
 ```
 
 All four of the files are FASTA protein files (that's what the .faa
-suggests) that are compressed by gzip (that's what the .gz means).
+suggests) that are compressed with `gzip` (that's what the .gz means).
 
 Uncompress them:
 
@@ -128,7 +129,7 @@ less mm-first.x.zebrafish.txt
 
 -----
 
-Let's do some more sequences:
+Let's do some more sequences (this one will take a little longer to run):
 
 ```
 head -500 mouse.1.protein.faa > mm-second.fa
@@ -147,7 +148,7 @@ Notes:
 
 * you can execute multiple commands at a time;
 
-* You should see a warning -
+* You might see a warning -
 
     `Selenocysteine (U) at position 310 replaced by X`
 
@@ -157,7 +158,7 @@ Notes:
 
 Things to mention and discuss:
 
-* blastp options and -help.
+* `blastp` options and -help.
 * command line options, more generally - why so many?
 * automation rocks!
 
