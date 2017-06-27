@@ -21,7 +21,7 @@ pip install -U pip
 
 And now install shmlast 1.2:
 ```
-pip install shmlast==1.2
+pip install shmlast>=1.2
 ```
 
 More here.
