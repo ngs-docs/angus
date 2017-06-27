@@ -80,8 +80,9 @@ shmlast_out <- read.csv("shmlast_mouse.rna.fna.gz.x.cow.faa.crbl.csv")
 
 Now we can take a look at the data in a slightly nicer way!
 
-his is called a dataframe. Use the `head()` command to take a look at the
-beginning of it all:
+This is called a dataframe, which is a sort of R-ish version of a
+spreadsheet with named columns. Use the `head()` command to take a
+look at the beginning of it all:
 
 ```
 head(shmlast_out)
