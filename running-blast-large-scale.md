@@ -1,10 +1,14 @@
 # Running large and long command line jobs - using shmlast!
 
-* should we introduce screen/tmux?
+Our goal for this tutorial is for you become more familiar with running longer programs
+on the command line. You'll be introduced to
+[shmlast](http://joss.theoj.org/papers/3cde54de7dfbcada7c0fc04f569b36c7), which is implements
+an algorithm for discovering potential orthologs between an RNA-seq assembly and a protein database.
 
-shmlast!
 
-Install base packages
+## Installing shmlast
+
+Install base packages:
 
 ```
 sudo apt-get -y update && \
@@ -12,7 +16,7 @@ sudo apt-get install -y python3.5-dev python3.5-venv make \
     libc6-dev g++ zlib1g-dev last-align parallel
 ```
 
-Then create a Python virtualenv:
+Then create a Python environment with `virtualenv`, which will isolate your python packages:
 ```
 python3.5 -m venv ~/py3
 . ~/py3/bin/activate
