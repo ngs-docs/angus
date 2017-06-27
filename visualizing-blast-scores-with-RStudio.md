@@ -13,15 +13,25 @@ R and RStudio!
 ### Install RStudio!
 
 The following commands install the prerequisites for RStudio Web,
-download the latest version, and then install it.
+download the latest version, and then install it. 
 
 ```
 sudo apt-get update && sudo apt-get -y install gdebi-core r-base
-
+```
+```
 wget https://download2.rstudio.org/rstudio-server-1.0.143-amd64.deb
-
+```
+```
 sudo gdebi -n rstudio-server-1.0.143-amd64.deb 
 ```
+
+You should text indicating an RStudio server has started:
+
+```
+Jun 27 11:33:40 js-17-66.jetstream-cloud.org systemd[1]: Starting RStudio Server...
+Jun 27 11:33:40 js-17-66.jetstream-cloud.org systemd[1]: Started RStudio Server.
+```
+
 
 ### Figure out the Web site to connect to.
 
