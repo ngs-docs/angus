@@ -100,3 +100,12 @@ file we sent around to everyone in last the pre-workshop e-mail if you decide to
 use your system terminal.
 
 [![foo](images/login-12.thumb.png)](../_images/login-12.png)
+
+## Miscellany
+
+There's a possibility that you'll be confronted with this when you log in to jetstream:
+
+[![foo](images/possible_instance_problem.thumb.png)](../_images/possible_instance_problem.png)
+
+A refresh of the page should get you past it. Please try not to actually move any instances to
+a new project; it's probably someone else's and it could confuse them :)
