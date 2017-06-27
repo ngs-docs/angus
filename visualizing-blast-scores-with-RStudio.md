@@ -93,7 +93,7 @@ line `head` command but gives you a slightly nicer more structured view.
 In RStudio you can also use the `view` command,
 
 ```
-view(shmlast_out)
+View(shmlast_out)
 ```
 which is much nicer altogether!
 
@@ -161,6 +161,11 @@ around with data to see roughly what it looks like.  This is opposed to
 other approaches where we might be trying to do statistical analysis to
 confirm a hypothesis.
 
+Typically with small sample sizes (n < 5) it is hard to do confirmatory
+data analysis or hypothesis testing, so a lot of NGS work is done for
+*hypothesis generation* and then confirmed via additional experimental
+work.
+
 ## Some questions for discussion/points to make:
 
 * Why are we using R for this instead of the UNIX command line, or Excel?
@@ -173,4 +178,13 @@ confirm a hypothesis.
 * What other things could we look at?
 
 * Have we done a basic check of just *looking* at the data? Go back and
-  look at the data frame!
+  look at the data frame!  Do the gene name assignments look right?
+  
+  How might we do this a bit more systematically, while still "looking"
+  at things? Try googling 'choose random rows from data frame' and then
+  run
+  
+  ```
+  shmlast_sub = shmlast_out[sample(nrow(shmlast_out), 10),]
+  View(shmlast_sub)
+  ```
