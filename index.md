@@ -27,7 +27,7 @@ Student 30-second introductions.
 
 ### Tuesday, Day 2: Command line.
 
-9am lecture: C. Titus Brown, UC Davis - "On Biology and Data Analysis."
+9am lecture: [C. Titus Brown, UC Davis - "On Biology and Data Analysis."](https://osf.io/nsab3/)
 
 Morning: 10:15am.
 * [Running large scale BLASTs and output.](running-blast-large-scale.html)
@@ -36,7 +36,7 @@ Afternoon: 1:15pm - 3pm.
 * [Visualizing BLAST score distributions in RStudio](visualizing-blast-scores-with-RStudio.html)
 * [Review and explore: Command line UNIX, and R/RStudio](command-line-and-rstudio.html)
 
-Evening: 7:30pm-9pm: student presentations and questions! Ice cream social?
+Evening: 7pm-8:30: student presentations and questions! Ice cream social?
 
 ### Wednesday, Day 3: Mapping, aligning, and sequence files.
 
@@ -57,7 +57,7 @@ Morning and afternoon: 10:15am-4pm.
 Morning: 10:15am-noon
 * Introduction to R (guest instructor for one room: Tracy Teal)
 
-Afternoon and evening: 1:15pm-3pm, 7:30-9pm.
+Afternoon and evening: 1:15pm-3pm, 7-8:30.
 * [Short reads and counting for variant calling and differential expression](counting.html)
 * Variants, RNAseq, & differential expression analysis.
 
