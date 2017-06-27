@@ -28,19 +28,35 @@ And now install shmlast 1.2:
 pip install shmlast>=1.2
 ```
 
-More here.
+This downloads and installs the latest version of shmlast.
 
+## Download some data
+
+Next we need some data! Here we're going to grab one of the three
+mouse RNA data sets,
 
 ```
 curl -O ftp://ftp.ncbi.nih.gov/refseq/M_musculus/mRNA_Prot/mouse.1.rna.fna.gz
+```
 
+and all 8 of the cow protein data sets.
+
+```
 for i in 1 2 3 4 5 6 7 8
 do
    curl -O ftp://ftp.ncbi.nih.gov/refseq/B_taurus/mRNA_Prot/cow.$i.protein.faa.gz
 done
+```
 
+shmlast wants one query database (here, we'll use mouse) and one
+database to be searched (here, cow) - but first we have to combine
+all of the databases into one:
+
+```
 gunzip -c cow.*.faa.gz > cow.faa
 ```
+
+## Run shmlast!
 
 Now run shmlast:
 ```
