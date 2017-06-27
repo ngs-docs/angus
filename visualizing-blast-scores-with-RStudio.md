@@ -101,7 +101,7 @@ Another useful command is `dim` which will tell you the DIMENSIONS of this
 data frame:
 
 ```
-dim(surveys)
+dim(shmlast_out)
 ```
 
 That's a big data frame! 132,900 rows (and 17 columns!)
