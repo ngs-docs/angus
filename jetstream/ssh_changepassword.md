@@ -7,7 +7,7 @@ sudo password tx160085
 ```
 Enter a password when prompted. The letters will not display when you type, so do not be alarmed.
 
-![images/password-change.png]
+![](images/password-change.png)
 
 Exit out of the Web Shell.
 
@@ -19,4 +19,4 @@ ssh tx160085@149.165.157.62
 
 Type your password when prompted.
 
-![images/jetstream_login.png]
+![](images/jetstream_login.png)
