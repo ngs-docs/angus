@@ -7,18 +7,19 @@ will enforce this code throughout the event. We are expecting
 cooperation from all participants to help ensuring a safe environment
 for everybody.
 
-**tl; dr: Don't be a jerk.**
+**tl; dr: be excellent to each other.**
 
 Need Help?
 ----------
 
-You can reach the course director, Matt or Meg, at macmanes@gmail.com / mestato@gmail.com  or
-via the cell phone number on the course info page.  You can also talk
-to any of the instructors or TAs if you need immediate help.
+You can reach the course director, Titus Brown, at ctbrown@ucdavis.edu
+or via the cell phone number he has sent out.  You can also talk to
+any of the instructors or TAs if you need immediate help, or (in an
+emergency) call 911.
 
-Judi Brown Clarke, jbc@msu.edu, is the person to contact if Titus is not
-available or there are larger problems; she is available via phone at
-517.353.5985.
+Sue McClatchy, Susan.McClatchy@jax.org is the person to contact if
+Titus is not available or there are larger problems; she is readily
+available by e-mail.
 
 The Quick Version
 -----------------
