@@ -25,6 +25,14 @@ wget https://download2.rstudio.org/rstudio-server-1.0.143-amd64.deb
 sudo gdebi -n rstudio-server-1.0.143-amd64.deb 
 ```
 
+You should text indicating an RStudio server has started:
+
+```
+Jun 27 11:33:40 js-17-66.jetstream-cloud.org systemd[1]: Starting RStudio Server...
+Jun 27 11:33:40 js-17-66.jetstream-cloud.org systemd[1]: Started RStudio Server.
+```
+
+
 ### Figure out the Web site to connect to.
 
 Because we're using the cloud to run things, everyone will have a different
