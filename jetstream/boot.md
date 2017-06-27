@@ -41,7 +41,7 @@ and then enter the password (which we will tell you in class).
 ## Select Projects and "Create New Project"
 
 Now, this is something you only need to once if you have your own
-account - but if you're using a shared account like tx160085, you will
+account - but if you're using a shared account like `tx160085`, you will
 need a way to keep your computers separate from everyone else's.
 
 We'll do this with Projects, which give you a bit of a workspace in which
