@@ -128,8 +128,10 @@ hist(shmlast_out$bitscore)
 
 what are we looking for here? (And how would we know?)
 
-(Hint: longer bitscores are better, but bitscores of ~1000 mean a
-nucleotide alignment of 1000 bp - which is pretty good, no?)
+(Hint: longer bitscores are better, but even bitscores of ~1000 mean a
+nucleotide alignment of 1000 bp - which is pretty good, no? Here we really
+want to rescale the x axis to look at the distribution of bitscores in the
+100-300 range.)
 
 We can also look at the length of the queries, which are the mouse sequences
 in this case. 
