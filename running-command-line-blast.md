@@ -3,7 +3,7 @@
 The goal of this tutorial is to run you through a demonstration of the
 command line, which you may not have seen or used much before.
 
-[Start up an m1.small instance running Ubuntu 16.04 on Jetstream.](jetstream/boot.html)
+[Start up an m1.medium instance running Ubuntu 16.04 on Jetstream.](jetstream/boot.html)
 
 All of the commands below can copy/pasted.
 
