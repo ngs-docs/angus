@@ -9,6 +9,7 @@ Table of Contents
    index
 
    jetstream/boot
+   jetstream/login
    
    running-command-line-blast
    running-blast-large-scale
