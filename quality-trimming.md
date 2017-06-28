@@ -171,7 +171,9 @@ SRR1976948_1_fastqc.zip
 SRR1976948_2_fastqc.zip
 ```
 
-Inside each of the fatqc directories you will find reports from the fastqc. You can download these files using your RStudio Server console, if you like;
+Inside each of the fatqc directories you will find reports from the fastqc. You can download these files using your RStudio Server console, if you like. To install and run an RStudio Server, go [here](https://angus.readthedocs.io/en/2017/visualizing-blast-scores-with-RStudio.html#installing-and-running-rstudio-on-jetstream). 
+
+
 or you can look at these copies of them:
 
 * [SRR1976948_1_fastqc/fastqc_report.html](http://2017-ucsc-metagenomics.readthedocs.io/en/latest/_static/SRR1976948_1_fastqc/fastqc_report.html)
