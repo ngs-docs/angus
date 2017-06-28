@@ -79,19 +79,23 @@ Goal: execute a basic mapping
 
 Goal: make it possible to go look at a specific bit of the genome.
 
-1. Convert the SAM file into a BAM file that can be sorted and indexed:
+1. Install samtools:
+
+        sudo apt-get -y install samtools
+
+2. Convert the SAM file into a BAM file that can be sorted and indexed:
 
         samtools view -hSbo SRR2584857.bam SRR2584857.sam
         
-2. Sort the BAM file by position in genome:
+3. Sort the BAM file by position in genome:
 
         samtools sort SRR2584857.bam SRR2584857.sorted
         
-3. Index the BAM file so that we can randomly access it quickly:
+4. Index the BAM file so that we can randomly access it quickly:
 
         samtools index SRR2584857.sorted.bam
         
-4. Visualize with `tview`:
+5. Visualize with `tview`:
 
         samtools tview SRR2584857.sorted.bam ecoli-rel606.fa
         
