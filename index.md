@@ -55,7 +55,7 @@ Morning and afternoon: 10:15am-4pm.
 9am lecture: [Chris Hamm](https://butterflyology.github.io/about-me.html), Monsanto - "How to design a good experiment"
 
 Morning: 10:15am-noon
-* Introduction to R (guest instructor for one room: Tracy Teal)
+* [Introduction to R and Dataframes](introduction-to-r-and-dataframes.html)
 
 Afternoon and evening: 1:15pm-3pm, 7-8:30.
 * [Short reads and counting for variant calling and differential expression](counting.html)
