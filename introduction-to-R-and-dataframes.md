@@ -17,7 +17,7 @@ echo My RStudio Web server is running at: http://$(hostname):8787/
 If you cannot connect, you'll need to install the prerequisite software:
 
 ```
-sudo apt-get update && sudo apt-get -y install gdebi-core r-base
+sudo apt-get update && sudo apt-get install -y gdebi-core r-base r-base-dev
 ```
 
 After that finishes, download and install RStudio itself.
@@ -40,10 +40,11 @@ so-called `tidyverse` packages like so:
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
 ```
 
-and then upgrade `r-base`:
+and then upgrade `r-base` and install `r-base-dev`:
 
 ```
-sudo apt-get install r-base
+sudo apt-get install -y --allow-unauthenticated r-base r-base-dev \
+    libxml2-dev libcurl4-openssl-dev
 ```
 
 Now we'll want to install `tidyverse` at the command line:
