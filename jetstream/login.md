@@ -15,7 +15,7 @@ order of thousands of years) to determine a private key from a public key. You c
 it [here](https://en.wikipedia.org/wiki/Public-key_cryptography).
 
 The good news is that there is already a registered public key for our Jetstream account. However,
-it make use of it, you'll need the private key. And so, we move on!
+to make use of it, you'll need the private key. And so, we move on!
 
 ## Getting the Private Key
 
