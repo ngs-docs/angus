@@ -141,7 +141,7 @@ Question:
 
 Links:
 
-* [FASTQ Format](http://en.wikipedia.org/wiki/FASTQ_format>)
+* [FASTQ Format](http://en.wikipedia.org/wiki/FASTQ_format)
 
 ### 2. FastQC
 
