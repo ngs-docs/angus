@@ -1,6 +1,6 @@
 # Downloading and Transferring Files
 
-## Learning Objectives:
+Our goals for this lesson are:
 
 * Download a file from the internet with wget
 * Transfer a file from a remote machine to your computer with FileZilla
@@ -24,25 +24,30 @@ Now we have a conundrum! We have downloaded a file that we know is a cat photo, 
 ## Transfer Files From Your Instance with Filezilla
 Let's pretend that we didn't just grab that cat photo from the internet, and we have something unique that we would like to view. For this, *wget* would not work. Instead, you can use FileZilla to transfer a file from your local machine to a remote instance, or vice versa. 
 
-### Filezilla - Step 1
+### Open the site manager
 
 Open *FileZilla*, and click on the File tab. Choose 'Site Manager'.
  
-![FileZilla_step1](_static/Filezilla_1.png)
+![FileZilla_step1](_static/filezilla_site_add.png)
 
-### Filezilla - Step 2
+### Get The Key File
+
+See the instructions under ["Getting your private key"](jetstream/login.html#getting-the-private-key) to download your key file. This will allow you to authenticate
+with your instance. Please do not post this file publicly!
+
+### Add your instances as a site
 
 Within the 'Site Manager' window, do the following: 
 
 1. Click on 'New Site', and name it something intuitive (e.g. ANGUS or jetstream_angus)
-2. Host: address of your cloud instance (e.g. ec2-...) 
+2. Host: address of your cloud instance. Should be of the form W.X.Y.Z.
 3. Protocol: SFTP - SSH File Transfer Protocol
-4. Logon Type: Normal
-5. User: dcuser
-6. Password: data4Carp
+4. Logon Type: Key file
+5. User: `tx160085`
+6. Keyfile: The key you downloaded.
 7. Click 'Connect'
 	
-![FileZilla_step2](_static/Filezilla_2.png)
+![FileZilla_step2](_static/filezilla_2.png)
 
 ### Filezilla - Step 3
 
