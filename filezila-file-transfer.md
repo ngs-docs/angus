@@ -22,13 +22,13 @@ Now we have a conundrum! We have downloaded a file that we know is a cat photo, 
 # Move file from remote instance to local machine
 Let's pretend that we didn't just grab that cat photo from the internet, and we have something unique that we would like to view. For this, *wget* would not work. Instead, you can use FileZilla to transfer a file from your local machine to a remote instance, or vice versa. 
 
-######Filezilla - Step 1
+#### Filezilla - Step 1
 
 Open *FileZilla*, and click on the File tab. Choose 'Site Manager'.
  
 ![FileZilla_step1](_static/Filezilla_1.png)
 
-######Filezilla - Step 2
+#### Filezilla - Step 2
 
 Within the 'Site Manager' window, do the following: 
 
@@ -42,7 +42,7 @@ Within the 'Site Manager' window, do the following:
 	
 ![FileZilla_step2](_static/Filezilla_2.png)
 
-######Filezilla - Step 3
+#### Filezilla - Step 3
 
 In FileZilla, on the left side of the screen navigate to the location you would like to save the file, and on the right side of the screen navigate through your remote directory to the file `~/cat-pet-animal-domestic-104827.jpeg`. Double click on the .jpeg file to transfer a copy, or click and drag over to the right hand panel.
 
