@@ -26,7 +26,7 @@ Let's pretend that we didn't just grab that cat photo from the internet, and we 
 
 Open *FileZilla*, and click on the File tab. Choose 'Site Manager'.
  
-![FileZilla_step1](../img/Filezilla_step1.png) **ADD IMAGE**
+![FileZilla_step1](_static/Filezilla_1.png)
 
 ######Filezilla - Step 2
 
@@ -40,11 +40,11 @@ Within the 'Site Manager' window, do the following:
 6. Password: data4Carp
 7. Click 'Connect'
 	
-![FileZilla_step2](../img/FileZilla_step2.png) **ADD IMAGE**
+![FileZilla_step2](_static/Filezilla_2.png)
 
 ######Filezilla - Step 3
 
-In FileZilla, on the left side of the screen navigate to the location you would like to save the file, and on the right side of the screen navigate through your remote directory to the file **MODIFY FILE NAME** `~/cat-pet-animal-domestic-104827.jpeg`. Double click on the .jpeg file to transfer a copy, or click and drag over to the right hand panel.
+In FileZilla, on the left side of the screen navigate to the location you would like to save the file, and on the right side of the screen navigate through your remote directory to the file `~/cat-pet-animal-domestic-104827.jpeg`. Double click on the .jpeg file to transfer a copy, or click and drag over to the right hand panel.
 
 Open the file on your local machine, and bask in the glory of the cute cat.
 
