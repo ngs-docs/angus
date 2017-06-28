@@ -41,7 +41,7 @@ Evening: 7pm-8:30: student presentations and questions! Ice cream social?
 ### Wednesday, Day 3: Mapping, aligning, and sequence files.
 
 9am lecture:
-[Melissa Wilson Sayres](http://www.wilsonsayreslab.org/), Arizona State University - "Sex-biased genome evolution"
+[Melissa Wilson Sayres](http://www.wilsonsayreslab.org/), Arizona State University - ["Sex-biased genome evolution"](https://osf.io/czj42/)
 
 Morning and afternoon: 10:15am-4pm.
 * [Quality trimming your reads.](quality-trimming.html)
