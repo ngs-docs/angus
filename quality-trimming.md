@@ -15,7 +15,7 @@ so maybe move to Friday?
 
 ----
 
-(Jetstream startup instructions [HERE](https://2017-ucsc-metagenomics.readthedocs.io/en/latest/jetstream/boot.html>))
+(Jetstream startup instructions [HERE](https://angus.readthedocs.io/en/2017/jetstream/boot.html))
 
 ---
 
@@ -171,7 +171,7 @@ SRR1976948_1_fastqc.zip
 SRR1976948_2_fastqc.zip
 ```
 
-Inside each of the fatqc directories you will find reports from the fastqc. You can download these files using your Jupyter Notebook console, if you like;
+Inside each of the fatqc directories you will find reports from the fastqc. You can download these files using your RStudio Server console, if you like;
 or you can look at these copies of them:
 
 * [SRR1976948_1_fastqc/fastqc_report.html](http://2017-ucsc-metagenomics.readthedocs.io/en/latest/_static/SRR1976948_1_fastqc/fastqc_report.html)
@@ -196,7 +196,7 @@ of the data (e.g. duplicate sequences are only analyzed for the first
 ### 3. Trimmomatic
 
 Now we're going to do some trimming!  We'll be using
-[Trimmomatic](http://www.usadellab.org/cms/?page=trimmomatic>), which
+[Trimmomatic](http://www.usadellab.org/cms/?page=trimmomatic), which
 (as with fastqc) we've already installed via apt-get.
 
 The first thing we'll need are the adapters to trim off:
