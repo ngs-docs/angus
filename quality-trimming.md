@@ -2,19 +2,6 @@
 
 This tutorial was copied over from [here](https://2017-ucsc-metagenomics.readthedocs.io/en/latest/quality.html.)
 
-* TODO: finish converting to Markdown
-* TODO: update the data set - do we want to use metagenomic data?
-* TODO: fix the fastqc error (see https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=756296)
-
-Also, we could defer detailed discussion of quality foo until AFTER we
-do assembly and mapping, and then use this as an object lesson in how
-you need to do different quality control depending on your (a) data types
-(short reads vs long reads) and (b) ultimate goals (variant calling, quant,
-and assembly.)  This could also be a good review of command line stuff...
-so maybe move to Friday?
-
-----
-
 (Jetstream startup instructions [HERE](https://angus.readthedocs.io/en/2017/jetstream/boot.html))
 
 ---
@@ -39,6 +26,7 @@ pip install multiqc
 `apt-get install` doesn't work properly for `fastqc`. So we will update the default `fastqc` version using the following commands
 
 ```
+cd ~/
 wget https://launchpad.net/ubuntu/+archive/primary/+files/fastqc_0.11.5+dfsg-3_all.deb && \
 sudo dpkg -i fastqc_0.11.5+dfsg-3_all.deb && \
 sudo apt-get install -f
