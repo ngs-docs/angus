@@ -58,7 +58,7 @@ echo 'done!'
 ```
 
 this will take a long time to run - while it's running you can switch to
-the RSTudio Web tab in your browser and start working with R!
+the RStudio Web tab in your browser and start working with R!
 
 ## Learn!
 
