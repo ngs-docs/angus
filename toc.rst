@@ -21,7 +21,7 @@ Table of Contents
    variant-calling
    introduction-to-automation
 
-   introduction-to-r-and-dataframes
+   introduction-to-R-and-dataframes
    counting
    
    genome-assembly
