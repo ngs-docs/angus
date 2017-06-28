@@ -28,7 +28,7 @@ Let's pretend that we didn't just grab that cat photo from the internet, and we 
 
 Open *FileZilla*, and click on the File tab. Choose 'Site Manager'.
  
-![FileZilla_step1](_static/filezilla_site_add.png)
+![FileZilla_step1](_static/filezilla_1.png)
 
 ### Get The Key File
 
@@ -47,7 +47,7 @@ Within the 'Site Manager' window, do the following:
 6. Keyfile: The key you downloaded.
 7. Click 'Connect'
 	
-![FileZilla_step2](_static/filezilla_2.png)
+![FileZilla_step2](_static/filezilla_site_add.png)
 
 ### Filezilla - Step 3
 
