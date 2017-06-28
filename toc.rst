@@ -20,11 +20,12 @@ Table of Contents
    variant-calling
    introduction-to-automation
 
+   introduction-to-r-and-dataframes
+   counting
+   
    genome-assembly
    annotating
    kmers-and-sourmash
-
-   counting
 
    automation-2
 

@@ -18,14 +18,14 @@ download the latest version, and then install it.
 ```
 sudo apt-get update && sudo apt-get -y install gdebi-core r-base
 ```
+
+After that finishes, download and install RStudio:
 ```
 wget https://download2.rstudio.org/rstudio-server-1.0.143-amd64.deb
-```
-```
 sudo gdebi -n rstudio-server-1.0.143-amd64.deb 
 ```
 
-You should text indicating an RStudio server has started:
+You should see now see text indicating an RStudio server has started:
 
 ```
 Jun 27 11:33:40 js-17-66.jetstream-cloud.org systemd[1]: Starting RStudio Server...
