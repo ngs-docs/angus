@@ -1,4 +1,4 @@
-# An Introduction to R and Dataframes
+# An Introduction to R and Data Analysis
 
 (Guest lecturer for the Tigers - Tracy Teal, Executive Director of Data Carpentry!)
 
