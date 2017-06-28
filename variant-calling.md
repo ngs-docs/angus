@@ -21,9 +21,9 @@ materials from 2017;
 
 log in, and then install samtools:
 
-   sudo apt-get -y update && \
-   sudo apt-get -y install trimmomatic fastqc python-pip \
-   samtools zlib1g-dev ncurses-dev python-dev
+      sudo apt-get -y update && \
+      sudo apt-get -y install trimmomatic fastqc python-pip \
+      zlib1g-dev ncurses-dev python-dev
         
 ## Download data
 
@@ -186,8 +186,8 @@ Well, at least that variant looks real...
 
 1. Execute:
 
-        samtools view SRR2584857.sorted.bam 'ecoli:920514-920514' > out.bam
-        wc -l out.bam
+        samtools view SRR2584857.sorted.bam 'ecoli:920514-920514' > out.sam
+        wc -l out.sam
 
 and this will give you the coverage of the relevant position.
 
