@@ -10,7 +10,8 @@ Table of Contents
 
    jetstream/boot
    jetstream/login
-   
+   filezila-file-transfer
+
    running-command-line-blast
    running-blast-large-scale
    visualizing-blast-scores-with-RStudio
