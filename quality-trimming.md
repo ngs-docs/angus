@@ -1,8 +1,7 @@
 # Short read quality and trimming
 
-This tutorial was copied over from [here](https://2017-ucsc-metagenomics.readthedocs.io/en/latest/quality.html.)
-
-(Jetstream startup instructions [HERE](https://angus.readthedocs.io/en/2017/jetstream/boot.html))
+Start up a Jetstream m1.small or larger
+[as per Jetstream startup instructions](https://angus.readthedocs.io/en/2017/jetstream/boot.html).
 
 ---
 
