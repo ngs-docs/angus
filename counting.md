@@ -1,10 +1,10 @@
 # RNAseq expression analysis
 
-Some tutorials and presentations:
+Some older tutorials and presentations:
 
-* http://degust.erc.monash.edu/degust-old/
-* https://angus.readthedocs.io/en/2016/_static/RoutesThroughDESeqAnalysis.pdf
-* https://angus.readthedocs.io/en/2016/rob_quant/tut.html
+* [Degust: RNA-seq exploration, analysis, and visualisation](http://degust.erc.monash.edu/)
+* [Routes through differential expression](https://angus.readthedocs.io/en/2016/_static/RoutesThroughDESeqAnalysis.pdf)
+* [2016 tutorial!](https://angus.readthedocs.io/en/2016/rob_quant/tut.html)
 
 During this lesson, you’ll learn how to use salmon to rapidly quantify
 transcript-level expression from RNA-seq data.
