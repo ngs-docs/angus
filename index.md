@@ -46,7 +46,6 @@ Evening: 7pm-8:30: student presentations and questions! Ice cream social?
 Morning and afternoon: 10:15am-4pm.
 * [Quality trimming your reads.](quality-trimming.html)
 * [Mapping and samtools and variant calling.](variant-calling.html)
-* [Introduction to automation.](introduction-to-automation.html)
 
 (Evening: free time - [Wed Farmers' market!](http://www.davisfarmersmarket.org/))
 
@@ -59,7 +58,7 @@ Morning: 10:15am-noon
 
 Afternoon and evening: 1:15pm-3pm, 7-8:30.
 * [Short reads and counting for variant calling and differential expression](counting.html)
-* Variants, RNAseq, & differential expression analysis.
+* [Introduction to automation.](introduction-to-automation.html)
 
 ### Friday, Day 5: Reference independent analyses: assembly and k-mers
 
