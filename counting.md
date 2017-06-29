@@ -126,14 +126,26 @@ The `yeast-edgeR.csv` file contains the fold expression & significance informati
    that shape!)
 
    Related: Why can't we just use fold expression to select the things we're interested in?
+   
+   (Two reasons: multiple comparison problems; and standard error in measurement. If avg expression is low, then "large" relative deviations may occur frequently; but this won't happen as much for high expression genes.)
 
    Related: How do we pick the FDR (false discovery rate) threshold?
    
+   (Somewhat arbitrarily.  Your FDR threshold essentially gives you a
+   tradeoff between sensitivity (you miss more when you use a lower FDR
+   threshold) vs specificity (if you raise the FDR threshold, you will
+   accept genes that look differentially expressed due solely to measurement
+   error/noise.)
+   
 3. How do we know how many replicates (bio and/or technical) to do?
+
+   GOOD QUESTION. Apart from statistical issues, what biology features in to
+   this?
 
    Related: what confounding factors are there for RNAseq analysis?
 
-   Related: what is our false positive/false negative rate?
+   Related: what is our false positive/false negative rate? How would you
+   imagine calculating those?
 
 ## More reading
 
