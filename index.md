@@ -58,7 +58,6 @@ Morning: 10:15am-noon
 
 Afternoon and evening: 1:15pm-3pm, 7-8:30.
 * [Short reads and counting for variant calling and differential expression](counting.html)
-* [Introduction to automation.](introduction-to-automation.html)
 
 ### Friday, Day 5: Reference independent analyses: assembly and k-mers
 
@@ -68,28 +67,38 @@ Morning: 10:15am-noon.
 * [Microbial genome assembly.](genome-assembly.html)
 * Annotating assemblies w/prokka; BLAST and pangenome analysis.
 
-Afternoon: 1:15pm-4pm.
-* [Reference independent analyses with k-mers; sourmash.](kmers-and-sourmash.html)
+Evening: (also running on Saturday afternoon; you only need to come to one.)
+* [Introduction to automation.](introduction-to-automation.html)
 
 ### Saturday, Day 6: Automation and repeatability.
 
 (Morning: free time / Saturday market)
 
-Afternoon (1-4pm): [More shell, loops, and scripting.](automation-2.html)
+Afternoon (1-4pm): [Introduction to automation.](introduction-to-automation.html)
+
+Note! this will be a repeat of Friday evening! You only need to come to one.
 
 ### Sunday, Day 7: Day of rest!
 
-### Monday, Day 8: Genomes, long reads, and GWAS.
+### Monday, Day 8: Genomes, and GWAS, and k-mers.
 
 9am lecture: [Erich Schwarz](https://mbg.cornell.edu/people/erich-schwarz), Cornell - "Assembling and biologically interpreting nematode genomes"
 
 Morning and afternoon:
-* [Long reads and short reads.](long-and-short-reads.html) (Lisa Cohen)
 * Variant calling and big genomes: GTAK. (Tamer Mansour)
+* [Reference independent analyses with k-mers; sourmash.](kmers-and-sourmash.html)
+
+Evening: Ice cream and lectures!
+* 7pm-9pm: demonstrations and eye candy.
+  - where should I put my data? The Open Science Framework.
+  - Jupyter Notebook and Python for data science.
+  - CyVerse and what an allocation request looks like.
 
 ### Tuesday, Day 9: TBD.
 
 9am-noon: lecture/tutorials/panel discussion.
+* [Long reads and short reads.](long-and-short-reads.html) (Lisa Cohen and Jon Badalamenti)
+* panel discussion: The Future of Biology, Bioinformatics, and Humanity.
 
 afternoon/evening: [July 4th celebration at Community Park](http://cityofdavis.org/city-hall/city-manager-s-office/community-events/fourth-of-july)
 
