@@ -12,108 +12,58 @@ In this tutorial you will:
 2. Annotate a FASTA file of contigs
 3. Visualize the annotation using Artemis
 
-The instructions below will work on a Ubuntu 14.04 Amazon instance.
+Prokka is a tool that facilitates the fast annotation of prokaryotic genomes.
 
-Install Prokka dependencies
-===========================
+The goals of this tutorial are to:
 
-::
+*  Install Prokka
+*  Use Prokka to annotate our genomes
 
-   sudo apt-get -y update
-   sudo apt-get install bioperl libxml-simple-perl default-jre git curl
-
-Install Prokka
-==============
-
-::
-
-  git clone https://github.com/tseemann/prokka.git
-  export PATH=$PWD/prokka/bin:$PATH
-  prokka --setupdb
-  prokka --version
-
-Get some contigs
-================
-
-We will download a genome from NCBI, decompress it, and rename it to something shorter:
-
-::
-
-  curl ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA_000144955.1_ASM14495v1/GCA_000144955.1_ASM14495v1_genomic.fna.gz > contigs.fasta.gz
-  gunzip contigs.fasta
-
-We can use the ``grep`` command to look at the FASTA sequence names in the file:
-
-::
-
-  grep '>' contigs.fasta
-
-How many sequences/contigs are in this file ?
-
-We can use the ``wc`` (word count) command to get a rough idea of the number of basepairs in the FASTA file too
-by counting how many characters (bytes) are in the file, as it uses 1 charactert (A,G,T,C) per nucleotide.
-
-::
-
-  wc -c contigs.fasta
-
-How big is the genome in Mbp (mega base-pairs) ?
-
-Why aren't the ``wc`` result exactly correct?
-
-
-Run Prokka on the contigs
-=========================
-
-Prokka is a pipeline script which coordinates a series of genome feature predictor tools and sequence similarity
-tools to annotate the genome sequence (contigs).
-
-::
-
-  prokka --outdir anno --prefix prokka contigs.fasta
-
-::
-
-  cat ./anno/prokka.txt
-
-How many genes did Prokka find in the contigs?
-
-Install Artemis
-===============
-
-Artemis is a graphical Java program to browse annotated genomes.
-It is a a bit like IGV but sepcifically designed for bacteria.
-You will need to install this on your laptop computer instead
-of the Amazon instance.
-
-Download: http://www.sanger.ac.uk/science/tools/artemis
-
-Copy the annotation to your laptop
-==================================
-
-Copy the ``anno/prokka.gff`` file to your latop using the ``scp`` command
-
-::
-
-   scp -i your_key.pem ubuntu@your-machine-name.amazon.com:/home/ubuntu/anno/prokka.gff ~/Downloads
-
-
-Load the annotated genome
-============================
-
-* Start Artemis
-* Click ``OK``
-* Go to ``File -> Open File Manager``
-* Navigate to the ``~/Downloads`` folder
-* Choose the ``prokka.gff`` file yoiu copied from Amazon
-
-Browse the genome
+Installing Prokka
 =================
 
-You will be overwhelmed and/or confused at first, and possibly permanently. 
-Here are some tips:
+Download and extract the latest version of prokka:
+::
+    cd ~/
+    wget http://www.vicbioinformatics.com/prokka-1.11.tar.gz
+    tar -xvzf prokka-1.11.tar.gz
 
-* There are 3 panels: feature map (top), sequence (middle), feature list (bottom)
-* Click right-mouse-button on bottom panel and select ``Show products``
-* Zooming is done via the verrtical scroll bars in the two top panels
+We also will need some dependencies such as bioperl:
+::
+    sudo apt-get install bioperl libdatetime-perl libxml-simple-perl libdigest-md5-perl
+    sudo perl -MCPAN -e shell
+    sudo perl -MCPAN -e 'install "XML::Simple"'
 
+Now, you should be able to add Prokka to your ``$PATH`` and set up the index for the sequence database:
+::
+    export PATH=$PATH:$HOME/prokka-1.11/bin
+    prokka --setupdb
+
+Prokka should be good to go now-- you can check to make sure that all is well by typing ``prokka``. This should print the help screen with all available options.
+
+Running Prokka
+==============
+
+Make a new directory for the annotation:
+::
+    cd 
+    mkdir annotation
+    cd annotation
+
+Link the metagenome assembly file into this directory:
+::
+    ln -fs ~/work/ecoli-assembly.fa
+
+Now it is time to run Prokka! There are tons of different ways to specialize the running of Prokka. We are going to keep it simple for now, though. It will take a little bit to run.
+::
+    prokka ecoli-assembly.fa --outdir prokka_annotation --prefix metagG
+
+This will generate a new folder called ``prokka_annotation`` in which will be a series of files, which are detailed `here <https://github.com/tseemann/prokka/blob/master/README.md#output-files>`__.
+
+
+References
+===========
+
+* http://www.vicbioinformatics.com/software.prokka.shtml
+* https://www.ncbi.nlm.nih.gov/pubmed/24642063
+* https://github.com/tseemann/prokka/blob/master/README.md
