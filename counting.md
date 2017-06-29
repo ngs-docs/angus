@@ -63,7 +63,7 @@ Here is a description of the parameters used, for more information refere to the
   - -i tells salmon where to look for the index
   - -p tells salmon how many threads to use
   - -l tells salmon the type of the read library (here, inward facing, unstranded reads). For a more in-depth description of the library types and how to specify them in salmon, have a look here in the docs.
-  - -1 similar to RapMap, this tells salmon where to find the first reads of the pair
+  - -1 this tells salmon where to find the first reads of the pair
   - -2 tells salmon where to find the second reads of the pair
   - -o tells salmon where (the directory) to write the output for this sample. The directory (and the path to it) will be created if it doesn’t exist.
    
@@ -84,7 +84,7 @@ Here is a description of the parameters used, for more information refere to the
    (Note that this script has been updated from lab 7 to add two new samples.)
 
    This will produce two plots, `yeast-edgeR-MA-plot.pdf` and
-   `yeast-edgeR-MDS.pdf`. You can view them by going to your Jupyter
+   `yeast-edgeR-MDS.pdf`. You can view them by going to your RStudio Server
    console and looking in the directory `yeast`.
 
    The `yeast-edgeR.csv` file contains the fold expression & significance information in a spreadsheet.
