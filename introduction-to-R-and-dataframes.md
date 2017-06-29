@@ -64,4 +64,4 @@ the RStudio Web tab in your browser and start working with R!
 ## Learn!
 
 From this point on, we will be using the standard lesson from
-Data Carpentry on R: [R for Data Analysis](http://www.datacarpentry.org/R-genomics/).
+Data Carpentry on R: [R for Data Analysis](https://data-lessons.github.io/R-genomics/).
