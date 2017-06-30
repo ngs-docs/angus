@@ -30,7 +30,8 @@ Download and extract the latest version of prokka:
 
 We also will need some dependencies such as bioperl:
 ::
-    sudo apt-get install bioperl libdatetime-perl libxml-simple-perl libdigest-md5-perl
+    sudo apt-get install bioperl libdatetime-perl libxml-simple-perl libdigest-md5-perl python ncbi-blast+
+    
     sudo perl -MCPAN -e shell
     sudo perl -MCPAN -e 'install "XML::Simple"'
 
@@ -59,6 +60,21 @@ Now it is time to run Prokka! There are tons of different ways to specialize the
     prokka ecoli-assembly.fa --outdir prokka_annotation --prefix metagG
 
 This will generate a new folder called ``prokka_annotation`` in which will be a series of files, which are detailed `here <https://github.com/tseemann/prokka/blob/master/README.md#output-files>`__.
+
+The main file... @look at GFF.
+
+There are several things you can do with these annotation files.  It's
+close to being ready to upload to NCBI as a provisional genome
+anonotation for this microbe, believe it or not!  You can also
+download the GFF file and use it in a genome browser like
+[Artemis](http://www.sanger.ac.uk/science/tools/artemis), and we'd be
+happy to show you how to do that (but it involves installing software on
+your laptop, so we avoid doing that in class).
+
+The last thing you can do is @blast.
+
+Searching the annotated genes
+=============================
 
 References
 ===========
