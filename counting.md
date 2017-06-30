@@ -97,7 +97,7 @@ Salmon outputs things into subdirectories and in a format that is inconvenient
 for R; use [this Python script](https://github.com/ngs-docs/angus/blob/change_link_for_edgeR_script/_static/gather-counts.py) to collect them all!
 
 ```
-curl -L -O https://raw.githubusercontent.com/ngs-docs/angus/change_link_for_edgeR_script/_static/yeast.salmon.R
+curl -L -O https://raw.githubusercontent.com/ngs-docs/angus/change_link_for_edgeR_script/_static/gather-counts.py
 python2 gather-counts.py
 ```
 
@@ -122,7 +122,7 @@ The plots we made above are nice, but what if we want something a bit more infor
 
 We can use the skills we learned from the packages dplyr and ggplot2 in order to make a colored plot with gene names. Let's start by loading the necessary packages. 
 ```r
-setwd("/home/tx160085/yeast/")
+setwd("~/yeast/")
 library(ggplot2)
 library(dplyr)
 ```
