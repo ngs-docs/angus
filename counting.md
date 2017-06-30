@@ -9,13 +9,27 @@ Some older tutorials and presentations:
 During this lesson, you’ll learn how to use salmon to rapidly quantify
 transcript-level expression from RNA-seq data.
 
-## Make sure R is installed:
+## Make sure R & RStudo are installed:
 
 ```
 sudo apt-get update && sudo apt-get -y install gdebi-core r-base
 ```
 
-      
+Try to connect to a running RStudio Web server instance – you can get the Web address by running this command:
+```
+echo My RStudio Web server is running at: http://$(hostname):8787/
+```
+
+If you cannot connect, download and install RStudio.
+```
+wget https://download2.rstudio.org/rstudio-server-1.0.143-amd64.deb
+sudo gdebi -n rstudio-server-1.0.143-amd64.deb 
+```
+And, finally, change the password to something you can remember. If your username is different than the one below (i.e. `diblions`), you'll need to change that.
+```
+sudo passwd tx160085
+```      
+
 ## Install edgeR
 
 Use [this script](https://github.com/ngs-docs/angus/blob/change_link_for_edgeR_script/_static/install-edgeR.R):
