@@ -18,11 +18,11 @@ sudo apt-get update && sudo apt-get -y install gdebi-core r-base
       
 ## Install edgeR
 
-Use [this script](https://github.com/ngs-docs/angus/blob/elijahlowe-patch-1/_static/install-edgeR.R):
+Use [this script](https://github.com/ngs-docs/angus/blob/change_link_for_edgeR_script/_static/install-edgeR.R):
 
 ```
 cd
-curl -O -L https://github.com/ngs-docs/angus/raw/elijahlowe-patch-1/_static/install-edgeR.R
+curl -O -L https://github.com/ngs-docs/angus/raw/change_link_for_edgeR_script/_static/install-edgeR.R
 sudo Rscript --no-save install-edgeR.R
 ```
 
@@ -94,7 +94,7 @@ Read up on [libtype, here](https://salmon.readthedocs.io/en/latest/salmon.html#w
 ## Collect all of the sample counts
 
 Salmon outputs things into subdirectories and in a format that is inconvenient
-for R; use [this Python script](https://github.com/ngs-docs/angus/blob/elijahlowe-patch-1/_static/gather-counts.py) to collect them all!
+for R; use [this Python script](https://github.com/ngs-docs/angus/blob/change_link_for_edgeR_script/_static/gather-counts.py) to collect them all!
 
 ```
 curl -L -O https://raw.githubusercontent.com/ngs-docs/angus/taylorreiter-patch-4/_static/yeast.salmon.R
@@ -103,10 +103,10 @@ python2 gather-counts.py
 
 ## Run edgeR (in R)
 
-USe [this script](https://github.com/ngs-docs/angus/blob/elijahlowe-patch-1/_static/yeast.salmon.R) and take a look at the output:
+USe [this script](https://github.com/ngs-docs/angus/blob/change_link_for_edgeR_script/_static/yeast.salmon.R) and take a look at the output:
 
 ```
-curl -L -O https://github.com/ngs-docs/angus/raw/elijahlowe-patch-1/_static/yeast.salmon.R
+curl -L -O https://github.com/ngs-docs/angus/raw/change_link_for_edgeR_script/_static/yeast.salmon.R
 Rscript --no-save yeast.salmon.R
 ```
 
