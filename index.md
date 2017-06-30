@@ -46,6 +46,7 @@ Evening: 7pm-8:30: student presentations and questions! Ice cream social?
 Morning and afternoon: 10:15am-4pm.
 * [Quality trimming your reads.](quality-trimming.html)
 * [Mapping and samtools and variant calling.](variant-calling.html)
+* [High Throughput sequencing. What could go wrong?](https://github.com/wltrimbl/whatcouldgowrong)
 
 (Evening: free time - [Wed Farmers' market!](http://www.davisfarmersmarket.org/))
 
@@ -59,12 +60,13 @@ Morning: 10:15am-noon
 Afternoon and evening: 1:15pm-3pm, 7-8:30.
 * [Short reads and counting for variant calling and differential expression](counting.html)
 
-### Friday, Day 5: Reference independent analyses: assembly and k-mers
+### Friday, Day 5: Reference independent analyses: assembly
 
 9am lecture: [Adrienne Roeder](http://roeder.wicmb.cornell.edu/), Cornell - Reaching biological conclusions from RNA-seq: the good, the bad, and the ugly
 
 Morning: 10:15am-noon.
 * [Microbial genome assembly.](genome-assembly.html)
+
 Afternoon: 1-3pm.
 * [Prokka genome annotation and BLAST.](prokka_genome_annotation.html)
 
