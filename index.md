@@ -65,10 +65,10 @@ Afternoon and evening: 1:15pm-3pm, 7-8:30.
 9am lecture: [Adrienne Roeder](http://roeder.wicmb.cornell.edu/), Cornell - Reaching biological conclusions from RNA-seq: the good, the bad, and the ugly
 
 Morning: 10:15am-noon.
-* [Microbial genome assembly.](genome-assembly.html)
+* [Microbial genome assembly](genome-assembly.html)
 
 Afternoon: 1-3pm.
-* [Prokka genome annotation and BLAST.](prokka_genome_annotation.html)
+* [Prokka genome annotation](prokka_genome_annotation.html)
 
 Evening: (also running on Saturday afternoon; you only need to come to one.)
 * [Introduction to automation.](introduction-to-automation.html)
