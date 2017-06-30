@@ -1,10 +1,21 @@
 # Genome assembly - some basics
 
-Short read assembly!
+In [variant calling](https://angus.readthedocs.io/en/2017/variant-calling.html), we mapped reads to a reference and looked systematically for differences.
 
-TODO for this tutorial:
+But what if you don't have a reference? How do you construct one?
 
-* split data and work as in [variant calling](variant-calling.html)
+The answer is *de novo* assembly, and the basic idea is you feed in
+your reads and you get out a bunch of *contigs*, that represent
+stretches of DNA present in the reads that don't have any long repeats
+or much significant polymorphism.  Like everything else, the basic idea
+is that you run a program, feed in the reads, and get out a pile of
+assembled DNA.
+
+MEGAHIT, used below, works well for assembly short-read data sets from
+genomes and metagenomes.  For transcriptomes, you might use Trinity -
+see
+[the eel-pond protocol](https://eel-pond.readthedocs.io/en/latest/)
+for our guide to doing RNA-seq assembly.
 
 ### Start up a Jetstream instance
 
