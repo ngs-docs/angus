@@ -93,7 +93,7 @@ about whether it's any good...
 Install [QUAST](http://quast.sourceforge.net/quast):
 
     cd ~/
-    git clone https://github.com/ablab/quast.git -b release_4.2
+    git clone https://github.com/ablab/quast.git -b release_4.5
     export PYTHONPATH=$(pwd)/quast/libs/
 
 Run QUAST on your assembly:
