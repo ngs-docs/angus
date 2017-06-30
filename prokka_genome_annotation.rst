@@ -10,7 +10,7 @@ In this tutorial you will:
 
 1. Download and install Prokka
 2. Annotate a FASTA file of contigs
-3. Visualize the annotation using Artemis
+3. Search the resulting annotated genes with BLAST.
 
 Prokka is a tool that facilitates the fast annotation of prokaryotic genomes.
 
@@ -59,7 +59,6 @@ Now it is time to run Prokka! There are tons of different ways to specialize the
     prokka ecoli-assembly.fa --outdir prokka_annotation --prefix metagG
 
 This will generate a new folder called ``prokka_annotation`` in which will be a series of files, which are detailed `here <https://github.com/tseemann/prokka/blob/master/README.md#output-files>`__.
-
 
 References
 ===========

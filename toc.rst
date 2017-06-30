@@ -25,7 +25,7 @@ Table of Contents
    counting
    
    genome-assembly
-   annotating
+   prokka_genome_annotation
    kmers-and-sourmash
 
    automation-2

@@ -66,7 +66,7 @@ Afternoon and evening: 1:15pm-3pm, 7-8:30.
 Morning: 10:15am-noon.
 * [Microbial genome assembly.](genome-assembly.html)
 Afternoon: 1-3pm.
-* Annotating assemblies w/prokka; BLAST and pangenome analysis.
+* [Prokka genome annotation and BLAST.](prokka_genome_annotation.html)
 
 Evening: (also running on Saturday afternoon; you only need to come to one.)
 * [Introduction to automation.](introduction-to-automation.html)
