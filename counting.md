@@ -144,15 +144,23 @@ Then we will construct a plot with ggplot. We will plot log fold change against 
 plot = ggplot(results, aes(logFC, -log10(PValue))) +
   geom_point(aes(col=significance)) +
   scale_color_manual(values=c("red", "black"))
-
+ 
 # View the plot
 plot
+```
+This is a great start! This is a classic ggplot graph. We see that we have a legend indicating what our colors mean, and that we can start to get a feel for the distribution of significance of differentially expressed genes. 
+
+But this plot can still be improved. What if we wanted to know the names of the *most* significantly expressed genes? We could do that by adding a layer to our ggplot using the function geom_text(). Our gene column was named "X", and here we are choosing to label the genes that have a significance value less than 1e-200. You can see that in order to do this, we use the dplyr command filter(). 
+```r
 # Add gene labels to points that are highly significant
 plot + geom_text(data=filter(results, FDR<1e-200), aes(label=X))
+```
 
+Alas, this is R, so we still have a problem. Our text is overlapping and fairly difficult to read. Luckily, other people have ran into this problem and they have solved it! There is a package called ggrepel (gg-repel) that "Provides text and label geoms for 'ggplot2' that help to avoid overlapping text labels. Labels repel away from each other and away from the data points. This is exactly what we need! Let's install the package and use it to stagger our labels. We use geom_text_repel instead of geom_text, but we still use the dplyr filter() function.
+```r
 # Install ggrepel package
-# Provides text and label geoms for 'ggplot2' that help to avoid overlapping text labels.   
-# Labels repel away from each other and away from the data points.
+      # Provides text and label geoms for 'ggplot2' that help to avoid overlapping text labels.   
+      # Labels repel away from each other and away from the data points.
 install.packages("ggrepel")
 library(ggrepel)
 
