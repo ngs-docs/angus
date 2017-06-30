@@ -65,3 +65,7 @@ create a new directory
 ## Scripts: 'bash' shell scripts, R scripts, and Python scripts
 
 (These are all the same things but in different languages.)
+
+## Calling R scripts from bash scripts to produce figures
+
+(You can automate most things.)
