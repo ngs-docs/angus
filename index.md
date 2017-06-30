@@ -46,6 +46,7 @@ Evening: 7pm-8:30: student presentations and questions! Ice cream social?
 Morning and afternoon: 10:15am-4pm.
 * [Quality trimming your reads.](quality-trimming.html)
 * [Mapping and samtools and variant calling.](variant-calling.html)
+* [High Throughput sequencing. What could go wrong?](https://github.com/wltrimbl/whatcouldgowrong)
 
 (Evening: free time - [Wed Farmers' market!](http://www.davisfarmersmarket.org/))
 
