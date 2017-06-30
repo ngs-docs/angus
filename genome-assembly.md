@@ -1,31 +1,27 @@
 # Genome assembly - some basics
 
-Short read assembly!
+In [variant calling](https://angus.readthedocs.io/en/2017/variant-calling.html), we mapped reads to a reference and looked systematically for differences.
 
-We have quite a few old tutorials --
+But what if you don't have a reference? How do you construct one?
 
-* [A short short-read assembly tutorial](https://github.com/ctb/2017-ucdavis-igg201b/blob/master/lab4/README.md) from CTB's IGG class at Davis.
-* [Using SPAdes](https://angus.readthedocs.io/en/2015/assembling-ecoli.html) from ANGUS 2015 / Titus.
-* [Nanopore assembly + short read](https://angus.readthedocs.io/en/2015/analyzing_nanopore_data.html) from ANGUS 2015 / Nick Loman.
-* [More nanopore](https://angus.readthedocs.io/en/2016/analyzing_nanopore_data.html) from ANGUS 2016 / Lisa.
+The answer is *de novo* assembly, and the basic idea is you feed in
+your reads and you get out a bunch of *contigs*, that represent
+stretches of DNA present in the reads that don't have any long repeats
+or much significant polymorphism.  Like everything else, the basic idea
+is that you run a program, feed in the reads, and get out a pile of
+assembled DNA.
 
-* [A tutorial by Shaun Jackman](http://sjackman.ca/abyss-activity/) from 2016 - this is a bit advanced for first impressions, and could be done in the second week, maybe.
-
-I think we should plan on having 2-3 different tutorials.
-
-* intro to assembly basics (takes in reads, outputs unannotated contigs)
-* long read data (advantages/disadvantages)
-* structural variation and assembly (maybe advanced only)
-
-TODO for this tutorial:
-
-* split data and work as in [variant calling](variant-calling.html)
+MEGAHIT, used below, works well for assembly short-read data sets from
+genomes and metagenomes.  For transcriptomes, you might use Trinity -
+see
+[the eel-pond protocol](https://eel-pond.readthedocs.io/en/latest/)
+for our guide to doing RNA-seq assembly.
 
 ### Start up a Jetstream instance
 
 Goal: provide a platform to run stuff on.
 
-[Start up an m1.small instance running Ubuntu 16.04 on Jetstream.](jetstream/boot.html)
+[Start up an m1.medium instance running Ubuntu 16.04 on Jetstream.](jetstream/boot.html)
 
 ### Install the MEGAHIT assembler
 
@@ -84,6 +80,14 @@ Now, look at the beginning:
     
 It's DNA! Yay!
 
+So this is the curse and the benefit of assembly - you go through
+some amount of work to get your data, QC it, clean it up, and assemble it,
+but then you're faced with a pile of assembled but unannotated results!
+(We'll talk about annotation next tutorial.)
+
+But before you put effort into annotating the assembly, you should think
+about whether it's any good...
+
 ### Measuring the assembly
 
 Install [QUAST](http://quast.sourceforge.net/quast):
@@ -132,6 +136,10 @@ L75                         30
 
 This is a set of summary stats about your assembly. Are they good?
 Bad? How would you know?
+
+## What are other metrics you could use to evaluate your assembly?
+
+This is a good opportunity for brainstorming and group thinking :)
 
 ## End of day
 
