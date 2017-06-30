@@ -97,7 +97,7 @@ Salmon outputs things into subdirectories and in a format that is inconvenient
 for R; use [this Python script](https://github.com/ngs-docs/angus/blob/change_link_for_edgeR_script/_static/gather-counts.py) to collect them all!
 
 ```
-curl -L -O https://raw.githubusercontent.com/ngs-docs/angus/taylorreiter-patch-4/_static/yeast.salmon.R
+curl -L -O https://raw.githubusercontent.com/ngs-docs/angus/change_link_for_edgeR_script/_static/yeast.salmon.R
 python2 gather-counts.py
 ```
 
