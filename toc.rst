@@ -19,16 +19,15 @@ Table of Contents
 
    quality-trimming
    variant-calling
-   introduction-to-automation
 
    introduction-to-R-and-dataframes
    counting
    
    genome-assembly
-   annotating
+   prokka_genome_annotation
    kmers-and-sourmash
 
-   automation-2
+   introduction-to-automation
 
    long-and-short-reads
 
