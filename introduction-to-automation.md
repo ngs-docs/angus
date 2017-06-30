@@ -24,7 +24,9 @@ cp ecoli/final.contigs.fa ecoli-assembly.fa
 prokka ecoli-assembly.fa --outdir prokka_annotation --prefix myecoli
 ```
 
-(here the '#' represent comments that the shell will ignore.)
+(Here the '#' represent comments that the shell will ignore. If you
+haven't installed the annotation pipeline yet, then put a '#' in front
+of the `prokka` command so that is ignored too!)
 
 Let's try running all of that in one go in a new directory:
 
@@ -34,8 +36,8 @@ mkdir work2
 cd work2
 ```
 
-and then copy and paste the assembly workflow above. (This will take a few
-minutes.)
+and then copy and paste the assembly and annotation workflow
+above. (This will take a few minutes.)
 
 ## While it's running...
 
@@ -50,8 +52,9 @@ Second, if you wanted to communicate to a collaborator or a computer
 help person what you were doing, you could just send them all the
 commands.
 
-Third, this is a pretty good addition to your Methods section, don't
-you think?
+Third, this set of information (what you ran, what parameters you gave
+it) is a pretty good addition to a Methods section, don't you
+think?
 
 ## After it's done running: put it in a shell script
 
@@ -72,7 +75,8 @@ wget https://download2.rstudio.org/rstudio-server-1.0.143-amd64.deb
 sudo gdebi -n rstudio-server-1.0.143-amd64.deb
 ```
 
-*Step #3*: Figure out where it's running
+*Step #3*: Figure out where it's running.
+
 Because we're using the cloud to run things, everyone will have a different
 computer that they're running RStudio on.  To find out what Web site to
 connect to to access YOUR server, run:
@@ -83,9 +87,10 @@ echo My RStudio Web server is running at: http://$(hostname):8787/
 
 *Step #4*: If you don't remember the password you set, re-set it.
 
-After running this, copy/paste the URL into your Web browser; you should
-see login page. Enter the XSEDE username and password you were given
-(should be `tx160085` username, with associated password).
+After running this, copy/paste the URL into your Web browser; you
+should see login page. Enter the XSEDE username and password you were
+given (should be `tx160085` or `dibtiger` or `diblion` username, with
+associated password).
 
 If the login is unsuccessful, return to the terminal and run:
 
@@ -445,3 +450,36 @@ Similarly, if we have a Python script named `snakes.py`, the execution will be:
 ```
 python snakes.py
 ```
+
+We've used this in various places (the `gather-counts.py` Python script and
+the `yeast.salmon.R` R script in [RNAseq](counting.html)) as a way to keep
+you from having to switch too many times from the shell to RStudio and
+back.  But it is also just a convenient way to track what you're doing
+and communicate it to yourself and others!
+
+## Final thoughts
+
+Automation like this is good for a few reasons.
+
+1. Efficiency. You don't have to remember and/or mistype commands any more!  You just need to remember where you put the script!
+
+2. Efficiency x 2: new projects! When you start a new project you can modify your old scripts to work in the new way!
+
+3. Efficiency x 3: revisions! When reviewers *finally* get back to you
+   and tell you to make all your red solid lines into blue dashed
+   lines, you can edit and then re-run the R script that created the
+   figure.
+
+4. Repeatability and communication: graduate and your advisor wants to pass
+   your methods on to the next student? Send them the scripts! Collaborator
+   wants to rerun things with different parameters? Send them the script!
+   etc.
+   
+5. Tracking and versioning. We didn't show you how to do this *yet*,
+   but with script files it's easier to track what you did last time
+   and compare it to how you're doing it now.  When you find yourself
+   naming things "myscript.mar2017.sh" and "myscript.jun2017.sh", then
+   you should talk to someone about something called "version control."
+   We'll show you more on Monday!
+
+...and probably some other things, too.
