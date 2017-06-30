@@ -52,7 +52,7 @@ Morning and afternoon: 10:15am-4pm.
 
 ### Thursday, Day 4: Introduction to counting and differential expression.
 
-9am lecture: [Chris Hamm](https://butterflyology.github.io/about-me.html), Monsanto - "How to design a good experiment"
+9am lecture: [Chris Hamm](https://butterflyology.github.io/about-me.html), Monsanto - [Why are there so many butterflies?](https://osf.io/3j5yf/)
 
 Morning: 10:15am-noon
 * [Introduction to R and Data Analysis](introduction-to-R-and-dataframes.html)
@@ -62,7 +62,7 @@ Afternoon and evening: 1:15pm-3pm, 7-8:30.
 
 ### Friday, Day 5: Reference independent analyses: assembly
 
-9am lecture: [Adrienne Roeder](http://roeder.wicmb.cornell.edu/), Cornell - Reaching biological conclusions from RNA-seq: the good, the bad, and the ugly
+9am lecture: [Adrienne Roeder](http://roeder.wicmb.cornell.edu/), Cornell - [Reaching biological conclusions from RNA-seq: the good, the bad, and the ugly](https://osf.io/qz3m6/)
 
 Morning: 10:15am-noon.
 * [Microbial genome assembly](genome-assembly.html)
