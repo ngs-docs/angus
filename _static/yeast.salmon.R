@@ -9,7 +9,7 @@ files <- c(
 "ERR458502.fastq.gz.quant.counts"
 )
 
-labels=c("A", "B", "E", "C", "D", "F")
+labels=c("WT_1", "WT_2", "WT_3", "MUT_1", "MUT_2", "MUT_3")
 
 data <- readDGE(files)
 
