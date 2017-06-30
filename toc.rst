@@ -25,10 +25,10 @@ Table of Contents
    
    genome-assembly
    prokka_genome_annotation
-   kmers-and-sourmash
 
    introduction-to-automation
 
    long-and-short-reads
+   kmers-and-sourmash
 
    for-instructors/index
