@@ -18,11 +18,11 @@ sudo apt-get update && sudo apt-get -y install gdebi-core r-base
       
 ## Install edgeR
 
-Use [this script](https://github.com/ngs-docs/angus/blob/elijahlowe-patch-1/_static/install-edgeR.R):
+Use [this script](https://github.com/ngs-docs/angus/blob/change_link_for_edgeR_script/_static/install-edgeR.R):
 
 ```
 cd
-curl -O -L https://github.com/ngs-docs/angus/raw/elijahlowe-patch-1/_static/install-edgeR.R
+curl -O -L https://github.com/ngs-docs/angus/raw/change_link_for_edgeR_script/_static/install-edgeR.R
 sudo Rscript --no-save install-edgeR.R
 ```
 
@@ -94,19 +94,19 @@ Read up on [libtype, here](https://salmon.readthedocs.io/en/latest/salmon.html#w
 ## Collect all of the sample counts
 
 Salmon outputs things into subdirectories and in a format that is inconvenient
-for R; use [this Python script](https://github.com/ngs-docs/angus/blob/elijahlowe-patch-1/_static/gather-counts.py) to collect them all!
+for R; use [this Python script](https://github.com/ngs-docs/angus/blob/change_link_for_edgeR_script/_static/gather-counts.py) to collect them all!
 
 ```
-curl -L -O https://github.com/ngs-docs/angus/raw/elijahlowe-patch-1/_static/gather-counts.py
+curl -L -O https://raw.githubusercontent.com/ngs-docs/angus/taylorreiter-patch-4/_static/yeast.salmon.R
 python2 gather-counts.py
 ```
 
 ## Run edgeR (in R)
 
-USe [this script](https://github.com/ngs-docs/angus/blob/elijahlowe-patch-1/_static/yeast.salmon.R) and take a look at the output:
+USe [this script](https://github.com/ngs-docs/angus/blob/change_link_for_edgeR_script/_static/yeast.salmon.R) and take a look at the output:
 
 ```
-curl -L -O https://github.com/ngs-docs/angus/raw/elijahlowe-patch-1/_static/yeast.salmon.R
+curl -L -O https://github.com/ngs-docs/angus/raw/change_link_for_edgeR_script/_static/yeast.salmon.R
 Rscript --no-save yeast.salmon.R
 ```
 
@@ -115,6 +115,50 @@ This will produce two plots, `yeast-edgeR-MA-plot.pdf` and
 console and looking in the directory `yeast`.
 
 The `yeast-edgeR.csv` file contains the fold expression & significance information in a spreadsheet.
+
+## Extra plotting in R
+
+The plots we made above are nice, but what if we want something a bit more informative?
+
+We can use the skills we learned from the packages dplyr and ggplot2 in order to make a colored plot with gene names. Let's start by loading the necessary packages. 
+```r
+setwd("/home/tx160085/yeast/")
+library(ggplot2)
+library(dplyr)
+```
+Next, we can read in our data and get a feel for what the data look like.
+```r
+results = read.csv("yeast-edgeR.csv")
+head(results)
+dim(results)
+```
+
+We want to produce a plot that will have points that are colored by significance, and that has the most significant genes labeled. First, let's add a column with the mutate() function in dplyr that specifies the level of significance using the false discovery rate (FDR) column.
+```r
+# mutate with dplyr, adding a column named "significance")
+results = mutate(results, significance=ifelse(results$FDR<0.05, "FDR < 0.05", "FDR > 0.05"))
+```
+Then we will construct a plot with ggplot. We will plot log fold change against -log10 of P value.
+```r
+# construct a plot
+plot = ggplot(results, aes(logFC, -log10(PValue))) +
+  geom_point(aes(col=significance)) +
+  scale_color_manual(values=c("red", "black"))
+
+# View the plot
+plot
+# Add gene labels to points that are highly significant
+plot + geom_text(data=filter(results, FDR<1e-200), aes(label=X))
+
+# Install ggrepel package
+# Provides text and label geoms for 'ggplot2' that help to avoid overlapping text labels.   
+# Labels repel away from each other and away from the data points.
+install.packages("ggrepel")
+library(ggrepel)
+
+# add labels for genes that are significant
+plot + geom_text_repel(data=filter(results, FDR<1e-200), aes(label=X))
+```
 
 ## Questions to ask/address
 
