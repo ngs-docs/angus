@@ -162,6 +162,7 @@ log in, and then make & change into a working directory:
 
         for sample in *.dedup.bam;do
           name=${sample%.dedup.bam}
+          samtools index $sample
           java -Xmx10g -jar GenomeAnalysisTK.jar -T BaseRecalibrator -R dog_chr5.fa -I $sample -knownSites canis_fam_chr5.vcf -o $name.1st.table
           java -Xmx10g -jar GenomeAnalysisTK.jar -T BaseRecalibrator -R dog_chr5.fa -I $sample -knownSites canis_fam_chr5.vcf -BQSR $name.1st.table -o $name.2nd.table
           java -Xmx10g -jar GenomeAnalysisTK.jar -T PrintReads -R dog_chr5.fa -I $sample -BQSR $name.2nd.table -o $name.recal.bam
