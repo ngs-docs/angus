@@ -153,6 +153,9 @@ log in, and then make & change into a working directory:
 3.  download R (only to generate figures to observe the changes)
 
         sudo apt-get update && sudo apt-get -y install r-base
+        
+    Install some packages
+   
         sudo Rscript -e "install.packages('ggplot2', contriburl=contrib.url('http://cran.r-project.org/'))"
         sudo Rscript -e "install.packages('gplots', contriburl=contrib.url('http://cran.r-project.org/'))"
         sudo Rscript -e "install.packages('reshape', contriburl=contrib.url('http://cran.r-project.org/'))"
