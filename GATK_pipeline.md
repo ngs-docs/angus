@@ -42,7 +42,7 @@ log in, and then make & change into a working directory:
 
 2.  change into a working directory:
 
-        mkdir ~/GATK_tutorial && cd ~/GATK_tutorial
+        cd ~/GATK_tutorial
 
 3.  download and prepare the reference for mapping
 
