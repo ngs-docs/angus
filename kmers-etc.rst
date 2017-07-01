@@ -8,8 +8,7 @@ Start up an Ubuntu 16.10 instance and run ::
    apt-get update
    apt-get -y install screen git curl python3.5-dev python3.5-venv make \
        libc6-dev g++ zlib1g-dev
-   python3.5 -m venv ~/py3 && \
-   . ~/py3/bin/activate && pip3 install -U pip &&  \
+   pip3 install -U pip
    pip3 install -U jupyter jupyter_client ipython pandas matplotlib scipy scikit-learn
 
 Install `khmer <http://khmer.readthedocs.org/en/v2.1.1/>`__::
@@ -25,6 +24,7 @@ Create our workspace ::
 
    sudo mkdir -p /mnt
    sudo chown $USER /mnt
+   python3.5 -m venv ~/py3
    echo '. ~/py3/bin/activate' >> ~/.bash_profile
    source ~/.bash_profile
 
@@ -43,6 +43,7 @@ Can anyone think about why you might not want your instance
 configured to run arbitrary (shell) commands from anywhere?
 
 And finally start the notebook server listening:
+
     echo Try to connect to http://$(hostname -I)
     jupyter notebook  --no-browser --ip='*' --port=8080 --notebook-dir=/mnt
 
