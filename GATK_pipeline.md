@@ -136,9 +136,12 @@ log in, and then make & change into a working directory:
 
 ## Recalibrate Bases
 
-1.  Download known known polymorphic sites & select those on chr5 and correct chr name
+1.  Download known known polymorphic sites 
 
-        wget --timestamping 'ftp://ftp.ensembl.org/pub/release-89/variation/vcf/canis_familiaris/Canis_familiaris.vcf.gz' -O canis_familiaris.vcf.gz
+        wget 'ftp://ftp.ensembl.org/pub/release-89/variation/vcf/canis_familiaris/Canis_familiaris.vcf.gz' -O canis_familiaris.vcf.gz
+        
+2.  Select variants on chr5 and correct chr name
+
         gunzip canis_familiaris.vcf.gz
         grep "^#" canis_familiaris.vcf > canis_fam_chr5.vcf
         grep "^5" canis_familiaris.vcf | sed 's/^5/chr5/' >> canis_fam_chr5.vcf
@@ -147,7 +150,7 @@ log in, and then make & change into a working directory:
 
 > Note the differences between genome annotation databases. Not only chromosome names but more imprtantaly the coordinate system [(interseting post)](https://www.biostars.org/p/84686/) 
 
-2.  download R (only to generate figures to observe the changes)
+3.  download R (only to generate figures to observe the changes)
 
         sudo apt-get update && sudo apt-get -y install r-base
         sudo Rscript -e "install.packages('ggplot2', contriburl=contrib.url('http://cran.r-project.org/'))"
@@ -155,7 +158,7 @@ log in, and then make & change into a working directory:
         sudo Rscript -e "install.packages('reshape', contriburl=contrib.url('http://cran.r-project.org/'))"
         sudo Rscript -e "install.packages('gsalib', contriburl=contrib.url('http://cran.r-project.org/'))"
         
-3.  run recalibration
+4.  run recalibration
 
         for sample in *.dedup.bam;do
           name=${sample%.dedup.bam}
