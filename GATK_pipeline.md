@@ -105,6 +105,9 @@ log in, and then make & change into a working directory:
         samtools view -H BD143_TGACCA_L005.sorted.bam
         samtools view -H BD143_TGACCA_L006.sorted.bam
         samtools view -H BD143_TGACCA_merged.sorted.bam
+        
+5.  remove the individual replicates
+
         rm BD143_TGACCA_L00*.sorted.bam
 
 ## Mark duplicates
