@@ -24,7 +24,7 @@ If you cannot connect, download and install RStudio.
 wget https://download2.rstudio.org/rstudio-server-1.0.143-amd64.deb
 sudo gdebi -n rstudio-server-1.0.143-amd64.deb 
 ```
-And, finally, change the password to something you can remember. If your username is different than the one below (i.e. `diblions`), you'll need to change that.
+And, finally, change the password to something you can remember. If your username is different than the one below (i.e. `diblions` or `dibtiger`), you'll need to change that.
 ```
 sudo passwd your_username
 ```      
