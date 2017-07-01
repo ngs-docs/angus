@@ -1,29 +1,18 @@
 # BWA and samtools and variant calling
 
-Here we have two previous lessons:
-
-* [Labs from CTB's 2017 IGG course at UC Davis](https://github.com/ctb/2017-ucdavis-igg201b/blob/master/lab2/README.md) (+ [using bedtools and more samtools](https://github.com/ctb/2017-ucdavis-igg201b/blob/master/lab3/README.md)).  There's also [a small homework exercise](https://github.com/ctb/2017-ucdavis-igg201b/blob/master/hw1/README.md).
-
-* [the 2016 ANGUS tutorial](https://angus.readthedocs.io/en/2016/variant.html)
-
-Proposal:
-* merge some of the nice discussion from the 2016 tutorial with CTB's
-materials from 2017;
-* eliminate the Python code from CTB's materials until maybe later, and just use bedtools;
-* use samtools too;
-* maybe demo the [Artemis viewer](http://www.sanger.ac.uk/science/tools/artemis) at end. Probably too much to expect people to install it, and the VNC stuff with Jetstream is ...challenging.
-
------
+Here we will use the [BWA aligner](http://bio-bwa.sourceforge.net/) to
+map short reads to a reference genome, and then call variants
+(differences between the reads and the reference).
 
 ## Getting started
 
-[Start up an m1.small instance running Ubuntu 16.04 on Jetstream.](jetstream/boot.html)
+[Start up an m1.medium instance running Ubuntu 16.04 on Jetstream.](jetstream/boot.html)
 
 log in, and then install samtools:
 
-   sudo apt-get -y update && \
-   sudo apt-get -y install trimmomatic fastqc python-pip \
-   samtools zlib1g-dev ncurses-dev python-dev
+      sudo apt-get -y update && \
+      sudo apt-get -y install trimmomatic fastqc python-pip \
+      zlib1g-dev ncurses-dev python-dev
         
 ## Download data
 
@@ -79,19 +68,23 @@ Goal: execute a basic mapping
 
 Goal: make it possible to go look at a specific bit of the genome.
 
-1. Convert the SAM file into a BAM file that can be sorted and indexed:
+1. Install samtools:
+
+        sudo apt-get -y install samtools
+
+2. Convert the SAM file into a BAM file that can be sorted and indexed:
 
         samtools view -hSbo SRR2584857.bam SRR2584857.sam
         
-2. Sort the BAM file by position in genome:
+3. Sort the BAM file by position in genome:
 
         samtools sort SRR2584857.bam SRR2584857.sorted
         
-3. Index the BAM file so that we can randomly access it quickly:
+4. Index the BAM file so that we can randomly access it quickly:
 
         samtools index SRR2584857.sorted.bam
         
-4. Visualize with `tview`:
+5. Visualize with `tview`:
 
         samtools tview SRR2584857.sorted.bam ecoli-rel606.fa
         
@@ -182,8 +175,8 @@ Well, at least that variant looks real...
 
 1. Execute:
 
-        samtools view SRR2584857.sorted.bam 'ecoli:920514-920514' > out.bam
-        wc -l out.bam
+        samtools view SRR2584857.sorted.bam 'ecoli:920514-920514' > out.sam
+        wc -l out.sam
 
 and this will give you the coverage of the relevant position.
 

@@ -1,21 +1,7 @@
 # Short read quality and trimming
 
-This tutorial was copied over from [here](https://2017-ucsc-metagenomics.readthedocs.io/en/latest/quality.html.)
-
-* TODO: finish converting to Markdown
-* TODO: update the data set - do we want to use metagenomic data?
-* TODO: fix the fastqc error (see https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=756296)
-
-Also, we could defer detailed discussion of quality foo until AFTER we
-do assembly and mapping, and then use this as an object lesson in how
-you need to do different quality control depending on your (a) data types
-(short reads vs long reads) and (b) ultimate goals (variant calling, quant,
-and assembly.)  This could also be a good review of command line stuff...
-so maybe move to Friday?
-
-----
-
-(Jetstream startup instructions [HERE](https://2017-ucsc-metagenomics.readthedocs.io/en/latest/jetstream/boot.html>))
+Start up a Jetstream m1.small or larger
+[as per Jetstream startup instructions](https://angus.readthedocs.io/en/2017/jetstream/boot.html).
 
 ---
 
@@ -34,10 +20,12 @@ Run:
 sudo apt-get -y update && \
 sudo apt-get -y install trimmomatic fastqc python-pip \
    samtools zlib1g-dev ncurses-dev python-dev
+pip install multiqc   
 ```
 `apt-get install` doesn't work properly for `fastqc`. So we will update the default `fastqc` version using the following commands
 
 ```
+cd ~/
 wget https://launchpad.net/ubuntu/+archive/primary/+files/fastqc_0.11.5+dfsg-3_all.deb && \
 sudo dpkg -i fastqc_0.11.5+dfsg-3_all.deb && \
 sudo apt-get install -f
@@ -140,7 +128,7 @@ Question:
 
 Links:
 
-* [FASTQ Format](http://en.wikipedia.org/wiki/FASTQ_format>)
+* [FASTQ Format](http://en.wikipedia.org/wiki/FASTQ_format)
 
 ### 2. FastQC
 
@@ -170,7 +158,9 @@ SRR1976948_1_fastqc.zip
 SRR1976948_2_fastqc.zip
 ```
 
-Inside each of the fatqc directories you will find reports from the fastqc. You can download these files using your Jupyter Notebook console, if you like;
+Inside each of the fatqc directories you will find reports from the fastqc. You can download these files using your RStudio Server console, if you like. To install and run an RStudio Server, go [here](https://angus.readthedocs.io/en/2017/visualizing-blast-scores-with-RStudio.html#installing-and-running-rstudio-on-jetstream). 
+
+
 or you can look at these copies of them:
 
 * [SRR1976948_1_fastqc/fastqc_report.html](http://2017-ucsc-metagenomics.readthedocs.io/en/latest/_static/SRR1976948_1_fastqc/fastqc_report.html)
@@ -195,7 +185,7 @@ of the data (e.g. duplicate sequences are only analyzed for the first
 ### 3. Trimmomatic
 
 Now we're going to do some trimming!  We'll be using
-[Trimmomatic](http://www.usadellab.org/cms/?page=trimmomatic>), which
+[Trimmomatic](http://www.usadellab.org/cms/?page=trimmomatic), which
 (as with fastqc) we've already installed via apt-get.
 
 The first thing we'll need are the adapters to trim off:
@@ -265,6 +255,32 @@ less SRR1976948_1.qc.fq.gz
 ```
 
 (again, use spacebar to scroll, 'q' to exit less).
+
+### 5. MultiQc
+[MultiQC](http://multiqc.info/) aggregates results across many samples into a single report for easy comparison.
+
+Run Mulitqc on both the untrimmed and trimmed files
+
+```
+multiqc .
+```
+
+And now you should see output that looks like this:
+
+```
+[INFO   ]         multiqc : This is MultiQC v1.0
+[INFO   ]         multiqc : Template    : default
+[INFO   ]         multiqc : Searching '.'
+Searching 15 files..  [####################################]  100%
+[INFO   ]          fastqc : Found 4 reports
+[INFO   ]         multiqc : Compressing plot data
+[INFO   ]         multiqc : Report      : multiqc_report.html
+[INFO   ]         multiqc : Data        : multiqc_data
+[INFO   ]         multiqc : MultiQC complete
+```
+
+You can view output html file
+[multiqc_report.html](_static/multiqc_report.html)
 
 Questions:
 

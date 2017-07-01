@@ -2,6 +2,9 @@
 Bacterial genome annotation using Prokka
 ================================================
 
+(You should run this after running `Genome Assembly
+<genome-assembly.html>`__.)
+
 After you have de novo assembled your genome sequencing reads into contigs,
 it is useful to know what genomic features are on those contigs. The process
 of identifying and labelling those features is called genome annotation.
@@ -10,110 +13,129 @@ In this tutorial you will:
 
 1. Download and install Prokka
 2. Annotate a FASTA file of contigs
-3. Visualize the annotation using Artemis
+3. Search the resulting annotated genes with BLAST.
 
-The instructions below will work on a Ubuntu 14.04 Amazon instance.
+`Prokka <http://www.vicbioinformatics.com/software.prokka.shtml>`__ is a tool that facilitates the fast annotation of prokaryotic genomes.
 
-Install Prokka dependencies
-===========================
+The goals of this tutorial are to:
 
-::
+* Install Prokka
+* Use Prokka to annotate our genomes
+* Take a brief look at some downstream uses of the annotations.
 
-   sudo apt-get -y update
-   sudo apt-get install bioperl libxml-simple-perl default-jre git curl
-
-Install Prokka
-==============
-
-::
-
-  git clone https://github.com/tseemann/prokka.git
-  export PATH=$PWD/prokka/bin:$PATH
-  prokka --setupdb
-  prokka --version
-
-Get some contigs
-================
-
-We will download a genome from NCBI, decompress it, and rename it to something shorter:
-
-::
-
-  curl ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA_000144955.1_ASM14495v1/GCA_000144955.1_ASM14495v1_genomic.fna.gz > contigs.fasta.gz
-  gunzip contigs.fasta
-
-We can use the ``grep`` command to look at the FASTA sequence names in the file:
-
-::
-
-  grep '>' contigs.fasta
-
-How many sequences/contigs are in this file ?
-
-We can use the ``wc`` (word count) command to get a rough idea of the number of basepairs in the FASTA file too
-by counting how many characters (bytes) are in the file, as it uses 1 charactert (A,G,T,C) per nucleotide.
-
-::
-
-  wc -c contigs.fasta
-
-How big is the genome in Mbp (mega base-pairs) ?
-
-Why aren't the ``wc`` result exactly correct?
-
-
-Run Prokka on the contigs
-=========================
-
-Prokka is a pipeline script which coordinates a series of genome feature predictor tools and sequence similarity
-tools to annotate the genome sequence (contigs).
-
-::
-
-  prokka --outdir anno --prefix prokka contigs.fasta
-
-::
-
-  cat ./anno/prokka.txt
-
-How many genes did Prokka find in the contigs?
-
-Install Artemis
-===============
-
-Artemis is a graphical Java program to browse annotated genomes.
-It is a a bit like IGV but sepcifically designed for bacteria.
-You will need to install this on your laptop computer instead
-of the Amazon instance.
-
-Download: http://www.sanger.ac.uk/science/tools/artemis
-
-Copy the annotation to your laptop
-==================================
-
-Copy the ``anno/prokka.gff`` file to your latop using the ``scp`` command
-
-::
-
-   scp -i your_key.pem ubuntu@your-machine-name.amazon.com:/home/ubuntu/anno/prokka.gff ~/Downloads
-
-
-Load the annotated genome
-============================
-
-* Start Artemis
-* Click ``OK``
-* Go to ``File -> Open File Manager``
-* Navigate to the ``~/Downloads`` folder
-* Choose the ``prokka.gff`` file yoiu copied from Amazon
-
-Browse the genome
+Installing Prokka
 =================
 
-You will be overwhelmed and/or confused at first, and possibly permanently. 
-Here are some tips:
+Download and extract the latest version of prokka:
+::
+    cd ~/
+    wget http://www.vicbioinformatics.com/prokka-1.12.tar.gz
+    tar -xvzf prokka-1.12.tar.gz
 
-* There are 3 panels: feature map (top), sequence (middle), feature list (bottom)
-* Click right-mouse-button on bottom panel and select ``Show products``
-* Zooming is done via the verrtical scroll bars in the two top panels
+We also will need some dependencies such as bioperl:
+::
+    sudo apt-get -y install bioperl libdatetime-perl libxml-simple-perl \
+        libdigest-md5-perl python ncbi-blast+ fastqc
 
+and then we have to install some Perl libraries, too::
+
+    sudo bash
+    export PERL_MM_USE_DEFAULT=1
+    export PERL_EXTUTILS_AUTOINSTALL="--defaultdeps"
+    perl -MCPAN -e 'install "XML::Simple"'
+    exit
+
+Now, you should be able to add Prokka to your ``$PATH`` and set up the index for the sequence database:
+::
+    export PATH=$PATH:$HOME/prokka-1.12/bin
+    echo 'export PATH=$PATH:$HOME/prokka-1.12/bin' >> ~/.bashrc
+    prokka --setupdb
+
+Prokka should be good to go now-- you can check to make sure that all is well by typing ``prokka``. This should print the help screen with all available options.
+
+Running Prokka
+==============
+
+Make a new directory for the annotation:
+::
+    cd ~/
+    mkdir annotation
+    cd annotation
+
+Link the metagenome assembly file into this directory:
+::
+    ln -fs ~/work/ecoli-assembly.fa
+
+Now it is time to run Prokka! There are tons of different ways to specialize the running of Prokka. We are going to keep it simple for now, though. It will take a little bit to run.
+::
+    prokka ecoli-assembly.fa --outdir prokka_annotation --prefix myecoli
+
+This will generate a new folder called ``prokka_annotation`` in which will be a series of files, which are detailed `here <https://github.com/tseemann/prokka/blob/master/README.md#output-files>`__.
+
+The output of prokka is pretty interesting to watch scroll by - it does a
+lot of different things, including finding tRNAs.
+
+One of the main files output by prokka for annotation is a GFF file,
+which stands for "gene feature format".  Take a quick look at the
+annotations --
+::
+   grep -v ^## prokka_annotation/myecoli.gff | head
+
+and you can see what kinds of things Prokka outputs.  (Note the
+``putative deoxyribonuclease Rhsc`` halfway down the page.)
+
+Interestingly, we have now "closed the loop" on variant calling --
+if you recall `from the variant calling lesson <variant-calling.html#look-at-the-vcf-file-with-bedtools>`__, in order to determine where the variants were
+in the genome, we needed a GFF file.  And, before that, in order to map
+the reads to a reference, we need a reference!  Well, we assembled a reference
+in Genome Assembly, and we just constructed a GFF annotation file using
+Prokka, so now if you had a *different* set of reads from a different
+(mutated or evolved) genome, you could map those reads to this set and
+call variants.
+
+-----
+
+There are several other things you can do with these annotation files.  It's
+close to being ready to upload to NCBI as a provisional genome
+anonotation for this microbe, believe it or not!  You can also
+download the GFF file and use it in a genome browser like
+[Artemis](http://www.sanger.ac.uk/science/tools/artemis), and we'd be
+happy to show you how to do that (but it involves installing software on
+your laptop, so we avoid doing that in class).
+
+Searching the annotated genes
+=============================
+
+Another thing you can do is BLAST.  If you recall from `the very first
+thing we did <running-command-line-blast.html>`__, BLAST lets you
+search gene sequences against gene sequences.  Helpfully, prokka
+outputs all of the predicted protein coding sequences as
+``prokka_annotation/myecoli.faa``::
+
+   head prokka_annotation/myecoli.faa
+
+Let's go grab ALL of
+the E. coli genes from NCBI's `assembly database <https://www.ncbi.nlm.nih.gov/assembly/GCF_000005845.2>`__::
+
+  curl -L -o ncbi-ecoli.faa.gz ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/005/845/GCF_000005845.2_ASM584v2/GCF_000005845.2_ASM584v2_protein.faa.gz
+
+and make a BLAST database of it::
+
+  gunzip ncbi-ecoli.faa.gz
+  makeblastdb -in ncbi-ecoli.faa -dbtype prot
+
+and now search it with the genes predicted by prokka::
+
+  blastp -query prokka_annotation/myecoli.faa -db ncbi-ecoli.faa | less
+
+page down through the matches using spacebar ('q' to quit) and look to
+see if you find some good ones.  (The first few seem spurious which is
+odd, since we're searching E. coli against E. coli! But the matches are not
+significant - see the e-values.)
+  
+References
+===========
+
+* http://www.vicbioinformatics.com/software.prokka.shtml
+* https://www.ncbi.nlm.nih.gov/pubmed/24642063
+* https://github.com/tseemann/prokka/blob/master/README.md
