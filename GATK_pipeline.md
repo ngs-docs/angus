@@ -1,6 +1,6 @@
 # Variant calling pipeline for a mammalian genome 
 
-We will run a variant calling pipeline using Genome Analysis Toolkit (GATK) using a subset sample of dog WGS as a representative 
+We will run a variant calling pipeline using [Genome Analysis Toolkit (GATK)](https://software.broadinstitute.org/gatk/) using a subset sample of dog WGS as a representative 
 to large mammalian genomes.
 
 ## Getting started
@@ -50,7 +50,7 @@ log in, and then make & change into a working directory:
         gunzip dog_chr5.fa.gz
         bwa index -a bwtsw dog_chr5.fa
 
-4.  Add Read group information and do mapping
+4.  Add [Read group information](Read_group_info.md) and do mapping
 
 > Read group information is typically added during this step, but can also be added or modified after mapping using Picard AddOrReplaceReadGroups.
 
