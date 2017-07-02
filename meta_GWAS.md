@@ -25,9 +25,13 @@ cd ~/meta_GWAS
 
 Let's look at each study's manhattan plot.
 
-[prostate-396](https://insert_link_here)
+** Study1:prostate-606 **
 
-[prostate-606](https://insert_link_here)
+![prostate-606](files/prostate_manhattan.606.png)
+
+** Study2:prostate-396 **
+
+![prostate-396](files/prostate_manhattan.396.png)
 
 
 We may be able to use the power of meta-analysis to resolve some of the questionably significant markers.
