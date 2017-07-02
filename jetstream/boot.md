@@ -122,6 +122,8 @@ This will open up a dialogue window. Select the "Yes, suspend this instance" but
 
 It may take Jetstream a few minutes to process, so wait until the progress bar says "Suspended."
 
+# Resuming your instance
+
 To *wake-up* your instance, select the "Resume" button.
 
 [![foo](images/resume-1.png)](../_images/resume-1.png)
@@ -144,11 +146,13 @@ This will open up a dialogue window. Select the "Yes, stop this instance" button
 
 [![foo](images/stop-2.png)](../_images/stop-2.png)
 
-It may take Jetstream a few minutes to process, so wait until the progress bar says "Shutdown."
+It may take Jetstream a few minutes to process, so wait until the progress bar says "Shutoff."
 
 [![foo](images/stop-3.png)](../_images/stop-3.png)
 
 [![foo](images/stop-4.png)](../_images/stop-4.png)
+
+# Restarting your instance
 
 To start your instance again, select the "Start" button.
 
