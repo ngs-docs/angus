@@ -1,7 +1,7 @@
 Looking at k-mer abundance distributions
 ========================================
 
-Start up an Ubuntu 16.10 instance and run ::
+Start up an Ubuntu 16.04 instance and run ::
 
    sudo bash
 
