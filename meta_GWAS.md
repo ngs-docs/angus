@@ -18,9 +18,9 @@ sudo mv generic-metal/metal /usr/local/bin/.
 ### Download a prostate cancer dataset and unpack
 
 ```
-curl -O https://de.cyverse.org/dl/d/C3E4A0FF-F23A-458B-9125-C292AF5A2200/meta-analysis.tar.gz
-tar -xvzf meta-analysis.tar.gz
-cd ~/meta_work
+curl -O https://de.cyverse.org/dl/d/9DEF6A65-F0A7-4C6E-8633-957C118FD1B3/meta_GWAS.tar.gz
+tar -xvzf meta_GWAS.tar.gz
+cd ~/meta_GWAS
 ```
 
 Let's look at each study's manhattan plot.
@@ -82,7 +82,7 @@ First, we need to install one more R package **RColorBrewer**.
 sudo Rscript -e "install.packages('RColorBrewer', contriburl=contrib.url('http://cran.r-project.org/'))"
 ```
 
-No we can create a manahattan plot from our results. 
+Now we can create a manahattan plot from our results. 
 
 ```
 Rscript create_manhattan.R METAANALYSIS1.TBL
