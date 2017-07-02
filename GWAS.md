@@ -5,7 +5,7 @@
       cd /usr/local/bin/
       sudo wget https://www.cog-genomics.org/static/bin/plink170627/plink_linux_x86_64.zip
       sudo unzip plink_linux_x86_64.zip
-      rm -f plink_linux_x86_64.zip
+      sudo rm -f plink_linux_x86_64.zip
 
 ## install [vcftools](https://vcftools.github.io/) 
 
