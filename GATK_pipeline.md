@@ -148,7 +148,7 @@ log in, and then make & change into a working directory:
 
 > This algorithm treats every reference mismatch as an indication of error, so it is critical that a "comprehensive" database of known polymorphic sites is given to the tool in order to be masked and not counted as errors. What we can do with semi-model organisms?
 
-> Note the differences between genome annotation databases. Not only chromosome names but more imprtantaly the coordinate system [(interseting post)](https://www.biostars.org/p/84686/) 
+> Note the differences between genome annotation databases. Not only chromosome names but more imprtantaly the coordinate system [(interesting post)](https://www.biostars.org/p/84686/) 
 
 3.  download R (only to generate figures to observe the changes)
 
@@ -181,14 +181,49 @@ log in, and then make & change into a working directory:
 
         for sample in *.recal.bam;do
           name=${sample%.recal.bam}
-          java -Xmx10g -jar GenomeAnalysisTK.jar -T HaplotypeCaller -R dog_chr5.fa -I $sample --emitRefConfidence GVCF -nct 3 -o $name.g.vcf
+          java -Xmx10g -jar GenomeAnalysisTK.jar -T HaplotypeCaller -R dog_chr5.fa --dbsnp canis_fam_chr5.vcf -I $sample --emitRefConfidence GVCF -nct 3 -o $name.g.vcf
         done
 
 2.  Joint Genotyping
 
-         java -Xmx10g -jar GenomeAnalysisTK.jar -T GenotypeGVCFs -R dog_chr5.fa \
+         java -Xmx10g -jar GenomeAnalysisTK.jar -T GenotypeGVCFs -R dog_chr5.fa --dbsnp canis_fam_chr5.vcf \
          --variant BD143_TGACCA_merged.g.vcf \
          --variant BD174_CAGATC_L005.g.vcf \
          --variant BD225_TAGCTT_L007.g.vcf \
-         -o output.vcf
+         -o raw_variants.vcf
 
+## Filter Variants
+> The best way to filter the raw variant callset is to use variant quality score recalibration (VQSR). However this requires high-quality sets of known variants for training, which for many organisms are not yet available. It also requires a lot of data, so it can be difficult or even impossible to use on small datasets that involve only one or a few samples, on targeted sequencing data, or on RNAseq.
+
+> Hard filtering flat thresholds for specific annotations: GATK uses VariantFiltration for hard filtering. The [documentation page](https://software.broadinstitute.org/gatk/documentation/tooldocs/current/org_broadinstitute_gatk_tools_walkers_filters_VariantFiltration.php) provides links to all possible annotation modules. You can get some recommendations [here](https://software.broadinstitute.org/gatk/documentation/article.php?id=3225).
+
+1.  Split variants into SNPs and INDELs
+
+        java -Xmx10g -jar GenomeAnalysisTK.jar -T SelectVariants -R dog_chr5.fa -V raw_variants.vcf -selectType SNP -o raw_SNP.vcf 
+        java -Xmx10g -jar GenomeAnalysisTK.jar -T SelectVariants -R dog_chr5.fa -V raw_variants.vcf -selectType INDEL -o raw_INDEL.vcf 
+
+2.  Explore the distribution of different annotations 
+
+        wget https://raw.githubusercontent.com/drtamermansour/angus/2017/densityCurves.R
+        for var in "SNP" "INDEL";do
+         for ann in "QD" "MQRankSum" "FS" "SOR" "ReadPosRankSum";do
+          annFile=$var.$ann; echo $annFile;
+          awk -v k="$ann=" '!/#/{n=split($8,a,";"); for(i=1;i<=n;i++) if(a[i]~"^"k) {sub(k,$3" ",a[i]); print a[i]}}' raw_$var.vcf > $annFile
+          grep -v "^\." $annFile > known.$annFile
+          grep "^\." $annFile > novel.$annFile
+          Rscript densityCurves.R "$annFile"
+          rm $annFile known.$annFile novel.$annFile
+        done; done
+        
+3.  Apply the filters 
+ 
+        java -Xmx10g -jar GenomeAnalysisTK.jar -T VariantFiltration -R dog_chr5.fa -V raw_SNP.vcf \
+        --filterExpression "QD < 2.0 || FS > 60.0 || MQ < 40.0" \
+        --filterName "snp_filter" \
+        -o filtered_SNP.vcf
+        
+        java -Xmx10g -jar GenomeAnalysisTK.jar -T VariantFiltration -R dog_chr5.fa -V raw_INDEL.vcf \
+        --filterExpression "QD < 2.0 || FS > 200.0" \
+        --filterName "indel_filter" \
+        -o filtered_INDEL.vcf
+        
