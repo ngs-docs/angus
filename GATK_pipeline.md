@@ -55,7 +55,7 @@ log in, and then make & change into a working directory:
 > Read group information is typically added during this step, but can also be added or modified after mapping using Picard AddOrReplaceReadGroups.
 
       for R1 in *_R1_001.pe.fq.gz;do
-        SM=$(echo $R1 | cut -d"_" -f1)                                          ##smaple ID
+        SM=$(echo $R1 | cut -d"_" -f1)                                          ##sample ID
         LB=$(echo $R1 | cut -d"_" -f1,2)                                        ##library ID
         PL="Illumina"                                                           ##platform (e.g. illumina, solid)
         RGID=$(zcat $R1 | head -n1 | sed 's/:/_/g' |cut -d "_" -f1,2,3,4)       ##read group identifier 
