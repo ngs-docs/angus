@@ -136,7 +136,7 @@ log in, and then make & change into a working directory:
 
 ## Recalibrate Bases
 
-1.  Download known known polymorphic sites 
+1.  Download known polymorphic sites 
 
         wget 'ftp://ftp.ensembl.org/pub/release-89/variation/vcf/canis_familiaris/Canis_familiaris.vcf.gz' -O canis_familiaris.vcf.gz
         
@@ -150,17 +150,43 @@ log in, and then make & change into a working directory:
 
 > Note the differences between genome annotation databases. Not only chromosome names but more imprtantaly the coordinate system [(interesting post)](https://www.biostars.org/p/84686/) 
 
-3.  download R (only to generate figures to observe the changes)
+3.  download R (only to generate figures to observe the changes, but we will need it later as well)
 
-        sudo apt-get update && sudo apt-get -y install r-base
-        
+        sudo apt-get update && sudo apt-get -y install gdebi-core r-base
+    
+    After that finishes, download and install RStudio:
+    
+        wget https://download2.rstudio.org/rstudio-server-1.0.143-amd64.deb
+        sudo gdebi -n rstudio-server-1.0.143-amd64.deb 
+            
     Install some packages
    
         sudo Rscript -e "install.packages('ggplot2', contriburl=contrib.url('http://cran.r-project.org/'))"
         sudo Rscript -e "install.packages('gplots', contriburl=contrib.url('http://cran.r-project.org/'))"
         sudo Rscript -e "install.packages('reshape', contriburl=contrib.url('http://cran.r-project.org/'))"
         sudo Rscript -e "install.packages('gsalib', contriburl=contrib.url('http://cran.r-project.org/'))"
+        sudo Rscript -e "install.packages('Biobase', contriburl=contrib.url('http://bioconductor.org/packages/release/bioc/'))"
+ 
+     Add a password to your instance
+    
+        sudo passwd tx160085
+    
+    You will be prompted to enter a new password. Make a password you can remember: 
+
+        Enter new UNIX password: 
+        Retype new UNIX password:
         
+    Get the adress of your own Rstudio web server
+    
+        echo My RStudio Web server is running at: http://$(hostname):8787/
+        
+    Copy the link to a new tab of your browser and hit `enter`. 
+    
+        Username: `tx160085`
+        Password: `The one you just created` 
+    
+    Keep this tab open and will come back to it in a min. ** Now go to your web shell **
+
 4.  run recalibration
 
         for sample in *.dedup.bam;do
