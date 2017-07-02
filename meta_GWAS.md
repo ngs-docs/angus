@@ -97,7 +97,7 @@ This will take a minute.
 Now lets view our plot in the Rstudio server tab!
 
 ```
-setwd("/home/tx160085/work")
+setwd("/home/tx160085/meta_GWAS")
 openPDF("METAANALYSIS1.TBL.allChrs.manhattan.png")
 ```
 
