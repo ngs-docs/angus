@@ -122,7 +122,7 @@ This will open up a dialogue window. Select the "Yes, suspend this instance" but
 
 It may take Jetstream a few minutes to process, so wait until the progress bar says "Suspended."
 
-# Resuming your instance
+### Resuming your instance
 
 To *wake-up* your instance, select the "Resume" button.
 
@@ -152,7 +152,7 @@ It may take Jetstream a few minutes to process, so wait until the progress bar s
 
 [![foo](images/stop-4.png)](../_images/stop-4.png)
 
-# Restarting your instance
+### Restarting your instance
 
 To start your instance again, select the "Start" button.
 
