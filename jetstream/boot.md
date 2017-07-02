@@ -112,7 +112,7 @@ a new project; it's probably someone else's and it could confuse them :)
 
 ## Suspend your instance
 
-You can save your workspace so you can return to your instance at a later time without losing any of your files or information stored in memory. Essentially, it is similiar to putting your physical computer to sleep. At the Instance Details screen, select the "Suspend" button. 
+You can save your workspace so you can return to your instance at a later time without losing any of your files or information stored in memory, similiar to putting your physical computer to sleep. At the Instance Details screen, select the "Suspend" button. 
 
 [![foo](images/suspend-1.png)](../_images/suspend-1.png)
 
@@ -132,9 +132,11 @@ This will open up a dialogue window. Select the "Yes, resume this instance" butt
 
 It may take Jetstream a few minutes to process, so wait until the progress bar says "Active." 
 
+[![foo](images/resume-3.png)](../_images/resume-3.png)
+
 ## Shutting down your instance
 
-You can shut down your workspace so you can return to your instance another day without losing any of your files. In other words, it is similiar to shutting down your physical computer. You will retain your files, but you will lose any information stored in memory, such as your history on the command line. At the Instance Details screen, select the "Stop" button. 
+You can shut down your workspace so you can return to your instance another day without losing any of your files, similiar to shutting down your physical computer. You will retain your files, but you will lose any information stored in memory, such as your history on the command line. At the Instance Details screen, select the "Stop" button. 
 
 [![foo](images/stop-1.png)](../_images/stop-1.png)
 
@@ -143,6 +145,10 @@ This will open up a dialogue window. Select the "Yes, stop this instance" button
 [![foo](images/stop-2.png)](../_images/stop-2.png)
 
 It may take Jetstream a few minutes to process, so wait until the progress bar says "Shutdown."
+
+[![foo](images/stop-3.png)](../_images/stop-3.png)
+
+[![foo](images/stop-4.png)](../_images/stop-4.png)
 
 To start your instance again, select the "Start" button.
 
@@ -153,6 +159,8 @@ This will open up a dialogue window. Select the "Yes, start this instance" butto
 [![foo](images/start-2.png)](../_images/start-2.png)
 
 It may take Jetstream a few minutes to process, so wait until the progress bar says "Active." 
+
+[![foo](images/start-3.png)](../_images/start-3.png)
 
 ## Deleting your instance
 
@@ -165,3 +173,7 @@ This will open up a dialogue window. Select the "Yes, delete this instance" butt
 [![foo](images/delete-2.png)](../_images/delete-2.png)
 
 It may take Jetstream a few minutes to process your request. The instance should disappear from the project when it has been successfully deleted. 
+
+[![foo](images/delete-3.png)](../_images/delete-3.png)
+
+[![foo](images/delete-4.png)](../_images/delete-4.png)
