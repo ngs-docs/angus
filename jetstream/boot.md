@@ -114,21 +114,21 @@ a new project; it's probably someone else's and it could confuse them :)
 
 You can save your workspace so you can return to your instance at a later time without losing any of your files or information stored in memory. Essentially, it is similiar to putting your physical computer to sleep. At the Instance Details screen, select the "Suspend" button. 
 
-[![foo](images/suspend-1.thumb.png)](../_images/suspend-1.png)
+[![foo](images/suspend-1.png)](../_images/suspend-1.png)
 
 This will open up a dialogue window. Select the "Yes, suspend this instance" button.
 
-[![foo](images/suspend-2.thumb.png)](../_images/suspend-2.png)
+[![foo](images/suspend-2.png)](../_images/suspend-2.png)
 
 It may take Jetstream a few minutes to process, so wait until the progress bar says "Suspended."
 
 To *wake-up* your instance, select the "Resume" button.
 
-[![foo](images/resume-1.thumb.png)](../_images/resume-1.png)
+[![foo](images/resume-1.png)](../_images/resume-1.png)
 
 This will open up a dialogue window. Select the "Yes, resume this instance" button. 
 
-[![foo](images/resume-2.thumb.png)](../_images/resume-2.png)
+[![foo](images/resume-2.png)](../_images/resume-2.png)
 
 It may take Jetstream a few minutes to process, so wait until the progress bar says "Active." 
 
@@ -136,21 +136,21 @@ It may take Jetstream a few minutes to process, so wait until the progress bar s
 
 You can shut down your workspace so you can return to your instance another day without losing any of your files. In other words, it is similiar to shutting down your physical computer. You will retain your files, but you will lose any information stored in memory, such as your history on the command line. At the Instance Details screen, select the "Stop" button. 
 
-[![foo](images/stop-1.thumb.png)](../_images/stop-1.png)
+[![foo](images/stop-1.png)](../_images/stop-1.png)
 
 This will open up a dialogue window. Select the "Yes, stop this instance" button.
 
-[![foo](images/stop-2.thumb.png)](../_images/stop-2.png)
+[![foo](images/stop-2.png)](../_images/stop-2.png)
 
 It may take Jetstream a few minutes to process, so wait until the progress bar says "Shutdown."
 
 To start your instance again, select the "Start" button.
 
-[![foo](images/start-1.thumb.png)](../_images/start-1.png)
+[![foo](images/start-1.png)](../_images/start-1.png)
 
 This will open up a dialogue window. Select the "Yes, start this instance" button. 
 
-[![foo](images/start-2.thumb.png)](../_images/start-2.png)
+[![foo](images/start-2.png)](../_images/start-2.png)
 
 It may take Jetstream a few minutes to process, so wait until the progress bar says "Active." 
 
@@ -158,10 +158,10 @@ It may take Jetstream a few minutes to process, so wait until the progress bar s
 
 To completely remove your instance, you can select the "delete" buttom from the instance details page. 
 
-[![foo](images/delete-1.thumb.png)](../_images/delete-1.png)
+[![foo](images/delete-1.png)](../_images/delete-1.png)
 
 This will open up a dialogue window. Select the "Yes, delete this instance" button.
 
-[![foo](images/delete-2.thumb.png)](../_images/delete-2.png)
+[![foo](images/delete-2.png)](../_images/delete-2.png)
 
 It may take Jetstream a few minutes to process your request. The instance should disappear from the project when it has been successfully deleted. 
