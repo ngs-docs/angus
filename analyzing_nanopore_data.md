@@ -1,10 +1,8 @@
-======================================
-Assessing and Assembling Nanopore data
-======================================
+# Assessing and Assembling Nanopore data
 
 Last year (2016) in Woods Hole, MA we used our [lab's](http://ivory.idyll.org/lab/) [MinION](https://www.nanoporetech.com/) to sequence a new bacterial species isolated by [Rebecca Mickol](https://news.uark.edu/articles/27669/earth-organisms-survive-under-low-pressure-martian-condition) in the [Microbial Diversity Course at the Marine Biological Lab](http://www.mbl.edu/microbialdiversity/).
 
-If you're interested, you can read a blog post about it.
+If you're interested, you can read a [blog post](https://monsterbashseq.wordpress.com/2016/08/) about it.
 
 The goals of this tutorial are to:
 
@@ -26,7 +24,7 @@ Copy/paste to update and install software on your new instance:
         python-setuptools cmake cython libhdf5-serial-dev \
         python-numpy python-scipy python-pandas python-pandas-lib \
         python-biopython parallel python-h5py python-tornado \
-        bioperl libxml-simple-perl default-jre
+        bioperl libxml-simple-perl default-jre gdebi-core r-base gnuplot
 
 To install the rest of the software, we will use [Linux brew](https://github.com/Linuxbrew/brew):
 ::
@@ -58,12 +56,29 @@ Install assembly-stats:
    make test
    sudo make install
    
-   
+Install RStudio:
+::
+    wget https://download2.rstudio.org/rstudio-server-1.0.143-amd64.deb
+    sudo gdebi -n rstudio-server-1.0.143-amd64.deb
+
+Install [miniasm and minimap](https://github.com/lh3/miniasm):
+::
+    git clone https://github.com/lh3/minimap && (cd minimap && make)
+    git clone https://github.com/lh3/miniasm && (cd miniasm && make)
+    
+Install mummer:
+::
+    wget https://github.com/mummer4/mummer/releases/download/v3.9.4alpha/mummer-3.9.4alpha.tar.gz
+    tar xvzf mummer-3.9.4alpha.tar.gz
+    cd mummer-3.9.4alpha
+    ./configure
+    make
+    sudo make install
 
 Get Oxford Nanopore MinION data
 ===============================
 
-Last week we collected about 46k reads from three flowcells. Download a subset of these reads:
+Our data were collected from about 46k reads from three flowcells in 2016. Download a subset of these reads:
 ::
     cd
     wget https://s3.amazonaws.com/ngs2016/ectocooler_subset.zip
@@ -74,9 +89,13 @@ You should see a bunch of .fast5 files.
   
 This is only a subset of the reads from the whole run. (`Click here for stats from the full data set. <https://github.com/ljcohen/dib_ONP_MinION/blob/master/Ectocooler/Ectocooler_read_stats_all3runs.ipynb>`__)
 
+The MinION instrument collects raw data in .fast5 format. The local basecalling software, [Albacore (sorry, link requires ONT MAP login access)](https://community.nanoporetech.com/downloads), converts .fast5 files into .fastq or .fasta files. Poretools is another method for converting .fast5 files into .fastq files. 
+
 Convert your .fast5 to .fastq and .fasta files:
+
 ::
-    cd ~/
+    cd
+    directory="ectocooler_subset/"
     poretools fastq $directory > ectocooler_subset.fastq
     poretools fasta $directory > ectocooler_subset.fasta
     
@@ -93,18 +112,29 @@ Download the full dataset, fastq and fasta files:
     wget https://s3.amazonaws.com/ngs2016/ectocooler_all_2D.fasta
   
 
-Assess the Data and Convert .fast5 to .fastq and .fasta
+Assess the Data
 ===============================================
 
-:
+Assess the subset:
+::
     assembly-stats ectocooler_subset.fastq
 
 1. How many reads are there total? 
 2. What is the longest read?
 
-:
+Assess the full data set:
+::
     assembly-stats ectocooler_all_2D.fastq
-  
+
+Run this to make a file with all read lengths :
+::
+
+    cat ectocooler_all_2D.fastq | paste - - - - | awk -F"\t" '{print length($2)}' > lengths.txt
+
+Start RStudio server:
+::
+    echo My RStudio Web server is running at: http://$(hostname):8787/
+    
 Assemble the data
 ==================
 
@@ -113,20 +143,38 @@ We will use the program canu to assemble the reads. The full data set will take 
     canu \
     -p ecto_subset -d ectocooler_assembly \
     genomeSize=3.0m \
-    -nanopore-raw ectocooler_subset_2D.fastq
+    -nanopore-raw ectocooler_subset.fastq
 
 From the output files, you are interested in the ``ecto_subset.contigs.fasta`` file. Let's copy that file to the home directory:
 ::
     cd
     cp ectocooler_assembly/ecto_subset.contigs.fasta .
 
+Assess the assembly:
+
+::
+
 How many contigs do you have? 
+
+
+All-by-all
+============
+
 
 Download the pre-assembled contigs from the full data set:
 ::
     wget https://raw.githubusercontent.com/ljcohen/dib_ONP_MinION/master/Ectocooler/ecto.contigs.fasta
 
 Compare this with your assembly. How are they different?
+::
+    /home/ljcohen/mummer-3.9.4alpha/nucmer -maxmatch -c 100 -p ecotcooler ecto.contigs.fasta ecto_subset.contigs.fasta
+    /home/ljcohen/mummer-3.9.4alpha/mummerplot -fat -filter -png -large -p ectocooler ectocooler.delta
+
+
+Edit nucmer.gp before running gnuplot
+::
+    gnuplot ectocooler.gp #edit nucmer.gp before running gnuplot
+
 
 Annotate with prokka:
 =====================
@@ -185,6 +233,8 @@ In IGV, open ecto_subset.contigs.fasta as "Genome" and ecto_subset.sorted.bam.
 4. What is the Oxford Nanopore error profile? 
 5. Does it do badly in any regions, which ones? Why?
 
+
+
 Fix the assembly using nanopolish
 ================================
 
@@ -222,7 +272,6 @@ Run prokka again:
     prokka --outdir anno_subset_polished --prefix ecto_subset_polished_prokka polished_ecto_subset.fa
     cat ./anno_subset_polished/ecto_subset_polished_prokka.txt
     
-
 References:
 ===========
 
@@ -232,6 +281,7 @@ References:
 * http://nbviewer.jupyter.org/github/arq5x/poretools/blob/master/poretools/ipynb/test_run_report.ipynb
 * http://porecamp.github.io/2015/timetable.html
 * http://porecamp.github.io/2016/
+* http://porecamp.github.io/texas/
 
 Acknowledgements
 ================
