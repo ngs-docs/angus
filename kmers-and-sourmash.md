@@ -414,7 +414,7 @@ from the
 
 ```
 wget https://github.com/dib-lab/sourmash/raw/master/doc/_static/shakya-unaligned-contigs.sig
-sourmash gather -k 31 shakya-unaligned-contigs.sig genbank-k31.sbt.json
+sourmash gather -k 31 shakya-unaligned-contigs.sig ../genbank-k31.sbt.json
 ```
 
 This should yield:
