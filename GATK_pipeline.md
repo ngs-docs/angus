@@ -50,7 +50,7 @@ log in, and then make & change into a working directory:
         gunzip dog_chr5.fa.gz
         bwa index -a bwtsw dog_chr5.fa
 
-4.  Add [Read group information](Read_group_info.md) and do mapping
+4.  Add [Read group information](https://angus.readthedocs.io/en/2017/Read_group_info.html) and do mapping
 
 > Read group information is typically added during this step, but can also be added or modified after mapping using Picard AddOrReplaceReadGroups.
 
