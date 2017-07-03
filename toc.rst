@@ -28,7 +28,12 @@ Table of Contents
 
    introduction-to-automation
 
-   long-and-short-reads
    kmers-and-sourmash
+   
+   GATK_pipeline
+   GWAS
+   meta_GWAS
 
+   long-and-short-reads
+   
    for-instructors/index
