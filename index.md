@@ -36,7 +36,7 @@ Afternoon: 1:15pm - 3pm.
 * [Visualizing BLAST score distributions in RStudio](visualizing-blast-scores-with-RStudio.html)
 * [Review and explore: Command line UNIX, and R/RStudio](command-line-and-rstudio.html)
 
-Evening: 7pm-8:30: student presentations and questions! Ice cream social?
+Evening: 7pm-8:30: student presentations and questions! Ice cream social.
 
 ### Wednesday, Day 3: Mapping, aligning, and sequence files.
 
@@ -97,7 +97,7 @@ Afternoon: 1pm onwards, in 1030 Valley.
 * [Genome Wide Association Studies.](GWAS.html)
 * [Meta-analysis of GWAS studies](meta_GWAS.html)
    
-Evening: Ice cream and demos!
+Evening: Ice cream and demos! 1030 Valley.
 * 6:30pm onwards: ice cream!
 * 7pm-9pm: demonstrations and eye candy (1030 Valley)
   - where should I put my data? The Open Science Framework.
