@@ -469,7 +469,7 @@ There are many tools like Kraken and Kaiju that can do taxonomic
 classification of individual reads from metagenomes; these seem to
 perform well (albeit with high false positive rates) in situations
 where you don't necessarily have the genome sequences that are in the
-metagenome.  Sourmash, by contract, can estimate which known genomes are
+metagenome.  Sourmash, by contrast, can estimate which known genomes are
 actually present, so that you can extract them and map/align to them.
 It seems to have a very low false positive rate and is quite sensitive
 to strains.
