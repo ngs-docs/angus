@@ -50,8 +50,8 @@ AGGATG
 k-mers are most useful when they're *long*, because then they're *specific*.
 That is, if you have a 31-mer taken from a human genome, it's pretty unlikely
 that another genome has that exact 31-mer in it.  (You can calculate the
-probability if you assume genomes are random: there are 4**31 possible
-31-mers, and 4**31 = 4,611,686,018,427,387,904.  So, you know, a lot.)
+probability if you assume genomes are random: there are 4<sup>31</sup> possible
+31-mers, and 4<sup>31</sup> = 4,611,686,018,427,387,904.  So, you know, a lot.)
 
 The important concept here is that **long k-mers are species specific*.
 We'll go into a bit more detail later.
@@ -124,7 +124,7 @@ Yes! Check out this figure from the [MetaPalette paper](http://msystems.asm.org/
 ![](_static/kmers-metapalette.png)
 
 here, the Koslicki and Falush show that k-mer similarity works to
-group microbes by genus, at k=30. If you go longer (say k=50) then
+group microbes by genus, at k=40. If you go longer (say k=50) then
 you get only very little similarity between different species.
 
 ## Using k-mers to compare samples against each other
@@ -292,6 +292,9 @@ Let's turn this into an easily-searchable database with `sourmash index` --
 ```
 sourmash index -k 31 ecolidb ecoli_many_sigs/*.sig
 ```
+What does the database look like and how does the search work?
+
+![](_static/SBT.png)
 
 and now we can search!
 
