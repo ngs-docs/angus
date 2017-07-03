@@ -1,4 +1,5 @@
-
+## Genome Wide Association analysis (GWAS)
+To test the association of of a genome-wide set of genetic variants with a given trait.
 
 ## install [PLINK 1.9](https://www.cog-genomics.org/plink/1.9/)
 
@@ -47,4 +48,27 @@ but could happen to be the reference one. --reference-allele allow you to use yo
 
       plink --bfile coatColor.binary --make-pheno coatColor.pheno "yellow" --assoc --reference-allele alt_alleles --allow-no-sex --adjust --dog --out coatColor
      
+## Create Manhatten plot
 
+Install qqman packag
+
+    Rscript -e "install.packages('qqman',  contriburl=contrib.url('http://cran.r-project.org/'))"
+
+Identify statistical cutoffs
+
+    unad_cutoff_sug=$(tail -n+2 coatColor.assoc.adjusted | awk '$10>=0.05' | head -n1 | awk '{print $3}')
+    unad_cutoff_conf=$(tail -n+2 coatColor.assoc.adjusted | awk '$10>=0.01' | head -n1 | awk '{print $3}')
+
+Run the plotting function
+```
+Rscript -e 'args=(commandArgs(TRUE));library(qqman);'\
+'data=read.table("coatColor.assoc", header=TRUE); data=data[!is.na(data$P),];'\
+'bitmap("coatColor_man.bmp", width=20, height=10);'\
+'manhattan(data, p = "P", col = c("blue4", "orange3"),'\
+'suggestiveline = 12,'\
+'genomewideline = 15,'\
+'chrlabs = c(1:38, "X"), annotateTop=TRUE, cex = 1.2);'\
+'graphics.off();' $unad_cutoff_sug $unad_cutoff_conf
+```
+
+The top associated mutation is a nonsense SNP in MC1R (c.916C>T) known to control pigment production
