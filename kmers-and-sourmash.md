@@ -386,7 +386,7 @@ directory `.sbt.genbank-k31`.
 
 Next, run the 'gather' command to see what's in your ecoli genome --
 ```
-sourmash gather -k 31 ecoli-genome.sig genbank-k31.sbt.json
+sourmash gather -k 31 ecoli-genome.sig ../genbank-k31.sbt.json
 ```
 
 and you should get:
