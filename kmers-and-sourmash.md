@@ -124,7 +124,7 @@ Yes! Check out this figure from the [MetaPalette paper](http://msystems.asm.org/
 ![](_static/kmers-metapalette.png)
 
 here, the Koslicki and Falush show that k-mer similarity works to
-group microbes by genus, at k=30. If you go longer (say k=50) then
+group microbes by genus, at k=40. If you go longer (say k=50) then
 you get only very little similarity between different species.
 
 ## Using k-mers to compare samples against each other
@@ -289,13 +289,12 @@ ls ecoli_many_sigs
 
 Let's turn this into an easily-searchable database with `sourmash index` --
 
-What does the database look like and how does the search work? 
-
-![](_static/SBT.png)
-
 ```
 sourmash index -k 31 ecolidb ecoli_many_sigs/*.sig
 ```
+What does the database look like and how does the search work?
+
+![](_static/SBT.png)
 
 and now we can search!
 
