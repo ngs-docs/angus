@@ -134,9 +134,16 @@ The `yeast-edgeR.csv` file contains the fold expression & significance informati
 
 The plots we made above are nice, but what if we want something a bit more informative?
 
-We can use the skills we learned from the packages dplyr and ggplot2 in order to make a colored plot with gene names. Let's start by loading the necessary packages. 
+We can use the skills we learned from the packages dplyr and ggplot2 in order to make a colored plot with gene names. Let's start by installing and loading the necessary packages. 
 ```r
+# set our working directory
 setwd("~/yeast/")
+
+# install packages
+install.packages("ggplot2")
+install.packages("dplyr")
+
+# load the packages
 library(ggplot2)
 library(dplyr)
 ```
