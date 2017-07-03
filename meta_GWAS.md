@@ -15,7 +15,7 @@ tar -xvzf Linux-metal.tar.gz
 sudo mv generic-metal/metal /usr/local/bin/.
 ```
 
-### Download a prostate cancer dataset and unpack
+## Download a prostate cancer dataset and unpack
 
 ```
 curl -O https://de.cyverse.org/dl/d/9DEF6A65-F0A7-4C6E-8633-957C118FD1B3/meta_GWAS.tar.gz
@@ -25,11 +25,11 @@ cd ~/meta_GWAS
 
 Let's look at each study's manhattan plot.
 
-** Study1:prostate-606 **
+**Study1: prostate-606**
 
 ![prostate-606](files/prostate_manhattan.606.png)
 
-** Study2:prostate-396 **
+**Study2: prostate-396**
 
 ![prostate-396](files/prostate_manhattan.396.png)
 
@@ -40,7 +40,7 @@ Let's use METAL to run a fixed-effect meta-analysis weighted by sample number fo
 
 Note: it is important to investigate what type of meta-analysis is most appropriate for your study, as each kind has limitations. For example, fixed effect meta-analyses will be biased under a large amount of heterogeneity. 
 
-### Run metal
+## Run metal
 
 Start METAL:
 ```
