@@ -38,7 +38,7 @@ Genotyping of 476840 SNPs in 53 dogs (24 yellow coat and 29 dark coat)
       
       cat pruned_coatColor_maf_geno.vcf | awk 'BEGIN{FS="\t";OFS="\t";}/#/{next;}{{if($3==".")$3=$1":"$2;}print $3,$5;}'  > alt_alleles
 
-## Run a simple asscoaition analysis
+## Run a simple association analysis
 > --assoc performs a standard case/control association analysis which is a chi-square test of allele frequency. 
 
 > By default, the minor allele is coded A1 and tested for being the risk allele. The minor allele is expected to be the alternative allele 
@@ -48,9 +48,9 @@ but could happen to be the reference one. --reference-allele allow you to use yo
 
       plink --bfile coatColor.binary --make-pheno coatColor.pheno "yellow" --assoc --reference-allele alt_alleles --allow-no-sex --adjust --dog --out coatColor
      
-## Create Manhatten plot
+## Create Manhattan plot
 
-Install qqman packag
+Install qqman package
 
     Rscript -e "install.packages('qqman',  contriburl=contrib.url('http://cran.r-project.org/'))"
 

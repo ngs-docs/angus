@@ -87,42 +87,59 @@ Note! this will be a repeat of Friday evening! You only need to come to one.
 
 9am lecture: [Erich Schwarz](https://mbg.cornell.edu/people/erich-schwarz), Cornell - "Assembling and biologically interpreting nematode genomes"
 
-Morning:
-* [Reference independent analyses with k-mers; sourmash.](kmers-and-sourmash.html)
+Morning: 10:15am-lunch, in lions & tigers & bears.
+* [Reference independent analyses with k-mers; sourmash.](kmers-and-sourmash.html) - Luiz in Lions, Phil in Tigers, and Titus in Bears.
 
-Afternoon: (Tamer Mansour and Shannon Joslin)
-* [Variant calling and big genomes: GATK pipeline.](GATK_pipeline.md)
-* [Genome wide association study (GWAS)](GWAS.md)
-* [Meta-analysis of Genome Wide Association Studies](meta_GWAS.md)
+Lunch will be local, with a food truck
 
-Evening: Ice cream and lectures!
-* 7pm-9pm: demonstrations and eye candy.
+Afternoon: 1pm onwards, in 1030 Valley.
+* [Variant calling and big genomes: GATK.](GATK_pipeline.html) (Tamer Mansour)
+* [Genome Wide Association Studies.](GWAS.html)
+* [Meta-analysis of GWAS studies](meta_GWAS.html)
+   
+Evening: Ice cream and demos!
+* 6:30pm onwards: ice cream!
+* 7pm-9pm: demonstrations and eye candy (1030 Valley)
   - where should I put my data? The Open Science Framework.
   - Jupyter Notebook and Python for data science.
   - CyVerse and what an allocation request looks like.
+  - GitHub
+  - where do I find the data? NCBI, ENSEMBL, ENA; how to get FASTQ out of NCBI.
+  - & other things
 
-### Tuesday, Day 9: TBD.
+### Tuesday, Day 9: Nanopore sequencing; and a panel discussion!
 
-9am-noon: lecture/tutorials/panel discussion.
+9am tutorials:
 * [Long reads and short reads.](long-and-short-reads.html) (Lisa Cohen and Jon Badalamenti)
-* panel discussion: The Future of Biology, Bioinformatics, and Humanity.
+* 11am: panel discussion: The Future of Biology, Bioinformatics, and Humanity.
 
-afternoon/evening: [July 4th celebration at Community Park](http://cityofdavis.org/city-hall/city-manager-s-office/community-events/fourth-of-july)
+4pm onwards: [July 4th celebration at Community Park](http://cityofdavis.org/city-hall/city-manager-s-office/community-events/fourth-of-july). We will have a sun cover and ice chests!
 
-### Wednesday, Day 10: TBD.
+### Wednesday, Day 10: RNAseq.
 
 9am lecture: [Megan Dennis](http://www.dennislab.org/), UC Davis - "Complex genomic variation and its role in human evolution and disease"
 
-Morning and afternoon:
-* Genome Wide Association Studies and PLINK. (Tamer Mansour)
+Morning and afternoon: 10am-4pm.
+* rotating topics (2 sessions)
 
-### Thursday, Day 11: RNAseq
+Wed afternoon:
+* breakout rooms on special topics based on Mon survey.
+
+5pm onwards: Wed market.
+
+### Thursday, Day 11: RNAseq.
 
 9am lecture: [Michael I Love](https://mikelove.github.io/), UNC Chapel Hill - "Statistics and bias correction in RNAseq differential expression analysis"
+
+Remainder of the day: 10am-3pm, 7-9pm
+* rotating topics (3 sessions)
 
 ### Friday, Day 12: RNAseq.
 
 9am lecture: [Robert Patro](http://www.robpatro.com/redesign/), Stony Brook University - "Don't count on it: Pragmatic and theoretical concerns and best practices for mapping and quantifying RNA-seq data"
+
+Remainder of the day: 10am-4pm
+* rotating topics (2 sessions)
 
 Assessment.
 
@@ -130,12 +147,8 @@ Assessment.
 
 9am lecture: C. Titus Brown, UC Davis - "Effectively infinite: next steps in Data Intensive Biology."
 
-Further resources.
+Further resources; continuing your learning.
 
 Questions and answers.
 
 Course review, input, and feedback.
-
-## Other material
-
-[Instructor technical info](for-instructors/index)
