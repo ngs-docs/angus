@@ -21,8 +21,8 @@ log in, and then make & change into a working directory:
 > 1. Trimming is data loss so be careful.
 > 2. Sequence trimming is complementary to variant filtration
 > 3. Sources of errors: 
->    a) The call is suspcious ==> low quality score (variant filtration is better than quality trimming)
->    b) Technical problems (e.g. sequencing chemistry or physics) ==> systematic erros (can be removed by careful kmer based trimming but GATK recalibration is an alternative) 
+>    a) The call is suspicious ==> low quality score (variant filtration is better than quality trimming)
+>    b) Technical problems (e.g. sequencing chemistry or physics) ==> systematic errors (can be removed by careful kmer based trimming but GATK recalibration is an alternative) 
 > 4. Very mild quality trimming: SLIDINGWINDOW:4:2 ==> this means that the [Base call accuracy is ~ 40%](https://en.wikipedia.org/wiki/Phred_quality_score)
 
 ## Mapping
@@ -55,7 +55,7 @@ log in, and then make & change into a working directory:
 > Read group information is typically added during this step, but can also be added or modified after mapping using Picard AddOrReplaceReadGroups.
 
       for R1 in *_R1_001.pe.fq.gz;do
-        SM=$(echo $R1 | cut -d"_" -f1)                                          ##smaple ID
+        SM=$(echo $R1 | cut -d"_" -f1)                                          ##sample ID
         LB=$(echo $R1 | cut -d"_" -f1,2)                                        ##library ID
         PL="Illumina"                                                           ##platform (e.g. illumina, solid)
         RGID=$(zcat $R1 | head -n1 | sed 's/:/_/g' |cut -d "_" -f1,2,3,4)       ##read group identifier 
@@ -148,7 +148,7 @@ log in, and then make & change into a working directory:
 
 > This algorithm treats every reference mismatch as an indication of error, so it is critical that a "comprehensive" database of known polymorphic sites is given to the tool in order to be masked and not counted as errors. What we can do with semi-model organisms?
 
-> Note the differences between genome annotation databases. Not only chromosome names but more imprtantaly the coordinate system [(interesting post)](https://www.biostars.org/p/84686/) 
+> Note the differences between genome annotation databases. Not only chromosome names but more importantly the coordinate system [(interesting post)](https://www.biostars.org/p/84686/) 
 
 3.  download R (only to generate figures to observe the changes, but we will need it later as well)
 
@@ -176,7 +176,7 @@ log in, and then make & change into a working directory:
         Enter new UNIX password: 
         Retype new UNIX password:
         
-    Get the adress of your own Rstudio web server
+    Get the address of your own RStudio web server
     
         echo My RStudio Web server is running at: http://$(hostname):8787/
         

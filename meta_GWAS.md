@@ -1,7 +1,7 @@
 # Meta-Analysis of Genome Wide Association Studies
 
 Previously we conducted a [genome wide association study](GWAS.md) (GWAS). 
-Genome-wide association studies are useful for dectecting common variants in complex diseases. 
+Genome-wide association studies are useful for detecting common variants in complex diseases. 
 Meta-analysis of multiple genome-wide association studies  increases the power of detecting rare variants and reduces false positives.  
 
 Today we will conduct a *meta-analysis* of two previously conducted prostate cancer GWASs in humans.
@@ -25,9 +25,13 @@ cd ~/meta_GWAS
 
 Let's look at each study's manhattan plot.
 
-[prostate-396](https://insert_link_here)
+** Study1:prostate-606 **
 
-[prostate-606](https://insert_link_here)
+![prostate-606](files/prostate_manhattan.606.png)
+
+** Study2:prostate-396 **
+
+![prostate-396](files/prostate_manhattan.396.png)
 
 
 We may be able to use the power of meta-analysis to resolve some of the questionably significant markers.
@@ -82,7 +86,7 @@ First, we need to install one more R package **RColorBrewer**.
 sudo Rscript -e "install.packages('RColorBrewer', contriburl=contrib.url('http://cran.r-project.org/'))"
 ```
 
-Now we can create a manahattan plot from our results. 
+Now we can create a manhattan plot from our results. 
 
 ```
 Rscript create_manhattan.R METAANALYSIS1.TBL
@@ -90,10 +94,10 @@ Rscript create_manhattan.R METAANALYSIS1.TBL
 
 This will take a minute.
 
-Now lets view our plot in the Rstudio server tab!
+Now lets view our plot in the RStudio server tab!
 
 ```
-setwd(""/home/tx160085/work"")
+setwd("/home/tx160085/meta_GWAS")
 openPDF("METAANALYSIS1.TBL.allChrs.manhattan.png")
 ```
 
