@@ -10,13 +10,13 @@ The goals of this tutorial are to:
 *  assemble data from fastq
 *  evaluate the assembly
 
-Starting a Jetstream instance and installing software:
-==================================================
+## Start a Jetstream instance and install software:
 
-Start a blank Jetstream instance (m1.xlarge) with 50 GB and log in <http://angus.readthedocs.io/en/2016/amazon/index.html>`__.
+[Start a blank Jetstream instance](https://angus.readthedocs.io/en/2017/jetstream/boot.html) (m1.xlarge) with CPU: 24, Mem: 60, Disk 60 GB RAM:
 
 Copy/paste to update and install software on your new instance:
-::
+
+```
     sudo apt-get update && \
     sudo apt-get -y install build-essential ruby screen git curl gcc make g++ python-dev unzip \
         default-jre pkg-config libncurses5-dev r-base-core \
@@ -25,28 +25,36 @@ Copy/paste to update and install software on your new instance:
         python-numpy python-scipy python-pandas python-pandas-lib \
         python-biopython parallel python-h5py python-tornado \
         bioperl libxml-simple-perl default-jre gdebi-core r-base gnuplot
+```
 
 To install the rest of the software, we will use [Linux brew](https://github.com/Linuxbrew/brew):
-::
+
+```
     sudo mkdir /home/linuxbrew
     sudo chown $USER:$USER /home/linuxbrew
     git clone https://github.com/Linuxbrew/brew.git /home/linuxbrew/.linuxbrew
     export PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
     brew tap homebrew/science
-    
+```
+
 Now install [canu](http://canu.readthedocs.io/en/stable/tutorial.html), [samtools](https://github.com/samtools/samtools/), [bwa mem](http://bio-bwa.sourceforge.net/):
-::
+
+```
     brew install jdk canu bwa samtools
-    
+```
+
 Install prokka:
-::
+
+```
     git clone https://github.com/tseemann/prokka.git
     export PATH=$PWD/prokka/bin:$PATH
     prokka --setupdb
     prokka --version
-    
+```
+
 Install assembly-stats:
-::
+
+```
    git clone https://github.com/sanger-pathogens/assembly-stats.git
    cd assembly-stats/
    mkdir build
@@ -55,36 +63,44 @@ Install assembly-stats:
    make
    make test
    sudo make install
-   
+```
+
 Install RStudio:
-::
+
+```
     wget https://download2.rstudio.org/rstudio-server-1.0.143-amd64.deb
     sudo gdebi -n rstudio-server-1.0.143-amd64.deb
+```
 
 Install [miniasm and minimap](https://github.com/lh3/miniasm):
-::
+
+```
     git clone https://github.com/lh3/minimap && (cd minimap && make)
     git clone https://github.com/lh3/miniasm && (cd miniasm && make)
-    
+```
+
 Install mummer:
-::
+
+```
     wget https://github.com/mummer4/mummer/releases/download/v3.9.4alpha/mummer-3.9.4alpha.tar.gz
     tar xvzf mummer-3.9.4alpha.tar.gz
     cd mummer-3.9.4alpha
     ./configure
     make
     sudo make install
+```
 
-Get Oxford Nanopore MinION data
-===============================
+## Get Oxford Nanopore MinION data and convert it
 
-Our data were collected from about 46k reads from three flowcells in 2016. Download a subset of these reads:
-::
+Our data were collected from three flowcells in 2016. Download a subset of these reads:
+
+```
     cd
     wget https://s3.amazonaws.com/ngs2016/ectocooler_subset.zip
     unzip ectocooler_subset.zip 
     ls ectocooler_subset/
-    
+```
+
 You should see a bunch of .fast5 files.
   
 This is only a subset of the reads from the whole run. (`Click here for stats from the full data set. <https://github.com/ljcohen/dib_ONP_MinION/blob/master/Ectocooler/Ectocooler_read_stats_all3runs.ipynb>`__)
@@ -93,88 +109,99 @@ The MinION instrument collects raw data in .fast5 format. The local basecalling 
 
 Convert your .fast5 to .fastq and .fasta files:
 
-::
+```
     cd
     directory="ectocooler_subset/"
     poretools fastq $directory > ectocooler_subset.fastq
     poretools fasta $directory > ectocooler_subset.fasta
-    
-Look at the reads:
-::
-    head ectocooler_subset.fastq
+```
 
-Copy a few reads and use the `web blastn <http://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=blastn&PAGE_TYPE=BlastSearch&LINK_LOC=blasthome>`__ to try to identify what species or closest taxa these data came from. What do you come up with?
+Take a look at the reads:
+
+```
+    head ectocooler_subset.fastq
+```
+
+Copy a few reads and use the [web blastn](http://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=blastn&PAGE_TYPE=BlastSearch&LINK_LOC=blasthome) to try to identify what species or closest taxa these data came from. What do you come up with?
 
 Download the full dataset, fastq and fasta files:
-::
+
+```
     cd
     wget https://s3.amazonaws.com/ngs2016/ectocooler_all_2D.fastq
     wget https://s3.amazonaws.com/ngs2016/ectocooler_all_2D.fasta
-  
+```
 
-Assess the Data
-===============================================
+## Assess the Data
 
-Assess the subset:
-::
+```
     assembly-stats ectocooler_subset.fastq
+```
 
 1. How many reads are there total? 
 2. What is the longest read?
 
 Assess the full data set:
-::
+
+```
     assembly-stats ectocooler_all_2D.fastq
+```
 
 Run this to make a file with all read lengths :
-::
-
+```
     cat ectocooler_all_2D.fastq | paste - - - - | awk -F"\t" '{print length($2)}' > lengths.txt
+```
 
 Start RStudio server:
-::
+```
     echo My RStudio Web server is running at: http://$(hostname):8787/
-    
-Assemble the data
-==================
+```
+
+## Assemble the data
 
 We will use the program canu to assemble the reads. The full data set will take several hours. So, we will only assemble the subset. Which data are better to use, 2D or a mixture of template and compliment? Pick one, assemble, and compare with your neighbor.
-::
+
+```
     canu \
     -p ecto_subset -d ectocooler_assembly \
     genomeSize=3.0m \
     -nanopore-raw ectocooler_subset.fastq
+```
 
 From the output files, you are interested in the ``ecto_subset.contigs.fasta`` file. Let's copy that file to the home directory:
-::
+
+```
     cd
     cp ectocooler_assembly/ecto_subset.contigs.fasta .
+```
 
 Assess the assembly:
-
-::
+```
+    assembly-stats ecto_subset.contigs.fasta
+```
 
 How many contigs do you have? 
 
-
-All-by-all
-============
-
-
 Download the pre-assembled contigs from the full data set:
-::
+
+```
     wget https://raw.githubusercontent.com/ljcohen/dib_ONP_MinION/master/Ectocooler/ecto.contigs.fasta
+    assembly-stats ecto.contigs.fasta
+```
 
 Compare this with your assembly. How are they different?
-::
+
+## All-by-all comparison
+
+```
     /home/ljcohen/mummer-3.9.4alpha/nucmer -maxmatch -c 100 -p ecotcooler ecto.contigs.fasta ecto_subset.contigs.fasta
     /home/ljcohen/mummer-3.9.4alpha/mummerplot -fat -filter -png -large -p ectocooler ectocooler.delta
-
+```
 
 Edit nucmer.gp before running gnuplot
-::
+```
     gnuplot ectocooler.gp #edit nucmer.gp before running gnuplot
-
+```
 
 Annotate with prokka:
 =====================
@@ -234,44 +261,11 @@ In IGV, open ecto_subset.contigs.fasta as "Genome" and ecto_subset.sorted.bam.
 5. Does it do badly in any regions, which ones? Why?
 
 
+Can fix the assembly using nanopolish
 
-Fix the assembly using nanopolish
-================================
 
 The program `nanopolish <https://github.com/jts/nanopolish>`__ will align your reads to the assembly and compute a consensus. This will take some time.
 
-Run these commands using your reads and your assembly:
-::
-
-    # Copy the nanopolish model files into the working directory
-    cp /path/to/nanopolish/etc/r9-models/* .
-
-    # Align the reads in event space
-    nanopolish eventalign -t 4 --sam -r ectocooler_subset.fasta -b ecto_subset.sorted.bam -g ecto_subset.contigs.fasta --models nanopolish_models.fofn | samtools sort > ecto_subset.eventalign.sorted.bam
-    samtools index ecto_subset.eventalign.sorted.bam
-
-The next step takes a long time (several hours), so let's run screen first:
-::
-    screen
-
-Press enter if prompted:
-::
-    python /home/ubuntu/nanopolish/scripts/nanopolish_makerange.py ecto_subset.contigs.fasta | parallel --results nanopolish.results -P 4 \
-    nanopolish variants --consensus polished.{1}.fa -w {1} -r ectocooler_subset.fasta -b ecto_subset.sorted.bam -g ecto_subset.contigs.fasta -e ecto_subset.eventalign.sorted.bam -t 1 --min-candidate-frequency 0.1 --models nanopolish_models.fofn
-
-Type Ctrl-A-D (press all three keys at the same time) to exit from your screen. Then screen -r to return to that screen.
-
-Once this has finished, merge files and make a new "polished" assembly: 
-::
-    python /home/ubuntu/nanopolish/scripts/nanopolish_merge.py polished.*.fa > polished_ecto_subset.fa
-    
-Download this to your local computer and view in IGV. How is this different than the original assembly? Is it better?
-
-Run prokka again:
-::
-    prokka --outdir anno_subset_polished --prefix ecto_subset_polished_prokka polished_ecto_subset.fa
-    cat ./anno_subset_polished/ecto_subset_polished_prokka.txt
-    
 References:
 ===========
 
