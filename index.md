@@ -87,9 +87,13 @@ Note! this will be a repeat of Friday evening! You only need to come to one.
 
 9am lecture: [Erich Schwarz](https://mbg.cornell.edu/people/erich-schwarz), Cornell - "Assembling and biologically interpreting nematode genomes"
 
-Morning and afternoon:
-* Variant calling and big genomes: GTAK. (Tamer Mansour)
+Morning:
 * [Reference independent analyses with k-mers; sourmash.](kmers-and-sourmash.html)
+
+Afternoon: (Tamer Mansour and Shannon Joslin)
+* [Variant calling and big genomes: GATK pipeline.](GATK_pipeline.md)
+* [Genome wide association study (GWAS)](GWAS.md)
+* [Meta-analysis of Genome Wide Association Studies](meta_GWAS.md)
 
 Evening: Ice cream and lectures!
 * 7pm-9pm: demonstrations and eye candy.
