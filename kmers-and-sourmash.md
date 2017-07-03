@@ -133,7 +133,7 @@ So, one thing you can do is use k-mers to compare genomes to genomes,
 or read data sets to read data sets: data sets that have a lot of similarity
 probably are similar or even the same genome.
 
-One metric you can use for this comparions is the Jaccard distance, which
+One metric you can use for this comparisons is the Jaccard distance, which
 is calculated by asking how many k-mers are *shared* between two samples
 vs how many k-mers in total are in the combined samples.
 
@@ -296,7 +296,14 @@ What does the database look like and how does the search work?
 
 ![](_static/SBT.png)
 
-and now we can search!
+One point to make with this is that the search can quickly narrow down
+which signatures match your query, without losing any matches.  It's a
+clever example of how computer scientists can actually make life
+better :).
+
+----
+
+And now we can search!
 
 ```
 sourmash search ecoli-genome.sig ecolidb.sbt.json -n 20
@@ -333,6 +340,8 @@ similarity   match
  67.1%       NZ_JHMG01000001.1 Escherichia coli O121:H19 str. 2010EL1058
  66.7%       NZ_AIGC01000068.1 Escherichia coli DEC7C gecDEC7C.contig.67_
 ```
+
+identifying what genome is in the signature.
 
 ## Compare many signatures and build a tree.
 
@@ -445,7 +454,35 @@ the recovered matches hit 73.4% of the query
 
 ```
 
+In our
+[recent preprint](biorxiv.org/content/biorxiv/early/2017/06/25/155358.full.pdf)
+using this, we showed that 
+
 It is straightforward to build your own databases for use with
 `search` and `gather`; this is of interest if you have dozens or
 hundreds of sequencing data sets in your group. Ping us if you want us
 to write that up.
+
+## Final thoughts on sourmash
+
+There are many tools like Kraken and Kaiju that can do taxonomic
+classification of individual reads from metagenomes; these seem to
+perform well (albeit with high false positive rates) in situations
+where you don't necessarily have the genome sequences that are in the
+metagenome.  Sourmash, by contrast, can estimate which known genomes are
+actually present, so that you can extract them and map/align to them.
+It seems to have a very low false positive rate and is quite sensitive
+to strains.
+
+Above, we've shown you a few things that you can use sourmash for.  Here
+is a (non-exclusive) list of other uses that we've been thinking about --
+
+* detect contamination in sequencing data;
+
+* index and search private sequencing collections;
+
+* search all of SRA for overlaps in metagenomes;
+
+Chat with Luiz, Phil, or Titus if you are interested in these use cases!
+
+
