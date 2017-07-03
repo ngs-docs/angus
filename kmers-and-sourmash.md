@@ -53,7 +53,7 @@ that another genome has that exact 31-mer in it.  (You can calculate the
 probability if you assume genomes are random: there are 4<sup>31</sup> possible
 31-mers, and 4<sup>31</sup> = 4,611,686,018,427,387,904.  So, you know, a lot.)
 
-The important concept here is that **long k-mers are species specific*.
+The important concept here is that **long k-mers are species specific**.
 We'll go into a bit more detail later.
 
 ## K-mers and assembly graphs
