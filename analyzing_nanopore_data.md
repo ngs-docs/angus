@@ -71,6 +71,11 @@ Install RStudio:
     wget https://download2.rstudio.org/rstudio-server-1.0.143-amd64.deb
     sudo gdebi -n rstudio-server-1.0.143-amd64.deb
 ```
+Change your password for RStudio:
+
+```
+    sudo passwd <account name>
+```
 
 Install [miniasm and minimap](https://github.com/lh3/miniasm):
 
