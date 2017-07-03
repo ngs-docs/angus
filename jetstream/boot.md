@@ -66,7 +66,7 @@ Click on your new project!
            
 ## Within the project, select "new"
 
-Now, select 'New' to start up a new machine.
+Now, select 'New' and then "Instance" from the dropdown menu to start up a new machine.
 
 [![foo](images/login-8.thumb.png)](../_images/login-8.png)
 
@@ -109,3 +109,75 @@ There's a possibility that you'll be confronted with this when you log in to jet
 
 A refresh of the page should get you past it. Please try not to actually move any instances to
 a new project; it's probably someone else's and it could confuse them :)
+
+## Suspend your instance
+
+You can save your workspace so you can return to your instance at a later time without losing any of your files or information stored in memory, similiar to putting your physical computer to sleep. At the Instance Details screen, select the "Suspend" button. 
+
+[![foo](images/suspend-1.png)](../_images/suspend-1.png)
+
+This will open up a dialogue window. Select the "Yes, suspend this instance" button.
+
+[![foo](images/suspend-2.png)](../_images/suspend-2.png)
+
+It may take Jetstream a few minutes to process, so wait until the progress bar says "Suspended."
+
+### Resuming your instance
+
+To *wake-up* your instance, select the "Resume" button.
+
+[![foo](images/resume-1.png)](../_images/resume-1.png)
+
+This will open up a dialogue window. Select the "Yes, resume this instance" button. 
+
+[![foo](images/resume-2.png)](../_images/resume-2.png)
+
+It may take Jetstream a few minutes to process, so wait until the progress bar says "Active." 
+
+[![foo](images/resume-3.png)](../_images/resume-3.png)
+
+## Shutting down your instance
+
+You can shut down your workspace so you can return to your instance another day without losing any of your files, similiar to shutting down your physical computer. You will retain your files, but you will lose any information stored in memory, such as your history on the command line. At the Instance Details screen, select the "Stop" button. 
+
+[![foo](images/stop-1.png)](../_images/stop-1.png)
+
+This will open up a dialogue window. Select the "Yes, stop this instance" button.
+
+[![foo](images/stop-2.png)](../_images/stop-2.png)
+
+It may take Jetstream a few minutes to process, so wait until the progress bar says "Shutoff."
+
+[![foo](images/stop-3.png)](../_images/stop-3.png)
+
+[![foo](images/stop-4.png)](../_images/stop-4.png)
+
+### Restarting your instance
+
+To start your instance again, select the "Start" button.
+
+[![foo](images/start-1.png)](../_images/start-1.png)
+
+This will open up a dialogue window. Select the "Yes, start this instance" button. 
+
+[![foo](images/start-2.png)](../_images/start-2.png)
+
+It may take Jetstream a few minutes to process, so wait until the progress bar says "Active." 
+
+[![foo](images/start-3.png)](../_images/start-3.png)
+
+## Deleting your instance
+
+To completely remove your instance, you can select the "delete" buttom from the instance details page. 
+
+[![foo](images/delete-1.png)](../_images/delete-1.png)
+
+This will open up a dialogue window. Select the "Yes, delete this instance" button.
+
+[![foo](images/delete-2.png)](../_images/delete-2.png)
+
+It may take Jetstream a few minutes to process your request. The instance should disappear from the project when it has been successfully deleted. 
+
+[![foo](images/delete-3.png)](../_images/delete-3.png)
+
+[![foo](images/delete-4.png)](../_images/delete-4.png)
