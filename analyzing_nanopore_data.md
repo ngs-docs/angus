@@ -12,7 +12,7 @@ The goals of this tutorial are to:
 
 ## Start a Jetstream instance and install software:
 
-[Start a blank Jetstream instance](https://angus.readthedocs.io/en/2017/jetstream/boot.html) (m1.xlarge) with CPU: 24, Mem: 60, Disk 60 GB RAM:
+[Start a blank Jetstream instance](https://angus.readthedocs.io/en/2017/jetstream/boot.html) (m1.medium) with CPU: 6, Mem: 16, Disk 60 GB RAM:
 
 Copy/paste to update and install software on your new instance:
 
