@@ -95,6 +95,26 @@ If you are human, the Markdown code is definitely easier to read! Let us take a 
 ## RMarkdown
 <a href="http://rmarkdown.rstudio.com/">RMarkdown</a> is a variant of Markdown that makes it easy to create dynamic documents, presentations and reports within RStudio.  It has embedded R (originally), python, perl, shell code chunks to be used with **knitr** (an R package) to make it easy to create reproducible reports in the sense that they can be automatically regenerated when the underlying code it modified.    
 
+**RMarkdown renders many different types of files including:**  
+
+- <a href="http://rmarkdown.rstudio.com/html_document_format.html">HTML</a>    
+- <a href="http://rmarkdown.rstudio.com/pdf_document_format.html">PDF</a>  
+- Markdown  
+- <a href="http://rmarkdown.rstudio.com/word_document_format.html">Microsoft Word</a>   
+- Presentations:  
+    - Fancy HTML5 presentations:  
+        - <a href="http://rmarkdown.rstudio.com/ioslides_presentation_format.html">ioslides</a>
+        - <a href="http://rmarkdown.rstudio.com/slidy_presentation_format.html">Slidy</a>  
+        - <a href="http://slidify.org/index.html">Slidify</a>
+    - PDF Presentations:  
+        - <a href="http://rmarkdown.rstudio.com/beamer_presentation_format.html">Beamer</a>  
+    - Handouts:  
+        - <a href="http://rmarkdown.rstudio.com/tufte_handout_format.html">Tufte Handouts</a> 
+- <a href="http://rmarkdown.rstudio.com/package_vignette_format.html">HTML R Package Vignettes</a>  
+- <a href="http://rmarkdown.rstudio.com/rmarkdown_websites.html">Even Entire Websites!</a>   
+
+![](_static/rmarkdown/Rmd_output.png)
+
 
 ### A few step workflow  
 
@@ -135,12 +155,16 @@ It's go time!  Let's start working with RMarkdown!
     
 ![](_static/rmarkdown/create_rmd.png)
 
-2. The window below will pop up.  
+2. The following image will popup.  Click **"Yes"** 
+
+![](_static/rmarkdown/load_rmd_packages.png)
+
+3. The window below will pop up.  
 - Inside of this window, choose the type of output by selecting the radio buttons.  **Note:** this output can be easily changed later!  
 
 ![](_static/rmarkdown/new_rmd_yaml.png)
 
-3. Click **OK**  
+4. Click **OK**  
   
   
   
@@ -212,7 +236,7 @@ Imagine that you're reporting a p-value and you do not want to go back and add i
 
 This is really helpful when writing up the results section of a paper.  For example, you may have ran a bunch of statistics for your scientific questions and this would be a way to have **R** save that value in a variable name.  
 
-Cool, huh?!  It's *amazing!*
+Cool, huh?!  
 
 
 ### R Code Chunks  
@@ -225,7 +249,7 @@ To insert an R code chunk, you can type it manually by typing ```` ```{r} ```` f
 
 ![Inserting a code chunk](_static/rmarkdown/insert_code_chunk.png)  
 
-    ```{r}
+    ```{r}
     n <- 10
     seq(n)
     ```
@@ -233,7 +257,7 @@ To insert an R code chunk, you can type it manually by typing ```` ```{r} ```` f
 
 Name the code chunk something meaningful as to what it is doing.  Below I have named the code chunk `10-random-numbers`:
 
-    ```{r 10-random-numbers}
+    ```{r 10-random-numbers}
     n <- 10
     seq(n)
     ```
