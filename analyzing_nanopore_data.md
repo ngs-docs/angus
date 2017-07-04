@@ -158,7 +158,7 @@ assembly-stats ectocooler_all_2D.fastq
 ```
 How does the full data set compare to the subset?
 
-How does it compare to these results from three R9.5 flowcells in 2017?
+How does it compare to these results from three R9.5 flowcells of killifish (Fundulus olivaceus) data collected at [Porecamp](http://www.txgen.tamu.edu/porecamp_usa/) in 2017?
 ```
 [ljcohen@globus-00 fastq2]$ /mnt/home/ljcohen/bin/assembly-stats/assembly-stats porecamp_killifish2.fastq
 stats for porecamp_killifish2.fastq
@@ -281,4 +281,4 @@ References:
 Acknowledgements
 ================
 
-This is a modified lesson by [Nick Loman](http://angus.readthedocs.io/en/2015/analyzing_nanopore_data.html) from 2015, contributions by Torsten Seemann, Harriet Alexander, Mick Watson, Jon Badalamenti, and Lisa Cohen.
+This is a modified lesson by [Nick Loman](http://angus.readthedocs.io/en/2015/analyzing_nanopore_data.html) from 2015, contributions by Torsten Seemann, Harriet Alexander, Mick Watson, Danny Miller, Jon Badalamenti, and Lisa Cohen.
