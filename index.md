@@ -110,7 +110,7 @@ Evening: Ice cream and demos! 1030 Valley.
 ### Tuesday, Day 9: Nanopore sequencing; and a panel discussion!
 
 9am tutorials:
-* [Long reads and short reads.](analyzing_nanopore_data.md) (Lisa Cohen and Jon Badalamenti)
+* [Assessing & assembling nanopore data.](analyzing_nanopore_data.html) (Lisa Cohen and Jon Badalamenti)
 * 11am: panel discussion: The Future of Biology, Bioinformatics, and Humanity.
 
 4pm onwards: [July 4th celebration at Community Park](http://cityofdavis.org/city-hall/city-manager-s-office/community-events/fourth-of-july). We will have a sun cover and ice chests!
