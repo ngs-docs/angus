@@ -22,20 +22,22 @@ Table of Contents
 
    introduction-to-R-and-dataframes
    counting
-   
+
    genome-assembly
    prokka_genome_annotation
 
    introduction-to-automation
 
    kmers-and-sourmash
-   
+
    GATK_pipeline
    GWAS
    meta_GWAS
 
-   long-and-short-reads
-   
+   Jupyter-Notebook-Notes
    github
-   
+
+   long-and-short-reads
+
+
    for-instructors/index

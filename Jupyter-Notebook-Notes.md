@@ -159,9 +159,9 @@ Here, we have created a list of 3 elements, and we assigned the list to a variab
 
 ### Sharing Notebooks
 
-For more instructions, the `Help` menu has a good tour and detailed information. Notebooks can be downloaded locally by going to the `File` menu, then selecting `Download` and choosing a file type to download, and it supports both `pdf` and `html` as file type choices. 
+For more instructions, the `Help` menu has a good tour and detailed information. Notebooks can be downloaded locally by going to the `File` menu, then selecting `Download` and choosing a file type to download, and it supports both `pdf` and `html` as file type choices.
 
-You can also share the entire file that you have just created (there should be a file named `Jupyter is fun!.ipynb` in your working directory). You can even grab the one we created right now from [here](Jupyter is fun!.ipynb).
+You can also share the entire file that you have just created (there should be a file named `Jupyter-is-fun.ipynb` in your working directory). You can even grab the one we created right now from [here](Jupyter-is-fun.ipynb).
 
 That's it!
 
