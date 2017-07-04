@@ -38,19 +38,19 @@ export PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
 brew tap homebrew/science
 ```
 
-Now install [canu](http://canu.readthedocs.io/en/stable/tutorial.html), [samtools](https://github.com/samtools/samtools/), [bwa mem](http://bio-bwa.sourceforge.net/):
+Now install [canu](http://canu.readthedocs.io/en/stable/tutorial.html), [samtools](https://github.com/samtools/samtools/), [bwa](http://bio-bwa.sourceforge.net/):
 
 ```
 brew install jdk canu bwa samtools
 ```
 
-Install poretools:
+Install [poretools](https://poretools.readthedocs.io/en/latest/):
 
 ```
 sudo pip install poretools
 ```
 
-Install prokka:
+Install [prokka](http://www.vicbioinformatics.com/software.prokka.shtml):
 
 ```
 cd
@@ -60,7 +60,7 @@ prokka --setupdb
 prokka --version
 ```
 
-Install assembly-stats:
+Install [assembly-stats](https://github.com/sanger-pathogens/assembly-stats):
 
 ```
 cd
@@ -155,6 +155,22 @@ Assess the full data set:
 
 ```
 assembly-stats ectocooler_all_2D.fastq
+```
+How does the full data set compare to the subset?
+
+How does it compare to these results?
+```
+[ljcohen@globus-00 fastq2]$ /mnt/home/ljcohen/bin/assembly-stats/assembly-stats porecamp_killifish2.fastq
+stats for porecamp_killifish2.fastq
+sum = 4962626713, n = 740248, ave = 6704.01, largest = 973552
+N50 = 12726, n = 117202
+N60 = 10357, n = 160433
+N70 = 8098, n = 214460
+N80 = 5724, n = 286845
+N90 = 3229, n = 400661
+N100 = 5, n = 740248
+N_count = 0
+Gaps = 0
 ```
 
 Run this to make a file with all read lengths:
