@@ -215,7 +215,7 @@ Compare this with your assembly. How are they different?
     /home/tx160085/mummer-3.9.4alpha/mummerplot -fat -filter -png -large -p ectocooler ectocooler.delta
 ```
 
-Edit nucmer.gp before running gnuplot
+Edit nucmer.gp before running gnuplot to remove the three lines that have the word "mouse".
 ```
     gnuplot ectocooler.gp #edit nucmer.gp before running gnuplot
 ```
