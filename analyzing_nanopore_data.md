@@ -212,7 +212,9 @@ genomeSize=3.0m \
 -nanopore-raw ectocooler_subset.fastq
 ```
 
-From the output files, you are interested in the ``ecto_subset.contigs.fasta`` file. Let's copy that file to the home directory:
+This will take ~15 min. So, go ahead and grab some coffee!
+
+After the assembly has finished, the output file you are interested is `ecto_subset.contigs.fasta`. Let's copy that file to the home directory:
 
 ```
 cd
