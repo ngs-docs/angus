@@ -142,9 +142,8 @@ It's go time!  Let's start working with RMarkdown!
 
 3. Click **OK**  
   
-
-
-
+  
+  
 
 
 
@@ -167,18 +166,85 @@ It's go time!  Let's start working with RMarkdown!
 
 
 
+### 1. YAML Headers
 
-### YAML Headers
+YAML stands for "Yet Another Markup Language" or "Yaml ain't markup language" and is a nested list structure that includes the metadata of the document.  It is enclosed between two lines of three dashes `---` and as we saw above is automatically written by RStudio.  A simple example:  
 
-fill me in
+```
+---
+title:  "Yeast RNAseq Analysis"  
+Author:  "Marian L. Schmidt"  
+date: "July 4th, 2017"  
+output:  html_document
+---
+```
 
-### Code Chunks  
+The above example will create an HTML document.  However, the following options are also available.  
 
-fill me in
+- `html_document`  
+- `pdf_document`  
+- `word_document`  
+- `beamer_presentation` (pdf slideshow)  
+- `ioslides_presentation` (HTML slideshow)  
+- and more...  
 
-### Inline Code 
+Today, we will create HTML files.  Presentation slides take on a slightly different syntax (e.g. to specify when one slide ends and the next one starts) and so please note that there is a bit of markdown syntax specific to presentations.
 
-fill me in
+
+
+
+## Embed Code
+
+There are 2 ways to embed code within an RMarkdown document.  
+
+1. **Inline Code:**  Brief code that takes place during the written part of the document.  
+
+2. **Code Chunks:**  Parts of the document that includes several lines of program or analysis code.  It may render a plot or table, calculate summary statistics, load packages, etc.  
+    
+    
+### Inline R Code  
+
+Inline code is created by using a back tick (the key next to the #1) (\`) and the letter r followed by another back tick.  
+
+- For example:  2^11^ is \`r 2^11\`.  
+
+Imagine that you're reporting a p-value and you do not want to go back and add it every time the statistical test is re-run.  Rather, the p-value is `0.0045`.  
+
+This is really helpful when writing up the results section of a paper.  For example, you may have ran a bunch of statistics for your scientific questions and this would be a way to have **R** save that value in a variable name.  
+
+Cool, huh?!  It's *amazing!*
+
+
+### R Code Chunks  
+
+R code chunks can be used to render R output into documents or to display code for illustration.  
+
+**The Anatomy of a code chunk:**  
+
+To insert an R code chunk, you can type it manually by typing ```` ```{r} ```` followed by  ```` ``` ```` on the next line.  You can also press the `Insert a new code chunk` button or use the shortcut key. This will produce the following code chunk:
+
+![Inserting a code chunk](_static/rmarkdown/insert_code_chunk.png)  
+
+    ```{r}
+    n <- 10
+    seq(n)
+    ```
+
+
+Name the code chunk something meaningful as to what it is doing.  Below I have named the code chunk `10-random-numbers`:
+
+    ```{r 10-random-numbers}
+    n <- 10
+    seq(n)
+    ```
+    
+    
+The code chunk input and output is then displayed as follows:
+
+```{r 10-random-numbers}
+n = 10
+seq(n)
+```
 
 ### Narrative 
 
