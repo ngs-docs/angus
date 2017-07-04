@@ -108,7 +108,7 @@ Our data were collected from three flowcells in 2016. Download a subset of these
 
 You should see a bunch of .fast5 files.
   
-This is only a subset of the reads from the whole run. (`Click here for stats from the full data set. <https://github.com/ljcohen/dib_ONP_MinION/blob/master/Ectocooler/Ectocooler_read_stats_all3runs.ipynb>`__)
+This is only a subset of the reads from the whole run. ([Click here for stats from the full data set.](https://github.com/ljcohen/dib_ONP_MinION/blob/master/Ectocooler/Ectocooler_read_stats_all3runs.ipynb))
 
 The MinION instrument collects raw data in .fast5 format. The local basecalling software, [Albacore (sorry, link requires ONT MAP login access)](https://community.nanoporetech.com/downloads), converts .fast5 files into .fastq or .fasta files. Poretools is another method for converting .fast5 files into .fastq files. 
 
