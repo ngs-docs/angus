@@ -24,7 +24,7 @@ sudo apt-get -y install build-essential ruby screen git curl gcc make g++ python
     python-setuptools cmake cython libhdf5-serial-dev \
     python-numpy python-scipy python-pandas python-pandas-lib \
     python-biopython parallel python-h5py python-tornado \
-    bioperl libxml-simple-perl default-jre gdebi-core r-base gnuplot
+    bioperl libxml-simple-perl default-jre gdebi-core r-base
 ```
 
 To install some of the software, we will use [Linux brew](https://github.com/Linuxbrew/brew):
@@ -88,8 +88,9 @@ cd
 sudo passwd <account name>
 ```
 
-Install [mummer](http://mummer.sourceforge.net/):
+Install [mummer](http://mummer.sourceforge.net/) and gnuplot v4:
 
+mummer
 ```
 cd
 wget https://github.com/mummer4/mummer/releases/download/v3.9.4alpha/mummer-3.9.4alpha.tar.gz
@@ -99,6 +100,8 @@ cd mummer-3.9.4alpha
 make
 sudo make install
 ```
+gnuplot v4 for [reasons](https://sourceforge.net/p/mummer/mailman/message/34939032/)
+
 
 ## Get Oxford Nanopore MinION data and convert it
 
@@ -245,6 +248,7 @@ Compare this with your assembly. How are they different?
 ```
 
 Edit nucmer.gp before running gnuplot to remove the three lines that have the word "mouse".
+
 ```
 gnuplot ectocooler.gp #edit nucmer.gp before running gnuplot
 ```
