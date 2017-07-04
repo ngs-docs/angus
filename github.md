@@ -33,7 +33,7 @@ The main function of GitHub is to store repositories, so let's create one. To do
 
 Click the button to create a new repository.
 
-In the next window, enter a name into the box. You can also optionally enter a description in the box below. Additionally, you can initialize the repository with a README file. That means that when the repository is created, it will start by having a text file called README.
+In the next window, enter a name into the box. You can also optionally enter a description in the box below. Additionally, you can initialize the repository with a `README.md` file. That means that when the repository is created, it will start by having a text file called `README.md`. The extension `md` stands for `Markdown` format that we saw earlier brifely in the [Jupyter Notebook lesson]() and we will cover more in depth in the [RMarkdown lesson]().
 
 # Cloning Repositories
 
