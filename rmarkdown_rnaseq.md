@@ -29,9 +29,106 @@ And, finally, change the password to something you can remember. If your usernam
 ```
 sudo passwd your_username
 ```      
-
+******************************************************************************************
 
 ## Introduction to RMarkdown 
+
+### Rmarkdown is a type of *dynamic document*
+
+<a href="https://en.wikipedia.org/wiki/Literate_programming">Literate programming</a> is the basic idea behind dynamic documents and was proposed by Donald Knuth in 1984.  Originally, it was for mixing the source code and documentation of software development together.  Today, we will create dynamic documents in which program or analysis code is run to produce output (e.g. tables, plots, models, etc) and then are explained through narrative writing.
+
+The 3 steps of **Literate Programming**:  
+
+1. **Parse** the source document and separate code from narratives.  
+2. **Execute** source code and return results.  
+3. **Mix** results from the source code with the original narratives.  
+
+So that leaves us, the writers, with 2 steps which includes writing:  
+
+1. Analysis code  
+2. A narrative to explain the results from the analysis code.  
+
+> **Note #1:** R Markdown is very similar to Jupyter notebooks! They are two sides of the same coin. We suggest that you adopt which ever one makes more sense to you and is in a layout that has a lower barrier for you to learn. 
+
+> **Note #2:** The RStudio core team has also developed something called R Notebooks.  An R Notebook is an R Markdown document with chunks that can be executed independently and interactively, with output visible immediately beneath the input. Also, R notebooks do not need to be "knit".  More on knitting later...
+
+## Markdown
+
+To fully understand RMarkdown, we first need to cover <a href="https://daringfireball.net/projects/markdown/">Markdown</a>, which is a system for writing simple, readable text that is easily converted to HTML.  Markdown essentially is two things:  
+
+1. A plain text formatting syntax  
+2. A software tool written in Perl.  
+    - Converts the plain text formatting into HTML.  
+    
+>**Main goal of Markdown:**  
+> Make the syntax of the raw (pre-HTML) document as readable possible. 
+
+Would you rather read this code in HTML?  
+```html
+<body>
+  <section>
+    <h1>Fresh Berry Salad Recipe</h1>
+    <ul>
+      <li>Blueberries</li>
+      <li>Strawberries</li>
+      <li>Blackberries</li>
+      <li>Raspberries</li>
+    </ul>
+  </section>
+</body>
+```
+
+Or this code in Markdown?  
+```markdown
+# Fresh Berry Salad Recipe
+
+* Blueberries
+* Strawberries
+* Blackberries  
+* Raspberries
+```
+
+If you are human, the Markdown code is definitely easier to read! Let us take a moment to soak in how much easier our lives are/will be because Markdown exists!  Thank you <a href="https://en.wikipedia.org/wiki/John_Gruber">John Gruber</a> and <a href="https://en.wikipedia.org/wiki/Aaron_Swartz">Aaron Swartz</a> (RIP) for creating Markdown in 2004! 
+
+******************************************************************************************
+
+# RMarkdown
+<a href="http://rmarkdown.rstudio.com/">RMarkdown</a> is a variant of Markdown that makes it easy to create dynamic documents, presentations and reports within RStudio.  It has embedded R (originally), python, perl, shell code chunks to be used with **knitr** (an R package) to make it easy to create reproducible reports in the sense that they can be automatically regenerated when the underlying code it modified.    
+
+
+## Anatomy of Rmarkdown file
+
+4 main components:  
+
+1. YAML headers  
+2. Code Chunks
+3. Inline Code  
+4. Narrative
+
+
+
+
+### YAML Headers
+
+fill me in
+
+### Code Chunks  
+
+fill me in
+
+### Inline Code 
+
+fill me in
+
+### Narrative 
+
+fill me in
+
+
+******************************************************************************************
+
+
+
 
 1. Why RMarkdown?  
 	- YAML Header --> renders pretty docs (we will use HTML)   
@@ -242,4 +339,16 @@ Let's do the same thing again, but this time we will plot the top 75 least varia
               labCol = c("WT", "WT", "WT", "MUT", "MUT", "MUT"))
 ```    
 Even though we did cpm normalization, a lot of these genes are still very lowly expressed. This is important to keep in mind when interpretting what this heatmap means.
+
+
+******************************************************************************************
+
+# Amazing Resources for learning Rmarkdown 
+
+1. The <a href="http://rmarkdown.rstudio.com/index.html" target="_blank">RMarkdown</a> website hosted by RStudio.  
+2. Dr. Yuhui Xie's book:  <a href="http://www.amazon.com/Dynamic-Documents-knitr-Chapman-Hall/dp/1482203537" target="_blank">Dynamic Documents with R and Knitr</a> 2^nd^ Edition [@Xie2015] and his <a href="http://yihui.name/knitr/" target="_blank">Knitr</a> website.  
+    - A **BIG thank you** to Dr. Xie for writing the **Knitr** Package!!  
+3. Dr. Karl Broman's <a href="http://kbroman.org/knitr_knutshell/" target="_blank">"Knitr in a Knutshell"</a>.  
+4. <a href="https://www.rstudio.com/resources/cheatsheets/" target="_blank">Cheatsheets</a> released by RStudio.
+
 
