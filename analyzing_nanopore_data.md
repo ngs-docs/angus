@@ -24,7 +24,7 @@ sudo apt-get -y install build-essential ruby screen git curl gcc make g++ python
     python-setuptools cmake cython libhdf5-serial-dev \
     python-numpy python-scipy python-pandas python-pandas-lib \
     python-biopython parallel python-h5py python-tornado \
-    bioperl libxml-simple-perl default-jre gdebi-core r-base
+    bioperl libxml-simple-perl default-jre gdebi-core r-base gnuplot
 ```
 
 To install some of the software, we will use [Linux brew](https://github.com/Linuxbrew/brew):
