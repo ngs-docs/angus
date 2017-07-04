@@ -88,14 +88,6 @@ cd
 sudo passwd <account name>
 ```
 
-Install [miniasm and minimap](https://github.com/lh3/miniasm):
-
-```
-cd
-git clone https://github.com/lh3/minimap && (cd minimap && make)
-git clone https://github.com/lh3/miniasm && (cd miniasm && make)
-```
-
 Install mummer:
 
 ```
