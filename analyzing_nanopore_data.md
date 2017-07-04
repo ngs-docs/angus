@@ -197,6 +197,8 @@ Run these commands in RStudio:
 setwd("~/")
 lengths <- read.table("lengths.txt")[,1]
 hist(lengths, xlim=c(0,30000), breaks=100, col="red")
+killifish_lengths <- read.table("killifish_lengths.txt")[,1]
+hist(killifish_lengths, xlim=c(0,90000), breaks=1000, col="blue")
 
 ```
 ## Assemble the data
