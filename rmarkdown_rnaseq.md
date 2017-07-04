@@ -92,8 +92,68 @@ If you are human, the Markdown code is definitely easier to read! Let us take a 
 
 ******************************************************************************************
 
-# RMarkdown
+## RMarkdown
 <a href="http://rmarkdown.rstudio.com/">RMarkdown</a> is a variant of Markdown that makes it easy to create dynamic documents, presentations and reports within RStudio.  It has embedded R (originally), python, perl, shell code chunks to be used with **knitr** (an R package) to make it easy to create reproducible reports in the sense that they can be automatically regenerated when the underlying code it modified.    
+
+
+### A few step workflow  
+
+Briefly, to make a report:  
+
+1. **Open** a `.Rmd` file.  
+    - Create a YAML header (more on this in a minute!)
+2. **Write** the content with RMarkdown syntax.  
+3. **Embed** the R code in code chunks or inline code.  
+4. **Render** the document output.  
+
+![Workflow for creating a report](_static/rmarkdown/rmd_workflow_cheatsheet.png)
+
+
+
+**Overview of the steps RMarkdown takes to get to the rendered document:**  
+
+1. Create `.Rmd` report that includes R code chunks and and markdown narratives (as indicated in steps above.).  
+2. Give the `.Rmd` file to `knitr` to execute the R code chunks and create a new `.md` file.  
+    - <a href="http://yihui.name/knitr/" target="_blank">Knitr</a> is a package within R that allows the integration of R code into rendered RMarkdown documents such as HTML, latex, pdf, word, among other document types.  
+3. Give the `.md` file to **pandoc**, which will create the final rendered document (e.g. html, Microsoft word, pdf, etc.).  
+    - <a href="http://pandoc.org/" target="_blank">Pandoc</a> is a universal document converter and enables the conversion of one document type (in this case: `.Rmd`) to another (in this case: HTML)
+
+![How an Rmd document is rendered](_static/rmarkdown/Rmd_workflow.png)
+
+While this may seem complicated, we can hit the ![](_static/rmarkdown/knit.png) button at the top of the page. **Knitting** is the verb to describe the combining of the code chunks, inline code, markdown and narrative.   
+
+> **Note:** Knitting is different from rendering!  **Rendering** refers to the writing of the final document, which occurs *after* knitting. 
+
+*********
+
+## Creating a `.Rmd` File  
+
+It's go time!  Let's start working with RMarkdown!
+
+1.  In the menu bar, click **File -> New File -> RMarkdown**  
+    - Or simply click on the green plus sign in the top left corner of RStudio. 
+    
+![](_static/rmarkdown/create_rmd.png)
+
+2. The window below will pop up.  
+- Inside of this window, choose the type of output by selecting the radio buttons.  **Note:** this output can be easily changed later!  
+
+![](_static/rmarkdown/new_rmd_yaml.png)
+
+3. Click **OK**  
+  
+
+
+
+
+
+
+
+
+## Create an RMarkdown file 
+
+1. Go to the top left corner and click on the ![](_static/rmarkdown/add_file.png)
+
 
 
 ## Anatomy of Rmarkdown file
@@ -151,14 +211,15 @@ fill me in
 3. Heatmap
 
 
-
 ```
-# Install all of the necessary packages
-install.packages("ggplot2")
-install.packages("RColorBrewer")
-install.packages("edgeR")
-install.packages("gplots")
-install.packages("GGally")
+	```{r install_packages, echo = true, eval = false}
+	# Install all of the necessary packages
+	install.packages("ggplot2")
+	install.packages("RColorBrewer")
+	install.packages("edgeR")
+	install.packages("gplots")
+	install.packages("GGally")
+	```
 ```
 
 I changed the gather_counts.py script to gather the TPM data (transcripts per million) in order to make a plot of this data. This is a simple normalization that can be used to correct for differences in library size. 
