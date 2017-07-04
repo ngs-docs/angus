@@ -85,7 +85,7 @@ Note! this will be a repeat of Friday evening! You only need to come to one.
 
 ### Monday, Day 8: Genomes, and GWAS, and k-mers.
 
-9am lecture: [Erich Schwarz](https://mbg.cornell.edu/people/erich-schwarz), Cornell - "Assembling and biologically interpreting nematode genomes"
+9am lecture: [Erich Schwarz](https://mbg.cornell.edu/people/erich-schwarz), Cornell - ["Assembling and biologically interpreting nematode genomes"](https://osf.io/9yu76/)
 
 Morning: 10:15am-lunch, in lions & tigers & bears.
 * [Reference independent analyses with k-mers; sourmash.](kmers-and-sourmash.html) - Luiz in Lions, Phil in Tigers, and Titus in Bears.
@@ -112,6 +112,9 @@ Evening: Ice cream and demos! 1030 Valley.
 9am tutorials:
 * [Long reads and short reads.](long-and-short-reads.html) (Lisa Cohen and Jon Badalamenti)
 * 11am: panel discussion: The Future of Biology, Bioinformatics, and Humanity.
+   * [Titus' talk](https://osf.io/zbqtv/)
+   * [Adrienne's talk](https://osf.io/8mb2y/)
+   * [Erich's talk](https://osf.io/5sr93/)
 
 4pm onwards: [July 4th celebration at Community Park](http://cityofdavis.org/city-hall/city-manager-s-office/community-events/fourth-of-july). We will have a sun cover and ice chests!
 
