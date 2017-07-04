@@ -281,4 +281,4 @@ References:
 Acknowledgements
 ================
 
-This is a modified lesson by [Nick Loman](http://angus.readthedocs.io/en/2015/analyzing_nanopore_data.html) from 2015, contributions by Torsten Seemann, Harriet Alexander, Mick Watson, and Lisa Cohen.
+This is a modified lesson by [Nick Loman](http://angus.readthedocs.io/en/2015/analyzing_nanopore_data.html) from 2015, contributions by Torsten Seemann, Harriet Alexander, Mick Watson, Jon Badalamenti, and Lisa Cohen.
