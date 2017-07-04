@@ -104,7 +104,7 @@ Evening: Ice cream and demos! 1030 Valley.
   - [Jupyter Notebook, R and Python for data science.](Jupyter-Notebook-Notes.html)
   - CyVerse and what an allocation request looks like.
   - [GitHub](github.html)
-  - where do I find the data? NCBI, ENSEMBL, ENA; how to get FASTQ out of NCBI.
+  - [where do I find the data? NCBI, ENSEMBL, ENA; how to get FASTQ out of NCBI.](database_resources.html)
   - & other things
 
 ### Tuesday, Day 9: Nanopore sequencing; and a panel discussion!
