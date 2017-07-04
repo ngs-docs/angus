@@ -99,6 +99,7 @@ cd mummer-3.9.4alpha
 ./configure
 make
 sudo make install
+export LD_LIBRARY_PATH="/usr/local/lib"
 ```
 gnuplot v4 for [reasons](https://sourceforge.net/p/mummer/mailman/message/34939032/)
 
@@ -245,7 +246,7 @@ Compare this with your assembly. How are they different?
 Before running `mummerplot`, run this:
 
 ```
-awk -i inplace '/\$P_FORMAT .=/ { print "#" $0; next } { print }' ~/mummer-3.9.4alpha/mummerplot
+sudo awk -i inplace '/\$P_FORMAT .=/ { print "#" $0; next } { print }' $(which mummerplot)
 ```
 
 because [reasons](https://sourceforge.net/p/mummer/mailman/message/34939032/)
@@ -254,8 +255,8 @@ because [reasons](https://sourceforge.net/p/mummer/mailman/message/34939032/)
 Quick assembly vs. assembly of full reads:
 
 ```
-~/mummer-3.9.4alpha/nucmer --maxmatch -c 100 -p ectocooler ecto.contigs.fasta ecto_subset.contigs.fasta
-~/mummer-3.9.4alpha/mummerplot --fat --filter --png --large -p ectocooler ectocooler.delta
+nucmer --maxmatch -c 100 -p ectocooler ecto.contigs.fasta ecto_subset.contigs.fasta
+mummerplot --fat --filter --png --large -p ectocooler ectocooler.delta
 ```
 
 Grab closely-related reference genome of [Tenacibaculum dicentrarchi](https://www.ncbi.nlm.nih.gov/genome/?term=txid669041[orgn]):
@@ -267,8 +268,8 @@ gunzip GCF_001483385.1_ASM148338v1_genomic.fna.gz
 Do all-by-all comparison of reference genome vs. ecocooler full reads assembly
 
 ```
-~/mummer-3.9.4alpha/nucmer --maxmatch -c 100 -p ectocooler_Tdicent ecto.contigs.fasta GCF_001483385.1_ASM148338v1_genomic.fna
-~/mummer-3.9.4alpha/mummerplot --fat --filter --png --large -p ectocooler_Tdicent ectocooler_Tdicent.delta
+nucmer --maxmatch -c 100 -p ectocooler_Tdicent ecto.contigs.fasta GCF_001483385.1_ASM148338v1_genomic.fna
+mummerplot --fat --filter --png --large -p ectocooler_Tdicent ectocooler_Tdicent.delta
 ```
 
 Annotate with prokka:
