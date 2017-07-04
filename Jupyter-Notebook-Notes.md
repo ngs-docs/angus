@@ -8,7 +8,7 @@ In this case, "_notebook_" or "_notebook documents_" denote documents that conta
 
 As a fun note, "Jupyter" is a loose acronym meaning [Julia](julialang.org), [Python](https://www.python.org/), and [R](https://www.r-project.org/). These programming languages were the first target languages of the Jupyter application, but nowadays, the notebook technology also supports [many other languages](http://github.com/ipython/ipython/wiki/IPython-kernels-for-other-languages).
 
-The main components of the whole Jupyter environment are, on one hand, the notebooks themselves and the application. On the other hand, you also have a notebook kernel (that is the language interpreter that will be executing the code in the background) and a notebook dashboard.
+The main components of the whole Jupyter environment are, on one hand, the notebooks themselves and the application. On the other hand, you also have a notebook kernel and a notebook dashboard.
 
 And there you have it: the Jupyter Notebook - there are also several [examples of Jupyter notebooks](https://github.com/jupyter/jupyter/wiki/A-gallery-of-interesting-Jupyter-Notebooks) that you can see/browse.
 
@@ -42,7 +42,7 @@ Creating a Notebook is as straightforward as clicking on the `New` button on the
 
 > _Note_ Jupyter really shines for Python and Julia notebooks. R users usually go the RMarkdown, which is much more optimized for R (as opposed to Jupyter). Eventually however, it all comes down to personal preference (or lab inheritance...)
 
-All notebooks look like this in the beginning:
+Each notebook looks like this:
 
 ![An empty Jupyter Notebook for R](JupyterEmptyNotebook.png "An empty Jupyter Notebook for R")
 
@@ -159,9 +159,9 @@ Here, we have created a list of 3 elements, and we assigned the list to a variab
 
 ### Sharing Notebooks
 
-For more instructions, the `Help` menu has a good tour and detailed information. Notebooks can be downloaded locally by going to the `File` menu, then selecting `Download` and choosing a file type to download, and it supports both `pdf` and `html` as file type choices. 
+For more instructions, the `Help` menu has a good tour and detailed information. Notebooks can be downloaded locally by going to the `File` menu, then selecting `Download` and choosing a file type to download.
 
-You can also share the entire file that you have just created (there should be a file named `Jupyter is fun!.ipynb` in your working directory). You can even grab the one we created right now from [here](Jupyter is fun!.ipynb).
+You can also share the entire file that you have just created (there should be a file named `Jupyter-is-fun.ipynb` in your working directory). You can even grab the one we created right now from [here](Jupyter-is-fun.ipynb).
 
 That's it!
 
