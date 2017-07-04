@@ -249,7 +249,7 @@ Quick assembly vs. assembly of full reads:
 ~/mummer-3.9.4alpha/mummerplot --fat --filter --png --large -p ectocooler ectocooler.delta
 ```
 
-Edit nucmer.gp before running gnuplot to remove the three lines that have the word "mouse".
+Edit the `~/mummer-3.9.4alpha/mummerplot` script before running the second command above to comment out the three lines that have the word "mouse", because [reasons](https://sourceforge.net/p/mummer/mailman/message/34939032/). (Search for `clipboardformat`.)
 
 Grab closely-related reference genome of [Tenacibaculum dicentrarchi](https://www.ncbi.nlm.nih.gov/genome/?term=txid669041[orgn]):
 
