@@ -27,7 +27,7 @@ Copy/paste to update and install software on your new instance:
         bioperl libxml-simple-perl default-jre gdebi-core r-base gnuplot
 ```
 
-To install the rest of the software, we will use [Linux brew](https://github.com/Linuxbrew/brew):
+To install some of the software, we will use [Linux brew](https://github.com/Linuxbrew/brew):
 
 ```
     sudo mkdir /home/linuxbrew
