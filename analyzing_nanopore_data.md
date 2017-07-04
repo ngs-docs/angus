@@ -88,7 +88,7 @@ cd
 sudo passwd <account name>
 ```
 
-Install mummer:
+Install [mummer](http://mummer.sourceforge.net/):
 
 ```
 cd
