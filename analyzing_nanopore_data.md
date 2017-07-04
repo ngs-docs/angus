@@ -252,7 +252,7 @@ gnuplot ectocooler.gp #edit nucmer.gp before running gnuplot
 Annotate with prokka:
 =====================
 
-This week, you have used Torsten's program, [prokka](http://angus.readthedocs.io/en/2016/prokka_genome_annotation.html)to annotate a bacterial genome. We will use this to annotate these new contigs we have assembled.
+This week, you have used Torsten's program, [prokka](http://angus.readthedocs.io/en/2016/prokka_genome_annotation.html) to annotate a bacterial genome. We will use this to annotate these new contigs we have assembled.
 
 ```
 prokka --outdir anno_subset --prefix ecto_subset_prokka ecto_subset.contigs.fasta
