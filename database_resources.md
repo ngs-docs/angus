@@ -5,6 +5,7 @@ There are many, many databases around for sequence data and for downstream analy
 * [Pubmed](https://www.ncbi.nlm.nih.gov/pubmed): citations, abstract and links to more than 27 million scientific papers.
 * [Google scholar](https://scholar.google.se)
 * [Dryad](https://datadryad.org/): a "curated general-purpose repository that makes the data underlying scientific publications discoverable, freely reusable, and citable." Integrated with many journals.
+* [FigShare](https://figshare.com/): is a repository where users can make all of their research outputs available in a citable, shareable and discoverable manner.
 
 ## NCBI
 [NCBI](https://www.ncbi.nlm.nih.gov) has a lot of really wonderful resources. These all have different interfaces, and some are better organized than others, but the data housed within the various databases is gold. 
