@@ -30,6 +30,7 @@ Copy/paste to update and install software on your new instance:
 To install some of the software, we will use [Linux brew](https://github.com/Linuxbrew/brew):
 
 ```
+    cd
     sudo mkdir /home/linuxbrew
     sudo chown $USER:$USER /home/linuxbrew
     git clone https://github.com/Linuxbrew/brew.git /home/linuxbrew/.linuxbrew
@@ -46,12 +47,13 @@ Now install [canu](http://canu.readthedocs.io/en/stable/tutorial.html), [samtool
 Install poretools:
 
 ```
-sudo pip install poretools
+    sudo pip install poretools
 ```
 
 Install prokka:
 
 ```
+    cd
     git clone https://github.com/tseemann/prokka.git
     export PATH=$PWD/prokka/bin:$PATH
     prokka --setupdb
@@ -61,6 +63,7 @@ Install prokka:
 Install assembly-stats:
 
 ```
+   cd
    git clone https://github.com/sanger-pathogens/assembly-stats.git
    cd assembly-stats/
    mkdir build
@@ -74,18 +77,21 @@ Install assembly-stats:
 Install RStudio:
 
 ```
+    cd
     wget https://download2.rstudio.org/rstudio-server-1.0.143-amd64.deb
     sudo gdebi -n rstudio-server-1.0.143-amd64.deb
 ```
 Change your password for RStudio:
 
 ```
+    cd
     sudo passwd <account name>
 ```
 
 Install [miniasm and minimap](https://github.com/lh3/miniasm):
 
 ```
+    cd
     git clone https://github.com/lh3/minimap && (cd minimap && make)
     git clone https://github.com/lh3/miniasm && (cd miniasm && make)
 ```
@@ -93,6 +99,7 @@ Install [miniasm and minimap](https://github.com/lh3/miniasm):
 Install mummer:
 
 ```
+    cd
     wget https://github.com/mummer4/mummer/releases/download/v3.9.4alpha/mummer-3.9.4alpha.tar.gz
     tar xvzf mummer-3.9.4alpha.tar.gz
     cd mummer-3.9.4alpha
