@@ -95,14 +95,14 @@ Lunch will be local, with a food truck
 Afternoon: 1pm onwards, in 1030 Valley.
 * [Variant calling and big genomes: GATK.](GATK_pipeline.html) (Tamer Mansour)
 * [Genome Wide Association Studies.](GWAS.html)
-* [Meta-analysis of GWAS studies](meta_GWAS.html)
-
+* [Meta-analysis of GWAS studies](meta_GWAS.html) (Shannon Joslin)
+   
 Evening: Ice cream and demos! 1030 Valley.
 * 6:30pm onwards: ice cream!
 * 7pm-9pm: demonstrations and eye candy (1030 Valley)
-  - where should I put my data? The Open Science Framework.
-  - [Jupyter Notebook, R and Python for data science.](Jupyter-Notebook-Notes.html)
   - CyVerse and what an allocation request looks like.
+  - [Jupyter Notebook, R and Python for data science.](Jupyter-Notebook-Notes.html)
+  - where should I put my data? One option: the [Open Science Framework](the_osf.html)
   - [GitHub](github.html)
   - [where do I find the data? NCBI, ENSEMBL, ENA; how to get FASTQ out of NCBI.](database_resources.html)
   - & other things
