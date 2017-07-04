@@ -179,6 +179,12 @@ Run this to make a file with all read lengths:
 cat ectocooler_all_2D.fastq | paste - - - - | awk -F"\t" '{print length($2)}' > lengths.txt
 ```
 
+Grab lengths from the killifish runs to compare:
+
+```
+wget https://raw.githubusercontent.com/ngs-docs/angus/2017/killifish_lengths.txt
+```
+
 Start RStudio server:
 
 ```
@@ -191,6 +197,7 @@ Run these commands in RStudio:
 setwd("~/")
 lengths <- read.table("lengths.txt")[,1]
 hist(lengths, xlim=c(0,30000), breaks=100, col="red")
+
 ```
 ## Assemble the data
 
