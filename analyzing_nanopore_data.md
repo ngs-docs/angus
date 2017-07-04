@@ -34,7 +34,8 @@ cd
 sudo mkdir /home/linuxbrew
 sudo chown $USER:$USER /home/linuxbrew
 git clone https://github.com/Linuxbrew/brew.git /home/linuxbrew/.linuxbrew
-export PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
+echo 'export PATH=/home/linuxbrew/.linuxbrew/bin:$PATH' >> ~/.bashrc
+source ~/.bashrc
 brew tap homebrew/science
 ```
 
@@ -55,7 +56,8 @@ Install [prokka](http://www.vicbioinformatics.com/software.prokka.shtml):
 ```
 cd
 git clone https://github.com/tseemann/prokka.git
-export PATH=$PWD/prokka/bin:$PATH
+echo 'export PATH=$PWD/prokka/bin:$PATH' >> ~/.bashrc
+source ~/.bashrc
 prokka --setupdb
 prokka --version
 ```
@@ -99,7 +101,8 @@ cd mummer-3.9.4alpha
 ./configure
 make
 sudo make install
-export LD_LIBRARY_PATH="/usr/local/lib"
+echo 'export LD_LIBRARY_PATH="/usr/local/lib"' >> ~/.bashrc
+source ~/.bashrc
 ```
 gnuplot v4 for [reasons](https://sourceforge.net/p/mummer/mailman/message/34939032/)
 
