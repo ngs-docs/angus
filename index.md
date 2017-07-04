@@ -110,7 +110,7 @@ Evening: Ice cream and demos! 1030 Valley.
 ### Tuesday, Day 9: Nanopore sequencing; and a panel discussion!
 
 9am tutorials:
-* [Long reads and short reads.](long-and-short-reads.html) (Lisa Cohen and Jon Badalamenti)
+* [Assessing & assembling nanopore data.](analyzing_nanopore_data.html) (Lisa Cohen and Jon Badalamenti)
 * 11am: panel discussion: The Future of Biology, Bioinformatics, and Humanity.
    * [Titus' talk](https://osf.io/zbqtv/)
    * [Adrienne's talk](https://osf.io/8mb2y/)

@@ -39,6 +39,6 @@ Table of Contents
    fotis-jupyter
    database_resources
 
-   long-and-short-reads
+   analyzing_nanopore_data
 
    for-instructors/index
