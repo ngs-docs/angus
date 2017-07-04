@@ -184,10 +184,11 @@ It's go time!  Let's start working with RMarkdown!
 4 main components:  
 
 1. YAML headers  
-2. Code Chunks
-3. Inline Code  
-4. Narrative
-
+2. Narrative/Description of your analysis
+3. Code    
+	a. Inline Code  
+	b. Code Chunks
+	
 
 
 ### 1. YAML Headers
@@ -215,9 +216,12 @@ The above example will create an HTML document.  However, the following options 
 Today, we will create HTML files.  Presentation slides take on a slightly different syntax (e.g. to specify when one slide ends and the next one starts) and so please note that there is a bit of markdown syntax specific to presentations.
 
 
+### 2. Narrative/Description of your analysis
+
+For this section of the document, you will use markdown to write descriptions of whatever the document is about.  For example, you may write your abstract, introduction, or materials and methods to set the stage for the analysis to come in code chunks later on. 
 
 
-## Embed Code
+### 3. Code
 
 There are 2 ways to embed code within an RMarkdown document.  
 
@@ -226,7 +230,7 @@ There are 2 ways to embed code within an RMarkdown document.
 2. **Code Chunks:**  Parts of the document that includes several lines of program or analysis code.  It may render a plot or table, calculate summary statistics, load packages, etc.  
     
     
-### Inline R Code  
+### a. Inline R Code  
 
 Inline code is created by using a back tick (the key next to the #1) (\`) and the letter r followed by another back tick.  
 
@@ -239,7 +243,7 @@ This is really helpful when writing up the results section of a paper.  For exam
 Cool, huh?!  
 
 
-### R Code Chunks  
+### b. R Code Chunks  
 
 R code chunks can be used to render R output into documents or to display code for illustration.  
 
@@ -255,9 +259,9 @@ To insert an R code chunk, you can type it manually by typing ```` ```{r} ```` f
     ```
 
 
-Name the code chunk something meaningful as to what it is doing.  Below I have named the code chunk `10-random-numbers`:
+Name the code chunk something meaningful as to what it is doing.  Below I have named the code chunk `10_random_numbers`:
 
-    ```{r 10-random-numbers}
+    ```{r 10_random_numbers}
     n <- 10
     seq(n)
     ```
@@ -265,14 +269,45 @@ Name the code chunk something meaningful as to what it is doing.  Below I have n
     
 The code chunk input and output is then displayed as follows:
 
-```{r 10-random-numbers}
+```{r 10_random_numbers}
 n = 10
 seq(n)
 ```
 
-### Narrative 
+**Always name/label your code chunks!**
 
-fill me in
+## Chunk Labels 
+
+Chunk labels must be **unique IDs** in a document and are good for:  
+
+- Generating external files such as images and cached documents.  
+- Chunk labels often are output when errors arise (more often for line of code).     
+- **Navigating throughout long `.Rmd` documents.**  
+
+![A method of navigating through `.Rmd` files](_static/rmarkdown/label_navigation.png)
+
+
+
+When naming the code chunk:  Use `-` or `_` in between words for code chunks labels instead of spaces.  This will help you and other users of your document to navigate through.  
+
+Chunk labels must be unique throughout the document - otherwise there will be an error!    
+  
+  
+
+## Chunk Options  
+
+Pressing tab when inside the braces will bring up code chunk options.
+
+
+![Some Knitr Chunk Options](_static/rmarkdown/chunk_options.png)
+
+
+- `results = "asis"` stands for "as is" and will output a non-formatted version. 
+- `collapse` is another chunk option which can be helpful.  If a code chunk has many short R expressions with some output, you can collapse the output into a chunk.     
+
+There are too many chunk options to cover here.  After the workshop take a look around at the options.
+
+Great website for exploring <a href="http://yihui.name/knitr/options/#chunk_options">Knitr Chunk Options</a>.  
 
 
 ******************************************************************************************
