@@ -36,4 +36,6 @@ Table of Contents
 
    long-and-short-reads
    
+   github
+   
    for-instructors/index

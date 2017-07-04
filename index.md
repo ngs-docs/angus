@@ -103,7 +103,7 @@ Evening: Ice cream and demos! 1030 Valley.
   - where should I put my data? The Open Science Framework.
   - Jupyter Notebook and Python for data science.
   - CyVerse and what an allocation request looks like.
-  - GitHub
+  - [GitHub](github.html)
   - where do I find the data? NCBI, ENSEMBL, ENA; how to get FASTQ out of NCBI.
   - & other things
 
