@@ -211,7 +211,7 @@ Compare this with your assembly. How are they different?
 ## All-by-all comparison
 
 ```
-    /home/tx160085/mummer-3.9.4alpha/nucmer -maxmatch -c 100 -p ecotcooler ecto.contigs.fasta ecto_subset.contigs.fasta
+    /home/tx160085/mummer-3.9.4alpha/nucmer --maxmatch -c 100 -p ecotcooler ecto.contigs.fasta ecto_subset.contigs.fasta
     /home/tx160085/mummer-3.9.4alpha/mummerplot -fat -filter -png -large -p ectocooler ectocooler.delta
 ```
 
