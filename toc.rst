@@ -37,5 +37,6 @@ Table of Contents
    long-and-short-reads
    
    github
+   database_resources
    
    for-instructors/index
