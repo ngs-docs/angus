@@ -223,65 +223,32 @@ Edit nucmer.gp before running gnuplot to remove the three lines that have the wo
 Annotate with prokka:
 =====================
 
-Yesterday, you used Torsten's program, `prokka <http://angus.readthedocs.io/en/2016/prokka_genome_annotation.html>`__ to annotate a bacterial genome. We will use this to annotate these new contigs we have assembled.
-::
+This week, you have used Torsten's program, [prokka](http://angus.readthedocs.io/en/2016/prokka_genome_annotation.html)to annotate a bacterial genome. We will use this to annotate these new contigs we have assembled.
+
+```
     prokka --outdir anno_subset --prefix ecto_subset_prokka ecto_subset.contigs.fasta
+```
 
 Check the output:
-::
+
+```
     cat ./anno_subset/ecto_subset_prokka.txt
+```
 
 1. How many genes did Prokka find in the contigs?
 2. Does this meet your expectations?
 
 Use this command to run prokka on the contigs assembled with the full data set:
-::
+
+```
     prokka --outdir anno_full --prefix ecto_full_prokka ecto.contigs.fasta
+```
 
 Check the output:
-::
+
+```
     cat ./anno_full/ecto_full_prokka.txt
-
-Evaluate the assembly:
-======================
-
-Align the reads to the assembled subset of contigs. (Or use the contigs assembled from full data set. Pick one and compare with your neighbor!)
-
-* index the reference genome - in this case the reference genome is our de novo assembly
-* align, converting SAM to BAM, then sorting the BAM file
-* index the BAM file
-   
-Index:
-::
-    bwa index ecto_subset.contigs.fasta
-
-Align
-::
-    bwa mem -x ont2d -t 8 ecto_subset.contigs.fasta ectocooler_subset_2D.fasta | samtools sort > ecto_subset.sorted.bam
-    
-This will give you an indexed bam file:
-::
-    samtools index ecto_subset.sorted.bam
-
-Download the resulting ectocooler_align.sorted.bam, ectocooler_align.sorted.bam.bai, ecto.contigs.fasta to your local computer.
-::
-    scp -i amazon.pem ubuntu@xxx.amazon.com:/home/ubuntu/ecto_subset.sorted.bam .
-    scp -i amazon.pem ubuntu@xxx.amazon.com:/home/ubuntu/ecto_subset.sorted.bam.bai .
-    scp -i amazon.pem ubuntu@xxx.amazon.com:/home/ubuntu/ecto_subset.contigs.fasta .
-
-In IGV, open ecto_subset.contigs.fasta as "Genome" and ecto_subset.sorted.bam.
-
-1. What does the alignment look like? 
-2. What is the coverage? 
-3. Can you spot any problems? 
-4. What is the Oxford Nanopore error profile? 
-5. Does it do badly in any regions, which ones? Why?
-
-
-Can fix the assembly using nanopolish
-
-
-The program `nanopolish <https://github.com/jts/nanopolish>`__ will align your reads to the assembly and compute a consensus. This will take some time.
+```
 
 References:
 ===========
@@ -297,4 +264,4 @@ References:
 Acknowledgements
 ================
 
-This is a modified lesson by `Nick Loman <http://angus.readthedocs.io/en/2015/analyzing_nanopore_data.html>`__ from 2015, contributions by Torsten Seemann, Harriet Alexander, and Lisa Cohen.
+This is a modified lesson by [Nick Loman](http://angus.readthedocs.io/en/2015/analyzing_nanopore_data.html) from 2015, contributions by Torsten Seemann, Harriet Alexander, Mick Watson, and Lisa Cohen.
