@@ -31,3 +31,10 @@ Alternatives to OSF include:
 
 and your friendly local data librarians may also have institution-specific
 repositories.
+
+## Other things the OSF supports
+
+[OSF Meetings](https://osf.io/meetings/) - free poster and presentation sharing
+
+[OSF for institutions](https://osf.io/search/?q=institutions&filter=institution&page=1ion&page=1) - branded for institutions, with logins/passwords tied into your institutional login.
+
