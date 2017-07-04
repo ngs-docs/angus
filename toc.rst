@@ -36,8 +36,9 @@ Table of Contents
 
    Jupyter-Notebook-Notes
    github
+   fotis-jupyter
+   database_resources
 
    long-and-short-reads
-
 
    for-instructors/index
