@@ -30,5 +30,7 @@ Table of Contents
 
    long-and-short-reads
    kmers-and-sourmash
+   
+   rmarkdown_rnaseq
 
    for-instructors/index
