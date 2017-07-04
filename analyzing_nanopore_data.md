@@ -188,6 +188,7 @@ echo My RStudio Web server is running at: http://$(hostname):8787/
 Run these commands in RStudio:
 
 ```
+setwd("~/")
 lengths <- read.table("lengths.txt")[,1]
 hist(lengths, xlim=c(0,30000), breaks=100, col="red")
 ```
@@ -283,6 +284,7 @@ This is a modified lesson by [Nick Loman](http://angus.readthedocs.io/en/2015/an
 
 ## canu.report stats from Fundulus olivaceus reads
 
+If you're interested, these are the read length and k-mer 
 ```
 [ljcohen@dev-intel14 killifish_assembly]$ cat killifish.report 
 [CORRECTION/READS]
