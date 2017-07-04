@@ -17,95 +17,95 @@ The goals of this tutorial are to:
 Copy/paste to update and install software on your new instance:
 
 ```
-    sudo apt-get update && \
-    sudo apt-get -y install build-essential ruby screen git curl gcc make g++ python-dev unzip \
-        default-jre pkg-config libncurses5-dev r-base-core \
-        r-cran-gplots python-matplotlib sysstat python-virtualenv \
-        python-setuptools cmake cython libhdf5-serial-dev \
-        python-numpy python-scipy python-pandas python-pandas-lib \
-        python-biopython parallel python-h5py python-tornado \
-        bioperl libxml-simple-perl default-jre gdebi-core r-base gnuplot
+sudo apt-get update && \
+sudo apt-get -y install build-essential ruby screen git curl gcc make g++ python-dev unzip \
+    default-jre pkg-config libncurses5-dev r-base-core \
+    r-cran-gplots python-matplotlib sysstat python-virtualenv \
+    python-setuptools cmake cython libhdf5-serial-dev \
+    python-numpy python-scipy python-pandas python-pandas-lib \
+    python-biopython parallel python-h5py python-tornado \
+    bioperl libxml-simple-perl default-jre gdebi-core r-base gnuplot
 ```
 
 To install some of the software, we will use [Linux brew](https://github.com/Linuxbrew/brew):
 
 ```
-    cd
-    sudo mkdir /home/linuxbrew
-    sudo chown $USER:$USER /home/linuxbrew
-    git clone https://github.com/Linuxbrew/brew.git /home/linuxbrew/.linuxbrew
-    export PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
-    brew tap homebrew/science
+cd
+sudo mkdir /home/linuxbrew
+sudo chown $USER:$USER /home/linuxbrew
+git clone https://github.com/Linuxbrew/brew.git /home/linuxbrew/.linuxbrew
+export PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
+brew tap homebrew/science
 ```
 
 Now install [canu](http://canu.readthedocs.io/en/stable/tutorial.html), [samtools](https://github.com/samtools/samtools/), [bwa mem](http://bio-bwa.sourceforge.net/):
 
 ```
-    brew install jdk canu bwa samtools
+brew install jdk canu bwa samtools
 ```
 
 Install poretools:
 
 ```
-    sudo pip install poretools
+sudo pip install poretools
 ```
 
 Install prokka:
 
 ```
-    cd
-    git clone https://github.com/tseemann/prokka.git
-    export PATH=$PWD/prokka/bin:$PATH
-    prokka --setupdb
-    prokka --version
+cd
+git clone https://github.com/tseemann/prokka.git
+export PATH=$PWD/prokka/bin:$PATH
+prokka --setupdb
+prokka --version
 ```
 
 Install assembly-stats:
 
 ```
-   cd
-   git clone https://github.com/sanger-pathogens/assembly-stats.git
-   cd assembly-stats/
-   mkdir build
-   cd build
-   cmake ..
-   make
-   make test
-   sudo make install
+cd
+git clone https://github.com/sanger-pathogens/assembly-stats.git
+cd assembly-stats/
+mkdir build
+cd build
+cmake ..
+make
+make test
+sudo make install
 ```
 
 Install RStudio:
 
 ```
-    cd
-    wget https://download2.rstudio.org/rstudio-server-1.0.143-amd64.deb
-    sudo gdebi -n rstudio-server-1.0.143-amd64.deb
+cd
+wget https://download2.rstudio.org/rstudio-server-1.0.143-amd64.deb
+sudo gdebi -n rstudio-server-1.0.143-amd64.deb
 ```
 Change your password for RStudio:
 
 ```
-    cd
-    sudo passwd <account name>
+cd
+sudo passwd <account name>
 ```
 
 Install [miniasm and minimap](https://github.com/lh3/miniasm):
 
 ```
-    cd
-    git clone https://github.com/lh3/minimap && (cd minimap && make)
-    git clone https://github.com/lh3/miniasm && (cd miniasm && make)
+cd
+git clone https://github.com/lh3/minimap && (cd minimap && make)
+git clone https://github.com/lh3/miniasm && (cd miniasm && make)
 ```
 
 Install mummer:
 
 ```
-    cd
-    wget https://github.com/mummer4/mummer/releases/download/v3.9.4alpha/mummer-3.9.4alpha.tar.gz
-    tar xvzf mummer-3.9.4alpha.tar.gz
-    cd mummer-3.9.4alpha
-    ./configure
-    make
-    sudo make install
+cd
+wget https://github.com/mummer4/mummer/releases/download/v3.9.4alpha/mummer-3.9.4alpha.tar.gz
+tar xvzf mummer-3.9.4alpha.tar.gz
+cd mummer-3.9.4alpha
+./configure
+make
+sudo make install
 ```
 
 ## Get Oxford Nanopore MinION data and convert it
@@ -113,10 +113,10 @@ Install mummer:
 Our data were collected from three flowcells in 2016. Download a subset of these reads:
 
 ```
-    cd
-    wget https://s3.amazonaws.com/ngs2016/ectocooler_subset.zip
-    unzip ectocooler_subset.zip 
-    ls ectocooler_subset/
+cd
+wget https://s3.amazonaws.com/ngs2016/ectocooler_subset.zip
+unzip ectocooler_subset.zip 
+ls ectocooler_subset/
 ```
 
 You should see a bunch of .fast5 files.
@@ -128,16 +128,16 @@ The MinION instrument collects raw data in .fast5 format. The local basecalling 
 Convert your .fast5 to .fastq and .fasta files:
 
 ```
-    cd
-    directory="ectocooler_subset/"
-    poretools fastq $directory > ectocooler_subset.fastq
-    poretools fasta $directory > ectocooler_subset.fasta
+cd
+directory="ectocooler_subset/"
+poretools fastq $directory > ectocooler_subset.fastq
+poretools fasta $directory > ectocooler_subset.fasta
 ```
 
 Take a look at the reads:
 
 ```
-    head ectocooler_subset.fastq
+head ectocooler_subset.fastq
 ```
 
 Copy a few reads and use the [web blastn](http://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=blastn&PAGE_TYPE=BlastSearch&LINK_LOC=blasthome) to try to identify what species or closest taxa these data came from. What do you come up with?
@@ -145,15 +145,15 @@ Copy a few reads and use the [web blastn](http://blast.ncbi.nlm.nih.gov/Blast.cg
 Download the full dataset, fastq and fasta files:
 
 ```
-    cd
-    wget https://s3.amazonaws.com/ngs2016/ectocooler_all_2D.fastq
-    wget https://s3.amazonaws.com/ngs2016/ectocooler_all_2D.fasta
+cd
+wget https://s3.amazonaws.com/ngs2016/ectocooler_all_2D.fastq
+wget https://s3.amazonaws.com/ngs2016/ectocooler_all_2D.fasta
 ```
 
 ## Assess the Data
 
 ```
-    assembly-stats ectocooler_subset.fastq
+assembly-stats ectocooler_subset.fastq
 ```
 
 1. How many reads are there total? 
@@ -162,19 +162,19 @@ Download the full dataset, fastq and fasta files:
 Assess the full data set:
 
 ```
-    assembly-stats ectocooler_all_2D.fastq
+assembly-stats ectocooler_all_2D.fastq
 ```
 
 Run this to make a file with all read lengths:
 
 ```
-    cat ectocooler_all_2D.fastq | paste - - - - | awk -F"\t" '{print length($2)}' > lengths.txt
+cat ectocooler_all_2D.fastq | paste - - - - | awk -F"\t" '{print length($2)}' > lengths.txt
 ```
 
 Start RStudio server:
 
 ```
-    echo My RStudio Web server is running at: http://$(hostname):8787/
+echo My RStudio Web server is running at: http://$(hostname):8787/
 ```
 
 Run these commands in RStudio:
@@ -188,22 +188,22 @@ hist(lengths, xlim=c(0,30000), breaks=100, col="red")
 We will use the program canu to assemble the reads. The full data set will take several hours. So, we will only assemble the subset. Which data are better to use, 2D or a mixture of template and compliment? Pick one, assemble, and compare with your neighbor.
 
 ```
-    canu \
-    -p ecto_subset -d ectocooler_assembly \
-    genomeSize=3.0m \
-    -nanopore-raw ectocooler_subset.fastq
+canu \
+-p ecto_subset -d ectocooler_assembly \
+genomeSize=3.0m \
+-nanopore-raw ectocooler_subset.fastq
 ```
 
 From the output files, you are interested in the ``ecto_subset.contigs.fasta`` file. Let's copy that file to the home directory:
 
 ```
-    cd
-    cp ectocooler_assembly/ecto_subset.contigs.fasta .
+cd
+cp ectocooler_assembly/ecto_subset.contigs.fasta .
 ```
 
 Assess the assembly:
 ```
-    assembly-stats ecto_subset.contigs.fasta
+assembly-stats ecto_subset.contigs.fasta
 ```
 
 How many contigs do you have? 
@@ -211,8 +211,8 @@ How many contigs do you have?
 Download the pre-assembled contigs from the full data set:
 
 ```
-    wget https://raw.githubusercontent.com/ljcohen/dib_ONP_MinION/master/Ectocooler/ecto.contigs.fasta
-    assembly-stats ecto.contigs.fasta
+wget https://raw.githubusercontent.com/ljcohen/dib_ONP_MinION/master/Ectocooler/ecto.contigs.fasta
+assembly-stats ecto.contigs.fasta
 ```
 
 Compare this with your assembly. How are they different?
@@ -220,13 +220,13 @@ Compare this with your assembly. How are they different?
 ## All-by-all comparison
 
 ```
-    ~/mummer-3.9.4alpha/nucmer --maxmatch -c 100 -p ectocooler ecto.contigs.fasta ecto_subset.contigs.fasta
-    ~/mummer-3.9.4alpha/mummerplot --fat --filter --png --large -p ectocooler ectocooler.delta
+~/mummer-3.9.4alpha/nucmer --maxmatch -c 100 -p ectocooler ecto.contigs.fasta ecto_subset.contigs.fasta
+~/mummer-3.9.4alpha/mummerplot --fat --filter --png --large -p ectocooler ectocooler.delta
 ```
 
 Edit nucmer.gp before running gnuplot to remove the three lines that have the word "mouse".
 ```
-    gnuplot ectocooler.gp #edit nucmer.gp before running gnuplot
+gnuplot ectocooler.gp #edit nucmer.gp before running gnuplot
 ```
 
 Annotate with prokka:
@@ -235,13 +235,13 @@ Annotate with prokka:
 This week, you have used Torsten's program, [prokka](http://angus.readthedocs.io/en/2016/prokka_genome_annotation.html)to annotate a bacterial genome. We will use this to annotate these new contigs we have assembled.
 
 ```
-    prokka --outdir anno_subset --prefix ecto_subset_prokka ecto_subset.contigs.fasta
+prokka --outdir anno_subset --prefix ecto_subset_prokka ecto_subset.contigs.fasta
 ```
 
 Check the output:
 
 ```
-    cat ./anno_subset/ecto_subset_prokka.txt
+cat ./anno_subset/ecto_subset_prokka.txt
 ```
 
 1. How many genes did Prokka find in the contigs?
@@ -250,13 +250,13 @@ Check the output:
 Use this command to run prokka on the contigs assembled with the full data set:
 
 ```
-    prokka --outdir anno_full --prefix ecto_full_prokka ecto.contigs.fasta
+prokka --outdir anno_full --prefix ecto_full_prokka ecto.contigs.fasta
 ```
 
 Check the output:
 
 ```
-    cat ./anno_full/ecto_full_prokka.txt
+cat ./anno_full/ecto_full_prokka.txt
 ```
 
 References:
