@@ -2,7 +2,7 @@
 
 Last year (2016) in Woods Hole, MA we used our [lab's](http://ivory.idyll.org/lab/) [MinION](https://www.nanoporetech.com/) to sequence a new bacterial species isolated by [Rebecca Mickol](https://news.uark.edu/articles/27669/earth-organisms-survive-under-low-pressure-martian-condition) in the [Microbial Diversity Course at the Marine Biological Lab](http://www.mbl.edu/microbialdiversity/).
 
-If you're interested, you can read a [blog post](https://monsterbashseq.wordpress.com/2016/08/) about it.
+If you're interested, you can read a [blog post](https://monsterbashseq.wordpress.com/2016/08/13/adventures-with-ont-minion-at-mbls-microbial-diversity-course/) about it.
 
 The goals of this tutorial are to:
 
