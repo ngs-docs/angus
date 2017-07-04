@@ -240,7 +240,9 @@ assembly-stats ecto.contigs.fasta
 
 Compare this with your assembly. How are they different?
 
-## All-by-all comparison
+## All-by-all comparisons
+
+Quick assembly vs. assembly of full reads:
 
 ```
 ~/mummer-3.9.4alpha/nucmer --maxmatch -c 100 -p ectocooler ecto.contigs.fasta ecto_subset.contigs.fasta
@@ -249,8 +251,17 @@ Compare this with your assembly. How are they different?
 
 Edit nucmer.gp before running gnuplot to remove the three lines that have the word "mouse".
 
+Grab closely-related reference genome of [Tenacibaculum dicentrarchi](https://www.ncbi.nlm.nih.gov/genome/?term=txid669041[orgn]):
+
 ```
-gnuplot ectocooler.gp #edit nucmer.gp before running gnuplot
+wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/001/483/385/GCF_001483385.1_ASM148338v1/GCF_001483385.1_ASM148338v1_genomic.fna.gz
+gunzip GCF_001483385.1_ASM148338v1_genomic.fna.gz
+```
+Do all-by-all comparison of reference genome vs. ecocooler full reads assembly
+
+```
+~/mummer-3.9.4alpha/nucmer --maxmatch -c 100 -p ectocooler_Tdicent ecto.contigs.fasta GCF_001483385.1_ASM148338v1_genomic.fna
+~/mummer-3.9.4alpha/mummerplot --fat --filter --png --large -p ectocooler_Tdicent ectocooler_Tdicent.delta
 ```
 
 Annotate with prokka:
