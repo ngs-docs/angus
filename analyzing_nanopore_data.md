@@ -158,12 +158,14 @@ Assess the full data set:
     assembly-stats ectocooler_all_2D.fastq
 ```
 
-Run this to make a file with all read lengths :
+Run this to make a file with all read lengths:
+
 ```
     cat ectocooler_all_2D.fastq | paste - - - - | awk -F"\t" '{print length($2)}' > lengths.txt
 ```
 
 Start RStudio server:
+
 ```
     echo My RStudio Web server is running at: http://$(hostname):8787/
 ```
@@ -211,8 +213,8 @@ Compare this with your assembly. How are they different?
 ## All-by-all comparison
 
 ```
-    /home/tx160085/mummer-3.9.4alpha/nucmer --maxmatch -c 100 -p ecotcooler ecto.contigs.fasta ecto_subset.contigs.fasta
-    /home/tx160085/mummer-3.9.4alpha/mummerplot --fat --filter --png --large -p ectocooler ectocooler.delta
+    ~/mummer-3.9.4alpha/nucmer --maxmatch -c 100 -p ecotcooler ecto.contigs.fasta ecto_subset.contigs.fasta
+    ~/mummer-3.9.4alpha/mummerplot --fat --filter --png --large -p ectocooler ectocooler.delta
 ```
 
 Edit nucmer.gp before running gnuplot to remove the three lines that have the word "mouse".
