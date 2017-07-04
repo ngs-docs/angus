@@ -6,9 +6,9 @@ If you're interested, you can read a [blog post](https://monsterbashseq.wordpres
 
 The goals of this tutorial are to:
 
-*  assess a nanopore run
-*  assemble data from fastq
-*  evaluate the assembly
+*  Assess an Oxford Nanopore Technologies (ONT) sequencing run on the MinION
+*  Create an assembly from raw fastq files
+*  Evaluate the assembly
 
 ## Start a Jetstream instance and install software:
 
