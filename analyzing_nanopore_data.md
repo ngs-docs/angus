@@ -168,6 +168,12 @@ Start RStudio server:
     echo My RStudio Web server is running at: http://$(hostname):8787/
 ```
 
+Run these commands in RStudio:
+
+```
+lengths <- read.table("lengths.txt")[,1]
+hist(lengths, xlim=c(0,30000), breaks=100, col="red")
+```
 ## Assemble the data
 
 We will use the program canu to assemble the reads. The full data set will take several hours. So, we will only assemble the subset. Which data are better to use, 2D or a mixture of template and compliment? Pick one, assemble, and compare with your neighbor.
