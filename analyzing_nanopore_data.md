@@ -293,7 +293,7 @@ This is a modified lesson by [Nick Loman](http://angus.readthedocs.io/en/2015/an
 
 ## canu.report stats from Fundulus olivaceus reads
 
-If you're interested, these are the read length and k-mer 
+If you're interested in read length distributions from R9.5 data: 
 ```
 [ljcohen@dev-intel14 killifish_assembly]$ cat killifish.report 
 [CORRECTION/READS]
