@@ -43,6 +43,12 @@ Now install [canu](http://canu.readthedocs.io/en/stable/tutorial.html), [samtool
     brew install jdk canu bwa samtools
 ```
 
+Install poretools:
+
+```
+sudo pip install poretools
+```
+
 Install prokka:
 
 ```
