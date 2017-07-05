@@ -27,12 +27,12 @@ Remember the `gather-counts.py` code we gave you? We tweaked that script a bit t
 # load package for edgeR to be able to make a DGE object
 library("edgeR")
 # Create an object with the tpm file names
-files_tpm<-c("ERR458493.fastq.gz.quant.tpm",
-             "ERR458494.fastq.gz.quant.tpm",
-             "ERR458495.fastq.gz.quant.tpm",
-             "ERR458500.fastq.gz.quant.tpm",
-             "ERR458501.fastq.gz.quant.tpm",
-             "ERR458502.fastq.gz.quant.tpm")
+files_tpm<-c("data/ERR458493.fastq.gz.quant.tpm",
+             "data/ERR458494.fastq.gz.quant.tpm",
+             "data/ERR458495.fastq.gz.quant.tpm",
+             "data/ERR458500.fastq.gz.quant.tpm",
+             "data/ERR458501.fastq.gz.quant.tpm",
+             "data/ERR458502.fastq.gz.quant.tpm")
 
 # Create a DGE object from the TPM data. The DGEList contains many data frames that are contained within an object. After reading in the data, we have $samples and we have $counts. We will begin working with the counts data. 
 tpm<-readDGE(files_tpm)
@@ -55,7 +55,7 @@ The first pairwise plot we make displays the wildtype samples. These are highly 
 library(GGally)
 library(ggplot2)
 
-pairwise_wt <- ggpairs(tpm_df[,1:3], axisLabels = "internal", title = "WT pairwise comparisons") + theme_minimal(base_size = 8)
+pairwise_wt <- ggpairs(tpm_df[,1:3], axisLabels = "internal", columnLabels = c("ERR458493", "ERR458494", "ERR458495"), title = "WT      pairwise comparisons") + theme_minimal()
 ```
 
 ```{r pairwise-wt-plot-2, include=TRUE}
@@ -68,7 +68,7 @@ We can do the same thing for the mutant samples. These are highly correlated as 
   # now create a plot using the last three columns of the tpm data frame (the MUT samples)
 library(GGally)
 library(ggplot2)
-pairwise_mut <- ggpairs(tpm_df[,4:6], axisLabels = "internal", title = "MUT pairwise comparisons") + theme_minimal()
+pairwise_mut <- ggpairs(tpm_df[,4:6], axisLabels = "internal", columnLabels = c("ERR458500", "ERR458501", "ERR458502"), title = "MUT pairwise comparisons") + theme_minimal()
 ```
 
 ```{r pairwise-mut-plot-2, include = TRUE}
@@ -88,12 +88,12 @@ Since our data appears to be of high quality, let's perform differential express
 
 ```{r import-count-data, include=FALSE}
 files <- c(
-      "ERR458493.fastq.gz.quant.counts",
-      "ERR458494.fastq.gz.quant.counts",
-      "ERR458495.fastq.gz.quant.counts",
-      "ERR458500.fastq.gz.quant.counts",
-      "ERR458501.fastq.gz.quant.counts",
-      "ERR458502.fastq.gz.quant.counts"
+      "data/ERR458493.fastq.gz.quant.counts",
+      "data/ERR458494.fastq.gz.quant.counts",
+      "data/ERR458495.fastq.gz.quant.counts",
+      "data/ERR458500.fastq.gz.quant.counts",
+      "data/ERR458501.fastq.gz.quant.counts",
+      "data/ERR458502.fastq.gz.quant.counts"
 )
       
 # Make a character vector named labels that will label the 6 samples above. 
