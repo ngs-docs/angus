@@ -1,10 +1,25 @@
 ---
 title: "Exploratory data analysis with Yeast RNAseq data"
-output: html_document
+author: your_name
+date: July 5th, 2017
+output:
+  html_document:
+    theme: readable
+    toc: true
+    toc_float:
+      collapsed: no
+      smooth_scroll: yes
+      toc_depth: 2
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE,
+                      warning = FALSE, 
+                      message = FALSE,
+                      engine = "R", # Chunks will always have R code, unless noted
+                      error = TRUE,
+                      fig.path="Figures/",  # Set the figure options
+                      fig.align = "center")
 ```
 
 ## Prepare for analysis
