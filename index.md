@@ -123,7 +123,7 @@ Evening: Ice cream and demos! 1030 Valley.
 9am lecture: [Megan Dennis](http://www.dennislab.org/), UC Davis - ["Complex genomic variation and its role in human evolution and disease"](https://osf.io/9d5ge/)
 
 Morning: 10am-noon
-* [RMarkdown](rmarkdown_rnaseq.html)
+* [RMarkdown](rmarkdown_rnaseq.html) - in lions/tigers/bears rooms.
 
 Wed 1:15-4pm:
 * meet in 1030 Valley at 1:15pm to choose breakout sessions.
