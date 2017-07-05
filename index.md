@@ -125,9 +125,9 @@ Evening: Ice cream and demos! 1030 Valley.
 Morning: 10am-noon
 * [RMarkdown](rmarkdown_rnaseq.html) - in lions/tigers/bears rooms.
 
-Wed 1:15-4pm:
-* meet in 1030 Valley at 1:15pm to choose breakout sessions.
-* move to breakout rooms on special topics based on Mon survey.
+Wed 1:15-4pm: [breakout sessions](https://hackmd.io/CwZg7AjAhgnDBGBaAZgDmRRwAmAGKiqUIAxovKhAKzI4xQ4hA===?view)
+* meet in 1030 Valley at 1:15pm to choose breakout sessions - see [hackmd document](https://hackmd.io/CwZg7AjAhgnDBGBaAZgDmRRwAmAGKiqUIAxovKhAKzI4xQ4hA===?view) for breakout sessions!
+* move to breakout rooms on special topics.
 
 5pm onwards: Wed market.
 
