@@ -151,7 +151,7 @@ While this may seem complicated, we can hit the ![](_static/rmarkdown/knit.png) 
 It's go time!  Let's start working with RMarkdown!
 
 1.  In the menu bar, click **File -> New File -> RMarkdown**  
-    - Or simply click on the green plus sign in the top left corner of RStudio. 
+    - Or click on the ![](_static/rmarkdown/add_file.png) button in the top left corner.
     
 ![](_static/rmarkdown/create_rmd.png)
 
@@ -166,17 +166,6 @@ It's go time!  Let's start working with RMarkdown!
 
 4. Click **OK**  
   
-  
-  
-
-
-
-
-
-## Create an RMarkdown file 
-
-1. Go to the top left corner and click on the ![](_static/rmarkdown/add_file.png)
-
 
 
 ## Anatomy of Rmarkdown file
@@ -243,15 +232,15 @@ This is really helpful when writing up the results section of a paper.  For exam
 Cool, huh?!  
 
 
-### b. R Code Chunks  
+### b. Code Chunks  
 
-R code chunks can be used to render R output into documents or to display code for illustration.  
+Code chunks can be used to render code output into documents or to display code for illustration. The code chunks can be in shell/bash, python, Rcpp, SQL, or Stan.   
 
 **The Anatomy of a code chunk:**  
 
-To insert an R code chunk, you can type it manually by typing ```` ```{r} ```` followed by  ```` ``` ```` on the next line.  You can also press the `Insert a new code chunk` button or use the shortcut key. This will produce the following code chunk:
+To insert an R code chunk, you can type it manually by typing ```` ```{r} ```` followed by  ```` ``` ```` on the next line.  You can also press the ![Inserting a code chunk](_static/rmarkdown/insert_code_chunk.png)  button or use the shortcut key. This will produce the following code chunk:
 
-![Inserting a code chunk](_static/rmarkdown/insert_code_chunk.png)  
+
 
     ```{r}
     n <- 10
@@ -287,10 +276,9 @@ Chunk labels must be **unique IDs** in a document and are good for:
 ![A method of navigating through `.Rmd` files](_static/rmarkdown/label_navigation.png)
 
 
-
 When naming the code chunk:  Use `-` or `_` in between words for code chunks labels instead of spaces.  This will help you and other users of your document to navigate through.  
 
-Chunk labels must be unique throughout the document - otherwise there will be an error!    
+Chunk labels must be **unique throughout the document** (if not there will be an error) and the label should **accurately describe what's happening** in the code chunk.
   
   
 
@@ -310,22 +298,152 @@ There are too many chunk options to cover here.  After the workshop take a look 
 Great website for exploring <a href="http://yihui.name/knitr/options/#chunk_options">Knitr Chunk Options</a>.  
 
 
+
+### Figures  
+
+**Knitr** makes producing figures really easy.  If analysis code within a chunk is supposed to produce a figure, it will just print out into the document.  
+
+Some knitr chunk options that relate to figures:  
+
+- `fig.width` and `fig.height`  
+    - *Default:* `fig.width = 7`, `fig.height = 7`  
+- `fig.align`:  How to align the figure  
+    - *Options include:* `"left"`, `"right"`, and `"center"`  
+- `fig.path`: A file path to the directory to where knitr should store the graphic output created by the chunk.  
+    - *Default:* `'figure/'`  
+- There's even a `fig.retina`(only for HTML output) for higher figure resolution with retina displays.  
+
+
+
+
+## Global Chunk Options 
+
+You may wish to have the same chunk settings throughout your document and so it might be nice to type options once instead of always re-typing it for each chunk.  To do so, you can set global chunk options at the top of the document.  
+
+```
+knitr::opts_chunk$set(echo = FALSE, 
+                      eval = TRUE, 
+                      message = FALSE,
+                      warning = FALSE, 
+                      fig.path = "Figures/",
+                      fig.width = 12, 
+                      fig.height = 8)
+```
+
+For example, if you're working with a collaborator who does not want to see the code - you could set `eval = TRUE` and `echo = FALSE` so the code is evaluated but not shown.  In addition, you may want to use `message = FALSE` and `warning = FALSE` so your collaborator does not see any messages or warnings from R.  
+
+If you would like to save and store figures within a sub directory within the project, `fig.path = "Figures/"`.  Here, the `"Figures/"` denotes a folder named *Figures* within the current directory where the figures produced within the document will be stored.  **Note:** by default figures are not saved.  
+
+Global chunk options will be set for the rest of the document.  If you would like to have a particular chunk be different from the global options, specify at the beginning of that particular chunk.
+
+
+
+## Tables
+
+Hand writing tables in Markdown can get tedious.  We will not go over this here, however, if you'd like to learn more about Markdown tables check out the <a href="http://rmarkdown.rstudio.com/authoring_pandoc_markdown.html#tables">documentation on tables</a> at the RMarkdown v2 website.
+
+In his <a href="http://kbroman.org/knitr_knutshell/pages/figs_tables.html">Knitr in a Knutshell</a>, Dr. Karl Broman introduces:  `kable`, `pander`, and `xtable` and many useRs like the first two:  
+
+- `kable`: Within the **knitr** package - not many options but looks nice with ease. 
+- `pander`: Within the **pander** package - has many more options and customization.  Useful for bold-ing certain values (e.g. values below a threshold).  
+
+You should also check out the `DT` package for interactive tables.  Check out more details here [http://www.htmlwidgets.org/showcase_datatables.html](http://www.htmlwidgets.org/showcase_datatables.html)
+
+
+## Citations and Bibliography 
+
+# Bibliography  
+
+It's also possible to include a bibliography file in the YAML header.  Bibliography formats that are readable by Pandoc include the following:  
+
+| Format | 	File extension   |
+|-----+-------|
+| MODS  | 	.mods |
+| BibLaTeX  | .bib  |
+| BibTeX  | .bibtex  |
+| RIS  | .ris  |
+| EndNote  | .enl  |
+| EndNote XML  | .xml  |
+| ISI  | .wos  |
+| MEDLINE  | .medline  |
+| Copac  | 	.copac  |
+| JSON citeproc  | 	.json  |
+
+To create a bibliography in RMarkdown, two files are needed:  
+
+1. A bibliography file with the **information** about each reference.  
+2. A citation style language (CSL) to describe how to **format** the reference 
+
+An example YAML header with a bibliography and a citation style language (CSL) file:
+
+```
+output: html_document
+bibliography: bibliography.bib
+csl: nature.csl
+```
+
+Check out the very helpful webpage by the R Core team on <a href="http://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html" target="_blank">bibliographies and citations</a>.  
+
+If you would like to cite R packages, **knitr** even includes a function called `write_bib()` that creates a `.bib` entries for R packages.  It will even write it to a file!  
+
+```{r eval = FALSE}
+write_bib(file = "r-packages.bib") # will write all packages  
+write_bib(c("knitr", "ggplot2"), file = "r-packages2.bib") # Only writes knitr and ggplot2 packages
+```
+
+
+
+## Placement 
+
+Automatically the bibliography will be placed at the end of the document. Therefore, you should finish your `.Rmd` document with `# References` so the bibliography comes after the header for the bibliography.
+
+```
+final words...
+
+# References
+```
+
+
+## Citation Styles 
+
+**Citation Sylte Language (CSL)** is an XML-based language that identifies the format of citations and bibliographies. Reference management programs such as Zotero, Mendeley and Papers all use CSL.
+
+Search for your favorite journal and CSL in the <a href="https://www.zotero.org/styles" target="_blank">Zotero Style Repository</a>, which currently has >8,000 CSLs.  Is there a style that you're looking for that is not there?   
+
+```
+output: html_document
+bibliography: bibliography.bib
+csl: nature.csl
+```
+
+## Citations  
+
+Citations go inside square brackets `[ ]`and are separated by semicolons `;`. Each citation must have a key, composed of `@ + the citation identifier` from the database, and may optionally have a prefix, a locator, and a suffix.  To check what the citation key is for a reference, take a look at the `.bib` file.  Here in this file, you can also change key for each reference.  However, be careful that each ID is unique!   
+
+
+
+## Publishing on RPubs  
+
+Once you make a beautiful dynamic document you may wish to share it with others.  One option to share it with the world is to host it on <a href="https://rpubs.com/" target="_blank">RPubs</a>.  With RStudio, this makes it very easy!  Do the following:  
+
+1. Create your awesome `.Rmd` document.  
+2. Click the ![](_static/rmarkdown/knit.png) button to render your HTML document to be published.  
+3. In the top right corner of the preview window, click the publish ![](_static/rmarkdown/publish.png) button and follow the directions.  
+    - *Note:*  You will need to create an RPubs profile.  
+4. Once you have a profile you can choose the following:  
+    - The title of the document.  
+    - A description of the document.  
+    - The URL in which the website will be hosted.  
+        - *Note:*  The beginning of the URL will be:  **www.rpubs.com/your_username/name_of_your_choice**  
+        
+## Updating RPubs  
+
+If you make some changes to your document it is very easy to update the webpage.  Once you have rendered your edited document click the ![](_static/rmarkdown/republish.png) button on the top right corner of the preview window.  The edited document will be in the same URL as the original document.  
+
+Yay!
+
+
 ******************************************************************************************
-
-
-
-
-1. Why RMarkdown?  
-	- YAML Header --> renders pretty docs (we will use HTML)   
-2. Markdown  
-3. Code Chunks  
-    - Knitr 
-    - Figures 
-    - Tables 
-4. Inline Code  
-5. Breifly  
-    - Can do citations & bibliography 
-    - Share easily on Rpubs/github  
 
 ## Exploratory data analysis with Yeast RNAseq data  
 
