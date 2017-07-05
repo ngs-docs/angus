@@ -198,3 +198,14 @@ work.
   shmlast_sub = shmlast_out[sample(nrow(shmlast_out), 10),]
   View(shmlast_sub)
   ```
+  
+* What does the following code do?
+
+  ```
+  tmp <- subset(shmlast_out, q_len >= 8000 & q_len <= 11000 & bitscore <=2000)    
+  functions <- tmp[, c("q_name", "s_name")]
+  ```
+
+  and do you notice anything interesting about the names?  (They're
+  all predicted/inferred genes.) What does this suggest about that
+  "quadrant" of the data?
