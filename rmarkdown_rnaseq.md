@@ -1,4 +1,4 @@
-# Exploratory RNAseq data anlysis using RMarkdown
+# Exploratory RNAseq data analysis using RMarkdown
 
 
 During this lesson, you’ll learn how to use RMarkdown for reproducible data analysis.  We will work with the RNAseq data from the yeast `mut` and `wt` dataset from last week. The data are from this [paper](http://rnajournal.cshlp.org/content/22/6/839.long).
@@ -34,7 +34,7 @@ sudo passwd your_username
 
 ## Download the data for today's tutorial
 
-We will be using the salmon output from the yeast RNA-seq analysis we did last week. Incase your instance was deleted, we have the data here for you. So we're all working with the exact same data, please download the counts and the transcripts per million from salmon:
+We will be using the salmon output from the yeast RNA-seq analysis we did last week. In case your instance was deleted, we have the data here for you. So we're all working with the exact same data, please download the counts and the transcripts per million from salmon:
 
 ```
 wget https://github.com/ngs-docs/angus/raw/marschmi-patch-1/_static/markdown_tutorial.tar.gz
@@ -395,7 +395,7 @@ bibliography: bibliography.bib
 csl: nature.csl
 ```
 
-Check out the very helpful webpage by the R Core team on <a href="http://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html" target="_blank">bibliographies and citations</a>.  
+Check out the very helpful web page by the R Core team on <a href="http://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html" target="_blank">bibliographies and citations</a>.  
 
 If you would like to cite R packages, **knitr** even includes a function called `write_bib()` that creates a `.bib` entries for R packages.  It will even write it to a file!  
 
@@ -419,7 +419,7 @@ final words...
 
 ## Citation Styles 
 
-**Citation Sylte Language (CSL)** is an XML-based language that identifies the format of citations and bibliographies. Reference management programs such as Zotero, Mendeley and Papers all use CSL.
+**Citation Style Language (CSL)** is an XML-based language that identifies the format of citations and bibliographies. Reference management programs such as Zotero, Mendeley and Papers all use CSL.
 
 Search for your favorite journal and CSL in the <a href="https://www.zotero.org/styles" target="_blank">Zotero Style Repository</a>, which currently has >8,000 CSLs.  Is there a style that you're looking for that is not there?   
 
@@ -451,7 +451,7 @@ Once you make a beautiful dynamic document you may wish to share it with others.
         
 ## Updating RPubs  
 
-If you make some changes to your document it is very easy to update the webpage.  Once you have rendered your edited document click the ![](_static/rmarkdown/republish.png) button on the top right corner of the preview window.  The edited document will be in the same URL as the original document.  
+If you make some changes to your document it is very easy to update the web page.  Once you have rendered your edited document click the ![](_static/rmarkdown/republish.png) button on the top right corner of the preview window.  The edited document will be in the same URL as the original document.  
 
 Yay!
 
