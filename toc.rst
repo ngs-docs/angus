@@ -29,6 +29,8 @@ Table of Contents
    introduction-to-automation
 
    kmers-and-sourmash
+   
+   rmarkdown_rnaseq
 
    GATK_pipeline
    GWAS
