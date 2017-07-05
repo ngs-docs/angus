@@ -1,7 +1,9 @@
 # Exploratory RNAseq data anlysis using RMarkdown
 
 
-During this lesson, you’ll learn how to use RMarkdown for reproducible data analysis.  We will work with the RNAseq data from the yeast `mut` and `wt` dataset from last week.  
+During this lesson, you’ll learn how to use RMarkdown for reproducible data analysis.  We will work with the RNAseq data from the yeast `mut` and `wt` dataset from last week. The data are from this [paper](http://rnajournal.cshlp.org/content/22/6/839.long).
+
+This lesson will get you started with RMarkdown, but if you want more, [here](https://rpubs.com/marschmi/RMarkdown) is a great angus-esque tutorial.
 
 ## Getting started
 
@@ -29,6 +31,16 @@ And, finally, change the password to something you can remember. If your usernam
 ```
 sudo passwd your_username
 ```      
+
+## Download the data for today's tutorial
+
+We will be using the salmon output from the yeast RNA-seq analysis we did last week. Incase your instance was deleted, we have the data here for you. So we're all working with the exact same data, please download the counts and the transcripts per million from salmon:
+
+```
+wget
+wget
+```
+
 ******************************************************************************************
 
 ## Introduction to RMarkdown 
