@@ -51,25 +51,28 @@ head(tpm_df)
 The first pairwise plot we make displays the wildtype samples. These are highly correlated, and thus replicate eachother quite well.
 
 ```{r pairwise-wt-plot-1, include=FALSE}
-  # create a plot using the first three columns of tpm data frame (the WT samples). 
-      library(GGally)
-      library(ggplot2)
-      pairwise_wt <- ggpairs(tpm_df[,1:3], axisLabels = "internal", title = "WT pairwise comparisons") + theme_minimal(base_size = 8)
+# create a plot using the first three columns of tpm data frame (the WT samples). 
+library(GGally)
+library(ggplot2)
+
+pairwise_wt <- ggpairs(tpm_df[,1:3], axisLabels = "internal", title = "WT pairwise comparisons") + theme_minimal(base_size = 8)
 ```
+
 ```{r pairwise-wt-plot-2, include=TRUE}
-    pairwise_wt
+pairwise_wt
 ```
 
 We can do the same thing for the mutant samples. These are highly correlated as well, and also replicate eachother well.
 
 ```{r pairwise-mut-plot-1, include=FALSE}
   # now create a plot using the last three columns of the tpm data frame (the MUT samples)
-      library(GGally)
-      library(ggplot2)
-      pairwise_mut <- ggpairs(tpm_df[,4:6], axisLabels = "internal", title = "MUT pairwise comparisons") + theme_minimal()
+library(GGally)
+library(ggplot2)
+pairwise_mut <- ggpairs(tpm_df[,4:6], axisLabels = "internal", title = "MUT pairwise comparisons") + theme_minimal()
 ```
+
 ```{r pairwise-mut-plot-2, include = TRUE}
-      pairwise_mut
+pairwise_mut
 ```
 These plots show us that our data look good -- it is valid to continue on and do differential expression with these data, because the replicates are true biological replicates.
 
@@ -84,55 +87,56 @@ Questions:
 Since our data appears to be of high quality, let's perform differential expression with edgeR like we did before. We need to read in the proper count data, because edgeR expects raw counts, not counts that have been corrected in anyway. We will allow edgeR to perform correction for library size, and then estimate [dispersion](https://doi.org/10.1371/journal.pone.0081415).
 
 ```{r import-count-data, include=FALSE}
-      files <- c(
+files <- c(
       "ERR458493.fastq.gz.quant.counts",
       "ERR458494.fastq.gz.quant.counts",
       "ERR458495.fastq.gz.quant.counts",
       "ERR458500.fastq.gz.quant.counts",
       "ERR458501.fastq.gz.quant.counts",
       "ERR458502.fastq.gz.quant.counts"
-      )
+)
       
-    # Make a character vector named labels that will label the 6 samples above. 
-    # Note these are in the same order as the files -- WT are the first three, and MUT are the last three.
-    # They will be used later for the MDS plot
-    labels=c("WT_1", "WT_2", "WT_3", "MUT_1", "MUT_2", "MUT_3")
+# Make a character vector named labels that will label the 6 samples above. 
+# Note these are in the same order as the files -- WT are the first three, and MUT are the last three.
+# They will be used later for the MDS plot
+labels=c("WT_1", "WT_2", "WT_3", "MUT_1", "MUT_2", "MUT_3")
 
-    # Read in the data
-    data <- readDGE(files)
+# Read in the data
+data <- readDGE(files)
 
-    # check that the data are correct
-    print(data)
+# check that the data are correct
+print(data)
     
-    # We then need to describe the group that each sample is a part of, and estimate dispersion
+# We then need to describe the group that each sample is a part of, and estimate dispersion
 
-    # Create a vector to assign the "group" to the DGE object. This tells edgeR what the treatments here. 
-    # We have 6 samples and two treatments (3 WT, and 3 MUT).
-    group <- c(rep("wt", 3), rep("mut", 3))
-    # create a DGEList with the group variable
-    dge <- DGEList(counts=data, group=group)
-    dge<-calcNormFactors(dge)
-    # Make dispersion estimates. 
-    dge <- estimateCommonDisp(dge)
-    dge <- estimateTagwiseDisp(dge)
+# Create a vector to assign the "group" to the DGE object. This tells edgeR what the treatments here. 
+# We have 6 samples and two treatments (3 WT, and 3 MUT).
+group <- c(rep("wt", 3), rep("mut", 3))
+# create a DGEList with the group variable
+dge <- DGEList(counts=data, group=group)
+dge<-calcNormFactors(dge)
+# Make dispersion estimates. 
+dge <- estimateCommonDisp(dge)
+dge <- estimateTagwiseDisp(dge)
 ```
 
 This will give us a DGE object. We can look at the DGE object and see some of the magic of edgeR.
 
 ```{r dge-object, include=TRUE}
-    head(dge$samples)
-    head(dge$counts)
+head(dge$samples)
+head(dge$counts)
 ```
 
 Lastly, we perform differential expression
 
 ```{r differential-expression, include=FALSE}
-    # perform the exact test one the DGE object for differential expression
-    et <- exactTest(dge, pair=c("wt", "mut"))
-    # grab the top 100,000 tags (n sets the number of tags that you want, the idea for using 100,000 is that all will be returned)
-    etp <- topTags(et, n=100000)
-    # let's take a look at the differentially expressed genes
-    etp # The first thing that is printed show "Comparison of groups:  mut-wt"
+# perform the exact test one the DGE object for differential expression
+et <- exactTest(dge, pair=c("wt", "mut"))
+
+# grab the top 100,000 tags (n sets the number of tags that you want, the idea for using 100,000 is that all will be returned)
+etp <- topTags(et, n=100000)
+# let's take a look at the differentially expressed genes
+etp # The first thing that is printed show "Comparison of groups:  mut-wt"
 ```
 ## Data Visualization
 
@@ -144,14 +148,14 @@ distances correspond to leading log-fold-changes between each pair of RNA sample
 Our MUT samples cluster more closely to each other than to the WT samples. Does this agree with the sniff tests from pairwise comparisons we performed above?
 
 ```{r mds-plot, include=TRUE}
-  plotMDS(dge, labels=labels)
+plotMDS(dge, labels=labels)
 ```
 
 ### MA Plot
 We can also make an MA plot. From wikipedia: "an MA plot is an application of a Bland–Altman plot for visual representation of genomic data. The plot visualises the differences between measurements taken in two samples, by transforming the data onto M (log ratio) and A (mean average) scales, then plotting these values.""
 ```{r ma-plot, include=TRUE}
-    etp$table$logFC = -etp$table$logFC # because our comparison is mut vs. wt, let's flip the tags for our plot
-    plot(etp$table$logCPM, etp$table$logFC, xlim=c(-3, 20), ylim=c(-12, 12), pch=20, cex=.3,
+etp$table$logFC = -etp$table$logFC # because our comparison is mut vs. wt, let's flip the tags for our plot
+plot(etp$table$logCPM, etp$table$logFC, xlim=c(-3, 20), ylim=c(-12, 12), pch=20, cex=.3,
         col = ifelse( etp$table$FDR < .2, "red", "black" ) )
 ```
 ### Histogram
@@ -166,37 +170,38 @@ ggplot(etp$table, aes(FDR)) + geom_histogram(binwidth = .01) + ggtitle("Histogra
 Heatmaps are also a very popular way to visualize data. Let's make a heat map of the 75 most variable genes!
 
 ```{r prep-var-heamap, include=FALSE}
-    # modified from http://combine-australia.github.io/RNAseq-R/06-rnaseq-day1.html
-    # make a dataframe of the counts that were normalized by edgeR
-    norm_counts<-dge$counts
+# modified from http://combine-australia.github.io/RNAseq-R/06-rnaseq-day1.html
+# make a dataframe of the counts that were normalized by edgeR
+norm_counts<-dge$counts
 
-    # We estimate the variance for each row in the logcounts matrix
-    var_genes <- apply(norm_counts, 1, var)
-    head(var_genes)
+# We estimate the variance for each row in the logcounts matrix
+var_genes <- apply(norm_counts, 1, var)
+head(var_genes)
 
-    # Get the gene names for the top 75 most variable genes
-    select_var <- names(sort(var_genes, decreasing=TRUE))[1:75]
-    head(select_var)
+# Get the gene names for the top 75 most variable genes
+select_var <- names(sort(var_genes, decreasing=TRUE))[1:75]
+head(select_var)
     
-    # Subset the normalized counts dataframe, grabbing the select_var genes
-    highly_variable_norm_counts <- norm_counts[select_var,]
+# Subset the normalized counts dataframe, grabbing the select_var genes
+highly_variable_norm_counts <- norm_counts[select_var,]
     
-    # check the dimensions and the first few rows
-    dim(highly_variable_norm_counts)
-    head(highly_variable_norm_counts)
+# check the dimensions and the first few rows
+dim(highly_variable_norm_counts)
+head(highly_variable_norm_counts)
  
-    # Prepare for the heatmap
-          library(RColorBrewer) 
-      # Get some nicer colours
-          mypalette <- brewer.pal(11,"RdYlBu")
-          morecols <- colorRampPalette(mypalette)
+# Prepare for the heatmap
+library(RColorBrewer) 
+
+# Get some nicer colours
+mypalette <- brewer.pal(11,"RdYlBu")
+morecols <- colorRampPalette(mypalette)
     
     
 ```
 ```{r heatmap-var, include=TRUE}
 # Load library for heatmap
-    library(gplots)
-    heatmap.2(highly_variable_norm_counts, col=rev(morecols(50)), trace="none", 
+library(gplots)
+heatmap.2(highly_variable_norm_counts, col=rev(morecols(50)), trace="none", 
               main="Top 75 most variable genes across samples", scale="row",
               labCol = c("WT", "WT", "WT", "MUT", "MUT", "MUT"))
 ```
@@ -204,35 +209,32 @@ Heatmaps are also a very popular way to visualize data. Let's make a heat map of
 Let's do the same thing again, but this time we will plot the top 75 least variable genes. Even though we did cpm normalization, a lot of these genes are still very lowly expressed. 
 
 ```{r prep-nonvar-heatmap, include=FALSE}
-    # First, let's get rid of the entries that are not expressed acrossed the board
-      keep_counts<-rowSums(cpm(dge)>1) >=2
-      dge_expressed <- dge[keep_counts, , keep.lib.sizes=FALSE]
-      norm_counts_expressed<-dge_expressed$counts
+# First, let's get rid of the entries that are not expressed acrossed the board
+keep_counts<-rowSums(cpm(dge)>1) >=2
+dge_expressed <- dge[keep_counts, , keep.lib.sizes=FALSE]
+norm_counts_expressed<-dge_expressed$counts
       
-    # We estimate the variance for each row in the logcounts matrix
-      var_genes_expressed <- apply(norm_counts_expressed, 1, var)
+# We estimate the variance for each row in the logcounts matrix
+var_genes_expressed <- apply(norm_counts_expressed, 1, var)
       
-    # Get the gene names for the top 75 most variable genes
-      select_var_least<- names(sort(var_genes_expressed, decreasing=FALSE))[1:75]
-      head(select_var_least)
+# Get the gene names for the top 75 most variable genes
+select_var_least<- names(sort(var_genes_expressed, decreasing=FALSE))[1:75]
+head(select_var_least)
     
-    # Subset the normalized counts dataframe, grabbing the select_var genes
-      not_variable_norm_counts <- norm_counts_expressed[select_var_least,]
+# Subset the normalized counts dataframe, grabbing the select_var genes
+not_variable_norm_counts <- norm_counts_expressed[select_var_least,]
     
-    # check the dimensions and the first few rows
-      dim(not_variable_norm_counts)
-      head(not_variable_norm_counts)
-   
-    # load library for the heatmap
-    library(gplots)
+# check the dimensions and the first few rows
+dim(not_variable_norm_counts)
+head(not_variable_norm_counts)
 ```
 
 This is important to keep in mind when interpretting what this heatmap means.
 
 ```{r heatmap-non-var, include=TRUE}
 # Load library for heatmap
-    library(gplots)
-    heatmap.2(not_variable_norm_counts, col=rev(morecols(50)), trace="none", 
+library(gplots)
+heatmap.2(not_variable_norm_counts, col=rev(morecols(50)), trace="none", 
               main="Top 75 least variable genes across samples", scale="row",
               labCol = c("WT", "WT", "WT", "MUT", "MUT", "MUT"))
 ```    
