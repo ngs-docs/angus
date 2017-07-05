@@ -25,7 +25,7 @@ If you cannot connect, download and install RStudio.
 
 ```
 wget https://download2.rstudio.org/rstudio-server-1.0.143-amd64.deb
-sudo gdebi -n rstudio-server-1.0.143-amd64.deb 
+sudo gdebi -n rstudio-server-1.0.143-amd64.deb
 ```
 And, finally, change the password to something you can remember. If your username is different than the one below (i.e. `diblions` or `dibtiger`), you'll need to change that.
 ```
@@ -43,7 +43,7 @@ tar xvf markdown_tutorial.tar.gz
 
 ******************************************************************************************
 
-## Introduction to RMarkdown 
+## Introduction to RMarkdown
 
 ### Rmarkdown is a type of *dynamic document*
 
@@ -60,7 +60,7 @@ So that leaves us, the writers, with 2 steps which includes writing:
 1. Analysis code  
 2. A narrative to explain the results from the analysis code.  
 
-> **Note #1:** R Markdown is very similar to Jupyter notebooks! They are two sides of the same coin. We suggest that you adopt which ever one makes more sense to you and is in a layout that has a lower barrier for you to learn. 
+> **Note #1:** R Markdown is very similar to Jupyter notebooks! They are two sides of the same coin. We suggest that you adopt which ever one makes more sense to you and is in a layout that has a lower barrier for you to learn.
 
 > **Note #2:** The RStudio core team has also developed something called R Notebooks.  An R Notebook is an R Markdown document with chunks that can be executed independently and interactively, with output visible immediately beneath the input. Also, R notebooks do not need to be "knit".  More on knitting later...
 
@@ -71,9 +71,9 @@ To fully understand RMarkdown, we first need to cover <a href="https://daringfir
 1. A plain text formatting syntax  
 2. A software tool written in Perl.  
     - Converts the plain text formatting into HTML.  
-    
+
 >**Main goal of Markdown:**  
-> Make the syntax of the raw (pre-HTML) document as readable possible. 
+> Make the syntax of the raw (pre-HTML) document as readable possible.
 
 Would you rather read this code in HTML?  
 ```html
@@ -100,7 +100,7 @@ Or this code in Markdown?
 * Raspberries
 ```
 
-If you are human, the Markdown code is definitely easier to read! Let us take a moment to soak in how much easier our lives are/will be because Markdown exists!  Thank you <a href="https://en.wikipedia.org/wiki/John_Gruber">John Gruber</a> and <a href="https://en.wikipedia.org/wiki/Aaron_Swartz">Aaron Swartz</a> (RIP) for creating Markdown in 2004! 
+If you are human, the Markdown code is definitely easier to read! Let us take a moment to soak in how much easier our lives are/will be because Markdown exists!  Thank you <a href="https://en.wikipedia.org/wiki/John_Gruber">John Gruber</a> and <a href="https://en.wikipedia.org/wiki/Aaron_Swartz">Aaron Swartz</a> (RIP) for creating Markdown in 2004!
 
 ******************************************************************************************
 
@@ -121,7 +121,7 @@ If you are human, the Markdown code is definitely easier to read! Let us take a 
     - PDF Presentations:  
         - <a href="http://rmarkdown.rstudio.com/beamer_presentation_format.html">Beamer</a>  
     - Handouts:  
-        - <a href="http://rmarkdown.rstudio.com/tufte_handout_format.html">Tufte Handouts</a> 
+        - <a href="http://rmarkdown.rstudio.com/tufte_handout_format.html">Tufte Handouts</a>
 - <a href="http://rmarkdown.rstudio.com/package_vignette_format.html">HTML R Package Vignettes</a>  
 - <a href="http://rmarkdown.rstudio.com/rmarkdown_websites.html">Even Entire Websites!</a>   
 
@@ -154,7 +154,7 @@ Briefly, to make a report:
 
 While this may seem complicated, we can hit the ![](_static/rmarkdown/knit.png) button at the top of the page. **Knitting** is the verb to describe the combining of the code chunks, inline code, markdown and narrative.   
 
-> **Note:** Knitting is different from rendering!  **Rendering** refers to the writing of the final document, which occurs *after* knitting. 
+> **Note:** Knitting is different from rendering!  **Rendering** refers to the writing of the final document, which occurs *after* knitting.
 
 *********
 
@@ -164,10 +164,10 @@ It's go time!  Let's start working with RMarkdown!
 
 1.  In the menu bar, click **File -> New File -> RMarkdown**  
     - Or click on the ![](_static/rmarkdown/add_file.png) button in the top left corner.
-    
+
 ![](_static/rmarkdown/create_rmd.png)
 
-2. The following image will popup.  Click **"Yes"** 
+2. The following image will popup.  Click **"Yes"**
 
 ![](_static/rmarkdown/load_rmd_packages.png)
 
@@ -177,7 +177,7 @@ It's go time!  Let's start working with RMarkdown!
 ![](_static/rmarkdown/new_rmd_yaml.png)
 
 4. Click **OK**  
-  
+
 
 
 ## Anatomy of Rmarkdown file
@@ -190,7 +190,7 @@ It's go time!  Let's start working with RMarkdown!
 
 	a. Inline Code  
 	b. Code Chunks
-	
+
 
 
 ### 1. YAML Headers
@@ -220,7 +220,7 @@ Today, we will create HTML files.  Presentation slides take on a slightly differ
 
 ### 2. Narrative/Description of your analysis
 
-For this section of the document, you will use markdown to write descriptions of whatever the document is about.  For example, you may write your abstract, introduction, or materials and methods to set the stage for the analysis to come in code chunks later on. 
+For this section of the document, you will use markdown to write descriptions of whatever the document is about.  For example, you may write your abstract, introduction, or materials and methods to set the stage for the analysis to come in code chunks later on.
 
 
 ### 3. Code
@@ -230,8 +230,8 @@ There are 2 ways to embed code within an RMarkdown document.
 1. **Inline Code:**  Brief code that takes place during the written part of the document.  
 
 2. **Code Chunks:**  Parts of the document that includes several lines of program or analysis code.  It may render a plot or table, calculate summary statistics, load packages, etc.  
-    
-    
+
+
 ### a. Inline R Code  
 
 Inline code is created by using a back tick (the key next to the #1) (\`) and the letter r followed by another back tick.  
@@ -267,8 +267,8 @@ Name the code chunk something meaningful as to what it is doing.  Below I have n
     n <- 10
     seq(n)
     ```
-    
-    
+
+
 The code chunk input and output is then displayed as follows:
 
 ```{r 10_random_numbers}
@@ -278,7 +278,7 @@ seq(n)
 
 **Always name/label your code chunks!**
 
-## Chunk Labels 
+## Chunk Labels
 
 Chunk labels must be **unique IDs** in a document and are good for:  
 
@@ -292,8 +292,8 @@ Chunk labels must be **unique IDs** in a document and are good for:
 When naming the code chunk:  Use `-` or `_` in between words for code chunks labels instead of spaces.  This will help you and other users of your document to navigate through.  
 
 Chunk labels must be **unique throughout the document** (if not there will be an error) and the label should **accurately describe what's happening** in the code chunk.
-  
-  
+
+
 
 ## Chunk Options  
 
@@ -303,7 +303,7 @@ Pressing tab when inside the braces will bring up code chunk options.
 ![Some Knitr Chunk Options](_static/rmarkdown/chunk_options.png)
 
 
-- `results = "asis"` stands for "as is" and will output a non-formatted version. 
+- `results = "asis"` stands for "as is" and will output a non-formatted version.
 - `collapse` is another chunk option which can be helpful.  If a code chunk has many short R expressions with some output, you can collapse the output into a chunk.     
 
 There are too many chunk options to cover here.  After the workshop take a look around at the options.
@@ -329,17 +329,17 @@ Some knitr chunk options that relate to figures:
 
 
 
-## Global Chunk Options 
+## Global Chunk Options
 
 You may wish to have the same chunk settings throughout your document and so it might be nice to type options once instead of always re-typing it for each chunk.  To do so, you can set global chunk options at the top of the document.  
 
 ```
-knitr::opts_chunk$set(echo = FALSE, 
-                      eval = TRUE, 
+knitr::opts_chunk$set(echo = FALSE,
+                      eval = TRUE,
                       message = FALSE,
-                      warning = FALSE, 
+                      warning = FALSE,
                       fig.path = "Figures/",
-                      fig.width = 12, 
+                      fig.width = 12,
                       fig.height = 8)
 ```
 
@@ -357,20 +357,20 @@ Hand writing tables in Markdown can get tedious.  We will not go over this here,
 
 In his <a href="http://kbroman.org/knitr_knutshell/pages/figs_tables.html">Knitr in a Knutshell</a>, Dr. Karl Broman introduces:  `kable`, `pander`, and `xtable` and many useRs like the first two:  
 
-- `kable`: Within the **knitr** package - not many options but looks nice with ease. 
+- `kable`: Within the **knitr** package - not many options but looks nice with ease.
 - `pander`: Within the **pander** package - has many more options and customization.  Useful for bold-ing certain values (e.g. values below a threshold).  
 
 You should also check out the `DT` package for interactive tables.  Check out more details here [http://www.htmlwidgets.org/showcase_datatables.html](http://www.htmlwidgets.org/showcase_datatables.html)
 
 
-## Citations and Bibliography 
+## Citations and Bibliography
 
 ## Bibliography  
 
 It's also possible to include a bibliography file in the YAML header.  Bibliography formats that are readable by Pandoc include the following:  
 
-| Format | 	File extension   |
-|-----+-------|
+| Format | File extension |
+|--- | ---|
 | MODS  | 	.mods |
 | BibLaTeX  | .bib  |
 | BibTeX  | .bibtex  |
@@ -385,7 +385,7 @@ It's also possible to include a bibliography file in the YAML header.  Bibliogra
 To create a bibliography in RMarkdown, two files are needed:  
 
 1. A bibliography file with the **information** about each reference.  
-2. A citation style language (CSL) to describe how to **format** the reference 
+2. A citation style language (CSL) to describe how to **format** the reference
 
 An example YAML header with a bibliography and a citation style language (CSL) file:
 
@@ -406,7 +406,7 @@ write_bib(c("knitr", "ggplot2"), file = "r-packages2.bib") # Only writes knitr a
 
 
 
-## Placement 
+## Placement
 
 Automatically the bibliography will be placed at the end of the document. Therefore, you should finish your `.Rmd` document with `# References` so the bibliography comes after the header for the bibliography.
 
@@ -417,7 +417,7 @@ final words...
 ```
 
 
-## Citation Styles 
+## Citation Styles
 
 **Citation Style Language (CSL)** is an XML-based language that identifies the format of citations and bibliographies. Reference management programs such as Zotero, Mendeley and Papers all use CSL.
 
@@ -448,7 +448,7 @@ Once you make a beautiful dynamic document you may wish to share it with others.
     - A description of the document.  
     - The URL in which the website will be hosted.  
         - *Note:*  The beginning of the URL will be:  **www.rpubs.com/your_username/name_of_your_choice**  
-        
+
 ## Updating RPubs  
 
 If you make some changes to your document it is very easy to update the web page.  Once you have rendered your edited document click the ![](_static/rmarkdown/republish.png) button on the top right corner of the preview window.  The edited document will be in the same URL as the original document.  
@@ -464,12 +464,10 @@ Navigate to the folder we downloaded at the beginning of the lesson, and we'll s
 
 ******************************************************************************************
 
-# Amazing Resources for learning Rmarkdown 
+# Amazing Resources for learning Rmarkdown
 
 1. The <a href="http://rmarkdown.rstudio.com/index.html" target="_blank">RMarkdown</a> website hosted by RStudio.  
 2. Dr. Yuhui Xie's book:  <a href="http://www.amazon.com/Dynamic-Documents-knitr-Chapman-Hall/dp/1482203537" target="_blank">Dynamic Documents with R and Knitr</a> 2^nd^ Edition [@Xie2015] and his <a href="http://yihui.name/knitr/" target="_blank">Knitr</a> website.  
     - A **BIG thank you** to Dr. Xie for writing the **Knitr** Package!!  
 3. Dr. Karl Broman's <a href="http://kbroman.org/knitr_knutshell/" target="_blank">"Knitr in a Knutshell"</a>.  
 4. <a href="https://www.rstudio.com/resources/cheatsheets/" target="_blank">Cheatsheets</a> released by RStudio.
-
-
