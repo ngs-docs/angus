@@ -104,8 +104,6 @@ sudo make install
 echo 'export LD_LIBRARY_PATH="/usr/local/lib"' >> ~/.bashrc
 source ~/.bashrc
 ```
-gnuplot v4 for [reasons](https://sourceforge.net/p/mummer/mailman/message/34939032/)
-
 
 ## Get Oxford Nanopore MinION data and convert it
 
