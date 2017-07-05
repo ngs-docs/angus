@@ -120,7 +120,7 @@ Evening: Ice cream and demos! 1030 Valley.
 
 ### Wednesday, Day 10: RNAseq.
 
-9am lecture: [Megan Dennis](http://www.dennislab.org/), UC Davis - "Complex genomic variation and its role in human evolution and disease"
+9am lecture: [Megan Dennis](http://www.dennislab.org/), UC Davis - ["Complex genomic variation and its role in human evolution and disease"](https://osf.io/9d5ge/)
 
 Morning and afternoon: 10am-4pm.
 * rotating topics (2 sessions)
