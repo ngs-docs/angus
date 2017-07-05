@@ -174,7 +174,8 @@ It's go time!  Let's start working with RMarkdown!
 
 1. YAML headers  
 2. Narrative/Description of your analysis
-3. Code    
+3. Code  
+
 	a. Inline Code  
 	b. Code Chunks
 	
@@ -352,7 +353,7 @@ You should also check out the `DT` package for interactive tables.  Check out mo
 
 ## Citations and Bibliography 
 
-# Bibliography  
+## Bibliography  
 
 It's also possible to include a bibliography file in the YAML header.  Bibliography formats that are readable by Pandoc include the following:  
 
