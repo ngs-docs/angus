@@ -10,6 +10,8 @@ output:
       collapsed: no
       smooth_scroll: yes
       toc_depth: 2
+bibliography: Bibliography/bibliography.bib
+csl: Bibliography/plos-one.csl
 ---
 
 ```{r setup, include=FALSE}
@@ -21,6 +23,11 @@ knitr::opts_chunk$set(echo = TRUE,
                       fig.path="Figures/",  # Set the figure options
                       fig.align = "center")
 ```
+
+## Data
+
+This tutorial was written using data from Schurch et al.[@Schurch2016], where WT and MUT yeast were compared to test the underlying distribution of RNA-seq data, and to test which differential expression programs work best. They had 672 samples, we'll use 6 of them :) 
+
 
 ## Prepare for analysis
 
@@ -254,4 +261,4 @@ heatmap.2(not_variable_norm_counts, col=rev(morecols(50)), trace="none",
               labCol = c("WT", "WT", "WT", "MUT", "MUT", "MUT"))
 ```    
 
-
+## References
