@@ -38,6 +38,7 @@ We will be using the salmon output from the yeast RNA-seq analysis we did last w
 
 ```
 wget https://github.com/ngs-docs/angus/raw/marschmi-patch-1/_static/markdown_tutorial.tar.gz
+tar xvf markdown_tutorial.tar.gz
 ```
 
 ******************************************************************************************
