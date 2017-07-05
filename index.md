@@ -126,7 +126,7 @@ Morning: 10am-noon
 * RMarkdown
 
 Wed 1:15-4pm:
-* meet in 1030 Valley at 1:15pm to choose breakout sessionsn
+* meet in 1030 Valley at 1:15pm to choose breakout sessions.
 * move to breakout rooms on special topics based on Mon survey.
 
 5pm onwards: Wed market.
