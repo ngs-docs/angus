@@ -202,11 +202,14 @@ cd
 sudo mkdir /home/linuxbrew
 sudo chown $USER:$USER /home/linuxbrew
 git clone https://github.com/Linuxbrew/brew.git /home/linuxbrew/.linuxbrew
+brew tap homebrew/science
+brew install samtools
+
 echo 'export PATH=/home/linuxbrew/.linuxbrew/bin:$PATH' >> ~/.bashrc
 source ~/.bashrc
-brew tap homebrew/science
 ```
 
+Now, sort:
 
 ```
 samtools sort Oct4.bam -o Oct4.sorted.bam
@@ -303,21 +306,43 @@ Running `macs2` will produce the following 4 files:
 
 ## Building a histogram from some ATAC-seq
 
+Make a working directory:
+
 ```
 cd ~/
 mkdir atac
 cd atac
+```
 
+Download a cut down data set; this is a bit from SRR3152806 that aligns
+to some specific regions in mouse.
+
+```
 curl -L https://osf.io/5kq8s/download > SRR3152806.subset.R1.fq.gz
 curl -L https://osf.io/hcqgp/download > SRR3152806.subset.R2.fq.gz
+```
 
+(All of the commands below work on the full data set too!)
+
+Do some mapping:
+
+```
 bowtie2 -1 SRR3152806.subset.R1.fq.gz -2 SRR3152806.subset.R2.fq.gz -x ~/ChIP-seq/bowtie_index/mm10 -S SRR3152806.sam
+```
 
+Make a BAM from the alignment SAM, sort it, index it:
+
+```
 samtools view -bSo SRR3152806.bam SRR3152806.sam
 
 samtools sort SRR3152806.bam SRR3152806.sorted
 samtools index SRR3152806.sorted.bam
+```
 
+Build a 'coverageBed' file that gives coverage per base in regions in the
+genome:
+
+```
 genomeCoverageBed -bg -ibam SRR3152806.sorted.bam -g ~/ChIP-seq/bowtie_index/mouse.mm10.genome > SRR3152806.bedgraph
 
 sort -rn -k 4 SRR3152806.bedgraph | head -20
