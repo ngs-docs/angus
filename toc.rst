@@ -47,5 +47,7 @@ Table of Contents
 
    deseq2-asthma
    chip-seq
+   
+   assembly-trinity
 
    for-instructors/index
