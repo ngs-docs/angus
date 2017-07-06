@@ -29,12 +29,12 @@ of BUSCO. We will use the `metazoa` dataset for this transcriptome.
 ## Installation
 
 Annotation necessarily requires a lot of software! dammit attempts to simplify this and
-make it as reliable as possible, but we still have some dependencies..
+make it as reliable as possible, but we still have some dependencies.
 
     sudo apt-get -y install python3-dev hmmer unzip \
         infernal ncbi-blast+ liburi-escape-xs-perl emboss liburi-perl \
         build-essential libsm6 libxrender1 libfontconfig1 \
-        parallel libx11-dev python3-virtualenv last-align
+        parallel libx11-dev python3-venv last-align transdecoder
 
 Create a python 3 environment for dammit:
 
@@ -42,7 +42,7 @@ Create a python 3 environment for dammit:
     . ~/py3/bin/activate
     pip install -U pip
 
-Install [shmlast](https://github.com/camillescott/shmlast) (we used this earlier this week!).
+Install [shmlast](https://github.com/camillescott/shmlast) (we used this earlier this week!):
 
     pip install -r <(curl https://raw.githubusercontent.com/camillescott/shmlast/master/requirements.txt)
     pip install --upgrade pip
