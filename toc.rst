@@ -50,4 +50,6 @@ Table of Contents
    
    assembly-trinity
 
+   dammit_annotation
+
    for-instructors/index
