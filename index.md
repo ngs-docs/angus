@@ -136,13 +136,13 @@ Wed 1:15-4pm: [breakout sessions](https://hackmd.io/CwZg7AjAhgnDBGBaAZgDmRRwAmAG
 9am lecture: [Michael I Love](https://mikelove.github.io/), UNC Chapel Hill - "Statistics and bias correction in RNAseq differential expression analysis"
 
 Morning (10am-noon):
-* Lions: De novo RNAseq assembly - Lisa
-* Tigers: [DESeq2](deseq2-asthma) - Mike and Rob
+* Lions: [De novo RNAseq assembly](assembly-trinity.html) - Lisa
+* Tigers: [DESeq2](deseq2-asthma.html) - Mike and Rob
 * Bears: [ChIP-seq](chip-seq.html) - Fotis and Titus
 
 Afternoon (1:15pm-3:15pm):
 * Lions: Transcriptome annotation - Camille
-* Tigers: De novo RNAseq assembly - Lisa
+* Tigers: [De novo RNAseq assembly](assembly-trinity.html) - Lisa
 * Bears: [DESeq2](deseq2-asthma) - Mike and Rob
 
 Evening: (1030 Valley)
@@ -155,7 +155,7 @@ Evening: (1030 Valley)
 Morning (10am-noon):
 * Lions: [DESeq2](deseq2-asthma) - Mike and Rob
 * Tigers: [ChIP-seq](chip-seq.html) - Titus
-* Bears: De novo RNASeq assembly - Tessa
+* Bears: [De novo RNASeq assembly](assembly-trinity.html) - Tessa
 
 Afternoon (1:15pm-3:15pm):
 * Lions: [ChIP-seq](chip-seq.html) - Fotis
