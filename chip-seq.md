@@ -54,9 +54,8 @@ For this workflow, we are going to need the following tools:
 * [BEDTools](http://code.google.com/p/bedtools/)
 * [UCSC Tools](http://hgdownload.cse.ucsc.edu/admin/exe/)
 * [MACS2](https://github.com/taoliu/MACS)
-* [PeakAnalyzer](http://www.ebi.ac.uk/bertone/software)
 
-And for visualization, we will use the Integrated Genome Viewer (aka [IGV](http://www.broadinstitute.org/igv/))
+And for visualization, we will use ENSEMBL.
 
 Let do the installation process:
 
@@ -202,33 +201,12 @@ samtools view -bSo Oct4.bam Oct4.sam
 
 ## Visualization
 
-It is often instructive to look at your data in a genome browser. Here, we use [IGV](http://www.broadinstitute.org/igv/), a stand-alone browser, which has the advantage of being installed locally and providing fast access. Web-based genome browsers, like [Ensembl](http://www.ensembl.org/index.html) or the [UCSC browser](https://genome.ucsc.edu/), are slower, but provide more functionality. They do not only allow for more polished and flexible visualisation, but also provide easy access to a wealth of annotations and external data sources. This makes it straightforward to relate your data with information about repeat regions, known genes, epigenetic features or areas of cross-species conservation, to name just a few. As such, they are useful tools for exploratory analysis. Visualisation will allow you to get a "feel" for the data, as well as detecting abnormalities and problems. Also, exploring the data in such a way may give you ideas for further analyses. For our visualization purposes we will use the `BAM` and `bigWig` formats.
-
-### Viewing with IGV
-
-When uploading a BAM file into the genome browser, the browser will look for the index of the BAM file in the same folder where the BAM files is. The index file should have the same name as the BAM file and the
-suffix `.bai`. Finally, to create the index of a BAM file you need to make sure that the file is sorted according to chromosomal coordinates.
-
-Sort alignments according to chromosome position and store the result in the file with the prefix `.sorted`:
-
-```
-samtools sort Oct4.bam Oct4.sorted
-```
-
-Index the sorted file.
-
-```
-samtools index Oct4.sorted.bam
-```
-
-The indexing will create a file called `Oct4.sorted.bam.bai`. Note that you don’t have to specify the name of the index file when running
-`samtools`.
-
-IGV is a stand-alone genome browser. Please check their [website](http://www.broadinstitute.org/igv/) for all the formats that IGV can display.
+It is often instructive to look at your data in a genome browser. You could use
+something like [IGV](http://www.broadinstitute.org/igv/), a stand-alone browser, which has the advantage of being installed locally and providing fast access. Web-based genome browsers, like [Ensembl](http://www.ensembl.org/index.html) or the [UCSC browser](https://genome.ucsc.edu/), are slower, but provide more functionality. They do not only allow for more polished and flexible visualisation, but also provide easy access to a wealth of annotations and external data sources. This makes it straightforward to relate your data with information about repeat regions, known genes, epigenetic features or areas of cross-species conservation, to name just a few. As such, they are useful tools for exploratory analysis. Visualisation will allow you to get a "feel" for the data, as well as detecting abnormalities and problems. Also, exploring the data in such a way may give you ideas for further analyses. For our visualization purposes we will use the `BAM` and `bigWig` formats.
 
 ### Viewing with Online Browsers
 
-Another way to visualize the alignments is to convert the BAM file into a `bigWig` file. The `bigWig` format is for display of dense, continuous data and the data will be displayed as a graph. The resulting `bigWig` files are in an indexed binary format.
+To visualize the alignments with an online browser, to convert the BAM file into a `bigWig` file. The `bigWig` format is for display of dense, continuous data and the data will be displayed as a graph. The resulting `bigWig` files are in an indexed binary format.
 
 The `BAM` to `bigWig` conversion takes place in two steps. Firstly, we convert the `BAM` file into a `bedgraph`, called `Oct4.bedgraph`, using
 the tool `genomeCoverageBed` from `BEDTools`:
