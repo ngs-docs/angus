@@ -2,22 +2,6 @@
 _(the material here is based on the *ChIP­‐seq Hands­‐on Exercise*, by Remco Loos and Myrto Kostadima at EMBL‐EBI, available [here](https://www.ebi.ac.uk/training/online/course/ebi-next-generation-sequencing-practical-course/chip-seq-analysis/chip-seq-practical)_
 
 
-
-## Table of Content
-* [What is ChIP-seq?](#what-is-chip-seq?)
-* [Our goal](#our-goal)
-* [Get some sample data](#get-some-sample-data)
-* [Setting up the tools](#setting-up-the-tools)
-* [Let's do mapping!](#lets-do-mapping)
-  * [Manipulate SAM output](#manipulate-same-output)
-* [Visualization](#visualization)
-  * [Viewing with IGV](#viewing-with-igv)
-  * [Viewing with Online Browsers](#viewing-with-online-browsers)
-* [Aligning the control sample](#aligning-the-control-sample)
-* [Finding enriched areas using MACS](#finding-enriched-areas-using-macs)
-* [References](#references)
-
-
 ## What is ChIP-seq?
 
 ChIP-sequencing, also known as ChIP-seq, is a method used to analyze protein interactions with DNA. ChIP-seq combines chromatin immunoprecipitation (ChIP) with massively parallel DNA sequencing to identify the binding sites of DNA-associated proteins.
@@ -203,6 +187,39 @@ samtools view -bSo Oct4.bam Oct4.sam
 
 It is often instructive to look at your data in a genome browser. You could use
 something like [IGV](http://www.broadinstitute.org/igv/), a stand-alone browser, which has the advantage of being installed locally and providing fast access. Web-based genome browsers, like [Ensembl](http://www.ensembl.org/index.html) or the [UCSC browser](https://genome.ucsc.edu/), are slower, but provide more functionality. They do not only allow for more polished and flexible visualisation, but also provide easy access to a wealth of annotations and external data sources. This makes it straightforward to relate your data with information about repeat regions, known genes, epigenetic features or areas of cross-species conservation, to name just a few. As such, they are useful tools for exploratory analysis. Visualisation will allow you to get a "feel" for the data, as well as detecting abnormalities and problems. Also, exploring the data in such a way may give you ideas for further analyses. For our visualization purposes we will use the `BAM` and `bigWig` formats.
+
+### Viewing with `tview`
+
+SAMTools implements a very simple text alignment viewer based on the GNU `ncurses` library, called `tview`. This alignment viewer works with short indels and shows MAQ consensus. It uses different colors to display mapping quality or base quality, subjected to users' choice. SAMTools viewer is known to work with an 130GB alignment swiftly. Due to its text interface, displaying alignments over network is also very fast.
+
+In order to use tview, we need first to sort the `BAM` file by position in the genome, and the index the produced sorted file so that we can randomly access it quickly.
+
+Use the following commands:
+
+```
+samtools sort Oct4.bam Oct4.sorted
+
+samtools index Oct4.sorted.bam
+```
+
+Finally, Visualize with `tview`:
+
+```
+samtools tview Oct4.sorted.bam bowtie_index/mm10.fa
+```
+
+`tview` commands of relevance:
+
+* left and right arrows scroll
+* `q` to quit
+* CTRL-h and CTRL-l do "big" scrolls
+
+Alternatively, you can guide `tview` to start in a particular position, as follows:
+
+```
+samtools tview -p chr1:173389928 Oct4.sorted.bam bowtie_index/mm10.fa
+```
+
 
 ### Viewing with Online Browsers
 
