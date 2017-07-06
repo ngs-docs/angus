@@ -145,8 +145,8 @@ Afternoon (1:15pm-3:15pm):
 * Tigers: [De novo RNAseq assembly](assembly-trinity.html) - Lisa
 * Bears: [DESeq2](deseq2-asthma.html) - Mike and Rob
 
-Evening: (1030 Valley)
-* Q&A with Mike and Rob
+Evening: (7pm, 1030 Valley)
+* Q&A with Mike and Rob; optional.
 
 ### Friday, Day 12: RNAseq.
 
