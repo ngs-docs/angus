@@ -383,6 +383,8 @@ this is an example.
 
 `https://raw.githubusercontent.com/ngs-docs/angus/2017/_static/tracks.txt`
 
+We are working on making it possible to use [OSF.io](http://osf.io) to host such files - more soon.
+
 ## References
 
 * Bailey T, Krajewski P, Ladunga I, et al. [Practical Guidelines for the Comprehensive Analysis of ChIP-seq Data](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3828144/). Lewitter F, ed. _PLoS Computational Biology_. 2013;9(11):e1003326. doi:10.1371/journal.pcbi.1003326.
