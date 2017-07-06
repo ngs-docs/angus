@@ -45,7 +45,8 @@ sudo apt-get install -y libxml2 libxml2-dev libcurl4-gnutls-dev libssl-dev
 and then install DESeq2:
 
 ```
-curl -O -L https://github.com/ngs-docs/angus/raw/master/_static/install-deseq2.R
+curl -O -L https://github.com/ngs-docs/angus/raw/2017/_static/install-deseq2.R
+
 sudo Rscript --no-save install-deseq2.R
 ```
 
