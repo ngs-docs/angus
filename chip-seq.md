@@ -49,7 +49,7 @@ Let do the installation process:
 wget https://downloads.sourceforge.net/project/bowtie-bio/bowtie2/2.3.2/bowtie2-2.3.2-linux-x86_64.zip
 unzip bowtie2-2.3.2-linux-x86_64.zip
 
-echo 'export PATH=$PATH:~/ChIP-seq/bowtie2-2.3.2' >> ~/.bashrc
+echo 'export PATH=$PATH:~/bowtie2-2.3.2' >> ~/.bashrc
 source ~/.bashrc
 ```
 
