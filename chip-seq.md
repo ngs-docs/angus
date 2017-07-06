@@ -250,7 +250,7 @@ genomeCoverageBed -bg -ibam Oct4.sorted.bam -g bowtie_index/mouse.mm10.genome > 
 The command above take as input a file called `mouse.mm10.genome` that is stored under the subdirectory `bowtie_index`. These genome files are tab-delimited and describe the size of the chromosomes for the organism of interest. When using the UCSC Genome Browser, Ensembl, or Galaxy, you typically indicate
 which species/genome build you are working. The way you do this for BEDTools is to create a “genome” file, which simply lists the names of the chromosomes (or scaffolds, etc.) and their size (in basepairs). BEDTools includes pre-defined genome files for human and mouse in the `/genomes` directory included in the BEDTools distribution.
 
-Let's try to load the file `Oct4.bedgraph` in the [Ensembl genome browser](http://www.ensembl.org/index.html). Select Mouse from the favorite genomes and then click on the `Display your data in Ensembl` link.
+Let's try to load the file `Oct4.bedgraph` in the [Ensembl genome browser](http://www.ensembl.org/index.html). Select Mouse from the favorite genomes and then click on the `Display your data in Ensembl` link.  Now, upload the bedgraph file - you can either download it from your instance using RStudio, OR you can click on [this link](https://github.com/ngs-docs/angus/blob/update/chipseq/_static/Oct4.bedgraph?raw=true).
 
 You will finally see a screen like this:
 
@@ -272,9 +272,9 @@ samtools sort gfp.bam -o gfp.sorted.bam
 samtools index gfp.sorted.bam
 
 genomeCoverageBed -bg -ibam gfp.sorted.bam -g bowtie_index/mouse.mm10.genome > gfp.bedgraph
-
-../bedGraphToBigWig gfp.bedgraph bowtie_index/mouse.mm10.genome gfp.bw
 ```
+
+Again, you can download this `gfp.bedgraph` from your own instance OR you can [grab it](https://github.com/ngs-docs/angus/blob/update/chipseq/_static/gfp.bedgraph?raw=true) from us.
 
 ## Finding enriched areas using MACS
 
