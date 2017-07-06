@@ -12,7 +12,7 @@ gpg -a --export E084DAB9 | sudo apt-key add -
 sudo apt-get update && sudo apt-get install -y r-base r-base-dev gdebi-core
 ```
 
-## Make sure you're running RSTudio
+## Make sure you're running RStudio
 
 For this, we will again be working exclusively in RStudio!  Try to connect to a
 running RStudio Web server instance -- you can get the Web address by
