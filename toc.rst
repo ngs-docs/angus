@@ -43,4 +43,9 @@ Table of Contents
 
    analyzing_nanopore_data
 
+   rmarkdown_rnaseq
+
+   deseq2-asthma
+   chip-seq
+
    for-instructors/index
