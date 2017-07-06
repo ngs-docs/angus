@@ -141,7 +141,7 @@ Morning (10am-noon):
 * Bears: [ChIP-seq](chip-seq.html) - Fotis and Titus
 
 Afternoon (1:15pm-3:15pm):
-* Lions: Transcriptome annotation - Camille
+* Lions: [Transcriptome annotation](dammit_annotation.html) - Camille
 * Tigers: [De novo RNAseq assembly](assembly-trinity.html) - Lisa
 * Bears: [DESeq2](deseq2-asthma.html) - Mike and Rob
 
@@ -159,8 +159,8 @@ Morning (10am-noon):
 
 Afternoon (1:15pm-3:15pm):
 * Lions: [ChIP-seq](chip-seq.html) - Fotis
-* Tigers: Transcriptome annotation - Camille
-* Bears: Transcriptome annotation - Lisa
+* Tigers:  [Transcriptome annotation](dammit_annotation.html) - Camille
+* Bears:  [Transcriptome annotation](dammit_annotation.html) - Lisa
 
 Assessment.
 
