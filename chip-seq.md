@@ -238,25 +238,19 @@ samtools tview -p chr1:173389928 Oct4.sorted.bam bowtie_index/mm10.fa
 
 ### Viewing with Online Browsers
 
-To visualize the alignments with an online browser, to convert the BAM file into a `bigWig` file. The `bigWig` format is for display of dense, continuous data and the data will be displayed as a graph. The resulting `bigWig` files are in an indexed binary format.
+To visualize the alignments with an online browser, to convert the BAM file into a `bedgraph` file. The `bedgraph` format is for display of dense, continuous data and the data will be displayed as a graph.
 
-The `BAM` to `bigWig` conversion takes place in two steps. Firstly, we convert the `BAM` file into a `bedgraph`, called `Oct4.bedgraph`, using
+So, we convert the `BAM` file into a `bedgraph`, called `Oct4.bedgraph`, using
 the tool `genomeCoverageBed` from `BEDTools`:
 
 ```
 genomeCoverageBed -bg -ibam Oct4.sorted.bam -g bowtie_index/mouse.mm10.genome > Oct4.bedgraph
 ```
 
-Then we convert the `bedgraph` into a binary graph, called `Oct4.bw`, using the tool `bedGraphToBigWig` from the UCSC tools:
-
-```
-../bedGraphToBigWig Oct4.bedgraph bowtie_index/mouse.mm10.genome Oct4.bw
-```
-
-Both of the commands above take as input a file called `mouse.mm10.genome` that is stored under the subdirectory `bowtie_index`. These genome files are tab-delimited and describe the size of the chromosomes for the organism of interest. When using the UCSC Genome Browser, Ensembl, or Galaxy, you typically indicate
+The command above take as input a file called `mouse.mm10.genome` that is stored under the subdirectory `bowtie_index`. These genome files are tab-delimited and describe the size of the chromosomes for the organism of interest. When using the UCSC Genome Browser, Ensembl, or Galaxy, you typically indicate
 which species/genome build you are working. The way you do this for BEDTools is to create a “genome” file, which simply lists the names of the chromosomes (or scaffolds, etc.) and their size (in basepairs). BEDTools includes pre-defined genome files for human and mouse in the `/genomes` directory included in the BEDTools distribution.
 
-Let's try to load the file `Oct4.bedgraph` in the [Ensembl genome browser](http://www.ensembl.org/index.html). Select Mouse from the favorite genomes and then click on the `Display your data in Ensembl` link. You can upload any file of less than 20MB, so let's try uploading the `Oct4.bedgraph` file (it should take ~1-2').
+Let's try to load the file `Oct4.bedgraph` in the [Ensembl genome browser](http://www.ensembl.org/index.html). Select Mouse from the favorite genomes and then click on the `Display your data in Ensembl` link.
 
 You will finally see a screen like this:
 
