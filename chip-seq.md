@@ -60,7 +60,7 @@ And for visualization, we will use the Integrated Genome Viewer (aka [IGV](http:
 
 Let do the installation process:
 
-- Bowtie:
+### Bowtie:
 
 ```
 wget https://downloads.sourceforge.net/project/bowtie-bio/bowtie2/2.3.2/bowtie2-2.3.2-linux-x86_64.zip
@@ -70,80 +70,80 @@ echo 'export PATH=$PATH:~/ChIP-seq/bowtie2-2.3.2' >> ~/.bashrc
 source ~/.bashrc
 ```
 
-- SAMtools:
-First check if you have SAMtools installed, by running the following:
+### SAMtools:
+
+Installation commands:
 ```
-samtools
+sudo apt-get -y install samtools
 ```
 
-  If the output looks like the following, go ahead and install it:
+### Bedtools:
 
-  ```
-  samtools: command not found
-  ```
-
-  Installation commands:
-  ```
-  sudo apt-get -y install samtools
-  ```
-
-- Bedtools:
-First check if you have SAMtools installed, by running the following:
+First check if you have bedtools installed, by running the following:
 ```
 bedtools
 ```
 
-  If the output looks like the following, go ahead and install it:
+If the output looks like the following, go ahead and install it:
 
-  ```
-  bedtools: command not found
-  ```
+```
+The program 'bedtools' is currently not installed.
+```
 
-  Installation commands:
+Installation commands:
 
-  ```
-  curl -O -L https://github.com/arq5x/bedtools2/releases/download/v2.26.0/bedtools-2.26.0.tar.gz
-  tar -xzf bedtools-2.26.0.tar.gz
+```
+curl -O -L https://github.com/arq5x/bedtools2/releases/download/v2.26.0/bedtools-2.26.0.tar.gz
+tar -xzf bedtools-2.26.0.tar.gz
 
-  cd bedtools2
-  make
-  sudo make install
-  ```
+cd bedtools2
+make
+sudo make install
+```
 
-- bedGraphToBigWig:
+### bedGraphToBigWig:
 
-  You can just download the file from `UCSC` as follows:
+You can download the file from `UCSC` as follows:
 
-  ```
-  wget http://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/bedGraphToBigWig
-  chmod +x bedGraphToBigWig
-  ```
+```
+cd ~/
+wget http://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/bedGraphToBigWig
+chmod +x bedGraphToBigWig
+```
 
-- MACS2:
+### MACS2:
+
 The easiest way to install MACS2 is through PyPI system:
 
-  ```
-  pip install MACS2
-  ```
+```
+pip install MACS2
+```
 
-  This will take a few minutes, and in the end you can verify that everything is set by running MACS2:
+This will take a few minutes, and in the end you can verify that everything is set by running MACS2:
 
-  ```
-  ~/ChIP-seq$ macs2
+```
+macs2
 
-  usage: macs2 [-h] [--version]
+```
+
+should yield
+
+```
+ usage: macs2 [-h] [--version]
              {callpeak,bdgpeakcall,bdgbroadcall,bdgcmp,bdgopt,cmbreps,bdgdiff,filterdup,predictd,pileup,randsample,refinepeak}
              ...
   macs2: error: too few arguments
-             ```
+```
 
-Ok, we all set!
+Ok, we are all set!
 
 ## Let's do mapping!
 
-First of all, have a quick check that you are still in the `ChIP-seq` folder by running `pwd`. If you are not, you can go directly to the folder by running:
+You can go directly to the folder by running:
 
-`cd ~/ChIP-seq`
+```
+cd ~/ChIP-seq
+```
 
 
 The `.fastq` file that we will align is called Oct4.fastq. We will align these reads to the mouse chromosome. There are a number of competing tools for short read alignment, each with its own set of strengths, weaknesses, and caveats. Here we will try `Bowtie2`, a widely used ultrafast, memory efficient short read aligner.
@@ -240,7 +240,7 @@ genomeCoverageBed -bg -ibam Oct4.sorted.bam -g bowtie_index/mouse.mm10.genome > 
 Then we convert the `bedgraph` into a binary graph, called `Oct4.bw`, using the tool `bedGraphToBigWig` from the UCSC tools:
 
 ```
-./bedGraphToBigWig Oct4.bedgraph bowtie_index/mouse.mm10.genome Oct4.bw
+../bedGraphToBigWig Oct4.bedgraph bowtie_index/mouse.mm10.genome Oct4.bw
 ```
 
 Both of the commands above take as input a file called `mouse.mm10.genome` that is stored under the subdirectory `bowtie_index`. These genome files are tab-delimited and describe the size of the chromosomes for the organism of interest. When using the UCSC Genome Browser, Ensembl, or Galaxy, you typically indicate
@@ -269,7 +269,7 @@ samtools index gfp.sorted.bam
 
 genomeCoverageBed -bg -ibam gfp.sorted.bam -g bowtie_index/mouse.mm10.genome > gfp.bedgraph
 
-./bedGraphToBigWig gfp.bedgraph bowtie_index/mouse.mm10.genome gfp.bw
+../bedGraphToBigWig gfp.bedgraph bowtie_index/mouse.mm10.genome gfp.bw
 ```
 
 ## Finding enriched areas using MACS
