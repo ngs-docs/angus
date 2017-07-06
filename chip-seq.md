@@ -99,6 +99,7 @@ chmod +x bedGraphToBigWig
 The easiest way to install MACS2 is through PyPI system:
 
 ```
+pip install numpy
 pip install MACS2
 ```
 
