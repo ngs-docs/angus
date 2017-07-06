@@ -48,4 +48,6 @@ Table of Contents
    deseq2-asthma
    chip-seq
 
+   dammit_annotation
+
    for-instructors/index
