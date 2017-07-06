@@ -202,11 +202,13 @@ cd
 sudo mkdir /home/linuxbrew
 sudo chown $USER:$USER /home/linuxbrew
 git clone https://github.com/Linuxbrew/brew.git /home/linuxbrew/.linuxbrew
-brew tap homebrew/science
-brew install samtools
 
 echo 'export PATH=/home/linuxbrew/.linuxbrew/bin:$PATH' >> ~/.bashrc
 source ~/.bashrc
+
+brew tap homebrew/science
+brew install samtools
+
 ```
 
 Now, sort:
