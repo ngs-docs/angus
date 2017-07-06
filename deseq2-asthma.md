@@ -28,7 +28,7 @@ If you cannot connect, you'll need to install it:
 
 ```
 wget https://download2.rstudio.org/rstudio-server-1.0.143-amd64.deb
-sudo gdebi -n rstudio-server-1.0.143-amd64.deb 
+sudo gdebi -n rstudio-server-1.0.143-amd64.deb
 ```
 
 And, finally, change the password to something you can remember:
@@ -39,6 +39,7 @@ sudo passwd tx160085
 ## Install the `DESeq2` prereqs
 
 ```
+sudo apt-get install libxml2 libxml2-dev libcurl4-gnutls-dev libssl-dev -y
 curl -O -L https://github.com/ngs-docs/angus/raw/deseq2/_static/install-deseq2.R
 sudo Rscript --no-save install-deseq2.R
 ```

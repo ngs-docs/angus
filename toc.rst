@@ -47,6 +47,8 @@ Table of Contents
 
    deseq2-asthma
    chip-seq
+   
+   assembly-trinity
 
    dammit_annotation
 
