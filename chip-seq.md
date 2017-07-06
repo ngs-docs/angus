@@ -371,7 +371,10 @@ URL and then UCSC downloads it from there.
 ~/bedGraphToBigWig SRR3152806.bedgraph ~/ChIP-seq/bowtie_index/mouse.mm10.genome SRR3152806.bw
 ```
 
-This is now a file that we can give directly to UCSC.
+This is now a file that we can give directly to UCSC.  But how do we do that!?
+In general, these files will be too big (70+ MB per experiment).
+
+## 
 
 ## References
 
