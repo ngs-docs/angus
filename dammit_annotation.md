@@ -96,8 +96,8 @@ Keep things organized! Let's make a project directory:
 You all ran Trinity earlier to generate an assembly, but just in case, we're going to download
 a version of that assembly to annotate.
 
-    curl -O https://s3.amazonaws.com/public.ged.msu.edu/trinity-nematostella-raw.fa.gz
-    gunzip -c trinity-nematostella-raw.fa.gz > trinity.nema.fasta
+    curl -OL https://raw.githubusercontent.com/ngs-docs/angus/2017/_static/Trinity.fasta
+    mv Trinity.fasta trinity.nema.fasta
 
 
 Now we'll download a custom *Nematostella vectensis* protein database available
