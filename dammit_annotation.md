@@ -67,6 +67,8 @@ Finally, install dammit from the refactor/1.0 branch:
 
     pip install https://github.com/camillescott/dammit/archive/refactor/1.0.zip
 
+## Database Preparation
+
 dammit has two major subcommands: `dammit databases` and `dammit annotate`. `databases`
 checks that the databases are installed and prepared, and if run with the `--install` flag,
 will perform that installation and preparation. If you just run `dammit databases` on its
@@ -87,6 +89,8 @@ results. If we want to install another, for example:
 
     dammit databases --install --quick --busco-group fungi
 
+## Annotation
+
 Keep things organized! Let's make a project directory:
 
     cd
@@ -101,14 +105,14 @@ a version of that assembly to annotate.
 
 
 Now we'll download a custom *Nematostella vectensis* protein database available
-from JGI. Here, somebody has already created a proper database for us. If your critter
+from JGI. Here, somebody has already created a proper database for us (it has a reference proteome
+available through uniprot). If your critter
 is a non-model organism, you will
 likely need to create your own with proteins from closely-related species. This will rely on your
 knowledge of your system!
 
-    curl -LO ftp://ftp.ebi.ac.uk/pub/databases/reference_proteomes/QfO/Eukaryota/UP000001593_45351.fasta.gz
-    #curl -LO ftp://ftp.jgi-psf.org/pub/JGI_data/Nematostella_vectensis/v1.0/annotation/proteins.Nemve1FilteredModels1.fasta.gz
-    gunzip proteins.Nemve1FilteredModels1.fasta.gz
+    curl -LO ftp://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000001593_45351.fasta.gz
+    gunzip -c UP000001593_45351.fasta.gz > nema.reference.prot.faa
 
 Putnam NH, Srivastava M, Hellsten U, Dirks B, Chapman J, Salamov A,
 Terry A, Shapiro H, Lindquist E, Kapitonov VV, Jurka J, Genikhovich G,
@@ -118,22 +122,31 @@ gene repertoire and genomic organization. Science. 317, 86-94.
 
 Run the command:
 
-    dammit annotate trinity.nema.fasta --quick --busco-group metazoa --user-databases proteins.Nemve1FilteredModels1.fasta --n_threads 4
+    dammit annotate trinity.nema.fasta --quick --busco-group metazoa --user-databases nema.reference.prot.faa --n_threads 4
 
 Note that `--quick` is used for both the `databases` subcommand and the `annotate` subcommand. If we
 were to omit it at this point, it would warn us that the databases are not prepared and that we need
 to install them -- because we skipped over the full database install earlier.
 
-This will take a bit to run, even though we're using `--quick` -- TransDecoder will take the most
-time. While dammit runs, it will print out which tasks its running to the terminal. dammit is
+While dammit runs, it will print out which tasks its running to the terminal. dammit is
 written with a library called [pydoit](www.pydoit.org), which is a python workflow library similar
 to GNU Make. This not only helps organize the underlying workflow, but also means that if we
 interrupt it, it will properly resume! 
 
-If dammit runs successfully, there will be a directory
-`Trinity.fasta.dammit` with \~dozen files inside, including
-`Trinity.fasta.dammit.gff3`, `Trinity.fasta.dammit.fasta` and a data
-frame matching new annotated contig id with the previous
-assembler-generated contig id: `Trinity.fasta.dammit.namemap.csv`. If
-the above `dammit` command is run again, there will be a message:
+After a successful run, you'll have a new directory called `trinity.nema.fasta.dammit`. If you
+look inside, you'll see a lot of files:
+
+    ls trinity.nema.fasta.dammit/
+    annotate.doit.db                              trinity.nema.fasta.dammit.namemap.csv  trinity.nema.fasta.transdecoder.pep
+    dammit.log                                    trinity.nema.fasta.dammit.stats.json   trinity.nema.fasta.x.nema.reference.prot.faa.crbl.csv
+    run_trinity.nema.fasta.metazoa.busco.results  trinity.nema.fasta.transdecoder.bed    trinity.nema.fasta.x.nema.reference.prot.faa.crbl.gff3
+    tmp                                           trinity.nema.fasta.transdecoder.cds    trinity.nema.fasta.x.nema.reference.prot.faa.crbl.model.csv
+    trinity.nema.fasta                            trinity.nema.fasta.transdecoder_dir    trinity.nema.fasta.x.nema.reference.prot.faa.crbl.model.plot.pdf
+    trinity.nema.fasta.dammit.fasta               trinity.nema.fasta.transdecoder.gff3
+    trinity.nema.fasta.dammit.gff3                trinity.nema.fasta.transdecoder.mRNA
+
+The most important files for you are `trinity.nema.fasta.dammit.fasta`,
+`trinity.nema.fasta.dammit.gff3`, and `trinity.nema.fasta.dammit.stats.json`.
+
+If the above `dammit` command is run again, there will be a message:
 `**Pipeline is already completed!**`
