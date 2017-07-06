@@ -304,6 +304,9 @@ Running `macs2` will produce the following 4 files:
 
 ## Building a histogram from some ATAC-seq
 
+The ability to visualize a bunch of peaks against a genome is really useful.
+Let's go through it again for some ATAC-seq data!
+
 Make a working directory:
 
 ```
@@ -333,7 +336,7 @@ Make a BAM from the alignment SAM, sort it, index it:
 ```
 samtools view -bSo SRR3152806.bam SRR3152806.sam
 
-samtools sort SRR3152806.bam SRR3152806.sorted
+samtools sort SRR3152806.bam -o SRR3152806.sorted
 samtools index SRR3152806.sorted.bam
 ```
 
@@ -365,8 +368,7 @@ like we did above.  So instead we can use BigWig which we post to a public
 URL and then UCSC downloads it from there.
 
 ```
-./bedGraphToBigWig SRR3152806.bedgraph ~/ChIP-seq/bowtie_index/mouse.mm10.genom
-e SRR3152806.bw
+~/bedGraphToBigWig SRR3152806.bedgraph ~/ChIP-seq/bowtie_index/mouse.mm10.genome SRR3152806.bw
 ```
 
 This is now a file that we can give directly to UCSC.
