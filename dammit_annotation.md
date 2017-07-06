@@ -105,7 +105,7 @@ a version of that assembly to annotate.
 
 
 Now we'll download a custom *Nematostella vectensis* protein database available
-from JGI. Here, somebody has already created a proper database for us (it has a reference proteome
+from JGI. Here, somebody has already created a proper database for us [1] (it has a reference proteome
 available through uniprot). If your critter
 is a non-model organism, you will
 likely need to create your own with proteins from closely-related species. This will rely on your
@@ -113,12 +113,6 @@ knowledge of your system!
 
     curl -LO ftp://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000001593_45351.fasta.gz
     gunzip -c UP000001593_45351.fasta.gz > nema.reference.prot.faa
-
-Putnam NH, Srivastava M, Hellsten U, Dirks B, Chapman J, Salamov A,
-Terry A, Shapiro H, Lindquist E, Kapitonov VV, Jurka J, Genikhovich G,
-Grigoriev IV, Lucas SM, Steele RE, Finnerty JR, Technau U, Martindale
-MQ, Rokhsar DS. (2007) Sea anemone genome reveals ancestral eumetazoan
-gene repertoire and genomic organization. Science. 317, 86-94.
 
 Run the command:
 
@@ -150,3 +144,11 @@ The most important files for you are `trinity.nema.fasta.dammit.fasta`,
 
 If the above `dammit` command is run again, there will be a message:
 `**Pipeline is already completed!**`
+
+## References
+
+1. Putnam NH, Srivastava M, Hellsten U, Dirks B, Chapman J, Salamov A,
+Terry A, Shapiro H, Lindquist E, Kapitonov VV, Jurka J, Genikhovich G,
+Grigoriev IV, Lucas SM, Steele RE, Finnerty JR, Technau U, Martindale
+MQ, Rokhsar DS. (2007) Sea anemone genome reveals ancestral eumetazoan
+gene repertoire and genomic organization. Science. 317, 86-94.
