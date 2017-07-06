@@ -1,0 +1,1 @@
+track type=bigWig name=atac smoothingWindow=4 color=123,100,50 autoScale=on viewLimits=1:200 visibility=full windowingFunction=maximum bigDataUrl=https://osf.io/87trm/download
