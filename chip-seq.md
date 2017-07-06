@@ -374,7 +374,14 @@ URL and then UCSC downloads it from there.
 This is now a file that we can give directly to UCSC.  But how do we do that!?
 In general, these files will be too big (70+ MB per experiment).
 
-## 
+## Adding a custom track
+
+Let's start by using the file that we've already built and uploaded for you -
+this is an example.
+
+`https://raw.githubusercontent.com/ngs-docs/angus/2017/_static/SRR3152806.bw`
+
+`https://raw.githubusercontent.com/ngs-docs/angus/2017/_static/tracks.txt`
 
 ## References
 
