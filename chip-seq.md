@@ -212,6 +212,8 @@ source ~/.bashrc
 Now, sort:
 
 ```
+cd ~/ChIP-seq/
+
 samtools sort Oct4.bam -o Oct4.sorted.bam
 
 samtools index Oct4.sorted.bam
@@ -338,15 +340,34 @@ genome:
 
 ```
 genomeCoverageBed -bg -ibam SRR3152806.sorted.bam -g ~/ChIP-seq/bowtie_index/mouse.mm10.genome > SRR3152806.bedgraph
+```
 
+So let's take a look at this file --
+
+```
+head -20 SRR3152806.bedgraph
+```
+
+what's this format? It's *position within genome* and *mapping rate*
+or some other quantity.
+
+How do we figure out what regions are highest in this file?  It's a text
+file, so we can sort on column 4 and take a look at a particular region --
+
+```
 sort -rn -k 4 SRR3152806.bedgraph | head -20
+```
 
-curl -O -L http://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/bedGraphToBigWig
-chmod +x ./bedGraphToBigWig
+The bedgraph file for any REAL data set is going to be too big to upload
+like we did above.  So instead we can use BigWig which we post to a public
+URL and then UCSC downloads it from there.
 
+```
 ./bedGraphToBigWig SRR3152806.bedgraph ~/ChIP-seq/bowtie_index/mouse.mm10.genom
 e SRR3152806.bw
 ```
+
+This is now a file that we can give directly to UCSC.
 
 ## References
 
