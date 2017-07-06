@@ -58,8 +58,10 @@ and then BUSCO...
 
     cd
     git clone https://gitlab.com/ezlab/busco.git
+    pushd busco && python setup.py install && popd
 
-    echo 'export PATH=$HOME/busco:$PATH' >> $HOME/.bashrc
+    export PATH=$HOME/busco/scripts:$PATH
+    echo 'export PATH=$HOME/busco/scripts:$PATH' >> $HOME/.bashrc
 
 Finally, install dammit from the refactor/1.0 branch:
 
@@ -70,23 +72,31 @@ run -- this will omit OrthoDB, uniref, Pfam, and Rafm (ie, all the homology sear
 than user-supplied databases). If you run without `--quick`, it will take a lot longer (about
 a half hour), but you'll have access to the full annotation pipeline.
 
-    dammit databases --install --busco-group eukaryota
+    dammit databases --install --busco-group metazoa
 
-We used the "eukaryota" BUSCO group. We can use any of the BUSCO databases, so long as we install
+We used the "metazoa" BUSCO group. We can use any of the BUSCO databases, so long as we install
 them with the `dammit databases` subcommand. You can see the whole list by running
 `dammit databases -h`. You should try to match your species as closely as possible for the best
 results.
 
-
-Make a directory for annotation and put files there
+Keep things organized! Let's make a project directory:
 
     cd
     mkdir -p nema_annotation
     cd nema_annotation
-    ln -s ../assembly/trinity_out_dir/Trinity.fasta .
+
+You all ran Trinity earlier to generate an assembly, but just in case, we're going to download
+a version of that assembly to annotate.
+
+    curl -O https://s3.amazonaws.com/public.ged.msu.edu/trinity-nematostella-raw.fa.gz
+    gunzip -c trinity-nematostella-raw.fa.gz > trinity.nema.fasta
+
 
 Download a custom *Nematostella vectensis* protein database available
-from JGI:
+from JGI. Here, somebody has already created a proper database for us. If your critter
+is a non-model organism, you will
+likely need to create your own with proteins from closely-related species. This will rely on your
+knowledge of your system!
 
     curl -LO ftp://ftp.ebi.ac.uk/pub/databases/reference_proteomes/QfO/Eukaryota/UP000001593_45351.fasta.gz
     #curl -LO ftp://ftp.jgi-psf.org/pub/JGI_data/Nematostella_vectensis/v1.0/annotation/proteins.Nemve1FilteredModels1.fasta.gz
@@ -98,16 +108,9 @@ Grigoriev IV, Lucas SM, Steele RE, Finnerty JR, Technau U, Martindale
 MQ, Rokhsar DS. (2007) Sea anemone genome reveals ancestral eumetazoan
 gene repertoire and genomic organization. Science. 317, 86-94.
 
-Run the `dammit` pipeline
-
-    # after trinity
-    deactivate
-
-    source activate dammit
-
 Run the command:
 
-    dammit annotate Trinity.fasta --busco-group metazoa --user-databases proteins.Nemve1FilteredModels1.fasta --n_threads 2 | tee dammit_Trinity_outfile.log
+    dammit annotate trinity.nema.fasta --quick --busco-group metazoa --user-databases proteins.Nemve1FilteredModels1.fasta --n_threads 2 | tee dammit_Trinity_outfile.log
 
 If dammit runs successfully, there will be a directory
 `Trinity.fasta.dammit` with \~dozen files inside, including
