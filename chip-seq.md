@@ -49,7 +49,7 @@ Let do the installation process:
 wget https://downloads.sourceforge.net/project/bowtie-bio/bowtie2/2.3.2/bowtie2-2.3.2-linux-x86_64.zip
 unzip bowtie2-2.3.2-linux-x86_64.zip
 
-echo 'export PATH=$PATH:~/ChIP-seq/bowtie2-2.3.2' >> ~/.bashrc
+echo 'export PATH=$PATH:~/bowtie2-2.3.2' >> ~/.bashrc
 source ~/.bashrc
 ```
 
@@ -195,10 +195,28 @@ SAMTools implements a very simple text alignment viewer based on the GNU `ncurse
 
 In order to use tview, we need first to sort the `BAM` file by position in the genome, and the index the produced sorted file so that we can randomly access it quickly.
 
-Use the following commands:
+Use the following commands. First, upgrade samtools:
 
 ```
-samtools sort Oct4.bam Oct4.sorted
+cd
+sudo mkdir /home/linuxbrew
+sudo chown $USER:$USER /home/linuxbrew
+git clone https://github.com/Linuxbrew/brew.git /home/linuxbrew/.linuxbrew
+
+echo 'export PATH=/home/linuxbrew/.linuxbrew/bin:$PATH' >> ~/.bashrc
+source ~/.bashrc
+
+brew tap homebrew/science
+brew install samtools
+
+```
+
+Now, sort:
+
+```
+cd ~/ChIP-seq/
+
+samtools sort Oct4.bam -o Oct4.sorted.bam
 
 samtools index Oct4.sorted.bam
 ```
@@ -224,25 +242,19 @@ samtools tview -p chr1:173389928 Oct4.sorted.bam bowtie_index/mm10.fa
 
 ### Viewing with Online Browsers
 
-To visualize the alignments with an online browser, to convert the BAM file into a `bigWig` file. The `bigWig` format is for display of dense, continuous data and the data will be displayed as a graph. The resulting `bigWig` files are in an indexed binary format.
+To visualize the alignments with an online browser, to convert the BAM file into a `bedgraph` file. The `bedgraph` format is for display of dense, continuous data and the data will be displayed as a graph.
 
-The `BAM` to `bigWig` conversion takes place in two steps. Firstly, we convert the `BAM` file into a `bedgraph`, called `Oct4.bedgraph`, using
+So, we convert the `BAM` file into a `bedgraph`, called `Oct4.bedgraph`, using
 the tool `genomeCoverageBed` from `BEDTools`:
 
 ```
 genomeCoverageBed -bg -ibam Oct4.sorted.bam -g bowtie_index/mouse.mm10.genome > Oct4.bedgraph
 ```
 
-Then we convert the `bedgraph` into a binary graph, called `Oct4.bw`, using the tool `bedGraphToBigWig` from the UCSC tools:
-
-```
-../bedGraphToBigWig Oct4.bedgraph bowtie_index/mouse.mm10.genome Oct4.bw
-```
-
-Both of the commands above take as input a file called `mouse.mm10.genome` that is stored under the subdirectory `bowtie_index`. These genome files are tab-delimited and describe the size of the chromosomes for the organism of interest. When using the UCSC Genome Browser, Ensembl, or Galaxy, you typically indicate
+The command above take as input a file called `mouse.mm10.genome` that is stored under the subdirectory `bowtie_index`. These genome files are tab-delimited and describe the size of the chromosomes for the organism of interest. When using the UCSC Genome Browser, Ensembl, or Galaxy, you typically indicate
 which species/genome build you are working. The way you do this for BEDTools is to create a “genome” file, which simply lists the names of the chromosomes (or scaffolds, etc.) and their size (in basepairs). BEDTools includes pre-defined genome files for human and mouse in the `/genomes` directory included in the BEDTools distribution.
 
-Let's try to load the file `Oct4.bedgraph` in the [Ensembl genome browser](http://www.ensembl.org/index.html). Select Mouse from the favorite genomes and then click on the `Display your data in Ensembl` link. You can upload any file of less than 20MB, so let's try uploading the `Oct4.bedgraph` file (it should take ~1-2').
+Let's try to load the file `Oct4.bedgraph` in the [Ensembl genome browser](http://www.ensembl.org/index.html). Select Mouse from the favorite genomes and then click on the `Display your data in Ensembl` link.  Now, upload the bedgraph file - you can either download it from your instance using RStudio, OR you can click on [this link](https://github.com/ngs-docs/angus/blob/update/chipseq/_static/Oct4.bedgraph?raw=true).
 
 You will finally see a screen like this:
 
@@ -259,14 +271,14 @@ bowtie2 -x bowtie_index/mm10 -U gfp.fastq -S gfp.sam
 
 samtools view -bSo gfp.bam gfp.sam
 
-samtools sort gfp.bam gfp.sorted
+samtools sort gfp.bam -o gfp.sorted.bam
 
 samtools index gfp.sorted.bam
 
 genomeCoverageBed -bg -ibam gfp.sorted.bam -g bowtie_index/mouse.mm10.genome > gfp.bedgraph
-
-../bedGraphToBigWig gfp.bedgraph bowtie_index/mouse.mm10.genome gfp.bw
 ```
+
+Again, you can download this `gfp.bedgraph` from your own instance OR you can [grab it](https://github.com/ngs-docs/angus/blob/update/chipseq/_static/gfp.bedgraph?raw=true) from us.
 
 ## Finding enriched areas using MACS
 
@@ -289,6 +301,80 @@ Running `macs2` will produce the following 4 files:
 4. `Oct4_model.r`: is an R script which you can use to produce a PDF image about the model based on your data. Load it to R by: `$ Rscript NAME_model.r` Then a pdf file NAME_model.pdf will be generated in your current directory. Note, R is required to draw this figure.
 
 > _Bonus_: Try uploading the peak file generated by MACS2 to one of the genome browsers (IGV or UCSC). Find the first peak in the file (use the head command to view the beginning of the bed file), and see if the peak looks convincing to you.
+
+## Building a histogram from some ATAC-seq
+
+The ability to visualize a bunch of peaks against a genome is really useful.
+Let's go through it again for some ATAC-seq data!
+
+Make a working directory:
+
+```
+cd ~/
+mkdir atac
+cd atac
+```
+
+Download a cut down data set; this is a bit from SRR3152806 that aligns
+to some specific regions in mouse.
+
+```
+curl -L https://osf.io/5kq8s/download > SRR3152806.subset.R1.fq.gz
+curl -L https://osf.io/hcqgp/download > SRR3152806.subset.R2.fq.gz
+```
+
+(All of the commands below work on the full data set too!)
+
+Do some mapping:
+
+```
+bowtie2 -1 SRR3152806.subset.R1.fq.gz -2 SRR3152806.subset.R2.fq.gz -x ~/ChIP-seq/bowtie_index/mm10 -S SRR3152806.sam
+```
+
+Make a BAM from the alignment SAM, sort it, index it:
+
+```
+samtools view -bSo SRR3152806.bam SRR3152806.sam
+
+samtools sort SRR3152806.bam -o SRR3152806.sorted
+samtools index SRR3152806.sorted.bam
+```
+
+Build a 'coverageBed' file that gives coverage per base in regions in the
+genome:
+
+```
+genomeCoverageBed -bg -ibam SRR3152806.sorted.bam -g ~/ChIP-seq/bowtie_index/mouse.mm10.genome > SRR3152806.bedgraph
+```
+
+So let's take a look at this file --
+
+```
+head -20 SRR3152806.bedgraph
+```
+
+what's this format? It's *position within genome* and *mapping rate*
+or some other quantity.
+
+How do we figure out what regions are highest in this file?  It's a text
+file, so we can sort on column 4 and take a look at a particular region --
+
+```
+sort -rn -k 4 SRR3152806.bedgraph | head -20
+```
+
+The bedgraph file for any REAL data set is going to be too big to upload
+like we did above.  So instead we can use BigWig which we post to a public
+URL and then UCSC downloads it from there.
+
+```
+~/bedGraphToBigWig SRR3152806.bedgraph ~/ChIP-seq/bowtie_index/mouse.mm10.genome SRR3152806.bw
+```
+
+This is now a file that we can give directly to UCSC.  But how do we do that!?
+In general, these files will be too big (70+ MB per experiment).
+
+## 
 
 ## References
 
