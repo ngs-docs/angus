@@ -198,7 +198,7 @@ In order to use tview, we need first to sort the `BAM` file by position in the g
 Use the following commands:
 
 ```
-samtools sort Oct4.bam Oct4.sorted
+samtools sort Oct4.bam -o Oct4.sorted.bam
 
 samtools index Oct4.sorted.bam
 ```
@@ -259,7 +259,7 @@ bowtie2 -x bowtie_index/mm10 -U gfp.fastq -S gfp.sam
 
 samtools view -bSo gfp.bam gfp.sam
 
-samtools sort gfp.bam gfp.sorted
+samtools sort gfp.bam -o gfp.sorted.bam
 
 samtools index gfp.sorted.bam
 
