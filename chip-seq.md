@@ -194,10 +194,21 @@ SAMTools implements a very simple text alignment viewer based on the GNU `ncurse
 
 In order to use tview, we need first to sort the `BAM` file by position in the genome, and the index the produced sorted file so that we can randomly access it quickly.
 
-Use the following commands:
+Use the following commands. First, upgrade samtools:
 
 ```
-samtools sort Oct4.bam Oct4.sorted
+cd
+sudo mkdir /home/linuxbrew
+sudo chown $USER:$USER /home/linuxbrew
+git clone https://github.com/Linuxbrew/brew.git /home/linuxbrew/.linuxbrew
+echo 'export PATH=/home/linuxbrew/.linuxbrew/bin:$PATH' >> ~/.bashrc
+source ~/.bashrc
+brew tap homebrew/science
+```
+
+
+```
+samtools sort Oct4.bam -o Oct4.sorted.bam
 
 samtools index Oct4.sorted.bam
 ```
@@ -258,7 +269,7 @@ bowtie2 -x bowtie_index/mm10 -U gfp.fastq -S gfp.sam
 
 samtools view -bSo gfp.bam gfp.sam
 
-samtools sort gfp.bam gfp.sorted
+samtools sort gfp.bam -o gfp.sorted.bam
 
 samtools index gfp.sorted.bam
 
