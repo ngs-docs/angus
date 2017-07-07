@@ -336,7 +336,7 @@ Make a BAM from the alignment SAM, sort it, index it:
 ```
 samtools view -bSo SRR3152806.bam SRR3152806.sam
 
-samtools sort SRR3152806.bam -o SRR3152806.sorted
+samtools sort SRR3152806.bam -o SRR3152806.sorted.bam
 samtools index SRR3152806.sorted.bam
 ```
 
