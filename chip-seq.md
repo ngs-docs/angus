@@ -159,7 +159,7 @@ Now that the genome is indexed we can move on to the actual alignment. The first
 Align the Oct4 reads using Bowtie:
 
 ```
-bowtie2 -x bowtie_index/mm10 -U Oct4.fastq -S Oct4.sam
+bowtie2 -x bowtie_index/mm10 -U Oct4.fastq -S Oct4.sam -p 6
 ```
 
 The above command outputs the alignment in SAM format and stores them in the file Oct4.sam. Have a look at the alignment file:
