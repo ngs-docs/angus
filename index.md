@@ -150,7 +150,7 @@ Evening: (7pm, 1030 Valley)
 
 ### Friday, Day 12: RNAseq.
 
-9am lecture: [Robert Patro](http://www.robpatro.com/redesign/), Stony Brook University - "Don't count on it: Pragmatic and theoretical concerns and best practices for mapping and quantifying RNA-seq data"
+9am lecture: [Robert Patro](http://www.robpatro.com/redesign/), Stony Brook University - ["Don't count on it: Pragmatic and theoretical concerns and best practices for mapping and quantifying RNA-seq data"](https://osf.io/bv85u/)
 
 Morning (10am-noon):
 * Lions: [DESeq2](deseq2-asthma.html) - Mike and Rob
