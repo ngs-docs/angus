@@ -162,11 +162,11 @@ Afternoon (1:15pm-3:15pm):
 * Tigers:  [Transcriptome annotation](dammit_annotation.html) - Camille
 * Bears:  [Transcriptome annotation](dammit_annotation.html) - Lisa
 
-Assessment.
-
 ### Saturday, last day: Summary
 
-9am lecture: C. Titus Brown, UC Davis - "Effectively infinite: next steps in Data Intensive Biology."
+9am: Assessment.
+
+9:30am lecture: C. Titus Brown, UC Davis - ["Effectively infinite: next steps in Data Intensive Biology."](https://osf.io/pbmeh/)
 
 Further resources; continuing your learning.
 
