@@ -22,7 +22,7 @@ Table of Contents
 
    introduction-to-R-and-dataframes
    counting
-   
+
    genome-assembly
    prokka_genome_annotation
 
@@ -30,10 +30,26 @@ Table of Contents
 
    kmers-and-sourmash
    
+   rmarkdown_rnaseq
+
    GATK_pipeline
    GWAS
    meta_GWAS
 
-   long-and-short-reads
+   Jupyter-Notebook-Notes
+   github
+   fotis-jupyter
+   database_resources
+
+   analyzing_nanopore_data
+
+   rmarkdown_rnaseq
+
+   deseq2-asthma
+   chip-seq
    
+   assembly-trinity
+
+   dammit_annotation
+
    for-instructors/index

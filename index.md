@@ -85,7 +85,7 @@ Note! this will be a repeat of Friday evening! You only need to come to one.
 
 ### Monday, Day 8: Genomes, and GWAS, and k-mers.
 
-9am lecture: [Erich Schwarz](https://mbg.cornell.edu/people/erich-schwarz), Cornell - "Assembling and biologically interpreting nematode genomes"
+9am lecture: [Erich Schwarz](https://mbg.cornell.edu/people/erich-schwarz), Cornell - ["Assembling and biologically interpreting nematode genomes"](https://osf.io/9yu76/)
 
 Morning: 10:15am-lunch, in lions & tigers & bears.
 * [Reference independent analyses with k-mers; sourmash.](kmers-and-sourmash.html) - Luiz in Lions, Phil in Tigers, and Titus in Bears.
@@ -95,57 +95,78 @@ Lunch will be local, with a food truck
 Afternoon: 1pm onwards, in 1030 Valley.
 * [Variant calling and big genomes: GATK.](GATK_pipeline.html) (Tamer Mansour)
 * [Genome Wide Association Studies.](GWAS.html)
-* [Meta-analysis of GWAS studies](meta_GWAS.html)
+* [Meta-analysis of GWAS studies](meta_GWAS.html) (Shannon Joslin)
    
 Evening: Ice cream and demos! 1030 Valley.
 * 6:30pm onwards: ice cream!
 * 7pm-9pm: demonstrations and eye candy (1030 Valley)
-  - where should I put my data? The Open Science Framework.
-  - Jupyter Notebook and Python for data science.
   - CyVerse and what an allocation request looks like.
-  - GitHub
-  - where do I find the data? NCBI, ENSEMBL, ENA; how to get FASTQ out of NCBI.
+  - [Jupyter Notebook, R and Python for data science.](Jupyter-Notebook-Notes.html)
+  - where should I put my data? One option: the [Open Science Framework](the_osf.html)
+  - [GitHub](github.html)
+  - [where do I find the data? NCBI, ENSEMBL, ENA; how to get FASTQ out of NCBI.](database_resources.html)
   - & other things
 
 ### Tuesday, Day 9: Nanopore sequencing; and a panel discussion!
 
 9am tutorials:
-* [Long reads and short reads.](long-and-short-reads.html) (Lisa Cohen and Jon Badalamenti)
+* [Assessing & assembling nanopore data.](analyzing_nanopore_data.html) (Lisa Cohen and Jon Badalamenti)
 * 11am: panel discussion: The Future of Biology, Bioinformatics, and Humanity.
+   * [Titus' talk](https://osf.io/zbqtv/)
+   * [Adrienne's talk](https://osf.io/8mb2y/)
+   * [Erich's talk](https://osf.io/5sr93/)
 
 4pm onwards: [July 4th celebration at Community Park](http://cityofdavis.org/city-hall/city-manager-s-office/community-events/fourth-of-july). We will have a sun cover and ice chests!
 
 ### Wednesday, Day 10: RNAseq.
 
-9am lecture: [Megan Dennis](http://www.dennislab.org/), UC Davis - "Complex genomic variation and its role in human evolution and disease"
+9am lecture: [Megan Dennis](http://www.dennislab.org/), UC Davis - ["Complex genomic variation and its role in human evolution and disease"](https://osf.io/9d5ge/)
 
-Morning and afternoon: 10am-4pm.
-* rotating topics (2 sessions)
+Morning: 10am-noon
+* [RMarkdown](rmarkdown_rnaseq.html) - in lions/tigers/bears rooms.
 
-Wed afternoon:
-* breakout rooms on special topics based on Mon survey.
+Wed 1:15-4pm: [breakout sessions](https://hackmd.io/CwZg7AjAhgnDBGBaAZgDmRRwAmAGKiqUIAxovKhAKzI4xQ4hA===?view)
+* meet in 1030 Valley at 1:15pm to choose breakout sessions - see [hackmd document](https://hackmd.io/CwZg7AjAhgnDBGBaAZgDmRRwAmAGKiqUIAxovKhAKzI4xQ4hA===?view) for breakout sessions!
+* move to breakout rooms on special topics.
 
 5pm onwards: Wed market.
 
 ### Thursday, Day 11: RNAseq.
 
-9am lecture: [Michael I Love](https://mikelove.github.io/), UNC Chapel Hill - "Statistics and bias correction in RNAseq differential expression analysis"
+9am lecture: [Michael I Love](https://mikelove.github.io/), UNC Chapel Hill - ["Statistics and bias correction in RNAseq differential expression analysis"](https://osf.io/gbjhn/)
 
-Remainder of the day: 10am-3pm, 7-9pm
-* rotating topics (3 sessions)
+Morning (10am-noon):
+* Lions: [De novo RNAseq assembly](assembly-trinity.html) - Lisa
+* Tigers: [DESeq2](deseq2-asthma.html) - Mike and Rob
+* Bears: [ChIP-seq](chip-seq.html) - Fotis and Titus
+
+Afternoon (1:15pm-3:15pm):
+* Lions: [Transcriptome annotation](dammit_annotation.html) - Camille
+* Tigers: [De novo RNAseq assembly](assembly-trinity.html) - Lisa
+* Bears: [DESeq2](deseq2-asthma.html) - Mike and Rob
+
+Evening: (7pm, 1030 Valley)
+* Q&A with Mike and Rob; optional.
 
 ### Friday, Day 12: RNAseq.
 
-9am lecture: [Robert Patro](http://www.robpatro.com/redesign/), Stony Brook University - "Don't count on it: Pragmatic and theoretical concerns and best practices for mapping and quantifying RNA-seq data"
+9am lecture: [Robert Patro](http://www.robpatro.com/redesign/), Stony Brook University - ["Don't count on it: Pragmatic and theoretical concerns and best practices for mapping and quantifying RNA-seq data"](https://osf.io/bv85u/)
 
-Remainder of the day: 10am-4pm
-* rotating topics (2 sessions)
+Morning (10am-noon):
+* Lions: [DESeq2](deseq2-asthma.html) - Mike and Rob
+* Tigers: [ChIP-seq](chip-seq.html) - Titus
+* Bears: [De novo RNASeq assembly](assembly-trinity.html) - Tessa
 
-Assessment.
+Afternoon (1:15pm-3:15pm):
+* Lions: [ChIP-seq](chip-seq.html) - Fotis
+* Tigers:  [Transcriptome annotation](dammit_annotation.html) - Camille
+* Bears:  [Transcriptome annotation](dammit_annotation.html) - Lisa
 
 ### Saturday, last day: Summary
 
-9am lecture: C. Titus Brown, UC Davis - "Effectively infinite: next steps in Data Intensive Biology."
+9am: Assessment.
+
+9:30am lecture: C. Titus Brown, UC Davis - ["Effectively infinite: next steps in Data Intensive Biology."](https://osf.io/pbmeh/)
 
 Further resources; continuing your learning.
 

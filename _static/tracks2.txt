@@ -1,0 +1,1 @@
+track type=bigWig name=atac smoothingWindow=4 color=123,100,50 autoScale=on viewLimits=1:200 visibility=full windowingFunction=maximum bigDataUrl=https://files.osf.io/v1/resources/pyvfg/providers/osfstorage/595e8a0f9ad5a1022c00ceb5?action=download&version=1&direct
