@@ -50,7 +50,27 @@ but could happen to be the reference one. --reference-allele allow you to use yo
 
 ## Create Manhattan plot
 
-Install qqman package
+First install RStudio!
+
+The following commands install the prerequisites for RStudio Web, download the latest version, and then install it.
+
+```
+sudo apt-get update && sudo apt-get -y install gdebi-core r-base
+```
+After that finishes, download and install RStudio:
+
+```
+wget https://download2.rstudio.org/rstudio-server-1.0.143-amd64.deb
+sudo gdebi -n rstudio-server-1.0.143-amd64.deb 
+```
+You should see now see text indicating an RStudio server has started:
+
+```
+Jun 27 11:33:40 js-17-66.jetstream-cloud.org systemd[1]: Starting RStudio Server...
+Jun 27 11:33:40 js-17-66.jetstream-cloud.org systemd[1]: Started RStudio Server.
+```
+
+The install the qqman package
 
     Rscript -e "install.packages('qqman',  contriburl=contrib.url('http://cran.r-project.org/'))"
 
