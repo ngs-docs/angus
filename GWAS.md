@@ -4,19 +4,26 @@ To test the association of of a genome-wide set of genetic variants with a given
 ## install [PLINK 1.9](https://www.cog-genomics.org/plink/1.9/)
 
       cd /usr/local/bin/
-      sudo wget https://www.cog-genomics.org/static/bin/plink170702/plink_linux_x86_64.zip
+      sudo wget https://www.cog-genomics.org/static/bin/plink170725/plink_linux_x86_64.zip
       sudo unzip -o plink_linux_x86_64.zip
       sudo rm -f plink_linux_x86_64.zip
+      cd plink-1.07-x86_64/
+      echo export PATH=$PATH:$(pwd) >> ~/.bashrc
+      source ~/.bashrc
 
 ## install [vcftools](https://vcftools.github.io/)
 
-      cd  
+      cd
       git clone https://github.com/vcftools/vcftools.git
       cd vcftools
       ./autogen.sh
       ./configure
       make
       sudo make install
+     
+## Install R and RStudio
+      sudo apt-get update && sudo apt-get install -y gdebi-core r-base r-base-dev
+      sudo gdebi -n rstudio-server-1.0.143-amd64.deb
 
 ## Make a working directory for the GWAS analysis
 
@@ -32,7 +39,7 @@ Genotyping of 476840 SNPs in 53 dogs (24 yellow coat and 29 dark coat)
 ## convert VCF into Plink readable format (map,ped) then Plink binary format (fam,bed,bim)
 
       vcftools --vcf pruned_coatColor_maf_geno.vcf --plink --out coatColor
-      plink --file coatColor --allow-no-sex --dog --make-bed --out coatColor.binary
+      plink --file coatColor --allow-no-sex --dog --make-bed --noweb --out coatColor.binary
 
 ## create list of alternative alleles
 
@@ -46,13 +53,13 @@ but could happen to be the reference one. --reference-allele allow you to use yo
 
 > --adjust enables correction for multiple analysis and automatically calculates the genomic inflation factor  
 
-      plink --bfile coatColor.binary --make-pheno coatColor.pheno "yellow" --assoc --reference-allele alt_alleles --allow-no-sex --adjust --dog --out coatColor
+      plink --bfile coatColor.binary --make-pheno coatColor.pheno "yellow" --assoc --reference-allele alt_alleles --allow-no-sex --adjust --dog --noweb --out coatColor
 
 ## Create Manhattan plot
 
 Install qqman package
 
-    Rscript -e "install.packages('qqman',  contriburl=contrib.url('http://cran.r-project.org/'))"
+    sudo Rscript -e "install.packages('qqman',  contriburl=contrib.url('http://cran.r-project.org/'))"
 
 Identify statistical cutoffs
 
@@ -71,4 +78,4 @@ Rscript -e 'args=(commandArgs(TRUE));library(qqman);'\
 'graphics.off();' $unad_cutoff_sug $unad_cutoff_conf
 ```
 
-The top associated mutation is a nonsense SNP in MC1R (c.916C>T) known to control pigment production
+The top associated mutation is a nonsense SNP in MC1R (c.916C>T) known to control pigment production. The file `coatColor_man.bmp` can be visualized with RStudio or downloaded to your local computer (from local commandline) via: `scp username@ipaddress:/home/username/GWAS/coatColor_man.bmp .` 
