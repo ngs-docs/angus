@@ -4,7 +4,7 @@ To test the association of of a genome-wide set of genetic variants with a given
 ## install [PLINK 1.9](https://www.cog-genomics.org/plink/1.9/)
 
       cd /usr/local/bin/
-      sudo wget http://zzz.bwh.harvard.edu/plink/dist/plink-1.07-x86_64.zip
+      sudo wget https://www.cog-genomics.org/static/bin/plink170725/plink_linux_x86_64.zip
       sudo unzip -o plink_linux_x86_64.zip
       sudo rm -f plink_linux_x86_64.zip
       cd plink-1.07-x86_64/
