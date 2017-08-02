@@ -39,7 +39,7 @@ Genotyping of 476840 SNPs in 53 dogs (24 yellow coat and 29 dark coat)
 ## convert VCF into Plink readable format (map,ped) then Plink binary format (fam,bed,bim)
 
       vcftools --vcf pruned_coatColor_maf_geno.vcf --plink --out coatColor
-      plink --file coatColor --allow-no-sex --dog --make-bed --out coatColor.binary
+      plink --file coatColor --allow-no-sex --dog --make-bed --noweb --out coatColor.binary
 
 ## create list of alternative alleles
 
@@ -53,7 +53,7 @@ but could happen to be the reference one. --reference-allele allow you to use yo
 
 > --adjust enables correction for multiple analysis and automatically calculates the genomic inflation factor  
 
-      plink --bfile coatColor.binary --make-pheno coatColor.pheno "yellow" --assoc --reference-allele alt_alleles --allow-no-sex --adjust --dog --out coatColor
+      plink --bfile coatColor.binary --make-pheno coatColor.pheno "yellow" --assoc --reference-allele alt_alleles --allow-no-sex --adjust --dog --noweb --out coatColor
 
 ## Create Manhattan plot
 
