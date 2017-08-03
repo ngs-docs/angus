@@ -21,9 +21,9 @@ Install on AWS, or other UNIX machiens:
 Install on Mac OS X:
 ::
   curl -OL http://repo.continuum.io/archive/Anaconda2-4.1.1-MacOSX-x86_64.sh
-  bash Anaconda2-4.1.1-MacOSX-x86_64.sh
+  bash Anaconda2-4.1.1-MacOSX-x86_64.sh -b
 
-Type ``Enter`` when prompted, then press Enter through the instructions. Be careful not to keep pressing Enter without reading otherwise you will end up saying ```No``. You will need to type 'Yes' to continue with the installation.
+(If you are prompted, type ``Enter``, then press Enter through the instructions. Be careful not to keep pressing Enter without reading otherwise you will end up saying ``No``. You will need to type 'Yes' to continue with the installation.)
 
 After Anaconda install has finished, type:
 ::
