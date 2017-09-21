@@ -457,7 +457,7 @@ the recovered matches hit 73.4% of the query
 ```
 
 In our
-[recent preprint](biorxiv.org/content/biorxiv/early/2017/06/25/155358.full.pdf)
+[recent preprint](http://www.biorxiv.org/content/early/2017/06/25/155358)
 using this, we showed that 
 
 It is straightforward to build your own databases for use with
