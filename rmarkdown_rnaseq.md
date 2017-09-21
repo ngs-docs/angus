@@ -37,7 +37,7 @@ sudo passwd your_username
 We will be using the salmon output from the yeast RNA-seq analysis we did last week. In case your instance was deleted, we have the data here for you. So we're all working with the exact same data, please download the counts and the transcripts per million from salmon:
 
 ```
-wget https://github.com/ngs-docs/angus/raw/marschmi-patch-1/_static/markdown_tutorial.tar.gz
+wget https://github.com/ngs-docs/angus/raw/2017/_static/markdown_tutorial.tar.gz
 tar xvf markdown_tutorial.tar.gz
 ```
 
