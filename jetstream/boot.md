@@ -57,7 +57,7 @@ into the description. Then click 'create'.
 
 [![foo](images/login-6.thumb.png)](../_images/login-6.png)
 
-## Boot and instance with a pre-built image 
+## Boot an instance with a pre-built image 
 
 Select [![foo](images/Images.thumb.png)](../_images/Images.png)
 
