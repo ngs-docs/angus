@@ -98,7 +98,7 @@ with creating typos or errors in raw data.  Let's fix that before we
 go on any further:
 
 ```
-chmod ugo-w *
+chmod a-w *
 ```
 
 Take a look at their permissions now -- 
