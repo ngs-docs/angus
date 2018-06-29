@@ -1,4 +1,4 @@
-# Next-Gen Sequence Analysis Workshop (2017)
+# Next-Gen Sequence Analysis Workshop (2018)
 
 These are the schedule and classroom materials for the
 [ANGUS workshop at UC Davis](http://ivory.idyll.org/dibsi/ANGUS.html),
