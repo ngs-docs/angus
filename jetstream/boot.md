@@ -5,12 +5,11 @@ computer (an "instance") on the Jetstream service.
 
 Below, we've provided screenshots of the whole process. You can click
 on them to zoom in a bit.  The important areas to fill in are circled
-in red.
+in red or pointed out with arrows.
 
 Some of the details may vary -- for example, if you have your own XSEDE
 account, you may want to log in with that -- and the name of the operating
-system or "image" may also vary from "Ubuntu 16.04" depending on the
-workshop.
+system or "Image" may also vary from "Ubuntu 18.04" or "DIBSI 2018" depending on the workshop.
 
 -----
 
@@ -58,35 +57,29 @@ into the description. Then click 'create'.
 
 [![foo](images/login-6.thumb.png)](../_images/login-6.png)
 
-## Select the newly created project
+## Boot and instance with a pre-built image 
 
-Click on your new project!
+Select [![foo](images/Images.thumb.png)](../_images/Images.png)
 
-[![foo](images/login-7.thumb.png)](../_images/login-7.png)
+## Find the "DIBSI 2018 workshop image" image, click on it
+
+Enter "DIBSI" into the search bar - make sure it's from
+June 22nd, 2018 by Titus. This images is based on Ubuntu 18.04 devel and docker, with [bioconda](https://bioconda.github.io/) package manager added.
+
+[![foo](images/Image_Search.thumb.png)](../_images/Image_Search.png)
            
-## Within the project, select "new"
+Launch [![foo](images/DIBSI2018_launch.thumb.png)](../_images/DIBSI2018_launch.png)
 
-Now, select 'New' and then "Instance" from the dropdown menu to start up a new machine.
+## Name it something simple
 
-[![foo](images/login-8.thumb.png)](../_images/login-8.png)
+Change the name after what we're doing - "Day1_workshop_tutorial", for example,
+but it doesn't matter. Pull down the drop-down menu under 'Project' to select your name. Then make sure the appropriate Resources are selected. You probably won't have to change these. The 'Allocation Source' will already be selected. (This is our XSEDE allocation grant ID.) The 'm1.medium' instance size will already be chosen. This is the minimum instance size. A larger instance can be selected, dependning on what we will be doing. But a smaller size cannot be chosen. The 'Provider' will be randomly chosen as either 'Jetstream - Indiana University' or 'Jetstream - TACC'.
 
-## Find the "Ubuntu 16.04" image, click on it
-
-Enter "Ubuntu 16.04" into the search bar - make sure it's from
-June 21st, 2017.
-
-[![foo](images/login-9.thumb.png)](../_images/login-9.png)
-           
-## Name it something simple and select 'm1.medium'
-
-Change the name after what we're doing - "workshop tutorial", for example,
-but it doesn't matter -- and select 'm1.medium'.
-
-[![foo](images/login-10.thumb.png)](../_images/login-10.png)
+[![foo](images/Launch_Instance.thumb.png)](../_images/Launch_Instance.png)
 
 ## Wait for it to become active
 
-It will now be booting up! This will take 2-10 minutes, depending.
+It will now be booting up! This will take 2-15 minutes, depending.
 Just wait! Don't reload or anything.
 
 [![foo](images/login-11.thumb.png)](../_images/login-11.png)
