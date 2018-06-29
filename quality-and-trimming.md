@@ -1,7 +1,12 @@
 # Short read quality and trimming
 
+TODO CTB:
+
+* add instructions on downloading/viewing output HTML with RStudio
+* put fastqc/multiqc output files in this repo
+
 Start up a Jetstream m1.small or larger
-[as per Jetstream startup instructions](https://angus.readthedocs.io/en/2017/jetstream/boot.html).
+[as per Jetstream startup instructions](jetstream/boot.html).
 
 ---
 
