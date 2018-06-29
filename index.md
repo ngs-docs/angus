@@ -15,7 +15,7 @@ Twitter hash tag: [#dibsi2018](https://twitter.com/search?f=tweets&q=%23dibsi201
 
 ### Monday, Day 1, and Tuesday, Day 2: Introduction
 
-Day 1 notes on hackmd: [ Lions / Tigers / Bears ]
+Day 1 & 2 notes on hackmd: [ [Lions](https://hackmd.io/_Uz8eppqQ1q5SxdSK8YbYQ) / [Tigers](https://hackmd.io/_PoKiVLERKaLuvypcBsa2A) / [Bears](https://hackmd.io/OSRXcLuNRQaz-OtQTFPKhg) ]
 
 Assessment.
 
@@ -26,6 +26,8 @@ Assessment.
 [Visualizing BLAST scores with RStudio](visualizing-blast-scores-with-RStudio.html)
 
 [Short-read quality trimming](quality-and-trimming.html)
+
+## Wednesday
 
 ### Lots goes here
 
