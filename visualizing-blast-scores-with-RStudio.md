@@ -32,7 +32,7 @@ echo http://$(hostname):8787/
 Now go to that Web address in your Web browser, and log in with the username
 and password from above.
 
-[![rstudio](jetstream/images/rstudio.png)](jetstream/_images/rstudio.png)
+<img src="../jetstream/images/rstudio.png" width="800">
 
 ## Enter some R commands
 
