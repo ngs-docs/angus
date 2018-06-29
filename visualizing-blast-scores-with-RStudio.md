@@ -32,6 +32,8 @@ echo http://$(hostname):8787/
 Now go to that Web address in your Web browser, and log in with the username
 and password from above.
 
+[![rstudio](jetstream/images/rstudio.png)](jetstream/_images/rstudio.png)
+
 ## Enter some R commands
 
 (Enter the below commands into RStudio, not the command line.)
@@ -65,7 +67,7 @@ data frame:
 dim(blast_out)
 ```
 
-That's a big data frame! 14,720 rows (and 12 columns!)
+That's a big data frame! 14,524 rows (and 12 columns!)
 
 Let's do some data visualization to get a handle on what our blast output looked like. First, let's look at the evalue:
 
