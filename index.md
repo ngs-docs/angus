@@ -13,9 +13,11 @@ Twitter hash tag: [#dibsi2018](https://twitter.com/search?f=tweets&q=%23dibsi201
 
 ## The main workshop materials
 
-### Monday, Day 1: Introduction
+### Monday, Day 1, and Tuesday, Day 2: Introduction
 
 Day 1 notes on hackmd: [ Lions / Tigers / Bears ]
+
+Assessment.
 
 [Booting a cloud computer from Jetstream!](jetstream/boot.html)
 
@@ -23,7 +25,11 @@ Day 1 notes on hackmd: [ Lions / Tigers / Bears ]
 
 [Visualizing BLAST scores with RStudio](visualizing-blast-scores-with-RStudio.html)
 
-Assessment.
+[Short-read quality trimming](quality-and-trimming.html)
+
+### Lots goes here
+
+...
 
 ### Saturday, last day: Summary
 
