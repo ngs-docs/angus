@@ -1,4 +1,4 @@
-# # RNAseq
+# RNAseq
 
 TODO:
 
