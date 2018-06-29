@@ -20,10 +20,13 @@ Learning objectives:
 
 ## Install software
 
-We will be using salmon
+We will be using salmon and edgeR. Salmon is installed through conda, but edgeR will require an additional script:
 
 ```
 conda install -y salmon
+
+curl -L -O https://raw.githubusercontent.com/ngs-docs/2018-ggg201b/master/lab6-rnaseq/install-edgeR.R
+sudo Rscript --no-save install-edgeR.R
 ```
 
 ## Change to a new working directory and link the original data
@@ -70,12 +73,6 @@ curl -L -O https://raw.githubusercontent.com/ngs-docs/2018-ggg201b/master/lab6-r
 python2 gather-counts.py
 ```
 
-##  Install edgeR
-
-```
-curl -L -O https://raw.githubusercontent.com/ngs-docs/2018-ggg201b/master/lab6-rnaseq/install-edgeR.R
-sudo Rscript --no-save install-edgeR.R
-```
 
 ##  Run edgeR (in R) using [this script](https://github.com/ngs-docs/2018-ggg201b/blob/master/lab6-rnaseq/yeast.salmon.R) and take a look at the output:
 
