@@ -1,11 +1,23 @@
-.. contents::
+Table of Contents
+=================
 
-   index
-   code-of-conduct
+Contents:
 
-   jetstream/boot
+.. toctree::
+   :caption: Table of Contents
+   :maxdepth: 2
+   :numbered:
 
-   running-command-line-blast
-   visualizing-blast-scores-with-RStudio
-   quality-and-trimming
-   mapping-variant-calling
+   index.md
+
+   code-of-conduct.rst
+
+   jetstream/boot.md
+
+   running-command-line-blast.md
+
+   visualizing-blast-scores-with-RStudio.md
+
+   quality-and-trimming.md
+
+   mapping-variant-calling.md
