@@ -9,7 +9,6 @@ Learning objectives:
 TODO CTB:
 
 * add instructions on downloading/viewing output HTML with RStudio
-* put fastqc/multiqc output files in this repo
 
 Start up a Jetstream m1.small or larger
 [as per Jetstream startup instructions](jetstream/boot.html).
@@ -187,8 +186,8 @@ Inside each of the fastqc directories you will find reports from the fastqc prog
 
 or you can look at these copies of them:
 
-* [ERR458493_fastqc.html](_static/ERR458493_fastqc.html)
-* [ERR458500_fastqc.html](_static/ERR458500_fastqc.html)
+* [ERR458493_fastqc.html](http://htmlpreview.github.com/?https://github.com/ngs-docs/angus/blob/2018/_static/ERR458493_fastqc.html)
+* [ERR458500_fastqc.html](http://htmlpreview.github.com/?https://github.com/ngs-docs/angus/blob/2018/_static/ERR458500_fastqc.html)
 
 (UPDATE THESE - put on OSF @CTB)
 
@@ -278,8 +277,8 @@ fastqc ERR458500.qc.fq.gz
 
 And now view my copies of these files: 
 
-* [ERR458493.qc_fastqc.html](_static/ERR458493.qc_fastqc.html)
-* [ERR458500.qc_fastqc.html](_static/ERR458500.qc_fastqc.html)
+* [ERR458493.qc_fastqc.html](http://htmlpreview.github.com/?https://github.com/ngs-docs/angus/blob/2018/_static/ERR458493.qc_fastqc.html)
+* [ERR458500.qc_fastqc.html](http://htmlpreview.github.com/?https://github.com/ngs-docs/angus/blob/2018/_static/ERR458500.qc_fastqc.html)
 
 Let's take a look at the output files:
 
@@ -313,7 +312,7 @@ Searching 15 files..  [####################################]  100%
 ```
 
 You can view the output html file
-[multiqc_report.html](_static/multiqc_report.html) by going to RStudio, selecting the file, and saying "view in Web browser."
+[multiqc_report.html](http://htmlpreview.github.com/?https://github.com/ngs-docs/angus/blob/2018/_static/multiqc_report.html) by going to RStudio, selecting the file, and saying "view in Web browser."
 
 Questions:
 
