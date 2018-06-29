@@ -98,7 +98,7 @@ with creating typos or errors in raw data.  Let's fix that before we
 go on any further:
 
 ```
-chmod u-w *
+chmod a-w *
 ```
 
 Take a look at their permissions now -- 
@@ -106,8 +106,8 @@ Take a look at their permissions now --
 ls -l
 ```
 
-and you should see that the 'w' in the permission string
-(`-rw-rw-r--`) has been removed from each file.
+and you should see that the 'w' in the original permission string
+(`-rw-rw-r--`) has been removed from each file and now it should look like `-r--r--r--`.
 
 We'll talk about what these files are below.
 
