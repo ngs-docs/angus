@@ -15,9 +15,13 @@ Twitter hash tag: [#dibsi2018](https://twitter.com/search?f=tweets&q=%23dibsi201
 
 ### Monday, Day 1: Introduction
 
+Day 1 notes on hackmd: [ Lions / Tigers / Bears ]
+
 [Booting a cloud computer from Jetstream!](jetstream/boot.html)
 
 [Running BLAST at the command line](running-command-line-blast.html)
+
+[Visualizing BLAST scores with RStudio](visualizing-blast-scores-with-RStudio.html)
 
 Assessment.
 
