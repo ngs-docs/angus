@@ -1,18 +1,12 @@
 # RNAseq
 
-TODO:
-
-* Put learning objectives
-
 Learning objectives:
 
-* ;
+* Install rna-seq software 
   
-* ;
+* Learn mapping and differential gene expression analysis
 
-* ;
-
-* ;
+* Interpret rna-seq analysis
 
 ## Boot up a Jetstream
 
@@ -23,6 +17,8 @@ Learning objectives:
 We will be using salmon and edgeR. Salmon is installed through conda, but edgeR will require an additional script:
 
 ```
+cd ~
+
 conda install -y salmon
 
 curl -L -O https://raw.githubusercontent.com/ngs-docs/2018-ggg201b/master/lab6-rnaseq/install-edgeR.R
@@ -34,7 +30,6 @@ sudo Rscript --no-save install-edgeR.R
 We will be using the same data as before ([Schurch et al, 2016](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4878611/)), so the following commands will create a new folder `rnaseq` and link the data in:
 
 ```
-cd ~/
 mkdir -p rnaseq
 cd rnaseq
 
@@ -43,7 +38,6 @@ ls
 ```
 
 ## Download the yeast reference transcriptome:
-
 
 ```
 curl -O https://downloads.yeastgenome.org/sequence/S288C_reference/orf_dna/orf_coding.fasta.gz
