@@ -1,5 +1,11 @@
 # Short read quality and trimming
 
+Learning objectives:
+- Install software (fastqc, multipc) via conda
+- download data
+- visualize read quality
+- quality filter and trim reads
+
 TODO CTB:
 
 * add instructions on downloading/viewing output HTML with RStudio
@@ -172,8 +178,8 @@ ls -d *fastqc.zip*
 to list the files, and you should see:
 
 ```
-SRR1976948_1_fastqc.zip
-SRR1976948_2_fastqc.zip
+ERR458493_fastqc.zip
+ERR458500_fastqc.zip
 ```
 
 Inside each of the fastqc directories you will find reports from the fastqc program. You can download these files using your RStudio Server console, if you like. (@CTB)
@@ -181,8 +187,8 @@ Inside each of the fastqc directories you will find reports from the fastqc prog
 
 or you can look at these copies of them:
 
-* [SRR1976948_1_fastqc/fastqc_report.html](http://2017-ucsc-metagenomics.readthedocs.io/en/latest/_static/SRR1976948_1_fastqc/fastqc_report.html)
-* [SRR1976948_2_fastqc/fastqc_report.html](http://2017-ucsc-metagenomics.readthedocs.io/en/latest/_static/SRR1976948_2_fastqc/fastqc_report.html)
+* [ERR458493_fastqc.html](_static/ERR458493_fastqc.html)
+* [ERR458500_fastqc.html](_static/ERR458500_fastqc.html)
 
 (UPDATE THESE - put on OSF @CTB)
 
@@ -272,8 +278,8 @@ fastqc ERR458500.qc.fq.gz
 
 And now view my copies of these files: 
 
-* [SRR1976948_1.qc_fastqc/fastqc_report.html](http://2016-metagenomics-sio.readthedocs.io/en/work/_static/SRR1976948_1.qc_fastqc/fastqc_report.html)
-* [SRR1976948_2.qc_fastqc/fastqc_report.html](http://2016-metagenomics-sio.readthedocs.io/en/work/_static/SRR1976948_2.qc_fastqc/fastqc_report.html)
+* [ERR458493.qc_fastqc.html](_static/ERR458493.qc_fastqc.html)
+* [ERR458500.qc_fastqc.html](_static/ERR458500.qc_fastqc.html)
 
 Let's take a look at the output files:
 
