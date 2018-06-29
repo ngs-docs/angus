@@ -59,14 +59,6 @@ should show you:
 
 ```
 total 29908
-drwxr-xr-x 2 titus titus     4096 May  8 13:28 Desktop
-drwxr-xr-x 2 titus titus     4096 Jun 29 07:52 Documents
-drwxr-xr-x 2 titus titus     4096 Jun 29 07:52 Downloads
-drwxr-xr-x 2 titus titus     4096 Jun 29 07:52 Music
-drwxr-xr-x 2 titus titus     4096 Jun 29 07:52 Pictures
-drwxr-xr-x 2 titus titus     4096 Jun 29 07:52 Public
-drwxr-xr-x 2 titus titus     4096 Jun 29 07:52 Templates
-drwxr-xr-x 2 titus titus     4096 Jun 29 07:52 Videos
 -rw-rw-r-- 1 titus titus 12553742 Jun 29 08:41 mouse.1.protein.faa.gz
 -rw-rw-r-- 1 titus titus  4074490 Jun 29 08:41 mouse.2.protein.faa.gz
 -rw-rw-r-- 1 titus titus 13963093 Jun 29 08:42 zebrafish.1.protein.faa.gz
@@ -175,6 +167,8 @@ last file --
 ```
 blastp -query mm-second.fa -db zebrafish.1.protein.faa -out mm-second.x.zebrafish.tsv -outfmt 6
 ```
+
+You can open the file with `less mm-second.x.zebrafish.tsv` to see how the file looks like.
 
 See [this link](http://www.metagenomics.wiki/tools/blast/blastn-output-format-6) for a description of the possible BLAST output formats.
 
