@@ -120,3 +120,50 @@ head yeast-transcriptome-assembly.fa
 ```
     
 It's RNA! Yay!
+
+Let's capture also some statistics of the Trinity assembly. Trinity provides a handy tool to do exactly that:
+
+```
+TrinityStats.pl yeast-transcriptome-assembly.fa
+```
+
+The output should look something like the following:
+
+```
+################################
+## Counts of transcripts, etc.
+################################
+Total trinity 'genes':  3305
+Total trinity transcripts:      3322
+Percent GC: 42.05
+
+########################################
+Stats based on ALL transcript contigs:
+########################################
+
+        Contig N10: 1355
+        Contig N20: 1016
+        Contig N30: 781
+        Contig N40: 617
+        Contig N50: 502
+
+        Median contig length: 319
+        Average contig: 441.65
+        Total assembled bases: 1467173
+
+#####################################################
+## Stats based on ONLY LONGEST ISOFORM per 'GENE':
+#####################################################
+
+        Contig N10: 1358
+        Contig N20: 1016
+        Contig N30: 781
+        Contig N40: 617
+        Contig N50: 500
+
+        Median contig length: 319
+        Average contig: 440.93
+        Total assembled bases: 1457279
+```
+
+This is a set of summary stats about your assembly. Are they good? Bad? How would you know?
