@@ -24,4 +24,6 @@ Contents:
    
    rna-seq.md
    
+   transcriptome-assembly.md
+   
    genome-assembly.md
