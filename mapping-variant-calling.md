@@ -26,12 +26,14 @@ conda install -y bwa samtools bcftools
 ```
 
 ## Change to a new working directory and map data
-
+After installing the necessary software, we will create the working directory for the mapping as follows:
 ```
 cd ~/
 mkdir -p mapping
 cd mapping
-
+```
+Next, we will create links from the previous download yeast dataset:
+```
 ln -fs ~/data/*.fastq.gz .
 ls
 ```
@@ -112,7 +114,13 @@ samtools tview ERR458493.sorted.bam orf_coding.fasta
    * left and right arrows scroll
    * `q` to quit
    * CTRL-h and CTRL-l do "big" scrolls
-   * `g YOR322C:2600` will take you to a specific location with a variant.
+   * Typing `g` allows you to go to a specific location, in this format chromosome:location. Here are some locations you can try out:
+   -- `YLR162W:293` (impressive pileup, shows two clear variants and three other less clear)
+   -- `YDR034C-A:98` (impressive pileup, shows two clear variants)
+   -- `YDR366C:310` (impressive pileup, less clear variants)
+   -- `YLR256W:4420` (impressive pileup, less clear variants)
+   -- `YBL105C:2179` (less depth, shows two clear variants)
+   -- `YDR471W:152` (impressive pileup, shows one clear variant)
    
 Get some summary statistics as well:
 
