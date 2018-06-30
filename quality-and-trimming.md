@@ -1,7 +1,7 @@
 # Short read quality and trimming
 
 Learning objectives:
-- Install software (fastqc, multipc) via conda
+- Install software (fastqc, multiqc) via conda
 - download data
 - visualize read quality
 - quality filter and trim reads
@@ -10,7 +10,7 @@ TODO CTB:
 
 * add instructions on downloading/viewing output HTML with RStudio
 
-Start up a Jetstream m1.small or larger
+Start up a Jetstream m1.medium or larger
 [as per Jetstream startup instructions](jetstream/boot.html).
 
 ---
@@ -147,7 +147,6 @@ less ERR458493.fastq.gz
 Question:
 
 * where does the filename come from?
-* why are there 1 and 2 in the file names?
 
 Links:
 
@@ -189,12 +188,9 @@ or you can look at these copies of them:
 * [ERR458493_fastqc.html](http://htmlpreview.github.com/?https://github.com/ngs-docs/angus/blob/2018/_static/ERR458493_fastqc.html)
 * [ERR458500_fastqc.html](http://htmlpreview.github.com/?https://github.com/ngs-docs/angus/blob/2018/_static/ERR458500_fastqc.html)
 
-(UPDATE THESE - put on OSF @CTB)
-
 Questions:
 
 * What should you pay attention to in the FastQC report?
-* Which is "better", file 1 or file 2? And why?
 
 Links:
 
@@ -276,7 +272,6 @@ Questions:
 * What version of Trimmomatic are we using here? (And FastQC?)
 * Do you think parameters are different for RNAseq and genomic data sets?
 * What's with these annoyingly long and complicated filenames?
-* why are we running R1 and R2 together?
 
 For a discussion of optimal trimming strategies, see 
 [MacManes, 2014](http://journal.frontiersin.org/Journal/10.3389/fgene.2014.00013/abstract) -- it's about RNAseq but similar arguments should apply to metagenome
