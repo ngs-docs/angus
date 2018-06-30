@@ -119,4 +119,4 @@ Now, look at the beginning:
 head yeast-transcriptome-assembly.fa
 ```
     
-It's DNA! Yay!
+It's RNA! Yay!
