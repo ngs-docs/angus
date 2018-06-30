@@ -1,5 +1,13 @@
 # Genome assembly - some basics
 
+Learning objectives:
+
+	* Learn what is genome assembly?
+	* Different types of assemblies
+	* How do assemblers work?
+	* Checking the quality of assembly
+	* Understanding genome assembly
+	
 In [variant calling](http://angus.readthedocs.io/en/2018/mapping-variant-calling.html), we mapped reads to a reference and looked systematically for differences.
 
 But what if you don't have a reference? How do you construct one?
@@ -21,7 +29,6 @@ The [MEGAHIT assembler](https://www.ncbi.nlm.nih.gov/pubmed/27012178) is one of 
 conda install -y megahit quast 
 ```
 
-
 ## Change to a new working directory and link the original data
 
 We will be using the same data as before ([Schurch et al, 2016](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4878611/)), so the following commands will create a new folder `assembly` and link the data in:
@@ -39,8 +46,6 @@ ls
 
 
 Let's assemble the yeast data with MEGAHIT as follows:
-
-
 
 ```
 megahit -r ERR458493.fastq.gz,ERR458494.fastq.gz,ERR458495.fastq.gz,ERR458500.fastq.gz,ERR458501.fastq.gz,ERR458502.fastq.gz -o yeast
@@ -104,7 +109,6 @@ and now take a look at the report:
 less yeast_report/report.txt
 ```
 
-	
 You should see something like:
 
 ```
