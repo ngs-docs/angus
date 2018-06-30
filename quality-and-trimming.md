@@ -248,6 +248,26 @@ Input Reads: 1093957 Surviving: 1092715 (99.89%) Dropped: 1242 (0.11%)
 TrimmomaticSE: Completed successfully
 ```
 
+We can also run the same process for all 6 samples more efficiently using a `for` loop, as follows:
+
+```
+for filename in *.fastq.gz
+do
+        # first, make the base by removing fastq.gz
+        base=$(basename $filename .fastq.gz)
+        echo $base
+
+        trimmomatic SE ${base}.fastq.gz \
+                ${base}.qc.fq.gz \
+                ILLUMINACLIP:TruSeq2-PE.fa:2:40:15 \
+                LEADING:2 TRAILING:2 \
+                SLIDINGWINDOW:4:2 \
+                MINLEN:25
+done
+```
+
+This script will go through each for the filenames that end with `fastq.gz` and run Trimmomatic for it.
+
 Questions:
 
 * How do you figure out what the parameters mean?
