@@ -21,3 +21,7 @@ Contents:
    quality-and-trimming.md
 
    mapping-variant-calling.md
+   
+   rna-seq.md
+   
+   genome-assembly.md
