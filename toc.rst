@@ -1,8 +1,6 @@
 Table of Contents
 =================
 
-Contents:
-
 .. toctree::
    :caption: Table of Contents
    :maxdepth: 2
@@ -23,5 +21,7 @@ Contents:
    mapping-variant-calling.md
    
    rna-seq.md
+   
+   transcriptome-assembly.md
    
    genome-assembly.md
