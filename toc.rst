@@ -23,3 +23,5 @@ Contents:
    mapping-variant-calling.md
    
    rna-seq.md
+   
+   genome-assembly.md
