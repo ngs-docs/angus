@@ -20,7 +20,7 @@ Trinity, developed at the [Broad Institute](http://www.broadinstitute.org/) and 
 
 [Boot an m1.medium Jetstream instance](jetstream/boot.md) and log in.
 
-## Install the MEGAHIT assembler
+## Install the TRINITY assembler
 
 The [Trinity assembler](https://www.ncbi.nlm.nih.gov/pubmed/21572440) can also install it through `conda`:
 
