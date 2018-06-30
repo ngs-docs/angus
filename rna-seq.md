@@ -2,9 +2,9 @@
 
 Learning objectives:
 
-* Install rna-seq software 
+* Install rna-seq software (salmon and edgeR) using conda
   
-* Learn mapping and differential gene expression analysis
+* Learn mapping and differential gene expression analysis of rna-seq data
 
 * Interpret rna-seq analysis results
 
@@ -25,7 +25,7 @@ curl -L -O https://raw.githubusercontent.com/ngs-docs/2018-ggg201b/master/lab6-r
 sudo Rscript --no-save install-edgeR.R
 ```
 
-## Change to a new working directory and link the original data
+## Make a new working directory and link the original data
 
 We will be using the same data as before ([Schurch et al, 2016](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4878611/)), so the following commands will create a new folder `rnaseq` and link the data in:
 
@@ -67,7 +67,6 @@ curl -L -O https://raw.githubusercontent.com/ngs-docs/2018-ggg201b/master/lab6-r
 python2 gather-counts.py
 ```
 
-
 ##  Run edgeR (in R) using [this script](https://github.com/ngs-docs/2018-ggg201b/blob/master/lab6-rnaseq/yeast.salmon.R) and take a look at the output:
 
 ```
@@ -76,7 +75,7 @@ Rscript --no-save yeast.salmon.R
 ```
 
 This will produce two plots, `yeast-edgeR-MA-plot.pdf` and
-`yeast-edgeR-MDS.pdf`. You can view them by going to your RStudio server file viewer, changing to  the directory `yeast`, and then clicking on them.
+`yeast-edgeR-MDS.pdf`. You can view them by going to your RStudio server file viewer, changing to  the directory `rnaseq`, and then clicking on them. If you see an error "Popup Blocked", then click the "Try again" button
 
  The `yeast-edgeR.csv` file contains the fold expression & significance information in a spreadsheet.
 
