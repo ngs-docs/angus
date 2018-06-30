@@ -29,6 +29,10 @@ Assessment. (Please fill out pre-assessment survey.)
 
 [Short-read quality trimming](quality-and-trimming.html)
 
+[Variant calling](mapping-variant-calling.html)
+
+[Transcriptome assembly](transcriptome-assembly.html)
+
 ## Wednesday
 
 ### Lots goes here
