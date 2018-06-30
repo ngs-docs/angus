@@ -6,7 +6,7 @@ Learning objectives:
   
 * Learn mapping and differential gene expression analysis
 
-* Interpret rna-seq analysis
+* Interpret rna-seq analysis results
 
 ## Boot up a Jetstream
 
