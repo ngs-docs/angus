@@ -29,15 +29,19 @@ Assessment. (Please fill out pre-assessment survey.)
 
 [Short-read quality trimming](quality-and-trimming.html)
 
-[Variant calling](mapping-variant-calling.html)
+# Wednesday, Day 3
+
+[Mapping and variant calling](mapping-variant-calling.html)
+
+# Thursday and Friday, Days 4 and 5:
+
+[RNAseq differential expression](rna-seq.html)
 
 [Transcriptome assembly](transcriptome-assembly.html)
 
-## Wednesday
+## Week 2!
 
-### Lots goes here
-
-...
+[ Details TBD ]
 
 ### Saturday, last day: Summary
 
