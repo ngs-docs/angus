@@ -115,12 +115,13 @@ samtools tview ERR458493.sorted.bam orf_coding.fasta
    * `q` to quit
    * CTRL-h and CTRL-l do "big" scrolls
    * Typing `g` allows you to go to a specific location, in this format chromosome:location. Here are some locations you can try out:
-   -- `YLR162W:293` (impressive pileup, shows two clear variants and three other less clear)
-   -- `YDR034C-A:98` (impressive pileup, shows two clear variants)
-   -- `YDR366C:310` (impressive pileup, less clear variants)
-   -- `YLR256W:4420` (impressive pileup, less clear variants)
-   -- `YBL105C:2179` (less depth, shows two clear variants)
-   -- `YDR471W:152` (impressive pileup, shows one clear variant)
+   
+     - `YLR162W:293` (impressive pileup, shows two clear variants and three other less clear)
+     - `YDR034C-A:98` (impressive pileup, shows two clear variants)
+     - `YDR366C:310` (impressive pileup, less clear variants)
+     - `YLR256W:4420` (impressive pileup, less clear variants)
+     - `YBL105C:2179` (less depth, shows two clear variants)
+     - `YDR471W:152` (impressive pileup, shows one clear variant)
    
 Get some summary statistics as well:
 
