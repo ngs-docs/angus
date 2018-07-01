@@ -32,8 +32,7 @@ on "Continue".
 
 ## Fill in the username and password and click "Sign in"
 
-Fill in the username, which is 'tx160085' for the ANGUS workshop,
-and then enter the password (which we will tell you in class).
+Fill in the username and then the password (which we will tell you in class).
 
 [![foo](images/login-3.thumb.png)](images/login-3.png)
            
@@ -64,7 +63,7 @@ Select [![foo](images/Images.thumb.png)](images/Images.png)
 ## Find the "DIBSI 2018 workshop image" image, click on it
 
 Enter "DIBSI" into the search bar - make sure it's from
-June 22nd, 2018 by Titus. This images is based on Ubuntu 18.04 devel and docker, with [bioconda](https://bioconda.github.io/) package manager added.
+June 22nd, 2018 by Titus. This images is based on Ubuntu 18.04 devel and docker, with Rstudio and [bioconda](https://bioconda.github.io/) package manager added.
 
 [![foo](images/Image_Search.thumb.png)](images/Image_Search.png)
            
@@ -73,7 +72,7 @@ Launch [![foo](images/DIBSI2018_launch.thumb.png)](images/DIBSI2018_launch.png)
 ## Name it something simple
 
 Change the name after what we're doing - "Day1_workshop_tutorial", for example,
-but it doesn't matter. Pull down the drop-down menu under 'Project' to select your name. Then make sure the appropriate Resources are selected. You probably won't have to change these. The 'Allocation Source' will already be selected. (This is our XSEDE allocation grant ID.) The 'm1.medium' instance size will already be chosen. This is the minimum instance size. A larger instance can be selected, dependning on what we will be doing. But a smaller size cannot be chosen. The 'Provider' will be randomly chosen as either 'Jetstream - Indiana University' or 'Jetstream - TACC'.
+but it doesn't matter. Pull down the drop-down menu under 'Project' to select your name. Then make sure the appropriate Resources are selected. You probably won't have to change these. The 'Allocation Source' will already be selected. (This is our XSEDE allocation grant ID.) The 'm1.medium' instance size will already be chosen. This is the minimum instance size. A larger instance can be selected, depending on what we will be doing. The 'Provider' will be randomly chosen as either 'Jetstream - Indiana University' or 'Jetstream - TACC'.
 
 [![foo](images/Launch_Instance.thumb.png)](images/Launch_Instance.png)
 
@@ -90,7 +89,7 @@ Now, you can either click "Open Web Shell", *or*, if you know how to use ssh,
 you can ssh in as user 'tx160085' on the IP address of the machine - see
 circled information below.  Note that you'll need to use the private key
 file we sent around to everyone in last the pre-workshop e-mail if you decide to
-use your system terminal.
+use your system terminal. Here are the logging [instructions]((https://github.com/ngs-docs/angus/blob/update/schedule/jetstream/login.md)) using private-key
 
 [![foo](images/login-12.thumb.png)](images/login-12.png)
 
