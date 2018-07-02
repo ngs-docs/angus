@@ -20,7 +20,7 @@ to make use of it, you'll need the private key. And so, we move on!
 ## Getting the Private Key
 
 The private key has been posted on slack in the `#general` channel. You can download it by 
-visiting [here](https://dibsi.slack.com/files/camillescott/F60FMTCCA/angus_private_key), selecting
+visiting [here](https://dibsi2018.slack.com/files/UBHJK59T9/FBHQP0KRB/angus_private_key), selecting
 **Actions**, and pressing download.
 
 ## Getting your instance IP address
@@ -44,17 +44,17 @@ run:
 cd && mv ~/Downloads/angus_private_key .
 ```
 
-This puts the file in your home folder. Now, we need to set its permissions more strictly:
+This puts you and the file in your home folder. Now, we need to set its permissions more strictly:
 
 ```bash
 chmod 600 angus_private_key
 ```
 
 Finally, we can use the IP address from before, along with the common login name and the key, to log
-in:
+in we need to use the `ssh` command, provide the key file with the `-i` flag, and then our class name (login ID) and the IP address we got above for our instance. This will look something like this:
 
 ```bash
-ssh -i angus_private_key tx160085@YOUR_IP_ADDRESS
+ssh -i angus_private_key YOUR_CLASS_NAME@YOUR_IP_ADDRESS
 ```
 
 You should now have access to atmosphere within your local terminal.
