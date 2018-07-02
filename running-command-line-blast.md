@@ -127,7 +127,7 @@ head -11 mouse.1.protein.faa > mm-first.fa
 ```
 
 So now, for example, you can do `cat mm-first.fa` to see the contents of
-that file (or `less mm-first.fa`).
+that file (or `less mm-first.fa`). TIP: if you try `less mm-first.fa` you will need to exit by pressing the `q` key in your keyboard.
 
 Now let's BLAST these two sequences against the entire zebrafish
 protein data set. First, we need to tell BLAST that the zebrafish
