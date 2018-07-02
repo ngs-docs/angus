@@ -172,5 +172,3 @@ You can open the file with `less mm-second.x.zebrafish.tsv` to see how the file 
 
 See [this link](http://www.metagenomics.wiki/tools/blast/blastn-output-format-6) for a description of the possible BLAST output formats.
 
-## [NEXT - Visualizing BLAST score distributions in RStudio](visualizing-blast-scores-with-RStudio.html)
-

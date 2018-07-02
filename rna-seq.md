@@ -21,7 +21,7 @@ cd ~
 
 conda install -y salmon
 
-curl -L -O https://raw.githubusercontent.com/ngs-docs/2018-ggg201b/master/lab6-rnaseq/install-edgeR.R
+curl -L -O https://raw.githubusercontent.com/ngs-docs/angus/2018/scripts/install-edgeR.R
 sudo Rscript --no-save install-edgeR.R
 ```
 
@@ -60,17 +60,17 @@ done
 
 Read up on [libtype, here](https://salmon.readthedocs.io/en/latest/salmon.html#what-s-this-libtype).
 
-##  Collect all of the sample counts using [this Python script](https://github.com/ngs-docs/2018-ggg201b/blob/master/lab6-rnaseq/gather-counts.py):
+##  Collect all of the sample counts using [this Python script](https://raw.githubusercontent.com/ngs-docs/angus/2018/scripts/gather-counts.py):
 
 ```
 curl -L -O https://raw.githubusercontent.com/ngs-docs/2018-ggg201b/master/lab6-rnaseq/gather-counts.py
 python2 gather-counts.py
 ```
 
-##  Run edgeR (in R) using [this script](https://github.com/ngs-docs/2018-ggg201b/blob/master/lab6-rnaseq/yeast.salmon.R) and take a look at the output:
+##  Run edgeR (in R) using [this script](https://raw.githubusercontent.com/ngs-docs/angus/2018/scripts/yeast.salmon.R) and take a look at the output:
 
 ```
-curl -L -O https://raw.githubusercontent.com/ngs-docs/2018-ggg201b/master/lab6-rnaseq/yeast.salmon.R
+curl -L -O https://raw.githubusercontent.com/ngs-docs/angus/2018/scripts/yeast.salmon.R
 Rscript --no-save yeast.salmon.R
 ```
 
