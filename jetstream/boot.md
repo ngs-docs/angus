@@ -1,7 +1,12 @@
 # Booting a Jetstream Computer Instance for your use!
 
-What we're going to do here is walk through starting up an running
-computer (an "instance") on the Jetstream service.
+What we're going to do here is walk through starting up a running
+computer (an "instance") on the Jetstream service. 
+* Jetstream is run by NSF and provides elastic cloud computing services. 
+* "Cloud" computing is a fancy word for being allowed to temporarily use someone else's computer somewhere else with full administrative privaleges to install whatever software we want. 
+* Sometimes we need to use computing resources that are larger than our personal computers. Cloud computing lets us decide how much capacity we want to be using. 
+
+If you would like to read more about cloud computing, see this [Carpentry Cloud Computing lesson](http://www.datacarpentry.org/cloud-genomics/01-why-cloud-computing/).
 
 Below, we've provided screenshots of the whole process. You can click
 on them to zoom in a bit.  The important areas to fill in are circled
