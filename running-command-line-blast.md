@@ -73,19 +73,16 @@ computer; note, these files originally came from the
 ```
 curl -o mouse.1.protein.faa.gz -L https://osf.io/v6j9x/download
 curl -o mouse.2.protein.faa.gz -L https://osf.io/j2qxk/download
-
 curl -o zebrafish.1.protein.faa.gz -L https://osf.io/68mgf/download
 ```
 
-If you look at the files in the current directory, you should see four
-files, along with a directory called lost+found which is for system
-information. Running the command:
+If you look at the files in the current directory:
 
 ```
 ls -l
 ```
 
-should show you:
+You should now see these 3:
 
 ```
 total 29908
@@ -123,11 +120,11 @@ do this using output redirection with '>', which says "take
 all the output and put it into this file here."
 
 ```
-head -11 mouse.1.protein.faa > mm-first.fa
+head -n 11 mouse.1.protein.faa > mm-first.faa
 ```
 
-So now, for example, you can do `cat mm-first.fa` to see the contents of
-that file (or `less mm-first.fa`). TIP: if you try `less mm-first.fa` you will need to exit by pressing the `q` key in your keyboard.
+So now, for example, you can do `cat mm-first.faa` to see the contents of
+that file (or `less mm-first.faa`). TIP: if you try `less mm-first.faa` you will need to exit by pressing the `q` key in your keyboard.
 
 Now let's BLAST these two sequences against the entire zebrafish
 protein data set. First, we need to tell BLAST that the zebrafish
@@ -141,7 +138,7 @@ makeblastdb -in zebrafish.1.protein.faa -dbtype prot
 Next, we call BLAST to do the search:
 
 ```
-blastp -query mm-first.fa -db zebrafish.1.protein.faa
+blastp -query mm-first.faa -db zebrafish.1.protein.faa
 ```
 
 This should run pretty quickly, but you're going to get a lot of output!!
@@ -149,7 +146,7 @@ To save it to a file instead of watching it go past on the screen,
 ask BLAST to save the output to a file that we'll name `mm-first.x.zebrafish.txt`:
 
 ```
-blastp -query mm-first.fa -db zebrafish.1.protein.faa -out mm-first.x.zebrafish.txt
+blastp -query mm-first.faa -db zebrafish.1.protein.faa -out mm-first.x.zebrafish.txt
 ```
 
 and then you can 'page' through this file at your leisure by typing:
@@ -165,11 +162,11 @@ less mm-first.x.zebrafish.txt
 Let's do some more sequences (this one will take a little longer to run):
 
 ```
-head -500 mouse.1.protein.faa > mm-second.fa
-blastp -query mm-second.fa -db zebrafish.1.protein.faa -out mm-second.x.zebrafish.txt
+head -n 498 mouse.1.protein.faa > mm-second.faa
+blastp -query mm-second.faa -db zebrafish.1.protein.faa -out mm-second.x.zebrafish.txt
 ```
 
-will compare the first 83 sequences.  You can look at the output file with:
+will compare the first 96 sequences.  You can look at the output file with:
 
 ```
 less mm-second.x.zebrafish.txt
@@ -181,7 +178,7 @@ Notes:
 
 * you can copy/paste multiple commands at a time, and they will execute in order;
 
-* why did it take longer to BLAST ``mm-second.fa`` than ``mm-first.fa``?
+* why did it take longer to BLAST ``mm-second.faa`` than ``mm-first.faa``?
 
 Things to mention and discuss:
 
@@ -195,7 +192,7 @@ Last, but not least, let's generate a more machine-readable version of that
 last file --
 
 ```
-blastp -query mm-second.fa -db zebrafish.1.protein.faa -out mm-second.x.zebrafish.tsv -outfmt 6
+blastp -query mm-second.faa -db zebrafish.1.protein.faa -out mm-second.x.zebrafish.tsv -outfmt 6
 ```
 
 You can open the file with `less mm-second.x.zebrafish.tsv` to see how the file looks like.
