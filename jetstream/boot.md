@@ -94,7 +94,7 @@ Now, you can either click "Open Web Shell", *or*, if you know how to use ssh,
 you can ssh in using the credentials we will provide in class - see
 circled information below.  Note that you'll need to use the private key
 file we sent around to everyone in last the pre-workshop e-mail if you decide to
-use your system terminal. Here are the logging [instructions]((https://github.com/ngs-docs/angus/blob/update/schedule/jetstream/login.md)) using private-key
+use your system terminal. Here are the logging [instructions](https://github.com/ngs-docs/angus/blob/update/schedule/jetstream/login.md) using private-key
 
 [![foo](images/login-12.thumb.png)](images/login-12.png)
 
