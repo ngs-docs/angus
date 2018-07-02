@@ -92,13 +92,10 @@ Just wait! Don't reload or anything. When it is ready, the colored dot under "St
            
 ## Click on your new instance to get more information!
 
-Now, you can either click "Open Web Shell", *or*, if you know how to use ssh,
-you can ssh in as a user (your user name is whatever your class name is, e.g. dibbears) to the IP address of the machine - see
-circled information below to get IP address.  Note that you'll need to use the private key
-file we sent around to everyone in last the pre-workshop e-mail if you decide to
-use your system terminal. Here are the logging [instructions]((https://github.com/ngs-docs/angus/blob/2018/jetstream/login.md)) using a private key.
+Now, you can login to the instance! Note that you'll need to use the private key
+file located in the #general channel in slack. The username will be specific to your classroom. Use these log-in [instructions](https://angus.readthedocs.io/en/2018/jetstream/login.html) for using a private-key.
 
-
+If you cannot access the terminal using the private key, a web shell is available:
 
 [![foo](images/login-12.thumb.png)](images/login-12.png)
 

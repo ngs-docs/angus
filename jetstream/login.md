@@ -55,6 +55,10 @@ in we need to use the `ssh` command, provide the key file with the `-i` flag, an
 
 ```bash
 ssh -i angus_private_key YOUR_CLASS_NAME@YOUR_IP_ADDRESS
+
+The authenticity of host 'YOUR_IP_ADDRESS (YOUR_IP_ADDRESS)' can't be established.
+ECDSA key fingerprint is SHA256:jPDtbjMUp9c7FWAvaLLwR9vWVNTOyqikzcE3m0hglG0.
+Are you sure you want to continue connecting (yes/no)? yes
 ```
 
 You should now have access to atmosphere within your local terminal.

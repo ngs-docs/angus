@@ -1,9 +1,5 @@
 # Mapping and variant calling on yeast transcriptome
 
-TODO:
-
-* find a better variant with variants.vcf
-
 Learning objectives:
 
 * define and explore the concepts and implications of shotgun
