@@ -68,9 +68,7 @@ Select [![foo](images/Images.thumb.png)](images/Images.png)
 ## Find the "DIBSI 2018 workshop image" image, click on it
 
 Enter "DIBSI" into the search bar - make sure it's from
-June 22nd, 2018 by Titus. This image is based on Ubuntu 18.04 devel and docker, with Rstudio and [bioconda](https://bioconda.github.io/) package manager added.
-
-Here, "image" refers to the resources that are pre-loaded into your computing workspace on your instance. Think of it like apps that come with your phone before you add new ones on your own. Loading the DIBSI image Titus built before the workshop prevents us from having to choose our operating distrubution and download frequently-used packages on our own, and makes sure that everyone at ANGUS has the same basic computing environment. That ensures that the commands we tell you to use will work, and makes it easier for TAs to figure out what's wrong if you run into error messages.
+June 22nd, 2018 by Titus. This images is based on Ubuntu 18.04 devel and docker, with Rstudio and [bioconda](https://bioconda.github.io/) package manager added.
 
 [![foo](images/Image_Search.thumb.png)](images/Image_Search.png)
            
@@ -86,18 +84,19 @@ but it doesn't matter. Pull down the drop-down menu under 'Project' to select yo
 ## Wait for it to become active
 
 It will now be booting up! This will take 2-15 minutes, depending.
-Just wait! Don't reload or anything.
+Just wait! Don't reload or anything. When it is ready, the colored dot under "Status" will turn green and look like this: 
 
 [![foo](images/login-11.thumb.png)](images/login-11.png)
            
 ## Click on your new instance to get more information!
 
 Now, you can either click "Open Web Shell", *or*, if you know how to use ssh,
-you can ssh in using the credentials we will provide in class - see
-circled information below.  Note that you'll need to use the private key
+you can ssh in as a user (your user name is whatever your class name is, e.g. dibbears) to the IP address of the machine - see
+circled information below to get IP address.  Note that you'll need to use the private key
 file we sent around to everyone in last the pre-workshop e-mail if you decide to
+use your system terminal. Here are the logging [instructions]((https://github.com/ngs-docs/angus/blob/2018/jetstream/login.md)) using a private key.
 
-use your system terminal. Here are the log-in [instructions](https://angus.readthedocs.io/en/2018/jetstream/login.html) using private-key
+
 
 [![foo](images/login-12.thumb.png)](images/login-12.png)
 
