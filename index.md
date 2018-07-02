@@ -11,6 +11,17 @@ respect it and be excellent to each other!
 
 Twitter hash tag: [#dibsi2018](https://twitter.com/search?f=tweets&q=%23dibsi2018&src=typd)
 
+## Rooms and lead instructors!
+
+There are three rooms - Lions, Tigers and Bears!
+
+Lions will be ably led by Dr. Elijah Lowe and Adam Orr, in 1041 Valley.
+
+Tigers will enjoy the leadership of Dr. Amanda Charbonneau and Dr. Fotis Psomopoulos, in 1043 Valley.
+
+Dr. Tristan De Buysscher and Lisa Johnson will lead Da Bears through the
+forest, in 1047 Valley.
+
 ## The main workshop materials
 
 ### Monday, Day 1, and Tuesday, Day 2: Introduction
