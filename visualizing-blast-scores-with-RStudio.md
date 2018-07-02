@@ -32,7 +32,25 @@ echo http://$(hostname):8787/
 Now go to that Web address in your Web browser, and log in with the username
 and password from above.
 
-<img src="../jetstream/images/rstudio.png" width="800">
+![rstudio](jetstream/images/rstudio.png)
+
+## Where are we?
+
+We've moved from using the command line to using R. Much like the command line 
+allows us to do text and database like operations on large files, R is a 
+statistical programming language that allows us to do Excel-like operations 
+on *any* size dataset. R can do anything from act like a simple interactive 
+calculator, all the way up to automatically analyzing thousands of files and 
+outputting the analysis as website of interactive charts and graphs. For 
+instance, this [Near Earth Object tracker](https://kvistrup.shinyapps.io/neo_fireball_tracking/)
+is an R script that pulls data from NASA, and will let you do exploratory analysis
+by just pointing and clicking on a website!
+
+R is it's own coding language, so it will take a little time before you can
+build your own NEO tracker, but we're going to keep coming back to R and 
+learning new features over the course of the workshop. So, it's okay if you 
+don't feel like you 'get' it today. 
+
 
 ## Enter some R commands
 
