@@ -79,7 +79,7 @@ and run it.
 ### Fill in session settings
 
 Fill in your "remote host," which will be the IP address from earlier. Then select
-"specify username" and enter `tx160085`.
+"specify username" and enter your class group name (e.g. dibbears).
 
 [![foo](images/ec2-moba-2.png)](../_images/ec2-moba-2.png)
 
