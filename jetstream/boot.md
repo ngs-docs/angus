@@ -70,6 +70,8 @@ Select [![foo](images/Images.thumb.png)](images/Images.png)
 Enter "DIBSI" into the search bar - make sure it's from
 June 22nd, 2018 by Titus. This images is based on Ubuntu 18.04 devel and docker, with Rstudio and [bioconda](https://bioconda.github.io/) package manager added.
 
+Here, "image" refers to the resources that are pre-loaded into your computing workspace on your instance. Think of it like apps that come with your phone before you add new ones on your own. Loading the DIBSI image Titus built before the workshop prevents us from having to choose our operating distrubution and download frequently-used packages on our own, and makes sure that everyone at ANGUS has the same basic computing environment. That ensures that the commands we tell you to use will work, and makes it easier for TAs to figure out what's wrong if you run into error messages.
+
 [![foo](images/Image_Search.thumb.png)](images/Image_Search.png)
            
 Launch [![foo](images/DIBSI2018_launch.thumb.png)](images/DIBSI2018_launch.png)
