@@ -24,12 +24,42 @@ and let's make a new subdirectory to work in:
 mkdir -p ~/blast
 cd ~/blast
 ```
+Creating a subdirectory will allow us to keep our home directory tidy
+and help keep us organized. Staying organized will make it easier to
+locate important files and prevent us from being overwhelmed. As you will
+find, we will create and use many files.
+
 
 Now, install some software. We'll need NCBI BLAST for the below tutorial:
 
 ```
 conda install -y blast
 ```
+
+## What is BLAST?
+BLAST is the **B**asic **L**ocal **A**lignment **S**earch **T**ool.
+It uses an index to rapdily search large sequence databases;
+it starts by finding small matches between the two sequences and extending those matches.
+For more information on how BLAST works and the different BLAST functionality,
+check out the summary on [Wikipedia](https://en.wikipedia.org/wiki/BLAST) or
+the NCBI's list of [BLAST resources](https://blast.ncbi.nlm.nih.gov/Blast.cgi?CMD=Web&PAGE_TYPE=BlastDocs).
+
+BLAST can be helpful for identifying the source of a sequence,
+or finding a similar sequence in another organism.
+In this lesson, we will use BLAST to find zebrafish proteins that
+are similar to a small set of mouse proteins.
+
+## Why use the command line?
+BLAST has a very nice graphical interface for searching sequences in NCBI's database.
+However, running BLAST through the commmand line has many benefits:
+  * It's much easier to run many BLAST queries using the command line than the GUI
+  * Running BLAST with the command line is reproducible and can be documented in a script
+  * The results can be saved in a machine-readable format that can be analyzed later on
+  * You can create your own databases to search rather than using NCBI's pre-built databases
+  * It allows the queries to be automated
+  * It allows you to use a remote computer to run the BLAST queries
+  
+Later on in the workshop we will talk more about these advantages and have a more in-depth explanation of the shell.
 
 ## Running BLAST
 
