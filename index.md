@@ -34,7 +34,8 @@ Assessment. (Please fill out pre-assessment survey.)
 
 [Booting a cloud computer from Jetstream!](jetstream/boot.html)
 
-(During this: Introduction to collaboration tools: Slack, hackmd, and e-mail!)
+While your Jetstream computer is
+booting... [Intro to collaboration tools](online-tools.html)
 
 [Running BLAST at the command line](running-command-line-blast.html)
 
