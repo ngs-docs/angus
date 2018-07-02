@@ -32,7 +32,7 @@ echo http://$(hostname):8787/
 Now go to that Web address in your Web browser, and log in with the username
 and password from above.
 
-![rstudio](jetstream/images/rstudio.png)
+![rstudio|512x397,20%](jetstream/images/rstudio.png)
 
 ## Where are we?
 
