@@ -19,8 +19,7 @@ Lions will be ably led by Dr. Elijah Lowe and Adam Orr, in 1041 Valley.
 
 Tigers will enjoy the leadership of Dr. Amanda Charbonneau and Dr. Fotis Psomopoulos, in 1043 Valley.
 
-Dr. Tristan De Buysscher and Lisa Johnson will lead Da Bears through the
-forest, in 1047 Valley.
+Dr. Tristan De Buysscher and Lisa Johnson will lead Da Bears through the forest, in 1047 Valley.
 
 ## Schedule, in brief:
 
@@ -79,6 +78,8 @@ Questions and answers.
 Course review, input, and feedback.
 
 <!-- ## The main workshop materials
+=======
+## The main workshop materials - Week #1
 
 ### Monday, Day 1, and Tuesday, Day 2: Introduction
 
@@ -103,7 +104,7 @@ Tuesday, remainder of the day:
 
 [Short-read quality trimming](quality-and-trimming.html)
 
-# Wednesday, Day 3
+### Wednesday, Day 3 (July 4th)
 
 We will start **in our classrooms** at 9am.
 
@@ -111,14 +112,15 @@ We will start **in our classrooms** at 9am.
 
 **End at noon, lunch on your own.**
 
-# Thursday, Day 4 (July 5th)
+### Thursday, Day 4 (July 5th)
 
 **Start at 9am in Valley Hall, details TBD.**
 
 [Mapping and variant calling](mapping-variant-calling.html)
+
 [RNAseq differential expression](rna-seq.html)
 
-# Thursday, Day 5 (July 6th)
+### Thursday, Day 5 (July 6th)
 
 **Start at 9am in Valley Hall, details TBD.**
 

@@ -2,7 +2,6 @@ Table of Contents
 =================
 
 .. toctree::
-   :caption: Table of Contents
    :maxdepth: 2
    :numbered:
 
@@ -12,6 +11,8 @@ Table of Contents
 
    jetstream/boot.md
 
+   jetstream/login.md
+
    running-command-line-blast.md
 
    visualizing-blast-scores-with-RStudio.md
@@ -19,9 +20,9 @@ Table of Contents
    quality-and-trimming.md
 
    mapping-variant-calling.md
-   
+
    rna-seq.md
-   
+
    transcriptome-assembly.md
-   
+
    genome-assembly.md
