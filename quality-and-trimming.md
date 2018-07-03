@@ -6,9 +6,6 @@ Learning objectives:
 - visualize read quality
 - quality filter and trim reads
 
-TODO CTB:
-
-* add instructions on downloading/viewing output HTML with RStudio
 
 Start up a Jetstream m1.medium or larger
 [as per Jetstream startup instructions](jetstream/boot.html).
