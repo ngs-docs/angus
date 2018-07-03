@@ -22,7 +22,63 @@ Tigers will enjoy the leadership of Dr. Amanda Charbonneau and Dr. Fotis Psomopo
 Dr. Tristan De Buysscher and Lisa Johnson will lead Da Bears through the
 forest, in 1047 Valley.
 
-## The main workshop materials
+## Schedule, in brief:
+
+Monday 7/2:
+* 1:30-5:30pm - welcome & getting started with Jetstream - 1030 Valley Hall.
+	* [Welcome slides](https://docs.google.com/presentation/d/1bAfTYNigeYXC1EWrjpAEaFc9zWd_JxXlk9DJ99MXo7g/edit#slide=id.g3cc5aa73e1_0_81)
+	* [Booting from Jetstream](https://angus.readthedocs.io/en/2018/jetstream/boot.html)
+	* [Intro to collaboration tools](https://angus.readthedocs.io/en/2018/online-tools.html)
+	* [Running BLAST at the command line](https://angus.readthedocs.io/en/2018/running-command-line-blast.html)
+	* [Visualizing BLAST scores](https://angus.readthedocs.io/en/2018/visualizing-blast-scores-with-RStudio.html)
+
+Tuesday:
+* morning speaker: Titus [(slides)](https://osf.io/cp8tw/)
+* 9am-noon - lab/lecture/instruction
+	* [Quality trimming etc](https://angus.readthedocs.io/en/2018/quality-and-trimming.html)
+* noon-1:15 - lunch break (lunch on your own)
+* 1:15-5:30pm - tutorials
+	* continued from above.
+
+Wednesday 7/4:
+* 9am-noon - tutorials
+	* [Mapping and variant calling](https://angus.readthedocs.io/en/2018/mapping-variant-calling.html)
+* BREAK for the day - July 4th activites
+
+Thursday:
+* 9am-noon - tutorials
+	* [Mapping and variant calling, cont'd](https://angus.readthedocs.io/en/2018/mapping-variant-calling.html)
+	* 
+* noon-1:15 - lunch (lunch on your own)
+* 1:15-5:30pm - tutorials
+	* [RNAseq and differential expression](https://angus.readthedocs.io/en/2018/rna-seq.html)
+
+Friday:
+* 9am: morning lecture: Amanda, on statistics and experimental design
+* 10:15-noon - tutorials
+	* [RNAseq and differential expression, cont'd](https://angus.readthedocs.io/en/2018/rna-seq.html)
+* noon-1:15 - lunch (lunch on your own)
+* 1:15-5:30pm - tutorials
+	* [Transcriptome assembly](https://angus.readthedocs.io/en/2018/transcriptome-assembly.html)
+
+
+## Week 2!
+
+[ Details TBD ]
+
+### Saturday, last day: Summary
+
+9am: Assessment.
+
+9:30am talk by Titus
+
+Further resources; continuing your learning.
+
+Questions and answers.
+
+Course review, input, and feedback.
+
+<!-- ## The main workshop materials
 
 ### Monday, Day 1, and Tuesday, Day 2: Introduction
 
@@ -68,18 +124,4 @@ We will start **in our classrooms** at 9am.
 
 [Transcriptome assembly](transcriptome-assembly.html)
 
-## Week 2!
-
-[ Details TBD ]
-
-### Saturday, last day: Summary
-
-9am: Assessment.
-
-9:30am lecture: C. Titus Brown, UC Davis - ["Effectively infinite: next steps in Data Intensive Biology."](https://osf.io/pbmeh/)
-
-Further resources; continuing your learning.
-
-Questions and answers.
-
-Course review, input, and feedback.
+-->
