@@ -10,12 +10,15 @@
 
 * also have a #social channel, and maybe others; go ahead and invite.
 
+* find more features of Slack here: https://slack.com/features
+
 ## hackmd:
 
 * hackmd is a good way to do collaborative note taking
 * will have one hackmd per room
 * they will be persistent
 * you are welcome to join us in taking notes! ask a TA or helper on how to connect in to edit instead of view
+* find more features of HackMD here: https://hackmd.io/features#
 
 ## e-mail:
 
