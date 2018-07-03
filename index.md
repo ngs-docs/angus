@@ -37,7 +37,7 @@ Assessment. (Please fill out pre-assessment survey.)
 While your Jetstream computer is
 booting... [Intro to collaboration tools](online-tools.html)
 
-**Tuesday 9am: talk by Titus in 1030 Valley Hall.**
+**Tuesday 9am: talk by Titus in 1030 Valley Hall. [(slides)](https://osf.io/cp8tw/)**
 
 Tuesday, remainder of the day:
 
