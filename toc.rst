@@ -11,6 +11,8 @@ Table of Contents
    code-of-conduct.rst
 
    jetstream/boot.md
+   
+   jetstream/login.md
 
    running-command-line-blast.md
 
