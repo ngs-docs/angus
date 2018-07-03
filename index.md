@@ -49,7 +49,11 @@ Tuesday, remainder of the day:
 
 # Wednesday, Day 3
 
+We will start **in our classrooms** at 9am.
+
 [Mapping and variant calling](mapping-variant-calling.html)
+
+**End at noon, lunch on your own.**
 
 # Thursday and Friday, Days 4 and 5:
 
