@@ -26,7 +26,7 @@ forest, in 1047 Valley.
 
 ### Monday, Day 1, and Tuesday, Day 2: Introduction
 
-1:30pm - [welcome slides](https://docs.google.com/presentation/d/1bAfTYNigeYXC1EWrjpAEaFc9zWd_JxXlk9DJ99MXo7g/edit#slide=id.g3cc5aa73e1_0_81)
+Monday 1:30pm - [welcome slides](https://docs.google.com/presentation/d/1bAfTYNigeYXC1EWrjpAEaFc9zWd_JxXlk9DJ99MXo7g/edit#slide=id.g3cc5aa73e1_0_81)
 
 Day 1 & 2 notes on hackmd: [ [Lions](https://hackmd.io/_Uz8eppqQ1q5SxdSK8YbYQ) / [Tigers](https://hackmd.io/_PoKiVLERKaLuvypcBsa2A) / [Bears](https://hackmd.io/OSRXcLuNRQaz-OtQTFPKhg) ]
 
@@ -36,6 +36,10 @@ Assessment. (Please fill out pre-assessment survey.)
 
 While your Jetstream computer is
 booting... [Intro to collaboration tools](online-tools.html)
+
+**Tuesday 9am: talk by Titus in 1030 Valley Hall.**
+
+Tuesday, remainder of the day:
 
 [Running BLAST at the command line](running-command-line-blast.html)
 
