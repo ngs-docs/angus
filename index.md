@@ -55,9 +55,16 @@ We will start **in our classrooms** at 9am.
 
 **End at noon, lunch on your own.**
 
-# Thursday and Friday, Days 4 and 5:
+# Thursday, Day 4 (July 5th)
 
+**Start at 9am in Valley Hall, details TBD.**
+
+[Mapping and variant calling](mapping-variant-calling.html)
 [RNAseq differential expression](rna-seq.html)
+
+# Thursday, Day 5 (July 6th)
+
+**Start at 9am in Valley Hall, details TBD.**
 
 [Transcriptome assembly](transcriptome-assembly.html)
 
