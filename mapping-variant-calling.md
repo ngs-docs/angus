@@ -30,7 +30,7 @@ cd mapping
 ```
 Next, we will create links from the previously downloaded and quality-trimmed yeast dataset:
 ```
-ln -fs ~/data/*.qc.fq.gz .
+ln -fs ~/quality/*.qc.fq.gz .
 ls
 ```
 
