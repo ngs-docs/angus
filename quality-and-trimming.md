@@ -128,7 +128,7 @@ ln -fs ~/data/* .
 ```
 
 and you will see that they are now linked in the current directory when you do an
-`ls`. These links save us from having to specify the full path (address) to their location on the computer, without us needed to actually move or copy the files. But note that changing these files here still changes the original files!
+`ls`. These links save us from having to specify the full path (address) to their location on the computer, without us needing to actually move or copy the files. But note that changing these files here still changes the original files!
 
 These are FASTQ files -- let's take a look at them:
 
