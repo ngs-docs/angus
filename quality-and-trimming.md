@@ -113,25 +113,22 @@ and you should see that the 'w' in the original permission string
 
 We'll talk about what these files are below.
 
-### 1. Copying data into a working location
+### 1. Linking data to our working location
 
-First, make a working directory; this will be a place where you can futz
-around with a copy of the data without messing up your primary data:
-
+First, make a new working directory:
 ```
 mkdir -p ~/quality
 cd ~/quality
 ```
 
-Now, make a "virtual copy" of the data in your working directory by
-linking it in -- :
+Now, we're going to make a "link" to our quality-trimmed data in our current working directory:
 
 ```
 ln -fs ~/data/* .
 ```
 
-and you will see that they are in the current directory when you do an
-`ls`.
+and you will see that they are now linked in the current directory when you do an
+`ls`. These links save us from having to specify the full path (address) to their location on the computer, without us needed to actually move or copy the files. But note that changing these files here still changes the original files!
 
 These are FASTQ files -- let's take a look at them:
 
