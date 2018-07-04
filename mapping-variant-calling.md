@@ -28,9 +28,9 @@ cd ~/
 mkdir -p mapping
 cd mapping
 ```
-Next, we will create links from the previous download yeast dataset:
+Next, we will create links from the previously downloaded and quality-trimmed yeast dataset:
 ```
-ln -fs ~/data/*.fastq.gz .
+ln -fs ~/quality/*.qc.fq.gz .
 ls
 ```
 
@@ -60,7 +60,7 @@ bwa index orf_coding.fasta
 ### Map!
 
 ```
-bwa mem -t 4 orf_coding.fasta ERR458493.fastq.gz  > ERR458493.sam
+bwa mem -t 4 orf_coding.fasta ERR458493.qc.fq.gz  > ERR458493.sam
 ```
         
 ### Observe!
