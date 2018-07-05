@@ -61,21 +61,52 @@ Friday:
 	* [Transcriptome assembly](https://angus.readthedocs.io/en/2018/transcriptome-assembly.html)
 
 
-## Week 2!
+## Second week, July 9-July 14.
 
-[ Details TBD ]
+Monday
+* 9-10am: week2 orientation, Titus Brown
+* 10:15am-noon - lab/lecture/instruction
+* * noon-1:15 - lunch (lunch on your own)
+* 1:15-5:30pm - lab/lecture/instruction
 
-### Saturday, last day: Summary
+Tuesday:
+* 9-10am: morning speaker: Erich Schwarz
+* 10:15am-noon - lab/lecture/instruction
+* noon-1:15 - lunch break (lunch on your own)
+* 1:15-5pm - lab/lecture/instruction
+* 5:30pm-7:30pm - dinner (on your own)
+* 7:30-9pm: posters & ice cream session
 
-9am: Assessment.
+Wednesday:
+* 9-10am: morning speaker: Torsten Seemann
+* 10:15am-noon - lab/lecture/instruction
+* noon-1:15 - lunch (lunch on your own)
+* 1:15-4pm - lab/lecture/instruction
+* 4pm - end of day (farmer's market downtown)
 
-9:30am talk by Titus
+Thursday:
+* 9-10am: morning speaker: Sam Diaz-Munoz
+* 10:15am-noon - lab/lecture/instruction
+* 9am-noon - lab/lecture/instruction
+* noon-1:15 - lunch (lunch on your own)
+* 1:15-5:30pm - lab/lecture/instruction
 
-Further resources; continuing your learning.
+Friday:
+* 9-10am: morning speaker: Luis Carvajal
+* 10:15am-noon - lab/lecture/instruction
+* 9am-noon - lab/lecture/instruction
+* noon-1:15 - lunch (lunch on your own)
+* 1:15-5:30pm - lab/lecture/instruction
 
-Questions and answers.
+Saturday - 
 
-Course review, input, and feedback.
+* 9am: Titus Brown, title: What does the future hold in a world of infinite data?
+* 9am-noon - lab/lecture/instruction
+* noon is end of day
+* Topics:
+  * Further resources; continuing your learning.
+  * Questions and answers.
+  * Course review, input, and feedback.
 
 <!-- ## The main workshop materials
 =======
