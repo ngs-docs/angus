@@ -59,6 +59,7 @@ Friday:
 * noon-1:15 - lunch (lunch on your own)
 * 1:15-5:30pm - tutorials
 	* [Transcriptome assembly](https://angus.readthedocs.io/en/2018/transcriptome-assembly.html)
+    * Challenge exercise: [assemble this genome!](genome-assembly.html)
 
 
 ## Second week, July 9-July 14.
