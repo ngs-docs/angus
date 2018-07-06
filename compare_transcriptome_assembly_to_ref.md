@@ -41,7 +41,7 @@ cp ../mapping/orf_coding.fasta .
 cp ../assembly/yeast-transcriptome-assembly.fa .
 ```
 
-> If either of those returned an error message (file not found), you can download the reference by running `curl -O https://downloads.yeastgenome.org/sequence/S288C_reference/orf_dna/orf_coding.fasta.gz` followed by `gunzip orf_coding.fasta.gz` to download and unzip the reference, and/or `curl -O https://ndownloader.figshare.com/files/12323351` to download a result of the transcriptome assembly (this one is not gzipped).
+> If either of those returned an error message (file not found), you can download the reference by running `curl -O https://downloads.yeastgenome.org/sequence/S288C_reference/orf_dna/orf_coding.fasta.gz` followed by `gunzip orf_coding.fasta.gz` to download and unzip the reference, and/or `curl -L https://ndownloader.figshare.com/files/12323351 -o yeast-transcriptome-assembly.fa` to download a result of the transcriptome assembly (this one is not gzipped).
 
 Out of curiousity, let's see how many contigs we assembled vs how many are in the orf reference file we have?
 
