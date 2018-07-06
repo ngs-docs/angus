@@ -286,6 +286,7 @@ nohup blastn -db nr -query contigs_not_in_ref.fa -remote -max_target_seqs 1 -max
 >   * `-remote` – This tells the computer to send the blast job to the NCBI servers and use their database.
 >   * `-max_target_seqs` and `-max_hsps` are the same as described above in our first blast.
 >   * `-out` specifies the output file, and `-outfmt` specifies how we want it – tabular and which columns (see `blastn -help`)
+> * Lastly, we have an `&` symbol at the end. That tells the computer to run the process in the background so we can still work in our terminal. You can check on the job with the command `jobs`. This will finish when it does and won't hurt anything if you disconnect or sign off before then. 
 
 This may take a few minutes (the amount of traffic the blast servers deal with fluctuates. If you'd like to just move forward, you can download a results file as follows and move on while that continues in the background:
 
