@@ -53,7 +53,7 @@ Thursday:
 	* [RNAseq and differential expression](https://angus.readthedocs.io/en/2018/rna-seq.html)
 
 Friday:
-* 9am: morning lecture: Amanda, on statistics and experimental design
+* 9am: morning lecture: Amanda, on statistics and experimental design [Slides](https://github.com/ngs-docs/angus/blob/2018/StatsNstuff.pdf)
 * 10:15-noon - tutorials
 	* [RNAseq and differential expression, cont'd](https://angus.readthedocs.io/en/2018/rna-seq.html)
 * noon-1:15 - lunch (lunch on your own)
