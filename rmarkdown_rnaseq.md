@@ -34,12 +34,43 @@ Now go to that Web address in your Web browser, and log in with the username and
 
 ## Download the data for today's tutorial
 
-We will be using the salmon output from the yeast RNA-seq analysis we did last week. In case your instance was deleted, we have the data here for you. So we're all working with the exact same data, please download the counts and the transcripts per million from salmon:
+We will be using the salmon output from the yeast RNA-seq analysis we did last week. In case your instance was deleted, we have the data here for you. So we're all working with the exact same data, please download the counts and the transcripts per million from salmon.
 
 ```
 wget https://github.com/ngs-docs/angus/raw/2018/_static/markdown_tutorial.tar.gz
 tar xvf markdown_tutorial.tar.gz
 ```
+
+The last command will uncompress the file and put everything inside the `markdown_tutorial` folder. Let's go in the folder and see what files and folders are there.
+
+```
+cd markdown_tutorial
+ls -lh
+```
+
+You will see the following list:
+
+```
+dibtiger@js-170-21:~/markdown_tutorial$ ls -lh
+total 2.6M
+drwxr-xr-x 2 dibtiger dibtiger 4.0K Jul  8 19:02 Bibliography
+-rw-r--r-- 1 dibtiger dibtiger  66K Jul  5  2017 ERR458493.fastq.gz.quant.counts
+-rw-r--r-- 1 dibtiger dibtiger  63K Jul  5  2017 ERR458493.fastq.gz.quant.tpm
+-rw-r--r-- 1 dibtiger dibtiger  66K Jul  5  2017 ERR458494.fastq.gz.quant.counts
+-rw-r--r-- 1 dibtiger dibtiger  63K Jul  5  2017 ERR458494.fastq.gz.quant.tpm
+-rw-r--r-- 1 dibtiger dibtiger  66K Jul  5  2017 ERR458495.fastq.gz.quant.counts
+-rw-r--r-- 1 dibtiger dibtiger  63K Jul  5  2017 ERR458495.fastq.gz.quant.tpm
+-rw-r--r-- 1 dibtiger dibtiger  68K Jul  5  2017 ERR458500.fastq.gz.quant.counts
+-rw-r--r-- 1 dibtiger dibtiger  64K Jul  5  2017 ERR458500.fastq.gz.quant.tpm
+-rw-r--r-- 1 dibtiger dibtiger  68K Jul  5  2017 ERR458501.fastq.gz.quant.counts
+-rw-r--r-- 1 dibtiger dibtiger  64K Jul  5  2017 ERR458501.fastq.gz.quant.tpm
+-rw-r--r-- 1 dibtiger dibtiger  68K Jul  5  2017 ERR458502.fastq.gz.quant.counts
+-rw-r--r-- 1 dibtiger dibtiger  64K Jul  5  2017 ERR458502.fastq.gz.quant.tpm
+-rw-r--r-- 1 dibtiger dibtiger  11K Jul  5  2017 markdown-angus-rnaseq-viz.Rmd
+-rw-r--r-- 1 dibtiger dibtiger 1.8M Jul  5  2017 markdown-angus-rnaseq-viz.html
+```
+
+What we are interested now is the `.Rmd` file, which is an RMarkdown file - we can view this on RStudio.
 
 ******************************************************************************************
 
@@ -548,12 +579,36 @@ This is one of the (many) reasons we teach version control. When used diligently
 The folder that currently contains our RMarkdown notebook and the data file should look like this:
 
 ```
-$ ls -la
-total 18756
-????
+dibtiger@js-170-21:~/markdown_tutorial$ ls -lh
+
+total 2.6M
+drwxr-xr-x 2 dibtiger dibtiger 4.0K Jul  8 19:02 Bibliography
+-rw-r--r-- 1 dibtiger dibtiger  66K Jul  5  2017 ERR458493.fastq.gz.quant.counts
+-rw-r--r-- 1 dibtiger dibtiger  63K Jul  5  2017 ERR458493.fastq.gz.quant.tpm
+-rw-r--r-- 1 dibtiger dibtiger  66K Jul  5  2017 ERR458494.fastq.gz.quant.counts
+-rw-r--r-- 1 dibtiger dibtiger  63K Jul  5  2017 ERR458494.fastq.gz.quant.tpm
+-rw-r--r-- 1 dibtiger dibtiger  66K Jul  5  2017 ERR458495.fastq.gz.quant.counts
+-rw-r--r-- 1 dibtiger dibtiger  63K Jul  5  2017 ERR458495.fastq.gz.quant.tpm
+-rw-r--r-- 1 dibtiger dibtiger  68K Jul  5  2017 ERR458500.fastq.gz.quant.counts
+-rw-r--r-- 1 dibtiger dibtiger  64K Jul  5  2017 ERR458500.fastq.gz.quant.tpm
+-rw-r--r-- 1 dibtiger dibtiger  68K Jul  5  2017 ERR458501.fastq.gz.quant.counts
+-rw-r--r-- 1 dibtiger dibtiger  64K Jul  5  2017 ERR458501.fastq.gz.quant.tpm
+-rw-r--r-- 1 dibtiger dibtiger  68K Jul  5  2017 ERR458502.fastq.gz.quant.counts
+-rw-r--r-- 1 dibtiger dibtiger  64K Jul  5  2017 ERR458502.fastq.gz.quant.tpm
+-rw-r--r-- 1 dibtiger dibtiger  11K Jul  5  2017 markdown-angus-rnaseq-viz.Rmd
+-rw-r--r-- 1 dibtiger dibtiger 1.8M Jul  5  2017 markdown-angus-rnaseq-viz.html
 ```
 
-Then we tell Git to make this folder a repository — a place where Git can store versions of our files:
+Before starting using Git, we should let it know who we are. In order to run this, we will use the following two commands:
+
+```
+git config --global user.email "fpsom@issel.ee.auth.gr"
+git config --global user.name "Fotis E. Psomopoulos"
+```
+
+Replace my email and name with your own - ideally **use the same email as the one you used for your GitHub account**.
+
+The next step is to tell Git to make this folder a repository — a place where Git can store versions of our files:
 
 ```
 git init
@@ -562,11 +617,29 @@ git init
 If we use `ls` to show the directory’s contents, it appears that nothing has changed. But if we add the `-a` flag to show everything, we can see that Git has created a hidden directory within planets called `.git`:
 
 ```
-total 18760
-drwxr-xr-x 1 fpsom 197609        0 Nov 16 14:11 ./
-drwxr-xr-x 1 fpsom 197609        0 Nov 16 14:08 ../
-drwxr-xr-x 1 fpsom 197609        0 Nov 16 14:11 .git/
-????
+dibtiger@js-170-21:~/markdown_tutorial$ ls -la
+
+total 2652
+drwxr-xr-x  4 dibtiger dibtiger    4096 Jul  8 19:05 .
+drwx------ 20 dibtiger dibtiger    4096 Jul  8 19:02 ..
+-rw-r--r--  1 dibtiger dibtiger    6148 Jul  5  2017 .DS_Store
+-rw-r--r--  1 dibtiger dibtiger     120 Jul  5  2017 ._.DS_Store
+drwxrwxr-x  7 dibtiger dibtiger    4096 Jul  8 19:05 .git
+drwxr-xr-x  2 dibtiger dibtiger    4096 Jul  8 19:02 Bibliography
+-rw-r--r--  1 dibtiger dibtiger   66797 Jul  5  2017 ERR458493.fastq.gz.quant.counts
+-rw-r--r--  1 dibtiger dibtiger   64390 Jul  5  2017 ERR458493.fastq.gz.quant.tpm
+-rw-r--r--  1 dibtiger dibtiger   66793 Jul  5  2017 ERR458494.fastq.gz.quant.counts
+-rw-r--r--  1 dibtiger dibtiger   64448 Jul  5  2017 ERR458494.fastq.gz.quant.tpm
+-rw-r--r--  1 dibtiger dibtiger   66765 Jul  5  2017 ERR458495.fastq.gz.quant.counts
+-rw-r--r--  1 dibtiger dibtiger   64367 Jul  5  2017 ERR458495.fastq.gz.quant.tpm
+-rw-r--r--  1 dibtiger dibtiger   68827 Jul  5  2017 ERR458500.fastq.gz.quant.counts
+-rw-r--r--  1 dibtiger dibtiger   64800 Jul  5  2017 ERR458500.fastq.gz.quant.tpm
+-rw-r--r--  1 dibtiger dibtiger   68836 Jul  5  2017 ERR458501.fastq.gz.quant.counts
+-rw-r--r--  1 dibtiger dibtiger   64815 Jul  5  2017 ERR458501.fastq.gz.quant.tpm
+-rw-r--r--  1 dibtiger dibtiger   68800 Jul  5  2017 ERR458502.fastq.gz.quant.counts
+-rw-r--r--  1 dibtiger dibtiger   64805 Jul  5  2017 ERR458502.fastq.gz.quant.tpm
+-rw-r--r--  1 dibtiger dibtiger   11215 Jul  5  2017 markdown-angus-rnaseq-viz.Rmd
+-rw-r--r--  1 dibtiger dibtiger 1861485 Jul  5  2017 markdown-angus-rnaseq-viz.html
 ```
 
 Git stores information about the project in this special sub-directory. If we ever delete it, we will lose the project’s history.
@@ -575,7 +648,11 @@ We can check that everything is set up correctly by asking Git to tell us the st
 
 ```
 git status
+```
 
+This command will print out the following screen
+
+```
 On branch master
 
 No commits yet
@@ -583,8 +660,23 @@ No commits yet
 Untracked files:
   (use "git add <file>..." to include in what will be committed)
 
-        Export_DANS_Parels_van_Datasets_Vogeltrekstation.csv
-        Reproducible-analysis-and-Research-Transparency.ipynb
+        .DS_Store
+        ._.DS_Store
+        Bibliography/
+        ERR458493.fastq.gz.quant.counts
+        ERR458493.fastq.gz.quant.tpm
+        ERR458494.fastq.gz.quant.counts
+        ERR458494.fastq.gz.quant.tpm
+        ERR458495.fastq.gz.quant.counts
+        ERR458495.fastq.gz.quant.tpm
+        ERR458500.fastq.gz.quant.counts
+        ERR458500.fastq.gz.quant.tpm
+        ERR458501.fastq.gz.quant.counts
+        ERR458501.fastq.gz.quant.tpm
+        ERR458502.fastq.gz.quant.counts
+        ERR458502.fastq.gz.quant.tpm
+        markdown-angus-rnaseq-viz.Rmd
+        markdown-angus-rnaseq-viz.html
 
 nothing added to commit but untracked files present (use "git add" to track)
 ```
@@ -594,13 +686,18 @@ nothing added to commit but untracked files present (use "git add" to track)
 The _untracked files_ message means that there’s a file in the directory that Git isn’t keeping track of. We can tell Git to track a file using `git add`:
 
 ```
-git add Export_DANS_Parels_van_Datasets_Vogeltrekstation.csv Reproducible-analysis-and-Research-Transparency.ipynb
+git add *.tpm markdown-angus-rnaseq-viz.Rmd
 ```
 
 and then check that the right thing happened:
 
 ```
 git status
+```
+
+The output should be:
+
+```
 On branch master
 
 No commits yet
@@ -608,22 +705,50 @@ No commits yet
 Changes to be committed:
   (use "git rm --cached <file>..." to unstage)
 
-        new file:   Export_DANS_Parels_van_Datasets_Vogeltrekstation.csv
-        new file:   Reproducible-analysis-and-Research-Transparency.ipynb
+        new file:   ERR458493.fastq.gz.quant.tpm
+        new file:   ERR458494.fastq.gz.quant.tpm
+        new file:   ERR458495.fastq.gz.quant.tpm
+        new file:   ERR458500.fastq.gz.quant.tpm
+        new file:   ERR458501.fastq.gz.quant.tpm
+        new file:   ERR458502.fastq.gz.quant.tpm
+        new file:   markdown-angus-rnaseq-viz.Rmd
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        .DS_Store
+        ._.DS_Store
+        Bibliography/
+        ERR458493.fastq.gz.quant.counts
+        ERR458494.fastq.gz.quant.counts
+        ERR458495.fastq.gz.quant.counts
+        ERR458500.fastq.gz.quant.counts
+        ERR458501.fastq.gz.quant.counts
+        ERR458502.fastq.gz.quant.counts
+        markdown-angus-rnaseq-viz.html
 ```
 
-Git now knows that it’s supposed to keep track of these two files, but it hasn’t recorded these changes as a commit yet. To get it to do that, we need to run one more command:
+Git now knows that it’s supposed to keep track of these seven files, but it hasn’t recorded these changes as a commit yet. To get it to do that, we need to run one more command:
 
 ```
-git commit -m "Let's add the two files"
-
-[master (root-commit) 8dde99b] Let's add the two files
-2 files changed, 67898 insertions(+)
-create mode 100644 Export_DANS_Parels_van_Datasets_Vogeltrekstation.csv
-create mode 100644 Reproducible-analysis-and-Research-Transparency.ipynb
+git commit -m "Let's do our initial commit"
 ```
 
-When we run `git commit`, Git takes everything we have told it to save by using `git add` and stores a copy permanently inside the special `.git` directory. This permanent copy is called a `commit` (or `revision`) and its short identifier is `f22b25e` (Your commit may have another identifier.)
+This produces the following output.
+
+```
+[master (root-commit) cd1ceaf] Let's do our initial commit
+ 7 files changed, 35772 insertions(+)
+ create mode 100644 ERR458493.fastq.gz.quant.tpm
+ create mode 100644 ERR458494.fastq.gz.quant.tpm
+ create mode 100644 ERR458495.fastq.gz.quant.tpm
+ create mode 100644 ERR458500.fastq.gz.quant.tpm
+ create mode 100644 ERR458501.fastq.gz.quant.tpm
+ create mode 100644 ERR458502.fastq.gz.quant.tpm
+ create mode 100644 markdown-angus-rnaseq-viz.Rmd
+```
+
+When we run `git commit`, Git takes everything we have told it to save by using `git add` and stores a copy permanently inside the special `.git` directory. This permanent copy is called a `commit` (or `revision`) and its short identifier is `cd1ceaf` (Your commit may have another identifier.)
 
 We use the `-m` flag (for “_message_”) to record a short, descriptive, and specific comment that will help us remember later on what we did and why. If we just run `git commit` without the `-m` option, Git will launch `nano` (or whatever other editor we configured as `core.editor`) so that we can write a longer message.
 
@@ -632,10 +757,22 @@ Good commit messages start with a brief (<50 characters) summary of changes made
 If we run `git status` now:
 
 ```
-git status
-
 On branch master
-nothing to commit, working tree clean
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        .DS_Store
+        ._.DS_Store
+        Bibliography/
+        ERR458493.fastq.gz.quant.counts
+        ERR458494.fastq.gz.quant.counts
+        ERR458495.fastq.gz.quant.counts
+        ERR458500.fastq.gz.quant.counts
+        ERR458501.fastq.gz.quant.counts
+        ERR458502.fastq.gz.quant.counts
+        markdown-angus-rnaseq-viz.html
+
+nothing added to commit but untracked files present (use "git add" to track)
 ```
 
 This is the first steps in maintaining versions. There are a few more commands that you should be aware of, such as `git diff` and `git log`, but for the purposes of this exercise, this is sufficient.
@@ -646,14 +783,14 @@ Version control really comes into its own when we begin to collaborate with othe
 
 Systems like `Git` allow us to move work between any two repositories. In practice, though, it’s easiest to use one copy as a central hub, and to keep it on the web rather than on someone’s laptop. Most programmers use hosting services like [GitHub](http://github.com/), [BitBucket](http://bitbucket.org/) or [GitLab](http://gitlab.com/) to hold those master copies; we’ll explore the pros and cons of this in the final section of this lesson.
 
-Let’s start by sharing the changes we’ve made to our current project with the world. Log in to GitHub, then click on the icon in the top right corner to create a new repository called `RMarkdownAngus`. As soon as the repository is created, GitHub displays a page with a URL and some information on how to configure your local repository.
+Let’s start by sharing the changes we’ve made to our current project with the world. Log in to GitHub, then click on the icon in the top right corner to create a new repository called `RMarkdownDIBSI2018`. As soon as the repository is created, GitHub displays a page with a URL and some information on how to configure your local repository.
 
 The next step is to connect the two repositories; the local and the one we just created on GitHub. We do this by making the GitHub repository a remote for the local repository. The home page of the repository on GitHub includes the string we need to identify it:
 - Click on the `‘HTTPS’` link to change the protocol from `SSH` to `HTTPS`.
 - Copy that URL from the browser, go into the local repository, and run this command:
 
 ```
-git remote add origin ???
+git remote add origin https://github.com/fpsom/RMarkdownDIBSI2018.git
 ```
 
 Make sure to use the URL for your repository rather than mine: the only difference should be your username instead of `fpsom`.
@@ -661,9 +798,8 @@ Make sure to use the URL for your repository rather than mine: the only differen
 We can check that the command has worked by running `git remote -v`:
 
 ```
-git remote -v
-origin  https://github.com/fpsom/reproducibilityWorkshop.git (fetch)
-origin  https://github.com/fpsom/reproducibilityWorkshop.git (push)
+origin  https://github.com/fpsom/RMarkdownDIBSI2018.git (fetch)
+origin  https://github.com/fpsom/RMarkdownDIBSI2018.git (push)
 ```
 
 The name `origin` is a local nickname for your remote repository. We could use something else if we wanted to, but `origin` is by far the most common choice.
@@ -672,15 +808,21 @@ Once the nickname origin is set up, this command will push the changes from our 
 
 ```
 git push origin master
+```
 
+The output should look something like the following.
 
-Counting objects: 4, done.
-Delta compression using up to 8 threads.
-Compressing objects: 100% (4/4), done.
-Writing objects: 100% (4/4), 1.02 MiB | 338.00 KiB/s, done.
-Total 4 (delta 0), reused 0 (delta 0)
-To https://github.com/fpsom/reproducibilityWorkshop.git
-* [new branch]      master -> master
+```
+Username for 'https://github.com': fpsom
+Password for 'https://fpsom@github.com':
+Counting objects: 9, done.
+Delta compression using up to 6 threads.
+Compressing objects: 100% (9/9), done.
+Writing objects: 100% (9/9), 134.26 KiB | 1.84 MiB/s, done.
+Total 9 (delta 0), reused 0 (delta 0)
+To https://github.com/fpsom/RMarkdownDIBSI2018.git
+ * [new branch]      master -> master
+
 ```
 
 Excellent job! You now have both the remote and the local repositories in sync!
@@ -744,7 +886,7 @@ Now that we have everything setup, we can launch our Binder instance.
 
 - **Step 1**: Go to the [Binder webpage](https://mybinder.org)
 
-- **Step 2**: In the `GitHub repo or URL` field, enter the full URL of your repository, that contains all three files (i.e. the RMarkdown document, `runtime.txt` and `install.R`). For example, the URL could be `???`.
+- **Step 2**: In the `GitHub repo or URL` field, enter the full URL of your repository, that contains all three files (i.e. the RMarkdown document, `runtime.txt` and `install.R`). For example, the URL could be `https://github.com/fpsom/RMarkdownDIBSI2018`.
 
 - **Step 3**: In the `URL to open (optional)` field, type in `rstudio` and then select `URL` from the dropdown list on the right.
 
