@@ -5,17 +5,14 @@ During this lesson, you’ll learn how to use RMarkdown for reproducible data an
 
 This lesson will get you started with RMarkdown, but if you want more, [here](https://rpubs.com/marschmi/RMarkdown) is a great angus-esque tutorial.
 
-## Getting started
+## Getting started on Jetstream
 
 [Start up an m1.medium instance running Ubuntu 16.04 on Jetstream.](jetstream/boot.html)
 
 
-## Make sure R & RStudio are installed:
+## Make sure R & RStudio are installed and connect
 
-## Getting started
-
-Connect to RStudio by setting your password (note, password will not
-be visible on the screen):
+Connect to RStudio by setting your password (note, password will not be visible on the screen):
 
 ```
 sudo passwd $USER
@@ -33,15 +30,14 @@ and finding YOUR RStudio server interface Web address:
 echo http://$(hostname):8787/
 ```
 
-Now go to that Web address in your Web browser, and log in with the username
-and password from above.
+Now go to that Web address in your Web browser, and log in with the username and password from above.
 
 ## Download the data for today's tutorial
 
 We will be using the salmon output from the yeast RNA-seq analysis we did last week. In case your instance was deleted, we have the data here for you. So we're all working with the exact same data, please download the counts and the transcripts per million from salmon:
 
 ```
-wget https://github.com/ngs-docs/angus/raw/2017/_static/markdown_tutorial.tar.gz
+wget https://github.com/ngs-docs/angus/raw/2018/_static/markdown_tutorial.tar.gz
 tar xvf markdown_tutorial.tar.gz
 ```
 
@@ -51,7 +47,7 @@ tar xvf markdown_tutorial.tar.gz
 
 ### Rmarkdown is a type of *dynamic document*
 
-<a href="https://en.wikipedia.org/wiki/Literate_programming">Literate programming</a> is the basic idea behind dynamic documents and was proposed by Donald Knuth in 1984.  Originally, it was for mixing the source code and documentation of software development together.  Today, we will create dynamic documents in which program or analysis code is run to produce output (e.g. tables, plots, models, etc) and then are explained through narrative writing.
+[Literate programming](https://en.wikipedia.org/wiki/Literate_programming) is the basic idea behind dynamic documents and was proposed by Donald Knuth in 1984.  Originally, it was for mixing the source code and documentation of software development together.  Today, we will create dynamic documents in which program or analysis code is run to produce output (e.g. tables, plots, models, etc) and then are explained through narrative writing.
 
 The 3 steps of **Literate Programming**:  
 
@@ -68,9 +64,9 @@ So that leaves us, the writers, with 2 steps which includes writing:
 
 > **Note #2:** The RStudio core team has also developed something called R Notebooks.  An R Notebook is an R Markdown document with chunks that can be executed independently and interactively, with output visible immediately beneath the input. Also, R notebooks do not need to be "knit".  More on knitting later...
 
-## Markdown
+### Markdown
 
-To fully understand RMarkdown, we first need to cover <a href="https://daringfireball.net/projects/markdown/">Markdown</a>, which is a system for writing simple, readable text that is easily converted to HTML.  Markdown essentially is two things:  
+To fully understand RMarkdown, we first need to cover [Markdown](https://daringfireball.net/projects/markdown/), which is a system for writing simple, readable text that is easily converted to HTML.  Markdown essentially is two things:  
 
 1. A plain text formatting syntax  
 2. A software tool written in Perl.  
@@ -104,35 +100,35 @@ Or this code in Markdown?
 * Raspberries
 ```
 
-If you are human, the Markdown code is definitely easier to read! Let us take a moment to soak in how much easier our lives are/will be because Markdown exists!  Thank you <a href="https://en.wikipedia.org/wiki/John_Gruber">John Gruber</a> and <a href="https://en.wikipedia.org/wiki/Aaron_Swartz">Aaron Swartz</a> (RIP) for creating Markdown in 2004!
+If you are human, the Markdown code is definitely easier to read! Let us take a moment to soak in how much easier our lives are/will be because Markdown exists!  Thank you [John Gruber](https://en.wikipedia.org/wiki/John_Gruber) and [Aaron Swartz](https://en.wikipedia.org/wiki/Aaron_Swartz) (RIP) for creating Markdown in 2004!
 
 ******************************************************************************************
 
-## RMarkdown
-<a href="http://rmarkdown.rstudio.com/">RMarkdown</a> is a variant of Markdown that makes it easy to create dynamic documents, presentations and reports within RStudio.  It has embedded R (originally), python, perl, shell code chunks to be used with **knitr** (an R package) to make it easy to create reproducible reports in the sense that they can be automatically regenerated when the underlying code it modified.    
+### RMarkdown
+[RMarkdown](http://rmarkdown.rstudio.com/) is a variant of Markdown that makes it easy to create dynamic documents, presentations and reports within RStudio.  It has embedded R (originally), python, perl, shell code chunks to be used with **knitr** (an R package) to make it easy to create reproducible reports in the sense that they can be automatically regenerated when the underlying code it modified.    
 
 **RMarkdown renders many different types of files including:**  
 
-- <a href="http://rmarkdown.rstudio.com/html_document_format.html">HTML</a>    
-- <a href="http://rmarkdown.rstudio.com/pdf_document_format.html">PDF</a>  
+- [HTML](http://rmarkdown.rstudio.com/html_document_format.html)    
+- [PDF](http://rmarkdown.rstudio.com/pdf_document_format.html)
 - Markdown  
-- <a href="http://rmarkdown.rstudio.com/word_document_format.html">Microsoft Word</a>   
+- [Microsoft Word](http://rmarkdown.rstudio.com/word_document_format.html)
 - Presentations:  
     - Fancy HTML5 presentations:  
-        - <a href="http://rmarkdown.rstudio.com/ioslides_presentation_format.html">ioslides</a>
-        - <a href="http://rmarkdown.rstudio.com/slidy_presentation_format.html">Slidy</a>  
-        - <a href="http://slidify.org/index.html">Slidify</a>
+        - [ioslides](http://rmarkdown.rstudio.com/ioslides_presentation_format.html)
+        - [Slidy](http://rmarkdown.rstudio.com/slidy_presentation_format.html)
+        - [Slidify](http://slidify.org/index.html)
     - PDF Presentations:  
-        - <a href="http://rmarkdown.rstudio.com/beamer_presentation_format.html">Beamer</a>  
+        - [Beamer](http://rmarkdown.rstudio.com/beamer_presentation_format.html)
     - Handouts:  
-        - <a href="http://rmarkdown.rstudio.com/tufte_handout_format.html">Tufte Handouts</a>
-- <a href="http://rmarkdown.rstudio.com/package_vignette_format.html">HTML R Package Vignettes</a>  
-- <a href="http://rmarkdown.rstudio.com/rmarkdown_websites.html">Even Entire Websites!</a>   
+        - [Tufte Handouts](http://rmarkdown.rstudio.com/tufte_handout_format.html)
+- [HTML R Package Vignettes](http://rmarkdown.rstudio.com/package_vignette_format.html)
+- [Even Entire Websites!](http://rmarkdown.rstudio.com/rmarkdown_websites.html)
 
 ![](_static/rmarkdown/Rmd_output.png)
 
 
-### A few step workflow  
+## A few step workflow  
 
 Briefly, to make a report:  
 
@@ -150,9 +146,9 @@ Briefly, to make a report:
 
 1. Create `.Rmd` report that includes R code chunks and and markdown narratives (as indicated in steps above.).  
 2. Give the `.Rmd` file to `knitr` to execute the R code chunks and create a new `.md` file.  
-    - <a href="http://yihui.name/knitr/" target="_blank">Knitr</a> is a package within R that allows the integration of R code into rendered RMarkdown documents such as HTML, latex, pdf, word, among other document types.  
+    - [Knitr](http://yihui.name/knitr/) is a package within R that allows the integration of R code into rendered RMarkdown documents such as HTML, latex, pdf, word, among other document types.  
 3. Give the `.md` file to **pandoc**, which will create the final rendered document (e.g. html, Microsoft word, pdf, etc.).  
-    - <a href="http://pandoc.org/" target="_blank">Pandoc</a> is a universal document converter and enables the conversion of one document type (in this case: `.Rmd`) to another (in this case: HTML)
+    - [Pandoc](http://pandoc.org/) is a universal document converter and enables the conversion of one document type (in this case: `.Rmd`) to another (in this case: HTML)
 
 ![How an Rmd document is rendered](_static/rmarkdown/Rmd_workflow.png)
 
@@ -282,7 +278,7 @@ seq(n)
 
 **Always name/label your code chunks!**
 
-## Chunk Labels
+### Chunk Labels
 
 Chunk labels must be **unique IDs** in a document and are good for:  
 
@@ -297,9 +293,7 @@ When naming the code chunk:  Use `-` or `_` in between words for code chunks lab
 
 Chunk labels must be **unique throughout the document** (if not there will be an error) and the label should **accurately describe what's happening** in the code chunk.
 
-
-
-## Chunk Options  
+### Chunk Options  
 
 Pressing tab when inside the braces will bring up code chunk options.
 
@@ -312,7 +306,7 @@ Pressing tab when inside the braces will bring up code chunk options.
 
 There are too many chunk options to cover here.  After the workshop take a look around at the options.
 
-Great website for exploring <a href="http://yihui.name/knitr/options/#chunk_options">Knitr Chunk Options</a>.  
+Great website for exploring [Knitr Chunk Options](http://yihui.name/knitr/options/#chunk_options).  
 
 
 
@@ -333,7 +327,7 @@ Some knitr chunk options that relate to figures:
 
 
 
-## Global Chunk Options
+### Global Chunk Options
 
 You may wish to have the same chunk settings throughout your document and so it might be nice to type options once instead of always re-typing it for each chunk.  To do so, you can set global chunk options at the top of the document.  
 
@@ -355,11 +349,11 @@ Global chunk options will be set for the rest of the document.  If you would lik
 
 
 
-## Tables
+### Tables
 
-Hand writing tables in Markdown can get tedious.  We will not go over this here, however, if you'd like to learn more about Markdown tables check out the <a href="http://rmarkdown.rstudio.com/authoring_pandoc_markdown.html#tables">documentation on tables</a> at the RMarkdown v2 website.
+Hand writing tables in Markdown can get tedious.  We will not go over this here, however, if you'd like to learn more about Markdown tables check out the [documentation on tables](http://rmarkdown.rstudio.com/authoring_pandoc_markdown.html#tables) at the RMarkdown v2 website.
 
-In his <a href="http://kbroman.org/knitr_knutshell/pages/figs_tables.html">Knitr in a Knutshell</a>, Dr. Karl Broman introduces:  `kable`, `pander`, and `xtable` and many useRs like the first two:  
+In his [Knitr in a Knutshell](http://kbroman.org/knitr_knutshell/pages/figs_tables.html), Dr. Karl Broman introduces:  `kable`, `pander`, and `xtable` and many useRs like the first two:  
 
 - `kable`: Within the **knitr** package - not many options but looks nice with ease.
 - `pander`: Within the **pander** package - has many more options and customization.  Useful for bold-ing certain values (e.g. values below a threshold).  
@@ -367,9 +361,9 @@ In his <a href="http://kbroman.org/knitr_knutshell/pages/figs_tables.html">Knitr
 You should also check out the `DT` package for interactive tables.  Check out more details here [http://www.htmlwidgets.org/showcase_datatables.html](http://www.htmlwidgets.org/showcase_datatables.html)
 
 
-## Citations and Bibliography
+### Citations and Bibliography
 
-## Bibliography  
+#### Bibliography  
 
 It's also possible to include a bibliography file in the YAML header.  Bibliography formats that are readable by Pandoc include the following:  
 
@@ -399,7 +393,7 @@ bibliography: bibliography.bib
 csl: nature.csl
 ```
 
-Check out the very helpful web page by the R Core team on <a href="http://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html" target="_blank">bibliographies and citations</a>.  
+Check out the very helpful web page by the R Core team on [bibliographies and citations](http://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html).  
 
 If you would like to cite R packages, **knitr** even includes a function called `write_bib()` that creates a `.bib` entries for R packages.  It will even write it to a file!  
 
@@ -410,7 +404,7 @@ write_bib(c("knitr", "ggplot2"), file = "r-packages2.bib") # Only writes knitr a
 
 
 
-## Placement
+### Placement
 
 Automatically the bibliography will be placed at the end of the document. Therefore, you should finish your `.Rmd` document with `# References` so the bibliography comes after the header for the bibliography.
 
@@ -421,11 +415,11 @@ final words...
 ```
 
 
-## Citation Styles
+### Citation Styles
 
 **Citation Style Language (CSL)** is an XML-based language that identifies the format of citations and bibliographies. Reference management programs such as Zotero, Mendeley and Papers all use CSL.
 
-Search for your favorite journal and CSL in the <a href="https://www.zotero.org/styles" target="_blank">Zotero Style Repository</a>, which currently has >8,000 CSLs.  Is there a style that you're looking for that is not there?   
+Search for your favorite journal and CSL in the [Zotero Style Repository](https://www.zotero.org/styles), which currently has >8,000 CSLs.  Is there a style that you're looking for that is not there?   
 
 ```
 output: html_document
@@ -433,7 +427,7 @@ bibliography: bibliography.bib
 csl: nature.csl
 ```
 
-## Citations  
+### Citations  
 
 Citations go inside square brackets `[ ]`and are separated by semicolons `;`. Each citation must have a key, composed of `@ + the citation identifier` from the database, and may optionally have a prefix, a locator, and a suffix.  To check what the citation key is for a reference, take a look at the `.bib` file.  Here in this file, you can also change key for each reference.  However, be careful that each ID is unique!   
 
@@ -441,7 +435,7 @@ Citations go inside square brackets `[ ]`and are separated by semicolons `;`. Ea
 
 ## Publishing on RPubs  
 
-Once you make a beautiful dynamic document you may wish to share it with others.  One option to share it with the world is to host it on <a href="https://rpubs.com/" target="_blank">RPubs</a>.  With RStudio, this makes it very easy!  Do the following:  
+Once you make a beautiful dynamic document you may wish to share it with others.  One option to share it with the world is to host it on [RPubs](https://rpubs.com/).  With RStudio, this makes it very easy!  Do the following:  
 
 1. Create your awesome `.Rmd` document.  
 2. Click the ![](_static/rmarkdown/knit.png) button to render your HTML document to be published.  
@@ -453,25 +447,250 @@ Once you make a beautiful dynamic document you may wish to share it with others.
     - The URL in which the website will be hosted.  
         - *Note:*  The beginning of the URL will be:  **www.rpubs.com/your_username/name_of_your_choice**  
 
-## Updating RPubs  
+### Updating RPubs  
 
 If you make some changes to your document it is very easy to update the web page.  Once you have rendered your edited document click the ![](_static/rmarkdown/republish.png) button on the top right corner of the preview window.  The edited document will be in the same URL as the original document.  
 
 Yay!
 
 
+## Amazing Resources for learning Rmarkdown
+
+1. The [RMarkdown](http://rmarkdown.rstudio.com/index.html) website hosted by RStudio.  
+2. Dr. Yuhui Xie's book:  [Dynamic Documents with R and Knitr](http://www.amazon.com/Dynamic-Documents-knitr-Chapman-Hall/dp/1482203537) 2^nd^ Edition [@Xie2015] and his [Knitr](http://yihui.name/knitr/) website.  
+    - A **BIG thank you** to Dr. Xie for writing the **Knitr** Package!!  
+3. Dr. Karl Broman's ["Knitr in a Knutshell"](http://kbroman.org/knitr_knutshell/).  
+4. [Cheatsheets](https://www.rstudio.com/resources/cheatsheets/) released by RStudio.
+
+
 ******************************************************************************************
 
-## Exploratory data analysis with Yeast RNAseq data  
+# Exploratory data analysis with Yeast RNAseq data  
 
 Navigate to the folder we downloaded at the beginning of the lesson, and we'll start using RMarkdown!
 
 ******************************************************************************************
 
-# Amazing Resources for learning Rmarkdown
+# Version Control with Git and GitHub
 
-1. The <a href="http://rmarkdown.rstudio.com/index.html" target="_blank">RMarkdown</a> website hosted by RStudio.  
-2. Dr. Yuhui Xie's book:  <a href="http://www.amazon.com/Dynamic-Documents-knitr-Chapman-Hall/dp/1482203537" target="_blank">Dynamic Documents with R and Knitr</a> 2^nd^ Edition [@Xie2015] and his <a href="http://yihui.name/knitr/" target="_blank">Knitr</a> website.  
-    - A **BIG thank you** to Dr. Xie for writing the **Knitr** Package!!  
-3. Dr. Karl Broman's <a href="http://kbroman.org/knitr_knutshell/" target="_blank">"Knitr in a Knutshell"</a>.  
-4. <a href="https://www.rstudio.com/resources/cheatsheets/" target="_blank">Cheatsheets</a> released by RStudio.
+## Automated Version Control
+
+We'll start by exploring how version control can be used to keep track of what one person did and when. Even if you aren't collaborating with other people, automated version control is much better than this situation:
+
+[![Piled Higher and Deeper by Jorge Cham, http://www.phdcomics.com/comics/archive_print.php?comicid=1531](_static/git/phd101212s.png)](http://www.phdcomics.com)
+
+"Piled Higher and Deeper" by Jorge Cham, http://www.phdcomics.com
+
+We've all been in this situation before: it seems ridiculous to have multiple nearly-identical versions of the same document. Some word processors let us deal with this a little better, such as Microsoft Word's [Track Changes](https://support.office.com/en-us/article/Track-changes-in-Word-197ba630-0f5f-4a8e-9a77-3712475e806a), Google Docs' [version history](https://support.google.com/docs/answer/190843?hl=en), or LibreOffice's [Recording and Displaying Changes](https://help.libreoffice.org/Common/Recording_and_Displaying_Changes).
+
+Version control systems start with a base version of the document and then save just the changes you made at each step of the way. You can think of it as a tape: if you rewind the tape and start at the base document, then you can play back each change and end up with your latest version.
+
+![Changes Are Saved Sequentially](_static/git/play-changes.svg)
+
+Once you think of changes as separate from the document itself, you can then think about "playing back" different sets of changes onto the base document and getting different versions of the document. For example, two users can make independent sets of changes based on the same document.
+
+![Different Versions Can be Saved](_static/git/versions.svg)
+
+Unless there are conflicts, you can even play two sets of changes onto the same base document.
+
+![Multiple Versions Can be Merged](_static/git/merge.svg)
+
+A version control system is a tool that keeps track of these changes for us and helps us version and merge our files. It allows you to decide which changes make up the next version, called a commit and keeps useful metadata about them. The complete history of commits for a particular project and their metadata make up a repository. Repositories can be kept in sync across different computers facilitating collaboration among different people.
+
+> **The Long History of Version Control Systems**
+>
+> Automated version control systems are nothing new. Tools like RCS, CVS, or Subversion have been around since the early 1980s and are used by many large companies. However, many of these are now becoming considered as legacy systems due to various limitations in their capabilities. In particular, the more modern systems, such as Git and [Mercurial](http://swcarpentry.github.io/hg-novice/) are *distributed*, meaning that they do not need a centralized server to host the repository. These modern systems also include powerful merging tools that make it possible for multiple authors to work within the same files concurrently.
+
+
+## How can version control help me make my work more open?
+
+> The opposite of "open" isn't "closed".
+> The opposite of "open" is "broken".
+>
+> --- John Wilbanks
+
+Free sharing of information might be the ideal in science, but the reality is often more complicated. Normal practice today looks something like this:
+
+*   A scientist collects some data and stores it on a machine that is occasionally backed up by her department.
+*   She then writes or modifies a few small programs (which also reside on her machine) to analyze that data.
+*   Once she has some results, she writes them up and submits her paper. She might include her data—a growing number of journals require this—but she probably doesn't include her code.
+*   Time passes.
+*   The journal sends her reviews written anonymously by a handful of other people in her field. She revises her paper to satisfy them, during which time she might also modify the scripts she wrote earlier, and resubmits.
+*   More time passes.
+*   The paper is eventually published. It might include a link to an online copy of her data, but the paper itself will be behind a paywall: only people who have personal or institutional access will be able to read it.
+
+For a growing number of scientists, though, the process looks like this:
+
+*   The data that the scientist collects is stored in an open access repository like [figshare](http://figshare.com/) or [Zenodo](http://zenodo.org), possibly as soon as it's collected, and given its own [Digital Object Identifier](https://en.wikipedia.org/wiki/Digital_object_identifier) (DOI). Or the data was already published and is stored in [Dryad](http://datadryad.org/).
+*   The scientist creates a new repository on GitHub to hold her work.
+*   As she does her analysis, she pushes changes to her scripts (and possibly some output files) to that repository. She also uses the repository for her paper; that repository is then the hub for collaboration with her colleagues.
+*   When she's happy with the state of her paper, she posts a version to [arXiv](http://arxiv.org/) or some other preprint server to invite feedback from peers.
+*   Based on that feedback, she may post several revisions before finally submitting her paper to a journal.
+*   The published paper includes links to her preprint and to her code and data repositories, which  makes it much easier for other scientists to use her work as starting point for their own research.
+
+This open model accelerates discovery: the more open work is, [the more widely it is cited and re-used](http://dx.doi.org/10.1371/journal.pone.0000308). However, people who want to work this way need to make some decisions about what exactly "open" means and how to do it. You can find more on the different aspects of Open Science in [this book](http://link.springer.com/book/10.1007/978-3-319-00026-8).
+
+This is one of the (many) reasons we teach version control. When used diligently, it answers the "how" question by acting as a shareable electronic lab notebook for computational work:
+
+*   The conceptual stages of your work are documented, including who did what and when. Every step is stamped with an identifier (the commit ID) that is for most intents and purposes unique.
+*   You can tie documentation of rationale, ideas, and other intellectual work directly to the changes that spring from them.
+*   You can refer to what you used in your research to obtain your computational results in a way that is unique and recoverable.
+*   With a distributed version control system such as Git, the version control repository is easy to archive for perpetuity, and contains the entire history.
+
+> **Making Code Citable**
+>
+> [This short guide](https://guides.github.com/activities/citable-code/) from GitHub explains how to create a Digital Object Identifier (DOI) for your code, your papers, or anything else hosted in a version control repository.
+
+## Storing our newly created RMarkdown file on GitHub
+
+### Creating a repository
+
+The folder that currently contains our RMarkdown notebook and the data file should look like this:
+
+```
+$ ls -la
+total 18756
+????
+```
+
+Then we tell Git to make this folder a repository — a place where Git can store versions of our files:
+
+```
+git init
+```
+
+If we use `ls` to show the directory’s contents, it appears that nothing has changed. But if we add the `-a` flag to show everything, we can see that Git has created a hidden directory within planets called `.git`:
+
+```
+total 18760
+drwxr-xr-x 1 fpsom 197609        0 Nov 16 14:11 ./
+drwxr-xr-x 1 fpsom 197609        0 Nov 16 14:08 ../
+drwxr-xr-x 1 fpsom 197609        0 Nov 16 14:11 .git/
+????
+```
+
+Git stores information about the project in this special sub-directory. If we ever delete it, we will lose the project’s history.
+
+We can check that everything is set up correctly by asking Git to tell us the status of our project. It shows that there are two new files that are currently not tracked (meaning that any changes there will not be monitored).
+
+```
+git status
+
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        Export_DANS_Parels_van_Datasets_Vogeltrekstation.csv
+        Reproducible-analysis-and-Research-Transparency.ipynb
+
+nothing added to commit but untracked files present (use "git add" to track)
+```
+
+### Our first commit
+
+The _untracked files_ message means that there’s a file in the directory that Git isn’t keeping track of. We can tell Git to track a file using `git add`:
+
+```
+git add Export_DANS_Parels_van_Datasets_Vogeltrekstation.csv Reproducible-analysis-and-Research-Transparency.ipynb
+```
+
+and then check that the right thing happened:
+
+```
+git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+
+        new file:   Export_DANS_Parels_van_Datasets_Vogeltrekstation.csv
+        new file:   Reproducible-analysis-and-Research-Transparency.ipynb
+```
+
+Git now knows that it’s supposed to keep track of these two files, but it hasn’t recorded these changes as a commit yet. To get it to do that, we need to run one more command:
+
+```
+git commit -m "Let's add the two files"
+
+[master (root-commit) 8dde99b] Let's add the two files
+2 files changed, 67898 insertions(+)
+create mode 100644 Export_DANS_Parels_van_Datasets_Vogeltrekstation.csv
+create mode 100644 Reproducible-analysis-and-Research-Transparency.ipynb
+```
+
+When we run `git commit`, Git takes everything we have told it to save by using `git add` and stores a copy permanently inside the special `.git` directory. This permanent copy is called a `commit` (or `revision`) and its short identifier is `f22b25e` (Your commit may have another identifier.)
+
+We use the `-m` flag (for “_message_”) to record a short, descriptive, and specific comment that will help us remember later on what we did and why. If we just run `git commit` without the `-m` option, Git will launch `nano` (or whatever other editor we configured as `core.editor`) so that we can write a longer message.
+
+Good commit messages start with a brief (<50 characters) summary of changes made in the commit. If you want to go into more detail, add a blank line between the summary line and your additional notes.
+
+If we run `git status` now:
+
+```
+git status
+
+On branch master
+nothing to commit, working tree clean
+```
+
+This is the first steps in maintaining versions. There are a few more commands that you should be aware of, such as `git diff` and `git log`, but for the purposes of this exercise, this is sufficient.
+
+### Pushing our RMarkdown notebook to GitHub
+
+Version control really comes into its own when we begin to collaborate with other people. We already have most of the machinery we need to do this; the only thing missing is to copy changes from one repository to another.
+
+Systems like `Git` allow us to move work between any two repositories. In practice, though, it’s easiest to use one copy as a central hub, and to keep it on the web rather than on someone’s laptop. Most programmers use hosting services like [GitHub](http://github.com/), [BitBucket](http://bitbucket.org/) or [GitLab](http://gitlab.com/) to hold those master copies; we’ll explore the pros and cons of this in the final section of this lesson.
+
+Let’s start by sharing the changes we’ve made to our current project with the world. Log in to GitHub, then click on the icon in the top right corner to create a new repository called `RMarkdownAngus`. As soon as the repository is created, GitHub displays a page with a URL and some information on how to configure your local repository.
+
+The next step is to connect the two repositories; the local and the one we just created on GitHub. We do this by making the GitHub repository a remote for the local repository. The home page of the repository on GitHub includes the string we need to identify it:
+- Click on the `‘HTTPS’` link to change the protocol from `SSH` to `HTTPS`.
+- Copy that URL from the browser, go into the local repository, and run this command:
+
+```
+git remote add origin ???
+```
+
+Make sure to use the URL for your repository rather than mine: the only difference should be your username instead of `fpsom`.
+
+We can check that the command has worked by running `git remote -v`:
+
+```
+git remote -v
+origin  https://github.com/fpsom/reproducibilityWorkshop.git (fetch)
+origin  https://github.com/fpsom/reproducibilityWorkshop.git (push)
+```
+
+The name `origin` is a local nickname for your remote repository. We could use something else if we wanted to, but `origin` is by far the most common choice.
+
+Once the nickname origin is set up, this command will push the changes from our local repository to the repository on GitHub:
+
+```
+git push origin master
+
+
+Counting objects: 4, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 1.02 MiB | 338.00 KiB/s, done.
+Total 4 (delta 0), reused 0 (delta 0)
+To https://github.com/fpsom/reproducibilityWorkshop.git
+* [new branch]      master -> master
+```
+
+Excellent job! You now have both the remote and the local repositories in sync!
+
+> **Exercise**: Make a change to one of the two local files, commit, and push.
+
+## References / Sources
+- [Software Carpentry: Version Control with Git](http://swcarpentry.github.io/git-novice/)
+
+******************************************************************************************
+
+
+# Making it all work with Binder
