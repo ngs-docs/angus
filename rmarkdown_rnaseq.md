@@ -686,7 +686,7 @@ nothing added to commit but untracked files present (use "git add" to track)
 The _untracked files_ message means that there’s a file in the directory that Git isn’t keeping track of. We can tell Git to track a file using `git add`:
 
 ```
-git add *.tpm markdown-angus-rnaseq-viz.Rmd
+git add *.tpm *.counts Bibliography/* markdown-angus-rnaseq-viz.Rmd
 ```
 
 and then check that the right thing happened:
@@ -705,11 +705,19 @@ No commits yet
 Changes to be committed:
   (use "git rm --cached <file>..." to unstage)
 
+        new file:   Bibliography/bibliography.bib
+        new file:   Bibliography/plos-one.csl
+        new file:   ERR458493.fastq.gz.quant.counts
         new file:   ERR458493.fastq.gz.quant.tpm
+        new file:   ERR458494.fastq.gz.quant.counts
         new file:   ERR458494.fastq.gz.quant.tpm
+        new file:   ERR458495.fastq.gz.quant.counts
         new file:   ERR458495.fastq.gz.quant.tpm
+        new file:   ERR458500.fastq.gz.quant.counts
         new file:   ERR458500.fastq.gz.quant.tpm
+        new file:   ERR458501.fastq.gz.quant.counts
         new file:   ERR458501.fastq.gz.quant.tpm
+        new file:   ERR458502.fastq.gz.quant.counts
         new file:   ERR458502.fastq.gz.quant.tpm
         new file:   markdown-angus-rnaseq-viz.Rmd
 
@@ -718,17 +726,14 @@ Untracked files:
 
         .DS_Store
         ._.DS_Store
-        Bibliography/
-        ERR458493.fastq.gz.quant.counts
-        ERR458494.fastq.gz.quant.counts
-        ERR458495.fastq.gz.quant.counts
-        ERR458500.fastq.gz.quant.counts
-        ERR458501.fastq.gz.quant.counts
-        ERR458502.fastq.gz.quant.counts
+        Bibliography/._bibliography.bib
+        Bibliography/._plos-one.csl
+        install.R
         markdown-angus-rnaseq-viz.html
+        runtime.txt
 ```
 
-Git now knows that it’s supposed to keep track of these seven files, but it hasn’t recorded these changes as a commit yet. To get it to do that, we need to run one more command:
+Git now knows that it’s supposed to keep track of these 15 files, but it hasn’t recorded these changes as a commit yet. To get it to do that, we need to run one more command:
 
 ```
 git commit -m "Let's do our initial commit"
@@ -737,18 +742,26 @@ git commit -m "Let's do our initial commit"
 This produces the following output.
 
 ```
-[master (root-commit) cd1ceaf] Let's do our initial commit
- 7 files changed, 35772 insertions(+)
+[master (root-commit) 2087cdb] Let's do our initial commit
+ 15 files changed, 71308 insertions(+)
+ create mode 100644 Bibliography/bibliography.bib
+ create mode 100644 Bibliography/plos-one.csl
+ create mode 100644 ERR458493.fastq.gz.quant.counts
  create mode 100644 ERR458493.fastq.gz.quant.tpm
+ create mode 100644 ERR458494.fastq.gz.quant.counts
  create mode 100644 ERR458494.fastq.gz.quant.tpm
+ create mode 100644 ERR458495.fastq.gz.quant.counts
  create mode 100644 ERR458495.fastq.gz.quant.tpm
+ create mode 100644 ERR458500.fastq.gz.quant.counts
  create mode 100644 ERR458500.fastq.gz.quant.tpm
+ create mode 100644 ERR458501.fastq.gz.quant.counts
  create mode 100644 ERR458501.fastq.gz.quant.tpm
+ create mode 100644 ERR458502.fastq.gz.quant.counts
  create mode 100644 ERR458502.fastq.gz.quant.tpm
  create mode 100644 markdown-angus-rnaseq-viz.Rmd
 ```
 
-When we run `git commit`, Git takes everything we have told it to save by using `git add` and stores a copy permanently inside the special `.git` directory. This permanent copy is called a `commit` (or `revision`) and its short identifier is `cd1ceaf` (Your commit may have another identifier.)
+When we run `git commit`, Git takes everything we have told it to save by using `git add` and stores a copy permanently inside the special `.git` directory. This permanent copy is called a `commit` (or `revision`) and its short identifier is `2087cdb` (Your commit may have another identifier.)
 
 We use the `-m` flag (for “_message_”) to record a short, descriptive, and specific comment that will help us remember later on what we did and why. If we just run `git commit` without the `-m` option, Git will launch `nano` (or whatever other editor we configured as `core.editor`) so that we can write a longer message.
 
@@ -763,14 +776,11 @@ Untracked files:
 
         .DS_Store
         ._.DS_Store
-        Bibliography/
-        ERR458493.fastq.gz.quant.counts
-        ERR458494.fastq.gz.quant.counts
-        ERR458495.fastq.gz.quant.counts
-        ERR458500.fastq.gz.quant.counts
-        ERR458501.fastq.gz.quant.counts
-        ERR458502.fastq.gz.quant.counts
+        Bibliography/._bibliography.bib
+        Bibliography/._plos-one.csl
+        install.R
         markdown-angus-rnaseq-viz.html
+        runtime.txt
 
 nothing added to commit but untracked files present (use "git add" to track)
 ```
@@ -890,6 +900,8 @@ Now that we have everything setup, we can launch our Binder instance.
 
 - **Step 3**: In the `URL to open (optional)` field, type in `rstudio` and then select `URL` from the dropdown list on the right.
 
-- **Step 4**: Click on `Launch` and have a break while Binder builds and launches your instance.
+- **Step 4**: Click on `Launch` and have a break while Binder builds and launches your instance. It might take 5'-10' to launch the instance.
+
+As soon as the instance start, select the .Rmd document and click on `knitr`. In a few seconds, the RMarkdown document will be built and a webpage should pop-up (you may need to click on "Try again" button for the external page to show up).
 
 Congrats! You now have a fully reproducible document that contains both your analysis and your data, and the people can recreate in the exact same environment! Go #OpenScience!
