@@ -694,3 +694,60 @@ Excellent job! You now have both the remote and the local repositories in sync!
 
 
 # Making it all work with Binder
+
+## What is Binder?
+
+- It’s a service
+  - https://mybinder.org
+- It’s a way to display your work (Jupyter notebooks and more)
+  - https://binderhub.readthedocs.io/en/latest/overview.html
+  - A clickable badge in a GitHub repo too
+- It’s a project (BinderHub) that you can deploy
+  - https://binderhub.readthedocs.io/en/latest/
+
+## Using Binder to provide a dynamic version of our document.
+
+Now that we have our own GitHub repository with an RMarkdown document, we can use Binder to give the community with a fully working version of the document, instead of a static (a.k.a. non clickable) version of it.
+
+### Setup
+
+Binder supports using R and RStudio, with libraries pinned to a specific snapshot on [MRAN](https://mran.microsoft.com/documents/rro/reproducibility). In order to specify this, we need to add in our repository a `runtime.txt` file that is formatted like:
+
+```
+r-<YYYY>-<MM>-<DD>
+```
+
+where YYYY-MM-DD is a snapshot at MRAN that will be used for installing libraries. In our instance, we'll need to specify:
+
+```
+r-2018-02-05
+```
+
+You can also have an `install.R` file that will be executed during build, and can be used to install libraries. In our instance, the `install.R` file will contain the libraries already listed under the RMarkdown file, i.e.:
+
+```
+install.packages("tidyverse")
+install.packages("rmarkdown")
+install.packages("httr")
+install.packages("???")
+```
+
+You can create both these files locally (e.g. using an editor such as `nano`) and push them to the GitHub repository using the `git add`, `git commit` and `git push` commands we show earlier. Another approach is to directly create these files through the GitHub web interface, by clicking the `Create new file` button and then adding the content with the correct file name. A final option is to download these files from the links below, and upload them to GitHub again using the graphical interface.
+
+- [`runtime.txt`](_static/binder/runtime.txt)
+- [`install.R`](_static/binder/install.R)
+
+
+### Running Binder
+
+Now that we have everything setup, we can launch our Binder instance.
+
+- **Step 1**: Go to the [Binder webpage](https://mybinder.org)
+
+- **Step 2**: In the `GitHub repo or URL` field, enter the full URL of your repository, that contains all three files (i.e. the RMarkdown document, `runtime.txt` and `install.R`). For example, the URL could be `???`.
+
+- **Step 3**: In the `URL to open (optional)` field, type in `rstudio` and then select `URL` from the dropdown list on the right.
+
+- **Step 4**: Click on `Launch` and have a break while Binder builds and launches your instance.
+
+Congrats! You now have a fully reproducible document that contains both your analysis and your data, and the people can recreate in the exact same environment! Go #OpenScience!
