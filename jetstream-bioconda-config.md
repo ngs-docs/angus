@@ -8,9 +8,9 @@ Learning objections:
 
 ## Booting a "blank" machine
 
-Follow [ANGUS instructions, with m1.medium](https://angus.readthedocs.io/en/2018/jetstream/boot.html), using "18.04 Ubuntu devel and docker".
+Follow [ANGUS instructions, with m1.medium](https://angus.readthedocs.io/en/2018/jetstream/boot.html), using "18.04 Ubuntu devel and docker" as the starting image you select – rather than "DIBSI 2018 workshop image".
 
-Log in via the Web shell.
+Log in via the [Web shell or through ssh in your terminal](https://angus.readthedocs.io/en/2018/jetstream/boot.html#click-on-your-new-instance-to-get-more-information) if you are comfortable with that way now.
 
 Note that neither RStudio nor conda are installed.
 
@@ -39,7 +39,13 @@ curl -O -L https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
 bash Miniconda3-latest-Linux-x86_64.sh
 ```
 
-Say "yes" to everything the installer asks, and accept default locations.
+Say "yes" to everything the installer asks, and accept default locations by pressing enter when it says "Miniconda3 will now be installed into this location". (If the prompt looks like this ">>>", then you are still within the installation process.)
+
+When the installation is complete and the regular prompt returns, run the following command (or start a new terminal session) in order to activate the conda environment:
+
+```
+source ~/.bashrc
+```
 
 Next, enable various "channels" for software install, including bioconda:
 
