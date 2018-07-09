@@ -66,15 +66,26 @@ Friday:
 
 Monday
 * 9-10am: week2 orientation, Titus Brown
-* 10:15am-noon - lab/lecture/instruction
+* 10:15am-noon:
+	* Lions: An -omics chat
+	* Tigers: Configuring your Jetstream computer
+	* Bears: Configuring your Jetstream computer
 * * noon-1:15 - lunch (lunch on your own)
-* 1:15-5:30pm - lab/lecture/instruction
+* 1:15-3pm:
+	* Lions: Configuring your Jetstream computer
+	* Tigers: An -omics chat
+	* Bears: RMarkdown
+* 3:15pm-5:15pm:
+	* Lions: RMarkdown
+	* Tigers: RMarkdown
+	* Bears: An -omics chat
 
 Tuesday:
 * 9-10am: morning speaker: Erich Schwarz
-* 10:15am-noon - lab/lecture/instruction
+* 10:15am-noon -  ChIP-seq and UCSC pileup
 * noon-1:15 - lunch break (lunch on your own)
-* 1:15-5pm - lab/lecture/instruction
+* 1:15:3pm - transcriptome annotation
+* 3:15pm-5:30pm - topic specific breakouts (TBA)
 * 5:30pm-7:30pm - dinner (on your own)
 * 7:30-9pm: posters & ice cream session
 
