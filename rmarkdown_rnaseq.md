@@ -8,7 +8,7 @@ There's also [cheatsheets!](https://www.rstudio.com/wp-content/uploads/2016/03/r
 
 ## Getting started on Jetstream
 
-[Start up an m1.medium instance running Ubuntu 16.04 on Jetstream.](jetstream/boot.html)
+[Start up an m1.medium instance running Ubuntu 18.04 on Jetstream.](jetstream/boot.html)
 
 
 ## Download the data for today's tutorial
