@@ -1,0 +1,405 @@
+---
+title: "ExploratoryAnalysis"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  html_document:
+    theme: "cerulean"
+    number_sections: true
+    toc: true
+    toc_depth: 5
+    toc_float: true
+    collapsed: false
+    df_print: paged
+    code_folding: hide
+---
+
+# RNAseq exploration
+
+This should be the same Salmon counts you generated last week, but now we're going to do a bit more with them. They are six yeast RNAseq samples.
+
+
+## Setup
+
+This is where we load packages and data, and where I like to set up global variables if I need to. 
+
+```{r GlobalVariables}
+
+# default to not showing code, you can change it for chunks as you like
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+
+# We don't actually use these next two, but they don't hurt anything, and you might want them for a real RNAseq analysis
+
+# Setting a reasonable p-value threshold to be used throughout
+p_cutoff <- 0.1
+
+# this is a fold change cutoff 
+FC_cutoff <- log2(1.1)
+
+```
+
+
+```{r LoadPackages, results='hide', include=FALSE}
+
+# Install function for packages (I shamelessly stole this from stackoverflow)
+packages<-function(x){
+  x<-as.character(match.call()[[2]])
+  if (!require(x,character.only=TRUE)){
+    install.packages(pkgs=x,repos="http://cran.r-project.org")
+    require(x,character.only=TRUE)
+  }
+}
+
+bioconductors <- function(x){
+    x<- as.character(match.call()[[2]])
+    if (!require(x, character.only = TRUE)){
+      source("https://bioconductor.org/biocLite.R")
+      biocLite(pkgs=x)
+      require(x, character.only = TRUE)
+    }
+}
+
+packages(ggplot2)
+packages(pheatmap)
+packages(plyr)
+packages(dplyr)
+packages(tidyr)
+packages(data.table)
+bioconductors(edgeR)
+
+
+```
+
+I also have it print my session info once all my packages are loaded so there's a record of my versions:
+
+```{r Session}
+sessionInfo()
+
+```
+
+
+The values in the matrix should be un-normalized counts or estimated counts of sequencing reads (for single-end RNA-seq) or fragments (for paired-end RNA-seq). https://bioconductor.org/packages/3.7/bioc/vignettes/DESeq2/inst/doc/DESeq2.html#htseq
+
+```{r ReadingData}
+
+# These are three different ways to load data. The first is long and tedious: read in each manually. The second is fast and easy, but loses the difference between samples. The third is more involved, but keeps all the info we want.
+
+
+## One line at a time:
+ERR458493 <- read.csv("ERR458493.fastq.gz.quant.counts", sep="\t", header=TRUE)
+
+
+# Read all the files into a dataframe, all at once:
+
+ALLTHEFILES <- list.files( pattern = "*.counts")
+File_Num <- length(ALLTHEFILES)
+temp <- lapply(ALLTHEFILES, fread, sep="\t")
+ALLTHEGENES <- rbindlist( temp )
+remove(temp)
+
+# Read all the files into a dataframe, in a loop that preserves filename
+
+# Read in first file:
+
+ALLTHEGENES <- read.csv(ALLTHEFILES[ 1 ], sep = "\t", header = TRUE)
+ALLTHEGENES$file <- substr(ALLTHEFILES[ 1 ], 1, 9)
+
+# In a loop, read in each dataset, then merge it into the starting dataframe:
+
+for( X in c( 2:File_Num )){ #start at 2 because first dataset already in
+
+  temp <- read.csv(ALLTHEFILES[ X ], sep = "\t", header = TRUE)
+  temp$file <- substr(ALLTHEFILES[ X ], 1, 9)
+  ALLTHEGENES <- rbind(ALLTHEGENES, temp)
+  remove(temp)
+}
+
+```
+
+
+
+
+## Sanity Checks
+
+This is where we check that the data looks the way we expected in general. 
+
+Dimensions:
+```{r Dimension}
+
+dim(ALLTHEGENES)
+
+```
+
+Structure: 
+
+```{r}
+
+str(ALLTHEGENES)
+
+# Let's fix that!
+
+ALLTHEGENES$file <- as.factor(ALLTHEGENES$file)
+
+```
+
+
+## Exploration of our data
+
+Let's look at the data!
+
+### Scatter plots
+
+These show us overall trends in the data
+
+
+count vs transcript: 
+```{r transcripts}
+
+ggplot(ALLTHEGENES, aes(transcript, count)) + geom_point()
+
+
+```
+
+The same plot, but colored by sample: 
+
+```{r}
+
+
+ggplot(ALLTHEGENES, aes(transcript, count, col=file)) + geom_point()
+
+```
+
+
+That's still a little hard to see. So, let's split the samples into their own plots:
+
+```{r}
+ggplot(ALLTHEGENES, aes(transcript, count)) + geom_point() + facet_wrap(~file)
+
+```
+
+### Summary statistics
+
+```{r modeling with edgeR, results=FALSE}
+
+# Even though we're just doing exploration, we're going to put the data into edgeR here. That's because it will make a compact data structure that holds all the counts, as well as the metadata. It makes it way easier to do a lot of other exploration once it's in that structure.
+
+# edgeR edgeR requires the the dataset to contain only the counts with the row names as the gene ids and the column names as the sample ids, so the data needs to be reformatted to fit:
+
+temp <- tidyr::spread(ALLTHEGENES, file, count)
+rownames(temp) <- temp$transcript
+
+edgegenes <- select(temp, -transcript)
+remove(temp)
+
+
+# str(edgegenes)
+
+
+## Make some fake metadata
+yeast.groups <- c("A", "A", "A", "B", "B", "B")
+
+yDGE <- DGEList( edgegenes , group = yeast.groups )
+
+# yDGE
+
+
+
+head(yDGE$counts) # original count matrix
+yDGE$samples # contains a summary of your samples
+sum( yDGE$all.zeros ) # How many genes have 0 counts across all samples
+
+
+
+yDGE <- calcNormFactors(yDGE)
+design <- model.matrix(~yeast.groups)
+yDGE <- estimateDisp(yDGE, design)
+
+```
+
+
+
+These are our library sizes (both raw, and in millions of reads)
+
+
+```{r}
+
+colSums( edgegenes ) # Library Sizes
+colSums( edgegenes ) / 1e06 # Library Sizes in millions of reads
+
+```
+
+Here is a summary of our samples
+```{r}
+yDGE$samples # contains a summary of your samples
+
+```
+
+
+```{r, eval=FALSE}
+#These are useful to look at as we go, to check that everything is right, but probably not useful to put in our html output
+dim(edgegenes)
+head(yDGE$counts) # original count matrix
+sum( yDGE$all.zeros ) # How many genes have 0 counts across all samples
+
+```
+
+### Clustering plots
+
+
+### Heatmap 
+
+A useful first step in an RNA-seq analysis is often to assess overall similarity between samples: Which samples are similar to each other, which are different? Does this fit to the expectation from the experiment’s design? To draw a heatmap of individual RNA-seq samples, we suggest using moderated log-counts-per-million. This can be
+calculated by cpm with positive values for prior.count:
+
+```{r Heatmap}
+logcpm <- cpm(yDGE, prior.count=2, log=TRUE)
+
+pheatmap(logcpm, show_colnames=TRUE, show_rownames=FALSE)
+
+```
+
+#### PCA for overall expression
+
+We can also look at how well the samples seperate just by their expression levels
+
+```{r}
+yPRcomp <- prcomp(x = logcpm, center = TRUE, scale = TRUE )
+
+yPCA <- as.data.frame(yPRcomp$rotation)
+
+#ggplot(yPCA, aes(PC1, PC2)) + geom_point()
+
+ggplot(yPCA, aes(PC1, PC2, col=rownames(yPCA))) + geom_point()
+
+
+```
+
+
+
+
+## edgeR exploration and analysis
+
+### Exploration
+
+#### Dispersion
+
+This is a bit of exploration of what dispersion parameters we should use. edgeR defaults to a prior.n of 10:
+
+```{r}
+
+yDGE <- estimateTagwiseDisp( yDGE , prior.n = 10 )
+summary( yDGE$tagwise.dispersion )
+
+```
+
+
+What happens if we increase the shrinkage/sqeezing toward the common?
+```{r}
+# 
+yDGE <- estimateTagwiseDisp( yDGE , prior.n = 25 )
+summary( yDGE$tagwise.dispersion ) # didn't change anything
+
+
+
+```
+
+Looks like nothing! Let's keep the original.
+
+```{r}
+# The recommended setting for this data set is the default of 10. Let’s stick with that.
+yDGE <- estimateTagwiseDisp( yDGE , prior.n = 10 )
+```
+
+#### Mean and variance modeling
+
+We can also look at how the mean and variance spread for this particular data set. This would tell you whether the default distribution is useful for your model:
+
+```{r}
+meanVarPlot <- plotMeanVar( yDGE, show.raw.vars=TRUE,
+                            show.tagwise.vars=TRUE,
+                            show.binned.common.disp.vars=FALSE,
+                            show.ave.raw.vars=FALSE,
+                            dispersion.method = "qcml", NBline = TRUE,
+                            nbins = 100,
+                            pch = 16 ,
+                            xlab ="Mean Expression (Log10 Scale)",
+                            ylab = "Variance (Log10 Scale)",
+                            main = "Mean-Variance Plot" )
+```
+### Analysis
+
+Finally, we can get a list of differentially expressed genes!
+```{r}
+
+
+fit <- glmQLFit(yDGE,design)
+lrt <- glmLRT(fit,coef=2)
+topTags(lrt)
+
+```
+
+
+Let's order it by pvalue:
+
+```{r}
+oDGEr <- order(lrt$table$PValue)
+cpm(yDGE)[oDGEr[1:10],]
+```
+
+And here's a high level summary of our differential expression results:
+```{r}
+summary(decideTests(lrt))
+```
+
+### DE plots
+
+With the models run, we can also plot some things about the analyzed data, to decide if our analysis is good or not
+
+The function plotMDS draws a multi-dimensional scaling plot of the RNA samples in which distances
+correspond to leading log-fold-changes between each pair of RNA samples:
+
+```{r}
+plotMDS(yDGE)
+```
+
+This shows the log-fold change against log-counts per million, with DE genes highlighted:
+
+
+```{r}
+plotMD(lrt)
+abline(h=c(-1, 1), col="blue")
+```
+This plot in particular looks pretty fishy. Nearly *all* our genes show up as DE...that's not normal. It may be that our fake metadata threw things off, or we didn't do enough filtering of our data. We skipped filtering out low read counts, for example, which can break the shrinkage estimator.
+
+
+Last but not least, let's look at how our dispersion changed:
+```{r}
+plotBCV(yDGE)
+```
+This one is pretty crazy looking too. Maybe we should filter and try again. From the manual: `Usually a gene
+is required to have a count of 5-10 in a library to be considered expressed in that library. Users
+should also filter with count-per-million (CPM) rather than filtering on the counts directly, as the
+latter does not account for differences in library sizes between samples.`
+
+```{r}
+
+# A command for filtering. 
+
+
+keep <- rowSums(cpm(yDGE)>1) >= 2
+yDGE <- yDGE[keep, , keep.lib.sizes=FALSE]
+
+# Here, a CPM of 1 corresponds to a count of 1 in the smallest sample. A requirement forexpression in two or more libraries is used as the minimum number of samples in each group is two. Try playing around with the numbers, then run the next box to see how it changes the results. 
+```
+
+#### DEplots after some filtering
+
+```{r}
+yDGE <- estimateDisp(yDGE, design)
+yDGE <- calcNormFactors(yDGE)
+yDGE <- estimateTagwiseDisp( yDGE , prior.n = 10 )
+
+
+plotBCV(yDGE)
+plotMD(lrt)
+abline(h=c(-1, 1), col="blue")
+```
