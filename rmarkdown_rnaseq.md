@@ -535,6 +535,7 @@ output:
 
 We have a navigable Table of Contents! 
 
+### There is an Rmd file with all the code and explanation. It would be great if it was also here, but alas. ![Rmdfile](ExploratoryAnalysis.Rmd)
 
 ******************************************************************************************
 
