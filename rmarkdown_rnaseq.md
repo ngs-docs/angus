@@ -533,7 +533,11 @@ output:
 
 We have a navigable Table of Contents!
 
-### There is an Rmd file with all the code and explanation. It would be great if it was also here, but alas. ![Rmdfile](ExploratoryAnalysis.Rmd) ![renderedHTML](ExploratoryAnalysis.html)
+### There is an Rmd file with all the code and explanation. 
+
+[Rmdfile](ExploratoryAnalysis.Rmd) 
+
+[renderedHTML](ExploratoryAnalysis.html)
 
 You can download the file directly in the `markdown_tutorial` by using the following command:
 
