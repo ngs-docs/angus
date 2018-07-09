@@ -10,28 +10,6 @@ This lesson will get you started with RMarkdown, but if you want more, [here](ht
 [Start up an m1.medium instance running Ubuntu 16.04 on Jetstream.](jetstream/boot.html)
 
 
-## Make sure R & RStudio are installed and connect
-
-Connect to RStudio by setting your password (note, password will not be visible on the screen):
-
-```
-sudo passwd $USER
-```
-
-figuring out your username:
-
-```
-echo My username is $USER
-```
-
-and finding YOUR RStudio server interface Web address:
-
-```
-echo http://$(hostname):8787/
-```
-
-Now go to that Web address in your Web browser, and log in with the username and password from above.
-
 ## Download the data for today's tutorial
 
 We will be using the salmon output from the yeast RNA-seq analysis we did last week. In case your instance was deleted, we have the data here for you. So we're all working with the exact same data, please download the counts and the transcripts per million from salmon.
@@ -73,6 +51,29 @@ drwxr-xr-x 2 dibtiger dibtiger 4.0K Jul  8 19:02 Bibliography
 What we are interested now is the `.Rmd` file, which is an RMarkdown file - we can view this on RStudio.
 
 ******************************************************************************************
+
+## Make sure R & RStudio are installed and connect
+
+Connect to RStudio by setting your password (note, password will not be visible on the screen):
+
+```
+sudo passwd $USER
+```
+
+figuring out your username:
+
+```
+echo My username is $USER
+```
+
+and finding YOUR RStudio server interface Web address:
+
+```
+echo http://$(hostname):8787/
+```
+
+Now go to that Web address in your Web browser, and log in with the username and password from above.
+
 
 ## Introduction to RMarkdown
 
@@ -193,7 +194,13 @@ While this may seem complicated, we can hit the ![](_static/rmarkdown/knit.png) 
 
 It's go time!  Let's start working with RMarkdown!
 
-1.  In the menu bar, click **File -> New File -> RMarkdown**  
+1.  In the menu bar, click **File -> New File -> New Project**  
+
+2. Choose to start with an Existing Directory
+
+3. Navigate to ````~/markdown_tutorial``` then click "Create Project"
+
+4. In the menu bar, click **File -> New File -> RMarkdown**  
     - Or click on the ![](_static/rmarkdown/add_file.png) button in the top left corner.
 
 ![](_static/rmarkdown/create_rmd.png)
@@ -498,7 +505,36 @@ Yay!
 
 # Exploratory data analysis with Yeast RNAseq data  
 
-Navigate to the folder we downloaded at the beginning of the lesson, and we'll start using RMarkdown!
+## Setup
+
+Rmarkdown is all about reproducibility. So before we start coding, lets make sure our header will always be useful. I like to make my dates change to the date I actually rendered my file, for example. To do that:
+
+```
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+```
+
+We still have all the example code, so let's see what our first hmtl looks like! Click the 
+```knit``` button near the top of your screen.
+
+In order to knit a file, it has to be saved. Let's call ours ```ExploratoryAnalysis``. Once you save the file, it should automatically render and then open so we can look at it.
+
+Note that we have headings, but no easy way to navigate to them. In a file this small, that's okay, but in a large analysis, it gets tedious. I always add these settings to my YAML header. Change your current ```output``` line to the following to see what it does:
+
+```
+output:
+  html_document:
+    theme: "cerulean"
+    number_sections: true
+    toc: true
+    toc_depth: 5
+    toc_float: true
+    collapsed: false
+    df_print: paged
+    code_folding: hide
+```
+
+We have a navigable Table of Contents! 
+
 
 ******************************************************************************************
 
