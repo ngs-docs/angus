@@ -1,5 +1,4 @@
-# Exploratory RNAseq data analysis using RMarkdown
-
+# Exploratory RNAseq data analysis using RMarkdown, GitHub and Binder
 
 During this lesson, you’ll learn how to use RMarkdown for reproducible data analysis.  We will work with the RNAseq data from the yeast `mut` and `wt` dataset from last week. The data are from this [paper](http://rnajournal.cshlp.org/content/22/6/839.long).
 
@@ -501,9 +500,9 @@ Yay!
 
 ******************************************************************************************
 
-# Exploratory data analysis with Yeast RNAseq data  
+## Exploratory data analysis with Yeast RNAseq data  
 
-## Setup
+### Setup
 
 Rmarkdown is all about reproducibility. So before we start coding, lets make sure our header will always be useful. I like to make my dates change to the date I actually rendered my file, for example. To do that:
 
@@ -548,9 +547,9 @@ curl -L -O https://raw.githubusercontent.com/ngs-docs/angus/2018/ExploratoryAnal
 
 ******************************************************************************************
 
-# Version Control with Git and GitHub
+## Version Control with Git and GitHub
 
-## Automated Version Control
+### Automated Version Control
 
 We'll start by exploring how version control can be used to keep track of what one person did and when. Even if you aren't collaborating with other people, automated version control is much better than this situation:
 
@@ -579,7 +578,7 @@ A version control system is a tool that keeps track of these changes for us and 
 > Automated version control systems are nothing new. Tools like RCS, CVS, or Subversion have been around since the early 1980s and are used by many large companies. However, many of these are now becoming considered as legacy systems due to various limitations in their capabilities. In particular, the more modern systems, such as Git and [Mercurial](http://swcarpentry.github.io/hg-novice/) are *distributed*, meaning that they do not need a centralized server to host the repository. These modern systems also include powerful merging tools that make it possible for multiple authors to work within the same files concurrently.
 
 
-## How can version control help me make my work more open?
+### How can version control help me make my work more open?
 
 > The opposite of "open" isn't "closed".
 > The opposite of "open" is "broken".
@@ -618,9 +617,9 @@ This is one of the (many) reasons we teach version control. When used diligently
 >
 > [This short guide](https://guides.github.com/activities/citable-code/) from GitHub explains how to create a Digital Object Identifier (DOI) for your code, your papers, or anything else hosted in a version control repository.
 
-## Storing our newly created RMarkdown file on GitHub
+### Storing our newly created RMarkdown file on GitHub
 
-### Creating a repository
+#### Creating a repository
 
 The folder that currently contains our RMarkdown notebook and the data file should look like this:
 
@@ -723,7 +722,7 @@ Untracked files:
 nothing added to commit but untracked files present (use "git add" to track)
 ```
 
-### Our first commit
+#### Our first commit
 
 The _untracked files_ message means that there’s a file in the directory that Git isn’t keeping track of. We can tell Git to track a file using `git add`:
 
@@ -860,15 +859,15 @@ Excellent job! You now have both the remote and the local repositories in sync!
 
 > **Exercise**: Make a change to one of the two local files, commit, and push.
 
-## References / Sources
+### References / Sources
 - [Software Carpentry: Version Control with Git](http://swcarpentry.github.io/git-novice/)
 
 ******************************************************************************************
 
 
-# Making it all work with Binder
+## Making it all work with Binder
 
-## What is Binder?
+### What is Binder?
 
 - It’s a service
   - https://mybinder.org
@@ -878,11 +877,11 @@ Excellent job! You now have both the remote and the local repositories in sync!
 - It’s a project (BinderHub) that you can deploy
   - https://binderhub.readthedocs.io/en/latest/
 
-## Using Binder to provide a dynamic version of our document.
+### Using Binder to provide a dynamic version of our document.
 
 Now that we have our own GitHub repository with an RMarkdown document, we can use Binder to give the community with a fully working version of the document, instead of a static (a.k.a. non clickable) version of it.
 
-### Setup
+#### Setup
 
 Binder supports using R and RStudio, with libraries pinned to a specific snapshot on [MRAN](https://mran.microsoft.com/documents/rro/reproducibility). In order to specify this, we need to add in our repository a `runtime.txt` file that is formatted like:
 
