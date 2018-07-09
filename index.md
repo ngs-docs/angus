@@ -74,10 +74,10 @@ Monday
 * 1:15-3pm:
 	* Lions: [Configuring your Jetstream computer](jetstream-bioconda-config.html)
 	* Tigers: An -omics chat
-	* Bears: [RMarkdown](rmarkdown_rnaseq.md)
+	* Bears: [RMarkdown](rmarkdown_rnaseq.html)
 * 3:15pm-5:15pm:
-	* Lions: [RMarkdown](rmarkdown_rnaseq.md)
-	* Tigers: [RMarkdown](rmarkdown_rnaseq.md)
+	* Lions: [RMarkdown](rmarkdown_rnaseq.html)
+	* Tigers: [RMarkdown](rmarkdown_rnaseq.html)
 	* Bears: An -omics chat
 
 Tuesday:
