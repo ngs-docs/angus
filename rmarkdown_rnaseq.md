@@ -29,9 +29,8 @@ ls -lh
 You will see the following list:
 
 ```
-dibtiger@js-170-21:~/markdown_tutorial$ ls -lh
-total 2.6M
-drwxr-xr-x 2 dibtiger dibtiger 4.0K Jul  8 19:02 Bibliography
+total 808K
+drwxr-xr-x 2 dibtiger dibtiger 4.0K Jul  9 02:26 Bibliography
 -rw-r--r-- 1 dibtiger dibtiger  66K Jul  5  2017 ERR458493.fastq.gz.quant.counts
 -rw-r--r-- 1 dibtiger dibtiger  63K Jul  5  2017 ERR458493.fastq.gz.quant.tpm
 -rw-r--r-- 1 dibtiger dibtiger  66K Jul  5  2017 ERR458494.fastq.gz.quant.counts
@@ -45,7 +44,7 @@ drwxr-xr-x 2 dibtiger dibtiger 4.0K Jul  8 19:02 Bibliography
 -rw-r--r-- 1 dibtiger dibtiger  68K Jul  5  2017 ERR458502.fastq.gz.quant.counts
 -rw-r--r-- 1 dibtiger dibtiger  64K Jul  5  2017 ERR458502.fastq.gz.quant.tpm
 -rw-r--r-- 1 dibtiger dibtiger  11K Jul  5  2017 markdown-angus-rnaseq-viz.Rmd
--rw-r--r-- 1 dibtiger dibtiger 1.8M Jul  5  2017 markdown-angus-rnaseq-viz.html
+
 ```
 
 What we are interested now is the `.Rmd` file, which is an RMarkdown file - we can view this on RStudio.
@@ -173,7 +172,6 @@ Briefly, to make a report:
 ![Workflow for creating a report](_static/rmarkdown/rmd_workflow_cheatsheet.png)
 
 
-
 **Overview of the steps RMarkdown takes to get to the rendered document:**  
 
 1. Create `.Rmd` report that includes R code chunks and and markdown narratives (as indicated in steps above.).  
@@ -198,7 +196,7 @@ It's go time!  Let's start working with RMarkdown!
 
 2. Choose to start with an Existing Directory
 
-3. Navigate to ````~/markdown_tutorial``` then click "Create Project"
+3. Navigate to `~/markdown_tutorial` then click "Create Project"
 
 4. In the menu bar, click **File -> New File -> RMarkdown**  
     - Or click on the ![](_static/rmarkdown/add_file.png) button in the top left corner.
@@ -513,12 +511,12 @@ Rmarkdown is all about reproducibility. So before we start coding, lets make sur
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 ```
 
-We still have all the example code, so let's see what our first hmtl looks like! Click the 
-```knit``` button near the top of your screen.
+We still have all the example code, so let's see what our first hmtl looks like! Click the
+`knit` button near the top of your screen.
 
-In order to knit a file, it has to be saved. Let's call ours ```ExploratoryAnalysis``. Once you save the file, it should automatically render and then open so we can look at it.
+In order to knit a file, it has to be saved. Let's call ours `ExploratoryAnalysis`. Once you save the file, it should automatically render and then open so we can look at it.
 
-Note that we have headings, but no easy way to navigate to them. In a file this small, that's okay, but in a large analysis, it gets tedious. I always add these settings to my YAML header. Change your current ```output``` line to the following to see what it does:
+Note that we have headings, but no easy way to navigate to them. In a file this small, that's okay, but in a large analysis, it gets tedious. I always add these settings to my YAML header. Change your current `output` line to the following to see what it does:
 
 ```
 output:
@@ -533,9 +531,16 @@ output:
     code_folding: hide
 ```
 
-We have a navigable Table of Contents! 
+We have a navigable Table of Contents!
 
 ### There is an Rmd file with all the code and explanation. It would be great if it was also here, but alas. ![Rmdfile](ExploratoryAnalysis.Rmd) ![renderedHTML](ExploratoryAnalysis.html)
+
+You can download the file directly in the `markdown_tutorial` by using the following command:
+
+```
+curl -L -O https://raw.githubusercontent.com/ngs-docs/angus/2018/ExploratoryAnalysis.Rmd
+```
+
 
 ******************************************************************************************
 
@@ -618,8 +623,8 @@ The folder that currently contains our RMarkdown notebook and the data file shou
 ```
 dibtiger@js-170-21:~/markdown_tutorial$ ls -lh
 
-total 2.6M
-drwxr-xr-x 2 dibtiger dibtiger 4.0K Jul  8 19:02 Bibliography
+total 820K
+drwxr-xr-x 2 dibtiger dibtiger 4.0K Jul  9 02:26 Bibliography
 -rw-r--r-- 1 dibtiger dibtiger  66K Jul  5  2017 ERR458493.fastq.gz.quant.counts
 -rw-r--r-- 1 dibtiger dibtiger  63K Jul  5  2017 ERR458493.fastq.gz.quant.tpm
 -rw-r--r-- 1 dibtiger dibtiger  66K Jul  5  2017 ERR458494.fastq.gz.quant.counts
@@ -632,8 +637,8 @@ drwxr-xr-x 2 dibtiger dibtiger 4.0K Jul  8 19:02 Bibliography
 -rw-r--r-- 1 dibtiger dibtiger  64K Jul  5  2017 ERR458501.fastq.gz.quant.tpm
 -rw-r--r-- 1 dibtiger dibtiger  68K Jul  5  2017 ERR458502.fastq.gz.quant.counts
 -rw-r--r-- 1 dibtiger dibtiger  64K Jul  5  2017 ERR458502.fastq.gz.quant.tpm
+-rw-rw-r-- 1 dibtiger dibtiger  11K Jul  9 02:28 ExploratoryAnalysis.Rmd
 -rw-r--r-- 1 dibtiger dibtiger  11K Jul  5  2017 markdown-angus-rnaseq-viz.Rmd
--rw-r--r-- 1 dibtiger dibtiger 1.8M Jul  5  2017 markdown-angus-rnaseq-viz.html
 ```
 
 Before starting using Git, we should let it know who we are. In order to run this, we will use the following two commands:
@@ -656,27 +661,25 @@ If we use `ls` to show the directory’s contents, it appears that nothing has c
 ```
 dibtiger@js-170-21:~/markdown_tutorial$ ls -la
 
-total 2652
-drwxr-xr-x  4 dibtiger dibtiger    4096 Jul  8 19:05 .
-drwx------ 20 dibtiger dibtiger    4096 Jul  8 19:02 ..
--rw-r--r--  1 dibtiger dibtiger    6148 Jul  5  2017 .DS_Store
--rw-r--r--  1 dibtiger dibtiger     120 Jul  5  2017 ._.DS_Store
-drwxrwxr-x  7 dibtiger dibtiger    4096 Jul  8 19:05 .git
-drwxr-xr-x  2 dibtiger dibtiger    4096 Jul  8 19:02 Bibliography
--rw-r--r--  1 dibtiger dibtiger   66797 Jul  5  2017 ERR458493.fastq.gz.quant.counts
--rw-r--r--  1 dibtiger dibtiger   64390 Jul  5  2017 ERR458493.fastq.gz.quant.tpm
--rw-r--r--  1 dibtiger dibtiger   66793 Jul  5  2017 ERR458494.fastq.gz.quant.counts
--rw-r--r--  1 dibtiger dibtiger   64448 Jul  5  2017 ERR458494.fastq.gz.quant.tpm
--rw-r--r--  1 dibtiger dibtiger   66765 Jul  5  2017 ERR458495.fastq.gz.quant.counts
--rw-r--r--  1 dibtiger dibtiger   64367 Jul  5  2017 ERR458495.fastq.gz.quant.tpm
--rw-r--r--  1 dibtiger dibtiger   68827 Jul  5  2017 ERR458500.fastq.gz.quant.counts
--rw-r--r--  1 dibtiger dibtiger   64800 Jul  5  2017 ERR458500.fastq.gz.quant.tpm
--rw-r--r--  1 dibtiger dibtiger   68836 Jul  5  2017 ERR458501.fastq.gz.quant.counts
--rw-r--r--  1 dibtiger dibtiger   64815 Jul  5  2017 ERR458501.fastq.gz.quant.tpm
--rw-r--r--  1 dibtiger dibtiger   68800 Jul  5  2017 ERR458502.fastq.gz.quant.counts
--rw-r--r--  1 dibtiger dibtiger   64805 Jul  5  2017 ERR458502.fastq.gz.quant.tpm
--rw-r--r--  1 dibtiger dibtiger   11215 Jul  5  2017 markdown-angus-rnaseq-viz.Rmd
--rw-r--r--  1 dibtiger dibtiger 1861485 Jul  5  2017 markdown-angus-rnaseq-viz.html
+total 832
+drwxr-xr-x  4 dibtiger dibtiger  4096 Jul  9 02:32 .
+drwx------ 20 dibtiger dibtiger  4096 Jul  9 02:32 ..
+drwxrwxr-x  7 dibtiger dibtiger  4096 Jul  9 02:32 .git
+drwxr-xr-x  2 dibtiger dibtiger  4096 Jul  9 02:26 Bibliography
+-rw-r--r--  1 dibtiger dibtiger 66797 Jul  5  2017 ERR458493.fastq.gz.quant.counts
+-rw-r--r--  1 dibtiger dibtiger 64390 Jul  5  2017 ERR458493.fastq.gz.quant.tpm
+-rw-r--r--  1 dibtiger dibtiger 66793 Jul  5  2017 ERR458494.fastq.gz.quant.counts
+-rw-r--r--  1 dibtiger dibtiger 64448 Jul  5  2017 ERR458494.fastq.gz.quant.tpm
+-rw-r--r--  1 dibtiger dibtiger 66765 Jul  5  2017 ERR458495.fastq.gz.quant.counts
+-rw-r--r--  1 dibtiger dibtiger 64367 Jul  5  2017 ERR458495.fastq.gz.quant.tpm
+-rw-r--r--  1 dibtiger dibtiger 68827 Jul  5  2017 ERR458500.fastq.gz.quant.counts
+-rw-r--r--  1 dibtiger dibtiger 64800 Jul  5  2017 ERR458500.fastq.gz.quant.tpm
+-rw-r--r--  1 dibtiger dibtiger 68836 Jul  5  2017 ERR458501.fastq.gz.quant.counts
+-rw-r--r--  1 dibtiger dibtiger 64815 Jul  5  2017 ERR458501.fastq.gz.quant.tpm
+-rw-r--r--  1 dibtiger dibtiger 68800 Jul  5  2017 ERR458502.fastq.gz.quant.counts
+-rw-r--r--  1 dibtiger dibtiger 64805 Jul  5  2017 ERR458502.fastq.gz.quant.tpm
+-rw-rw-r--  1 dibtiger dibtiger 10646 Jul  9 02:28 ExploratoryAnalysis.Rmd
+-rw-r--r--  1 dibtiger dibtiger 11215 Jul  5  2017 markdown-angus-rnaseq-viz.Rmd
 ```
 
 Git stores information about the project in this special sub-directory. If we ever delete it, we will lose the project’s history.
@@ -697,8 +700,6 @@ No commits yet
 Untracked files:
   (use "git add <file>..." to include in what will be committed)
 
-        .DS_Store
-        ._.DS_Store
         Bibliography/
         ERR458493.fastq.gz.quant.counts
         ERR458493.fastq.gz.quant.tpm
@@ -712,8 +713,8 @@ Untracked files:
         ERR458501.fastq.gz.quant.tpm
         ERR458502.fastq.gz.quant.counts
         ERR458502.fastq.gz.quant.tpm
+        ExploratoryAnalysis.Rmd
         markdown-angus-rnaseq-viz.Rmd
-        markdown-angus-rnaseq-viz.html
 
 nothing added to commit but untracked files present (use "git add" to track)
 ```
@@ -723,7 +724,7 @@ nothing added to commit but untracked files present (use "git add" to track)
 The _untracked files_ message means that there’s a file in the directory that Git isn’t keeping track of. We can tell Git to track a file using `git add`:
 
 ```
-git add *.tpm *.counts Bibliography/* markdown-angus-rnaseq-viz.Rmd
+git add *.tpm *.counts Bibliography/* *.Rmd
 ```
 
 and then check that the right thing happened:
@@ -756,18 +757,8 @@ Changes to be committed:
         new file:   ERR458501.fastq.gz.quant.tpm
         new file:   ERR458502.fastq.gz.quant.counts
         new file:   ERR458502.fastq.gz.quant.tpm
+        new file:   ExploratoryAnalysis.Rmd
         new file:   markdown-angus-rnaseq-viz.Rmd
-
-Untracked files:
-  (use "git add <file>..." to include in what will be committed)
-
-        .DS_Store
-        ._.DS_Store
-        Bibliography/._bibliography.bib
-        Bibliography/._plos-one.csl
-        install.R
-        markdown-angus-rnaseq-viz.html
-        runtime.txt
 ```
 
 Git now knows that it’s supposed to keep track of these 15 files, but it hasn’t recorded these changes as a commit yet. To get it to do that, we need to run one more command:
@@ -779,8 +770,8 @@ git commit -m "Let's do our initial commit"
 This produces the following output.
 
 ```
-[master (root-commit) 2087cdb] Let's do our initial commit
- 15 files changed, 71308 insertions(+)
+[master (root-commit) cd4a91b] Let's do our initial commit
+ 16 files changed, 71713 insertions(+)
  create mode 100644 Bibliography/bibliography.bib
  create mode 100644 Bibliography/plos-one.csl
  create mode 100644 ERR458493.fastq.gz.quant.counts
@@ -795,10 +786,11 @@ This produces the following output.
  create mode 100644 ERR458501.fastq.gz.quant.tpm
  create mode 100644 ERR458502.fastq.gz.quant.counts
  create mode 100644 ERR458502.fastq.gz.quant.tpm
+ create mode 100644 ExploratoryAnalysis.Rmd
  create mode 100644 markdown-angus-rnaseq-viz.Rmd
 ```
 
-When we run `git commit`, Git takes everything we have told it to save by using `git add` and stores a copy permanently inside the special `.git` directory. This permanent copy is called a `commit` (or `revision`) and its short identifier is `2087cdb` (Your commit may have another identifier.)
+When we run `git commit`, Git takes everything we have told it to save by using `git add` and stores a copy permanently inside the special `.git` directory. This permanent copy is called a `commit` (or `revision`) and its short identifier is `cd4a91b` (Your commit may have another identifier.)
 
 We use the `-m` flag (for “_message_”) to record a short, descriptive, and specific comment that will help us remember later on what we did and why. If we just run `git commit` without the `-m` option, Git will launch `nano` (or whatever other editor we configured as `core.editor`) so that we can write a longer message.
 
@@ -808,18 +800,7 @@ If we run `git status` now:
 
 ```
 On branch master
-Untracked files:
-  (use "git add <file>..." to include in what will be committed)
-
-        .DS_Store
-        ._.DS_Store
-        Bibliography/._bibliography.bib
-        Bibliography/._plos-one.csl
-        install.R
-        markdown-angus-rnaseq-viz.html
-        runtime.txt
-
-nothing added to commit but untracked files present (use "git add" to track)
+nothing to commit, working tree clean
 ```
 
 This is the first steps in maintaining versions. There are a few more commands that you should be aware of, such as `git diff` and `git log`, but for the purposes of this exercise, this is sufficient.
@@ -862,14 +843,13 @@ The output should look something like the following.
 ```
 Username for 'https://github.com': fpsom
 Password for 'https://fpsom@github.com':
-Counting objects: 9, done.
+Counting objects: 19, done.
 Delta compression using up to 6 threads.
-Compressing objects: 100% (9/9), done.
-Writing objects: 100% (9/9), 134.26 KiB | 1.84 MiB/s, done.
-Total 9 (delta 0), reused 0 (delta 0)
+Compressing objects: 100% (19/19), done.
+Writing objects: 100% (19/19), 280.93 KiB | 2.19 MiB/s, done.
+Total 19 (delta 0), reused 0 (delta 0)
 To https://github.com/fpsom/RMarkdownDIBSI2018.git
  * [new branch]      master -> master
-
 ```
 
 Excellent job! You now have both the remote and the local repositories in sync!
@@ -915,10 +895,19 @@ r-2018-02-05
 You can also have an `install.R` file that will be executed during build, and can be used to install libraries. In our instance, the `install.R` file will contain the libraries already listed under the RMarkdown file, i.e.:
 
 ```
-install.packages("tidyverse")
 install.packages("rmarkdown")
 install.packages("httr")
-install.packages("???")
+install.packages("RColorBrewer")
+install.packages("gplots")
+install.packages("GGally")
+install.packages("ggplot2")
+install.packages("pheatmap")
+install.packages("plyr")
+install.packages("dplyr")
+install.packages("tidyr")
+install.packages("data.table")
+source("https://bioconductor.org/biocLite.R")
+biocLite("edgeR")
 ```
 
 You can create both these files locally (e.g. using an editor such as `nano`) and push them to the GitHub repository using the `git add`, `git commit` and `git push` commands we show earlier. Another approach is to directly create these files through the GitHub web interface, by clicking the `Create new file` button and then adding the content with the correct file name. A final option is to download these files from the links below, and upload them to GitHub again using the graphical interface.
@@ -937,7 +926,7 @@ Now that we have everything setup, we can launch our Binder instance.
 
 - **Step 3**: In the `URL to open (optional)` field, type in `rstudio` and then select `URL` from the dropdown list on the right.
 
-- **Step 4**: Click on `Launch` and have a break while Binder builds and launches your instance. It might take 5'-10' to launch the instance.
+- **Step 4**: Click on `Launch` and have a break while Binder builds and launches your instance. It might take 10'-15' to launch the instance.
 
 As soon as the instance start, select the .Rmd document and click on `knitr`. In a few seconds, the RMarkdown document will be built and a webpage should pop-up (you may need to click on "Try again" button for the external page to show up).
 
