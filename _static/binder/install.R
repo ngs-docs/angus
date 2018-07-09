@@ -1,0 +1,7 @@
+install.packages("rmarkdown")
+install.packages("httr")
+install.packages("ggplot2")
+install.packages("RColorBrewer")
+install.packages("edgeR")
+install.packages("gplots")
+install.packages("GGally")
