@@ -26,3 +26,7 @@ Table of Contents
    transcriptome-assembly.md
 
    genome-assembly.md
+
+   jetstream-bioconda-config.md
+
+   rmarkdown_rnaseq.md

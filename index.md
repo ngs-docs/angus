@@ -47,7 +47,7 @@ Wednesday 7/4:
 Thursday:
 * 9am-noon - tutorials
 	* [Mapping and variant calling, cont'd](https://angus.readthedocs.io/en/2018/mapping-variant-calling.html)
-	* 
+	*
 * noon-1:15 - lunch (lunch on your own)
 * 1:15-5:30pm - tutorials
 	* [RNAseq and differential expression](https://angus.readthedocs.io/en/2018/rna-seq.html)
@@ -74,10 +74,10 @@ Monday
 * 1:15-3pm:
 	* Lions: [Configuring your Jetstream computer](jetstream-bioconda-config.html)
 	* Tigers: An -omics chat
-	* Bears: RMarkdown
+	* Bears: [RMarkdown](rmarkdown_rnaseq.md)
 * 3:15pm-5:15pm:
-	* Lions: RMarkdown
-	* Tigers: RMarkdown
+	* Lions: [RMarkdown](rmarkdown_rnaseq.md)
+	* Tigers: [RMarkdown](rmarkdown_rnaseq.md)
 	* Bears: An -omics chat
 
 Tuesday:
@@ -110,7 +110,7 @@ Friday:
 * noon-1:15 - lunch (lunch on your own)
 * 1:15-5:30pm - lab/lecture/instruction
 
-Saturday - 
+Saturday -
 
 * 9am: Titus Brown, title: What does the future hold in a world of infinite data?
 * 9am-noon - lab/lecture/instruction
