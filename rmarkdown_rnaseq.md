@@ -4,6 +4,8 @@ During this lesson, you’ll learn how to use RMarkdown for reproducible data an
 
 This lesson will get you started with RMarkdown, but if you want more, [here](https://rpubs.com/marschmi/RMarkdown) is a great angus-esque tutorial.
 
+There's also [cheatsheets!](https://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf)
+
 ## Getting started on Jetstream
 
 [Start up an m1.medium instance running Ubuntu 16.04 on Jetstream.](jetstream/boot.html)
@@ -24,6 +26,7 @@ The last command will uncompress the file and put everything inside the `markdow
 cd markdown_tutorial
 ls -lh
 ```
+
 
 You will see the following list:
 
@@ -46,7 +49,13 @@ drwxr-xr-x 2 dibtiger dibtiger 4.0K Jul  9 02:26 Bibliography
 
 ```
 
-What we are interested now is the `.Rmd` file, which is an RMarkdown file - we can view this on RStudio.
+We also need to download the R markdown file we're using:
+
+```
+curl -L -O https://raw.githubusercontent.com/ngs-docs/angus/2018/ExploratoryAnalysis.Rmd
+```
+
+What we are interested now is the `ExploratoryAnalysis.Rmd` file, which is an RMarkdown file - we can view this on RStudio. You are welcome to look at `markdown-angus-rnaseq-viz.Rmd` as well, but that's not the file we're using this year.
 
 ******************************************************************************************
 
@@ -269,7 +278,7 @@ There are 2 ways to embed code within an RMarkdown document.
 
 ### a. Inline R Code  
 
-Inline code is created by using a back tick (the key next to the #1) (\`) and the letter r followed by another back tick.  
+Inline code is created by using a back tick (this is usually the key with the `~`) (\`) and the letter r followed by another back tick.  
 
 - For example:  2^11^ is \`r 2^11\`.  
 
@@ -538,7 +547,7 @@ We have a navigable Table of Contents!
 
 [renderedHTML](ExploratoryAnalysis.html)
 
-You can download the file directly in the `markdown_tutorial` by using the following command:
+If you didnt already, you can download the file directly in the `markdown_tutorial` by using the following command:
 
 ```
 curl -L -O https://raw.githubusercontent.com/ngs-docs/angus/2018/ExploratoryAnalysis.Rmd
@@ -553,9 +562,9 @@ curl -L -O https://raw.githubusercontent.com/ngs-docs/angus/2018/ExploratoryAnal
 
 We'll start by exploring how version control can be used to keep track of what one person did and when. Even if you aren't collaborating with other people, automated version control is much better than this situation:
 
-[![Piled Higher and Deeper by Jorge Cham, http://www.phdcomics.com/comics/archive_print.php?comicid=1531](_static/git/phd101212s.png)](http://www.phdcomics.com)
+![Piled Higher and Deeper by Jorge Cham]()](http://www.phdcomics.com)
 
-"Piled Higher and Deeper" by Jorge Cham, http://www.phdcomics.com
+[Piled Higher and Deeper by Jorge Cham](http://www.phdcomics.com/comics/archive_print.php?comicid=1531(_static/git/phd101212s.png)
 
 We've all been in this situation before: it seems ridiculous to have multiple nearly-identical versions of the same document. Some word processors let us deal with this a little better, such as Microsoft Word's [Track Changes](https://support.office.com/en-us/article/Track-changes-in-Word-197ba630-0f5f-4a8e-9a77-3712475e806a), Google Docs' [version history](https://support.google.com/docs/answer/190843?hl=en), or LibreOffice's [Recording and Displaying Changes](https://help.libreoffice.org/Common/Recording_and_Displaying_Changes).
 
