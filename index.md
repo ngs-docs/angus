@@ -68,11 +68,11 @@ Monday
 * 9-10am: week2 orientation, Titus Brown
 * 10:15am-noon:
 	* Lions: An -omics chat
-	* Tigers: Configuring your Jetstream computer
-	* Bears: Configuring your Jetstream computer
+	* Tigers: [Configuring your Jetstream computer](jetstream-bioconda-config.html)
+	* Bears: [Configuring your Jetstream computer](jetstream-bioconda-config.html)
 * * noon-1:15 - lunch (lunch on your own)
 * 1:15-3pm:
-	* Lions: Configuring your Jetstream computer
+	* Lions: [Configuring your Jetstream computer](jetstream-bioconda-config.html)
 	* Tigers: An -omics chat
 	* Bears: RMarkdown
 * 3:15pm-5:15pm:
