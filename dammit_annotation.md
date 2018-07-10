@@ -1,5 +1,4 @@
-Annotating and evaluating a *de novo* transcriptome assembly
-=========
+# Annotating and evaluating a *de novo* transcriptome assembly
 
 At the end of this lesson, you will be familiar with:
 * how to annotate a *de novo* transcriptome assembly
@@ -7,7 +6,7 @@ At the end of this lesson, you will be familiar with:
 * several methods for evaluating the completeness of a *de novo* transcriptome assembly
 * What a Jupyter notebook is and how to execute a few commands in Python
 
-# Annotation with dammit
+## Annotation with dammit
 
 dammit!
 
@@ -20,7 +19,7 @@ In addition, [BUSCO](http://busco.ezlab.org/) v3 is run, which will compare the 
 
 There are several lineage-specific datasets available from the authors of BUSCO. We will use the `metazoa` dataset for this transcriptome.
 
-## Installation
+### Installation
 
 Annotation necessarily requires a lot of software! dammit attempts to simplify this and
 make it as reliable as possible, but we still have some dependencies.
@@ -67,7 +66,7 @@ The version (`dammit --version`) should be:
 ```
 dammit 1.0rc2
 ```
-## Database Preparation
+#### Database Preparation
 
 dammit has two major subcommands: `dammit databases` and `dammit annotate`. The `databases` command checks that databases are installed and prepared, and if run with the `--install` flag,
 it will perform that installation and preparation. If you just run `dammit databases` on its own, you should get a notification that some database tasks are not up-to-date. So, we need
@@ -99,7 +98,7 @@ Phew, now we have everything installed!
 
 Now, let's take a minute and thank [Camille](https://twitter.com/camille_codon) for making this process easy for us by maintaining a [recipe on bioconda](https://bioconda.github.io/recipes/dammit/README.html). This saves us a lot of hassle with having to install individual parts required for the pipeline. AND on top of the installation that, there is this pipeline! Historically, transcriptome annotation involved many tedious steps, requiring bioinformaticians to keep track of parsing databases alignment ouptut and summarizing across multiple databases. All of these steps have been standardized in the `dammit` pipeline, which uses the [pydoit](http://pydoit.org/) automation tool. Now, we can input our assembly fasta file -> query databases -> and get output annotations with gene names for each contig. Thank you, Camille!
 
-## Annotation
+### Annotation
 
 Keep things organized! Let's make a project directory:
 
@@ -159,7 +158,7 @@ If the above `dammit` command is run again, there will be a message:
 `**Pipeline is already completed!**`
 
 
-## Parse dammit output
+### Parse dammit output
 
 Cammille wrote dammit in Python, which includes a library to parse gff3 dammit output. To send this output to a useful table, we will need to open the Python environment. 
 
@@ -233,16 +232,16 @@ less nema_gene_name_id.csv
 
 Notice there are multiple transcripts per gene model prediction. This `.csv` file can be used in `tximport` in downstream DE analysis.
 
-# Evaluation
+## Evaluation
 
 We will be using Transrate and Busco!
 
 
-## Transrate
+### Transrate
 
 [Transrate](http://hibberdlab.com/transrate/getting_started.html) serves two main purposes. It can compare two assemblies to see how similar they are. Or, it can give you a score which represents proportion of input reads that provide positive support for the assembly. Today, we will use transrate to compare two assemblies. To get a transrate score, we would need to use the trimmed reads, which takes a long time. For a further explanation of metrics and how to get a transrate score, see the [documentation](http://hibberdlab.com/transrate/metrics.html) and the paper by [Smith-Unna et al. 2016](http://genome.cshlp.org/content/early/2016/06/01/gr.196469.115). 
 
-### Install Transrate
+#### Install Transrate
 
 ```
 cd 
@@ -270,7 +269,7 @@ cat full_v_subset/assemblies.csv
 cat subset_v_full/assemblies.csv
 ```
 
-## BUSCO
+### BUSCO
 
 * Metazoa database used with 978 genes
 * "Complete" lengths are within two standard deviations of the BUSCO group mean length
@@ -280,7 +279,7 @@ cat subset_v_full/assemblies.csv
   * Paper: [Simao et al. 2015](http://bioinformatics.oxfordjournals.org/content/31/19/3210)
   * [User Guide](http://gitlab.com/ezlab/busco/raw/master/BUSCO_v2.0_userguide.pdf)
 
-### Run the actual command:
+#### Run the command:
 
 We've already installed and ran the BUSCO command with the dammit pipeline. Let's take a look at the results.
 
