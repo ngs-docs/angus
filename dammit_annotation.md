@@ -94,6 +94,9 @@ We used the "metazoa" BUSCO group. We can use any of the BUSCO databases, so lon
 dammit databases --install --busco-group protists
 ```
 
+Phew, now we have everything installed! 
+
+Now, let's take a minute and thank [Camille](https://twitter.com/camille_codon) for making this process easy for us by maintaining a [recipe on bioconda](https://bioconda.github.io/recipes/dammit/README.html). This saves us a lot of hassle with having to install individual parts required for the pipeline. AND on top of the installation that, there is this pipeline! Historically, transcriptome annotation involved many tedious steps, requiring bioinformaticians to keep track of parsing databases alignment ouptut and summarizing across multiple databases. All of these steps have been standardized in the `dammit` pipeline, which uses the [pydoit](http://pydoit.org/) automation tool. Now, we can input our assembly fasta file -> query databases -> and get output annotations with gene names for each contig. Thank you, Camille!
 
 ## Annotation
 
