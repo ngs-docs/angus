@@ -4,7 +4,7 @@ Annotating and evaluating a *de novo* transcriptome assembly
 At the end of this lesson, you will be familiar with:
 * how to annotate a *de novo* transcriptome assembly
 * parse GFF3 output from the annotation output to use for DE analysis
-* evaluate a *de novo* transcriptome assembly
+* several methods for evaluating the completeness of a *de novo* transcriptome assembly
 
 # Annotation with dammit
 
