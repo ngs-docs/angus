@@ -38,7 +38,12 @@ dammit can be installed via bioconda. Due to some dependency issues with biocond
 ```
 conda config --add pinned_packages 'r-base >=3.4'
 ```
-
+Add the appropriate channels, including bioconda:
+```
+conda config --add channels defaults
+conda config --add channels conda-forge
+conda config --add channels bioconda
+```
 Then, you can install dammit normally:
 ```
 conda install -y dammit
