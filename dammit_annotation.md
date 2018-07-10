@@ -218,7 +218,7 @@ names = annotations.sort_values(by=['seqid', 'score'], ascending=True).query('sc
 new_file = names.dropna(axis=0,how='all')
 new_file.head()
 ```
-Which should give an output that looks like this:
+Which will give an output that looks like this:
 ![](_static/jupyter/annotation_names.png)
 
 To save the file, add a new cell and enter:
@@ -226,8 +226,9 @@ To save the file, add a new cell and enter:
 new_file.to_csv("nema_gene_name_id.csv")
 ```
 
-This will output a table of genes with 'seqid' and 'Name' in a .csv file: `nema_gene_name_id.csv`. Let's take a look at that file:
+Now, we can return to the terminal, Control + C to cancel and close the Jupyter notebook.
 
+We can look at the output we just made, which is a table of genes with 'seqid' and 'Name' in a .csv file: `nema_gene_name_id.csv`.
 ```
 less nema_gene_name_id.csv
 ```
