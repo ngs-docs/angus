@@ -44,7 +44,7 @@ conda config --add channels defaults
 conda config --add channels conda-forge
 conda config --add channels bioconda
 ```
-Then, you can install dammit normally:
+Then, you can install dammit normally (this will take some time, ~5-10 min):
 ```
 conda install -y dammit
 ```
@@ -55,8 +55,17 @@ To make sure your installation was successful, run
 dammit help
 ```
 
-This will give a list of dammit's commands and options.
-
+This will give a list of dammit's commands and options:
+```
+/home/dibbears/miniconda3/envs/py3.dammit/lib/python3.6/site-packages/matplotlib/font_manager.py:278: UserWarning: Matplotlib is building the font cache using fc-list. This may take a moment.
+  'Matplotlib is building the font cache using fc-list. '
+usage: dammit [-h] [--debug] [--version] {migrate,databases,annotate} ...
+dammit: error: invalid choice: 'help' (choose from 'migrate', 'databases', 'annotate')
+```
+The version (`dammit --version`) should be:
+```
+dammit 1.0rc2
+```
 ## Database Preparation
 
 dammit has two major subcommands: `dammit databases` and `dammit annotate`. The `databases` command checks that databases are installed and prepared, and if run with the `--install` flag,
