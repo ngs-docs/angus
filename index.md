@@ -85,7 +85,12 @@ Tuesday:
 * 10:15am-noon -  ChIP-seq and UCSC pileup
 * noon-1:15 - lunch break (lunch on your own)
 * 1:15:3pm - transcriptome annotation
-* 3:15pm-5:30pm - topic specific breakouts (TBA)
+* 3:15pm-5:30pm - topic specific breakouts
+  * Microbial ecology & microbiome (Mike & Sabah)
+  * Non-model -omics (Elijah and Lisa)
+  * Model organisms (Erich, Rocio)
+  * Population genetics / comparative genomics / GWAS (Shannon, Kat, Elias)
+  * Work on your own (Adam)
 * 5:30pm-7:30pm - dinner (on your own)
 * 7:30-9pm: posters & ice cream session
 
