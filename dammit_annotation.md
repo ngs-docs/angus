@@ -96,7 +96,7 @@ dammit databases --install --busco-group protists
 
 Phew, now we have everything installed! 
 
-Now, let's take a minute and thank [Camille](https://twitter.com/camille_codon) for making this process easy for us by maintaining a [recipe on bioconda](https://bioconda.github.io/recipes/dammit/README.html). This saves us a lot of hassle with having to install individual parts required for the pipeline. AND on top of the installation that, there is this pipeline! Historically, transcriptome annotation involved many tedious steps, requiring bioinformaticians to keep track of parsing databases alignment ouptut and summarizing across multiple databases. All of these steps have been standardized in the `dammit` pipeline, which uses the [pydoit](http://pydoit.org/) automation tool. Now, we can input our assembly fasta file -> query databases -> and get output annotations with gene names for each contig. Thank you, Camille!
+Now, let's take a minute and thank [Camille](https://twitter.com/camille_codon) for making this process easy for us by maintaining a [recipe on bioconda](https://bioconda.github.io/recipes/dammit/README.html). This saves us a lot of hassle with having to install individual parts required for the pipeline. AND on top of the easy installation, there is this slick pipeline! Historically, transcriptome annotation involved many tedious steps, requiring bioinformaticians to keep track of parsing databases alignment ouptut and summarizing across multiple databases. All of these steps have been standardized in the `dammit` pipeline, which uses the [pydoit](http://pydoit.org/) automation tool. Now, we can input our assembly fasta file -> query databases -> and get output annotations with gene names for each contig - all in one step. Thank you, Camille!
 
 ### Annotation
 
@@ -130,7 +130,7 @@ Run the command:
 dammit annotate trinity.nema.fasta --busco-group metazoa --user-databases nema.reference.prot.faa --n_threads 4
 ```
 
-While dammit runs, it will print out which tasks its running to the terminal. dammit is
+While dammit runs, it will print out which task it is running to the terminal. dammit is
 written with a library called [pydoit](www.pydoit.org), which is a python workflow library similar
 to GNU Make. This not only helps organize the underlying workflow, but also means that if we
 interrupt it, it will properly resume! 
@@ -140,7 +140,8 @@ look inside, you'll see a lot of files:
 
 ```
 ls trinity.nema.fasta.dammit/
-```    
+``` 
+Expected output:
 ```    
     annotate.doit.db                              trinity.nema.fasta.dammit.namemap.csv  trinity.nema.fasta.transdecoder.pep
     dammit.log                                    trinity.nema.fasta.dammit.stats.json   trinity.nema.fasta.x.nema.reference.prot.faa.crbl.csv
