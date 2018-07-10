@@ -169,7 +169,7 @@ Cammille wrote dammit in Python, which includes a library to parse gff3 dammit o
 
 Install Jupyter notebook:
 ```
-conda install jupyter
+conda install -y jupyter
 ```
 
 Then start the jupyter notebook:
