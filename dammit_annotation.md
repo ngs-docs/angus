@@ -212,12 +212,14 @@ To add a new cell, with the "plus" icon.
 
 In a new cell enter:
 ```
-gff_file = "trinity.nema.fasta.dammit.gff3"
+gff_file = "trinity.nema.fasta.dammit/trinity.nema.fasta.dammit.gff3"
 annotations = GFF3Parser(filename=gff_file).read()
 names = annotations.sort_values(by=['seqid', 'score'], ascending=True).query('score < 1e-05').drop_duplicates(subset='seqid')[['seqid', 'Name']]
 new_file = names.dropna(axis=0,how='all')
 new_file.head()
 ```
+Which shoudl give an output that looks like this:
+![](_static/jupyter/annotation_names.png)
 
 To save the file, add a new cell and enter:
 ```
