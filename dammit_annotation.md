@@ -208,7 +208,7 @@ Press Shift + Enter to execute the cell.
 
 To add a new cell, with the "plus" icon. 
 
-![](_static/jupyter_notebook_add_cell.png)
+![](_static/jupyter/jupyter_notebook_add_cell.png)
 
 In a new cell enter:
 ```
