@@ -218,7 +218,7 @@ names = annotations.sort_values(by=['seqid', 'score'], ascending=True).query('sc
 new_file = names.dropna(axis=0,how='all')
 new_file.head()
 ```
-Which shoudl give an output that looks like this:
+Which should give an output that looks like this:
 ![](_static/jupyter/annotation_names.png)
 
 To save the file, add a new cell and enter:
