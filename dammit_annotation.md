@@ -57,8 +57,6 @@ dammit help
 
 This will give a list of dammit's commands and options:
 ```
-/home/dibbears/miniconda3/envs/py3.dammit/lib/python3.6/site-packages/matplotlib/font_manager.py:278: UserWarning: Matplotlib is building the font cache using fc-list. This may take a moment.
-  'Matplotlib is building the font cache using fc-list. '
 usage: dammit [-h] [--debug] [--version] {migrate,databases,annotate} ...
 dammit: error: invalid choice: 'help' (choose from 'migrate', 'databases', 'annotate')
 ```
