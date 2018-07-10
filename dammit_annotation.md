@@ -126,6 +126,7 @@ knowledge of your system!
 ```
 curl -LO ftp://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000001593_45351.fasta.gz
 gunzip -c UP000001593_45351.fasta.gz > nema.reference.prot.faa
+rm UP000001593_45351.fasta.gz
 ```
 
 Run the command:
@@ -226,17 +227,19 @@ curl -SL https://bintray.com/artifact/download/blahah/generic/transrate-1.0.3-li
 cd transrate-1.0.3-linux-x86_64 
 ./transrate --install-deps ref
 rm -f bin/librt.so.1
-echo 'export PATH=$PATH:"$HOME/transrate-1.0.3-linux-x86_64"' >> ~/bin/py3/bin/activate
-source ~/bin/py3/bin/activate
+echo 'export PATH="$HOME/transrate-1.0.3-linux-x86_64":$PATH' >> ~/.bashrc
+source ~/.bashrc
+conda activate py3.dammit
 ```
-
 
 * How do the two transcriptomes compare with each other?
 
 ```
-transrate --reference=Trinity.fixed.fasta --assembly=trinity-nematostella-raw.fa --output=full_v_subset
-transrate --reference=trinity-nematostella-raw.fa --assembly=Trinity.fixed.fasta --output=subset_v_full
+transrate --reference=Trinity.fasta --assembly=trinity.nema.fasta --output=subset_v_full
+transrate --reference=trinity.nema.fasta --assembly=Trinity.fasta --output=full_v_subset
 ```
+
+The results will be in two separate directoreis, with the important metrics in the `assemblies.csv` files.
 
 ## BUSCO
 
@@ -268,7 +271,7 @@ How does the full transcriptome compare?
 
 When you're finished, exit out of this virtual environment
 ```
-deactivate
+source deactivate
 ```
 
 ## References
