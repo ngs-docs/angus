@@ -28,7 +28,7 @@ make it as reliable as possible, but we still have some dependencies.
 Create a python 3 environment for dammit:
 
 ```
-conda create -n py3.dammit python=3
+conda create -y --name py3.dammit python=3
 ```
 Then
 ```
