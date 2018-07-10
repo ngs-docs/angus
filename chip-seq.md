@@ -385,7 +385,7 @@ head mm10_refgene.bed
 Which peaks overlap with the promoter regions? To do this, we will use [`bedtools intersect`](http://bedtools.readthedocs.io/en/latest/content/tools/intersect.html):
 
 ```bash
-bedtools intersect -a Oct_peaks.bed -b mm10_refgene.bed -wa -wb > Oct4_peaks_overlap_promoter.txt
+bedtools intersect -a Oct_peaks.bed -b mm10genes.5kb.promoters.bed -wa -wb > Oct4_peaks_overlap_promoter.txt
 ```
 which genes?
 
