@@ -192,10 +192,12 @@ Now run the jupyter notebook:
 jupyter notebook &
 ```
 
-You will see a list of files, like this:
-![]()
+You will see a list of files, start a new Python 3 notebook:
+![](_static/jupyter/jupyter_notebook.png)
 
-Enter this into the notebook:
+This will open a new notebook.
+
+Enter this into the first cell:
 
 ```
 import pandas as pd
@@ -204,9 +206,9 @@ from dammit.fileio.gff3 import GFF3Parser
 
 Press Shift + Enter to execute the cell.
 
-Add a new cell, with the "plus" icon. 
+To add a new cell, with the "plus" icon. 
 
-![]()
+![](_static/jupyter_notebook_add_cell.png)
 
 In a new cell enter:
 ```
@@ -217,7 +219,7 @@ new_file = names.dropna(axis=0,how='all')
 new_file.head()
 ```
 
-To save the file:
+To save the file, add a new cell and enter:
 ```
 new_file.to_csv("nema_gene_name_id.csv")
 ```
