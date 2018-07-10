@@ -86,7 +86,7 @@ Tuesday:
 * noon-1:15 - lunch break (lunch on your own)
 * 1:15:3pm - [transcriptome annotation](dammit_annotation.html)
 * 3:15pm-5:30pm - topic specific breakouts
-  * Microbial ecology & microbiome (Mike & Sabah)
+  * Microbial ecology & microbiome (Mike & Sabah) [notes here](https://hackmd.io/bXyY0ttZSGaIFcnvwdKEVw?view)
   * Non-model -omics (Elijah and Lisa)
   * Model organisms (Erich, Rocio)
   * Population genetics / comparative genomics / GWAS (Shannon, Kat, Elias)
