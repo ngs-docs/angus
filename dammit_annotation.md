@@ -41,7 +41,7 @@ conda config --add pinned_packages 'r-base >=3.4'
 
 Then, you can install dammit normally:
 ```
-conda install dammit
+conda install -y dammit
 ```
 
 To make sure your installation was successful, run
@@ -86,8 +86,9 @@ dammit databases --install --busco-group protozoa
 Keep things organized! Let's make a project directory:
 
 ```
-mkdir -p annotation
-cd annotation
+cd ~/
+mkdir -p ~/annotation
+cd ~/annotation
 ```
 
 You all ran Trinity earlier to generate an assembly, but just in case, we're going to download
