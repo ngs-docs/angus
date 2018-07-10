@@ -171,11 +171,29 @@ Install Jupyter notebook:
 ```
 conda install -y jupyter
 ```
+Then
+```
+jupyter notebook --generate-config
+```
+Then generate a config file. (Note: this password protects the notebook.)
+```
+cat >> ~/.jupyter/jupyter_notebook_config.py <<EOF
+c = get_config()
+c.NotebookApp.ip = '*'
+c.NotebookApp.open_browser = False
+c.NotebookApp.password = u'sha1:d3f13af9db69:31268fb729f127aebb2f77f7b61fa92d6c9e3aa1'
+c.NotebookApp.port = 8000
 
-Then start the jupyter notebook:
+EOF
 ```
-jupyter notebook
+
+Now run the jupyter notebook:
 ```
+jupyter notebook &
+```
+
+You will see a list of files, like this:
+![]()
 
 Enter this into the notebook:
 
@@ -185,6 +203,10 @@ from dammit.fileio.gff3 import GFF3Parser
 ```
 
 Press Shift + Enter to execute the cell.
+
+Add a new cell, with the "plus" icon. 
+
+![]()
 
 In a new cell enter:
 ```
