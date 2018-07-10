@@ -31,7 +31,7 @@ conda create -n py3.dammit python=3
 ```
 Then
 ```
-source activate dammit
+source activate py3.dammit
 ```
 
 dammit can be installed via bioconda. Due to some dependency issues with bioconda packages, first run:
