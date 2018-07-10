@@ -167,7 +167,7 @@ To do this, we will use a [Jupyter notebook](http://jupyter.org/). In addition t
 
 Install Jupyter notebook:
 ```
-conda install -y jupyter
+pip install jupyter
 ```
 Then
 ```
