@@ -31,4 +31,6 @@ Table of Contents
 
    rmarkdown_rnaseq.md
    
+   chip-seq
+   
    dammit_annotation.md
