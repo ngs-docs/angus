@@ -109,20 +109,15 @@ mkdir -p ~/annotation
 cd ~/annotation
 ```
 
-You all ran Trinity earlier to generate an assembly, but just in case, we're going to download
-a version of that assembly to annotate.
+You all ran Trinity last week to generate an assembly. The output from Trinity is a file, `Trinity.fasta`. Today, we're going to use a *de novo* transcriptome assembly from [Nematostella vectensis](https://en.wikipedia.org/wiki/Starlet_sea_anemone_ ([Tulin et al., 2013](https://evodevojournal.biomedcentral.com/articles/10.1186/2041-9139-4-16)).
 
 ```
 curl -OL https://darchive.mblwhoilibrary.org/bitstream/handle/1912/5613/Trinity.fasta
 head -3000 Trinity.fasta > trinity.nema.fasta
 ```
 
-Now we'll download a custom *Nematostella vectensis* protein database available
-from JGI. Here, somebody has already created a proper database for us [1] (it has a reference proteome
-available through uniprot). If your critter
-is a non-model organism, you will
-likely need to create your own with proteins from closely-related species. This will rely on your
-knowledge of your system!
+Now we'll download a custom *Nematostella vectensis* protein database. Somebody has already created a proper database for us [Putnam et al. 2007](https://www.uniprot.org/proteomes/UP000001593) (reference proteome
+available through uniprot). If your critter is a non-model organism, you will likely need to grab proteins from a closely-related species. This will rely on your knowledge of your system!
 
 ```
 curl -LO ftp://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000001593_45351.fasta.gz
@@ -168,7 +163,7 @@ If the above `dammit` command is run again, there will be a message:
 
 Cammille wrote dammit in Python, which includes a library to parse gff3 dammit output. To send this output to a useful table, we will need to open the Python environment. 
 
-To do this, we will use a [Jupyter notebook](http://jupyter.org/). In addition to executing Python commands, Jupyter notebooks can also run R (as well as many other languages). Similar to R markdown (Rmd) files, Jupyter notebooks can keep track of code and output. The output file format for Jupyter notebooks is .ipnb, which GitHub can render. See this [gallery of interesting Jupyter notebooks](https://github.com/jupyter/jupyter/wiki/A-gallery-of-interesting-Jupyter-Notebooks#mathematics-physics-chemistry-biology).  
+To do this, we will use a [Jupyter notebook](http://jupyter.org/). In addition to executing Python commands, Jupyter notebooks can also run R (as well as many other languages). Similar to R markdown (Rmd) files, Jupyter notebooks can keep track of code and output. The output file format for Jupyter notebooks is .ipynb, which GitHub can render. See this [gallery of interesting Jupyter notebooks](https://github.com/jupyter/jupyter/wiki/A-gallery-of-interesting-Jupyter-Notebooks#mathematics-physics-chemistry-biology).  
 
 Install Jupyter notebook:
 ```
@@ -310,12 +305,4 @@ When you're finished, exit out of the conda environment:
 ```
 source deactivate
 ```
-
-## References
-
-1. Putnam NH, Srivastava M, Hellsten U, Dirks B, Chapman J, Salamov A,
-Terry A, Shapiro H, Lindquist E, Kapitonov VV, Jurka J, Genikhovich G,
-Grigoriev IV, Lucas SM, Steele RE, Finnerty JR, Technau U, Martindale
-MQ, Rokhsar DS. (2007) Sea anemone genome reveals ancestral eumetazoan
-gene repertoire and genomic organization. Science. 317, 86-94.
 
