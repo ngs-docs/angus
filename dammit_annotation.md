@@ -91,7 +91,7 @@ We used the "metazoa" BUSCO group. We can use any of the BUSCO databases, so lon
 `dammit databases -h`. You should try to match your species as closely as possible for the best results. If we want to install another, for example:
 
 ```
-dammit databases --install --busco-group protozoa
+dammit databases --install --busco-group protists
 ```
 
 
