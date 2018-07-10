@@ -113,7 +113,7 @@ a version of that assembly to annotate.
 
 ```
 curl -OL https://darchive.mblwhoilibrary.org/bitstream/handle/1912/5613/Trinity.fasta
-head -4000 Trinity.fasta > trinity.nema.fasta
+head -3000 Trinity.fasta > trinity.nema.fasta
 ```
 
 Now we'll download a custom *Nematostella vectensis* protein database available
