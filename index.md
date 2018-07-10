@@ -82,9 +82,9 @@ Monday
 
 Tuesday:
 * 9-10am: morning speaker: Erich Schwarz
-* 10:15am-noon -  ChIP-seq and UCSC pileup
+* 10:15am-noon -  [ChIP-seq and UCSC pileup](chip-seq.html)
 * noon-1:15 - lunch break (lunch on your own)
-* 1:15:3pm - transcriptome annotation
+* 1:15:3pm - [transcriptome annotation](dammit_annotation.html)
 * 3:15pm-5:30pm - topic specific breakouts
   * Microbial ecology & microbiome (Mike & Sabah)
   * Non-model -omics (Elijah and Lisa)
