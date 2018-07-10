@@ -239,8 +239,6 @@ Notice there are multiple transcripts per gene model prediction. This `.csv` fil
 
 We will be using Transrate and Busco!
 
-## Install
-
 
 ## Transrate
 
@@ -286,7 +284,7 @@ cat subset_v_full/assemblies.csv
 
 ### Run the actual command:
 
-We've already run the BUSCO command when the dammit pipeline ran. Let's take a look at the results.
+We've already installed and ran the BUSCO command with the dammit pipeline. Let's take a look at the results.
 
 Check the output:
 
