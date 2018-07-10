@@ -81,7 +81,7 @@ Note: if you have limited space on your instance, you can also install these dat
 # dammit databases --database-dir /path/to/databases
 ```
 
-Install databases:
+Install databases (this will take a long time, usually >10 min):
 
 ```
 dammit databases --install --busco-group metazoa
