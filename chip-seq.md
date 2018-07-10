@@ -49,7 +49,7 @@ Let do the installation process:
 
 ```bash
 # this can take 5 mins
-conda install -y bowtie2 samtools bedtools deeptools macs2
+conda install -y bowtie2 samtools bedtools deeptools macs2 wget r-essentials bioconductor-deseq2 bioconductor-edger
 ```
 We will also need a program called `bedGraphToBigWig`.
 You can download the file from UCSC at [this link](http://hgdownload.cse.ucsc.edu/admin/exe/) as follows:
@@ -393,6 +393,40 @@ which genes?
 cat Oct4_peaks_overlap_promoter.txt | cut -f8 | sort | uniq > genes_with_Oct4_binding.txt
 ```
 Seeing is believing. Search several genes in the gene list in UCSC genome browser and see if there are binding peaks of Oct4 at the promoters or not!
+
+## Alternatively you can use [HOMER](http://homer.ucsd.edu/homer/index.html)
+First lets create a directory and download the homer installation script, and then run it
+```
+## This command creates the directory and (&&) if it is created it moves in the that directory
+mkdir ~/homer && cd $_
+curl -O http://homer.ucsd.edu/homer/configureHomer.pl
+perl configureHomer.pl -install
+
+## This command puts homer programs in your path, meaning you can use homer anywhere in your file system
+export PATH=$PATH:/home/${USER}/homer/.//bin/
+```
+Homer has a number of organisms included, however they have to be installed. To list time the command is:
+```
+perl /home/${USER}/homer/.//configureHomer.pl -list
+```
+Since we are using the mouse genome v10, we will install mm10:
+```
+perl /home/${USER}/homer/.//configureHomer.pl -install mm10
+```
+Now we will [annotate](http://homer.ucsd.edu/homer/ngs/annotation.html) the peaks
+```
+annotatePeaks.pl Oct4_summits.bed mm10 > genes_with_Oct4_binding_homer.txt
+
+less -S genes_with_Oct4_binding_homer.txt
+```
+
+Additionally you can add RNA-seq data to see the intersection of your datasets as such `annotation.pl <peak file> <genome> -gene <gene data file>   > output.txt`
+
+Now lets compare the outputs:
+```
+wc genes_with_Oct4_binding*
+```
+Do we have the same output? What are some of the reasons they could be different?
 
 ### Further readings
 
