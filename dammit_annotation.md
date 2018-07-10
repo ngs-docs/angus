@@ -5,6 +5,7 @@ At the end of this lesson, you will be familiar with:
 * how to annotate a *de novo* transcriptome assembly
 * parse GFF3 output from the annotation output to use for DE analysis
 * several methods for evaluating the completeness of a *de novo* transcriptome assembly
+* What a Jupyter notebook is and how to execute a few commands in Python
 
 # Annotation with dammit
 
@@ -165,7 +166,9 @@ If the above `dammit` command is run again, there will be a message:
 
 ## Parse dammit output
 
-Cammille wrote dammit in Python, which includes a library to parse gff3 dammit output. To send this output to a useful table, we will need to open the Python environemnt.
+Cammille wrote dammit in Python, which includes a library to parse gff3 dammit output. To send this output to a useful table, we will need to open the Python environment. 
+
+To do this, we will use a [Jupyter notebook](http://jupyter.org/). In addition to executing Python commands, Jupyter notebooks can also run R (as well as many other languages). Similar to R markdown (Rmd) files, Jupyter notebooks can keep track of code and output. The output file format for Jupyter notebooks is .ipnb, which GitHub can render. See this [gallery of interesting Jupyter notebooks](https://github.com/jupyter/jupyter/wiki/A-gallery-of-interesting-Jupyter-Notebooks#mathematics-physics-chemistry-biology).  
 
 Install Jupyter notebook:
 ```
