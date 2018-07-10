@@ -262,11 +262,17 @@ conda activate py3.dammit
 * How do the two transcriptomes compare with each other?
 
 ```
+cd ~/annotation
 transrate --reference=Trinity.fasta --assembly=trinity.nema.fasta --output=subset_v_full
 transrate --reference=trinity.nema.fasta --assembly=Trinity.fasta --output=full_v_subset
 ```
 
 The results will be in two separate directoreis, with the important metrics in the `assemblies.csv` files.
+
+```
+cat full_v_subset/assemblies.csv
+cat subset_v_full/assemblies.csv
+```
 
 ## BUSCO
 
@@ -280,23 +286,26 @@ The results will be in two separate directoreis, with the important metrics in t
 
 ### Run the actual command:
 
-```
-run_BUSCO.py \
--i Trinity.fixed.fasta \
--o nema_busco_metazoa -l ~/busco/metazoa_odb9 \
--m transcriptome --cpu 2
-```
+We've already run the BUSCO command when the dammit pipeline ran. Let's take a look at the results.
 
 Check the output:
 
 ```
-cat run_nema_busco_metazoa/short_summary_nema_busco_metazoa.txt
+cat trinity.nema.fasta.dammit/run_trinity.nema.fasta.metazoa.busco.results/short_summary_trinity.nema.fasta.metazoa.busco.results.txt
 ```
 
-How does the full transcriptome compare?
+* Challenge: How do the BUSCO results of the full transcriptome compare?
 
 
-When you're finished, exit out of this virtual environment
+Run the BUSCO command by itself:
+```
+run_BUSCO.py \
+-i trinity.nema.fasta \
+-o nema_busco_metazoa -l ~/.dammit/databases/busco2db/metazoa_odb9 \
+-m transcriptome --cpu 4
+```
+
+When you're finished, exit out of the conda environment:
 ```
 source deactivate
 ```
