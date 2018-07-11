@@ -100,7 +100,7 @@ Wednesday:
 * noon-1:15 - lunch (lunch on your own)
 * 1:15-4pm:
   * lions: [transcriptome annotation](dammit_annotation.html), cont'd.
-  * tigers: snakemake pilot, by Titus (will start at 1:35pm #childcare)
+  * tigers: automation by snakemake pilot, by Titus (will start at 1:35pm #childcare)
   * bears: where to put your data pilot, by Lisa
 * 4pm - end of day (farmer's market downtown)
 
