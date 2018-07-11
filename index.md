@@ -127,7 +127,7 @@ Friday:
 * 12:30pm-1:30 - lunch (lunch on your own)
 * 1:30-3:15pm: breakout tutorials!! locations TBD.
   * Amplicon & microbial ecology (Mike and Sabah)
-  * Some more R, Shiny, and the tidyverse (Amanda)
+  * Some more R, Shiny, and the tidyverse (Amanda and Rocio)
   * More UNIX shell (Fotis)
 * 3:15-3:45pm: Tea Time! Photos!
 * 1:15-5:30pm - lab/lecture/instruction
