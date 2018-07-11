@@ -96,9 +96,12 @@ Tuesday:
 
 Wednesday:
 * 9-10am: morning speaker: Torsten Seemann
-* 10:15am-noon - lab/lecture/instruction
+* 10:15am-noon: [transcriptome annotation](dammit_annotation.html), cont'd.
 * noon-1:15 - lunch (lunch on your own)
-* 1:15-4pm - lab/lecture/instruction
+* 1:15-4pm:
+  * lions: [transcriptome annotation](dammit_annotation.html), cont'd.
+  * tigers: snakemake pilot, by Titus (will start at 1:35pm #childcare)
+  * bears: where to put your data pilot, by Lisa
 * 4pm - end of day (farmer's market downtown)
 
 Thursday:
