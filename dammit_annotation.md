@@ -217,6 +217,23 @@ new_file.head()
 Which will give an output that looks like this:
 ![](_static/jupyter/annotation_names.png)
 
+Try commands like, 
+```
+annotations.columns
+```
+and
+```
+annotations.head()
+```
+or
+```
+annotations.head(50)
+```
+**Questions
+
+* What do these commands help you to see? 
+* How might you use this information to modify the `names` line in the code above?
+
 To save the file, add a new cell and enter:
 ```
 new_file.to_csv("nema_gene_name_id.csv")
