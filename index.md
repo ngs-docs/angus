@@ -88,7 +88,7 @@ Tuesday:
 * 3:15pm-5:30pm - topic specific breakouts
   * Microbial ecology & microbiome (Mike & Sabah) [notes here](https://hackmd.io/bXyY0ttZSGaIFcnvwdKEVw?view)
   * Non-model -omics (Elijah and Lisa)
-  * Model organisms (Erich, Rocio)
+  * Model organisms (Erich, Rocio)[notes](https://hackmd.io/Xca7-YOVQ9iwvpuW2zBp5g)
   * Population genetics / comparative genomics / GWAS (Shannon, Kat, Elias)
   * Work on your own (Adam)
 * 5:30pm-7:30pm - dinner (on your own)
