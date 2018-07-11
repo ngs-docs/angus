@@ -106,27 +106,46 @@ Wednesday:
 
 Thursday:
 * 9-10am: morning speaker: Sam Diaz-Munoz
-* 10:15am-noon - lab/lecture/instruction
-* 9am-noon - lab/lecture/instruction
-* noon-1:15 - lunch (lunch on your own)
-* 1:15-5:30pm - lab/lecture/instruction
+* 10:30am-12:15pm:
+  * lions: Torsten tutorial
+  * tigers: where to put your data
+  * bears: snakemake tutorial
+* 12:30pm-1:30 - lunch (lunch on your own)
+* 1:30-3:15pm: work on your own interests
+* 3:15-3:45pm: Tea Time!
+* 3:45pm-5:30pm - lab/lecture/instruction
+  * lions: where to put your data
+  * tigers: Torsten tutorial
+  * bears: Mystery Tutorial (TBD)
 
 Friday:
 * 9-10am: morning speaker: Luis Carvajal
-* 10:15am-noon - lab/lecture/instruction
-* 9am-noon - lab/lecture/instruction
-* noon-1:15 - lunch (lunch on your own)
+* 10:30am-12:15pm:
+  * lions: Mystery Tutorial (TBD)
+  * tigers: sourmash tutorial (Phillip Brooks) 
+  * bears: Torsten tutorial
+* 12:30pm-1:30 - lunch (lunch on your own)
+* 1:30-3:15pm: breakout tutorials!! locations TBD.
+  * Amplicon & microbial ecology (Mike and Sabah)
+  * Some more R, Shiny, and the tidyverse (Amanda)
+  * More UNIX shell (Fotis)
+* 3:15-3:45pm: Tea Time! Photos!
 * 1:15-5:30pm - lab/lecture/instruction
+  * lions: sourmash (Titus)
+  * tigers: Mystery Tutorial (TBD)
+  * bears: sourmash (Phillip Brooks)
 
 Saturday -
 
+(check out of your rooms and bring luggage over)
+
 * 9am: Titus Brown, title: What does the future hold in a world of infinite data?
-* 9am-noon - lab/lecture/instruction
-* noon is end of day
-* Topics:
-  * Further resources; continuing your learning.
-  * Questions and answers.
-  * Course review, input, and feedback.
+* 10:15am:
+  * "one up/one down" assessment (in each room)
+  * DIBSI '19 organizational meeting (helpers & instructors) - 1030
+* 11am:
+  * report back
+  * thanks and fare-thee-well!
 
 <!-- ## The main workshop materials
 =======
