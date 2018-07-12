@@ -109,12 +109,15 @@ Thursday:
 * 10:30am-12:15pm:
   * lions: Torsten tutorial
   * tigers: where to put your data
-  * bears: snakemake tutorial
+  * bears: snakemake tutorial (sateesh)
 * 12:30pm-1:30 - lunch (lunch on your own)
-* 1:30-3:15pm: work on your own interests
+* 1:30-3:15pm:
+  * lions: where to put your data (lisa)
+  * tigers: work on your own interests
+  * bears: work on your own interests
 * 3:15-3:45pm: Tea Time! Photos!
 * 3:45pm-5:30pm - lab/lecture/instruction
-  * lions: where to put your data
+  * lions: snakemake (titus)
   * tigers: Torsten tutorial
   * bears: Next steps working group
 
