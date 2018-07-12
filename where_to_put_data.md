@@ -243,7 +243,7 @@ bash runQC.sh
 
 **Independent Challenge!** 
 
-Use git to push our code in the `sh` and `ipynb` files into a GitHub repository. You can use the same process as listed [here](http://angus.readthedocs.io/en/2018/rmarkdown_rnaseq.html#version-control-with-git-and-github).
+Use git to push our code in the `sh` and `ipynb` files and the `trinity.nema.fasta.dammit.gff3` files into a GitHub repository. You can use the same process as listed [here](http://angus.readthedocs.io/en/2018/rmarkdown_rnaseq.html#version-control-with-git-and-github).
 
 1. Create GitHub repository in your account, e.g. http://www.github.com/<username>
 2. Copy the URL with the green "Clone or download" button, e.g. https://github.com/<username>/<reponame>.git
@@ -253,6 +253,7 @@ git clone https://github.com/<username>/<reponame>.git
 cd <reponame>
 cp ~/openScienceTutorial/<filename1> .
 cp ~/openScienceTutorial/<filename2> .
+cp ~/openScienceTutorial/<filename3> .
 git add --all
 git commit -m "initial commit"
 git push origin master
