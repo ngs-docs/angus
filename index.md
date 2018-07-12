@@ -101,7 +101,7 @@ Wednesday:
 * 1:15-4pm:
   * lions: [transcriptome annotation](dammit_annotation.html), cont'd.
   * tigers: automation by snakemake pilot, by Titus (will start at 1:35pm #childcare)
-  * bears: where to put your data pilot, by Lisa
+  * bears: where to put your data pilot
 * 4pm - end of day (farmer's market downtown)
 
 Thursday:
@@ -112,32 +112,34 @@ Thursday:
   * bears: snakemake tutorial
 * 12:30pm-1:30 - lunch (lunch on your own)
 * 1:30-3:15pm: work on your own interests
-* 3:15-3:45pm: Tea Time!
+* 3:15-3:45pm: Tea Time! Photos!
 * 3:45pm-5:30pm - lab/lecture/instruction
   * lions: where to put your data
   * tigers: Torsten tutorial
-  * bears: Mystery Tutorial (TBD)
+  * bears: Next steps working group
 
 Friday:
 * 9-10am: morning speaker: Luis Carvajal
 * 10:30am-12:15pm:
-  * lions: Mystery Tutorial (TBD)
-  * tigers: sourmash tutorial (Phillip Brooks) 
+  * lions: sourmash tutorial (Phillip Brooks)
+  * tigers: Next steps working group.
   * bears: Torsten tutorial
 * 12:30pm-1:30 - lunch (lunch on your own)
 * 1:30-3:15pm: breakout tutorials!! locations TBD.
   * Amplicon & microbial ecology (Mike and Sabah)
   * Some more R, Shiny, and the tidyverse (Amanda)
   * More UNIX shell (Fotis)
-* 3:15-3:45pm: Tea Time! Photos!
-* 1:15-5:30pm - lab/lecture/instruction
+* 3:15-3:45pm: Tea Time!
+* 3:45-5:30pm - lab/lecture/instruction
   * lions: sourmash (Titus)
-  * tigers: Mystery Tutorial (TBD)
+  * tigers: Next steps working group
   * bears: sourmash (Phillip Brooks)
 
 Saturday -
 
 (check out of your rooms and bring luggage over)
+
+**Please bring your computer on Saturday.**
 
 * 9am: Titus Brown, title: What does the future hold in a world of infinite data?
 * 10:15am:
