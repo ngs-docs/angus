@@ -134,9 +134,9 @@ Friday:
   * More UNIX shell (Fotis)
 * 3:15-3:45pm: Tea Time!
 * 3:45-5:30pm - lab/lecture/instruction
-  * lions: sourmash (Titus)
-  * tigers: Next steps working group
-  * bears: sourmash (Phillip Brooks)
+  * lions: Next steps working group
+  * tigers: sourmash (Phillip Brooks)
+  * bears: sourmash (Titus)
 
 Saturday -
 
