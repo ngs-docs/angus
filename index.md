@@ -88,7 +88,7 @@ Tuesday:
 * 3:15pm-5:30pm - topic specific breakouts
   * Microbial ecology & microbiome (Mike & Sabah) [notes here](https://hackmd.io/bXyY0ttZSGaIFcnvwdKEVw?view)
   * Non-model -omics (Elijah and Lisa)
-  * Model organisms (Erich, Rocio)
+  * Model organisms (Erich, Rocio)[notes](https://hackmd.io/Xca7-YOVQ9iwvpuW2zBp5g)
   * Population genetics / comparative genomics / GWAS (Shannon, Kat, Elias)
   * Work on your own (Adam)
 * 5:30pm-7:30pm - dinner (on your own)
@@ -127,7 +127,7 @@ Friday:
 * 12:30pm-1:30 - lunch (lunch on your own)
 * 1:30-3:15pm: breakout tutorials!! locations TBD.
   * Amplicon & microbial ecology (Mike and Sabah)
-  * Some more R, Shiny, and the tidyverse (Amanda)
+  * Some more R, Shiny, and the tidyverse (Amanda and Rocio)
   * More UNIX shell (Fotis)
 * 3:15-3:45pm: Tea Time!
 * 3:45-5:30pm - lab/lecture/instruction
