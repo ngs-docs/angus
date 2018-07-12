@@ -186,7 +186,7 @@ mv gweqv/osfstorage/Nematostella_annotation_files/ .
 rm -rf gweqv
 ```
  
-7. Switch to your own OSF project. (Substitute the `gweqv` below with your own project.
+7. Switch to your own OSF project. Substitute the `gweqv` below with your own project.
 
 Upload one file:
 ```
