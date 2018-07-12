@@ -178,7 +178,7 @@ export OSF_PASSWORD=
 export OSF_USERNAME=
 ```
 
-6. Download (clone) files from project, where address is https://osf.io/gweqv/ and Project = `gweqv`
+6. Download (clone) files from project, where address is [https://osf.io/gweqv/](https://osf.io/gweqv/) and Project = `gweqv`
 ```
 osf -p gweqv clone
 mv gweqv/osfstorage/scripts/ .
