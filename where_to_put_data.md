@@ -261,7 +261,7 @@ git push origin master
 
 3. Check https://github.com/<username>/<reponame> to see if your files appeared on GitHub
 
-4. Make a change to your code file. Add a line or two. Repeat steps above to version control your code:
+4. Make a change to your code file. Add a line or two, e.g. `ls -lah` or `echo $(pwd)`. Then, repeat steps above to version control your code file:
 
 ```
 git add --all
