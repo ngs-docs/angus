@@ -201,10 +201,9 @@ mv *.fastq reads
 osf -p gweqv upload -r reads/ reads/
 ```
 
-Upload file products (remember to substitute your own project code in the command):
+Upload file product (remember to substitute your own project code in the command):
 ```
-osf -p gweqv upload -r Nematostella_annotation_files/* annotation_files/
-
+osf -p gweqv upload Nematostella_annotation_files/trinity.nema.fasta.dammit.gff3 annotation_files/trinity.nema.fasta.dammit.gff3
 ```
 
 
