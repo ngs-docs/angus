@@ -43,8 +43,6 @@ Here are some ways to share data:
 
 The [SRA](https://www.ncbi.nlm.nih.gov/sra) is the main repository for depositing raw sequencing data
 
-**Question:** What's the best way to go through this during a lesson, discuss and show examples? Can't really go through submission process... 
-
 * [Steps](https://www.ncbi.nlm.nih.gov/sra/docs/submitportal/):
     1. Create [Bioproject](https://submit.ncbi.nlm.nih.gov/subs/bioproject/): . Download the batch sample metadata template and add as much information as you can about the experimental units.
     2. Create [Biosamples](https://submit.ncbi.nlm.nih.gov/subs/biosample/) (eg., for popualtion genomics or transcriptomics): Download the sample metadata template and add info for each of your samples (one per biological tissue). There is a column in SRA metadata file where you identify the bioproject (add accession that you created in Step 1). 
