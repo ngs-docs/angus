@@ -186,17 +186,19 @@ mv gweqv/osfstorage/Nematostella_annotation_files/ .
 rm -rf gweqv
 ```
  
-7. Switch to your own OSF project. Substitute the `gweqv` below with your own project.
+7. Switch to your own OSF project. Substitute the `gweqv` below with your own project. (Upload privaleges will only be enabled from those listed as "Contributors".)
 
 Upload one file:
 ```
 osf -p gweqv upload SRR1300540_2.fastq reads/SRR1300540_2.fastq
 ```
 
-8. Upload many files (upload privaleges will only be enabled from those listed as "Contributors":
+8. Upload many files:
 ```
 cd ~/openScienceTutorial
-osf -p gweqv upload -r *.fastq reads/
+mkdir reads
+mv *.fastq reads
+osf -p gweqv upload -r reads/ reads/
 ```
 
 Upload file products (remember to substitute your own project code in the command):
