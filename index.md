@@ -101,20 +101,20 @@ Wednesday:
 * 1:15-4pm:
   * lions: [transcriptome annotation](dammit_annotation.html), cont'd.
   * tigers: automation by snakemake pilot, by Titus (will start at 1:35pm #childcare)
-  * bears: where to put your data pilot
+  * bears: [where to put your data pilot](where_to_put_data.html)
 * 4pm - end of day (farmer's market downtown)
 
 Thursday:
 * 9-10am: morning speaker: Sam Diaz-Munoz
 * 10:30am-12:15pm:
   * lions: Torsten tutorial
-  * tigers: where to put your data
+  * tigers: [where to put your data](where_to_put_data.html)
   * bears: snakemake tutorial
 * 12:30pm-1:30 - lunch (lunch on your own)
 * 1:30-3:15pm: work on your own interests
 * 3:15-3:45pm: Tea Time! Photos!
 * 3:45pm-5:30pm - lab/lecture/instruction
-  * lions: where to put your data
+  * lions: [where to put your data](where_to_put_data.html)
   * tigers: Torsten tutorial
   * bears: Next steps working group
 
