@@ -145,8 +145,8 @@ Location | Funding | Interface, Download/Upload | Versioning | DOI | File size/n
 * you can link to your GitHub or ORCiD account
 
 Examples of repositories: 
-* https://zenodo.org/record/1212585#.W0KDqxJKiL8
-* https://zenodo.org/record/257410#.W0KHcRJKiL8
+* [Example 1](https://zenodo.org/record/1212585#.W0KDqxJKiL8)
+* [Example 2](https://zenodo.org/record/257410#.W0KHcRJKiL8)
 
 ### OSF 
 
