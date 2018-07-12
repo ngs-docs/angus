@@ -41,7 +41,7 @@ Here are some ways to share data:
 
 # Raw Data
 
-The [SRA](https://www.ncbi.nlm.nih.gov/sra) is the main repository for depositing raw sequencing data
+The [SRA](https://www.ncbi.nlm.nih.gov/sra) and the [ENA](https://www.ebi.ac.uk/ena) along with several other international respositories, are the main worldwide archives for depositing raw NGS sequencing data. Most journals require an accession ID from one of these archives for publication.
 
 * [Steps](https://www.ncbi.nlm.nih.gov/sra/docs/submitportal/):
     1. Create [Bioproject](https://submit.ncbi.nlm.nih.gov/subs/bioproject/): . Download the batch sample metadata template and add as much information as you can about the experimental units.
