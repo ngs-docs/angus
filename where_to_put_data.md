@@ -247,13 +247,13 @@ Use git to push our code in the `sh` and `ipynb` files and the `trinity.nema.fas
 
 1. Create GitHub repository in your account, e.g. http://www.github.com/<username>
 2. Copy the URL with the green "Clone or download" button, e.g. https://github.com/<username>/<reponame>.git
-3. Then copy the code `sh` and `ipynb` files into the directory:
+3. Then copy the code `sh` and `ipynb` and `trinity.nema.fasta.dammit.gff3` files into the directory:
 ```
 git clone https://github.com/<username>/<reponame>.git
 cd <reponame>
-cp ~/openScienceTutorial/<filename1> .
-cp ~/openScienceTutorial/<filename2> .
-cp ~/openScienceTutorial/<filename3> .
+cp ~/openScienceTutorial/scripts/<filename1> .
+cp ~/openScienceTutorial/scripts/<filename2> .
+cp ~/openScienceTutorial/Nematostella_annotation_files/<filename3> .
 git add --all
 git commit -m "initial commit"
 git push origin master
