@@ -3,6 +3,8 @@ Where to put your code and data for publication
 
 "A spirit of openness is gaining traction in the science community." ([Gewin 2016](https://www.nature.com/nature/journal/v529/n7584/full/nj7584-117a.html))
 
+"Most scientific disciplines are finding the data deluge to be extremely challenging, and tremendous opportunities can be realized if we can better organize and access the data." [Science  11 Feb 2011](http://science.sciencemag.org/content/331/6018/692)
+
 Let's say, hypothetically of course, you have a colleague who has a great script they made to generate figures and results for a paper:
 
 [![](https://i.imgur.com/1EGQ5h3.png)](https://twitter.com/eliasoziolor/status/1014553520266022912)
