@@ -239,9 +239,10 @@ drwxrwxr-x 2 dibbears dibbears   4096 Jul 12 11:45 scripts
 ```
 
 
-Run the `runQC.sh` script in the directory where you've downloaded the .fastq reads:
+Run the `runQC.sh` script in the directory where you've downloaded the .fastq reads. (First, we'll have to copy it into our working directory):
 
 ```
+cp scripts/runQC.sh .
 bash runQC.sh
 ```
 
