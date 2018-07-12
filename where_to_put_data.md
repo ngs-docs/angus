@@ -271,24 +271,22 @@ git push origin master
 4. Make a change to your code file. Add a line or two. Repeat steps above to version control your code:
 
 ```
-
-
+git add --all
+git commit -m "changed commit"
+git push origin master
 ```
 
 4. Now, turn on feature which archives GitHub code in Zenodo, get a DOI and freezes code as a snapshot in time for publication.
 
-    Read about how to do this here:
-    * https://guides.github.com/activities/citable-code/
-
-Read about why GitHub + Zenodo makes your life great!
-    * http://ivory.idyll.org/blog/2016-using-zenodo-to-archive-github.html
+Read about how to do this [here](https://guides.github.com/activities/citable-code/).
+    
+Read about why [GitHub + Zenodo makes your life great](http://ivory.idyll.org/blog/2016-using-zenodo-to-archive-github.html)!
 
 # Binder
 
 Now, we can link our GitHub repository to Binder. This will create an active version of the jupyter notebook in your GitHub repository:
 
-https://mybinder.org/
-
+[Binder](https://mybinder.org/)
 
 **Challenge:**
 
