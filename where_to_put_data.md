@@ -121,6 +121,8 @@ These are some options we have tried, some features of each and some considerati
 
 ### Summary
 
+![](https://i.imgur.com/KdkeXlI.png)
+
 Location | Funding | Interface, Download/Upload | Versioning | DOI | File size/number limits | Comments
 --- | --- | --- | --- | --- | --- | --- |
 [zenodo.org](https://zenodo.org/) | CERN (very sustainable) | website, manual down/upload | Yes | Yes | 50 GB/repository | Interface with GitHub
