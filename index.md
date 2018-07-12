@@ -81,7 +81,7 @@ Monday
 	* Bears: An -omics chat
 
 Tuesday:
-* 9-10am: morning speaker: Erich Schwarz
+* 9-10am: morning speaker: Erich Schwarz [(slides)](https://osf.io/hwnby)
 * 10:15am-noon -  [ChIP-seq and UCSC pileup](chip-seq.html)
 * noon-1:15 - lunch break (lunch on your own)
 * 1:15:3pm - [transcriptome annotation](dammit_annotation.html)
