@@ -158,7 +158,7 @@ Features:
 * Can incorporate download/upload in pipelines
 * Can use this to upload data products before deleting Jetstream instances
 
-Workflow for OSF client, something like this (have students make their own repository? Just listing an example project here, can make a new one for tutorial?):
+Workflow for OSF client:
 
 1. Get [OSF account](https://osf.io/)
 2. Make your own [repository](https://osf.io/b972e/) and set it to "public" (otherwise it won't allow download! Trust me. Took me a while to figure this out.)
