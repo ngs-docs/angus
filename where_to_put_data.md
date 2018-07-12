@@ -216,30 +216,21 @@ Specifically, we will be uploading the script that does the QC for the `fastq` f
 - [runQC.sh](https://osf.io/589xw/download)
 - [jupyter notebook](https://osf.io/k2jhg/download)
 
-```
-cd ~/openScienceTutorial
-wget -O runQC.sh https://osf.io/589xw/download
-wget -O nema_annotation.ipynb https://osf.io/k2jhg/download
-```
-
 If all has been set up correctly, you should have the following structure in your `openScienceTutorial` folder:
 
 ```
-dibtiger@js-170-21:~/openScienceTutorial$ ls -la
-
-total 1056
-drwxrwxr-x  2 dibtiger dibtiger   4096 Jul 11 13:12 .
-drwx------ 27 dibtiger dibtiger   4096 Jul 11 13:08 ..
--rw-rw-r--  1 dibtiger dibtiger 128893 Jul 11 13:08 SRR1300313_1.fastq
--rw-rw-r--  1 dibtiger dibtiger 128893 Jul 11 13:08 SRR1300313_2.fastq
--rw-rw-r--  1 dibtiger dibtiger 128893 Jul 11 13:08 SRR1300380_1.fastq
--rw-rw-r--  1 dibtiger dibtiger 128893 Jul 11 13:08 SRR1300380_2.fastq
--rw-rw-r--  1 dibtiger dibtiger 128893 Jul 11 13:08 SRR1300523_1.fastq
--rw-rw-r--  1 dibtiger dibtiger 128893 Jul 11 13:08 SRR1300523_2.fastq
--rw-rw-r--  1 dibtiger dibtiger 128893 Jul 11 13:08 SRR1300540_1.fastq
--rw-rw-r--  1 dibtiger dibtiger 128893 Jul 11 13:08 SRR1300540_2.fastq
--rw-rw-r--  1 dibtiger dibtiger  11342 Jul 11 13:12 nema_annotation.ipynb
--rw-rw-r--  1 dibtiger dibtiger    163 Jul 11 13:12 runQC.sh
+dibbears@js-16-204:~/openScienceTutorial$ ls -l
+total 1032
+drwxrwxr-x 2 dibbears dibbears   4096 Jul 12 11:45 Nematostella_annotation_files
+-rw-rw-r-- 1 dibbears dibbears 128893 Jul 12 11:42 SRR1300313_1.fastq
+-rw-rw-r-- 1 dibbears dibbears 128893 Jul 12 11:42 SRR1300313_2.fastq
+-rw-rw-r-- 1 dibbears dibbears 128893 Jul 12 11:42 SRR1300380_1.fastq
+-rw-rw-r-- 1 dibbears dibbears 128893 Jul 12 11:42 SRR1300380_2.fastq
+-rw-rw-r-- 1 dibbears dibbears 128893 Jul 12 11:42 SRR1300523_1.fastq
+-rw-rw-r-- 1 dibbears dibbears 128893 Jul 12 11:42 SRR1300523_2.fastq
+-rw-rw-r-- 1 dibbears dibbears 128893 Jul 12 11:42 SRR1300540_1.fastq
+-rw-rw-r-- 1 dibbears dibbears 128893 Jul 12 11:42 SRR1300540_2.fastq
+drwxrwxr-x 2 dibbears dibbears   4096 Jul 12 11:45 scripts
 ```
 
 
