@@ -105,7 +105,7 @@ Wednesday:
 * 4pm - end of day (farmer's market downtown)
 
 Thursday:
-* 9-10am: morning speaker: Sam Diaz-Munoz
+* 9-10am: morning speaker: Sam Diaz-Munoz [(slides)](https://www.dropbox.com/s/g5d1u7i0qvrd6ta/DIBSI_2018.pdf?dl=0)
 * 10:30am-12:15pm:
   * lions: Torsten tutorial
   * tigers: [where to put your data](where_to_put_data.html)
