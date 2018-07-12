@@ -190,7 +190,7 @@ rm -rf gweqv
 
 Upload one file:
 ```
-osf -p c upload SRR1300540_2.fastq reads/SRR1300540_2.fastq
+osf -p gweqv upload SRR1300540_2.fastq reads/SRR1300540_2.fastq
 ```
 
 8. Upload many files (upload privaleges will only be enabled from those listed as "Contributors":
