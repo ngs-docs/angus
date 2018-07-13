@@ -124,7 +124,7 @@ Thursday:
 Friday:
 * 9-10am: morning speaker: Luis Carvajal
 * 10:30am-12:15pm:
-  * lions: sourmash tutorial (Phillip Brooks)
+  * lions: [sourmash tutorial](sourmash.html) (Phillip Brooks)
   * tigers: Next steps working group.
   * bears: Torsten tutorial
 * 12:30pm-1:30 - lunch (lunch on your own)
@@ -133,11 +133,12 @@ Friday:
     * [Metagenomics tutorial](https://angus.readthedocs.io/en/2018/metagenomics_anvio.html)
   * Some more R, Shiny, and the tidyverse (Amanda and Rocio)
   * More UNIX shell (Fotis)
+  * Comparative microbial genomics (Torsten)
 * 3:15-3:45pm: Tea Time!
 * 3:45-5:30pm - lab/lecture/instruction
   * lions: Next steps working group
-  * tigers: sourmash (Phillip Brooks)
-  * bears: sourmash (Titus)
+  * tigers: [sourmash tutorial](sourmash.html) (Phillip Brooks)
+  * bears: [sourmash tutorial](sourmash.html) (Titus)
 
 Saturday -
 
