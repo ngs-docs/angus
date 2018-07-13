@@ -2,7 +2,7 @@
 
 Though it is only one of many approaches you can take when working with a metagenomics dataset, here's a generic overview that tries to highlight some: 
 
-<center><img src="https://raw.githubusercontent.com/AstrobioMike/Misc/master/metagen_overview.png"></center>  
+<center><img src="https://raw.githubusercontent.com/AstrobioMike/Misc/master/metagen_overview.png" data-canonical-src="https://raw.githubusercontent.com/AstrobioMike/Misc/master/metagen_overview.png" width="800" height="554"></center>
 
 Recovering genomes from metagenomes has become a powerful tool for microbial ecologists. Here we will assemble a metagenome, and go through the process of "binning" our assembled contigs into groups based on coverage and sequence composition using the analysis and visualization platform [anvi'o](http://merenlab.org/software/anvio/).
 
@@ -346,9 +346,9 @@ anvi-interactive -p merged_profile/PROFILE.db -c contigs.db --server-only -P 808
 ```
 
 After running that on your cloud instance, go to your computer's web browser and go to this address (Chrome is ideal for anvi'o, but if you don't have that whatever you got should be cool): http://localhost:8080
-Once that loads up, click the "Draw" button at the bottom left and you should see your metagenome 🙂
+Once that loads up, click the "Draw" button at the bottom left and you should see the metagenome appear 🙂
 
-<center><img src="https://raw.githubusercontent.com/AstrobioMike/Misc/master/anvi-open.png"></center>  
+<center><img src="https://raw.githubusercontent.com/AstrobioMike/Misc/master/anvi-open.png" data-canonical-src="https://raw.githubusercontent.com/AstrobioMike/Misc/master/anvi-open.png" width="800" height="365"></center>
 
 So there is a lot going on here at first glance, especially if you're not yet familiar with how anvi'o organizes things. The interactive interface is extraordinarily expansive and I'd suggest reading about it [here](http://merenlab.org/2016/06/22/anvio-tutorial-v2/#anvi-interactive) and [here](http://merenlab.org/2016/02/27/the-anvio-interactive-interface/) to start digging into it some more when you can, but here's a quick crash course.
 
@@ -356,50 +356,50 @@ At the center of the figure is a hierarchical clustering of the contigs from our
 
 Let's look at the taxonomy layer for a second, if you press the `M` key on your keyboard, a panel should pop out with information. Then if you hover over the taxonomy bar you will see the taxonomy called for genes on that particular contig. Here is an example:
 
-<center><img src="https://raw.githubusercontent.com/AstrobioMike/Misc/master/anvi-tax.png"></center>  
+<center><img src="https://raw.githubusercontent.com/AstrobioMike/Misc/master/anvi-tax.png" data-canonical-src="https://raw.githubusercontent.com/AstrobioMike/Misc/master/anvi-tax.png" width="800" height="365"></center>
 
 Your colors will probably be different, but that doesn't matter. Try to find the cluster of contigs that represents *Trichodesmium*. If you click on the "Bins" tab at the top left, and then select the branch on the tree at the center that holds all the *Trichodesmium* contigs, you will see a real-time estimate of % completion/redundancy.
 
-<center><img src="https://raw.githubusercontent.com/AstrobioMike/Misc/master/anvi-tricho-bin.png"></center>  
+<center><img src="https://raw.githubusercontent.com/AstrobioMike/Misc/master/anvi-tricho-bin.png" data-canonical-src="https://raw.githubusercontent.com/AstrobioMike/Misc/master/anvi-tricho-bin.png" width="800" height="365"></center>
 
 And we can see in the left pane that we selected 435 splits (contigs and/or split contigs due to length), with a total length of 6.87 Mbps, with an estimated 98.6% completion and 3.6% redundancy (remember estimated percent completion and redundancy comes from the bacterial single-copy genes we scanned for). This is pretty good, but *Trichodesmium* has a very strange genome for a prokaryote with a lot of long, repetitive regions that don't assemble well, so we're actually about 1 Mbps short of what would be expected. This would be for the "host" of the enrichment cultures that were sequenced. To shrink the dataset to make it more manageable, most of the host reads have been removed, which is why the coverage patterns across the samples for *Trichodesmium* look strange. 
 
 In the panel to the left, click "New bin", and let's look at some of these other clusters of contigs. Try to find the *Alteromonas* cluster, and then select the branch that holds it. 
 
-<center><img src="https://raw.githubusercontent.com/AstrobioMike/Misc/master/anvi-alteromonas.png"></center>  
+<center><img src="https://raw.githubusercontent.com/AstrobioMike/Misc/master/anvi-alteromonas.png" data-canonical-src="https://raw.githubusercontent.com/AstrobioMike/Misc/master/anvi-alteromonas.png" width="800" height="396"></center>
 
 This ones says 4.92 Mbps which is pretty spot on for an *Alteromonas*, with an estimated 99.3% complete and 0.7% redundancy. Here we had the taxonomy clearly helping to define this group of contigs, but that's very dependent on databases. Imagine we didn't have the taxonomy guiding us, take a close look at the coverage of reads from the 4 different samples across these contigs:
 
-<center><img src="https://raw.githubusercontent.com/AstrobioMike/Misc/master/anvi_alt_closeup.png"></center>  
+<center><img src="https://raw.githubusercontent.com/AstrobioMike/Misc/master/anvi_alt_closeup.png" data-canonical-src="https://raw.githubusercontent.com/AstrobioMike/Misc/master/anvi_alt_closeup.png" width="800" height="396"></center>
 
 Note across the samples (the rows wrapping around the circle), the coverage of these contigs varies, but that consistently within a sample. Meaning, Sample B seems to have the highest coverage for these contigs, but evenly across, and Sample C seems to have the lowest, but again consistent within that sample. This is what we would expect the coverage to do if these contigs all came from a similar source, and that source as a whole was in a different abundance in different samples. 
 
 Let's look at one where the taxonomy doesn't help as much. First click "New bin" again at the left first, then select this cluster of contigs:
 
-<center><img src="https://raw.githubusercontent.com/AstrobioMike/Misc/master/anvi-bacteroidetes.png"></center>  
+<center><img src="https://raw.githubusercontent.com/AstrobioMike/Misc/master/anvi-bacteroidetes.png" data-canonical-src="https://raw.githubusercontent.com/AstrobioMike/Misc/master/anvi-bacteroidetes.png" width="800" height="396"></center>
 
 Note again how drastically the coverage shifts across samples, but how consistent it is within a sample. This is currently the most powerful tool we have for attempting to recover genomes from metagenomes. There are some contigs with pretty different coverage in the middle here, and they also have a pretty drastically different GC content:
 
-<center><img src="https://raw.githubusercontent.com/AstrobioMike/Misc/master/anvi-bac-choppy.png"></center>  
+<center><img src="https://raw.githubusercontent.com/AstrobioMike/Misc/master/anvi-bac-choppy.png" data-canonical-src="https://raw.githubusercontent.com/AstrobioMike/Misc/master/anvi-bac-choppy.png" width="800" height="396"></center>
 
 So let's go one layer deeper and take a quick look at this. If you "right" click on one of the specific contigs, you'll get a menu where you can select "Inspect":
 
-<center><img src="https://raw.githubusercontent.com/AstrobioMike/Misc/master/anvi-inspect.png"></center>
+<center><img src="https://raw.githubusercontent.com/AstrobioMike/Misc/master/anvi-inspect.png" data-canonical-src="https://raw.githubusercontent.com/AstrobioMike/Misc/master/anvi-inspect.png" width="800" height="396"></center>
 
 This will open that particular contig in a separate browser window. Here is opening contig "c_000000018789_split_00001":
 
-<center><img src="https://raw.githubusercontent.com/AstrobioMike/Misc/master/anvi-contig.png"></center> 
+<center><img src="https://raw.githubusercontent.com/AstrobioMike/Misc/master/anvi-contig.png" data-canonical-src="https://raw.githubusercontent.com/AstrobioMike/Misc/master/anvi-contig.png" width="800" height="396"></center>
 
 Here each row is a sample, the x-axis is the contig laid out, and the peaks show read coverage on that contig. If we look to the right we can see the drop in coverage. This overlaps with an annotated gene on the bottom (genes are arrows, annotated are green, not annotated are grey). If we click on that green arrow, we can see what the gene was annotated as:
-
-<center><img src="https://raw.githubusercontent.com/AstrobioMike/Misc/master/anvi-gene.png"></center>  
+ 
+<center><img src="https://raw.githubusercontent.com/AstrobioMike/Misc/master/anvi-gene.png" data-canonical-src="https://raw.githubusercontent.com/AstrobioMike/Misc/master/anvi-gene.png" width="800" height="396"></center>
 
 It seems a the gene underlying the drop extreme drop in coverage across all samples was annotated as a site-specific recombinase. I don't know much about these, but apparently they can be involved with recombination or DNA rearrangements. Maybe this was an artifact of assembly and shouldn't be a part of our bin here. If you select "Get sequence" from the gene window, you can quickly go to NCBI and blast it if you're curious. Running a BLASTX reveals the top hit as *Phaeodactylibacter xiamenensis*, which is what this bin actually comes from in this case (that's known from further work not included here). But this sort of interface is where you could do meticulous manual curation of bins you were recovering by looking at things like coverage across samples.
 
 ### Exporting our bins
 Now that we've selected 3 bins, if we want to export them from anvi'o we need to save them first. To do that, on the "Bins" pane at the left of the main interactive screen, you would select "Store bin collection", and give it a new name like "my_bins" and click OK. Then one way we can summarize them is by clicking "Generate a static summary page" in the "Bins" pane, and then select the new collection you made:
 
-<center><img src="https://raw.githubusercontent.com/AstrobioMike/Misc/master/anvi-summary.png"></center>  
+<center><img src="https://raw.githubusercontent.com/AstrobioMike/Misc/master/anvi-summary.png" data-canonical-src="https://raw.githubusercontent.com/AstrobioMike/Misc/master/anvi-summary.png" width="800" height="396"></center>
 
 And then clicking "Generate". After a few seconds it will finish, and you can click the link to explore an html document summarizing things. When you're done you can close the browser window and go back to your terminal controlling the cloud instance.
 
@@ -413,4 +413,4 @@ ___
 ## So what now?
 There are lots of fun things to do with newly recovered genomes, but unfortunately everything is pretty much beyond what more we can cover here. And as usual, what you want to do next largely depends on what you're doing all this for anyway. But some ideas could involve things like phylogenomics to robustly place your new genomes within references, looking at distributions of them by recruiting metagenomic reads from other samples and environments, and/or comparative genomics/pangenomics. As mentioned above, anvi'o tutorials, like [this one for phylogenomics](http://merenlab.org/2017/06/07/phylogenomics/) or [this one for pangenomics](http://merenlab.org/2016/11/08/pangenomics-v2/), are a great place to start 🙂
 
-<center><img src="https://raw.githubusercontent.com/AstrobioMike/Misc/master/metagen_overview.png"></center>  
+<center><img src="https://raw.githubusercontent.com/AstrobioMike/Misc/master/metagen_overview.png" data-canonical-src="https://raw.githubusercontent.com/AstrobioMike/Misc/master/metagen_overview.png" width="800" height="554"></center>
