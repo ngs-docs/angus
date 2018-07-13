@@ -1,6 +1,5 @@
 # K-mers, k-mer specificity, and comparing samples with k-mer Jaccard distance. (2018)
 
-
 [Create / log into](jetstream/boot.html) an m1.medium Jetstream instance. 
 A sourmash tutorial
 ---
@@ -135,11 +134,6 @@ To install sourmash, run:
 conda install -y sourmash
 ```
 
-Now, create a local software install and populate it with Jupyter and other dependencies:
-
-
-The second command downloads a database that we'll use for taxonomic classification.You can find all of our available databases [here](https://sourmash.readthedocs.io/en/latest/databases.html)
-
 
 ## Generate a signature for Illumina reads
 
@@ -169,6 +163,8 @@ sourmash compute --scaled 2000 ~/data/ecoli_ref-5m.fastq.gz -o ecoli-reads.sig -
 
 Use case: how much of the read content is contained in the reference genome?
 
+[![search](_static/Sourmash_flow_diagrams_search.thumb.png)](_static/Sourmash_flow_diagrams_search.png)
+
 Build a signature for an E. coli genome:
 
 ```
@@ -177,7 +173,6 @@ sourmash compute --scaled 2000 -k 31 ~/data/ecoliMG1655.fa.gz -o ecoli-genome.si
 
 and now evaluate *containment*, that is, what fraction of the read content is
 contained in the genome:
-[![search](_static/Sourmash_flow_diagrams_search.thumb.png)](_static/Sourmash_flow_diagrams_search.png)
 
 ```
 sourmash search -k 31 ecoli-reads.sig ecoli-genome.sig --containment
@@ -266,26 +261,26 @@ Searching SBT ecolidb.sbt.json
 49 matches; showing first 20:
 similarity   match
 ----------   -----
- 75.4%       NZ_JMGW01000001.1 Escherichia coli 1-176-05_S4_C2 e117605...
- 72.2%       NZ_GG774190.1 Escherichia coli MS 196-1 Scfld2538, whole ...
- 71.4%       NZ_JMGU01000001.1 Escherichia coli 2-011-08_S3_C2 e201108...
- 70.1%       NZ_JHRU01000001.1 Escherichia coli strain 100854 100854_1...
- 69.0%       NZ_JH659569.1 Escherichia coli M919 supercont2.1, whole g...
- 64.9%       NZ_JNLZ01000001.1 Escherichia coli 3-105-05_S1_C1 e310505...
- 63.0%       NZ_MOJK01000001.1 Escherichia coli strain 469 Cleandata-B...
- 62.9%       NZ_MOGK01000001.1 Escherichia coli strain 676 BN4_676_1_(...
- 62.0%       NZ_JHDG01000001.1 Escherichia coli 1-176-05_S3_C1 e117605...
- 59.9%       NZ_MIWF01000001.1 Escherichia coli strain AF7759-1 contig...
- 52.7%       NZ_KE700241.1 Escherichia coli HVH 147 (4-5893887) acYxy-...
- 51.7%       NZ_APWY01000001.1 Escherichia coli 178200 gec178200.conti...
- 49.3%       NZ_LVOV01000001.1 Escherichia coli strain swine72 swine72...
- 49.3%       NZ_MIWP01000001.1 Escherichia coli strain K6412 contig_00...
- 49.0%       NZ_LQWB01000001.1 Escherichia coli strain GN03624 GCID_EC...
- 48.9%       NZ_JHGJ01000001.1 Escherichia coli O45:H2 str. 2009C-4780...
- 48.1%       NZ_CP011331.1 Escherichia coli O104:H4 str. C227-11, comp...
- 47.7%       NZ_JHNB01000001.1 Escherichia coli O103:H25 str. 2010C-45...
- 47.7%       NZ_JHRE01000001.1 Escherichia coli strain 302014 302014_1...
- 47.6%       NZ_JHHE01000001.1 Escherichia coli O103:H2 str. 2009C-327...
+ 75.9%       NZ_JMGW01000001.1 Escherichia coli 1-176-05_S4_C2 e117605...
+ 73.0%       NZ_JHRU01000001.1 Escherichia coli strain 100854 100854_1...
+ 71.9%       NZ_GG774190.1 Escherichia coli MS 196-1 Scfld2538, whole ...
+ 70.5%       NZ_JMGU01000001.1 Escherichia coli 2-011-08_S3_C2 e201108...
+ 69.8%       NZ_JH659569.1 Escherichia coli M919 supercont2.1, whole g...
+ 59.9%       NZ_JNLZ01000001.1 Escherichia coli 3-105-05_S1_C1 e310505...
+ 58.3%       NZ_JHDG01000001.1 Escherichia coli 1-176-05_S3_C1 e117605...
+ 56.5%       NZ_MIWF01000001.1 Escherichia coli strain AF7759-1 contig...
+ 56.1%       NZ_MOJK01000001.1 Escherichia coli strain 469 Cleandata-B...
+ 56.1%       NZ_MOGK01000001.1 Escherichia coli strain 676 BN4_676_1_(...
+ 50.5%       NZ_KE700241.1 Escherichia coli HVH 147 (4-5893887) acYxy-...
+ 50.3%       NZ_APWY01000001.1 Escherichia coli 178200 gec178200.conti...
+ 48.8%       NZ_LVOV01000001.1 Escherichia coli strain swine72 swine72...
+ 48.8%       NZ_MIWP01000001.1 Escherichia coli strain K6412 contig_00...
+ 48.7%       NZ_AIGC01000068.1 Escherichia coli DEC7C gecDEC7C.contig....
+ 48.2%       NZ_LQWB01000001.1 Escherichia coli strain GN03624 GCID_EC...
+ 48.0%       NZ_CCQJ01000001.1 Escherichia coli strain E. coli, whole ...
+ 47.3%       NZ_JHMG01000001.1 Escherichia coli O121:H19 str. 2010EL10...
+ 47.2%       NZ_JHGJ01000001.1 Escherichia coli O45:H2 str. 2009C-4780...
+ 46.5%       NZ_JHHE01000001.1 Escherichia coli O103:H2 str. 2009C-327...
 
 ```
 
@@ -298,9 +293,9 @@ Adjust plotting (this is a bug in sourmash :) --
 echo 'backend : Agg' > matplotlibrc
 ```
 
-Compare all the things:
-
 [![compare](_static/Sourmash_flow_diagrams_compare.thumb.png)](_static/Sourmash_flow_diagrams_compare.png)
+
+Compare all the things:
 
 ```
 sourmash compare ecoli_many_sigs/* -o ecoli_cmp
@@ -313,11 +308,16 @@ sourmash plot --pdf --labels ecoli_cmp
 ```
 
 which will produce a file `ecoli_cmp.matrix.pdf` and `ecoli_cmp.dendro.pdf`
-which you can then download via FileZilla and view on your local computer.
+which you can then download via RStudio and view on your local computer.
 
 Here's a PNG version:
 
 [![E. coli comparison plot](_static/ecoli_cmp.matrix.thumb.png)](_static/ecoli_cmp.matrix.png)
+
+How do you interpret this?
+
+What does the little dot on the lower left mean? What is that and why is
+it occurring?
 
 ## What's in my metagenome?
 
@@ -327,7 +327,7 @@ cd ~/sourmash
 curl -L https://osf.io/zskb9/download -o genbank-k31.lca.json.gz 
 gunzip genbank-k31.lca.json.gz
 ```
-This database a GenBank index of all
+This database is a GenBank index of all
 the microbial genomes
 -- this one contains sketches of all 87,000 microbial genomes (including viral and fungal). See
 [available sourmash databases](http://sourmash.rtfd.io/en/latest/databases.html)
@@ -426,6 +426,12 @@ overlap     p_query p_match
 
 ``` 
 
+What do the columns here mean?
+
+Why might some of things in a metagenome be unassigned?
+
+----
+
 It is straightforward to build your own databases for use with
 `search` and `lca gather`; this is of interest if you have dozens or
 hundreds of sequencing data sets in your group. Ping us if you want us
@@ -451,6 +457,4 @@ is a (non-exclusive) list of other uses that we've been thinking about --
 
 * search all of SRA for overlaps in metagenomes;
 
-Chat with Luiz, Phil, or Titus if you are interested in these use cases!
-
-</pre>
+Chat with Phillip or Titus if you are interested in these use cases!
