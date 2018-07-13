@@ -125,6 +125,7 @@ Friday:
 * 9-10am: morning speaker: Luis Carvajal
 * 10:30am-12:15pm:
   * lions: sourmash tutorial (Phillip Brooks)
+  	* [K-mers, k-mer specificity, and comparing samples with k-mer Jaccard distance](https://angus.readthedocs.io/en/2018/sourmash.html) 
   * tigers: Next steps working group.
   * bears: Torsten tutorial
 * 12:30pm-1:30 - lunch (lunch on your own)
