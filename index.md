@@ -131,7 +131,9 @@ Friday:
 * 12:30pm-1:30 - lunch (lunch on your own)
 * 1:30-3:15pm: breakout tutorials!! locations TBD.
   * Amplicon & microbial ecology (Mike and Sabah)
-    * [Metagenomics tutorial](https://angus.readthedocs.io/en/2018/metagenomics_anvio.html)
+    * come to do your choice of a number of [amplicon tutorials](https://hackmd.io/1z4q6wtcRLGQzVUhfaphbA?view#Testing-it-out-with-a-practice-dataset) or a [metagenomics tutorial of recovering genomes from metagenomes](https://angus.readthedocs.io/en/2018/metagenomics_anvio.html)!
+    - work with practice data or your own data!
+    - we will be there for individual/group help/discussion, installing tools trouble, etc. :) 
   * Some more R, Shiny, and the tidyverse (Amanda and Rocio)
   * More UNIX shell (Fotis)
   * Comparative microbial genomics (Torsten)
