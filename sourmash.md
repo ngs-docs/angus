@@ -50,7 +50,7 @@ The important concept here is that **long k-mers are species specific**. We'll g
 
 ## K-mers and assembly graphs
 
-We've already run into k-mers before, as it turns out - when we were doing [genome assembly](genome-assembly.html).  One of the three major ways that genome assembly works is by taking reads, breaking them into
+One of the three major ways that genome assembly works is by taking reads, breaking them into
 k-mers, and then "walking" from one k-mer to the next to bridge between reads.  To see how this works, let's take the 16-base sequence above, and add another overlapping sequence:
 
 ```
