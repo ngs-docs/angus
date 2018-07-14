@@ -47,13 +47,12 @@ Wednesday 7/4:
 Thursday:
 * 9am-noon - tutorials
 	* [Mapping and variant calling, cont'd](https://angus.readthedocs.io/en/2018/mapping-variant-calling.html)
-	*
 * noon-1:15 - lunch (lunch on your own)
 * 1:15-5:30pm - tutorials
 	* [RNAseq and differential expression](https://angus.readthedocs.io/en/2018/rna-seq.html)
 
 Friday:
-* 9am: morning lecture: Amanda, on statistics and experimental design [Slides](https://github.com/ngs-docs/angus/blob/2018/StatsNstuff.pdf)
+* 9am: morning lecture: Amanda, on statistics and experimental design [(slides)](https://github.com/ngs-docs/angus/blob/2018/StatsNstuff.pdf)
 * 10:15-noon - tutorials
 	* [RNAseq and differential expression, cont'd](https://angus.readthedocs.io/en/2018/rna-seq.html)
 * noon-1:15 - lunch (lunch on your own)
@@ -86,16 +85,16 @@ Tuesday:
 * noon-1:15 - lunch break (lunch on your own)
 * 1:15:3pm - [transcriptome annotation](dammit_annotation.html)
 * 3:15pm-5:30pm - topic specific breakouts
-  * Microbial ecology & microbiome (Mike & Sabah) [notes here](https://hackmd.io/bXyY0ttZSGaIFcnvwdKEVw?view)
+  * Microbial ecology & microbiome (Mike & Sabah) [(notes)](https://hackmd.io/bXyY0ttZSGaIFcnvwdKEVw?view)
   * Non-model -omics (Elijah and Lisa)
-  * Model organisms (Erich, Rocio)[notes](https://hackmd.io/Xca7-YOVQ9iwvpuW2zBp5g)
+  * Model organisms (Erich, Rocio) [(notes)](https://hackmd.io/Xca7-YOVQ9iwvpuW2zBp5g)
   * Population genetics / comparative genomics / GWAS (Shannon, Kat, Elias)
   * Work on your own (Adam)
 * 5:30pm-7:30pm - dinner (on your own)
 * 7:30-9pm: posters & ice cream session
 
 Wednesday:
-* 9-10am: morning speaker: Torsten Seemann
+* 9-10am: morning speaker: Torsten Seemann [(slides)](_static/BacterialGenomics_TorstenSeemann_DIBSI_2018-07-11.pdf)
 * 10:15am-noon: [transcriptome annotation](dammit_annotation.html), cont'd.
 * noon-1:15 - lunch (lunch on your own)
 * 1:15-4pm:
@@ -107,9 +106,9 @@ Wednesday:
 Thursday:
 * 9-10am: morning speaker: Sam Diaz-Munoz
 * 10:30am-12:15pm:
-  * lions: Torsten tutorial
+  * lions: assembly tutorial (Torsten)
   * tigers: [where to put your data](where_to_put_data.html)
-  * bears: snakemake tutorial (sateesh)
+  * bears: [snakemake tutorial](https://hackmd.io/s/Bkatoy47X) (Sateesh)
 * 12:30pm-1:30 - lunch (lunch on your own)
 * 1:30-3:15pm:
   * lions: [where to put your data](where_to_put_data.html)
@@ -117,12 +116,12 @@ Thursday:
   * bears: work on your own interests
 * 3:15-3:45pm: Tea Time! Photos!
 * 3:45pm-5:30pm - lab/lecture/instruction
-  * lions: snakemake (titus)
-  * tigers: Torsten tutorial
+  * lions: [automation via snakemake tutorial](https://hackmd.io/s/B1aL7_lmQ#) (Titus)
+  * tigers: assembly tutorial (Torsten)
   * bears: Next steps working group
 
 Friday:
-* 9-10am: morning speaker: Luis Carvajal
+* 9-10am: morning speaker: Luis Carvajal (slides will not be posted)
 * 10:30am-12:15pm:
   * lions: sourmash tutorial (Phillip Brooks)
   	* [K-mers, k-mer specificity, and comparing samples with k-mer Jaccard distance](https://angus.readthedocs.io/en/2018/sourmash.html) 
@@ -149,7 +148,7 @@ Saturday -
 
 **Please bring your computer on Saturday.**
 
-* 9am: Titus Brown, title: What does the future hold in a world of infinite data?
+* 9am: [What does the future hold in a world of infinite data?](https://osf.io/fajd5/) (Titus)
 * 10:15am:
   * "one up/one down" assessment (in each room)
   * DIBSI '19 organizational meeting (helpers & instructors) - 1030
