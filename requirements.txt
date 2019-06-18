@@ -3,3 +3,5 @@ recommonmark
 sphinxcontrib-images
 sphinx_bootstrap_theme
 guzzle_sphinx_theme==0.7.11
+sphinxcontrib-contentui
+sphinx-markdown-tables

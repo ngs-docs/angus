@@ -31,7 +31,7 @@ import guzzle_sphinx_theme
 
 # Add any Sphinx extension module names here, as strings. They can be extensions
 # coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
-extensions = ['sphinx.ext.mathjax', 'guzzle_sphinx_theme']
+extensions = ['sphinx.ext.mathjax', 'guzzle_sphinx_theme', 'sphinxcontrib.contentui', 'sphinx_markdown_tables']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']

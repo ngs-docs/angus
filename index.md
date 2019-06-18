@@ -1,40 +1,44 @@
-# Next-Gen Sequence Analysis Workshop (2018)
+# Next-Gen Sequence Analysis Workshop (2019)
 
-These are the schedule and classroom materials for the
-[ANGUS workshop at UC Davis](http://ivory.idyll.org/dibsi/ANGUS.html),
-which will run from July 2nd to July 14th, 2018.  ANGUS is part of the
-2018
-[Data Intensive Biology Summer Institute](http://ivory.idyll.org/dibsi/).
+These are the schedule and classroom materials for the [ANGUS workshop at UC Davis](http://ivory.idyll.org/dibsi/ANGUS.html), which will run from July 1st to July 13th, 2019. ANGUS is part of the 2019 [Data Intensive Biology Summer Institute](http://ivory.idyll.org/dibsi/).
 
-This workshop runs under a [Code of Conduct](code-of-conduct.html). Please
-respect it and be excellent to each other!
+This workshop runs under a [Code of Conduct](code-of-conduct.html). Please respect it and be excellent to each other!
 
-Twitter hash tag: [#dibsi2018](https://twitter.com/search?f=tweets&q=%23dibsi2018&src=typd)
+Twitter hash tag: [#dibsi2019](https://twitter.com/search?f=tweets&q=%23dibsi2019&src=typd)
 
 ## Rooms and lead instructors!
 
-There are three rooms - Lions, Tigers and Bears!
+There are three rooms - TBD!
 
-Lions will be ably led by Dr. Elijah Lowe and Adam Orr, in 1041 Valley.
+Blank will be ably led by Blank and Blank, in Blank.
 
-Tigers will enjoy the leadership of Dr. Amanda Charbonneau and Dr. Fotis Psomopoulos, in 1043 Valley.
+Blank will enjoy the leadership of Blank and Blank, in Blank.
 
-Dr. Tristan De Buysscher and Lisa Johnson will lead Da Bears through the forest, in 1047 Valley.
+Blank and Blank will lead Blank, in Blank.
 
 ## Schedule, in brief:
 
-Monday 7/2:
-* 1:30-5:30pm - welcome & getting started with Jetstream - 1030 Valley Hall.
+Monday (7/1):  
+
+* 1:30-5:30pm - Jetstream, UNIX, and BLAST (motivating example). Set expectations/overview.
+
+<!--
+
 	* [Welcome slides](https://docs.google.com/presentation/d/1bAfTYNigeYXC1EWrjpAEaFc9zWd_JxXlk9DJ99MXo7g/edit#slide=id.g3cc5aa73e1_0_81)
 	* [Booting from Jetstream](https://angus.readthedocs.io/en/2018/jetstream/boot.html)
 	* [Intro to collaboration tools](https://angus.readthedocs.io/en/2018/online-tools.html)
 	* [Running BLAST at the command line](https://angus.readthedocs.io/en/2018/running-command-line-blast.html)
 	* [Visualizing BLAST scores](https://angus.readthedocs.io/en/2018/visualizing-blast-scores-with-RStudio.html)
 
-Tuesday:
-* morning speaker: Titus [(slides)](https://osf.io/cp8tw/)
+-->
+
+Tuesday (7/2):  
+
 * 9am-noon - lab/lecture/instruction
-	* [Quality trimming etc](https://angus.readthedocs.io/en/2018/quality-and-trimming.html)
+	* [Introduction to the Shell](shell_intro/index.html)
+
+<!--
+
 * noon-1:15 - lunch break (lunch on your own)
 * 1:15-5:30pm - tutorials
 	* continued from above.
@@ -153,6 +157,8 @@ Saturday -
 * 11am:
   * report back
   * thanks and fare-thee-well!
+
+-->
 
 <!-- ## The main workshop materials
 =======
