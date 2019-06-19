@@ -237,7 +237,7 @@ So far we've only seen individual commands and printing information to the scree
 ||:----------:|:------------------:||
 ||**Command**     |**Function**          ||
 ||**`tail`**| prints the last few lines of a file ||
-||**`less`**| allows you to browse a file (exit with <kbd>q</kbd> key) ||
+||**`less`**| allows us to browse a file (exit with <kbd>q</kbd> key) ||
 ||**`wc`** |count lines, words, and characters in a file ||
 ||**`cp`** | copy a file or directory ||
 ||**`mv`**| move or rename a file or directory ||
