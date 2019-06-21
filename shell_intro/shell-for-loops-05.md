@@ -4,7 +4,7 @@
 <center><b>Welcome to the wonderful world of loops!!</b></center>
 </blockquote>
 
-Loops are extremely powerful in all programming languages. They are what let us write out a command or operation once, and have it run on all of our samples or files or whatever we want to act on. Not only is this powerful, but it also helps with keeping our code more concise and readable, and it helps elmininate some more of our mortal enemy (human error). There are multiple types of loops, but here we are going to cover what is probably the most common type: the for loop. First, let's quickly go a tiny bit about variables. 
+Loops are extremely powerful in all programming languages. They are what let us write out a command or operation once, and have it run on all of our samples or files or whatever we want to act on. Not only is this powerful, but it also helps with keeping our code more concise and readable, and it helps elmininate some more of our mortal enemy (human error). There are multiple types of loops, but here we are going to cover what is probably the most common type: the for loop. First, we need to cover a tiny bit about variables. 
 
 If you'd like to follow along, but need to pull up the proper working environment again, revisit [here](shell-getting-started-01.html#how-to-access-the-shell-for-now) and then come back 🙂 
 

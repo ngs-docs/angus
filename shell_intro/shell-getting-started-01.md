@@ -244,7 +244,7 @@ While maybe not all that exciting, these things really are the foundation needed
 ---
 
 <a href="index.html" style="float: left"><b>Back to:</b> Shell crash course home</a>
-<a href="shell-working-02.html" style="float: right"><b>Next:</b> Working with file and directories</a><br>
+<a href="shell-working-02.html" style="float: right"><b>Next:</b> Working with files and directories</a><br>
 
 <div style="text-align: center">
 	<a href="../index.html">ANGUS Home</a>
