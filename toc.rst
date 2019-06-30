@@ -21,15 +21,15 @@ Table of Contents
 
    mapping-variant-calling.md
 
-   rna-seq.md
+   salmon-quant.md
+
+   diff-ex-and-viz.md
 
    transcriptome-assembly.md
 
    genome-assembly.md
 
    jetstream-bioconda-config.md
-
-   rmarkdown_rnaseq.md
    
    chip-seq
    

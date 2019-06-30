@@ -1,4 +1,4 @@
-# RNAseq
+# RNA-seq read quantification with salmon
 
 Learning objectives:
 
