@@ -2,105 +2,123 @@
 
 Learning objectives:
 
-* Install rna-seq software (salmon and edgeR) using conda
-  
-* Learn mapping and differential gene expression analysis of rna-seq data
+* Install read quantification data
+* Learn quantification of RNA-seq data
 
-* Interpret rna-seq analysis results
 
 ## Boot up a Jetstream
 
 [Boot an m1.medium Jetstream instance](jetstream/boot.md) and log in.
 
+## Introduction to Salmon (adapted from salon documentation)
+
+[Salmon](https://salmon.readthedocs.io/en/latest/salmon.html) is a tool for fast
+transcript quantification from RNA-seq data. It requires a set of target 
+transcripts (either from a reference or de-novo assembly) to quantify and 
+FASTA/FASTQ file(s) containing your reads. 
+
+Salmon runs in two phases, indexing and quantification. The indexing step is 
+independent of the reads, and only need to be run one for a particular set of 
+reference transcripts. The quantification step is specific to the set of RNA-seq
+reads and is thus run more frequently. 
+
 ## Install software
 
-We will be using salmon and edgeR. Salmon is installed through conda, but edgeR will require an additional script:
+Salmon is installed through conda:
+
+```
+conda install -y salmon
+```
+4
+## Make a new working directory and link the quality trimmed data
+
+We will be using the same data as before 
+([Schurch et al, 2016](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4878611/)),
+so the following commands will create a new folder `quant` and link the data in:
 
 ```
 cd ~
+mkdir -p quant
+cd quant
 
-conda install -y salmon
-
-curl -L -O https://raw.githubusercontent.com/ngs-docs/angus/2018/scripts/install-edgeR.R
-sudo Rscript --no-save install-edgeR.R
-```
-
-## Make a new working directory and link the original data
-
-We will be using the same data as before ([Schurch et al, 2016](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4878611/)), so the following commands will create a new folder `rnaseq` and link the data in:
-
-```
-mkdir -p rnaseq
-cd rnaseq
-
-ln -fs ~/data/*.fastq.gz .
+ln -fs ~/quality/*qc.fq.gz .
 ls
 ```
 
-## Download the yeast reference transcriptome:
+## Download the yeast transcriptome:
 
 ```
-curl -O https://downloads.yeastgenome.org/sequence/S288C_reference/orf_dna/orf_coding.fasta.gz
+curl -O ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/146/045/GCA_000146045.2_R64/GCA_000146045.2_R64_rna_from_genomic.fna.gz
 ```
 
 ## Index the yeast transcriptome:
 
 ```
-salmon index --index yeast_orfs --type quasi --transcripts orf_coding.fasta.gz
+salmon index --index sc_index --type quasi --transcripts GCA_000146045.2_R64_rna_from_genomic.fna.gz
 ```
 
 ## Run salmon on all the samples:
 
 ```
-for i in *.fastq.gz
+for i in *.qc.fq.gz
 do
-   salmon quant -i yeast_orfs --libType U -r $i -o $i.quant --seqBias --gcBias
+   salmon quant -i sc_index --libType A -r ${i} -o ${i}_quant --seqBias --gcBias --validateMappings
 done
 ```
 
-Read up on [libtype, here](https://salmon.readthedocs.io/en/latest/salmon.html#what-s-this-libtype).
+What do all of these flags do?
 
-##  Collect all of the sample counts using [this Python script](https://raw.githubusercontent.com/ngs-docs/angus/2018/scripts/gather-counts.py):
+| Flag | Meaning |
+|--------------------|------------------------------------------------------------------|
+| -i | path to index folder |
+| --libType | The library type of the reads you are quantifying. `A` allows salmon to automatically detect the library type of the reads you are quantifying. |
+| -r | Input file (for single-end reads) |
+| -o | output folder |
+| --seqBias | learn and correct for sequence-specific biases in the input data |
+| --gcBias | learn and correct for fragment-level GC biases in the input data |
+| --validateMappings | Enables selective alignment, which improves salmon's sensitivity |
+
+As Salmon is running, a lot of information is printed to the screen. For example,
+we can see the mapping rate as the sample finishes:
 
 ```
-curl -L -O https://raw.githubusercontent.com/ngs-docs/2018-ggg201b/master/lab6-rnaseq/gather-counts.py
-python2 gather-counts.py
+[2019-06-29 18:39:18.367] [jointLog] [info] Mapping rate = 86.2687%
 ```
 
-##  Run edgeR (in R) using [this script](https://raw.githubusercontent.com/ngs-docs/angus/2018/scripts/yeast.salmon.R) and take a look at the output:
+When it finished, Salmon outputs a folder for each input RNA-seq sample. Let's
+take a look at one of the output folders.
 
 ```
-curl -L -O https://raw.githubusercontent.com/ngs-docs/angus/2018/scripts/yeast.salmon.R
-Rscript --no-save yeast.salmon.R
+ls ERR458493.qc.fq.gz_quant
 ```
 
-This will produce two plots, `yeast-edgeR-MA-plot.pdf` and
-`yeast-edgeR-MDS.pdf`. You can view them by going to your RStudio server file viewer, changing to  the directory `rnaseq`, and then clicking on them. If you see an error "Popup Blocked", then click the "Try again" button
+You should see output like this:
 
- The `yeast-edgeR.csv` file contains the fold expression & significance information in a spreadsheet.
+```
+aux_info/               lib_format_counts.json
+cmd_info.json           logs/
+libParams/              quant.sf
+```
 
-## Questions to ask/address
+The information we saw scroll through our screens is captured in a log file in
+`aux_info/`. 
 
-1. What is the point or value of the [multidimensional scaling (MDS)](https://en.wikipedia.org/wiki/Multidimensional_scaling) plot?
+```
+less aux_info/meta_info.json
+```
 
-2. Why does the MA-plot have that shape?
+We see information about our run parameters and performance. To exit out of the 
+file, press `q`.
 
-   Related: Why can't we just use fold expression to select the things we're interested in?
+We can also look at the count file:
+```
+less -S quant.sf
+```
 
-   Related: How do we pick the FDR (false discovery rate) threshold?
-
-3. How do we know how many replicates (bio and/or technical) to do?
-
-   Related: what confounding factors are there for RNAseq analysis?
-
-   Related: what is our false positive/false negative rate?
-   
-4. What happens when you add new replicates?
-
-## More reading
-
-"How many biological replicates are needed in an RNA-seq experiment and which differential expression tool should you use?" [Schurch et al., 2016](http://rnajournal.cshlp.org/content/22/6/839).
-
+We see our transcript names, as well as the number of reads that aligned to 
+each transcript. In our next lesson, we will be reading these quant files into 
+R and performing differential expression with them.
 "Salmon provides accurate, fast, and bias-aware transcript expression estimates using dual-phase inference" [Patro et al., 2016](http://biorxiv.org/content/early/2016/08/30/021592).
 
 Also see [seqanswers](http://seqanswers.com/) and [biostars](https://www.biostars.org/).
+
