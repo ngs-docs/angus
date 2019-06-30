@@ -309,7 +309,7 @@ head target_genes.faa
 ```
 
 ## Summary
-Even though loops can get much more complicated as needed, getting these foundational skills down is all that's needed to start harnessing their awesome power 🙂
+Even though loops can get much more complicated as needed, practicing these foundational skills a bit is all that's needed to start harnessing their awesome power 🙂
 
 ---
 
