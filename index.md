@@ -24,7 +24,7 @@ Room Conway will be led by [Sateesh Peri](https://twitter.com/perisateesh?lang=e
 	* **2:20-2:30pm:** BREAK
 * **2:30-3:30pm:** Room Welcomes & [Introduction to Cloud Computing](cloud_computing_intro.md)
 	* **3:30-3:45pm:** BREAK
-* **3:45pm-5:00pm:** [Booting up a Jetstream Instance & Motivating Example with Visualizing BLAST scores](cloud_computing_intro.md)
+* **3:45pm-5:00pm:** [Motivating Example with Visualizing BLAST scores](cloud_computing_intro.md)
 	* **5:00pm:** DONE
 
 **Tuesday, July 2nd, 2019:**  
