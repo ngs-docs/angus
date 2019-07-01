@@ -304,7 +304,9 @@ of the data (e.g. duplicate sequences are only analyzed for the first
 
 ### 3. Trimmomatic
 
-Now we're going to do some trimming!  We'll be using
+Now we're going to do some trimming!  Let's switch back to our instance
+terminal, as we will be running these commands on our remote instance.
+We'll be using
 [Trimmomatic](http://www.usadellab.org/cms/?page=trimmomatic), which
 (as with fastqc) we've already installed via conda.
 
