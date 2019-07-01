@@ -6,6 +6,8 @@ This workshop runs under a [Code of Conduct](code-of-conduct.html). Please respe
 
 We hope that we can respect each other by following these [guidelines & expectations](guidelines-expectations.md).
 
+> **Please [submit your feedback here](https://docs.google.com/forms/d/e/1FAIpQLSc1G8J6KQlkkrkVbH5U1H1EdkomFbCS3qzvwlwEyaQSTFHFsg/viewform) on any aspect of the workshop.** *We encourage feedback from everyone involved in the workshop in any capacity* 
+
 Twitter hash tag: [#dibsi2019](https://twitter.com/search?f=tweets&q=%23dibsi2019&src=typd)
 
 ## 3 Rooms & lead instructors!
