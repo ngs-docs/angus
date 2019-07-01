@@ -8,20 +8,16 @@
 
 ## Rationale
 
-Bioinformatics worldwide involves researchers connect daily to cloud computing services to perform their analyses.
-
-There are several reasons for this. Firstly biology - like most other areas of science - is dealing with a deluge of data due to the rapid advancement of data collection methods. It is now common that data collected for an experiment doesn't fit on a researcher's laptop and that the resources needed for running an analysis far exceed a desktop computer's computing power.
-
-Secondly the vast majority of research software are developed and released for linux. Most people run MacOS or Windows on their desktop computers and laptop, which makes the installation of some software difficult or at the very least inconvenient.
+Bioinformatics worldwide involves researchers connecting daily to cloud computing services to perform their analyses. Biology - like lots of areas - is dealing with a deluge of data due to the rapid advancement of data collection methods. It is now common that data collected for an experiment doesn't fit on a researcher's laptop and that the resources needed for running an analysis can far exceed a desktop computer's computing power. Cloud computing is a powerful avenue for dealing with this.
 
 ## What is the Cloud?
 
 <center><img src="_static/cloud_compute.png" width="90%"></center>
 <br>
 
-The cloud is basically lots of servers (thing big big computers) stacked together in a giant, powerful infrastructure. You can lend part of this infrastructure for your computing needs. While it is not cheap, it is generally scalable and guarantees a stable environment.
+The cloud is basically lots of servers (think big computers) stacked together in a giant, powerful infrastructure. You can borrow part of this infrastructure for your computing needs. 
 
-In research there are two approaches to lend computing time and power: either (a) you lend computing time and resources from a commercial provider or you obtain access to a research computing infrastructure. Some countries have built national infrastructures where you can apply for computing time for your research projects. Most academic institutions or departments also have their own computing resources.
+There are two main approaches to accessing computing time and power: 1) we can borrow computing time and resources from a commercial provider; or 2) you may have access to a computing infrastructure through your institution or somewhere else. Some countries have built national infrastructures where you can apply for computing time for your research projects. Most academic institutions or departments also have their own computing resources.
 
 ## Popular Cloud/HPC resources
 + Academic
