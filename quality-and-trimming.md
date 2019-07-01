@@ -94,7 +94,7 @@ db614de9ed03a035d3d82e5fe2c9c5dc  ERR458502.fastq.gz
 To check whether your md5sum hashes match with a file containing md5sum hashes:
 
 ```
-md5sum *.fastq.gz > md5sum.txt
+md5sum *.fastq.gz > err_md5sum.txt
 md5sum -c err_md5sum.txt
 ```
 (First we're creating a file containing md5sum of the files, then checking it. 
