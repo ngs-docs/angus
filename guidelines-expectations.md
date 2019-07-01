@@ -68,6 +68,7 @@ Everyone who participates in our ANGUS 2019 workshop shares the responsibility o
     * When helping someone at their computer:  
         * Be kind when approaching a learner at their computer and give them the benefit of a doubt that they are doing the best they can. 
         * Be aware of the physical space between those that surround them.
+        * Praise errors as opportunities for learners
         * Prioritize the opportunity for the learner to "drive" the computer. 
         * If it makes more sense for the instructor/helper to "drive" the learners computer, **always ask for permission** to touch someone else's computer.   
     * Be an active and responsive by-stander by either:  
@@ -76,12 +77,23 @@ Everyone who participates in our ANGUS 2019 workshop shares the responsibility o
         * Talking to instructors and course coordinators regarding events that you may witness.
 * Teach attendees 
     * Ask leading questions and help learners get to answers on their own 
+    * When actively teaching, **use a microphone.**
 * Provide individualized or group help as needed
 * Avoid disruptive behavior including:
     * Intellectually agressive behavoir such as challenging other people (including instructors/helpers/attendees) in their content  
     * Be mindful of the language they use:
-         * Avoid minimizing language including "*just*", "*only*", "*simply*", "*easy*", etc.
-* Comfort & empathize with others who may be stressed
+         * Avoid minimizing language including "*just*", "*only*", "*simply*", "*easy*", "*obviously*",etc.  
+         * Instead consider motivating language such as "*This gets easier with practice*" & "*I remember when it was hard for me too*"
+* Comfort & empathize with others who may be stressed 
+* Some other potential roles: 
+    * Have breaks when they are scheduled
+         * Give the instructor who is teaching a few minute warning before the lessons will be finished
+    * Note takers/supporters
+    * slack monitoring
+    * Room coordinating
+    * Actively watching for sticky notes - and promoting sticky awareness for other instructors & helpers
+    * Writing challenge questions 
+    * Assisting with curriculum tweaks
 
 
  ## Expectations of workshop organizers  
