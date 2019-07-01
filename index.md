@@ -12,9 +12,9 @@ Twitter hash tag: [#dibsi2019](https://twitter.com/search?f=tweets&q=%23dibsi201
 
 ## 3 Rooms & lead instructors!
 
-Room Mexía will be led by [Rocio Martinez-Nunez](https://twitter.com/rociotmartinez?lang=en) and [Taylor Reiter](https://twitter.com/ReiterTaylor?lang=en), in 1041 Valley.
+Room Mexía will be led by [Rocio Martinez-Nunez](https://twitter.com/rociotmartinez?lang=en) and [Taylor Reiter](https://twitter.com/ReiterTaylor?lang=en), in 1043 Valley.
 
-Room Lovelace will enjoy the leadership of [Chissa Rivaldi](https://twitter.com/Powerofcheez?lang=en) and [Mike Lee](https://twitter.com/AstrobioMike?lang=en), in 1043 Valley.
+Room Lovelace will enjoy the leadership of [Chissa Rivaldi](https://twitter.com/Powerofcheez?lang=en) and [Mike Lee](https://twitter.com/AstrobioMike?lang=en), in 1041 Valley.
 
 Room Conway will be led by [Sateesh Peri](https://twitter.com/perisateesh?lang=en) & [Marian Schmidt](https://twitter.com/micro_marian?lang=en), in 2020 Valley.
 
