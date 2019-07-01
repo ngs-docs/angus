@@ -33,7 +33,7 @@ Room Conway will be led by [Sateesh Peri](https://twitter.com/perisateesh?lang=e
 	* **10:20-10:40am:** BREAK
 * **10:40am-12:00pm:** [Introduction to the Shell](shell_intro/index.html)
 	* **12:00-1:00pm:** LUNCH
-* **1:00-2:00pm:** [Lisa K Johnson](https://twitter.com/monsterbashseq?lang=en): Intro to Modern Seuencing Practices 
+* **1:00-2:00pm:** [Lisa K Johnson](https://twitter.com/monsterbashseq?lang=en): Intro to Modern Sequencing Practices 
 	* **2:00-2:10pm:** BREAK
 * **2:15-5:00pm:** Poster session & Ice Cream Social (with dairy-free options!)
 	* **5:00pm:** DONE
@@ -81,21 +81,21 @@ Room Conway will be led by [Sateesh Peri](https://twitter.com/perisateesh?lang=e
 
 * **9:00-10:20am:** Mapping & Variant Calling
 	* **10:20-10:40am:** BREAK
-* **10:40am-12:00pm:** Shell Automation
+* **10:40am-12:00pm:** Mapping & Variant Calling (continued)
 	* **12:00-1:00pm:** LUNCH
 * **1:00-2:00pm:** [Olga Botvinnik](https://twitter.com/olgabot?lang=en) - Single cell RNAseq
 	* **2:00-2:10pm:** BREAK
-* **2:15-3:30pm:** Transcriptome Assembly
+* **2:15-3:30pm:** Automation of Variant Calling with Snakemake
 	* **3:30-3:50pm:** BREAK
-* **3:50-5:00pm:** Transcriptome Annotation
+* **3:50-5:00pm:** Automation of Variant Calling with Snakemake (continued)
 	* **5:00pm:** DONE
 
 
 **Tuesday, July 9th, 2019**
 
-* **9:00-10:20am:** Snakemake
+* **9:00-10:20am:** Build your own RNA-seq workflow with Snakemake
 	* **10:20-10:40am:** BREAK
-* **10:40am-12:00pm:** RNAseq challenge
+* **10:40am-12:00pm:** Build your own RNA-seq workflow with Snakemake (continued)
 	* **12:00-1:00pm:** LUNCH
 * **1:00-2:00pm:** [Shannon Joslin](https://twitter.com/IntrprtngGnmcs?lang=en) - Genome Assembly
 	* **2:00-2:10pm:** BREAK
@@ -151,7 +151,7 @@ Room Conway will be led by [Sateesh Peri](https://twitter.com/perisateesh?lang=e
 	
 **Saturday, July 13th, 2019**
 
-(check out of your rooms and bring luggage over)
+(check out of your rooms and bring luggage over. Please be sure to bring your computer!)
 
 * **9:00-9:30am:** XSEDE Resources with [Sateesh Peri](https://twitter.com/perisateesh?lang=en) 
 * **9:30-10:20am:** Closing thoughts by [Mike Lee](https://twitter.com/AstrobioMike?lang=en) 
