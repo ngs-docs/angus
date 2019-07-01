@@ -1,9 +1,9 @@
 # Guidelines & Expectations for ANGUS 2019 Events
 
  ## Introduction
-Everyone who participates in a DIBSI event shares the responsibility of creating a welcoming environment for learning and networking. As such, we would like to outline **Workshop Guidelines** for everyone and **expectations** for people based on their participation role below. 
+Everyone who participates in our ANGUS 2019 workshop shares the responsibility of creating a welcoming environment for learning and networking. As such, we would like to outline **Workshop Guidelines** for everyone and **expectations** for people based on their participation role below. 
 
- **Note:** *All DIBSI participants must follow the event Code of Conduct.* Our first priority is to provide and sustain a safe and welcoming environment for learning and teaching!  
+ **Note:** *All DIBSI participants must follow the event [Code of Conduct](coc.rst).* Our first priority is to provide and sustain a safe and welcoming environment for learning and teaching!  
 
  ## Workshop Guidelines 
 1. **Our primary commitment is to learn from each other.** We will listen to each other and not talk at each other. We acknowledge differences amongst us in backgrounds, skills, interests, and values. We realize that it is these very differences that will increase our awareness and understanding through this process.
@@ -26,27 +26,36 @@ Everyone who participates in a DIBSI event shares the responsibility of creating
 
  10. **We are all a work in progress.** We will not assume that one comment or one opinion made at one time captures the whole of a person's character. We are all in the process of learning, including the facilitators.
 
- ## Expectations of event attendees  
+## [Link to feedback form](http://bit.ly/2019_ANGUS_Feedback)
+
+ ## Expectations of event learners  
 * Attendees are an active part of the workshop and help set the event atmosphere!
-* Have an open mind and treat others as they have something to offer.  
+* **Ask questions if they have them** & be aware how their questions may impact others  
+    * Raise their hand 
+    * Ask a helper
+    * Type it in hackMD 
+    * Write it on a sticky at the end of each lesson
+    * Submit your question to the [feedback form](http://bit.ly/2019_ANGUS_Feedback)
+* Have an open mind and treat others as if they have something to offer.  
 * Be ready and willing to learn from instructors, helpers, and each other.
-* If you have the expertise, we invite others to contribute to the conversation, especially if directly related to their own experiences. This can be done through the stickies, group notes, telling an instructor/helper, or the google form.
+* If you have the expertise, we invite others to contribute to the conversation, especially if directly related to their own experiences. This can be done through the:  
+    * Stickies 
+    * Group notes on the hackMD
+    * Telling an instructor/helper
+    * The [feedback form](http://bit.ly/2019_ANGUS_Feedback)
 * Actively participate in events they attend  
     * Use stickies
     * Contribute to group notes
     * If you have the capacity, help the people around you  
-* Ask questions if they have them  
-    * Ask helpers
-    * Type it in the etherpad chat
-    * Write it on a sticky at the end of each lesson
-    * Submit your question to the online form.
 * Respect others at the event
 * When receiving help from others during a lesson:  
-    * Use a whisper voice to lessen the impact on others around them. 
+    * Use a whisper voice to lessen the impact on others 
     * Be open to "driving" the computer 
-    * If more extensive help is necessary, be open to the helper/instructor  
+    * If more extensive help is necessary, be open to the helper/instructor "driving" your computer
+    * Communicate personal space boundaries when necessary
 * Avoid disruptive behavior including:
-    * Speaking to those around them during the lesson.
+    * Speaking to those around them during the lesson 
+    * Save specific questions regarding your project for outside of formal instruction or BYOD in week 2
 * Be an active and responsive bystander by either:  
    * Speaking up in the moment of an event.
    * Submitting a climate response form.
@@ -65,21 +74,25 @@ Everyone who participates in a DIBSI event shares the responsibility of creating
         * Speaking up in the moment.
         * Submitting a climate response form.
         * Talking to instructors and course coordinators regarding events that you may witness.
-* Teach attendees.
-* Provide individualized or group help as needed.
+* Teach attendees 
+    * Ask leading questions and help learners get to answers on their own 
+* Provide individualized or group help as needed
 * Avoid disruptive behavior including:
-    * Intellectually agressive behavoir such as challenging other people (including instructors/helpers/attendees) in their content.
+    * Intellectually agressive behavoir such as challenging other people (including instructors/helpers/attendees) in their content  
+    * Be mindful of the language they use:
+         * Avoid minimizing language including "*just*", "*only*", "*simply*", "*easy*", etc.
+* Comfort & empathize with others who may be stressed
 
 
  ## Expectations of workshop organizers  
-* Provide the infrastructure needed for a safe/brave, and welcoming environment.  
+* Provide the infrastructure needed for a safe and welcoming environment  
 * Coordinate the overall event  
-* Addressing individual attendee, instructor, and helper needs.  
+* Addressing individual attendee, instructor, and helper needs
 * Lay out clear and unambiguous guidelines for participant conduct, and providing incident response guidelines and training.
 * Be an active and responsive by-stander by either:  
-    * Speaking up in the moment.
-    * Submitting a climate response form.
-    * Talking to the lead-instructors and other coordinators regarding events that you may witness.
+    * Speaking up in the moment
+    * Submitting a climate response form
+    * Talking to the lead-instructors and other coordinators regarding events that you may witness
 
 
  ## Expectations in the lecture hall
