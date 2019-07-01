@@ -14,8 +14,15 @@ You should have the quality trimmed data  on your instance in the `~/quality/`
 folder. If not, you can get this data by running:
 
 ```
-curl -L -o
-tar xvf ...
+cd ~
+mkdir -p quality
+cd quality
+curl -L https://osf.io/wfz34/download -o ERR458493.qc.fq.gz
+curl -L https://osf.io/jxh4d/download -o ERR458494.qc.fq.gz
+curl -L https://osf.io/zx7n3/download -o ERR458495.qc.fq.gz
+curl -L https://osf.io/96mrj/download -o ERR458500.qc.fq.gz.
+curl -L https://osf.io/wc8yn/download -o ERR458501.qc.fq.gz
+curl -L https://osf.io/sdtz3/download -o ERR458502.qc.fq.gz
 ```
 
 ## Introduction to Salmon (adapted from salon documentation)
