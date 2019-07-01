@@ -10,6 +10,14 @@ Learning objectives:
 
 [Boot an m1.medium Jetstream instance](jetstream/boot.md) and log in.
 
+You should have the quality trimmed data  on your instance in the `~/quality/` 
+folder. If not, you can get this data by running:
+
+```
+curl -L -o
+tar xvf ...
+```
+
 ## Introduction to Salmon (adapted from salon documentation)
 
 [Salmon](https://salmon.readthedocs.io/en/latest/salmon.html) is a tool for fast
@@ -29,7 +37,7 @@ Salmon is installed through conda:
 ```
 conda install -y salmon
 ```
-4
+
 ## Make a new working directory and link the quality trimmed data
 
 We will be using the same data as before 
@@ -45,6 +53,7 @@ ln -fs ~/quality/*qc.fq.gz .
 ls
 ```
 
+If you don't have the data from the previous lesson, you can download it
 ## Download the yeast transcriptome:
 
 ```

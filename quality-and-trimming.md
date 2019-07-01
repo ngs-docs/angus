@@ -256,6 +256,9 @@ The third part of the command gives the absolute path of the location you want
 to put the files. This is on your local computer and is the directory we just 
 created `~/Desktop/fastqc_html`.
 
+You will be prompted for your password. Enter the password we set for your 
+instance  during the morning session.
+
 You should see a status output like this:
 
 ```
