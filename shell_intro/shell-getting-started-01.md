@@ -2,11 +2,11 @@
 
 ## How to access the shell for now
 
-You have been given a unique IP addess, something like **`149.165.171.57`**. You need to insert your unique IP address into this link like so (don't forget the ":8888"):
 
-`http://149.165.171.170:8888/lab`
+We all have an IP address to link into our cloud computers stored in this [spreadsheet here](https://hackmd.io/LGeRCq5xRkm3ebSQ8lHgFg?view). Find your name and click the link associated with your name. 
 
-And that will open a screen where you need to enter a password. The password is **`angus`**. Then a screen like this will open (minus the blue arrows):
+
+That will open a screen where you need to enter a password. The password is **`davis.2019`**. Then a screen like this will open (minus the blue arrows):
 
 <center><img src="../_static/shell_tut_jupyter_initial_launch.png" width="90%"></center>
 <br>

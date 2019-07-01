@@ -10,6 +10,9 @@ Secondly the vast majority of research software are developed and released for l
 
 ## What is the Cloud?
 
+<center><img src="_static/cloud_compute.png" width="90%"></center>
+<br>
+
 The cloud is basically lots of servers (thing big big computers) stacked together in a giant, powerful infrastructure. You can lend part of this infrastructure for your computing needs. While it is not cheap, it is generally scalable and guarantees a stable environment.
 
 In research there are two approaches to lend computing time and power: either (a) you lend computing time and resources from a commercial provider or you obtain access to a research computing infrastructure. Some countries have built national infrastructures where you can apply for computing time for your research projects. Most academic institutions or departments also have their own computing resources.
@@ -24,16 +27,26 @@ In research there are two approaches to lend computing time and power: either (a
     + [Google Cloud](https://cloud.google.com/)
 
 ## Let's connect to the cloud
-![](images/cloud_compute.png)
+We all have an IP address to link into our cloud computers stored in this [spreadsheet here](https://hackmd.io/LGeRCq5xRkm3ebSQ8lHgFg?view).
 
-open jupyter notebook
-http://149.165.171.170:8888/lab
+That will open a screen where you need to enter a password. The password is **`davis.2019`**. Then a screen like this will open (minus the blue arrows):
 
-open terminal 
+<center><img src="_static/shell_tut_jupyter_initial_launch.png" width="90%"></center>
+<br>
 
+Now click the **files tab** at the top-left (that the smaller blue arrow points to above) and then click the "**Terminal**" icon at the bottom, and we'll be in our appropriate command-line environment:
 
-To install blast:
-`conda install -c  bioconda blast`
+<center><img src="_static/shell_tut_jupyter_terminal.png" width="90%"></center>
+<br>
+
+Installing blast and creating a working directory:
+
+```
+cd ~/
+conda install -y -c bioconda blast
+mkdir opening_example
+cd opening_example/
+```
 
 Note: takes 5-10 minutes
 
@@ -42,13 +55,15 @@ Note: takes 5-10 minutes
 ## Basic Local Alignment Search Tool
 
 Given one or more query sequences (usually in FASTA format), BLAST looks for matching sequence regions between them and a subject set.
-![](https://i.imgur.com/YPVewm4.png)
+
+<center><img src="_static/blast-ex.png" width="90%"></center>
+<br>
+
 A sufficiently close match between subsequences (denoted by arrows in the figure above, though matches are usually longer than illustrated here) is called a high-scoring pair (HSP), while a query sequence is said to hit a target sequence if they share one or more HSPs
 
 # Running command-line BLAST
 
-The goal of this tutorial is to run you through a demonstration of the
-command line, which you may not have seen or used much before.
+The goal of this tutorial is to run you through a demonstration of the command line, which you may not have seen or used much before.
 
 ## Running BLAST
 
@@ -79,7 +94,7 @@ Uncompress them:
 gunzip *.faa.gz
 ```
 
-and let's look at the first few sequences in the file:
+And let's look at the first few sequences in the file:
 
 ```
 head mouse.1.protein.faa 
@@ -99,13 +114,7 @@ all the output and put it into this file here."
 head -11 mouse.1.protein.faa > mm-first.fa
 ```
 
-So now, for example, you can do `cat mm-first.fa` to see the contents of
-that file (or `less mm-first.fa`).
-
-Now let's BLAST these two sequences against the entire zebrafish
-protein data set. First, we need to tell BLAST that the zebrafish
-sequences are (a) a database, and (b) a protein database.  That's done
-by calling 'makeblastdb':
+Now let's BLAST these two sequences against the entire zebrafish protein data set. First we need to create a database. That's done by calling 'makeblastdb':
 
 ```
 makeblastdb -in zebrafish.1.protein.faa -dbtype prot
@@ -138,12 +147,12 @@ less mm-first.x.zebrafish.txt
 Let's do some more sequences (this one will take a little longer to run):
 
 ```
-head -500 mouse.1.protein.faa > mm-second.fa
+head -498 mouse.1.protein.faa > mm-second.fa
 
 blastp -query mm-second.fa -db zebrafish.1.protein.faa -out mm-second.x.zebrafish.txt
 ```
 
-will compare the first 83 sequences.  You can look at the output file with:
+will compare the first 96 sequences. You can look at the output file with:
 
 ```
 less mm-second.x.zebrafish.txt
@@ -167,18 +176,18 @@ last file --
 blastp -query mm-second.fa -db zebrafish.1.protein.faa -out mm-second.x.zebrafish.tsv -outfmt 6
 ```
 
-See [this link](http://www.metagenomics.wiki/tools/blast/blastn-output-format-6) for a description of the possible BLAST output formats.
+See [this link](http://www.metagenomics.wiki/tools/blast/blastn-output-format-6) for a description of the possible BLAST output table formats.
 
-
-Run R script to visualize the blast results as below
+Now we'll run an R script to visualize the blast results:
 
 ```
 Rscript blastviz.R
 ```
 
-A pdf will be generated with the results. Double click to open the pdf 
+A pdf will be generated with the results. We can view this by clicking on the Folder icon at the left ofour screen, and then double clicking on the file at the top to open the pdf:
 
-![](images/blastviz.png)
+<center><img src="_static/blastviz.png" width="90%"></center>
+<br>
 
 Things to mention and discuss:
 
