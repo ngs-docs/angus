@@ -39,10 +39,18 @@ reads and is thus run more frequently.
 
 ## Install software
 
-Salmon is installed through conda:
+Salmon is installed through conda.
+
+Let's make sure our conda channels are loaded.
 
 ```
-conda install -y salmon
+conda config --add channels defaults
+conda config --add channels bioconda
+conda config --add channels conda-forge
+```
+
+```
+conda install -y -c bioconda salmon
 ```
 
 ## Make a new working directory and link the quality trimmed data

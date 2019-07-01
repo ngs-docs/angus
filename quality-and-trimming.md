@@ -27,10 +27,18 @@ Change to your home directory:
 cd ~/
 ```
 
+Let's make sure our conda channels are loaded, just in case.
+
+```
+conda config --add channels defaults
+conda config --add channels bioconda
+conda config --add channels conda-forge
+```
+
 and install FastQC, MultiQC, and trimmomatic:
 
 ```
-conda install -y fastqc multiqc trimmomatic
+conda install -y -c bioconda fastqc multiqc trimmomatic
 ```
 
 
