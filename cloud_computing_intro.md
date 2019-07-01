@@ -5,7 +5,6 @@
 + Get to know some popular cloud compute resources
 + Perform a command-line blast
 
-
 ## Rationale
 
 Bioinformatics worldwide involves researchers connect daily to cloud computing services to perform their analyses.
@@ -58,7 +57,12 @@ Note: takes 5-10 minutes
 
 
 # Command Line BLAST
-## Basic Local Alignment Search Tool
+
+Basic Local Alignment Search Tool (BLAST) is a software tool for searching similarity in nucleotide sequences (DNA) and/or amino acid (protein) sequences.
++ similarity search of nucleotide or amino acid sequences
++ allows gaps (deletions and insertions)
++ local alignment: detect regions (subsequences) that are similar between two compared sequences
++ homology search of gene or protein sequences. 
 
 Given one or more query sequences (usually in FASTA format), BLAST looks for matching sequence regions between them and a subject set.
 
@@ -195,6 +199,8 @@ A pdf will be generated with the results. We can view this by clicking on the Fo
 
 Things to mention and discuss:
 
+* [BLAST FAQ](https://blast.ncbi.nlm.nih.gov/blast/Blast.cgi?CMD=Web&PAGE_TYPE=BlastDocs&DOC_TYPE=FAQ)
+* [E-value & Bit Score](http://www.metagenomics.wiki/tools/blast/evalue)
 * `blastp` options and -help.
 * command line options, more generally - why so many?
 * automation rocks!
