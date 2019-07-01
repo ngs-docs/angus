@@ -34,6 +34,12 @@ Keep in mind, none of this is about memorization. It may seem counterintuitive a
 
 * Arguments (which can also be referred to as "flags" or "options" or "parameters") can be **optional** or **required** based on the command being used.  
 
+Before we start, copy and paste this one command and hit `enter`, so we are all starting in the same place:
+
+```bash
+cd ~/shell_intro/
+```
+
 ## Running commands
 
 >**NOTE:** It's okay to copy and paste things. This is not a typing test 🙂
