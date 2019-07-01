@@ -1,5 +1,11 @@
 # Intro to cloud computing
 
+## Learning Objectives:
++ Understand what cloud computing is
++ Get to know some popular cloud compute resources
++ Perform a command-line blast
+
+
 ## Rationale
 
 Bioinformatics worldwide involves researchers connect daily to cloud computing services to perform their analyses.
@@ -68,9 +74,7 @@ The goal of this tutorial is to run you through a demonstration of the command l
 ## Running BLAST
 
 First! We need some data and an Rscript to later visualize blast results.  Let's grab the mouse and zebrafish RefSeq
-protein data sets from NCBI, and put them in our home directory. If you've just logged
-in, you should be there already, but if you're unsure, run `cd` and hit enter. Now,
-we'll use `curl` to download the files; these originally came from the NCBI Web site: [ftp://ftp.ncbi.nih.gov/refseq/M_musculus/mRNA_Prot](ftp://ftp.ncbi.nih.gov/refseq/M_musculus/mRNA_Prot).
+protein data sets from NCBI, and put them in our home directory. We'll use `curl` to download the files; these originally came from the NCBI Web site: [ftp://ftp.ncbi.nih.gov/refseq/M_musculus/mRNA_Prot](ftp://ftp.ncbi.nih.gov/refseq/M_musculus/mRNA_Prot).
 
 ```
 curl -o mouse.1.protein.faa.gz -L https://osf.io/v6j9x/download
