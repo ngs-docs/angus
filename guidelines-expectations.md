@@ -3,7 +3,7 @@
  ## Introduction
 Everyone who participates in our ANGUS 2019 workshop shares the responsibility of creating a welcoming environment for learning and networking. As such, we would like to outline **Workshop Guidelines** for everyone and **expectations** for people based on their participation role below. 
 
- **Note:** *All DIBSI participants must follow the event [Code of Conduct](coc.rst).* Our first priority is to provide and sustain a safe and welcoming environment for learning and teaching!  
+ **Note:** *All DIBSI participants must follow the event [Code of Conduct](code-of-conduct.html).* Our first priority is to provide and sustain a safe and welcoming environment for learning and teaching!  
 
  ## Workshop Guidelines 
 1. **Our primary commitment is to learn from each other.** We will listen to each other and not talk at each other. We acknowledge differences amongst us in backgrounds, skills, interests, and values. We realize that it is these very differences that will increase our awareness and understanding through this process.
