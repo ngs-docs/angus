@@ -1,5 +1,11 @@
 # Intro to cloud computing
 
+## Learning Objectives:
++ Understand what cloud computing is?
++ Get to know some popular cloud compute resources
++ Perform command line blast
++ 
+
 ## Rationale
 
 Bioinformatics worldwide involves researchers connect daily to cloud computing services to perform their analyses.
@@ -14,6 +20,8 @@ The cloud is basically lots of servers (thing big big computers) stacked togethe
 
 In research there are two approaches to lend computing time and power: either (a) you lend computing time and resources from a commercial provider or you obtain access to a research computing infrastructure. Some countries have built national infrastructures where you can apply for computing time for your research projects. Most academic institutions or departments also have their own computing resources.
 
+![](static/cloud_compute.png)
+
 ## Popular Cloud/HPC resources
 + Academic
     + [Jetstream](https://www.jetstream-cloud.org/)
@@ -24,7 +32,7 @@ In research there are two approaches to lend computing time and power: either (a
     + [Google Cloud](https://cloud.google.com/)
 
 ## Let's connect to the cloud
-![](images/cloud_compute.png)
+
 
 open jupyter notebook
 http://149.165.171.170:8888/lab
@@ -52,7 +60,7 @@ command line, which you may not have seen or used much before.
 
 ## Running BLAST
 
-First! We need some data and an Rscript to later visualize blast results.  Let's grab the mouse and zebrafish RefSeq
+First! We need some data (protein sequences) and an Rscript to later visualize blast results.  Let's grab the mouse and zebrafish RefSeq
 protein data sets from NCBI, and put them in our home directory. If you've just logged
 in, you should be there already, but if you're unsure, run `cd` and hit enter. Now,
 we'll use `curl` to download the files; these originally came from the NCBI Web site: [ftp://ftp.ncbi.nih.gov/refseq/M_musculus/mRNA_Prot](ftp://ftp.ncbi.nih.gov/refseq/M_musculus/mRNA_Prot).
@@ -170,7 +178,7 @@ blastp -query mm-second.fa -db zebrafish.1.protein.faa -out mm-second.x.zebrafis
 See [this link](http://www.metagenomics.wiki/tools/blast/blastn-output-format-6) for a description of the possible BLAST output formats.
 
 
-Run R script to visualize the blast results as below
+Run the following R script to visualize the blast results as below
 
 ```
 Rscript blastviz.R
@@ -178,10 +186,9 @@ Rscript blastviz.R
 
 A pdf will be generated with the results. Double click to open the pdf 
 
-![](images/blastviz.png)
+![](static/blastviz.png)
 
 Things to mention and discuss:
 
 * `blastp` options and -help.
 * command line options, more generally - why so many?
-* automation rocks!
