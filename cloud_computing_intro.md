@@ -31,7 +31,7 @@ There are two main approaches to accessing computing time and power: 1) we can b
 ## Let's connect to the cloud
 We all have an IP address to link into our cloud computers stored in this [spreadsheet here](https://hackmd.io/LGeRCq5xRkm3ebSQ8lHgFg?view).
 
-That will open a screen where you need to enter a password. The password is **`davis.2019`**. Then a screen like this will open (minus the blue arrows):
+That will open a screen where you need to enter a password. (The password will be told to you in the room or in slack.) Then a screen like this will open (minus the blue arrows):
 
 <center><img src="_static/shell_tut_jupyter_initial_launch.png" width="90%"></center>
 <br>
@@ -85,7 +85,7 @@ To look at the files in your current directory:
 ls -l
 ```
 
-All three of the files are FASTA protein files (that's what the .faa
+All three of the sequence files are FASTA protein files (that's what the .faa
 suggests) that are compressed with `gzip` (that's what the .gz means).
 
 Uncompress them:
