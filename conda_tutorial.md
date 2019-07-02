@@ -120,7 +120,7 @@ fastqc
 To search for all the available versions of a certain package, you can use the search command. For instance, to list out all the versions of the seaborn package (it is a tool for data visualization), run:
 
 ```
-conda search -f samtools
+conda search samtools
 ```
 
 Similarly to the conda list command, this one results in a list of the matching package names, versions, and channels:
@@ -146,7 +146,7 @@ conda install samtools
 
 You can also specify the package’s version:
 ```
-conda install samtools=1.8
+conda install samtools=1.9
 ```
 
 ### Freezing an environment
