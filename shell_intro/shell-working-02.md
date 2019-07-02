@@ -23,7 +23,7 @@ head example.txt
 tail example.txt
 ```
 
-This is especially helpful if a file is particularly large, as **`head`** will just print the first ten lines and stop. This means it will be just as instantaneous whether the file is 10KB or 10GB. 
+This is especially helpful if a file is particularly large, as **`head`** will just print the first ten lines and stop. **This means it will be just as instantaneous whether the file is 10KB or 10GB.** 
 
 Another standard useful program for viewing the contents of a file is **`less`**. This opens a searchable, read-only program that allows you to scroll through the document: 
 

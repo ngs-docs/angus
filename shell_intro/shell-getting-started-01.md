@@ -2,11 +2,10 @@
 
 ## How to access the shell for now
 
+Just like last night, we are going to link into our cloud computers stored in this [spreadsheet here](https://hackmd.io/LGeRCq5xRkm3ebSQ8lHgFg?view). Find your name and click the link associated with your name again. 
 
-We all have an IP address to link into our cloud computers stored in this [spreadsheet here](https://hackmd.io/LGeRCq5xRkm3ebSQ8lHgFg?view). Find your name and click the link associated with your name. 
 
-
-That will open a screen where you need to enter a password. (We'll tell you the password in the room!) Then a screen like this will open (minus the blue arrows):
+That will open a screen where you may or may not need to enter a password again. (We'll tell you the password in the room!) Then a screen like this will open (minus the blue arrows):
 
 <center><img src="../_static/shell_tut_jupyter_initial_launch.png" width="90%"></center>
 <br>
@@ -40,9 +39,13 @@ Before we start, copy and paste this one command and hit `enter`, so we are all 
 cd ~/shell_intro/
 ```
 
-## Running commands
+>**COPY AND PASTE STICKY CHECK!**  
+>
+> It's okay to copy and paste things here anywhere you'd like, and it will become essential when we get to some longer commands later. This can be different on different machines and keyboard layouts, and sometimes just different because of the terminal we are working in. Let's take a few minutes now to make sure we can all copy and paste from the material into our terminals. 
+> 
+> There may be keyboard shortcuts that work, and/or holding shift and "right-clicking" may bring up the menu. 
 
->**NOTE:** It's okay to copy and paste things. This is not a typing test 🙂
+## Running commands
 
 **`date`** is a command that prints out the date and time. This particular command does not require any arguments:
 
@@ -90,7 +93,7 @@ How would we know we needed the **`-n`** flag for that? There are a few ways to 
 man head
 ```
 
-A lot of times the `man` page for a command has an overwhelming abount of info. Press the <kbd>q</kbd> key to exit this window and return to our normal prompt. 
+A lot of times the `man` page for a command has an overwhelming amount of info. Press the <kbd>q</kbd> key to exit this window and return to our normal prompt. 
 
 Many tools have a help menu built in that we can access by providing **`-h`** or **`--help`** as the only argument:
 
@@ -119,17 +122,26 @@ Here is an image of an example file-system structure:
 
 There are two special locations in all Unix-based systems: the "**root**" location and the current user's "**home**" location. "Root" is where the address system of the computer starts; "home" is where the current user's location starts.
 
-We tell the command line where files and directories are located by providing their address, their "path". If we use the **`pwd`** command (for **p**rint **w**orking **d**irectory), we can find out what the path is for the directory we are sitting in. And if we use the **`ls`** command (for **l**i**s**t), we can see what directories and files are in the current directory we are sitting in.
+We tell the command line where files and directories are located by providing their address, their "path". If we use the **`pwd`** command (for **p**rint **w**orking **d**irectory), we can find out what the path is for the directory we are sitting in:
 
 ```
 pwd
-ls
 ``` 
+
+>**NOTE:**
+> Notice our prompt says something slightly different than what is returned from **`pwd`**. These are two different ways of specifying the same location: one starting from the special location "root" **`/`**; and the other starting from the special location "home" **`~/`**. This is also the case for the "Desktop" and "Documents" folders in the above image. 
+
+
+So **`pwd`** tells us where we are, and if we use the **`ls`** command (for **l**i**s**t), we can see what directories and files are in the current directory we are sitting in:
+
+```
+ls
+```
 
 ### Absolute vs relative path
 There are two ways to specify the path (address) of the file we want to do something to:
 
-* An **absolute path** is an address that starts from an explicitly specified location: either the "root" **`/`** or the "home" **`~/`** location. 
+* An **absolute path** is an address that starts from one of those special locations: either the "root" **`/`** or the "home" **`~/`** location. 
 * A **relative path** is an address that starts from wherever we are currently sitting.
 
 For example, let's look again at the **`head`** command we ran above:
@@ -138,7 +150,7 @@ For example, let's look again at the **`head`** command we ran above:
 head example.txt
 ```
 
-**What we are actually doing here is using a *relative path* to specify where the "example.txt" file is located.** This is because the command line automatically looks in the current working directory if we don't specify anything else about its location. 
+**What we are actually doing here is using a *relative path* to specify where the "example.txt" file is located.** This is because the command line automatically looks in the current working directory if we don't specify anything else about its location (it's starting from where we are). 
 
 We can also run the same command on the same file using an **absolute path**:
 
@@ -166,13 +178,20 @@ ls
 ls experiment
 ```
 
-We can see the file we were looking for is located in the subdirectory called "experiment". Here is how we can run **`head`** on "notes.txt" by specifying an accurate **relative path** to that file:
+We can see the file we were looking for is located in the subdirectory called "experiment". We can also see this in our file browser if we'd like. By clicking the folder icon at the top of the left bar, then double-clicking "shell_intro", then double-clicking "experiment", we can see there is a "notes.txt" file in there:
+
+<center><img src="../_static/shell_tut_file_browser_notes.png" width="50%"></center>
+<br>
+
+We can click the folder icon on the left again if we'd like to re-hide that panel.
+
+Here is how we can run **`head`** on "notes.txt" by specifying an accurate **relative path** to that file:
 
 ```bash
 head experiment/notes.txt
 ```
 
-If we had been using **tab-completion**, we would not have made that mistake!
+If we had been using **tab-completion**, we would not have made that initial **`head notes.txt`** mistake!
 
 ### BONUS ROUND: Tab-completion is our friend!
 Tab-completion is a huge time-saver, but even more importantly it is a perpetual sanity-check that helps prevent mistakes. 

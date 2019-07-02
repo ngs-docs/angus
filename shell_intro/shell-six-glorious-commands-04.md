@@ -274,10 +274,12 @@ Note that only the first occurrence in each line was changed. To change that beh
 sed 's/NA/<NA>/g' gene_annotations.tsv | head
 ```
 
-And now all instances are replaced. These quick examples were just looking for exact matches, but **`sed`** has very powerful pattern searching features (building off of what special characters like **`*`**, **`?`**, and others can do) that you can look into as needed.
+And now all instances are replaced. These quick examples were just looking for exact matches, but **`sed`** has very powerful pattern searching features (building off of what special characters like **`*`**, **`?`**, and others can do) that we can look into if needed 🙂
+
+>**NOTE:** **`sed`** and the next command, **`awk`**, are both pretty tough to get used to. And unless we end up using them every day, it's typical to do a quick search to remember how to use them whenever we want them for something. Don't feel like these things need to be memorized!
 
 ## awk  
-**`awk`** is even more expansive than any of the others we've seen, but like the others, just being familiar with its basic command-line usage can be powerful. **`awk`** is useful for doing things like filtering based on columns and doing calculations.
+**`awk`** is even more expansive than any of the others we've seen, but like the others, just being familiar with its general command-line usage can be powerful. **`awk`** is useful for doing things like filtering based on columns and doing calculations.
 
 The syntax of **`awk`** can also take a little getting used to. For some examples, we're going to work with a typical BLAST output table. Let's take a look at it first with **`head`**:
 
@@ -285,9 +287,9 @@ The syntax of **`awk`** can also take a little getting used to. For some example
 head blast_output.tsv
 ```
 
-Here we have 6 columns: "query" is our input sequence ; "qlen" is the length of the query; "subject" is the reference sequence our query hit; "slen" is subject length; "pident" is percent identity; and "al_length" is the length of the alignment.
+Here we have 6 columns: "query" is our input sequence ; "qlen" is the length of the query; "subject" is the reference sequence our query matched to; "slen" is subject length; "pident" is percent identity (a measure of their similarity); and "al_length" is the length of the alignment of the query and reference.
 
-After blasting, it is common to want to filter the output by some criteria. For the first example, let's say we only want to keep hits that percent identities greater than 95%. For **`awk`**, we specify which columns we want to act on with a **`$`** followed by the column number. In this case, the percent identity is column 5, and we put the whole expression within quotes so it is sent to **`awk`** as one argument: 
+After blasting, it is common to want to filter the output by some criteria. For the first example, let's say we only want to keep matches (hits) that had percent identities greater than 95%. For **`awk`**, we specify which columns we want to act on with a **`$`** followed by the column number. In this case, the percent identity is column 5, and we put the whole expression within quotes so it is sent to **`awk`** as one argument: 
 
 ```bash
 awk ' $5 > 95 ' blast_output.tsv
@@ -314,7 +316,7 @@ Here is how we can tell **`awk`** to only keep the hits that are greater than 95
 awk ' $5 > 95 && $6 > $2 * 0.9 ' blast_output.tsv
 ```
 
-Again, **`awk`** can seem pretty tricky, especially at first, but forunately we don't need to remember *how* to do these things, just that they can be done. And then we can look it up when we need it 🙂
+**Again, `awk` can seem pretty tricky, especially at first, but fortunately we don't need to remember *how* to do these things, just that they can be done. And then we can look it up when we need it 🙂**
 
 ## tr
 The last one we're going to look at is **`tr`** (for **tr**anslate). **`tr`** changes one character into another character. It seems to become more useful with time, but it's worth knowing early if for no other reason than it deals with special characters really well – the type of special characters that many Excel versions put in exported tables that can ruin working with them at the command line 🤬
@@ -340,6 +342,8 @@ The **`tr`** command does not accept the file you want to work on as a positiona
 ```bash
 tr "\r" "\n" < gene_annotations_excel_exported.tsv > gene_annotations_fixed.tsv
 ```
+
+Here we are specifying the **`tr`** command; the first positional argument is what we want to replace, **`"\r"`**; the second positional argument is what we want to replace it with, **`"\n"`**; then our input file follows the **`<`** redirector; and the output file we want to make follows the **`>`** redirector.
 
 Now we can see the new file we made is ready for the command line (<kbd>q</kbd> exits **`less`**):
 

@@ -11,18 +11,19 @@ Maybe the most imporant thing to keep in mind while going through these pages is
 
 ## Some terminology
 
-First, here are some terms that are often used interchangeably. Not because it's important to remember the differences (it's not), but just to see them at least once.  
+First, here are some terms that are often used interchangeably when referring to the text-based environment we were working in yesterday. It's **not** important to remember the differences, but they're here just so we see them at least once 🙂  
 
 || | ||
 ||:-------------:|:------------------:||
 || **Term**     | **What it is**   ||
 || **`shell`** | what we use to talk to the computer; anything where you are pointing and clicking with a mouse is a **G**raphical **U**ser **I**nterface (**GUI**) shell; something with text only is a **C**ommand **L**ine **I**nterface (**CLI**) shell ||  
-|| **`command line`** | a text-based environment capable of taking input and providing output ||  
+|| **`command line`** | a text-based environment capable of taking input and providing output (a "terminal" is the same idea) ||  
 || **`Unix`** | a family of operating systems ||  
 || **`bash`** | the most common programming language used at a Unix command-line ||  
 || | ||
 
 ## Why learn the command line?
+(modified from [the carpentries](https://datacarpentry.org/shell-genomics/01-introduction/index.html#what-is-a-shell-and-why-should-i-care))  
 
 * Many bioinformatics tools can only be used through a command-line interface, and/or have extra capabilities in the command-line version that are not available in the GUI (e.g. BLAST).  
 * It makes our work less error-prone. When humans do the same thing a hundred different times (or even ten times), we're likely to make a mistake. Your computer can do the same thing a thousand times with no mistakes. This also frees us up to do other things we can't automate, like the science part.  
