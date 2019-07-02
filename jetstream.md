@@ -1,5 +1,12 @@
 Accessing The Jetstream Cloud
 ===
+
+# Learning Objectives:
++ Launching Jetstream instances
++ SSH Secure Shell login to instances
++ Jetstream instance maintenance
+
+
 What we're going to do here is walk through starting up a running
 computer (an "instance") on the Jetstream service. 
 
@@ -7,9 +14,10 @@ computer (an "instance") on the Jetstream service.
 
 If you would like to read more about cloud computing, see this [Carpentry Cloud Computing lesson](http://www.datacarpentry.org/cloud-genomics/01-why-cloud-computing/).
 
-- This is the first and last place in these lessons where it will matter if you are using PC, Mac, or Linux. After we connect to our virtual machines built using the same image; we will all be on the same operating system/computing environment.
-
-> **NOTE: WINDOWS users** will need to install a UNIX-ready terminal to SSH-login (if you haven't already). We recommend Git bash. See workshop setup page for instructions.
+> **NOTE: WINDOWS users** will need to install a UNIX-ready terminal to SSH-login (if you haven't already). 
+> Options:
+	+ Later versions of windows 10 support an ubuntu terminal. Read more [here](https://tutorials.ubuntu.com/tutorial/tutorial-ubuntu-on-windows#0)
+	+ Git-bash. Download [here](https://gitforwindows.org/)
 
 # Login & Launch Instance
 
@@ -38,13 +46,13 @@ If you would like to read more about cloud computing, see this [Carpentry Cloud 
 
 ![](jetstream/images/login7.png)
 
-Here, "image" refers to the resources that are pre-loaded into your computing workspace on your instance. Think of it like apps that come with your phone before you add new ones on your own.
+**NOTE:** Here "Image" refers to the template of a virtual machine containing an installed operating system, software, and configuration stored as a file on disk. Think of it like apps that come with your phone before you add new ones on your own.
 
 **You will be presented with options to choose and configure your virtual machine here:
 
 	+ Instance Name: e.x., "ANGUS 2019 base image" or you can leave it default which is the image name.
 
-	+	Base Image Version: "1.0"
+	+	Base Image Version: "1.3"
 
 	+	Project: select your project folder
 
@@ -58,7 +66,7 @@ Here, "image" refers to the resources that are pre-loaded into your computing wo
 
 - **Launch instance and wait for the build to be deployed (~ 5-10 minutes).**
 
-> Note: During the build process: `scheduling-->building-->spawning-->deploying-->Networking-->N/A`; Be patient! Don't reload!. Once the virtual machine is ready, the "Activity" column will show "N/A" and the "Status" column will turn green and "Active".
+> ***Note: During the build process: `scheduling-->building-->spawning-->deploying-->Networking-->N/A`; Be patient! Don't reload!!. Once the virtual machine is ready, the "Activity" column will show "N/A" and the "Status" column will turn green and "Active".***
 
 ![](jetstream/images/login9.png)
 
@@ -70,8 +78,11 @@ Here, "image" refers to the resources that are pre-loaded into your computing wo
 
 # SSH Secure-Login
 
-- MACOS & LINUX users can open a Terminal window now.
-- Windows users start a new session in git bash
+![](jetstream/images/ssh.png)
+
+- macOS & LINUX users can open a Terminal window now.
+- Windows 10 users with ubuntu can open a terminal 
+- If your windows doesn't come with ubuntu distribution, users start a new session in git bash
 	+ Start a new session; Fill in your "remote host" the IP address of your virtual machine; select "specify username" and enter your Jetstream username; Click OK.
 
 
@@ -103,15 +114,19 @@ $ ssh your_Jetstreamusername@ip_address
 
 ![](jetstream/images/jet_actions.png)
 
-+ Report - instance exhibiting unexpected behavior? Report here
-+ Image - Request an image (a type of template for a virtual machine) of a running instance
-+ Suspend - Suspending an instance frees up resources for other users and allows you to safely preserve the state of your instance without imaging. Your time allocation no longer counts against you in the suspended mode.
-**Note: It is advisable to delete the machine if you are not planning to use it in future to save valuable resources. However if you want to use it in future, you can suspend it. Notice: IP address changes**
-+ Shelve - Shelving will safely preserve the state of your instance for later use. And, it frees up resources for other users . In fact, it is the best way to reduce resource usage when compared with other actions, like "suspend" and "stop".Your time allocation no longer counts against you in the shelved mode.
-+ Stop - Stop an instance
-+ Reboot - Reboot an instance
-+ Redeploy - Redeploying an instance will allow you to fix instances that show up as 'active - deploy_error'.
-+ Delete - following instance will be shut down and all data will be permanently lost
+| Action | Description |
+| ----- | ----- |
+| Report | instance exhibiting unexpected behavior? Report here |
+| Image | Request an image (a type of template for a virtual machine) of a running instance |
+| Suspend | Suspending an instance frees up resources for other users and allows you to safely preserve the state of your instance without imaging. Your time allocation no longer counts against you in the suspended mode |
+| Shelve | Shelving will safely preserve the state of your instance for later use. And, it frees up resources for other users . In fact, it is the best way to reduce resource usage when compared with other actions, like "suspend" and "stop".Your time allocation no longer counts against you in the shelved mode |
+| Stop | Stop an instance |
+| Reboot | Reboot an instance |
+| Redeploy | Redeploying an instance will allow you to fix instances that show up as 'active - deploy_error' |
+| Delete | following instance will be shut down and all data will be permanently lost |
+
+> **Note: It is advisable to delete the machine if you are not planning to use it in future to save valuable resources. However if you want to use it in future, you can suspend it. Notice: IP address changes**
+
 
 
 # Additional Features
