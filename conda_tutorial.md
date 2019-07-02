@@ -8,7 +8,8 @@
 
 # Why should I use a package and environment management system?
 
-![](_static/soft_prob.png)
+<center><img src="_static/soft_prob.png" width="90%"></center>
+<br>
 
 Installing software is hard. Installing scientific software (including all required dependencies of said software!) is often even more challenging. 
 
@@ -20,7 +21,9 @@ Rather than installing software system-wide, wouldn’t it be great if we could 
 
 A environment is a directory that contains a specific collection of packages/tools that you have installed. For example, you may have one environment with Pyton 2.7 and its dependencies, and another environment with Python 3.4 for legacy testing. If you change one environment, your other environments are not affected. You can easily activate or deactivate environments, which is how you switch between them. 
 
-![](_static/envs.png)
+<center><img src="_static/envs.png" width="90%"></center>
+<br>
+
 
 # What is Conda?
 
@@ -29,18 +32,22 @@ Conda is open source package and runs on Windows, Mac OS and Linux.
 + Conda can quickly install, run, and update packages and their dependencies.
 + Conda can create, save, load, and switch between project specific software environments on your local computer.
 
-![](_static/conda1.png)
+<center><img src="_static/conda1.png" width="90%"></center>
+<br>
+
 
 Conda as a package manager helps you find and install packages. If you need a package that requires a different version of Python, you do not need to switch to a different environment manager, because Conda is also an environment manager. With just a few commands, you can set up a totally separate environment to run that different version of Python, while continuing to run your usual version of Python in your normal environment.
 
 
 # How does Conda work
-![](_static/conda2.png)
+
+<center><img src="_static/conda2.png" width="90%"></center>
+<br>
 
 # Benefits of Conda
 
-![](_static/conda3.png)
-
+<center><img src="_static/conda3.png" width="90%"></center>
+<br>
 
 ## Installing & Activating Conda
 
@@ -82,11 +89,14 @@ Channels are the locations of the repositories (directories) online containing C
 
 Channels in Conda are ordered. The channel with the highest priority is the first one that Conda checks, looking for the package you asked for. You can change this order, and also add channels to it (and set their priority as well).
 
-![](_static/conda4.png)
+<center><img src="_static/conda4.png" width="90%"></center>
+<br>
 
 If multiple channels contain a package, and one channel contains a newer version than the other one, the order of the channels’ determines which one of these two versions are going to be installed, even if the higher priority channel contains the older version.
 
-![](_static/conda5.png)
+
+<center><img src="_static/conda5.png" width="90%"></center>
+<br>
 
  Bioconda Channel
 
@@ -179,6 +189,6 @@ will install those packages in your local environment.
 
 # More Reading on Conda
 
-+ Conda [Documentation]()
++ Conda [Documentation](https://conda.io/en/latest/)
 
 + Images are from this [tutorial](https://www.freecodecamp.org/news/why-you-need-python-environments-and-how-to-manage-them-with-conda-85f155f4353c/)
