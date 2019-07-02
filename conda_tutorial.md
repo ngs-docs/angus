@@ -40,21 +40,8 @@ Conda as a package manager helps you find and install packages. If you need a pa
 
 
 ## Installing & Activating Conda
-We have already installed conda on this instance, but please see the [installation HackMD](https://hackmd.io/im0eDxViQgmxTL4zYBfGoQ) after the class if you'd like to do this yourself.
 
-To be able to use that installation, we need to let the instance know what path to find bioconda in:
-
-```{bash}
-echo export PATH=$PATH:/opt/miniconda3/bin >> ~/.bashrc
-```
-
-Then, run the following command (or start a new terminal session) in order to activate the conda environment:
-
-```
-source ~/.bashrc
-```
-
-
+We have already installed conda on this instance, but please see the [installation HackMD](https://hackmd.io/im0eDxViQgmxTL4zYBfGoQ) after the class if you'd like to do this yourself on your personal computer.
 
 ## Adding a new environment
 
@@ -63,7 +50,7 @@ Check your current version of python by exectuting `python --version`
 To create a new environment named, for instance mynewenv (you can name it what ever you like), that includes, let’s say, a Python version 3.4., run:
 
 ```
-conda create --name mynewenv python=3.4
+conda create --name mynewenv
 ```
 
 ## Activating and leaving (deactivating) an environment
@@ -131,12 +118,23 @@ fastqc
 To search for all the available versions of a certain package, you can use the search command. For instance, to list out all the versions of the seaborn package (it is a tool for data visualization), run:
 
 ```
-conda search -f checkm-genome
+conda search -f samtools
 ```
 
-Similarly to the conda listcommand, this one results in a list of the matching package names, versions, and channels:
+Similarly to the conda list command, this one results in a list of the matching package names, versions, and channels:
 
-NEED screenshot
+```
+Loading channels: done
+# Name                       Version           Build  Channel             
+samtools                      0.1.12               0  bioconda            
+samtools                      0.1.12               1  bioconda            
+samtools                      0.1.12               2  bioconda            
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""  
+samtools                         1.9      h91753b0_3  bioconda            
+samtools                         1.9      h91753b0_4  bioconda            
+samtools                         1.9      h91753b0_5  bioconda            
+samtools                         1.9      h91753b0_8  bioconda  
+```
 
 To install a package (for samtools) that is inside a channel that is on your channel list, run this command (if you don’t specify which version you want, it’ll automatically install the latest available version from the highest priority channel):
 
@@ -146,7 +144,7 @@ conda install samtools
 
 You can also specify the package’s version:
 ```
-conda install samtools
+conda install samtools=1.8
 ```
 
 ### Freezing an environment
