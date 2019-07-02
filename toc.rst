@@ -7,32 +7,34 @@ Table of Contents
 
    index.md
 
-   code-of-conduct.rst
+   code-of-conduct.md
 
-   jetstream/boot.md
+   guidelines-expectations.md
 
-   jetstream/login.md
+   cloud_computing_intro.md
 
-   running-command-line-blast.md
+   shell_intro/index.md
 
-   visualizing-blast-scores-with-RStudio.md
+   .. not up to date yet: jetstream/boot.md
 
-   quality-and-trimming.md
+   .. placeholder: conda
 
-   mapping-variant-calling.md
+   .. not sure if up to date yet: quality-and-trimming.md
 
-   salmon-quant.md
+   .. not sure if up to date yet: salmon-quant.md
 
-   diff-ex-and-viz.md
+   .. placeholder: Introduction to R & RStudio
 
-   transcriptome-assembly.md
+   .. not sure if up to date yet: diff-ex-and-viz.md
 
-   genome-assembly.md
+   .. not sure if up to date yet: transcriptome-assembly.md
 
-   jetstream-bioconda-config.md
-   
-   chip-seq
-   
-   dammit_annotation.md
-   
-   where_to_put_data.md
+   .. not sure if up to date yet: dammit_annotation.md
+
+   .. not sure if up to date yet: mapping-variant-calling.md
+
+   .. placeholder: Automation of Variant Calling with Snakemake
+
+   .. placeholder: Build your own RNA-seq workflow with Snakemake
+
+   .. placeholder: Genome Assembly
