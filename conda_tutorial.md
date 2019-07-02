@@ -16,7 +16,11 @@ Installing software system-wide  creates complex dependencies between your reear
 
 Rather than installing software system-wide, wouldn’t it be great if we could install software separately for each research project?
 
+# What is an environment?
 
+A environment is a directory that contains a specific collection of packages/tools that you have installed. For example, you may have one environment with Pyton 2.7 and its dependencies, and another environment with Python 3.4 for legacy testing. If you change one environment, your other environments are not affected. You can easily activate or deactivate environments, which is how you switch between them. 
+
+![](_static/envs.png)
 
 # What is Conda?
 
@@ -36,7 +40,6 @@ Conda as a package manager helps you find and install packages. If you need a pa
 # Benefits of Conda
 
 ![](_static/conda3.png)
-
 
 
 ## Installing & Activating Conda
@@ -85,8 +88,7 @@ If multiple channels contain a package, and one channel contains a newer version
 
 ![](_static/conda5.png)
 
-
-### Bioconda Channel
+ Bioconda Channel
 
 See the bioconda paper and the [bioconda web site](http://bioconda.github.io/)
 
