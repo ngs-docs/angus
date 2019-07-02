@@ -19,19 +19,19 @@ Table of Contents
 
    .. placeholder: conda
 
-   .. not sure if up to date yet: quality-and-trimming.md
+   quality-and-trimming.md
 
-   .. not sure if up to date yet: salmon-quant.md
+   salmon-quant.md
 
    .. placeholder: Introduction to R & RStudio
 
-   .. not sure if up to date yet: diff-ex-and-viz.md
+   diff-ex-and-viz.md
 
-   .. not sure if up to date yet: transcriptome-assembly.md
+   .. not up to date yet: transcriptome-assembly.md
 
-   .. not sure if up to date yet: dammit_annotation.md
+   .. not up to date yet: dammit_annotation.md
 
-   .. not sure if up to date yet: mapping-variant-calling.md
+   .. not up to date yet: mapping-variant-calling.md
 
    .. placeholder: Automation of Variant Calling with Snakemake
 
