@@ -50,7 +50,7 @@ That prints out a lot of stuff, let's see how many things are in that directory:
 ls data/all_samples/ | wc -l
 ```
 
-We'll get back to making sense of that when we get to *wildcards* in the next section.  
+We'll get back to making sense of that mess when we get to *wildcards* in the next section.  
 
 > Another important character is the greater than sign, **`>`**. This tells the command line to *redirect* the output to a file, rather than just printing it to the screen as we've seen so far.
 

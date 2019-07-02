@@ -87,9 +87,9 @@ do
 done
 ```
 
-> **Note:** Notice the prompt is different while we are within the loop syntax. On the jetstream instances we're working on, it shows `and...> ` until we finish the loop with **`done`**. This might look different if you are on a different system, but it will be something distinct from the normal prompt. If you get stuck with that alternate prompt and you want to get rid of it, you can press <kbd>ctrl + c</kbd> to cancel it. 
+> **Note:** Notice the prompt is different while we are within the loop syntax. On the jetstream instances we're working on, it shows a **`> `** until we finish the loop with **`done`**. This might look different if you are on a different system, but it will be something distinct from the normal prompt. If you get stuck with that alternate prompt and you want to get rid of it, you can press <kbd>ctrl + c</kbd> to cancel it. 
 
-Just to note, we don't need to put these on separate lines, and we don't need to indent over the "body" of the loop like we did above (the `echo $item` part), but both can help with readability so we will continue doing that moving forward. As an example though, we could also enter it like this on one line, separating the major blocks with semicolons:
+Just to note, we don't need to put these on separate lines, and we don't need to indent over the "body" of the loop like we did above (the **`echo $item`** part), but both can help with readability so we will continue doing that moving forward. As an example though, we could also enter it like this on one line, separating the major blocks with semicolons:
 
 ```bash
 for word in cat dog ukulele; do echo $word; done
@@ -173,7 +173,7 @@ echo $(cat words.txt)
 For a more practical example, let's pull multiple specific sequences we want from a file!
 
 #### BONUS ROUND: interleaving files with **paste**
-A pretty neat use of **`paste`** is to interleave two files. What **`paste`** is doing is sticking two files together, line-by-line, with some delimiter (separating character) in between them. This delimiter by default is a <kbd>tab</kbd> character, but we can set it to other things too, including a *newline* character. To demonstrate this, let's make a fasta-formatted sequence file from our genes in the previous lesson. 
+A pretty neat use of **`paste`** is to interleave two files (line 1 comes from file 1, line 2 comes from file 2, line 3 comes from file 1, and so on). As we saw on the last page, what **`paste`** is doing is sticking two files together horizontally, line-by-line, with some delimiter (separating character) in between them. This delimiter by default is a <kbd>tab</kbd> character, but we can set it to other things too, including a *newline* character. To demonstrate this, let's make a fasta-formatted sequence file from our genes in the previous lesson. 
 
 >"Fasta" is a common format for holding sequence information. In it, each sequence entry takes up two lines: the first is the name of the sequence and needs to be preceded by a <kbd><b>></b></kbd> character; and the second line is the sequence. It looks like this:
 >
@@ -307,6 +307,8 @@ done > target_genes.faa
 ls
 head target_genes.faa
 ```
+
+And now we have just our genes of interest in their own file!
 
 ## Summary
 Even though loops can get much more complicated as needed, practicing these foundational skills a bit is all that's needed to start harnessing their awesome power 🙂
