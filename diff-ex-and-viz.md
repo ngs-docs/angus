@@ -63,7 +63,7 @@ function to read this file into R as a dataframe directly from a url.
 
 ```
 # read in the file from url
-samples <- read_csv("https://osf.io/a75zm/download")
+samples <- read_csv("https://osf.io/cxp2w/download")
 # look at the first 6 lines
 head(samples)
 ```
@@ -294,10 +294,9 @@ do this.
 
 ```
 annot_col <- samples %>%
+  column_to_rownames('sample') %>%
   select(condition) %>%
   as.data.frame()
-
-as.factor(annot_col$condition)
 
 head(annot_col)
 ```
