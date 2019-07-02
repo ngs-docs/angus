@@ -1,9 +1,10 @@
 # Snakemake for Automation
 
 ## Objectives
-+
-+
-+
+
++ Identify cases where workflow managers are helpful for automation
++ Understand the components of a Snakefile: rules, inputs, outputs, and actions.
++ Write and run a Snakefile.
 
 ## Getting started
 
