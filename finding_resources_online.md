@@ -1,5 +1,10 @@
 # Finding Resources online
 
+## Objectives
+
++ Discover common biological databases
++ Understand common bioinformatics file formats
+
 ## Biological Databases
 
 There are many sources available for acquiring biological data. A partial, and by no means exhaustive, list includes:
