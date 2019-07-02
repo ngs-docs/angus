@@ -66,7 +66,7 @@ If you would like to read more about cloud computing, see this [Carpentry Cloud 
 
 - **Launch instance and wait for the build to be deployed (~ 5-10 minutes).**
 
-> ***Note: During the build process: `scheduling-->building-->spawning-->deploying-->Networking-->N/A`; Be patient! Don't reload!!. Once the virtual machine is ready, the "Activity" column will show "N/A" and the "Status" column will turn green and "Active".***
+> ***Note: During the build process: `scheduling-->building-->spawning-->deploying-->Networking-->N/A`. Once the virtual machine is ready, the "Activity" column will show "N/A" and the "Status" column will turn green and "Active".***
 
 ![](jetstream/images/login9.png)
 
@@ -124,10 +124,6 @@ $ ssh your_Jetstreamusername@ip_address
 | Reboot | Reboot an instance |
 | Redeploy | Redeploying an instance will allow you to fix instances that show up as 'active - deploy_error' |
 | Delete | following instance will be shut down and all data will be permanently lost |
-
-> **Note: It is advisable to delete the machine if you are not planning to use it in future to save valuable resources. However if you want to use it in future, you can suspend it. Notice: IP address changes**
-
-
 
 # Additional Features
 
