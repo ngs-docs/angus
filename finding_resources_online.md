@@ -16,33 +16,19 @@ Note that many of these databases cross-reference one-another, with the same dep
 
 ## NCBI
 
-+ [NCBI](https://www.ncbi.nlm.nih.gov/search/) - NCBI maintains one of the largest and most comprehensive databases of fully assembled genomes. 
++ [NCBI](https://www.ncbi.nlm.nih.gov/search/) - NCBI houses many major databases, including GenBank, which houses genome assemblies, and the SRA, which houses sequencing data. It's also home to databases like PubMed. 
 
-The Taxonomy Browser displays a hierarchical view of the taxonomy, as well as more detailed taxon-specific pages that highlight the internal links to other Entrez databases, the LinkOut links to external resources and other taxon-specific data.
+## NCBI Taxonomy
+
+NCBI Taxonomy is one particularly useful database. The Taxonomy Browser displays a hierarchical view of the taxonomy, as well as more detailed taxon-specific pages that highlight the internal links to other Entrez databases, the LinkOut links to external resources and other taxon-specific data. It is particularly useful for finding genomes and assemblies. 
 
 1. Go to [NCBI Taxonomy](https://www.ncbi.nlm.nih.gov/taxonomy) page and search for "Saccharomyces cerevisiae"
 
 ![](/static/taxonomy1.png)
 
-2. Click on `Genome` to display links to download genome, sequence, annotation files for yeast 
+2. Click on the `1` in the `Genome` column to launch a new page. This page contains links to download the genome sequence and annotation files. 
 
 ![](/static/taxonomy2.png)
-
-
-## Ensemble
-
-Ensembl is a genome browser for vertebrate genomes that supports research in comparative genomics, evolution, sequence variation and transcriptional regulation. Ensembl annotate genes, computes multiple alignments, predicts regulatory function and collects disease data. Ensembl tools include BLAST, BLAT, BioMart and the Variant Effect Predictor (VEP) for all supported species.
-
-
-1. Open [Ensemble](https://www.ensembl.org/index.html?redirect=no) webpage and search for "Saccharomyces cerevisiae"
-![](/static/ensemble1.png)
-
-2. Under the "Gene Annotation" section you can download FASTA files for genes, cDNA, ncRNA, proteins and annotations for the same
-![](/static/ensemble2.png)
-
-3. This is the ftp site of ensemble 
-![](/static/ensemble3.png)
-![](/static/ensemble4.png)
 
 ## NCBI SRA
 
@@ -58,23 +44,52 @@ NCBI Sequence Read Archive (SRA) stores sequence and quality data (fastq files) 
 ![](/static/sra3.png)
 
 4. In, this page, you can find:
-    + Experiment Design
+    + Experimental Design
     + Sample Information
-    + **Library Preparation Information**
+    + Library Preparation Information
     + Sequencing "Run" information with number usually starting with "SRR"
 ![](/static/sra4.png)
 
-
 ### SRA ID's from publications
 
-- Example [paper](https://epigeneticsandchromatin.biomedcentral.com/articles/10.1186/s13072-018-0178-0#Sec9)
+Most journals require researches to publish their sequencing data in a public repository upon manuscript publication.
+There's often a section at the end of a publication that indicates the sequence accession number. For example, the 
+dataset we're using in these lessons comes from this [paper](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4878611/). The text says the following:
 
 ```
-Availability of data and materials
+DATA DEPOSITION
 
-All molecular data have been deposited into the public database at NCBI (GEO #GSE109775 and GSE106125).
+The data sets supporting the results of this article are available in the European Nucleotide Archive repository (ENA) (PRJEB5348, http://www.ebi.ac.uk/ena/data/view/ERX425102). All the code for this work is publicly available (https://github.com/bartongroup/profDGE48).
 ```
 
+The ENA and SRA mirror each other, so we can view this accession from either location. It is often easier to download 
+single or a handful of accessions from the ENA. In our R lesson, we will work with the ENA table from this dataset. 
+
+## File formats
+
+There are a lot of different file formats in bioinformatics! We've listed a few common ones below:
+
++ FASTA – plain sequences (.fa, .fasta, .faa, .fna, .fnn)
++ FASTQ – sequencing reads
++ GFF – general feature format
++ GTF - variation of GFF
++ VCF – sequence variants
++ SAM – sequence alignments
++ BAM – alignments in binary (compressed)
 
 
-[File Formats](https://isugenomics.github.io/bioinformatics-workbook/introduction/fileFormats.html)
+## Optional: Ensemble
+
+Ensembl is another useful database if you're working with a model organism. It provides a browser for vertebrate (and sometimes other) genomes and supports research in comparative genomics, evolution, sequence variation and transcriptional regulation. Ensembl annotates genes, computes multiple alignments, predicts regulatory function and collects disease data. Ensembl tools include BLAST, BLAT, BioMart and the Variant Effect Predictor (VEP) for all supported species. Below we demonstrate how to find annotated genes using Ensemble.
+
+
+1. Open [Ensemble](https://www.ensembl.org/index.html?redirect=no) webpage and search for "Saccharomyces cerevisiae"
+![](/static/ensemble1.png)
+
+2. Under the "Gene Annotation" section you can download FASTA files for genes, cDNA, ncRNA, proteins and annotations for the same
+![](/static/ensemble2.png)
+
+3. This is the ftp site of ensemble 
+![](/static/ensemble3.png)
+![](/static/ensemble4.png)
+
