@@ -14,8 +14,8 @@ computer (an "instance") on the Jetstream service.
 
 If you would like to read more about cloud computing, see this [Carpentry Cloud Computing lesson](http://www.datacarpentry.org/cloud-genomics/01-why-cloud-computing/).
 
-> **NOTE: WINDOWS users** will need to install a UNIX-ready terminal to SSH-login (if you haven't already). 
-> Options:
+**NOTE: WINDOWS users** will need to install a UNIX-ready terminal to SSH-login (if you haven't already). 
+Options:
 	+ Later versions of windows 10 support an ubuntu terminal. Read more [here](https://tutorials.ubuntu.com/tutorial/tutorial-ubuntu-on-windows#0)
 	+ Git-bash. Download [here](https://gitforwindows.org/)
 
