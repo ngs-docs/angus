@@ -43,7 +43,8 @@ Room Conway will be led by [Sateesh Peri](https://twitter.com/perisateesh?lang=e
 
 **Wednesday, July 3rd, 2019:**
 
-* **9:00-10:20am:** [Logging onto the Cloud](jetstream/boot.md)
+* **9:00-9:15am:** **Meet in Lecture Room (1030) for quick meeting**
+* **9:20-10:20am:** [Logging onto the Cloud](jetstream/boot.md)
 	* **10:20-10:40am:** BREAK
 * **10:40am-12:00pm:** [Conda](conda_tutorial.md)
 	* **12:00-1:00pm:** LUNCH
