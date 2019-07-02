@@ -10,8 +10,6 @@
 
 ![](_static/soft_prob.png)
 
-
-
 Installing software is hard. Installing scientific software (including all required dependencies of said software!) is often even more challenging. 
 
 Installing software system-wide  creates complex dependencies between your reearch projects that shouldn’t really exist!
@@ -75,28 +73,28 @@ Inside a new Conda installation, the root environment is activated by default, s
 In other cases, if you want to use an environment (for instance manage packages, or run Python scripts inside it) you need to first activate it.
 
 ```
-source activate mynewenv
+conda activate mynewenv
 ```
 The command prompt changes upon the environment’s activation, it now contains the active environment’s name.
 
 The directories of the active environment’s executable files are added to the system path (this means that you can now access them more easily). You can leave an environment with this command:
 
 ```
-source deactivate
+conda deactivate
 ```
 
-It needs to be mentioned that upon deactivating an environment, the root environment becomes active automatically.
+It needs to be mentioned that upon deactivating an environment, the base environment becomes active automatically.
 
 
 ## What are Conda channels?
 
-Channels are the locations of the repositories where Conda looks for packages. Upon Conda’s installation, Continuum’s (Conda’s developer) channels are set by default, so without any further modification, these are the locations where your Conda will start searching for packages.
+Channels are the locations of the repositories online where Conda looks for packages. Upon Conda’s installation, Continuum’s (Conda’s developer) channels are set by default, so without any further modification, these are the locations where your Conda will start searching for packages.
 
-Channels exist in a hierarchical order. The channel with the highest priority is the first one that Conda checks, looking for the package you asked for. You can change this order, and also add channels to it (and set their priority as well).
+Channels in Conda are ordered. The channel with the highest priority is the first one that Conda checks, looking for the package you asked for. You can change this order, and also add channels to it (and set their priority as well).
 
 ![](_static/conda4.png)
 
-If multiple channels contain a package, and one channel contains a newer version than the other one, the channels’ hierarchical order determines which one of these two versions are going to be installed, even if the higher priority channel contains the older version.
+If multiple channels contain a package, and one channel contains a newer version than the other one, the order of the channels’ determines which one of these two versions are going to be installed, even if the higher priority channel contains the older version.
 
 ![](_static/conda5.png)
 
@@ -106,7 +104,7 @@ If multiple channels contain a package, and one channel contains a newer version
 See the bioconda paper and the [bioconda web site](http://bioconda.github.io/)
 
 Bioconda is a community-enabled repository of 3,000+ bioinformatics packages, installable via the conda package manager.
-
+Note: bioconda is not available for windows systems
 
 Add channels
 
@@ -140,15 +138,15 @@ Similarly to the conda listcommand, this one results in a list of the matching p
 
 NEED screenshot
 
-To install a package (for instanceseaborn) that is inside a channel that is on your channel list, run this command (if you don’t specify which version you want, it’ll automatically install the latest available version from the highest priority channel):
+To install a package (for samtools) that is inside a channel that is on your channel list, run this command (if you don’t specify which version you want, it’ll automatically install the latest available version from the highest priority channel):
 
 ```
-conda install checkm-genome
+conda install samtools
 ```
 
 You can also specify the package’s version:
 ```
-conda install checkm-genome=
+conda install samtools
 ```
 
 ### Freezing an environment
@@ -164,6 +162,8 @@ conda list --export > packages.txt
 conda install --file=packages.txt
 ```
 will install those packages in your local environment.
+
+### Conda Commands
 
 | Conda commands | action |
 | -------- | -------- |
