@@ -25,7 +25,7 @@ curl -L https://osf.io/wc8yn/download -o ERR458501.qc.fq.gz
 curl -L https://osf.io/sdtz3/download -o ERR458502.qc.fq.gz
 ```
 
-## Introduction to Salmon (adapted from salon documentation)
+## Introduction to Salmon (adapted from salmon documentation)
 
 [Salmon](https://salmon.readthedocs.io/en/latest/salmon.html) is a tool for fast
 transcript quantification from RNA-seq data. It requires a set of target 
@@ -128,7 +128,7 @@ The information we saw scroll through our screens is captured in a log file in
 `aux_info/`. 
 
 ```
-less aux_info/meta_info.json
+less ERR458493.qc.fq.gz_quant/aux_info/meta_info.json
 ```
 
 We see information about our run parameters and performance. To exit out of the 
@@ -136,7 +136,7 @@ file, press `q`.
 
 We can also look at the count file:
 ```
-less -S quant.sf
+less -S ERR458493.qc.fq.gz_quant/quant.sf
 ```
 
 We see our transcript names, as well as the number of reads that aligned to 
