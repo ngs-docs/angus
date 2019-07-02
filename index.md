@@ -43,9 +43,9 @@ Room Conway will be led by [Sateesh Peri](https://twitter.com/perisateesh?lang=e
 
 **Wednesday, July 3rd, 2019:**
 
-* **9:00-10:20am:** Logging onto the Cloud
+* **9:00-10:20am:** [Logging onto the Cloud](jetstream/boot.md)
 	* **10:20-10:40am:** BREAK
-* **10:40am-12:00pm:** Conda
+* **10:40am-12:00pm:** [Conda](conda_tutorial.md)
 	* **12:00-1:00pm:** LUNCH
 * **1:00-2:00pm:** [Amanda Charbonneau](https://twitter.com/procrastinomics?lang=en): How to Statistics
 	* **2:00-2:10pm:** BREAK
