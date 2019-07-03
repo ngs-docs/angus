@@ -21,30 +21,38 @@ If you would like to read more about cloud computing, see this [Carpentry Cloud 
 
 # Login & Launch Instance
 
-- **Login to [Jetstream](https://use.jetstream-cloud.org/application/jetstream/images/search) by clicking the "login" button towards the right-upper corner of the screen.**
+- **Login to [Jetstream](https://use.jetstream-cloud.org/application/jetstream/../_static/search) by clicking the "login" button towards the right-upper corner of the screen.**
 
-![](jetstream/images/login1.png)
-![](jetstream/images/login2.png)
+<center><img src="../_static/login1.png" width="90%"></center>
+<br>
+
+<center><img src="../_static/login2.png" width="90%"></center>
+<br>
 
 - **Fill in your Jetstream username and password and click "LOGIN"**
 
-![](jetstream/images/login3.png)
+<center><img src="../_static/login3.png" width="90%"></center>
+<br>
 
 - **Select the "Projects" tab and then click the "CREATE NEW PROJECT" button**
 
-![](jetstream/images/login4.png)
+<center><img src="../_static/login4.png" width="90%"></center>
+<br>
 
 - **Give your Project folder a name (Description is optional). Then click "CREATE".**
 
-![](jetstream/images/login5.png)
+<center><img src="../_static/login5.png" width="90%"></center>
+<br>
 
 - **Click on your newly created project and then Click on "NEW" and then "Instance" from the drop-down menu to start up a new virtual machine.**
 
-![](jetstream/images/login6.png)
+<center><img src="../_static/login6.png" width="90%"></center>
+<br>
 
 - **To select an image click on "Show All" tab and Search for "ANGUS 2019" and choose the "ANGUS 2019" image created by 'titus'.**
 
-![](jetstream/images/login7.png)
+<center><img src="../_static/login7.png" width="90%"></center>
+<br>
 
 **NOTE:** Here "Image" refers to the template of a virtual machine containing an installed operating system, software, and configuration stored as a file on disk. Think of it like apps that come with your phone before you add new ones on your own.
 
@@ -62,23 +70,27 @@ If you would like to read more about cloud computing, see this [Carpentry Cloud 
 
 	+ Instance size: We recommend ""m1.medium" (CPU: 6, Mem: 16GB, Disk: 60GB)"for this tutorial; Though  depending on your allocations, choose most suitable one.**
 
-![](jetstream/images/login8.png)
+<center><img src="../_static/login8.png" width="90%"></center>
+<br>
 
 - **Launch instance and wait for the build to be deployed (~ 5-10 minutes).**
 
 > ***Note: During the build process: `scheduling-->building-->spawning-->deploying-->Networking-->N/A`. Once the virtual machine is ready, the "Activity" column will show "N/A" and the "Status" column will turn green and "Active".***
 
-![](jetstream/images/login9.png)
+<center><img src="../_static/login9.png" width="65%"></center>
+<br>
 
 - **Navigate back to 'Projects' and click on your new instance's name to see more information related to the instance you just created! and Copy the IP address of your instance created.**
 
-![](jetstream/images/login10.png)
+<center><img src="../_static/login10.png" width="90%"></center>
+<br>
 
 > **Great! We have now built our very own remote virtual machine with all the software pre-installed. Next we will use SSH-Secure-Login to access these remote instances from our laptop !!!.**
 
 # SSH Secure-Login
 
-![](jetstream/images/ssh.png)
+<center><img src="../_static/ssh.png" width="90%"></center>
+<br>
 
 - macOS & LINUX users can open a Terminal window now.
 - Windows 10 users with ubuntu can open a terminal 
@@ -92,13 +104,15 @@ If you would like to read more about cloud computing, see this [Carpentry Cloud 
 $ ssh your_Jetstreamusername@ip_address
 ```
 
-![](jetstream/images/login11.png)
+<center><img src="../_static/login11.png" width="90%"></center>
+<br>
 
 - **This should log you into Jetstream and you should see a screen like this; Enter 'yes' and then enter your Jetstream password.**
 
 > Your cursor will not move or indicate you are typing as you enter your password. If you make a mistake, hit enter and you will be prompted again.
 
-![](jetstream/images/login12.png)
+<center><img src="../_static/login12.png" width="90%"></center>
+<br>
 
 > **Success !!! We have established connections with our instances. Proceed to the Tutorial section.**
 
@@ -108,11 +122,13 @@ $ ssh your_Jetstreamusername@ip_address
 
 #### Jetstream Dashboard
 
-![](jetstream/images/jet_dashboard.png)
+<center><img src="../_static/jet_dashboard.png" width="90%"></center>
+<br>
 
 ### Instance Actions
 
-![](jetstream/images/jet_actions.png)
+<center><img src="../_static/jet_actions.png" width="50%"></center>
+<br>
 
 | Action | Description |
 | ----- | ----- |
@@ -129,4 +145,5 @@ $ ssh your_Jetstreamusername@ip_address
 
 ## You can access a shell terminal and a web-desktop via your browser !!!
 
-![](jetstream/images/jet_links.png)
+<center><img src="../_static/jet_links.png" width="50%"></center>
+<br>
