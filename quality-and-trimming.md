@@ -207,7 +207,7 @@ fastqc ERR458500.fastq.gz
 Now let's use `ls`:
 
 ```
-ls *fastqc.html
+ls *fastqc.zip
 ```
 
 to list the files, and you should see:
