@@ -50,9 +50,9 @@ Room Conway will be led by [Sateesh Peri](https://twitter.com/perisateesh?lang=e
 	* **12:00-1:00pm:** LUNCH
 * **1:00-2:00pm:** [Amanda Charbonneau](https://twitter.com/procrastinomics?lang=en): How to statistics
 	* **2:00-2:10pm:** BREAK
-* **2:15-3:30pm:** Quality Control & Adapter Trimming of  Sequences
+* **2:15-3:30pm:** [Quality Control & Adapter Trimming of Sequences](quality-and-trimming.md)
 	* **3:30-3:50pm:** BREAK
-* **3:50-5:00pm:** Biological Databases & Read Quantification 
+* **3:50-5:00pm:** [Read Quantification](salmon-quant.md) 
 	* **5:00pm:** DONE
 	
 **Thursday, July 4th, 2019**
