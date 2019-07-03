@@ -60,7 +60,7 @@ You will be presented with options to choose and configure your virtual machine 
 
 * **Instance Name: e.x., "ANGUS 2019 base image" or you can leave it default which is the image name.**
 
-* **Base Image Version: "1.5"**
+* **Base Image Version: choose the latest version (not what's in the below image)**
 
 * **Project: select your project folder**
 
@@ -69,6 +69,8 @@ You will be presented with options to choose and configure your virtual machine 
 * **Provider: "Jetstream Indiana University"**
 
 * **Instance size: We recommend "m1.medium" (CPU: 6, Mem: 16GB, Disk: 60GB) for this tutorial; though depending on your allocations, choose the most suitable one.**
+
+>**NOTE:** Choose the latest "Base Image Version" (not what's in this below image), it should be the default.
 
 <center><img src="../_static/login8.png" width="90%"></center>
 <br>
