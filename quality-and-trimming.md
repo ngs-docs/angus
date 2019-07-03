@@ -351,7 +351,61 @@ Input Reads: 1093957 Surviving: 1092715 (99.89%) Dropped: 1242 (0.11%)
 TrimmomaticSE: Completed successfully
 ```
 
-We can also run the same process for all 6 samples more efficiently using a `for` loop, as follows:
+
+We can also run the same process for all 6 samples more efficiently using a `for` loop, as follows. We're going to use a 
+new command called `basename` in the for loop, which we introduce below.
+
+#### Using basename in for loops
+
+`basename` is a function in UNIX that is helpful for removing a uniform part of a name from a list of files. 
+In this case, we will use basename to remove the `.fastq.gz` extension from the files that we’ve been working with. 
+
+```
+basename ERR458493.fastq.gz .fastq.gz
+```
+
+We see that this returns just the SRR accession, and no longer has the .fastq file extension on it.
+
+```
+ERR458493
+```
+
+If we try the same thing but use `.fasta` as the file extension instead, nothing happens. 
+This is because basename only works when it exactly matches a string in the file.
+
+```
+basename ERR458493.fastq.gz .fasta
+```
+
+```
+ERR458493.fastq.gz
+```
+
+Basename is really powerful when used in a for loop. It allows to access just the file prefix, which you 
+can use to name things. Let's try this.
+
+Inside our for loop, we create a new name variable. We call the basename function inside the parenthesis, 
+then give our variable name from the for loop, in this case `${filename}`, and finally state that `.fastq.gz` 
+should be removed from the file name. It’s important to note that we’re not changing the actual files, we’re 
+creating a new variable called name. The line > echo $name will print to the terminal the variable name each 
+time the for loop runs. Because we are iterating over two files, we expect to see two lines of output.
+
+```
+for filename in *.fastq.gz
+do
+  name=$(basename ${filename} .fastq.gz)
+  echo ${name}
+done
+```
+
+A note on variables: We can either refer a variable as `$filename` or `${filename}`. They mean the same thing,
+but using `{}` explicitly tells bash when we are done refering to the variable. This makes it safer to refer
+to variables, especially when we're combining it with other text. This is different than `()`, which tells bash
+that we want to execute something. 
+
+#### Trimming files using basename and for loops
+
+Now we will use `basename` inside of our for loop to run trimmomatic on all 6 of our files. 
 
 ```
 for filename in *.fastq.gz
@@ -368,11 +422,6 @@ do
                 MINLEN:25
 done
 ```
-
-A note on variables: We can either refer a variable as `$filename` or `${filename}`. They mean the same thing,
-but using `{}` explicitly tells bash when we are done refering to the variable. This makes it safer to refer
-to variables, especially when we're combining it with other text. This is different than `()`, which tells bash
-that we want to execute something. 
 
 The `for` loop above will go through each for the filenames that end with `fastq.gz` and 
 run Trimmomatic for it.
