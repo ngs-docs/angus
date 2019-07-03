@@ -60,7 +60,7 @@ You will be presented with options to choose and configure your virtual machine 
 
 * **Instance Name: e.x., "ANGUS 2019 base image" or you can leave it default which is the image name.**
 
-* **Base Image Version: "1.4"**
+* **Base Image Version: "1.5"**
 
 * **Project: select your project folder**
 
