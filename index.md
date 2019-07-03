@@ -44,11 +44,11 @@ Room Conway will be led by [Sateesh Peri](https://twitter.com/perisateesh?lang=e
 **Wednesday, July 3rd, 2019:**
 
 * **9:00-9:15am:** **Meet in Lecture Room (1030) for quick meeting**
-* **9:20-10:20am:** [Logging onto the Cloud](jetstream/boot.md)
+* **9:20-10:20am:** [Logging onto the Cloud](jetstream/boot.md) or continue with [Introduction to the Shell](shell_intro/index.html)
 	* **10:20-10:40am:** BREAK
-* **10:40am-12:00pm:** [Conda](conda_tutorial.md)
+* **10:40am-12:00pm:** [Logging onto the Cloud](jetstream/boot.md) and/or [Conda](conda_tutorial.md) 
 	* **12:00-1:00pm:** LUNCH
-* **1:00-2:00pm:** [Amanda Charbonneau](https://twitter.com/procrastinomics?lang=en): How to Statistics
+* **1:00-2:00pm:** [Amanda Charbonneau](https://twitter.com/procrastinomics?lang=en): How to statistics
 	* **2:00-2:10pm:** BREAK
 * **2:15-3:30pm:** Quality Control & Adapter Trimming of  Sequences
 	* **3:30-3:50pm:** BREAK
