@@ -191,4 +191,4 @@ will install those packages in your local environment.
 
 + Conda [Documentation](https://conda.io/en/latest/)
 
-+ Images are from this [tutorial](https://www.freecodecamp.org/news/why-you-need-python-environments-and-how-to-manage-them-with-conda-85f155f4353c/)
++ Image credits: Gergely Szerovay. Read original article [here](https://www.freecodecamp.org/news/why-you-need-python-environments-and-how-to-manage-them-with-conda-85f155f4353c/)
