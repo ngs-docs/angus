@@ -148,8 +148,173 @@ Our goal is to automate our example workflow using snakemake!
 
 ## Starting with Snakemake
 
+Snakemake workflows are built around rules. Let's make a rule to run `fastqc`
+on one of our samples below. We'll put this rule in a file called `Snakefile`.
+
+```
+rule fastqc_raw:
+    input: "data/ERR458493.fastq.gz"
+    output: 
+        "data/ERR458493_fastqc.html",
+        "data/ERR458493_fastqc.zip"
+    shell:'''
+    fastqc -o data {input}
+    '''
+```
+
+Let's try and run our Snakefile! Return to the command line and run `snakemake`.
+
+```
+snakemake
+```
+
+You should see output that starts like this:
+
+```
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 1
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	fastqc_raw
+	1
+
+[Tue Jul  2 19:10:26 2019]
+rule fastqc_raw:
+    input: data/ERR458493.fastq.gz
+    output: data/ERR458493_fastqc.html, data/ERR458493_fastqc.zip
+    jobid: 0
+
+```
+
+Let's check that the output file is there:
+
+```
+ls data/*fastqc*
+```
+
+Yay! Snakemake ran the thing!
+
+We can also use better organization. Let's specify a different output folder for
+our fastqc results
+
+```
+rule fastqc_raw:
+    input: "data/ERR458493.fastq.gz"
+    output: 
+        "fastqc_raw/ERR458493_fastqc.html",
+        "fastqc_raw/ERR458493_fastqc.zip"
+    shell:'''
+    fastqc -o fastqc_raw {input}
+    '''
+```
+
+If we look in our directory, we should now see a `fastqc_raw` directory, even
+though we didn't create it:
+
+```
+ls
+```
+
+Snakemake created this directory for us. We can look inside it to see if it 
+really ran our command:
+
+```
+ls fastqc_raw
+```
+
+## Creating a pipeline with snakemake
+
+We told snakemake to do something, and it did it. Let's add another rule to our
+Snakefile telling snakemake to do something else. This time, we'll unzip the 
+zipped fastc files.  
+
+```
+rule fastqc_raw:
+    input: "data/ERR458493.fastq.gz"
+    output: 
+        "fastqc_raw/ERR458493_fastqc.html",
+        "fastqc_raw/ERR458493_fastqc.zip"
+    shell:'''
+    fastqc -o fastqc_raw {input}
+    '''
+
+rule unzip_fastqc_raw:
+    input: "fastqc_raw/ERR4558493_fastqc.zip"
+    output: directory("fastqc_raw/ERR4558493_fastqc")
+    shell:'''
+    unzip {input}
+    '''
+```
+
+We see output like this:
+
+```
+Building DAG of jobs...
+Nothing to be done.
+Complete log: /Users/tr/2019_angus/.snakemake/log/2019-07-02T191640.002744.snakemake.log
+```
+
+However, when we look at the output directory `fastqc_raw`, we see that our file
+was not unzipped! Bad Snakemake! Bad!! 
+
+Snakemake looks for a `rule all` in a file as the final file it needs to 
+produce in a workflow. Once this file is defined, it will go back through all 
+other rules looking for which ordered sequence of rules will produce all of the 
+files necessary to get the final file(s) specified in `rule all`. For this point
+in our workflow, this is our fastqc sample directory.. Let's add a rule all. 
+
+```
+rule all:
+    input:
+        directory("fastqc_raw/ERR458493_fastqc")
+
+rule fastqc_raw:
+    input: "data/ERR458493.fastq.gz"
+    output: 
+        "fastqc_raw/ERR458493_fastqc.html",
+        "fastqc_raw/ERR458493_fastqc.zip"
+    shell:'''
+    fastqc -o fastqc_raw {input}
+    '''
+
+rule unzip_fastqc_raw:
+    input: "fastqc_raw/ERR458493_fastqc.zip"
+    output: directory("fastqc_raw/ERR458493_fastqc")
+    shell:'''
+    unzip {input}
+    '''
+```
+
+And it worked! Now we see output like this:
+
+```
+The flag 'directory' used in rule all is only valid for outputs, not inputs.
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 1
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	1	unzip_fastqc_raw
+	2
+```
+
+Snakemake now has two processes it's keeping track of. 
+
+## Using Snakemake to process multiple files
+
+So far we've been using snakemake to process one sample. However, we have 6! 
+Snakemake is can be flexibly extended to more samples using wildcards. 
 
 
+## The complete snakefile
+
+You can find the complete snakefile we constructed below. It is also available 
+for download (here)[]. 
+```
 rule all:
     input:
         expand("outputs/fastqci/{samples}.html", sample = SAMPLES)
@@ -158,4 +323,4 @@ SAMPLES=["ERR..", "ERR.."]
 
 rule fastqc_raw:
     input:
-    
+```    
