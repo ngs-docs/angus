@@ -1,5 +1,5 @@
 ---
-title: "Introduction to R using Yeast RNAseq data"
+title: "Introduction to R using Yeast RNAseq Metadata"
 author: ANGUS
 date: June 2019
 output:
@@ -14,96 +14,139 @@ editor_options:
   chunk_output_type: console
 ---
 
-# Getting started
+## Getting started
 
-## Installing in your own computer:
-We are going to learn the basics of RStudio in the cloud. To use RStudio in your computer, you should download R and RStudio. You need to install R before you install RStudio. If you do not have R and RStudio installed:
-- Download R from CRAN:https://cran.r-project.org/
-- Go to RStudio download page and install the version that is compatible with your operating system: https://www.rstudio.com/products/rstudio/download/#download
+Start up a Jetstream m1.medium or larger
+[as per Jetstream startup instructions](jetstream/boot.html).
 
-## Using RStudio in Jetstream
+---
 
-Firstly we are going to log in our cloud server and launch an Instance that has R studio already installed in it (ANGUS 2019, m1.medium will be enough for this lesson). 
+### Using RStudio on Jetstream
 
-Connect to RStudio by setting your password (the password will not be visible on the screen)
+We will be using R and RStudio on our cloud instances. We have pre-installed RStudio on the workshop image. Start up a Jetstream m1.medium or larger using the ANGUS 2019 image
+[as per Jetstream startup instructions](jetstream/boot.html). Connect to your instance.
+
+We will need a password to connect to RStudio. We can set the password to our instance by running the following commands in bash (the password will not be visible on the screen):
 
 ```{bash eval = FALSE}
 sudo passwd $USER
 ```
 
-figuring out your username:
+We will also need our instance username to connect to RStudio. To determine what your username is, run: 
 
 ```{bash eval=FALSE}
 echo My username is $USER
 ```
 
-and finding your RStudio server interface Web address (by default in port 8787):
+Lastly, find the RStudio server interface Web address (by default in port 8787) by running the following command:
 
 ```{bash eval = FALSE}
 echo http://(hostname):8787/
 ```
 
-Now go to that web address in your Web browser and log in with the username and password that you set above. You should see something that looks like:
+Now go to the web address printed to your terminal in your Web browser and log in with the username and password that you set above. You should see something that looks like:
 
 ![](_static/RStudio.png)
 
 where you type your username and the password that you have set. 
 
-# RStudio basics
 
-RStudio is a graphical integrated development environment (IDE) that makes using R much more intuitive and interactive. R is the underlying computing environment. Once you start it, you see this layout (it will be similar either in the cloud or in your computer):
+### Installing on your own computer:
+
+We will be using R and RStudio in the cloud. To use RStudio on your computer, you can download R and RStudio. If you do not have R and RStudio installed:
+- Download R from CRAN:https://cran.r-project.org/
+- Go to RStudio download page and install the version that is compatible with your operating system: https://www.rstudio.com/products/rstudio/download/#download
+This [link](https://datacarpentry.org/R-ecology-lesson/) provides futher instructions on
+installing and setting up R and RStudio on your computer. 
+
+## Introduction to R and RStudio 
+
+R is a programming language and free software environment for statistical computing and
+graphics. Many bioinformatics programs are implemented in R. RStudio is a graphical
+integrated development environment (IDE) that displays and organizes more information
+about R. R is the underlying programming language. Once you start RStudio, you see this
+layout (it will be similar either on your instance or on your computer):
 
 ![](_static/RStudio_first.png)
 
-To start a new script (this is like your 'computer lab book') you can simply click on the icon that looks like a page with a '+' underneath File and select -->R script. This generates a .R file, which is basically a text file that is recognised by R. 
+Scripts are like a digital lab book. They record everything your run, as well as notes to
+yourself about how and why you ran it. To start a new script you can click on the icon
+that looks like a page with a '+' underneath File and select -->R script. This generates a
+`.R` file. `.R` files are plain text files that use the file extension `.R` so that humans
+can remember that the file contains R code. 
 
 ![](_static/RStudio_create_R_script.png)
 
-It is in the script that we will type all commands and from where we can run commands into the console. It is VERY IMPORTANT that you comment your commands as this will remind your future self (and whoever you pass your script) why you did what you did. Like the notes you take in your lab book when you do experiments. 
+Although scripts are a record of our code, they also include comments about our code. These comments are very important as they remind your future self (and whoever you pass your script) why you did what you did. Think of comments like the notes you take in your lab book when you do experiments. 
 
 ![](_static/RStudio_type_script.png)
 
-And now we start the fun part!
+When you execute a line of your script, it is sent to the console. While the script is a 
+permanent record of everything you ran, the console is the engine that runs those things. 
+You can run code from a script or the console, but it is only recorded in scripts. 
 
-# Basic concepts
+There are two additional panes in RStudio. The Environment pane records the objects that
+are in our current environment, while the Plots/Viewer/Packages/Files/Help pane provides
+a space for us to interact with plots and files we create and with built-in help files in
+R. 
 
-## Objects 
+And now we're ready to start the fun part!
 
-An R object is something that you create and assign a value or function to. You do this using the *assignment operator* which is `<-` (NOTE: shortcut Alt + -). For example you can assign a *numeric* or *character* variable to objects by typing in your script (remember to comment what you are doing):
+## Basic concepts
+
+### Objects 
+
+An R object is something that you create and assign a value or function to. You do this using the *assignment operator* which is `<-` (NOTE: shortcut Alt + -). For example you can assign a *numeric* value to an object by typing in your script (remember to comment what you are doing):
 
 ```{r}
-a <- 34  ## we assign the number 34 to the object a
-b <- 'character' ## we assign the word 'character' to the object b
+a <- 34  # assign the number 34 to the object a
 ```
 
-To run these lines you can put the cursor on the line that you want to run and press `Enter+Cmd` or `Enter+Ctrl`. Or select the line and click the button that says `Run` on the right top corner of your script.
+You can also assign a *character* value to an object:
+```{r}
+b <- 'mouse' # assign the word 'character' to the object b
+```
+
+To run a line of code, put your cursor on the line that you want to run and press `Enter+Cmd` or `Enter+Ctrl`. Or select the line and click the button that says `Run` on the right top corner of your script.
 
 ![](_static/first_lines.png)
 
-Now check your Console and Environment tabs, you will see that the commands have run and that you have created new Objects!
+Now check your Console and Environment tabs, you will see that the commands have run and that you have created new objects!
 
-You can do all sorts of stuff with your objects: operations, combinations, use them in functions....
+You can do all sorts of stuff with your objects: operations, combinations, use them in functions. Below we show how to perform multiplication using an object. Because `a` stores the value `34`, we can multiply it by 2:
 
 ```{r}
-a2 <- a*2 ## multiply a times 2
+a2 <- a*2 # multiply a by 2
 ```
 
 ## Functions and Arguments
 
-Functions are 'compacted scripts' that are already made for you to run lots of things at once. For example you can do the square root or round numbers using in-built functions in R:
+Functions are “canned scripts” that automate more complicated sets of commands including operations assignments, etc. Many functions are predefined, or can be made available by importing R packages (more on that later). A function usually takes one or more inputs called arguments. Functions often (but not always) return a value. A typical example would be the function sqrt(). The input (the argument) must be a number, and the return value (in fact, the output) is the square root of that number. Executing a function (‘running it’) is called calling the function. An example of a function call is:
 
 ```{r}
 sqrt(a) ## calculate the square root of a
+```
+
+Here, the value of a is given to the sqrt() function, the sqrt() function calculates the square root, and returns the value which is then assigned to the object b. This function is very simple, because it takes just one argument.
+
+The return ‘value’ of a function need not be numerical (like that of sqrt()), and it also does not need to be a single item: it can be a set of things, or even a dataset. We’ll see that when we read data files into R.
+
+Arguments can be anything, not only numbers or filenames, but also other objects. Exactly what each argument means differs per function, and must be looked up in the documentation (see below). Some functions take arguments which may either be specified by the user, or, if left out, take on a default value: these are called options. Options are typically used to alter the way the function operates, such as whether it ignores ‘bad values’, or what symbol to use in a plot. However, if you want something specific, you can specify a value of your choice which will be used instead of the default.
+
+Let’s try a function that can take multiple arguments: round().
+
+```{r}
 round(3.141592) ## round number
 ```
 
-Arguments are the 'conditions' of a function. For example, the function `round()` has an argument to determine the number of decimals, and its default in R is 0. We can change this and find out about the arguments of a function by using `args()` and also askign for help in R using `?`
+Arguments are the 'conditions' of a function. For example, the function `round()` has an argument to determine the number of decimals, and its default in R is 0. Here, we’ve called round() with just one argument, 3.14159, and it has returned the value 3. That’s because the default is to round to the nearest whole number. If we want more digits we can see how to do that by getting information about the round function. We can use args(round) to find what arguments it takes, or look at the help for this function using ?round.
 
 ```{r}
 args(round) ## show the arguments of the function 'round'
 ?round ## shows the information about 'round'
 ```
- so we can change this to two decimals by changing the argument:
+
+We can change this to two decimals by changing the `digits` argument:
  
 ```{r eval = FALSE}
 round(3.141592, digits = 2)
@@ -115,77 +158,81 @@ Note that we do not need to specify the name of the argument as R detects this b
 round(3.141592, 2)
 ```
 
-But you can change the order of the arguments if you do name them:
+But you can change the order of the arguments if the arguments are named:
 
 ```{r eval = FALSE}
 round(digits = 2, x= 3.141592)
 ```
 
-**BEST PRACTICE**: Put the non-optional arguments (the data that you want the function to work on) first, and then specify the names of all optional arguments. This will ease understanding of your code!
+It's best practice to put the non-optional arguments (the data that you want the function
+to work on) first, and then specify the names of all optional arguments. This helps other 
+to interpret your code more easily.
 
 ## Vectors
 
-A vector is a succession of values (numbers or characters), and it is the main concept that R uses. We can create vectors using the function `c()`.
+A vector is the most common and basic data type in R, and is pretty much the workhorse of R. A vector is composed by a series of values, which can be either numbers or characters. We can assign a series of values to a vector using the c() function.
 
 ```{r}
 yeast_strain <- c('WT','snf2') 
 concentration <- c(43.903, 47.871)
 ```
 
-There are many functions to inspect a vector: 
+There are many functions to inspect a vector and get information about its contents: 
 
 ```{r eval = FALSE}
-length(a) # number of elements in a vector
-class(b) # type of object b
-str(a) # inspect the structure of a
-a_b <- c(a,b) # you can combine different vector
+length(yeast_strain) # number of elements in a vector
+class(concentration) # type of object b
+str(yeast_strain) # inspect the structure of a
 ```
 
-## Data types
+We can also combine multiple vectors:
+
+```{r}
+yeast_strain_concentration <- c(yeast_strain, concentration) # combine two vectors
+```
+
+### Data types
 
 An **atomic vector** is the simplest R data type, and it is a vector of a single type. The 6 main atomic vector types that R uses are:
 
 **`'character'`** letters or words
-
 **`'numeric'`** (or `double`) for numbers
-
 **`'logical'`** for `TRUE` and `FALSE` (booleans)
-
-**`'integer'`** for integer numbers
-
-**`'complex'`** for example `2 + 4i`
-
+**`'integer'`** for integer numbers (e.g., `2L`, the `L` indicates to R that it’s an integer)
+**`'complex'`** to represent complex numbers with real and imaginary parts, for example `2 + 4i`
 **`'raw'`** for bitstreams that we will not use or discuss further
+**`factor`** represents categorical data (more below!)
 
 You can check the type of vecor you are using with the `typeof()` function.
 
+```{r}
+typeof(concentration)
+```
+
 R uses many **data structures**, the main ones are:
 
-**`vector`** containing the same type of elements 
-
-**`list`** containing different type of elements 
-
-**`data.frame`** with rows and columns that can contain different type of elements
-
-**`matrix`** with rows and columns that are numeric
-
-**`factor`** that stores categorical data(more below!)
-
+**`vector`** contain elements of the same type in one dimension 
+**`list`** can contain elements of different types and multiple data structures
+**`data.frame`** contains rows and columns. Columns can contain different types from other columns.
+**`matrix`** with rows and columns that are of the same type
 **`array`** stores data in more than 2 dimensions
 
 NOTE: Objects of different types get converted into a single type. This is called **coercion** and it follows a hierarchy: 
 
 logical → numeric → character ← logical
 
+
+We will use `vectors`, `matrices`, `data.frames`, and `factors` today.
+
 ## Subsetting
 
-We can extract values from a vector based on position or conditions: this is called **subsetting** and it uses `[]`. Indices start at 1.
+We can extract values from a vector based on position or conditions: this is called **subsetting**. One way to subset in R is to use `[]`. Indices start at 1.
 
 ```{r eval = FALSE}
 strains <-  c('WT', 'snf2', 'snf1', 'snf1_snf2') 
 strains[2] # subsets the second element
 strains[c(2,3)] # subsets the second and third elements
-more_strains <- strains[c(1, 2, 3, 1, 4, 3)] # to create an object with more elements than tha origianl one
+more_strains <- strains[c(1, 2, 3, 1, 4, 3)] # to create an object with more elements than tha original one
 more_strains
 ```
 
@@ -206,17 +253,25 @@ more_strains[more_strains %in% strains]
 
 ## Missing data
 
-R also considers missing data which will be present in many datasets. Make sure your input data contains missing data as **blanks** if you are using a spreadsheet program!! 0 is an actual value, many things can be 0 so **NEVER USE NUMERIC ZERO (0) TO REPRESENT MISSING DATA**.
+As R was designed to analyze datasets, it includes the concept of missing data (which is
+uncommon in other programming languages). Missing data are represented in vectors as NA.
 
-There are in-built functions and arguments to deal with missing data. For example: 
+There are in-built functions and arguments to deal with missing data. For example, this
+vector contains missing data:
 
 ```{r eval = FALSE}
 concentration <- c(43.903, 47.871, NA, 48.456, 53.435)
+```
+
+```{r}
 mean(concentration, na.rm = TRUE) # mean of concentration removing your NA
 concentration[!is.na(concentration)] # extract all elements that are NOT NA
 na.omit(concentration) # returns a 'numeric' atomic vector with incomplete cases removed
 concentration[complete.cases(concentration)] # returns a 'numeric' atomic vector with elements that are complete cases
 ```
+
+Note, if your data includes missing values, you can code them as blanks (""), or as "NA"
+before reading them into R. 
 
 ## Factors
 
@@ -776,7 +831,9 @@ ggplot(data = yeast_metadata, aes(x=read_count, fill = yeast_strain)) +
 ```
 </details>
 
+## Acknowledgements
 
+This lesson was inspired by and adapted from the [Data Carpentry Ecology R lessons](https://datacarpentry.org/R-ecology-lesson/index.html)
 
 # More material
 
