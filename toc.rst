@@ -15,9 +15,9 @@ Table of Contents
 
    shell_intro/index.md
 
-   .. not up to date yet: jetstream/boot.md
+   jetstream/boot.md
 
-   .. placeholder: conda
+   conda_tutorial.md
 
    quality-and-trimming.md
 
