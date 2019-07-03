@@ -1,7 +1,7 @@
 Accessing The Jetstream Cloud
 ===
 
-# Learning Objectives:
+## Learning Objectives:
 + Launching Jetstream instances
 + SSH Secure Shell login to instances
 + Jetstream instance maintenance
@@ -19,7 +19,7 @@ If you would like to read more about cloud computing, see this [Carpentry Cloud 
 * Later versions of windows 10 support an ubuntu terminal. Read more [here](https://tutorials.ubuntu.com/tutorial/tutorial-ubuntu-on-windows#0)
 * Git-bash. Download [here](https://gitforwindows.org/)
 
-# Login & Launch Instance
+## Login & Launch Instance
 
 - **Login to [Jetstream](https://use.jetstream-cloud.org/application/jetstream/../_static/search) by clicking the "login" button towards the right-upper corner of the screen.**
 
@@ -87,7 +87,7 @@ If you would like to read more about cloud computing, see this [Carpentry Cloud 
 
 > **Great! We have now built our very own remote virtual machine with all the software pre-installed. Next we will use SSH-Secure-Login to access these remote instances from our laptop !!!.**
 
-# SSH Secure-Login
+## SSH Secure-Login
 
 <center><img src="../_static/ssh.png" width="90%"></center>
 <br>
@@ -116,7 +116,7 @@ $ ssh your_Jetstreamusername@ip_address
 
 > **Success !!! We have established connections with our instances. Proceed to the Tutorial section.**
 
-# Instance Maintenance
+## Instance Maintenance
 
 > To end your current session on an Instance and close SSH connection, type 'exit'
 
@@ -141,9 +141,9 @@ $ ssh your_Jetstreamusername@ip_address
 | Redeploy | Redeploying an instance will allow you to fix instances that show up as 'active - deploy_error' |
 | Delete | following instance will be shut down and all data will be permanently lost |
 
-# Additional Features
+## Additional Features
 
-## You can access a shell terminal and a web-desktop via your browser !!!
+### You can access a shell terminal and a web-desktop via your browser !!!
 
 <center><img src="../_static/jet_links.png" width="50%"></center>
 <br>

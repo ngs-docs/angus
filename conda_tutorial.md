@@ -6,7 +6,7 @@
 + Manage Conda environments
 + Conda channels & packages
 
-# Why should I use a package and environment management system?
+## Why should I use a package and environment management system?
 
 <center><img src="_static/soft_prob.png" width="90%"></center>
 <br>
@@ -17,7 +17,7 @@ Installing software system-wide  creates complex dependencies between your reear
 
 Rather than installing software system-wide, wouldn’t it be great if we could install software separately for each research project?
 
-# What is an environment?
+## What is an environment?
 
 A environment is a directory that contains a specific collection of packages/tools that you have installed. For example, you may have one environment with Pyton 2.7 and its dependencies, and another environment with Python 3.4 for legacy testing. If you change one environment, your other environments are not affected. You can easily activate or deactivate environments, which is how you switch between them. 
 
@@ -25,7 +25,7 @@ A environment is a directory that contains a specific collection of packages/too
 <br>
 
 
-# What is Conda?
+## What is Conda?
 
 Conda is open source package and runs on Windows, Mac OS and Linux.
 
@@ -39,12 +39,12 @@ Conda is open source package and runs on Windows, Mac OS and Linux.
 Conda as a package manager helps you find and install packages. If you need a package that requires a different version of Python, you do not need to switch to a different environment manager, because Conda is also an environment manager. With just a few commands, you can set up a totally separate environment to run that different version of Python, while continuing to run your usual version of Python in your normal environment.
 
 
-# How does Conda work
+## How does Conda work
 
 <center><img src="_static/conda2.png" width="90%"></center>
 <br>
 
-# Benefits of Conda
+## Benefits of Conda
 
 <center><img src="_static/conda3.png" width="90%"></center>
 <br>
@@ -187,7 +187,7 @@ will install those packages in your local environment.
 | `conda update`     | update all the installed packages     |
 
 
-# More Reading on Conda
+## More Reading on Conda
 
 + Conda [Documentation](https://conda.io/en/latest/)
 

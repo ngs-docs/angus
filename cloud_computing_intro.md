@@ -63,11 +63,9 @@ Given one or more query sequences (usually in FASTA format), BLAST looks for mat
 
 A sufficiently close match between subsequences (denoted by arrows in the figure above, though matches are usually longer than illustrated here) is called a high-scoring pair (HSP), while a query sequence is said to hit a target sequence if they share one or more HSPs
 
-# Running command-line BLAST
+## Running command-line BLAST
 
 The goal of this tutorial is to run you through a demonstration of the command line, which you may not have seen or used much before.
-
-## Running BLAST
 
 First! We need some data and an Rscript to later visualize blast results.  Let's grab the mouse and zebrafish RefSeq
 protein data sets from NCBI, and put them in our home directory. We'll use `curl` to download the files; these originally came from the NCBI Web site: [ftp://ftp.ncbi.nih.gov/refseq/M_musculus/mRNA_Prot](ftp://ftp.ncbi.nih.gov/refseq/M_musculus/mRNA_Prot).
