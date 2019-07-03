@@ -55,6 +55,8 @@ We have already installed conda on this instance, but please see the [installati
 
 ## Adding a new environment
 
+> If you need to re-access your terminal environment, [see here](jetstream/boot.html#ssh-secure-login).
+
 Check your current version of python by exectuting `python --version`
 
 To create a new environment named, for instance mynewenv (you can name it what ever you like), that includes, let’s say, a Python version 3.4., run:
