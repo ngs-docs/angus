@@ -9,17 +9,19 @@ output:
     toc_float:
       collapsed: no
       smooth_scroll: yes
-      toc_depth: 2
+      toc_depth: 3
+editor_options: 
+  chunk_output_type: console
 ---
 
-## Getting started
+# Getting started
 
-### Installing in your own computer:
+## Installing in your own computer:
 We are going to learn the basics of RStudio in the cloud. To use RStudio in your computer, you should download R and RStudio. You need to install R before you install RStudio. If you do not have R and RStudio installed:
 - Download R from CRAN:https://cran.r-project.org/
 - Go to RStudio download page and install the version that is compatible with your operating system: https://www.rstudio.com/products/rstudio/download/#download
 
-### Using RStudio in Jetstream
+## Using RStudio in Jetstream
 
 Firstly we are going to log in our cloud server and launch an Instance that has R studio already installed in it (ANGUS 2019, m1.medium will be enough for this lesson). 
 
@@ -47,7 +49,7 @@ Now go to that web address in your Web browser and log in with the username and 
 
 where you type your username and the password that you have set. 
 
-## RStudio basics
+# RStudio basics
 
 RStudio is a graphical integrated development environment (IDE) that makes using R much more intuitive and interactive. R is the underlying computing environment. Once you start it, you see this layout (it will be similar either in the cloud or in your computer):
 
@@ -63,9 +65,9 @@ It is in the script that we will type all commands and from where we can run com
 
 And now we start the fun part!
 
-## Basic concepts
+# Basic concepts
 
-### Objects 
+## Objects 
 
 An R object is something that you create and assign a value or function to. You do this using the *assignment operator* which is `<-` (NOTE: shortcut Alt + -). For example you can assign a *numeric* or *character* variable to objects by typing in your script (remember to comment what you are doing):
 
@@ -86,7 +88,7 @@ You can do all sorts of stuff with your objects: operations, combinations, use t
 a2 <- a*2 ## multiply a times 2
 ```
 
-### Functions and Arguments
+## Functions and Arguments
 
 Functions are 'compacted scripts' that are already made for you to run lots of things at once. For example you can do the square root or round numbers using in-built functions in R:
 
@@ -121,7 +123,7 @@ round(digits = 2, x= 3.141592)
 
 **BEST PRACTICE**: Put the non-optional arguments (the data that you want the function to work on) first, and then specify the names of all optional arguments. This will ease understanding of your code!
 
-### Vectors
+## Vectors
 
 A vector is a succession of values (numbers or characters), and it is the main concept that R uses. We can create vectors using the function `c()`.
 
@@ -139,7 +141,7 @@ str(a) # inspect the structure of a
 a_b <- c(a,b) # you can combine different vector
 ```
 
-### Data types
+## Data types
 
 An **atomic vector** is the simplest R data type, and it is a vector of a single type. The 6 main atomic vector types that R uses are:
 
@@ -175,7 +177,7 @@ NOTE: Objects of different types get converted into a single type. This is calle
 
 logical → numeric → character ← logical
 
-### Subsetting
+## Subsetting
 
 We can extract values from a vector based on position or conditions: this is called **subsetting** and it uses `[]`. Indices start at 1.
 
@@ -202,7 +204,7 @@ concentration[ concentration < 45 & concentration == 47] # & is AND , == is math
 more_strains[more_strains %in% strains]
 ```
 
-### Missing data
+## Missing data
 
 R also considers missing data which will be present in many datasets. Make sure your input data contains missing data as **blanks** if you are using a spreadsheet program!! 0 is an actual value, many things can be 0 so **NEVER USE NUMERIC ZERO (0) TO REPRESENT MISSING DATA**.
 
@@ -216,7 +218,7 @@ na.omit(concentration) # returns a 'numeric' atomic vector with incomplete cases
 concentration[complete.cases(concentration)] # returns a 'numeric' atomic vector with elements that are complete cases
 ```
 
-### Factors
+## Factors
 
 Factors are categorical data, stored as integers (numbers) and associated with labels that can be ordered or unordered. This allows doing cool stuff with the data such as count factors, group by certain factors, etc. Once created, factors can only contain a pre-defined set of values, known as `levels`, which R sorts by default in alphabetical order. 
 
@@ -244,7 +246,7 @@ And we can also **rename factors** based on position:
 levels(strains)[4] <- 'wild_type'
 ```
 
-## Starting with tabular data
+# Starting with tabular data
 
 This tutorial is a continuation from our *salmon* lesson- we are using the datasets present in the European Nucleotide Archive dataset PRJEB5348. This is an RNA-seq experiment using comparing two yeast strains, snf2 and WT. The datasets were compared to test the underlying distribution of RNA-seq data, and to test which differential expression programs work best. They sequenced 96 samples in 7 different lanes, with 45 wt and 45 mut strains. Thus, there are 45 biological replicates and 7 technical replicates present, with a total of 672 samples, but we'll use 6 of them! :) 
 
@@ -299,7 +301,7 @@ The 9th column has no name, but in tidyverse we can change this using `rename`:
 experiment_info <- rename(experiment_info, units = X9)
 ```
 
-## Manipulating data with **dplyr**
+# Manipulating data with **dplyr**
 
 We can now explore this table and reshape it using `dplyr`. We will cover in this lesson:
 
@@ -317,7 +319,7 @@ We can now explore this table and reshape it using `dplyr`. We will cover in thi
 
 `count()`: counts discrete values
 
-### Selecting columns and filtering rows
+## Selecting columns and filtering rows
 
 We have now a table with many columns- are all the columns useful to you? We can select columns using `select`, which requires as *arguments* the names of the colums that you want to keep:
 
@@ -350,19 +352,28 @@ We can also `filter` rows based on conditions in a column:
 filter(experiment_info, `Nucleic Acid Conc.` > 1500)
 ```
 
-**Exercise 1**: select the columns Sample, Yeast Strain, A260 and A280 and assign that to a new object called experiment_data. 
+### Exercise 1 
+>Select the columns Sample, Yeast Strain, A260 and A280 and assign that to a new object called experiment_data. 
 
-```{r eval = FALSE}
+<details>
+  <summary><strong><font color="#6B33FF">Solution #1</font></strong></summary>
+```{r exercise1, eval = FALSE, foldcode=TRUE}
 experiment_data <-  select(experiment_info, Sample, `Yeast Strain`, A260, A280)
 ```
+</details>
 
-**Exercise 2**: filter rows for only WT strains that had more than 1500 ng/uL concentration and make a new tibble called wild_type.
+### Exercise 2   
+>Filter rows for only WT strains that had more than 1500 ng/uL concentration and make a new tibble called wild_type.
 
-```{r eval = FALSE}
-wild_type <- filter(experiment_info, `Yeast Strain` %in% 'WT' & `Nucleic Acid Conc.` > 1500)
+<details>
+  <summary><strong><font color="#6B33FF">Solution #2</font></strong></summary>
+```{r exercise2, eval = FALSE, foldcode=FALSE}
+  wild_type <- filter(experiment_info, `Yeast Strain` %in% 'WT' & `Nucleic Acid Conc.` > 1500)
 ```
+</details>
 
-### Pipes
+
+## Pipes
 
 What if we want to `select` and `filter` at the same time? We use %>% (pipes) for that. Pipes are  available via the `magrittr` package, installed automatically with `dplyr`. If you use RStudio, you can type the pipe with `Ctrl + Shift + M` if you have a PC or `Cmd + Shift + M` if you have a Mac.
 
@@ -374,15 +385,19 @@ experiment_info_wt <- experiment_info %>%
   select(Sample, `Yeast Strain`, A260, A280)
 ```
 
-**Exercise 3**: using pipes, subset experiment_info to include all the samples that had a concentration less than 1500 and  where total RNA was more or equal than 40 ug and retain only the columns that tell you the sample, yeast strain, nucleic acid concentration and total RNA. Assign that to a new table called samples_sequenced.
+### Exercise 3  
+>Using pipes, subset experiment_info to include all the samples that had a concentration less than 1500 and  where total RNA was more or equal than 40 ug and retain only the columns that tell you the sample, yeast strain, nucleic acid concentration and total RNA. Assign that to a new table called samples_sequenced.
 
-```{r eval = FALSE}
+<details>
+  <summary><strong><font color="#6B33FF">Solution #3</font></strong></summary>
+```{r exercise3, eval = FALSE}
 samples_sequenced <- experiment_info %>% 
   filter(`Nucleic Acid Conc.` < 1500 & `Total RNA` >= 40) %>% 
   select(Sample, `Yeast Strain`,`Nucleic Acid Conc.`,`Total RNA`)
 ```
+</details>
 
-### Mutate
+## Mutate
 
 What if I want to create new columns? I use the function `mutate` for this. Let's convert our units into micrograms/microliter:
 
@@ -400,34 +415,47 @@ experiment_info %>%
   head()
 ```
 
-**Exercise 4**: Create a new table called library_start that includes the columns sample, yeast strain and two new columns called RNA_100 with the calculation of microliters to have 100ng of RNA and another column called water that says how many microliters of water we need to add to that to reach 50uL.
+### Exercise 4  
+>Create a new table called library_start that includes the columns sample, yeast strain and two new columns called RNA_100 with the calculation of microliters to have 100ng of RNA and another column called water that says how many microliters of water we need to add to that to reach 50uL.
 
-```{r eval = FALSE}
+<details>
+  <summary><strong><font color="#6B33FF">Solution #4</font></strong></summary>
+```{r exercise4, eval = FALSE}
 library_start <- experiment_info %>% 
   mutate(RNA_100 = 100/ `Nucleic Acid Conc.`,
           water = 50 - RNA_100) %>% 
   select(Sample, `Yeast Strain`, RNA_100, water)
 ```
+</details>
 
-**Exercise 5**: Pretty difficult to pipette! Can redo the table considering a 1:10 dilution of your samples? Include the columns of A260 and A280 values in addition to sample, yeast strain, RNA_100 and water. 
 
+### Exercise 5  
+>Pretty difficult to pipette! Can redo the table considering a 1:10 dilution of your samples? Include the columns of A260 and A280 values in addition to sample, yeast strain, RNA_100 and water. 
+
+<details>
+  <summary><strong><font color="#6B33FF">Solution #5</font></strong></summary>
 ```{r eval = FALSE}
 library_start_diluted <-  experiment_info %>% 
   mutate(diluted_RNA = 10/ `Nucleic Acid Conc.`,
           water = 50 - diluted_RNA) %>% 
   select(Sample, `Yeast Strain`, `A260`, `A280`, diluted_RNA, water)
 ```
+</details>
 
-**Exercise 6**: Based on the tibble library_start_diluted, create a new tibble called `seq_samples` that includes only samples with a A260/A280 ratio of 2.2 or more and that only contains the columns for sample, yeast strain, A260280 ratio, diluted RNA and water. 
+### Exercise 6  
+>Based on the tibble library_start_diluted, create a new tibble called `seq_samples` that includes only samples with a A260/A280 ratio of 2.2 or more and that only contains the columns for sample, yeast strain, A260280 ratio, diluted RNA and water. 
 
+<details>
+  <summary><strong><font color="#6B33FF">Solution #6</font></strong></summary>
 ```{r eval = FALSE}
 seq_samples <- library_start_diluted %>%
   mutate(A260_A280 = `A260`/`A280`) %>% 
   filter(A260_A280 >= 2.2) %>% 
   select(Sample, `Yeast Strain`, A260_A280, diluted_RNA, water)
 ```
+</details>
 
-### Split-apply-combine
+## Split-apply-combine
 
 The approach of split-apply-combine allows you to *split* the data into groups, *apply* a function/analysis and then *combine* the results. We can do this usign `group-by()` and `summarize()`. 
 
@@ -488,7 +516,7 @@ experiment_info %>%
   count(`Yeast Strain`)
 ```
 
-## Combining Datasets using `join`
+# Combining Datasets using `join`
 
 In many ocassions we will have more than one table that we need to extract information from. We can easily do this in R using the family of `join` functions. 
 
@@ -499,8 +527,11 @@ ena_info <- read_tsv(file = 'https://osf.io/6s4cv/download')
 sample_mapping <- read_tsv(file = 'https://osf.io/uva3r/download')
 ```
 
-**Exercise 7**: explore your new dataset ena_info and sample_mapping. What commands can you use?
+### Exercise 7  
+>Explore your new dataset ena_info and sample_mapping. What commands can you use?
 
+<details>
+  <summary><strong><font color="#6B33FF">Solution #7</font></strong></summary>
 ```{r eval = FALSE}
 head(ena_info)
 tail(ena_info)
@@ -511,6 +542,7 @@ summary(ena_info)
 
 # and the same with sample_mapping!
 ```
+</details>
 
 The `join` functions allow you to merge tables considering columns/rows characteristics, so that you can do cool stuff such as (taken from R cheatsheets!):
 
@@ -525,17 +557,24 @@ yeast_metadata_right <- right_join(ena_info, sample_mapping, by = "run_accession
 
 That is a big table! 
 
-**Exercise 8**: How would you merge both tables so that only the rows that are common between both tables are preserved?
+### Exercise 8  
+>How would you merge both tables so that only the rows that are common between both tables are preserved?
 
+<details>
+  <summary><strong><font color="#6B33FF">Solution #8</font></strong></summary>
 ```{r}
 yeast_metadata_inner <- inner_join(ena_info, sample_mapping, by = "run_accession")
 yeast_metadata_left <- left_join(ena_info, sample_mapping, by = "run_accession")
 ```
+</details>
 
 We will work from now onwards with the tibble `yeast_metadata_inner`. 
 
-**Exercise 9**: We do not want all the columns; we want to create a new tibble called `yeast_metadata` that contains only run accession, experiment alias, read count, fastq bytes and md5, lane, yeast strain and biological replicate. Rename the column names so that all of the column names are lower_case (lowercase followed by underscore). And include only data from lane number 1. Use pipes!
+### Exercise 9  
+>We do not want all the columns; we want to create a new tibble called `yeast_metadata` that contains only run accession, experiment alias, read count, fastq bytes and md5, lane, yeast strain and biological replicate. Rename the column names so that all of the column names are lower_case (lowercase followed by underscore). And include only data from lane number 1. Use pipes!
 
+<details>
+  <summary><strong><font color="#6B33FF">Solution #9</font></strong></summary>
 ```{r}
 yeast_metadata <-  yeast_metadata_inner %>% 
   rename(yeast_strain = Sample, lane = Lane, biol_rep = BiolRep) %>% 
@@ -544,6 +583,7 @@ yeast_metadata <-  yeast_metadata_inner %>%
 
 head(yeast_metadata)
 ```
+</details>  
 
 We also want to create a table called `salmon_samples` that will include our 6 samples that we used in `salmon`, namely samples 'ERR458493','ERR458494','ERR458495','ERR458500','ERR458501'and 'ERR458502'.
 
@@ -553,7 +593,7 @@ salmon_samples <- yeast_metadata_inner %>%
   filter(run_accession %in% test$samples) # we filter rows based on these sample names
 ```
 
-## Making plots with ggplot2
+# Making plots with ggplot2
 
 We have learnt how to manipulate datasets and combine them. We do this to have a table that is useful for our purposes, which in many occassions is to produce nice plots :). We are going to see the basics of how plotting happens in R using the package `ggplot2` which is part of `tidyverse`.
 
@@ -639,40 +679,111 @@ ggplot(data = yeast_metadata, mapping = aes(x = yeast_strain, y = read_count)) +
   geom_jitter(alpha = 1, color = "tomato")
 ```
 
-**Exercise 10**: Replace the boxplot with a violin plot.
+### Exercise 10  
+>Replace the boxplot with a violin plot.
 
+<details>
+  <summary><strong><font color="#6B33FF">Solution #10</font></strong></summary>
 ```{r}
 ggplot(data = yeast_metadata, mapping = aes(x = yeast_strain, y = read_count)) +
   geom_violin(alpha = 0.1) +
   geom_jitter(alpha = 1, color = "tomato")
 ```
+</details>  
 
-**Exercise 11**: Represent the read_count on log10 scale. Check out `scale_y_log10()`.
+### Exercise 11  
+>Represent the read_count on log10 scale. Check out `scale_y_log10()`.
 
+<details>
+  <summary><strong><font color="#6B33FF">Solution #11</font></strong></summary>
 ```{r}
 ggplot(data = yeast_metadata, mapping = aes(x = yeast_strain, y = read_count)) +
   scale_y_log10() + 
   geom_boxplot(alpha = 0.1) +
   geom_jitter(alpha = 1, color = "tomato")
 ```
+</details>
 
-**Exercise 12**: Try to make a histogram plot for the read counts, coloring each yeast strain. 
 
+### Exercise 12  
+>Try to make a histogram plot for the read counts, coloring each yeast strain. 
+
+<details>
+  <summary><strong><font color="#6B33FF">Solution #12</font></strong></summary>
 ```{r}
 # Basic histogram
 ggplot(data = yeast_metadata, aes(x=read_count)) + 
   geom_histogram()
-# Change the width of bins
-ggplot(data = yeast_metadata, aes(x=read_count)) + 
-  geom_histogram(binwidth = 10)
+
 # Change colors
 p<-ggplot(data = yeast_metadata, aes(x=read_count)) + 
   geom_histogram(color="black", fill="white")
 p
+
+# Change colors based on yeast strain
+ggplot(data = yeast_metadata, aes(x=read_count, fill = yeast_strain)) + 
+  geom_histogram(color="black")
+
+# Facet based on yeast strain
+ggplot(data = yeast_metadata, aes(x=read_count, fill = yeast_strain)) + 
+  geom_histogram(color="black") + 
+  facet_grid(yeast_strain~.)
+
+# Change to custom colors that are color blind friend
+ggplot(data = yeast_metadata, aes(x=read_count, fill = yeast_strain)) + 
+  geom_histogram(color="black") + 
+  facet_grid(yeast_strain~.) +
+  # Add blue and yellow colors that are more colorblind friendly for plotting
+  scale_fill_manual(values = c("cornflowerblue", "goldenrod2"))
+  
+
+# Density based on yeast strain
+ggplot(data = yeast_metadata, aes(x=read_count, fill = yeast_strain)) + 
+  facet_grid(yeast_strain~.) + 
+  geom_density(alpha = 0.5) +
+  scale_fill_manual(values = c("cornflowerblue", "goldenrod2"))
+
+# A white background might be preferable for the yellow color
+ggplot(data = yeast_metadata, aes(x=read_count, fill = yeast_strain)) + 
+  facet_grid(yeast_strain~.) + 
+  geom_density(alpha = 0.5) +
+  scale_fill_manual(values = c("cornflowerblue", "goldenrod2")) +
+  theme_bw()
 ```
+</details>
 
-## More material
+
+### Exercise 13
+>What if we want to add the mean read counts in a vertical line?
+
+<details>
+  <summary><strong><font color="#6B33FF">Solution #13</font></strong></summary>
+```{r}
+# To do so, we need to calculate the mean_read_count in a new data frame
+mean_yeast_data <- yeast_metadata %>%
+  group_by(yeast_strain) %>%
+  summarise(mean_read_count = mean(read_count))
+mean_yeast_data
+
+# Add the mean read_count with vline
+ggplot(data = yeast_metadata, aes(x=read_count, fill = yeast_strain)) + 
+  geom_density(alpha = 0.5) + 
+  facet_grid(yeast_strain~.) + 
+  geom_vline(data = mean_yeast_data, mapping = aes(xintercept = mean_read_count),
+             linetype="dashed", size=0.5) +
+  theme_bw() +
+  scale_fill_manual(values = c("cornflowerblue", "goldenrod2"))
+```
+</details>
 
 
-https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf
 
+# More material
+
+There are many amazing resources and cheat sheets to continue learning R, including:  
+
+- [R Cookbook](http://www.cookbook-r.com/)  
+- [Data Wrangling Cheat Sheet](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf)  
+- [ggplot](https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf)  
+- [R Colors](http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf)  
+- [Software Carpentry R Lesson](http://swcarpentry.github.io/r-novice-gapminder/)
