@@ -39,7 +39,7 @@ If you would like to read more about cloud computing, see this [Carpentry Cloud 
 <center><img src="../_static/login4.png" width="90%"></center>
 <br>
 
-- **Give your Project folder a name (Description is optional). Then click "CREATE".**
+- **Give your Project folder a name, first and last name would be best while here (Description is optional). Then click "CREATE".**
 
 <center><img src="../_static/login5.png" width="90%"></center>
 <br>
@@ -56,19 +56,19 @@ If you would like to read more about cloud computing, see this [Carpentry Cloud 
 
 **NOTE:** Here "Image" refers to the template of a virtual machine containing an installed operating system, software, and configuration stored as a file on disk. Think of it like apps that come with your phone before you add new ones on your own.
 
-**You will be presented with options to choose and configure your virtual machine here:
+You will be presented with options to choose and configure your virtual machine here:
 
-	+ Instance Name: e.x., "ANGUS 2019 base image" or you can leave it default which is the image name.
+* **Instance Name: e.x., "ANGUS 2019 base image" or you can leave it default which is the image name.**
 
-	+	Base Image Version: "1.4"
+* **Base Image Version: "1.4"**
 
-	+	Project: select your project folder
+* **Project: select your project folder**
 
-	+	Allocation Source: DIBSI Jetstream account
+* **Allocation Source: DIBSI Jetstream account**
 
-	+	Provider: "Jetstream - TACC"
+* **Provider: "Jetstream - TACC"**
 
-	+ Instance size: We recommend ""m1.medium" (CPU: 6, Mem: 16GB, Disk: 60GB)"for this tutorial; Though  depending on your allocations, choose most suitable one.**
+* **Instance size: We recommend "m1.medium" (CPU: 6, Mem: 16GB, Disk: 60GB) for this tutorial; though depending on your allocations, choose the most suitable one.**
 
 <center><img src="../_static/login8.png" width="90%"></center>
 <br>
@@ -131,7 +131,7 @@ $ ssh your_Jetstreamusername@ip_address
 <br>
 
 | Action | Description |
-| ----- | ----- |
+| :-----: | ----- |
 | Report | instance exhibiting unexpected behavior? Report here |
 | Image | Request an image (a type of template for a virtual machine) of a running instance |
 | Suspend | Suspending an instance frees up resources for other users and allows you to safely preserve the state of your instance without imaging. Your time allocation no longer counts against you in the suspended mode |
