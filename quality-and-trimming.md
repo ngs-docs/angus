@@ -16,7 +16,7 @@ You should now be logged into your Jetstream computer!  You should see
 something like this
 
 ```
-titus@js-17-71:~$ 
+(base) dibada@js-171-9:~$ 
 ```
 
 ## Getting started
@@ -170,11 +170,10 @@ and you will see that they are now linked in the current directory when you do a
 These are FASTQ files -- let's take a look at them:
 
 ```
-gunzip -cd ERR458493.fastq.gz | head
+gunzip -c ERR458493.fastq.gz | head
 ```
 
-FASTQ files are sequencing files that contain reads. These come off of the 
-sequencer and contain information about the quality of the reads. A score 
+FASTQ files are sequencing files that contain reads and quality information about each base-call within each read. A score 
 of 0 is the lowest quality score, and a score of 40 is the highest. Instead
 of typing the scores as numbers, they are each encoded as a character.   
 
@@ -184,8 +183,7 @@ Quality encoding: !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHI
 Quality score:    0........10........20........30........40  
 ``` 
 
-A score of 10 indicates a 1 in 10 chance that the base is accurate. A score
-of 20 is a 1 in 100 chance that the base is accurate. 
+A score of 10 indicates a 1 in 10 chance that the base is inaccurate. A score of 20 is a 1 in 100 chance that the base is inaccurate. 30 is 1 in 1,000. And 40 in 1 in 10,000. 
 
 Links:
 
@@ -206,10 +204,10 @@ fastqc ERR458493.fastq.gz
 fastqc ERR458500.fastq.gz
 ```
 
-Now type 'ls':
+Now let's use `ls`:
 
 ```
-ls -d *fastqc.zip*
+ls *fastqc.html
 ```
 
 to list the files, and you should see:
@@ -219,12 +217,14 @@ ERR458493_fastqc.zip
 ERR458500_fastqc.zip
 ```
 
-Inside each of the fastqc directories you will find reports from the fastqc 
-program. 
+Inside each of those zip files are directories holding reports from the fastqc program. But these are also nicely summarized in HTML files:
 
-We will transfer the html files to our local computers so we can open and view
-them in our browsers. We do this because most remote computers do not have the
-ability to view images and htmls.  We will use the command `scp` to do this. 
+```
+ls *.html
+```
+
+Let's transfer the HTML files to our local computers so we can open and view
+them in our browsers. We'll use the command `scp` to do this. 
 
 `scp` stands for secure copy. We can use this command to transfer files between
 two computers. We need to run this command on our *local* computers (i.e. from
@@ -239,33 +239,31 @@ scp <file I want to move> <where I want to move it>
 First we will make a new directory on our computer to store the HTML files we’re
 transfering. Let’s put it on our desktop for now. Make sure the terminal program
 you used this morning to `ssh` onto your instance is open. If you're in it now,
-you can open a new tab in (you can use the pull down menu at the top of your 
-screen or the Cmd+t keyboard shortcut). Type:
+you can open a new tab you can use the pull down menu at the top of your 
+screen or the `cmd + t` or maybe `ctrl + t` keyboard shortcut). Type:
 
 ```
 mkdir -p ~/Desktop/fastqc_html 
 ```
 
-Now we can transfer our HTML files to our local computer using `scp`.
+Now we can transfer our HTML files to our local computer using `scp`, which will look something like this:
 
 ```
-scp username@ipadress:~/quality/*.html ~/Desktop/fastqc_html
+scp username@ipaddress:~/quality/*.html ~/Desktop/fastqc_html
 ```
 
-The first part of the command  is the address for your remote 
-computer. Make sure you replace everything after username@ with your instance 
-number (the one you used to log in).
+The first part of the command is the address for your remote 
+computer. Make sure you replace everything after username@ with your IP address (the one you used to log in with the `ssh` command).
 
 The second part starts with a : and then gives the absolute path of the files 
-you want to transfer from your remote computer. Don’t forget the `:`. We used a 
+you want to transfer from your remote computer. Don’t forget the `:`. We use a 
 wildcard (\*.html) to indicate that we want all of the HTML files.
 
 The third part of the command gives the absolute path of the location you want 
 to put the files. This is on your local computer and is the directory we just 
 created `~/Desktop/fastqc_html`.
 
-You will be prompted for your password. Enter the password we set for your 
-instance  during the morning session.
+You will be prompted for your password. Enter the password we set for your instance during the morning session.
 
 You should see a status output like this:
 
@@ -281,9 +279,8 @@ You can also download and look at these copies of them:
 * [ERR458493_fastqc.html](http://htmlpreview.github.com/?https://github.com/ngs-docs/angus/blob/2018/_static/ERR458493_fastqc.html)
 * [ERR458500_fastqc.html](http://htmlpreview.github.com/?https://github.com/ngs-docs/angus/blob/2018/_static/ERR458500_fastqc.html)
 
-These files contain a lot of information! Depending on your application, some
-information is more helpful than other. For example, for an RNA-seq example, 
-failing duplication levels isn't necessarily a problem -- we expect to have
+These files contain a lot of information! Depending on your application, some of these modules are more helpful than others. For example, for RNA-seq data, 
+failing duplication levels aren't necessarily a problem -- we expect to have
 duplicated sequences given that some transcripts are very abundant.
 
 Questions:
@@ -296,22 +293,18 @@ Links:
 * [FastQC](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
 * [FastQC tutorial video](http://www.youtube.com/watch?v=bz93ReOv87Y)
 
-There are several caveats about FastQC - the main one is that it only
-calculates certain statistics (like duplicated sequences) for subsets
-of the data (e.g. duplicate sequences are only analyzed for the first
-100,000 sequences in each file
+There are some important things to know about FastQC - the main one is that it only calculates certain statistics (like duplicated sequences) for subsets of the data (e.g. duplicate sequences are only analyzed within the first 100,000 sequences in each file). You can read more about each module at [their docs site](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/).
 
 
 ### 3. Trimmomatic
 
 Now we're going to do some trimming!  Let's switch back to our instance
-terminal, as we will be running these commands on our remote instance.
+terminal, as we will be running these commands on our remote computers.
 We'll be using
 [Trimmomatic](http://www.usadellab.org/cms/?page=trimmomatic), which
 (as with fastqc) we've already installed via conda.
 
-The first thing we'll need are the adapters to trim off. This command is long,
-but it's because the trimmomatic distribution comes with adapter files. 
+The first thing we'll need is a file holding the adapters we need to trim off. These are artificial and added as part of the sequencing process. The trimmomatic program comes with standard adapter files, so here we are going to copy them over to our current working directory.
 
 ```
 cp /opt/miniconda/pkgs/trimmomatic-*/share/trimmomatic-*/adapters/TruSeq2-PE.fa .
@@ -319,24 +312,36 @@ cp /opt/miniconda/pkgs/trimmomatic-*/share/trimmomatic-*/adapters/TruSeq2-PE.fa 
 
 (you can look at the contents of this file with `cat TruSeq2-PE.fa`)
 
-Now, to run Trimmomatic on both of them:
+Now, let's run Trimmomatic on a couple samples:
 
 ```
 trimmomatic SE ERR458493.fastq.gz \
         ERR458493.qc.fq.gz \
-        ILLUMINACLIP:TruSeq2-PE.fa:2:40:15 \
+        ILLUMINACLIP:TruSeq2-PE.fa:2:0:15 \
         LEADING:2 TRAILING:2 \
         SLIDINGWINDOW:4:2 \
         MINLEN:25
         
 trimmomatic SE ERR458500.fastq.gz \
         ERR458500.qc.fq.gz \
-        ILLUMINACLIP:TruSeq2-PE.fa:2:40:15 \
+        ILLUMINACLIP:TruSeq2-PE.fa:2:0:15 \
         LEADING:2 TRAILING:2 \
         SLIDINGWINDOW:4:2 \
         MINLEN:25
         
 ```
+
+> **CODE BREAKDOWN**
+> 
+> Note that trimmomatic is actually a java program that we call from the command line, so it's syntax is a little different than what we've been using. The arguments are followed by a colon, and then what you are specifying to them. 
+> * `SE` - this is specified because we are working with single-ended data, rather than paired-end data where there are forward and reverse reads
+> * `ERR458493.fastq.gz` - the first positional argument we are providing is the input fastq file (note it is okay to provide compressed .gz files to trimmomatic)
+> * `ERR458493.qc.fq.gz` - the second positional argument specifies the name of the output files the program will generate
+> * `ILLUMINACLIP:TruSeq2-PE.fa:2:40:15` - here we are specifying the argument we're addressing "ILLUMINACLIP", first specifying the file holding the adapter sequences, then 3 numbers: "2" which states how many mismatches between the adapter sequence and what's found are allowed; "0" which is only relevant when there are forward and reverse reads; and "15" which specifies how accurate the match must be
+> * `LEADING:2 TRAILING:2` - both of these are stating the minimum quality score at the start or end of the read, if lower, it will be trimmed off
+> * `SLIDINGWINDOW:4:2` - this looks at 4 basepairs at a time, and if the average quality of that window of 4 drops below 2, the read is trimmed there
+> * `MINLEN:25` - after all the above trimming steps, if the read is shorter than 25 bps, it will be discarded
+
 
 You should see output that looks like this:
 
@@ -357,7 +362,7 @@ do
 
         trimmomatic SE ${base}.fastq.gz \
                 ${base}.qc.fq.gz \
-                ILLUMINACLIP:TruSeq2-PE.fa:2:40:15 \
+                ILLUMINACLIP:TruSeq2-PE.fa:2:0:15 \
                 LEADING:2 TRAILING:2 \
                 SLIDINGWINDOW:4:2 \
                 MINLEN:25
@@ -389,7 +394,7 @@ Links:
 Let's take a look at the output files:
 
 ```
-gunzip -cd ERR458493.qc.fq.gz | head                                                        
+gunzip -c ERR458493.qc.fq.gz | head                                                        
 ```
 
 It's hard to get a feel for how different these files are by just looking at 
@@ -409,7 +414,7 @@ Alternatively, if there's time, you can use `scp` to view the files from your
 local computer. 
 
 ### 5. MultiQc
-[MultiQC](http://multiqc.info/) aggregates results across many samples into a single report for easy comparison.
+[MultiQC](http://multiqc.info/) is a great tool that aggregates multiple fastqc results into a single report for easy comparison.
 
 Run Mulitqc on both the untrimmed and trimmed files
 
