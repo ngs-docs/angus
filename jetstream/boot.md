@@ -64,9 +64,9 @@ You will be presented with options to choose and configure your virtual machine 
 
 * **Project: select your project folder**
 
-* **Allocation Source: DIBSI Jetstream account**
+* **Allocation Source: TG-MCB190088**
 
-* **Provider: "Jetstream - TACC"**
+* **Provider: "Jetstream Indiana University"**
 
 * **Instance size: We recommend "m1.medium" (CPU: 6, Mem: 16GB, Disk: 60GB) for this tutorial; though depending on your allocations, choose the most suitable one.**
 
