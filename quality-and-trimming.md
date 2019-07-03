@@ -369,7 +369,12 @@ do
 done
 ```
 
-This script will go through each for the filenames that end with `fastq.gz` and 
+A note on variables: We can either refer a variable as `$filename` or `${filename}`. They mean the same thing,
+but using `{}` explicitly tells bash when we are done refering to the variable. This makes it safer to refer
+to variables, especially when we're combining it with other text. This is different than `()`, which tells bash
+that we want to execute something. 
+
+The `for` loop above will go through each for the filenames that end with `fastq.gz` and 
 run Trimmomatic for it.
 
 Questions:
