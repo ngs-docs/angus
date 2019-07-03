@@ -57,9 +57,9 @@ Room Conway will be led by [Sateesh Peri](https://twitter.com/perisateesh?lang=e
 	
 **Thursday, July 4th, 2019**
 
-* **9:00-10:20am:** Introduction to R & RStudio
+* **9:00-10:20am:** [Introduction to R & RStudio](R_Intro_Lesson.html)
 	* **10:20-10:40am:** BREAK
-* **10:40am-12:00pm:** Introduction to R & RStudio
+* **10:40am-12:00pm:** [Introduction to R & RStudio](R_Intro_Lesson.html)
 	* **BREAK FOR THE DAY - 4th of July Activities**
 
 
