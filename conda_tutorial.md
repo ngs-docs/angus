@@ -51,7 +51,7 @@ Conda as a package manager helps you find and install packages. If you need a pa
 
 ## Installing & Activating Conda
 
-We have already installed conda on this instance, but please see the [installation HackMD](https://hackmd.io/im0eDxViQgmxTL4zYBfGoQ) after the class if you'd like to do this yourself on your personal computer.
+We have already installed conda on these instances, but please see the [stellar conda documentation](https://docs.conda.io/projects/conda/en/latest/user-guide/install/) after the class if you'd like to install it on your personal computer or elsewhere. 
 
 ## Adding a new environment
 
