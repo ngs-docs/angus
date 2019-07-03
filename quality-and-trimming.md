@@ -357,7 +357,7 @@ We can also run the same process for all 6 samples more efficiently using a `for
 for filename in *.fastq.gz
 do
         # first, make the base by removing fastq.gz
-        base=$(cut -d . -f 1 ${filename})
+        base=$(basename $filename .fastq.gz)
         echo $base
 
         trimmomatic SE ${base}.fastq.gz \
