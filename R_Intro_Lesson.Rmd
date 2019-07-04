@@ -119,7 +119,7 @@ You can do all sorts of stuff with your objects: operations, combinations, use t
 a2 <- a*2 # multiply a by 2
 ```
 
-## Functions and Arguments
+### Functions and Arguments
 
 Functions are “canned scripts” that automate more complicated sets of commands including operations assignments, etc. Many functions are predefined, or can be made available by importing R packages (more on that later). A function usually takes one or more inputs called arguments. Functions often (but not always) return a value. A typical example would be the function sqrt(). The input (the argument) must be a number, and the return value (in fact, the output) is the square root of that number. Executing a function (‘running it’) is called calling the function. An example of a function call is:
 
@@ -168,7 +168,7 @@ It's best practice to put the non-optional arguments (the data that you want the
 to work on) first, and then specify the names of all optional arguments. This helps other 
 to interpret your code more easily.
 
-## Vectors
+### Vectors
 
 A vector is the most common and basic data type in R, and is pretty much the workhorse of R. A vector is composed by a series of values, which can be either numbers or characters. We can assign a series of values to a vector using the c() function.
 
@@ -185,11 +185,15 @@ class(concentration) # type of object b
 str(yeast_strain) # inspect the structure of a
 ```
 
-We can also combine multiple vectors:
+**Challenge**:
+
+We’ve seen that atomic vectors can be of type character, numeric (or double), integer, and logical. But what happens if we try to mix these types in a single vector?
 
 ```{r}
 yeast_strain_concentration <- c(yeast_strain, concentration) # combine two vectors
 ```
+
+Solution: All indices are "coerced" to the same "type", e.g. character.
 
 ### Data types
 
@@ -209,6 +213,10 @@ You can check the type of vecor you are using with the `typeof()` function.
 typeof(concentration)
 ```
 
+As we saw in our challenge problem, objects of different types get converted into a single type. This is called **coercion** and it follows a hierarchy: 
+
+logical → numeric → character ← logical
+
 R uses many **data structures**, the main ones are:
 
 **`vector`** contain elements of the same type in one dimension 
@@ -217,14 +225,9 @@ R uses many **data structures**, the main ones are:
 **`matrix`** with rows and columns that are of the same type
 **`array`** stores data in more than 2 dimensions
 
-NOTE: Objects of different types get converted into a single type. This is called **coercion** and it follows a hierarchy: 
-
-logical → numeric → character ← logical
-
-
 We will use `vectors`, `matrices`, `data.frames`, and `factors` today.
 
-## Subsetting
+### Subsetting
 
 We can extract values from a vector based on position or conditions: this is called **subsetting**. One way to subset in R is to use `[]`. Indices start at 1.
 
@@ -251,7 +254,7 @@ concentration[ concentration < 45 & concentration == 47] # & is AND , == is math
 more_strains[more_strains %in% strains]
 ```
 
-## Missing data
+### Missing data
 
 As R was designed to analyze datasets, it includes the concept of missing data (which is
 uncommon in other programming languages). Missing data are represented in vectors as NA.
@@ -263,6 +266,7 @@ vector contains missing data:
 concentration <- c(43.903, 47.871, NA, 48.456, 53.435)
 ```
 
+We can use the following functions to remove or ignore it:
 ```{r}
 mean(concentration, na.rm = TRUE) # mean of concentration removing your NA
 concentration[!is.na(concentration)] # extract all elements that are NOT NA
@@ -273,15 +277,22 @@ concentration[complete.cases(concentration)] # returns a 'numeric' atomic vector
 Note, if your data includes missing values, you can code them as blanks (""), or as "NA"
 before reading them into R. 
 
-## Factors
+### Factors
 
-Factors are categorical data, stored as integers (numbers) and associated with labels that can be ordered or unordered. This allows doing cool stuff with the data such as count factors, group by certain factors, etc. Once created, factors can only contain a pre-defined set of values, known as `levels`, which R sorts by default in alphabetical order. 
+Factors represent categorical data. They are stored as integers associated with labels and they can be ordered or unordered. While factors look (and often behave) like character vectors, they are actually treated as integer vectors by R. So you need to be very careful when treating them as strings.
+
 
 ```{r eval = FALSE}
 strains <-  factor(c('WT', 'snf2', 'snf1', 'snf1_snf2')) # We make our strains object a factor
 class(strains)
 nlevels(strains)
 strains # R orders alphabetically
+```
+
+Once created, factors can only contain a pre-defined set of values, known as levels. By default, R always sorts `levels` in alphabetical order. We can reorder them using the 
+`levels` argument. 
+
+```{r}
 strains <- factor(strains, levels = c('WT', 'snf1', 'snf2', 'snf1_snf2')) # we reorder them as we want them
 strains 
 ```
@@ -301,15 +312,27 @@ And we can also **rename factors** based on position:
 levels(strains)[4] <- 'wild_type'
 ```
 
-# Starting with tabular data
+## Starting with tabular data
 
-This tutorial is a continuation from our *salmon* lesson- we are using the datasets present in the European Nucleotide Archive dataset PRJEB5348. This is an RNA-seq experiment using comparing two yeast strains, snf2 and WT. The datasets were compared to test the underlying distribution of RNA-seq data, and to test which differential expression programs work best. They sequenced 96 samples in 7 different lanes, with 45 wt and 45 mut strains. Thus, there are 45 biological replicates and 7 technical replicates present, with a total of 672 samples, but we'll use 6 of them! :) 
+This tutorial is a continuation from our *Salmon* lesson -- we are using sequencing 
+data European Nucleotide Archive dataset PRJEB5348. This is an RNA-seq experiment using
+comparing two yeast strains, *SFF2* and WT. Although we're only working with 6 samples, 
+this was a much larger study. They sequenced 96 samples in 7 different lanes, with 45 wt
+and 45 mut strains. Thus, there are 45 biological replicates and 7 technical replicates
+present, with a total of 672 samples! The datasets were compared to test the
+underlying statistical distribution of read counts in RNA-seq data, and to test which
+differential expression programs work best.
 
-We will get the information about the RNA quality and quantity that the authors employed in their library prep, and we will explore how the authors made their data avaialble and 'linkable' between technical and biological replicates.
+We will get the information about the RNA quality and quantity that the authors measured
+for all of their samples, and we will explore how the authors made their data avaialble
+and 'linkable' between technical and biological replicates.
 
-We are going to explore those datasets using RStudio, combining a both base R and an umbrella package called *tidyverse*. 
+We are going to explore those datasets using RStudio, combining a both base R and an
+umbrella package called *tidyverse*. 
 
-We are going to first make a directory called 'data' where we are going to store our raw data for analysis using the Terminal, from either Atmosphere or RStudio (tab next to Console). 
+We are going to first make a directory called 'data' where we are going to store our raw
+data for analysis using the Terminal, from either Atmosphere or RStudio (tab next to
+Console). 
 
 ```{bash eval=FALSE}
 mkdir R/data
@@ -321,13 +344,14 @@ library('tidyverse')
 ```
 
 
-First we are going to read the files from a url and assign that to experiment_info, using `read_tsv`:
+First we are going to read the files from a url and assign that to experiment_info, 
+using `read_tsv()`:
 
 ```{r}
 experiment_info <- read_tsv(file = 'https://osf.io/pzs7g/download/')
 ```
 
-`tidyverse` works with 'tibbles', which are like data frames where columns with `characters` are never converted into `factors`. `tidyverse` tibbles are also *parsed* with column specifications: R 'interprets' the data on each column and tells us what class of object they are. We also have a look at it using some exploratory functions:
+Let's investigate your new data using some exploratory functions:
 
 ```{r eval = FALSE}
 class(experiment_info) # type of object that sample_details is
@@ -338,45 +362,43 @@ tail(experiment_info) # last 6 rows and all columns
 str(experiment_info) # structure
 ```
 
-What do you notice? The last 4 columns are empty. We can get rid of them by subsetting, and having a look that we have done things correctly:
+What do you notice? The last 4 columns are empty! We can get rid of them by subsetting, and having a look that we have done things correctly:
 
 ```{r eval = FALSE}
-sum(is.na(experiment_info$X10)) # adds how many NAs the column X10 has so that you know all your rows are NAs (or not!)
-experiment_info <- experiment_info[ ,1:9] # subset all rows and columns 1 to 8
-dim(experiment_info) # dimensions
-summary(experiment_info) # summary stats
-head(experiment_info) # shows the first 6 rows and all columns
-tail(experiment_info) # last 6 rows and all columns
-str(experiment_info) # structure
+sum(is.na(experiment_info$X10)) # checks how many NAs the column X10 has so that you know all your rows are NAs (or not!)
+experiment_info <- experiment_info[ , 1:9] # subset all rows and columns 1 to 9
 ```
 
-The 9th column has no name, but in tidyverse we can change this using `rename`:
+**Challenge** 
+Check how many columns are in the data frame now.
+
+```{r}
+dim(experiment_info) # dimensions
+```
+
+The 9th column has no name, but we can change this using `rename()`:
 
 ```{r eval = FALSE}
 experiment_info <- rename(experiment_info, units = X9)
 ```
 
-# Manipulating data with **dplyr**
+### Manipulating data with **dplyr**
 
 We can now explore this table and reshape it using `dplyr`. We will cover in this lesson:
 
-` %>% `: pipes, they allow 'concatenating' functions
+` %>% `: pipes, they allow 'concatenating' functions  
+`select()`: subsets columns  
+`filter()`: subsets rows on conditions  
+`mutate()`: create new columns using information from other columns  
+`group_by()` and `summarize()`: create summary statistics on grouped data  
+`arrange()`: sort results  
+`count()`: counts discrete values  
 
-`select()`: subsets columns
+### Selecting columns and filtering rows
 
-`filter()`: subsets rows on conditions
-
-`mutate()`: create new columns using information from other columns
-
-`group_by()` and `summarize()`: create summary statistics on grouped data
-
-`arrange()`: sort results
-
-`count()`: counts discrete values
-
-## Selecting columns and filtering rows
-
-We have now a table with many columns- are all the columns useful to you? We can select columns using `select`, which requires as *arguments* the names of the colums that you want to keep:
+We have now a table with many columns- but what if we don't need all of the columns?
+We can select columns using `select`, which requires as *arguments* the names of the
+colums that you want to keep:
 
 ```{r eval = FALSE}
 select(experiment_info, Sample, Yeast Strain, Nucleic Acid Conc., Sample, 260/280, Total RNA)
