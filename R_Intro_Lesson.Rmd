@@ -1,5 +1,5 @@
 ---
-title: "Introduction to R using Yeast RNAseq data"
+title: "Introduction to R using Yeast RNAseq Metadata"
 author: ANGUS
 date: June 2019
 output:
@@ -14,96 +14,139 @@ editor_options:
   chunk_output_type: console
 ---
 
-# Getting started
+## Getting started
 
-## Installing in your own computer:
-We are going to learn the basics of RStudio in the cloud. To use RStudio in your computer, you should download R and RStudio. You need to install R before you install RStudio. If you do not have R and RStudio installed:
-- Download R from CRAN:https://cran.r-project.org/
-- Go to RStudio download page and install the version that is compatible with your operating system: https://www.rstudio.com/products/rstudio/download/#download
+Start up a Jetstream m1.medium or larger
+[as per Jetstream startup instructions](jetstream/boot.html).
 
-## Using RStudio in Jetstream
+---
 
-Firstly we are going to log in our cloud server and launch an Instance that has R studio already installed in it (ANGUS 2019, m1.medium will be enough for this lesson). 
+### Using RStudio on Jetstream
 
-Connect to RStudio by setting your password (the password will not be visible on the screen)
+We will be using R and RStudio on our cloud instances. We have pre-installed RStudio on the workshop image. Start up a Jetstream m1.medium or larger using the ANGUS 2019 image
+[as per Jetstream startup instructions](jetstream/boot.html). Connect to your instance.
+
+We will need a password to connect to RStudio. We can set the password to our instance by running the following commands in bash (the password will not be visible on the screen):
 
 ```{bash eval = FALSE}
 sudo passwd $USER
 ```
 
-figuring out your username:
+We will also need our instance username to connect to RStudio. To determine what your username is, run: 
 
 ```{bash eval=FALSE}
 echo My username is $USER
 ```
 
-and finding your RStudio server interface Web address (by default in port 8787):
+Lastly, find the RStudio server interface Web address (by default in port 8787) by running the following command:
 
 ```{bash eval = FALSE}
 echo http://(hostname):8787/
 ```
 
-Now go to that web address in your Web browser and log in with the username and password that you set above. You should see something that looks like:
+Now go to the web address printed to your terminal in your Web browser and log in with the username and password that you set above. You should see something that looks like:
 
 ![](_static/RStudio.png)
 
 where you type your username and the password that you have set. 
 
-# RStudio basics
 
-RStudio is a graphical integrated development environment (IDE) that makes using R much more intuitive and interactive. R is the underlying computing environment. Once you start it, you see this layout (it will be similar either in the cloud or in your computer):
+### Installing on your own computer:
+
+We will be using R and RStudio in the cloud. To use RStudio on your computer, you can download R and RStudio. If you do not have R and RStudio installed:
+- Download R from CRAN:https://cran.r-project.org/
+- Go to RStudio download page and install the version that is compatible with your operating system: https://www.rstudio.com/products/rstudio/download/#download
+This [link](https://datacarpentry.org/R-ecology-lesson/) provides futher instructions on
+installing and setting up R and RStudio on your computer. 
+
+## Introduction to R and RStudio 
+
+R is a programming language and free software environment for statistical computing and
+graphics. Many bioinformatics programs are implemented in R. RStudio is a graphical
+integrated development environment (IDE) that displays and organizes more information
+about R. R is the underlying programming language. Once you start RStudio, you see this
+layout (it will be similar either on your instance or on your computer):
 
 ![](_static/RStudio_first.png)
 
-To start a new script (this is like your 'computer lab book') you can simply click on the icon that looks like a page with a '+' underneath File and select -->R script. This generates a .R file, which is basically a text file that is recognised by R. 
+Scripts are like a digital lab book. They record everything your run, as well as notes to
+yourself about how and why you ran it. To start a new script you can click on the icon
+that looks like a page with a '+' underneath File and select -->R script. This generates a
+`.R` file. `.R` files are plain text files that use the file extension `.R` so that humans
+can remember that the file contains R code. 
 
 ![](_static/RStudio_create_R_script.png)
 
-It is in the script that we will type all commands and from where we can run commands into the console. It is VERY IMPORTANT that you comment your commands as this will remind your future self (and whoever you pass your script) why you did what you did. Like the notes you take in your lab book when you do experiments. 
+Although scripts are a record of our code, they also include comments about our code. These comments are very important as they remind your future self (and whoever you pass your script) why you did what you did. Think of comments like the notes you take in your lab book when you do experiments. 
 
 ![](_static/RStudio_type_script.png)
 
-And now we start the fun part!
+When you execute a line of your script, it is sent to the console. While the script is a 
+permanent record of everything you ran, the console is the engine that runs those things. 
+You can run code from a script or the console, but it is only recorded in scripts. 
 
-# Basic concepts
+There are two additional panes in RStudio. The Environment pane records the objects that
+are in our current environment, while the Plots/Viewer/Packages/Files/Help pane provides
+a space for us to interact with plots and files we create and with built-in help files in
+R. 
 
-## Objects 
+And now we're ready to start the fun part!
 
-An R object is something that you create and assign a value or function to. You do this using the *assignment operator* which is `<-` (NOTE: shortcut Alt + -). For example you can assign a *numeric* or *character* variable to objects by typing in your script (remember to comment what you are doing):
+## Basic concepts
+
+### Objects 
+
+An R object is something that you create and assign a value or function to. You do this using the *assignment operator* which is `<-` (NOTE: shortcut Alt + -). For example you can assign a *numeric* value to an object by typing in your script (remember to comment what you are doing):
 
 ```{r}
-a <- 34  ## we assign the number 34 to the object a
-b <- 'character' ## we assign the word 'character' to the object b
+a <- 34  # assign the number 34 to the object a
 ```
 
-To run these lines you can put the cursor on the line that you want to run and press `Enter+Cmd` or `Enter+Ctrl`. Or select the line and click the button that says `Run` on the right top corner of your script.
+You can also assign a *character* value to an object:
+```{r}
+b <- 'mouse' # assign the word 'character' to the object b
+```
+
+To run a line of code, put your cursor on the line that you want to run and press `Enter+Cmd` or `Enter+Ctrl`. Or select the line and click the button that says `Run` on the right top corner of your script.
 
 ![](_static/first_lines.png)
 
-Now check your Console and Environment tabs, you will see that the commands have run and that you have created new Objects!
+Now check your Console and Environment tabs, you will see that the commands have run and that you have created new objects!
 
-You can do all sorts of stuff with your objects: operations, combinations, use them in functions....
+You can do all sorts of stuff with your objects: operations, combinations, use them in functions. Below we show how to perform multiplication using an object. Because `a` stores the value `34`, we can multiply it by 2:
 
 ```{r}
-a2 <- a*2 ## multiply a times 2
+a2 <- a*2 # multiply a by 2
 ```
 
-## Functions and Arguments
+### Functions and Arguments
 
-Functions are 'compacted scripts' that are already made for you to run lots of things at once. For example you can do the square root or round numbers using in-built functions in R:
+Functions are “canned scripts” that automate more complicated sets of commands including operations assignments, etc. Many functions are predefined, or can be made available by importing R packages (more on that later). A function usually takes one or more inputs called arguments. Functions often (but not always) return a value. A typical example would be the function sqrt(). The input (the argument) must be a number, and the return value (in fact, the output) is the square root of that number. Executing a function (‘running it’) is called calling the function. An example of a function call is:
 
 ```{r}
 sqrt(a) ## calculate the square root of a
+```
+
+Here, the value of a is given to the sqrt() function, the sqrt() function calculates the square root, and returns the value which is then assigned to the object b. This function is very simple, because it takes just one argument.
+
+The return ‘value’ of a function need not be numerical (like that of sqrt()), and it also does not need to be a single item: it can be a set of things, or even a dataset. We’ll see that when we read data files into R.
+
+Arguments can be anything, not only numbers or filenames, but also other objects. Exactly what each argument means differs per function, and must be looked up in the documentation (see below). Some functions take arguments which may either be specified by the user, or, if left out, take on a default value: these are called options. Options are typically used to alter the way the function operates, such as whether it ignores ‘bad values’, or what symbol to use in a plot. However, if you want something specific, you can specify a value of your choice which will be used instead of the default.
+
+Let’s try a function that can take multiple arguments: round().
+
+```{r}
 round(3.141592) ## round number
 ```
 
-Arguments are the 'conditions' of a function. For example, the function `round()` has an argument to determine the number of decimals, and its default in R is 0. We can change this and find out about the arguments of a function by using `args()` and also askign for help in R using `?`
+Arguments are the 'conditions' of a function. For example, the function `round()` has an argument to determine the number of decimals, and its default in R is 0. Here, we’ve called round() with just one argument, 3.14159, and it has returned the value 3. That’s because the default is to round to the nearest whole number. If we want more digits we can see how to do that by getting information about the round function. We can use args(round) to find what arguments it takes, or look at the help for this function using ?round.
 
 ```{r}
 args(round) ## show the arguments of the function 'round'
 ?round ## shows the information about 'round'
 ```
- so we can change this to two decimals by changing the argument:
+
+We can change this to two decimals by changing the `digits` argument:
  
 ```{r eval = FALSE}
 round(3.141592, digits = 2)
@@ -115,77 +158,84 @@ Note that we do not need to specify the name of the argument as R detects this b
 round(3.141592, 2)
 ```
 
-But you can change the order of the arguments if you do name them:
+But you can change the order of the arguments if the arguments are named:
 
 ```{r eval = FALSE}
 round(digits = 2, x= 3.141592)
 ```
 
-**BEST PRACTICE**: Put the non-optional arguments (the data that you want the function to work on) first, and then specify the names of all optional arguments. This will ease understanding of your code!
+It's best practice to put the non-optional arguments (the data that you want the function
+to work on) first, and then specify the names of all optional arguments. This helps other 
+to interpret your code more easily.
 
-## Vectors
+### Vectors
 
-A vector is a succession of values (numbers or characters), and it is the main concept that R uses. We can create vectors using the function `c()`.
+A vector is the most common and basic data type in R, and is pretty much the workhorse of R. A vector is composed by a series of values, which can be either numbers or characters. We can assign a series of values to a vector using the c() function.
 
 ```{r}
 yeast_strain <- c('WT','snf2') 
 concentration <- c(43.903, 47.871)
 ```
 
-There are many functions to inspect a vector: 
+There are many functions to inspect a vector and get information about its contents: 
 
 ```{r eval = FALSE}
-length(a) # number of elements in a vector
-class(b) # type of object b
-str(a) # inspect the structure of a
-a_b <- c(a,b) # you can combine different vector
+length(yeast_strain) # number of elements in a vector
+class(concentration) # type of object b
+str(yeast_strain) # inspect the structure of a
 ```
 
-## Data types
+**Challenge**:
+
+We’ve seen that atomic vectors can be of type character, numeric (or double), integer, and logical. But what happens if we try to mix these types in a single vector?
+
+```{r}
+yeast_strain_concentration <- c(yeast_strain, concentration) # combine two vectors
+```
+
+Solution: All indices are "coerced" to the same "type", e.g. character.
+
+### Data types
 
 An **atomic vector** is the simplest R data type, and it is a vector of a single type. The 6 main atomic vector types that R uses are:
 
 **`'character'`** letters or words
-
 **`'numeric'`** (or `double`) for numbers
-
 **`'logical'`** for `TRUE` and `FALSE` (booleans)
-
-**`'integer'`** for integer numbers
-
-**`'complex'`** for example `2 + 4i`
-
+**`'integer'`** for integer numbers (e.g., `2L`, the `L` indicates to R that it’s an integer)
+**`'complex'`** to represent complex numbers with real and imaginary parts, for example `2 + 4i`
 **`'raw'`** for bitstreams that we will not use or discuss further
+**`factor`** represents categorical data (more below!)
 
 You can check the type of vecor you are using with the `typeof()` function.
 
-R uses many **data structures**, the main ones are:
+```{r}
+typeof(concentration)
+```
 
-**`vector`** containing the same type of elements 
-
-**`list`** containing different type of elements 
-
-**`data.frame`** with rows and columns that can contain different type of elements
-
-**`matrix`** with rows and columns that are numeric
-
-**`factor`** that stores categorical data(more below!)
-
-**`array`** stores data in more than 2 dimensions
-
-NOTE: Objects of different types get converted into a single type. This is called **coercion** and it follows a hierarchy: 
+As we saw in our challenge problem, objects of different types get converted into a single type. This is called **coercion** and it follows a hierarchy: 
 
 logical → numeric → character ← logical
 
-## Subsetting
+R uses many **data structures**, the main ones are:
 
-We can extract values from a vector based on position or conditions: this is called **subsetting** and it uses `[]`. Indices start at 1.
+**`vector`** contain elements of the same type in one dimension 
+**`list`** can contain elements of different types and multiple data structures
+**`data.frame`** contains rows and columns. Columns can contain different types from other columns.
+**`matrix`** with rows and columns that are of the same type
+**`array`** stores data in more than 2 dimensions
+
+We will use `vectors`, `matrices`, `data.frames`, and `factors` today.
+
+### Subsetting
+
+We can extract values from a vector based on position or conditions: this is called **subsetting**. One way to subset in R is to use `[]`. Indices start at 1.
 
 ```{r eval = FALSE}
 strains <-  c('WT', 'snf2', 'snf1', 'snf1_snf2') 
 strains[2] # subsets the second element
 strains[c(2,3)] # subsets the second and third elements
-more_strains <- strains[c(1, 2, 3, 1, 4, 3)] # to create an object with more elements than tha origianl one
+more_strains <- strains[c(1, 2, 3, 1, 4, 3)] # to create an object with more elements than tha original one
 more_strains
 ```
 
@@ -204,29 +254,45 @@ concentration[ concentration < 45 & concentration == 47] # & is AND , == is math
 more_strains[more_strains %in% strains]
 ```
 
-## Missing data
+### Missing data
 
-R also considers missing data which will be present in many datasets. Make sure your input data contains missing data as **blanks** if you are using a spreadsheet program!! 0 is an actual value, many things can be 0 so **NEVER USE NUMERIC ZERO (0) TO REPRESENT MISSING DATA**.
+As R was designed to analyze datasets, it includes the concept of missing data (which is
+uncommon in other programming languages). Missing data are represented in vectors as NA.
 
-There are in-built functions and arguments to deal with missing data. For example: 
+There are in-built functions and arguments to deal with missing data. For example, this
+vector contains missing data:
 
 ```{r eval = FALSE}
 concentration <- c(43.903, 47.871, NA, 48.456, 53.435)
+```
+
+We can use the following functions to remove or ignore it:
+```{r}
 mean(concentration, na.rm = TRUE) # mean of concentration removing your NA
 concentration[!is.na(concentration)] # extract all elements that are NOT NA
 na.omit(concentration) # returns a 'numeric' atomic vector with incomplete cases removed
 concentration[complete.cases(concentration)] # returns a 'numeric' atomic vector with elements that are complete cases
 ```
 
-## Factors
+Note, if your data includes missing values, you can code them as blanks (""), or as "NA"
+before reading them into R. 
 
-Factors are categorical data, stored as integers (numbers) and associated with labels that can be ordered or unordered. This allows doing cool stuff with the data such as count factors, group by certain factors, etc. Once created, factors can only contain a pre-defined set of values, known as `levels`, which R sorts by default in alphabetical order. 
+### Factors
+
+Factors represent categorical data. They are stored as integers associated with labels and they can be ordered or unordered. While factors look (and often behave) like character vectors, they are actually treated as integer vectors by R. So you need to be very careful when treating them as strings.
+
 
 ```{r eval = FALSE}
 strains <-  factor(c('WT', 'snf2', 'snf1', 'snf1_snf2')) # We make our strains object a factor
 class(strains)
 nlevels(strains)
 strains # R orders alphabetically
+```
+
+Once created, factors can only contain a pre-defined set of values, known as levels. By default, R always sorts `levels` in alphabetical order. We can reorder them using the 
+`levels` argument. 
+
+```{r}
 strains <- factor(strains, levels = c('WT', 'snf1', 'snf2', 'snf1_snf2')) # we reorder them as we want them
 strains 
 ```
@@ -246,33 +312,45 @@ And we can also **rename factors** based on position:
 levels(strains)[4] <- 'wild_type'
 ```
 
-# Starting with tabular data
+## Starting with tabular data
 
-This tutorial is a continuation from our *salmon* lesson- we are using the datasets present in the European Nucleotide Archive dataset PRJEB5348. This is an RNA-seq experiment using comparing two yeast strains, snf2 and WT. The datasets were compared to test the underlying distribution of RNA-seq data, and to test which differential expression programs work best. They sequenced 96 samples in 7 different lanes, with 45 wt and 45 mut strains. Thus, there are 45 biological replicates and 7 technical replicates present, with a total of 672 samples, but we'll use 6 of them! :) 
+This tutorial is a continuation from our *Salmon* lesson -- we are using sequencing 
+data European Nucleotide Archive dataset PRJEB5348. This is an RNA-seq experiment using
+comparing two yeast strains, *SFF2* and WT. Although we're only working with 6 samples, 
+this was a much larger study. They sequenced 96 samples in 7 different lanes, with 45 wt
+and 45 mut strains. Thus, there are 45 biological replicates and 7 technical replicates
+present, with a total of 672 samples! The datasets were compared to test the
+underlying statistical distribution of read counts in RNA-seq data, and to test which
+differential expression programs work best.
 
-We will get the information about the RNA quality and quantity that the authors employed in their library prep, and we will explore how the authors made their data avaialble and 'linkable' between technical and biological replicates.
+We will get the information about the RNA quality and quantity that the authors measured
+for all of their samples, and we will explore how the authors made their data avaialble
+and 'linkable' between technical and biological replicates.
 
-We are going to explore those datasets using RStudio, combining a both base R and an umbrella package called *tidyverse*. 
+We are going to explore those datasets using RStudio, combining a both base R and an
+umbrella package called *tidyverse*. 
 
-We are going to first make a directory called 'data' where we are going to store our raw data for analysis using the Terminal, from either Atmosphere or RStudio (tab next to Console). 
+We are going to first make a directory called 'data' where we are going to store our raw
+data for analysis using the Terminal, from either Atmosphere or RStudio (tab next to
+Console). 
 
 ```{bash eval=FALSE}
 mkdir R/data
 ```
 
 ```{r echo = FALSE}
-devtools::install_github("hadley/tidyverse")
 library('tidyverse')
 ```
 
 
-First we are going to read the files from a url and assign that to experiment_info, using `read_tsv`:
+First we are going to read the files from a url and assign that to experiment_info, 
+using `read_tsv()`:
 
 ```{r}
 experiment_info <- read_tsv(file = 'https://osf.io/pzs7g/download/')
 ```
 
-`tidyverse` works with 'tibbles', which are like data frames where columns with `characters` are never converted into `factors`. `tidyverse` tibbles are also *parsed* with column specifications: R 'interprets' the data on each column and tells us what class of object they are. We also have a look at it using some exploratory functions:
+Let's investigate your new data using some exploratory functions:
 
 ```{r eval = FALSE}
 class(experiment_info) # type of object that sample_details is
@@ -283,62 +361,63 @@ tail(experiment_info) # last 6 rows and all columns
 str(experiment_info) # structure
 ```
 
-What do you notice? The last 4 columns are empty. We can get rid of them by subsetting, and having a look that we have done things correctly:
+What do you notice? The last 4 columns are empty! We can get rid of them by subsetting, and having a look that we have done things correctly:
 
 ```{r eval = FALSE}
-sum(is.na(experiment_info$X10)) # adds how many NAs the column X10 has so that you know all your rows are NAs (or not!)
-experiment_info <- experiment_info[ ,1:9] # subset all rows and columns 1 to 8
-dim(experiment_info) # dimensions
-summary(experiment_info) # summary stats
-head(experiment_info) # shows the first 6 rows and all columns
-tail(experiment_info) # last 6 rows and all columns
-str(experiment_info) # structure
+sum(is.na(experiment_info$X10)) # checks how many NAs the column X10 has so that you know all your rows are NAs (or not!)
+experiment_info <- experiment_info[ , 1:9] # subset all rows and columns 1 to 9
 ```
 
-The 9th column has no name, but in tidyverse we can change this using `rename`:
+**Challenge** 
+Check how many columns are in the data frame now.
+
+```{r}
+dim(experiment_info) # dimensions
+```
+
+The 9th column has no name, but we can change this using `rename()`:
 
 ```{r eval = FALSE}
 experiment_info <- rename(experiment_info, units = X9)
 ```
 
-# Manipulating data with **dplyr**
+### Manipulating data with **dplyr**
 
 We can now explore this table and reshape it using `dplyr`. We will cover in this lesson:
 
-` %>% `: pipes, they allow 'concatenating' functions
+` %>% `: pipes, they allow 'concatenating' functions  
+`select()`: subsets columns  
+`filter()`: subsets rows on conditions  
+`mutate()`: create new columns using information from other columns  
+`group_by()` and `summarize()`: create summary statistics on grouped data  
+`arrange()`: sort results  
+`count()`: counts discrete values  
 
-`select()`: subsets columns
+### Selecting columns and filtering rows
 
-`filter()`: subsets rows on conditions
-
-`mutate()`: create new columns using information from other columns
-
-`group_by()` and `summarize()`: create summary statistics on grouped data
-
-`arrange()`: sort results
-
-`count()`: counts discrete values
-
-## Selecting columns and filtering rows
-
-We have now a table with many columns- are all the columns useful to you? We can select columns using `select`, which requires as *arguments* the names of the colums that you want to keep:
+We have now a table with many columns -- but what if we don't need all of the columns?
+We can select columns using `select`, which requires as *arguments* the names of the
+colums that you want to keep:
 
 ```{r eval = FALSE}
 select(experiment_info, Sample, Yeast Strain, Nucleic Acid Conc., Sample, 260/280, Total RNA)
 ```
-What happened? There is a space that R cannot deal well with- we can help R by adding back commas around the `name of the column`. These tell R `this is a word`:
+
+What happened? R cannot parse the spaces in the column names properly. Also, it gets a little confused when column names start with a number. We can add back commas around the `name of the column`. These tell R that `these words belong together`:
 
 ```{r eval = FALSE}
 select(experiment_info, Sample, `Yeast Strain`, `Nucleic Acid Conc.`, `260/280`, `Total RNA`)
 ```
 
-so let's store that in `experiment_info` together with A260 and A280: 
+So let's store that in `experiment_info`:
 
 ```{r eval = FALSE}
 experiment_info <- select(experiment_info, Sample, `Yeast Strain`, `Nucleic Acid Conc.`, A260, A280, `260/280`, `Total RNA`)
 ```
 
-**NOTE**: When choosing names from cloumns, make sure that you choose something simple, all lowercase, all uppercase, or CamelCase. Having spaces in column names is not a good idea!
+**NOTE**: When choosing names from columns, make sure that you choose something simple,
+all lowercase, all uppercase, or CamelCase. Having spaces in column makes it hard for R to
+deal with, and can lead to unexpected results.
 
 We select all columns *except for* by using '-' before the name of the columns we do not want to include, for example all columns except for A260 and A280:
 
@@ -373,11 +452,12 @@ experiment_data <-  select(experiment_info, Sample, `Yeast Strain`, A260, A280)
 </details>
 
 
-## Pipes
+### Pipes
 
-What if we want to `select` and `filter` at the same time? We use %>% (pipes) for that. Pipes are  available via the `magrittr` package, installed automatically with `dplyr`. If you use RStudio, you can type the pipe with `Ctrl + Shift + M` if you have a PC or `Cmd + Shift + M` if you have a Mac.
+What if we want to `select` and `filter` at the same time? We use %>% (pipes) for that.
+Pipes are  available via the `magrittr` package, installed automatically with `dplyr`. If you use RStudio, you can type the pipe with `Ctrl + Shift + M` if you have a PC or `Cmd + Shift + M` if you have a Mac as a shortcut to get to produce a pipe.
 
-We can combine the characteristics from Exercise 1 and 2 using pipes `%>%` :
+We can combine the two subsetting activities from Exercise 1 and 2 using pipes `%>%` :
 
 ```{r eval = FALSE}
 experiment_info_wt <- experiment_info %>% 
@@ -397,9 +477,9 @@ samples_sequenced <- experiment_info %>%
 ```
 </details>
 
-## Mutate
+### Mutate
 
-What if I want to create new columns? I use the function `mutate` for this. Let's convert our units into micrograms/microliter:
+What if I want to create a new column? I use the function `mutate` for this. Let's convert our units into micrograms/microliter:
 
 ```{r eval = FALSE}
 experiment_info %>% 
@@ -455,9 +535,9 @@ seq_samples <- library_start_diluted %>%
 ```
 </details>
 
-## Split-apply-combine
+### Split-apply-combine
 
-The approach of split-apply-combine allows you to *split* the data into groups, *apply* a function/analysis and then *combine* the results. We can do this usign `group-by()` and `summarize()`. 
+The approach of split-apply-combine allows you to *split* the data into groups, *apply* a function/analysis and then *combine* the results. We can do this usign `group_by()` and `summarize()`. 
 
 `group_by()` takes as *argument* the column names that contain categorical variables that we want to calculate summary stats for. For example, to determine the average RNA concetration per strain:
 
@@ -476,16 +556,17 @@ experiment_info %>%
             mean_total_RNA = mean(`Total RNA`))
 ```
 
-NOTE: Our table does not have missing values. However, we have in-built functions in R that can deal with this. We can filter values that are NOT na:
+**NOTE**: Our table does not have missing values. However, we have built-in functions in 
+R that can deal with this. We can filter values that are *not* NA:
 
 ```{r eval = FALSE}
 experiment_info %>% 
   group_by(`Yeast Strain`) %>% 
-  summarize(mean_concentration = mean(`Nucleic Acid Conc.`, na.rm = TRUE), # na.rm removes NA values while calculating the mean
+  summarize(mean_concentration = mean(`Nucleic Acid Conc.`, na.rm = TRUE), # remove NA values 
             mean_total_RNA = mean(`Total RNA`))
 
 experiment_info %>%  
-  filter(!is.na(`Nucleic Acid Conc.`)) %>%   # we filter out the values that are not NAs before we do any calculations
+  filter(!is.na(`Nucleic Acid Conc.`)) %>%   # filter out the values that are not NAs
   group_by(`Yeast Strain`) %>%  
   summarize(mean_concentration = mean(`Nucleic Acid Conc.`),
             mean_total_RNA = mean(`Total RNA`))
@@ -495,18 +576,18 @@ We can now arrange the data in ascending order (default of `arrange()`) or desce
 
 ```{r eval = FALSE}
 experiment_info %>% 
-  filter(!is.na(`Nucleic Acid Conc.`)) %>%  # we filter out the values that are not NAs before we do any calculations
+  filter(!is.na(`Nucleic Acid Conc.`)) %>%  # filter out the values that are not NAs 
   group_by(`Yeast Strain`) %>% 
   summarize(mean_concentration = mean(`Nucleic Acid Conc.`),
             mean_total_RNA = mean(`Total RNA`)) %>% 
-  arrange(mean_concentration) # arranges our new table in ascending mean concentrations
+  arrange(mean_concentration) # arrange new table in ascending mean concentrations
 
 experiment_info %>% 
-  filter(!is.na(`Nucleic Acid Conc.`)) %>%  # we filter out the values that are not NAs before we do any calculations
+  filter(!is.na(`Nucleic Acid Conc.`)) %>%  # filter out the values that are not NAs
   group_by(`Yeast Strain`) %>% 
   summarize(mean_concentration = mean(`Nucleic Acid Conc.`),
             mean_total_RNA = mean(`Total RNA`)) %>% 
-  arrange(desc(mean_concentration) # arranges our new table in descending mean concentrations
+  arrange(desc(mean_concentration) # arrange new table in descending mean concentrations
 ```
 
 Another useful function is `count()` to count categorical values:
@@ -516,11 +597,11 @@ experiment_info %>%
   count(`Yeast Strain`)
 ```
 
-# Combining Datasets using `join`
+### Combining Datasets using `join`
 
-In many ocassions we will have more than one table that we need to extract information from. We can easily do this in R using the family of `join` functions. 
+On many ocassions we will have more than one table that we need to extract information from. We can easily do this in R using the family of `join` functions. 
 
-We are going to first download extra information about the samples that we are are investigating and assing them to an object called *ena_info*:
+We are going to first download extra information about the samples that we are are investigating and assigning them to an object called *ena_info*:
 
 ```{r}
 ena_info <- read_tsv(file = 'https://osf.io/6s4cv/download')
@@ -544,11 +625,13 @@ summary(ena_info)
 ```
 </details>
 
-The `join` functions allow you to merge tables considering columns/rows characteristics, so that you can do cool stuff such as (taken from R cheatsheets!):
+The `join` functions allow you to merge tables on columns/rows characteristics, so that you can do cool stuff such as (taken from R cheatsheets!):
 
 ![](_static/join.png)
 
-We have run accession numbers in both our tibbles `sample_mapping` and `ena_info`. We want now to merge both datasets to link the characteristics present in both tables in one big table that contains everything. We need a column that has the same name in both tables. **Challenge**: which function would you use if the column names where not the same?
+We have run accession numbers in both our tibbles `sample_mapping` and `ena_info`. We want to merge both datasets to link the information present in both tables in one big table that contains everything. We need a column that has the same name in both tables.
+
+**Challenge**: which function would you use if the column names where not the same?
 
 ```{r}
 sample_mapping <- rename(sample_mapping, run_accession = RunAccession) # would rename a column called Sample into sample_number to match with the column sample_number in ena_info
@@ -588,33 +671,35 @@ head(yeast_metadata)
 We also want to create a table called `salmon_samples` that will include our 6 samples that we used in `salmon`, namely samples 'ERR458493','ERR458494','ERR458495','ERR458500','ERR458501'and 'ERR458502'.
 
 ```{r eval = FALSE}
-samples <- c('ERR458493','ERR458494','ERR458495','ERR458500','ERR458501','ERR458502') # we create a vector that includes the samples that we want to subset
+samples <- c('ERR458493', 'ERR458494', 'ERR458495', 'ERR458500', 'ERR458501', 'ERR458502') # create a vector that includes the samples that we want to subset
 salmon_samples <- yeast_metadata_inner %>% 
-  filter(run_accession %in% test$samples) # we filter rows based on these sample names
+  filter(run_accession %in% samples) # filter rows based on these sample names
 ```
 
-# Making plots with ggplot2
+## Making plots with ggplot2
 
-We have learnt how to manipulate datasets and combine them. We do this to have a table that is useful for our purposes, which in many occassions is to produce nice plots :). We are going to see the basics of how plotting happens in R using the package `ggplot2` which is part of `tidyverse`.
+We have learned how to manipulate datasets and combine them. We are now going to the
+basics of constructing a plot in `ggplot2` which is part of `tidyverse`.
 
-The basic *syntax* of ggplot2 is:
+The basic *syntax* of `ggplot2` is:
 
 ```{r eval = FALSE}
 ggplot(data = <DATA>, mapping = aes(<MAPPINGS>)) +
   <GEOM_FUNCTION>()
 ```
 
-We are going to make some simple plots to explore our yeast_metadata tibble. There is A LOT more that can be done, lots of options, etc! This is only a taste for what you can do in `ggplot2`. 
+We are going to explore our `yeast_metadata` tibble.
 
 We build plots in 'layers':
 
 ```{r eval = FALSE}
 ggplot(data = yeast_metadata)
 ```
-binds the plot to a specific data frame using the `data` argument
+
+Specifying `data` binds the plot to a specific data frame.
 
 ```{r eval = FALSE}
-ggplot(data = yeast_metadata, mapping = aes, mapping = aes(x = read_count, y = fastq_bytes))
+ggplot(data = yeast_metadata, mapping = aes(x = read_count, y = fastq_bytes))
 ```
 defines the mapping using `aes` (aesthetics of the plot) by selecting the variables to be plotted and how they will be plotted (e.g. x/y, size, shape, color...)
 
@@ -776,7 +861,9 @@ ggplot(data = yeast_metadata, aes(x=read_count, fill = yeast_strain)) +
 ```
 </details>
 
+## Acknowledgements
 
+This lesson was inspired by and adapted from the [Data Carpentry Ecology R lessons](https://datacarpentry.org/R-ecology-lesson/index.html)
 
 # More material
 
