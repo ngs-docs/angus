@@ -146,7 +146,7 @@ each transcript.
 <blockquote>
 <center><b>PRACTICE!</b></center>
 
-How can we use the `grep` command to find the mappability percentages (<i>percent_mapped</i>) in ALL our json files? Make sure to print out the name of each file before you print the mappability percentage!
+How can we use the `grep` command to find the percent of reads mapped in ALL our json files? Make sure to print out the name of each file before you print the percent of reads mapped!
 
 <div class="toggle-header closed">
     <strong>Solution</strong>
@@ -167,7 +167,7 @@ done</span>
 </div>
 </div>
 
-First we use `echo` to print the name of the file. Then, we use `grep` to find and print the line containing the mappability percentage.
+First we use `echo` to print the name of the file. Then, we use `grep` to find and print the line containing the percent of reads mapped.
 <br>
 
 </div>
