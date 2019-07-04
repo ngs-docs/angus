@@ -48,7 +48,7 @@ Room Conway will be led by [Sateesh Peri](https://twitter.com/perisateesh?lang=e
 	* **10:20-10:40am:** BREAK
 * **10:40am-12:00pm:** Wrapping up [Introduction to the Shell](shell_intro/index.html)
 	* **12:00-1:00pm:** LUNCH
-* **1:00-2:00pm:** [Amanda Charbonneau](https://twitter.com/procrastinomics?lang=en): How to statistics [Slides](https://github.com/ngs-docs/angus/blob/2019/StatsNstuff.pdf)
+* **1:00-2:00pm:** [Amanda Charbonneau](https://twitter.com/procrastinomics?lang=en): How to statistics [Slides](https://github.com/ngs-docs/angus/blob/2019/StatsNstuff.pdf) - [view recording](https://www.youtube.com/watch?v=4cndEDLIGVU&feature=youtu.be)
 	* **2:00-2:10pm:** BREAK
 * **2:15-3:30pm:** [Logging onto the Cloud](jetstream/boot.md)
 	* **3:30-3:50pm:** BREAK
