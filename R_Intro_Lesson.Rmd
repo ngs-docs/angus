@@ -339,7 +339,6 @@ mkdir R/data
 ```
 
 ```{r echo = FALSE}
-devtools::install_github("hadley/tidyverse")
 library('tidyverse')
 ```
 
@@ -396,26 +395,29 @@ We can now explore this table and reshape it using `dplyr`. We will cover in thi
 
 ### Selecting columns and filtering rows
 
-We have now a table with many columns- but what if we don't need all of the columns?
+We have now a table with many columns -- but what if we don't need all of the columns?
 We can select columns using `select`, which requires as *arguments* the names of the
 colums that you want to keep:
 
 ```{r eval = FALSE}
 select(experiment_info, Sample, Yeast Strain, Nucleic Acid Conc., Sample, 260/280, Total RNA)
 ```
-What happened? There is a space that R cannot deal well with- we can help R by adding back commas around the `name of the column`. These tell R `this is a word`:
+
+What happened? R cannot parse the spaces in the column names properly. Also, it gets a little confused when column names start with a number. We can add back commas around the `name of the column`. These tell R that `these words belong together`:
 
 ```{r eval = FALSE}
 select(experiment_info, Sample, `Yeast Strain`, `Nucleic Acid Conc.`, `260/280`, `Total RNA`)
 ```
 
-so let's store that in `experiment_info` together with A260 and A280: 
+So let's store that in `experiment_info`:
 
 ```{r eval = FALSE}
 experiment_info <- select(experiment_info, Sample, `Yeast Strain`, `Nucleic Acid Conc.`, A260, A280, `260/280`, `Total RNA`)
 ```
 
-**NOTE**: When choosing names from cloumns, make sure that you choose something simple, all lowercase, all uppercase, or CamelCase. Having spaces in column names is not a good idea!
+**NOTE**: When choosing names from columns, make sure that you choose something simple,
+all lowercase, all uppercase, or CamelCase. Having spaces in column makes it hard for R to
+deal with, and can lead to unexpected results.
 
 We select all columns *except for* by using '-' before the name of the columns we do not want to include, for example all columns except for A260 and A280:
 
@@ -450,11 +452,12 @@ experiment_data <-  select(experiment_info, Sample, `Yeast Strain`, A260, A280)
 </details>
 
 
-## Pipes
+### Pipes
 
-What if we want to `select` and `filter` at the same time? We use %>% (pipes) for that. Pipes are  available via the `magrittr` package, installed automatically with `dplyr`. If you use RStudio, you can type the pipe with `Ctrl + Shift + M` if you have a PC or `Cmd + Shift + M` if you have a Mac.
+What if we want to `select` and `filter` at the same time? We use %>% (pipes) for that.
+Pipes are  available via the `magrittr` package, installed automatically with `dplyr`. If you use RStudio, you can type the pipe with `Ctrl + Shift + M` if you have a PC or `Cmd + Shift + M` if you have a Mac as a shortcut to get to produce a pipe.
 
-We can combine the characteristics from Exercise 1 and 2 using pipes `%>%` :
+We can combine the two subsetting activities from Exercise 1 and 2 using pipes `%>%` :
 
 ```{r eval = FALSE}
 experiment_info_wt <- experiment_info %>% 
@@ -474,9 +477,9 @@ samples_sequenced <- experiment_info %>%
 ```
 </details>
 
-## Mutate
+### Mutate
 
-What if I want to create new columns? I use the function `mutate` for this. Let's convert our units into micrograms/microliter:
+What if I want to create a new column? I use the function `mutate` for this. Let's convert our units into micrograms/microliter:
 
 ```{r eval = FALSE}
 experiment_info %>% 
@@ -532,9 +535,9 @@ seq_samples <- library_start_diluted %>%
 ```
 </details>
 
-## Split-apply-combine
+### Split-apply-combine
 
-The approach of split-apply-combine allows you to *split* the data into groups, *apply* a function/analysis and then *combine* the results. We can do this usign `group-by()` and `summarize()`. 
+The approach of split-apply-combine allows you to *split* the data into groups, *apply* a function/analysis and then *combine* the results. We can do this usign `group_by()` and `summarize()`. 
 
 `group_by()` takes as *argument* the column names that contain categorical variables that we want to calculate summary stats for. For example, to determine the average RNA concetration per strain:
 
@@ -553,16 +556,17 @@ experiment_info %>%
             mean_total_RNA = mean(`Total RNA`))
 ```
 
-NOTE: Our table does not have missing values. However, we have in-built functions in R that can deal with this. We can filter values that are NOT na:
+**NOTE**: Our table does not have missing values. However, we have built-in functions in 
+R that can deal with this. We can filter values that are *not* NA:
 
 ```{r eval = FALSE}
 experiment_info %>% 
   group_by(`Yeast Strain`) %>% 
-  summarize(mean_concentration = mean(`Nucleic Acid Conc.`, na.rm = TRUE), # na.rm removes NA values while calculating the mean
+  summarize(mean_concentration = mean(`Nucleic Acid Conc.`, na.rm = TRUE), # remove NA values 
             mean_total_RNA = mean(`Total RNA`))
 
 experiment_info %>%  
-  filter(!is.na(`Nucleic Acid Conc.`)) %>%   # we filter out the values that are not NAs before we do any calculations
+  filter(!is.na(`Nucleic Acid Conc.`)) %>%   # filter out the values that are not NAs
   group_by(`Yeast Strain`) %>%  
   summarize(mean_concentration = mean(`Nucleic Acid Conc.`),
             mean_total_RNA = mean(`Total RNA`))
@@ -572,18 +576,18 @@ We can now arrange the data in ascending order (default of `arrange()`) or desce
 
 ```{r eval = FALSE}
 experiment_info %>% 
-  filter(!is.na(`Nucleic Acid Conc.`)) %>%  # we filter out the values that are not NAs before we do any calculations
+  filter(!is.na(`Nucleic Acid Conc.`)) %>%  # filter out the values that are not NAs 
   group_by(`Yeast Strain`) %>% 
   summarize(mean_concentration = mean(`Nucleic Acid Conc.`),
             mean_total_RNA = mean(`Total RNA`)) %>% 
-  arrange(mean_concentration) # arranges our new table in ascending mean concentrations
+  arrange(mean_concentration) # arrange new table in ascending mean concentrations
 
 experiment_info %>% 
-  filter(!is.na(`Nucleic Acid Conc.`)) %>%  # we filter out the values that are not NAs before we do any calculations
+  filter(!is.na(`Nucleic Acid Conc.`)) %>%  # filter out the values that are not NAs
   group_by(`Yeast Strain`) %>% 
   summarize(mean_concentration = mean(`Nucleic Acid Conc.`),
             mean_total_RNA = mean(`Total RNA`)) %>% 
-  arrange(desc(mean_concentration) # arranges our new table in descending mean concentrations
+  arrange(desc(mean_concentration) # arrange new table in descending mean concentrations
 ```
 
 Another useful function is `count()` to count categorical values:
@@ -593,11 +597,11 @@ experiment_info %>%
   count(`Yeast Strain`)
 ```
 
-# Combining Datasets using `join`
+### Combining Datasets using `join`
 
-In many ocassions we will have more than one table that we need to extract information from. We can easily do this in R using the family of `join` functions. 
+On many ocassions we will have more than one table that we need to extract information from. We can easily do this in R using the family of `join` functions. 
 
-We are going to first download extra information about the samples that we are are investigating and assing them to an object called *ena_info*:
+We are going to first download extra information about the samples that we are are investigating and assigning them to an object called *ena_info*:
 
 ```{r}
 ena_info <- read_tsv(file = 'https://osf.io/6s4cv/download')
@@ -621,11 +625,13 @@ summary(ena_info)
 ```
 </details>
 
-The `join` functions allow you to merge tables considering columns/rows characteristics, so that you can do cool stuff such as (taken from R cheatsheets!):
+The `join` functions allow you to merge tables on columns/rows characteristics, so that you can do cool stuff such as (taken from R cheatsheets!):
 
 ![](_static/join.png)
 
-We have run accession numbers in both our tibbles `sample_mapping` and `ena_info`. We want now to merge both datasets to link the characteristics present in both tables in one big table that contains everything. We need a column that has the same name in both tables. **Challenge**: which function would you use if the column names where not the same?
+We have run accession numbers in both our tibbles `sample_mapping` and `ena_info`. We want to merge both datasets to link the information present in both tables in one big table that contains everything. We need a column that has the same name in both tables.
+
+**Challenge**: which function would you use if the column names where not the same?
 
 ```{r}
 sample_mapping <- rename(sample_mapping, run_accession = RunAccession) # would rename a column called Sample into sample_number to match with the column sample_number in ena_info
@@ -665,33 +671,35 @@ head(yeast_metadata)
 We also want to create a table called `salmon_samples` that will include our 6 samples that we used in `salmon`, namely samples 'ERR458493','ERR458494','ERR458495','ERR458500','ERR458501'and 'ERR458502'.
 
 ```{r eval = FALSE}
-samples <- c('ERR458493','ERR458494','ERR458495','ERR458500','ERR458501','ERR458502') # we create a vector that includes the samples that we want to subset
+samples <- c('ERR458493', 'ERR458494', 'ERR458495', 'ERR458500', 'ERR458501', 'ERR458502') # create a vector that includes the samples that we want to subset
 salmon_samples <- yeast_metadata_inner %>% 
-  filter(run_accession %in% test$samples) # we filter rows based on these sample names
+  filter(run_accession %in% samples) # filter rows based on these sample names
 ```
 
-# Making plots with ggplot2
+## Making plots with ggplot2
 
-We have learnt how to manipulate datasets and combine them. We do this to have a table that is useful for our purposes, which in many occassions is to produce nice plots :). We are going to see the basics of how plotting happens in R using the package `ggplot2` which is part of `tidyverse`.
+We have learned how to manipulate datasets and combine them. We are now going to the
+basics of constructing a plot in `ggplot2` which is part of `tidyverse`.
 
-The basic *syntax* of ggplot2 is:
+The basic *syntax* of `ggplot2` is:
 
 ```{r eval = FALSE}
 ggplot(data = <DATA>, mapping = aes(<MAPPINGS>)) +
   <GEOM_FUNCTION>()
 ```
 
-We are going to make some simple plots to explore our yeast_metadata tibble. There is A LOT more that can be done, lots of options, etc! This is only a taste for what you can do in `ggplot2`. 
+We are going to explore our `yeast_metadata` tibble.
 
 We build plots in 'layers':
 
 ```{r eval = FALSE}
 ggplot(data = yeast_metadata)
 ```
-binds the plot to a specific data frame using the `data` argument
+
+Specifying `data` binds the plot to a specific data frame.
 
 ```{r eval = FALSE}
-ggplot(data = yeast_metadata, mapping = aes, mapping = aes(x = read_count, y = fastq_bytes))
+ggplot(data = yeast_metadata, mapping = aes(x = read_count, y = fastq_bytes))
 ```
 defines the mapping using `aes` (aesthetics of the plot) by selecting the variables to be plotted and how they will be plotted (e.g. x/y, size, shape, color...)
 
