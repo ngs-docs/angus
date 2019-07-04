@@ -78,10 +78,10 @@ There are 4 special words in the syntax of a For Loop in the shell: `for`, `in`,
 || **`done`** | tell the shell we are done telling it what to do with each item ||
 || | ||
 
-Let's see what this looks like in practice. Here we are going to: name the variable "item" (we can name this whatever we want); loop over 3 words (cat, dog, and ukulele); and we're going to just `echo` each item, which will print each word to the terminal. 
+Let's see what this looks like in practice. Here we are going to: name the variable "item" (we can name this whatever we want); loop over 3 words (lizard, dog, and ukulele); and we're going to just `echo` each item, which will print each word to the terminal. 
 
 ```bash
-for item in cat dog ukulele
+for item in lizard dog ukulele
 do
   echo $item
 done
@@ -92,13 +92,13 @@ done
 Just to note, we don't need to put these on separate lines, and we don't need to indent over the "body" of the loop like we did above (the **`echo $item`** part), but both can help with readability so we will continue doing that moving forward. As an example though, we could also enter it like this on one line, separating the major blocks with semicolons:
 
 ```bash
-for word in cat dog ukulele; do echo $word; done
+for word in lizard dog ukulele; do echo $word; done
 ```
 
 We can also do multiple things within the body of the loop (the lines between the special words **`do`** and **`done`**). Here we'll add another line that also writes the words into a file we'll call "words.txt":
 
 ```bash
-for item in cat dog ukulele
+for item in lizard dog ukulele
 do
   echo $item
   echo $item >> words.txt
@@ -128,7 +128,7 @@ Notice that we used <b>>></b> as the redirector inside the loop, and not <b>></b
 <pre>
 <span class="nb">
 
-for item in cat dog ukulele
+for item in lizard dog ukulele
 do
   echo $item
   echo $item > test.txt
