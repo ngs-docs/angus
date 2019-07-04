@@ -425,7 +425,7 @@ do
 
         trimmomatic SE ${base}.fastq.gz \
                 ${base}.qc.fq.gz \
-                ILLUMINACLIP:TruSeq2-PE.fa:2:0:15 \
+                ILLUMINACLIP:TruSeq2-SE.fa:2:0:15 \
                 LEADING:2 TRAILING:2 \
                 SLIDINGWINDOW:4:2 \
                 MINLEN:25
