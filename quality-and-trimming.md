@@ -319,21 +319,21 @@ The first thing we'll need is a file holding the adapters we need to trim off. T
 cp /opt/miniconda/pkgs/trimmomatic-*/share/trimmomatic-*/adapters/TruSeq2-SE.fa .
 ```
 
-(you can look at the contents of this file with `cat TruSeq2-PE.fa`)
+(you can look at the contents of this file with `cat TruSeq2-SE.fa`)
 
 Now, let's run Trimmomatic on a couple samples:
 
 ```
 trimmomatic SE ERR458493.fastq.gz \
         ERR458493.qc.fq.gz \
-        ILLUMINACLIP:TruSeq2-PE.fa:2:0:15 \
+        ILLUMINACLIP:TruSeq2-SE.fa:2:0:15 \
         LEADING:2 TRAILING:2 \
         SLIDINGWINDOW:4:2 \
         MINLEN:25
         
 trimmomatic SE ERR458500.fastq.gz \
         ERR458500.qc.fq.gz \
-        ILLUMINACLIP:TruSeq2-PE.fa:2:0:15 \
+        ILLUMINACLIP:TruSeq2-SE.fa:2:0:15 \
         LEADING:2 TRAILING:2 \
         SLIDINGWINDOW:4:2 \
         MINLEN:25
@@ -346,7 +346,7 @@ trimmomatic SE ERR458500.fastq.gz \
 > * `SE` - this is specified because we are working with single-ended data, rather than paired-end data where there are forward and reverse reads
 > * `ERR458493.fastq.gz` - the first positional argument we are providing is the input fastq file (note it is okay to provide compressed .gz files to trimmomatic)
 > * `ERR458493.qc.fq.gz` - the second positional argument specifies the name of the output files the program will generate
-> * `ILLUMINACLIP:TruSeq2-PE.fa:2:0:15` - here we are specifying the argument we're addressing "ILLUMINACLIP", first specifying the file holding the adapter sequences, then 3 numbers: "2" which states how many mismatches between the adapter sequence and what's found are allowed; "0" which is only relevant when there are forward and reverse reads; and "15" which specifies how accurate the match must be
+> * `ILLUMINACLIP:TruSeq2-SE.fa:2:0:15` - here we are specifying the argument we're addressing "ILLUMINACLIP", first specifying the file holding the adapter sequences, then 3 numbers: "2" which states how many mismatches between the adapter sequence and what's found are allowed; "0" which is only relevant when there are forward and reverse reads; and "15" which specifies how accurate the match must be
 > * `LEADING:2 TRAILING:2` - both of these are stating the minimum quality score at the start or end of the read, if lower, it will be trimmed off
 > * `SLIDINGWINDOW:4:2` - this looks at 4 basepairs at a time, and if the average quality of that window of 4 drops below 2, the read is trimmed there
 > * `MINLEN:25` - after all the above trimming steps, if the read is shorter than 25 bps, it will be discarded
