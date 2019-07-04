@@ -65,6 +65,8 @@ To create a new environment named, for instance mynewenv (you can name it what e
 conda create --name mynewenv
 ```
 
+
+
 ## Activating and leaving (deactivating) an environment
 
 Inside a new Conda installation, the root environment is activated by default, so you can use it without activation.
@@ -187,6 +189,41 @@ will install those packages in your local environment.
 | `conda remove`     | Remove a conda package     |
 | `conda config --get channels`     | list out the active channels and their priorities     |
 | `conda update`     | update all the installed packages     |
+| `conda config --remove channels unwanted_channel` | remove unwanted_channel |
+| `conda env list` | list the different environments you have set up | 
+| `conda activate myNewEnvironment` | activate the myNewEnvironment Conda environment (this also works for activating our `base` environment |
+| `conda info --envs` | list the locations of Conda directories |
+
+## A note on the management Conda Environments
+Conda environments are expceptionally useful! However, they can become quite large depending on how many packages we load into them. We can check how large any of our Conda enviroments are by finding the path to the environment directory and then estimating the file space usage of that directory.
+
+First, let's find where we put out `mynewenv` directory
+```
+conda info --envs
+```
+This will print out a list of the locations of our Conda environments.
+
+```
+# conda environments:
+#
+base                  *  /opt/miniconda
+mynewenv                 /opt/miniconda/envs/mynewenv
+```
+
+Next, let's use the command `du` to estimate the space our `mynewenv` directory is taking up!
+
+```
+du -sh /opt/miniconda/envs/mynewenv/
+```
+
+We can see our `mynewenv` environment is taking up about 12K of space. 
+
+```
+12K	/opt/miniconda/envs/mynewenv/
+```
+
+**QUESTION: How much space is your `base` environment taking up?**
+
 
 
 ## More Reading on Conda
