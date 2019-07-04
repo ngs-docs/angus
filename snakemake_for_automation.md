@@ -241,10 +241,10 @@ rule fastqc_raw:
     '''
 
 rule unzip_fastqc_raw:
-    input: "fastqc_raw/ERR4558493_fastqc.zip"
-    output: directory("fastqc_raw/ERR4558493_fastqc")
+    input: "fastqc_raw/ERR458493_fastqc.zip"
+    output: "fastqc_raw/ERR458493_fastqc/summary.txt"
     shell:'''
-    unzip {input}
+    unzip -d fastqc_raw/ {input}
     '''
 ```
 
@@ -268,7 +268,7 @@ in our workflow, this is our fastqc sample directory.. Let's add a rule all.
 ```
 rule all:
     input:
-        directory("fastqc_raw/ERR458493_fastqc")
+        "fastqc_raw/ERR458493_fastqc/summary.txt"
 
 rule fastqc_raw:
     input: "data/ERR458493.fastq.gz"
@@ -281,10 +281,9 @@ rule fastqc_raw:
 
 rule unzip_fastqc_raw:
     input: "fastqc_raw/ERR458493_fastqc.zip"
-    output: directory("fastqc_raw/ERR458493_fastqc")
+    output: "fastqc_raw/ERR458493_fastqc/summary.txt"
     shell:'''
-    unzip {input}
-    '''
+    unzip -d fastqc_raw/ {input}
 ```
 
 And it worked! Now we see output like this:
@@ -309,18 +308,47 @@ Snakemake now has two processes it's keeping track of.
 So far we've been using snakemake to process one sample. However, we have 6! 
 Snakemake is can be flexibly extended to more samples using wildcards. 
 
+We already saw wildcards previously. 
 
-## The complete snakefile
+When we specified the output file path with `{input}`, `{input}` was a
+wildcard. The wildcard is equivalent to the value we specified for `{output}`.
 
-You can find the complete snakefile we constructed below. It is also available 
-for download (here)[]. 
 ```
+rule unzip_fastqc_raw:
+    input: "fastqc_raw/ERR458493_fastqc.zip"
+    output: "fastqc_raw/ERR458493_fastqc/summary.txt"
+    shell:'''
+    unzip -d fastqc_raw/ {input}
+    '''
+```
+
+We can create our own wildcard too. This is really handy for running our
+workflow on all of our samples.  
+
+```
+SAMPLES=['ERR458493', 'ERR458494', 'ERR458495', 'ERR458500', 'ERR458501', 
+'ERR458502']
+
 rule all:
     input:
-        expand("outputs/fastqci/{samples}.html", sample = SAMPLES)
-    
-SAMPLES=["ERR..", "ERR.."]
+        expand("fastqc_raw/{sample}_fastqc/summary.txt", sample = SAMPLES)
 
 rule fastqc_raw:
-    input:
-```    
+    input: "data/{sample}.fastq.gz"
+    output: 
+        "fastqc_raw/{sample}_fastqc.html",
+        "fastqc_raw/{sample}_fastqc.zip"
+    shell:'''
+    fastqc -o fastqc_raw {input}
+    '''
+
+rule unzip_fastqc_raw:
+    input: "fastqc_raw/{sample}_fastqc.zip"
+    output: "fastqc_raw/{sample}_fastqc/summary.txt"
+    shell:'''
+    unzip -d fastqc_raw/ {input}
+    '''
+```
+
+And we have now run these rules for each of our samples!
+
