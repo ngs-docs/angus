@@ -20,7 +20,7 @@ cd quality
 curl -L https://osf.io/wfz34/download -o ERR458493.qc.fq.gz
 curl -L https://osf.io/jxh4d/download -o ERR458494.qc.fq.gz
 curl -L https://osf.io/zx7n3/download -o ERR458495.qc.fq.gz
-curl -L https://osf.io/96mrj/download -o ERR458500.qc.fq.gz.
+curl -L https://osf.io/96mrj/download -o ERR458500.qc.fq.gz
 curl -L https://osf.io/wc8yn/download -o ERR458501.qc.fq.gz
 curl -L https://osf.io/sdtz3/download -o ERR458502.qc.fq.gz
 ```
@@ -139,8 +139,41 @@ We can also look at the count file:
 less -S ERR458493.qc.fq.gz_quant/quant.sf
 ```
 
+
 We see our transcript names, as well as the number of reads that aligned to 
-each transcript. In our next lesson, we will be reading these quant files into 
+each transcript. 
+
+<blockquote>
+<center><b>PRACTICE!</b></center>
+
+How can we use the `grep` command to find the mappability percentages (<i>percent_mapped</i>) in ALL our json files? Make sure to print out the name of each file before you print the mappability percentage!
+
+<div class="toggle-header closed">
+    <strong>Solution</strong>
+</div>
+
+<div class="toggle-content docutils container" style="width:100%">
+
+<div class="highlight-bash notranslate">
+<div class="highlight">
+<pre>
+<span class="nb">cd ~/quant/
+for infile in *_quant/aux_info/meta_info.json
+do
+echo ${infile}
+grep "percent_mapped" ${infile}
+done</span>
+</pre>
+</div>
+</div>
+
+First we use `echo` to print the name of the file. Then, we use `grep` to find and print the line containing the mappability percentage.
+<br>
+
+</div>
+</blockquote>
+
+In our next lesson, we will be reading these quant files into 
 R and performing differential expression with them.
 "Salmon provides accurate, fast, and bias-aware transcript expression estimates using dual-phase inference" [Patro et al., 2016](http://biorxiv.org/content/early/2016/08/30/021592).
 
