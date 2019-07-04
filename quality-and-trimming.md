@@ -316,7 +316,7 @@ We'll be using
 The first thing we'll need is a file holding the adapters we need to trim off. These are artificial and added as part of the sequencing process. The trimmomatic program comes with standard adapter files, so here we are going to copy them over to our current working directory.
 
 ```
-cp /opt/miniconda/pkgs/trimmomatic-*/share/trimmomatic-*/adapters/TruSeq2-PE.fa .
+cp /opt/miniconda/pkgs/trimmomatic-*/share/trimmomatic-*/adapters/TruSeq2-SE.fa .
 ```
 
 (you can look at the contents of this file with `cat TruSeq2-PE.fa`)
