@@ -258,7 +258,7 @@ mkdir -p ~/Desktop/fastqc_html
 Now we can transfer our HTML files to our local computer using `scp`, which will look something like this:
 
 ```
-scp username@ipaddress:~/quality/*.html ~/Desktop/fastqc_html
+scp username@ipaddress:~/quality/*.html ~/Desktop/fastqc_html/
 ```
 
 The first part of the command is the address for your remote 
