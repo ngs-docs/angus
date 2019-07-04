@@ -14,7 +14,14 @@ editor_options:
   chunk_output_type: console
 ---
 
-## Getting started
+```{r setup, include=FALSE}
+# This will set the default knitr options
+knitr::opts_chunk$set(eval = FALSE, echo = TRUE, cache = FALSE, include = TRUE, 
+                      warning = FALSE, collapse = FALSE, message = FALSE, error = FALSE)  
+```
+
+
+# Getting started
 
 Start up a Jetstream m1.medium or larger
 [as per Jetstream startup instructions](jetstream/boot.html).
@@ -53,7 +60,8 @@ where you type your username and the password that you have set.
 
 ### Installing on your own computer:
 
-We will be using R and RStudio in the cloud. To use RStudio on your computer, you can download R and RStudio. If you do not have R and RStudio installed:
+We will be using R and RStudio in the cloud. To use RStudio on your computer, you can download R and RStudio. If you do not have R and RStudio installed:  
+
 - Download R from CRAN:https://cran.r-project.org/
 - Go to RStudio download page and install the version that is compatible with your operating system: https://www.rstudio.com/products/rstudio/download/#download
 This [link](https://datacarpentry.org/R-ecology-lesson/) provides futher instructions on
@@ -85,10 +93,14 @@ When you execute a line of your script, it is sent to the console. While the scr
 permanent record of everything you ran, the console is the engine that runs those things. 
 You can run code from a script or the console, but it is only recorded in scripts. 
 
-There are two additional panes in RStudio. The Environment pane records the objects that
-are in our current environment, while the Plots/Viewer/Packages/Files/Help pane provides
-a space for us to interact with plots and files we create and with built-in help files in
-R. 
+There are two additional panes in RStudio:  
+
+1. **Environment/History/Connections pane**
+    - **Environment Pane**: This pane records the objects that are currently loaded in our RStudio environment. This includes any data object that we created and the basic information about them. 
+    - **History Pane**: This has output similar to the `history` command that we used in the shell. It records all of the commands that we have executed in the R console.
+2. **Files/Plots/Packages/Help/Viewer** pane provides
+a space for us to interact with plots and files we create and with built-in help files in R.  
+    - **Packages Pane**: A place to organize the packages within RStudio. Allows easy installation or loading (`library()`) of the packages we have.  
 
 And now we're ready to start the fun part!
 
@@ -292,7 +304,7 @@ strains # R orders alphabetically
 Once created, factors can only contain a pre-defined set of values, known as levels. By default, R always sorts `levels` in alphabetical order. We can reorder them using the 
 `levels` argument. 
 
-```{r}
+```{r eval=FALSE}
 strains <- factor(strains, levels = c('WT', 'snf1', 'snf2', 'snf1_snf2')) # we reorder them as we want them
 strains 
 ```
@@ -330,15 +342,12 @@ and 'linkable' between technical and biological replicates.
 We are going to explore those datasets using RStudio, combining a both base R and an
 umbrella package called *tidyverse*. 
 
-We are going to first make a directory called 'data' where we are going to store our raw
-data for analysis using the Terminal, from either Atmosphere or RStudio (tab next to
-Console). 
 
-```{bash eval=FALSE}
-mkdir R/data
+```{r echo = TRUE}
+library('tidyverse')
 ```
 
-```{r echo = FALSE}
+```{r eval = TRUE, echo = FALSE}
 library('tidyverse')
 ```
 
@@ -349,6 +358,8 @@ using `read_tsv()`:
 ```{r}
 experiment_info <- read_tsv(file = 'https://osf.io/pzs7g/download/')
 ```
+
+
 
 Let's investigate your new data using some exploratory functions:
 
@@ -380,6 +391,7 @@ The 9th column has no name, but we can change this using `rename()`:
 ```{r eval = FALSE}
 experiment_info <- rename(experiment_info, units = X9)
 ```
+
 
 ### Manipulating data with **dplyr**
 
@@ -415,6 +427,7 @@ So let's store that in `experiment_info`:
 experiment_info <- select(experiment_info, Sample, `Yeast Strain`, `Nucleic Acid Conc.`, A260, A280, `260/280`, `Total RNA`)
 ```
 
+
 **NOTE**: When choosing names from columns, make sure that you choose something simple,
 all lowercase, all uppercase, or CamelCase. Having spaces in column makes it hard for R to
 deal with, and can lead to unexpected results.
@@ -431,13 +444,22 @@ We can also `filter` rows based on conditions in a column:
 filter(experiment_info, `Nucleic Acid Conc.` > 1500)
 ```
 
+```{r eval = TRUE, echo = FALSE}
+# To allow ggplots below to match that of the learners for the exercises
+experiment_info <- read_tsv(file = 'https://osf.io/pzs7g/download/')
+experiment_info <- experiment_info[ , 1:9] # subset all rows and columns 1 to 9
+experiment_info <- rename(experiment_info, units = X9)
+experiment_info <- select(experiment_info, Sample, `Yeast Strain`, `Nucleic Acid Conc.`, A260, A280, `260/280`, `Total RNA`)
+```
+
 ### Exercise 1 
 >Select the columns Sample, Yeast Strain, A260 and A280 and assign that to a new object called experiment_data. 
 
 <details>
   <summary><strong><font color="#6B33FF">Solution #1</font></strong></summary>
-```{r exercise1, eval = FALSE, foldcode=TRUE}
+```{r exercise1, eval = TRUE, foldcode=TRUE}
 experiment_data <-  select(experiment_info, Sample, `Yeast Strain`, A260, A280)
+head(experiment_data)
 ```
 </details>
 
@@ -446,8 +468,9 @@ experiment_data <-  select(experiment_info, Sample, `Yeast Strain`, A260, A280)
 
 <details>
   <summary><strong><font color="#6B33FF">Solution #2</font></strong></summary>
-```{r exercise2, eval = FALSE, foldcode=FALSE}
-  wild_type <- filter(experiment_info, `Yeast Strain` %in% 'WT' & `Nucleic Acid Conc.` > 1500)
+```{r exercise2, eval = TRUE, foldcode=FALSE}
+wild_type <- filter(experiment_info, `Yeast Strain` %in% 'WT' & `Nucleic Acid Conc.` > 1500)
+head(wild_type)
 ```
 </details>
 
@@ -470,10 +493,12 @@ experiment_info_wt <- experiment_info %>%
 
 <details>
   <summary><strong><font color="#6B33FF">Solution #3</font></strong></summary>
-```{r exercise3, eval = FALSE}
+```{r exercise3, eval = TRUE}
 samples_sequenced <- experiment_info %>% 
   filter(`Nucleic Acid Conc.` < 1500 & `Total RNA` >= 40) %>% 
-  select(Sample, `Yeast Strain`,`Nucleic Acid Conc.`,`Total RNA`)
+  select(Sample, `Yeast Strain`,`Nucleic Acid Conc.`,`Total RNA`)  
+
+samples_sequenced
 ```
 </details>
 
@@ -500,11 +525,13 @@ experiment_info %>%
 
 <details>
   <summary><strong><font color="#6B33FF">Solution #4</font></strong></summary>
-```{r exercise4, eval = FALSE}
+```{r exercise4, eval = TRUE}
 library_start <- experiment_info %>% 
   mutate(RNA_100 = 100/ `Nucleic Acid Conc.`,
           water = 50 - RNA_100) %>% 
-  select(Sample, `Yeast Strain`, RNA_100, water)
+  select(Sample, `Yeast Strain`, RNA_100, water)  
+
+head(library_start)
 ```
 </details>
 
@@ -514,11 +541,13 @@ library_start <- experiment_info %>%
 
 <details>
   <summary><strong><font color="#6B33FF">Solution #5</font></strong></summary>
-```{r eval = FALSE}
+```{r exercise5, eval = TRUE}
 library_start_diluted <-  experiment_info %>% 
   mutate(diluted_RNA = 10/ `Nucleic Acid Conc.`,
           water = 50 - diluted_RNA) %>% 
-  select(Sample, `Yeast Strain`, `A260`, `A280`, diluted_RNA, water)
+  select(Sample, `Yeast Strain`, `A260`, `A280`, diluted_RNA, water)  
+
+head(library_start_diluted)
 ```
 </details>
 
@@ -527,13 +556,16 @@ library_start_diluted <-  experiment_info %>%
 
 <details>
   <summary><strong><font color="#6B33FF">Solution #6</font></strong></summary>
-```{r eval = FALSE}
+```{r exercise6, eval = TRUE}
 seq_samples <- library_start_diluted %>%
   mutate(A260_A280 = `A260`/`A280`) %>% 
   filter(A260_A280 >= 2.2) %>% 
   select(Sample, `Yeast Strain`, A260_A280, diluted_RNA, water)
+
+head(seq_samples)
 ```
 </details>
+
 
 ### Split-apply-combine
 
@@ -608,12 +640,16 @@ ena_info <- read_tsv(file = 'https://osf.io/6s4cv/download')
 sample_mapping <- read_tsv(file = 'https://osf.io/uva3r/download')
 ```
 
+```{r echo = FALSE, eval = TRUE}
+ena_info <- read_tsv(file = 'https://osf.io/6s4cv/download')
+```
+
 ### Exercise 7  
 >Explore your new dataset ena_info and sample_mapping. What commands can you use?
 
 <details>
   <summary><strong><font color="#6B33FF">Solution #7</font></strong></summary>
-```{r eval = FALSE}
+```{r exercise7, eval = TRUE}
 head(ena_info)
 tail(ena_info)
 str(ena_info)
@@ -633,9 +669,15 @@ We have run accession numbers in both our tibbles `sample_mapping` and `ena_info
 
 **Challenge**: which function would you use if the column names where not the same?
 
+
 ```{r}
 sample_mapping <- rename(sample_mapping, run_accession = RunAccession) # would rename a column called Sample into sample_number to match with the column sample_number in ena_info
 yeast_metadata_right <- right_join(ena_info, sample_mapping, by = "run_accession") # this will join both tables matching rows from experiment_info in ena_info
+```
+
+```{r eval = TRUE, echo = FALSE}
+sample_mapping <- read_tsv(file = 'https://osf.io/uva3r/download')
+sample_mapping <- rename(sample_mapping, run_accession = RunAccession) # would rename a column called Sample into sample_number to match with the column sample_number in ena_info
 ```
 
 That is a big table! 
@@ -645,9 +687,11 @@ That is a big table!
 
 <details>
   <summary><strong><font color="#6B33FF">Solution #8</font></strong></summary>
-```{r}
+```{r exercise8, eval = TRUE}
 yeast_metadata_inner <- inner_join(ena_info, sample_mapping, by = "run_accession")
-yeast_metadata_left <- left_join(ena_info, sample_mapping, by = "run_accession")
+head(yeast_metadata_inner)
+yeast_metadata_left <- left_join(ena_info, sample_mapping, by = "run_accession") 
+head(yeast_metadata_left)
 ```
 </details>
 
@@ -658,7 +702,7 @@ We will work from now onwards with the tibble `yeast_metadata_inner`.
 
 <details>
   <summary><strong><font color="#6B33FF">Solution #9</font></strong></summary>
-```{r}
+```{r exercise9, eval = TRUE}
 yeast_metadata <-  yeast_metadata_inner %>% 
   rename(yeast_strain = Sample, lane = Lane, biol_rep = BiolRep) %>% 
   filter(lane == 1) %>% 
@@ -692,18 +736,18 @@ We are going to explore our `yeast_metadata` tibble.
 
 We build plots in 'layers':
 
-```{r eval = FALSE}
+```{r eval = TRUE}
 ggplot(data = yeast_metadata)
 ```
 
 Specifying `data` binds the plot to a specific data frame.
 
-```{r eval = FALSE}
+```{r eval = TRUE}
 ggplot(data = yeast_metadata, mapping = aes(x = read_count, y = fastq_bytes))
 ```
 defines the mapping using `aes` (aesthetics of the plot) by selecting the variables to be plotted and how they will be plotted (e.g. x/y, size, shape, color...)
 
-```{r}
+```{r eval = TRUE}
 ggplot(data = yeast_metadata, mapping = aes(x = read_count, y = fastq_bytes)) +
   geom_point()
 ```
@@ -717,48 +761,48 @@ which sets what type of plot we want to have (boxplot, lines, bars):
 
 We can modify plots to extract more information. We can add transparency:
 
-```{r}
+```{r eval = TRUE}
 ggplot(data = yeast_metadata, mapping = aes(x = read_count, y = fastq_bytes)) +
   geom_point(alpha = 0.1)
 ```
 
 or change the color of the points:
 
-```{r}
+```{r eval = TRUE}
 ggplot(data = yeast_metadata, mapping = aes(x = read_count, y = fastq_bytes)) +
   geom_point(alpha = 0.1, color = "red")
 ```
 
 Or color each strain differently:
 
-```{r}
+```{r eval = TRUE}
 ggplot(data = yeast_metadata, mapping = aes(x = read_count, y = fastq_bytes)) +
   geom_point(alpha = 1, aes(color = yeast_strain))
 ```
 
 We can also specify the color inside the mapping: 
 
-```{r}
+```{r eval = TRUE}
 ggplot(data = yeast_metadata, mapping = aes(x = read_count, y = fastq_bytes, color = yeast_strain)) +
   geom_point(alpha = 1)
 ```
 
 or try different geom layers:
 
-```{r}
+```{r eval = TRUE}
 ggplot(data = yeast_metadata, mapping = aes(x = read_count, y = fastq_bytes, color = yeast_strain)) +
   geom_jitter(alpha = 1)
 ```
 
 We can use boxplots to see the distribution of reads within strains:
 
-```{r}
+```{r eval = TRUE}
 ggplot(data = yeast_metadata, mapping = aes(x = yeast_strain, y = read_count)) +
   geom_boxplot()
 ```
 This is useful, but if we add dots to the boxplots we will have a better idea of the number of measurements and their distribution:
 
-```{r}
+```{r eval = TRUE}
 ggplot(data = yeast_metadata, mapping = aes(x = yeast_strain, y = read_count)) +
   geom_boxplot(alpha = 0.1) +
   geom_jitter(alpha = 1, color = "tomato")
@@ -769,7 +813,7 @@ ggplot(data = yeast_metadata, mapping = aes(x = yeast_strain, y = read_count)) +
 
 <details>
   <summary><strong><font color="#6B33FF">Solution #10</font></strong></summary>
-```{r}
+```{r exercise10, eval = TRUE}
 ggplot(data = yeast_metadata, mapping = aes(x = yeast_strain, y = read_count)) +
   geom_violin(alpha = 0.1) +
   geom_jitter(alpha = 1, color = "tomato")
@@ -781,7 +825,7 @@ ggplot(data = yeast_metadata, mapping = aes(x = yeast_strain, y = read_count)) +
 
 <details>
   <summary><strong><font color="#6B33FF">Solution #11</font></strong></summary>
-```{r}
+```{r exercise11, eval = TRUE}
 ggplot(data = yeast_metadata, mapping = aes(x = yeast_strain, y = read_count)) +
   scale_y_log10() + 
   geom_boxplot(alpha = 0.1) +
@@ -795,7 +839,7 @@ ggplot(data = yeast_metadata, mapping = aes(x = yeast_strain, y = read_count)) +
 
 <details>
   <summary><strong><font color="#6B33FF">Solution #12</font></strong></summary>
-```{r}
+```{r exercise12, eval = TRUE}
 # Basic histogram
 ggplot(data = yeast_metadata, aes(x=read_count)) + 
   geom_histogram()
@@ -843,12 +887,12 @@ ggplot(data = yeast_metadata, aes(x=read_count, fill = yeast_strain)) +
 
 <details>
   <summary><strong><font color="#6B33FF">Solution #13</font></strong></summary>
-```{r}
+```{r exercise13, eval = TRUE}
 # To do so, we need to calculate the mean_read_count in a new data frame
 mean_yeast_data <- yeast_metadata %>%
   group_by(yeast_strain) %>%
   summarise(mean_read_count = mean(read_count))
-mean_yeast_data
+head(mean_yeast_data)
 
 # Add the mean read_count with vline
 ggplot(data = yeast_metadata, aes(x=read_count, fill = yeast_strain)) + 
