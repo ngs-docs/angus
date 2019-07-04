@@ -59,7 +59,7 @@ Room Conway will be led by [Sateesh Peri](https://twitter.com/perisateesh?lang=e
 
 * **9:00-10:20am:** [Quality Control & Adapter Trimming of Sequences](quality-and-trimming.md)
 	* **10:20-10:40am:** BREAK
-* **10:40am-12:00pm:** [Read Quantification](salmon-quant.md)
+* **10:40am-12:00pm:** [Read Quantification](salmon-quant.md) / [Finding resources](finding_resources_online.md)
 	* **BREAK FOR THE DAY - 4th of July Activities**
 
 
