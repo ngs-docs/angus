@@ -22,7 +22,7 @@ Room Conway will be led by [Sateesh Peri](https://twitter.com/perisateesh?lang=e
 
 **Monday, July 1st, 2019:**  
 
-* **1:30-2:20pm:**[Welcome to ANGUS 2019 slides](http://bit.ly/2019_ANGUS_Welcome)
+* **1:30-2:20pm:** [Welcome to ANGUS 2019 slides](http://bit.ly/2019_ANGUS_Welcome)
 	* **2:20-2:30pm:** BREAK
 * **2:30-3:30pm:** Room Welcomes
 	* **3:30-3:45pm:** BREAK
@@ -44,38 +44,37 @@ Room Conway will be led by [Sateesh Peri](https://twitter.com/perisateesh?lang=e
 **Wednesday, July 3rd, 2019:**
 
 * **9:00-9:15am:** **Meet in Lecture Room (1030) for quick meeting**
-* **9:20-10:20am:** [Logging onto the Cloud](jetstream/boot.md) or continue with [Introduction to the Shell](shell_intro/index.html)
+* **9:20-10:20am:** Wrapping up [Introduction to the Shell](shell_intro/index.html)
 	* **10:20-10:40am:** BREAK
-* **10:40am-12:00pm:** [Logging onto the Cloud](jetstream/boot.md) and/or [Conda](conda_tutorial.md) 
+* **10:40am-12:00pm:** Wrapping up [Introduction to the Shell](shell_intro/index.html)
 	* **12:00-1:00pm:** LUNCH
 * **1:00-2:00pm:** [Amanda Charbonneau](https://twitter.com/procrastinomics?lang=en): How to statistics [Slides](https://github.com/ngs-docs/angus/blob/2019/StatsNstuff.pdf)
 	* **2:00-2:10pm:** BREAK
-* **2:15-3:30pm:** [Quality Control & Adapter Trimming of Sequences](quality-and-trimming.md)
+* **2:15-3:30pm:** [Logging onto the Cloud](jetstream/boot.md)
 	* **3:30-3:50pm:** BREAK
-* **3:50-5:00pm:** [Read Quantification](salmon-quant.md) 
+* **3:50-5:00pm:** [Conda](conda_tutorial.md)
 	* **5:00pm:** DONE
 	
 **Thursday, July 4th, 2019**
 
-* **9:00-10:20am:** Introduction to R & RStudio
+* **9:00-10:20am:** [Quality Control & Adapter Trimming of Sequences](quality-and-trimming.md)
 	* **10:20-10:40am:** BREAK
-* **10:40am-12:00pm:** Introduction to R & RStudio
+* **10:40am-12:00pm:** [Read Quantification](salmon-quant.md)
 	* **BREAK FOR THE DAY - 4th of July Activities**
 
 
 **Friday, July 5th, 2019**
 
-* **9:00-10:20am:** RNAseq - Differential Expression
+* **9:00-10:20am:** Introduction to R & RStudio
 	* **10:20-10:40am:** BREAK
-* **10:40am-12:00pm:** RNAseq - Visualization
+* **10:40am-12:00pm:** Introduction to R & RStudio
 	* **12:00-1:00pm:** LUNCH
 * **1:00-2:00pm:** [Rayna Harris](https://twitter.com/raynamharris?lang=en) - RNAseq: a five course meal
 	* **2:00-2:10pm:** BREAK
-* **2:15-3:30pm:** Transcriptome Assembly
+* **2:15-3:30pm:** RNAseq - Differential Expression
 	* **3:30-3:50pm:** BREAK
-* **3:50-5:00pm:** Transcriptome Annotation
+* **3:50-5:00pm:** RNAseq - Visualization
 	* **5:00pm:** DONE
-
 
 
 ## Second week: July 8-13, 2019.
@@ -111,9 +110,9 @@ Room Conway will be led by [Sateesh Peri](https://twitter.com/perisateesh?lang=e
 
 **Wednesday, July 10th, 2019**
 
-* **9a:00-10:20am:** Elective Labs & BYOD
+* **9a:00-10:20am:** Transcriptome Assembly
 	* **10:20-10:40am:** BREAK
-* **10:40am-12:00pm:** Elective Labs & BYOD
+* **10:40am-12:00pm:** Transcriptome Annotation
 	* **12:00-1:00pm:** LUNCH
 * **1:00-2:00pm:** [Erich Schwarz](https://twitter.com/ErichMSchwarz?lang=en) - Doing science with big genomes
 	* **2:00-2:10pm:** BREAK
