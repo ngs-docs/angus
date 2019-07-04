@@ -191,7 +191,7 @@ will install those packages in your local environment.
 | `conda update`     | update all the installed packages     |
 | `conda config --remove channels unwanted_channel` | remove unwanted_channel |
 | `conda env list` | list the different environments you have set up | 
-| `conda activate myNewEnviroment` | activate the myNewEnvironment Conda environment (this also works for activating our `base` environment |
+| `conda activate myNewEnvironment` | activate the myNewEnvironment Conda environment (this also works for activating our `base` environment |
 | `conda info --envs` | list the locations of Conda directories |
 
 ## A note on the management Conda Environments
