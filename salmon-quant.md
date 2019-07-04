@@ -2,7 +2,7 @@
 
 Learning objectives:
 
-* Install read quantification data
+* Install read quantification program Salmon
 * Learn quantification of RNA-seq data
 
 
@@ -33,7 +33,7 @@ transcripts (either from a reference or de-novo assembly) to quantify and
 FASTA/FASTQ file(s) containing your reads. 
 
 Salmon runs in two phases, indexing and quantification. The indexing step is 
-independent of the reads, and only need to be run one for a particular set of 
+independent of the reads, and only needs to be run one for a particular set of 
 reference transcripts. The quantification step is specific to the set of RNA-seq
 reads and is thus run more frequently. 
 
@@ -98,9 +98,9 @@ What do all of these flags do?
 | --libType | The library type of the reads you are quantifying. `A` allows salmon to automatically detect the library type of the reads you are quantifying. |
 | -r | Input file (for single-end reads) |
 | -o | output folder |
-| --seqBias | learn and correct for sequence-specific biases in the input data |
-| --gcBias | learn and correct for fragment-level GC biases in the input data |
-| --validateMappings | Enables selective alignment, which improves salmon's sensitivity |
+| --seqBias | learn and correct for [sequence-specific biases](https://salmon.readthedocs.io/en/latest/salmon.html#seqbias) in the input data |
+| --gcBias | learn and correct for [fragment-level GC biases](https://salmon.readthedocs.io/en/latest/salmon.html#seqbias) in the input data |
+| --validateMappings | Enables [selective alignment](https://salmon.readthedocs.io/en/latest/salmon.html#validatemappings), which improves salmon's sensitivity |
 
 As Salmon is running, a lot of information is printed to the screen. For example,
 we can see the mapping rate as the sample finishes:
@@ -146,7 +146,7 @@ each transcript.
 <blockquote>
 <center><b>PRACTICE!</b></center>
 
-How can we use the `grep` command to find the mappability percentages (<i>percent_mapped</i>) in ALL our json files? Make sure to print out the name of each file before you print the mappability percentage!
+How can we use the `grep` command to find the percent of reads mapped in ALL our json files? Make sure to print out the name of each file before you print the percent of reads mapped!
 
 <div class="toggle-header closed">
     <strong>Solution</strong>
@@ -167,7 +167,7 @@ done</span>
 </div>
 </div>
 
-First we use `echo` to print the name of the file. Then, we use `grep` to find and print the line containing the mappability percentage.
+First we use `echo` to print the name of the file. Then, we use `grep` to find and print the line containing the percent of reads mapped.
 <br>
 
 </div>
