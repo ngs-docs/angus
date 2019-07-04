@@ -47,7 +47,7 @@ Make a "data" directory:
 
 ```
 cd ~/
-mkdir -p data
+mkdir data
 cd data
 ```
 
@@ -163,7 +163,7 @@ We'll talk about what these files are below.
 
 First, make a new working directory:
 ```
-mkdir -p ~/quality
+mkdir ~/quality
 cd ~/quality
 ```
 
@@ -252,7 +252,7 @@ you can open a new tab you can use the pull down menu at the top of your
 screen or the `cmd + t` or maybe `ctrl + t` keyboard shortcut). Type:
 
 ```
-mkdir -p ~/Desktop/fastqc_html 
+mkdir ~/Desktop/fastqc_html 
 ```
 
 Now we can transfer our HTML files to our local computer using `scp`, which will look something like this:
