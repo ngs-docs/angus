@@ -753,6 +753,7 @@ head(seq_samples)
     ## 6     11 snf2                2.20     0.00963  50.0
 
 </details>
+
 ### Split-apply-combine
 
 The approach of split-apply-combine allows you to *split* the data into
