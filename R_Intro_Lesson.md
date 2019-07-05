@@ -1,9 +1,5 @@
 Getting started
 ===============
-
-Start up a Jetstream m1.medium or larger [as per Jetstream startup
-instructions](jetstream/boot.html).
-
 ------------------------------------------------------------------------
 
 ### Using RStudio on Jetstream
@@ -13,35 +9,27 @@ pre-installed RStudio on the workshop image. Start up a Jetstream
 m1.medium or larger using the ANGUS 2019 image [as per Jetstream startup
 instructions](jetstream/boot.html). Connect to your instance.
 
-We will need a password to connect to RStudio. We can set the password
-to our instance by running the following commands in bash (the password
-will not be visible on the screen):
-
-``` bash
-sudo passwd $USER
-```
-
-We will also need our instance username to connect to RStudio. To
+We will need our instance username to connect to RStudio. To
 determine what your username is, run:
 
 ``` bash
 echo My username is $USER
 ```
 
-Lastly, find the RStudio server interface Web address (by default in
-port 8787) by running the following command:
+The link for the RStudio server interface is built with our instance's IP address (by default in
+port 8787), which we can get from the terminal by running the following command:
 
 ``` bash
-echo http://(hostname):8787/
+echo http://$(hostname -i):8787/
 ```
 
-Now go to the web address printed to your terminal in your Web browser
-and log in with the username and password that you set above. You should
-see something that looks like:
+> `hostname` is a command in the terminal that will get various information about our computers. Using it with the `-i` option returns our computer's IP address. So surrounding it within parentheses preceded by the `$` means the command line will execute that command first, put the output of that command in it's place (our IP address), and then run the `echo` command which then prints out the proper link to our RStudio server 😊
+
+Now go to the web address printed to your terminal in your Web browser, which should look something like this: 
 
 ![](_static/RStudio.png)
 
-where you type your username and the password that you have set.
+and log in with the username and password we will provide. 
 
 ### Installing on your own computer:
 
