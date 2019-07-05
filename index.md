@@ -67,7 +67,7 @@ Room Conway will be led by [Sateesh Peri](https://twitter.com/perisateesh?lang=e
 
 * **9:00-10:20am:** [Finding resources](finding_resources_online.md)
 	* **10:20-10:40am:** BREAK
-* **10:50am-12:00pm:** [Rayna Harris](https://twitter.com/raynamharris?lang=en) - RNAseq: a five course meal
+* **10:50am-12:00pm:** [Rayna Harris](https://twitter.com/raynamharris?lang=en) - RNAseq: a five course meal - [video recording](https://www.youtube.com/watch?v=vAPSd2qPdRI&feature=youtu.be)
 	* **12:00-1:00pm:** LUNCH
 * **1:00-2:00pm:** [Read Quantification](salmon-quant.md) 
 	* **2:00-2:10pm:** BREAK
