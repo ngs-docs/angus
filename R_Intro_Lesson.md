@@ -16,11 +16,11 @@ determine what your username is, run:
 echo My username is $USER
 ```
 
-Find the RStudio server interface Web address (by default in
-port 8787) by running the following command:
+The link for the RStudio server interface is built with our instance's IP address (by default in
+port 8787), which we can get from the terminal by running the following command:
 
 ``` bash
-echo http://$(hostname):8787/
+echo http://$(hostname -i):8787/
 ```
 
 Now go to the web address printed to your terminal in your Web browser
