@@ -76,42 +76,38 @@ Room Conway will be led by [Sateesh Peri](https://twitter.com/perisateesh?lang=e
 * **3:50-5:00pm:** [Introduction to R & RStudio](R_Intro_Lesson.md)
 	* **5:00pm:** DONE
 
-
-<!--RNAseq - Differential Expression 
-RNAseq - Visualization
--->
-
 ## Second week: July 8-13, 2019.
 
 **Monday, July 8th, 2019**
 
-* **9:00-10:20am:** Mapping & Variant Calling
+* **9:00-10:20am:** RNAseq - Differential Expression 
 	* **10:20-10:40am:** BREAK
-* **10:40am-12:00pm:** Mapping & Variant Calling (continued)
+* **10:40am-12:00pm:** RNAseq - Visualization
 	* **12:00-1:00pm:** LUNCH
 * **1:00-2:00pm:** [Olga Botvinnik](https://twitter.com/olgabot?lang=en) - Single cell RNAseq
 	* **2:00-2:10pm:** BREAK
-* **2:15-3:30pm:** Automation of Variant Calling with Snakemake
+* **2:15-3:30pm:** Mapping & Variant Calling
 	* **3:30-3:50pm:** BREAK
-* **3:50-5:00pm:** Automation of Variant Calling with Snakemake (continued)
+* **3:50-5:00pm:** Mapping & Variant Calling (continued)
 	* **5:00pm:** DONE
 
 
 **Tuesday, July 9th, 2019**
 
-* **9:00-10:20am:** Build your own RNA-seq workflow with Snakemake
+* **9:00-10:20am:** Automation of Variant Calling with Snakemake
 	* **10:20-10:40am:** BREAK
-* **10:40am-12:00pm:** Build your own RNA-seq workflow with Snakemake (continued)
+* **10:40am-12:00pm:** Automation of Variant Calling with Snakemake (continued)
 	* **12:00-1:00pm:** LUNCH
 * **1:00-2:00pm:** [Shannon Joslin](https://twitter.com/IntrprtngGnmcs?lang=en) - Genome Assembly
 	* **2:00-2:10pm:** BREAK
-* **2:15-3:30pm:** Genome Assembly
+* **2:15-3:30pm:** Build your own RNA-seq workflow with Snakemake
 	* **3:30-3:50pm:** BREAK
-* **3:50-5:00pm:** Genome Assembly (continued)
+* **3:50-5:00pm:** Build your own RNA-seq workflow with Snakemake (continued)
 	* **5:00pm:** DONE
 
-
-
+<!--Genome Assembly
+Genome Assembly (continued)
+-->
 **Wednesday, July 10th, 2019**
 
 * **9a:00-10:20am:** Transcriptome Assembly
