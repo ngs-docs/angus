@@ -1,5 +1,5 @@
-Getting started
-===============
+# R and RStudio introduction
+
 ------------------------------------------------------------------------
 
 ### Using RStudio on Jetstream
@@ -1379,7 +1379,7 @@ Acknowledgements
 This lesson was inspired by and adapted from the [Data Carpentry Ecology
 R lessons](https://datacarpentry.org/R-ecology-lesson/index.html)
 
-More material
+## More material
 =============
 
 There are many amazing resources and cheat sheets to continue learning

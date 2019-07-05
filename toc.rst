@@ -23,7 +23,7 @@ Table of Contents
 
    salmon-quant.md
 
-   .. placeholder: Introduction to R & RStudio
+   R_Intro_Lesson.md
 
    diff-ex-and-viz.md
 
