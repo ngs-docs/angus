@@ -1170,7 +1170,7 @@ Or color each strain differently:
 
 ``` r
 ggplot(data = yeast_metadata, mapping = aes(x = read_count, y = fastq_bytes)) +
-  geom_point(alpha = 1, aes(color = yeast_strain))
+  geom_point(alpha = 0.5, aes(color = yeast_strain))
 ```
 
 <center><img src="_static/ggplot-4.png" width="90%"></center>
@@ -1180,20 +1180,10 @@ We can also specify the color inside the mapping:
 
 ``` r
 ggplot(data = yeast_metadata, mapping = aes(x = read_count, y = fastq_bytes, color = yeast_strain)) +
-  geom_point(alpha = 1)
+  geom_point(alpha = 0.5)
 ```
 
 <center><img src="_static/ggplot-5.png" width="90%"></center>
-<br>
-
-or try different geom layers:
-
-``` r
-ggplot(data = yeast_metadata, mapping = aes(x = read_count, y = fastq_bytes, color = yeast_strain)) +
-  geom_jitter(alpha = 1)
-```
-
-<center><img src="_static/ggplot-6.png" width="90%"></center>
 <br>
 
 We can use boxplots to see the distribution of reads within strains:
@@ -1211,11 +1201,20 @@ idea of the number of measurements and their distribution:
 
 ``` r
 ggplot(data = yeast_metadata, mapping = aes(x = yeast_strain, y = read_count)) +
-  geom_boxplot(alpha = 0.1) +
-  geom_jitter(alpha = 1, color = "tomato")
+  geom_boxplot(alpha = 0.25) + geom_point(alpha = 0.25)
 ```
 
 <center><img src="_static/ggplot-8.png" width="90%"></center>
+<br>
+
+With categorical bins on the x-axis, we can also use `geom_jitter()` to spread out the points to be more clear:
+
+``` r
+ggplot(data = yeast_metadata, mapping = aes(x = yeast_strain, y = read_count)) +
+  geom_boxplot(alpha = 0.1) + geom_jitter(alpha = 0.7, color = "tomato")
+```
+
+<center><img src="_static/ggplot-8b.png" width="90%"></center>
 <br>
 
 ### Exercise 10
