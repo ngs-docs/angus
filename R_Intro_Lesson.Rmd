@@ -3,13 +3,8 @@ title: "Introduction to R using Yeast RNAseq Metadata"
 author: ANGUS
 date: June 2019
 output:
-  html_document:
-    theme: readable
-    toc: true
-    toc_float:
-      collapsed: no
-      smooth_scroll: yes
-      toc_depth: 3
+  md_document:
+    variant: markdown_github
 editor_options: 
   chunk_output_type: console
 ---
@@ -133,15 +128,15 @@ a2 <- a*2 # multiply a by 2
 
 ### Functions and Arguments
 
-Functions are “canned scripts” that automate more complicated sets of commands including operations assignments, etc. Many functions are predefined, or can be made available by importing R packages (more on that later). A function usually takes one or more inputs called arguments. Functions often (but not always) return a value. A typical example would be the function sqrt(). The input (the argument) must be a number, and the return value (in fact, the output) is the square root of that number. Executing a function (‘running it’) is called calling the function. An example of a function call is:
+Functions are “canned scripts” that automate more complicated sets of commands including operations assignments, etc. Many functions are predefined, or can be made available by importing R packages (more on that later). A function usually takes one or more inputs called arguments. Functions often (but not always) return a value. A typical example would be the function `sqrt()`. The input (the argument) must be a number, and the return value (in fact, the output) is the square root of that number. Executing a function (‘running it’) is called calling the function. An example of a function call is:
 
 ```{r}
 sqrt(a) ## calculate the square root of a
 ```
 
-Here, the value of a is given to the sqrt() function, the sqrt() function calculates the square root, and returns the value which is then assigned to the object b. This function is very simple, because it takes just one argument.
+Here, the value of a is given to the `sqrt()` function, the `sqrt()` function calculates the square root, and returns the value which is then assigned to the object `b`. This function is very simple, because it takes just one argument.
 
-The return ‘value’ of a function need not be numerical (like that of sqrt()), and it also does not need to be a single item: it can be a set of things, or even a dataset. We’ll see that when we read data files into R.
+The return ‘value’ of a function need not be numerical (like that of `sqrt()`), and it also does not need to be a single item: it can be a set of things, or even a dataset. We’ll see that when we read data files into R.
 
 Arguments can be anything, not only numbers or filenames, but also other objects. Exactly what each argument means differs per function, and must be looked up in the documentation (see below). Some functions take arguments which may either be specified by the user, or, if left out, take on a default value: these are called options. Options are typically used to alter the way the function operates, such as whether it ignores ‘bad values’, or what symbol to use in a plot. However, if you want something specific, you can specify a value of your choice which will be used instead of the default.
 
@@ -745,12 +740,14 @@ Specifying `data` binds the plot to a specific data frame.
 ```{r eval = TRUE}
 ggplot(data = yeast_metadata, mapping = aes(x = read_count, y = fastq_bytes))
 ```
+  
 defines the mapping using `aes` (aesthetics of the plot) by selecting the variables to be plotted and how they will be plotted (e.g. x/y, size, shape, color...)
 
 ```{r eval = TRUE}
 ggplot(data = yeast_metadata, mapping = aes(x = read_count, y = fastq_bytes)) +
   geom_point()
 ```
+  
 which sets what type of plot we want to have (boxplot, lines, bars):
 
 `geom_point()` for scatter plots, dot plots, etc.;
