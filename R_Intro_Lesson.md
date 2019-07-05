@@ -27,7 +27,8 @@ echo http://$(hostname -i):8787/
 
 Now go to the web address printed to your terminal in your Web browser, which should look something like this: 
 
-![](_static/RStudio.png)
+<center><img src="_static/RStudio.png" width="90%"></center>
+<br>
 
 and log in with the username and password we will provide. 
 
@@ -57,7 +58,8 @@ R is the underlying programming language. Once you start RStudio, you
 see this layout (it will be similar either on your instance or on your
 computer):
 
-![](_static/RStudio_first.png)
+<center><img src="_static/RStudio_first.png" width="90%"></center>
+<br>
 
 Scripts are like a digital lab book. They record everything your run, as
 well as notes to yourself about how and why you ran it. To start a new
@@ -66,7 +68,9 @@ underneath File and select –&gt;R script. This generates a `.R` file.
 `.R` files are plain text files that use the file extension `.R` so that
 humans can remember that the file contains R code.
 
-![](_static/RStudio_create_R_script.png)
+<center><img src="_static/RStudio_create_R_script.png" width="90%"></center>
+<br>
+
 
 Although scripts are a record of our code, they also include comments
 about our code. These comments are very important as they remind your
@@ -74,7 +78,8 @@ future self (and whoever you pass your script) why you did what you did.
 Think of comments like the notes you take in your lab book when you do
 experiments.
 
-![](_static/RStudio_type_script.png)
+<center><img src="_static/RStudio_type_script.png" width="90%"></center>
+<br>
 
 When you execute a line of your script, it is sent to the console. While
 the script is a permanent record of everything you ran, the console is
@@ -125,7 +130,9 @@ To run a line of code, put your cursor on the line that you want to run
 and press `Enter+Cmd` or `Enter+Ctrl`. Or select the line and click the
 button that says `Run` on the right top corner of your script.
 
-![](_static/first_lines.png)
+<center><img src="_static/first_lines.png" width="90%"></center>
+<br>
+
 
 Now check your Console and Environment tabs, you will see that the
 commands have run and that you have created new objects!
@@ -540,7 +547,7 @@ filter(experiment_info, `Nucleic Acid Conc.` > 1500)
 > assign that to a new object called `experiment_data`.
 
 <details>
-<summary><strong><font color="#6B33FF">Solution-\#1</font></strong></summary>
+<summary><strong><font color="#6B33FF">Solution #1</font></strong></summary>
 
 ``` r
 experiment_data <-  select(experiment_info, Sample, `Yeast Strain`, A260, A280)
@@ -558,13 +565,14 @@ head(experiment_data)
     ## 6      6 snf2            48.2  22.1
 
 </details>
+
 ### Exercise 2
 
 > Filter rows for only WT strains that had more than 1500 ng/uL
 > concentration and make a new tibble called wild\_type.
 
 <details>
-<summary><strong><font color="#6B33FF">Solution-\#2</font></strong></summary>
+<summary><strong><font color="#6B33FF">Solution #2</font></strong></summary>
 
 ``` r
 wild_type <- filter(experiment_info, `Yeast Strain` %in% 'WT' & `Nucleic Acid Conc.` > 1500)
@@ -582,11 +590,12 @@ head(wild_type)
     ## 6     54 WT                         3735.  93.4  43.2      2.16       112.
 
 </details>
+
 ### Pipes
 
 What if we want to `select` and `filter` at the same time? We use a
 “pipe” in R, which is represented by `%>%`. **Note:** This is the R
-version of the shell command `|`!
+version of the shell "redirector" `|`!
 
 Pipes are available via the `magrittr` package, installed automatically
 with `dplyr`. If you use RStudio, you can type the pipe with
@@ -611,7 +620,7 @@ experiment_info_wt <- experiment_info %>%
 > a new table called samples\_sequenced.
 
 <details>
-<summary><strong><font color="#6B33FF">Solution-\#3</font></strong></summary>
+<summary><strong><font color="#6B33FF">Solution #3</font></strong></summary>
 
 ``` r
 samples_sequenced <- experiment_info %>% 
@@ -631,6 +640,7 @@ samples_sequenced
     ## 5     90 WT                            1422.        42.7
 
 </details>
+
 ### Mutate
 
 What if I want to create a new column? I use the function `mutate` for
@@ -660,7 +670,7 @@ experiment_info %>%
 > that to reach 50uL.
 
 <details>
-<summary><strong><font color="#6B33FF">Solution-\#4</font></strong></summary>
+<summary><strong><font color="#6B33FF">Solution #4</font></strong></summary>
 
 ``` r
 library_start <- experiment_info %>% 
@@ -682,6 +692,7 @@ head(library_start)
     ## 6      6 snf2            0.0519  49.9
 
 </details>
+
 ### Exercise 5
 
 > Pretty difficult to pipette! Can redo the table considering a 1:10
@@ -689,7 +700,7 @@ head(library_start)
 > in addition to sample, yeast strain, RNA\_100 and water.
 
 <details>
-<summary><strong><font color="#6B33FF">Solution-\#5</font></strong></summary>
+<summary><strong><font color="#6B33FF">Solution #5</font></strong></summary>
 
 ``` r
 library_start_diluted <-  experiment_info %>% 
@@ -711,6 +722,7 @@ head(library_start_diluted)
     ## 6      6 snf2            48.2  22.1     0.00519  50.0
 
 </details>
+
 ### Exercise 6
 
 > Based on the tibble library\_start\_diluted, create a new tibble
@@ -719,7 +731,7 @@ head(library_start_diluted)
 > strain, A260280 ratio, diluted RNA and water.
 
 <details>
-<summary><strong><font color="#6B33FF">Solution-\#6</font></strong></summary>
+<summary><strong><font color="#6B33FF">Solution #6</font></strong></summary>
 
 ``` r
 seq_samples <- library_start_diluted %>%
@@ -777,7 +789,7 @@ experiment_info %>%
             mean_total_RNA = mean(`Total RNA`))
 
 experiment_info %>%  
-  filter(!is.na(`Nucleic Acid Conc.`)) %>%   # filter out the values that are not NAs
+  filter(!is.na(`Nucleic Acid Conc.`)) %>%   # filter to keep only the values that are not NAs
   group_by(`Yeast Strain`) %>%  
   summarize(mean_concentration = mean(`Nucleic Acid Conc.`),
             mean_total_RNA = mean(`Total RNA`))
@@ -788,18 +800,18 @@ or descending using `desc()`:
 
 ``` r
 experiment_info %>% 
-  filter(!is.na(`Nucleic Acid Conc.`)) %>%  # filter out the values that are not NAs 
+  filter(!is.na(`Nucleic Acid Conc.`)) %>%  # filter to keep only the values that are not NAs
   group_by(`Yeast Strain`) %>% 
   summarize(mean_concentration = mean(`Nucleic Acid Conc.`),
             mean_total_RNA = mean(`Total RNA`)) %>% 
   arrange(mean_concentration) # arrange new table in ascending mean concentrations
 
 experiment_info %>% 
-  filter(!is.na(`Nucleic Acid Conc.`)) %>%  # filter out the values that are not NAs
+  filter(!is.na(`Nucleic Acid Conc.`)) %>%  # filter to keep only the values that are not NAs
   group_by(`Yeast Strain`) %>% 
   summarize(mean_concentration = mean(`Nucleic Acid Conc.`),
             mean_total_RNA = mean(`Total RNA`)) %>% 
-  arrange(desc(mean_concentration) # arrange new table in descending mean concentrations
+  arrange(desc(mean_concentration)) # arrange new table in descending mean concentrations
 ```
 
 Another useful function is `count()` to count categorical values:
@@ -830,7 +842,7 @@ sample_mapping <- read_tsv(file = 'https://osf.io/uva3r/download')
 > can you use?
 
 <details>
-<summary><strong><font color="#6B33FF">Solution-\#7</font></strong></summary>
+<summary><strong><font color="#6B33FF">Solution #7</font></strong></summary>
 
 ``` r
 head(ena_info)
@@ -966,7 +978,8 @@ The `join` functions allow you to merge tables on columns/rows
 characteristics, so that you can do cool stuff such as (taken from R
 cheatsheets!):
 
-![](_static/join.png)
+<center><img src="_static/join.png" width="70%"></center>
+<br>
 
 We have run accession numbers in both our tibbles `sample_mapping` and
 `ena_info`. We want to merge both datasets to link the information
@@ -985,6 +998,7 @@ yeast_metadata_right <- right_join(ena_info, sample_mapping, by = "run_accession
 ```
 
 </details>
+
 That is a big table!
 
 ### Exercise 8
@@ -993,7 +1007,7 @@ That is a big table!
 > between both tables are preserved?
 
 <details>
-<summary><strong><font color="#6B33FF">Solution-\#8</font></strong></summary>
+<summary><strong><font color="#6B33FF">Solution #8</font></strong></summary>
 
 ``` r
 yeast_metadata_inner <- inner_join(ena_info, sample_mapping, by = "run_accession")
@@ -1046,8 +1060,7 @@ We will work from now onwards with the tibble `yeast_metadata_inner`.
 > from lane number 1. Use pipes!
 
 <details>
-<summary><strong><font color="#6B33FF">Solution
-\#9</font></strong></summary>
+<summary><strong><font color="#6B33FF">Solution #9</font></strong></summary>
 
 ``` r
 yeast_metadata <-  yeast_metadata_inner %>% 
@@ -1095,6 +1108,8 @@ ggplot(data = <DATA>, mapping = aes(<MAPPINGS>)) +
   <GEOM_FUNCTION>()
 ```
 
+> **NOTE:** The "<" and ">" used here don't mean anything special. They are just here to signifiy inputing something there. 
+
 We are going to explore our `yeast_metadata` tibble.
 
 We build plots in ‘layers’:
@@ -1103,32 +1118,30 @@ We build plots in ‘layers’:
 ggplot(data = yeast_metadata)
 ```
 
-![](R_Intro_Lesson_files/figure-markdown_github/unnamed-chunk-53-1.png)
-
-Specifying `data` binds the plot to a specific data frame.
+Specifying `data` binds the plot to a specific data frame...
 
 ``` r
 ggplot(data = yeast_metadata, mapping = aes(x = read_count, y = fastq_bytes))
 ```
 
-![](R_Intro_Lesson_files/figure-markdown_github/unnamed-chunk-54-1.png)
-
 defines the mapping using `aes` (aesthetics of the plot) by selecting
 the variables to be plotted and how they will be plotted (e.g. x/y,
-size, shape, color…)
+size, shape, color…)...
 
 ``` r
 ggplot(data = yeast_metadata, mapping = aes(x = read_count, y = fastq_bytes)) +
   geom_point()
 ```
 
-![](R_Intro_Lesson_files/figure-markdown_github/unnamed-chunk-55-1.png)
-
-which sets what type of plot we want to have (boxplot, lines, bars):
+sets what type of plot we want to have (boxplot, lines, bars):
 
 -   `geom_point()` for scatter plots, dot plots, etc.;  
 -   `geom_boxplot()` for boxplots;  
 -   `geom_line()` for trend lines, time series, etc.
+
+
+<center><img src="_static/ggplot-1.png" width="90%"></center>
+<br>
 
 We can modify plots to extract more information. We can add
 transparency:
@@ -1138,7 +1151,9 @@ ggplot(data = yeast_metadata, mapping = aes(x = read_count, y = fastq_bytes)) +
   geom_point(alpha = 0.1)
 ```
 
-![](R_Intro_Lesson_files/figure-markdown_github/unnamed-chunk-56-1.png)
+<center><img src="_static/ggplot-2.png" width="90%"></center>
+<br>
+
 
 or change the color of the points:
 
@@ -1147,7 +1162,8 @@ ggplot(data = yeast_metadata, mapping = aes(x = read_count, y = fastq_bytes)) +
   geom_point(alpha = 0.1, color = "red")
 ```
 
-![](R_Intro_Lesson_files/figure-markdown_github/unnamed-chunk-57-1.png)
+<center><img src="_static/ggplot-3.png" width="90%"></center>
+<br>
 
 Or color each strain differently:
 
@@ -1156,7 +1172,8 @@ ggplot(data = yeast_metadata, mapping = aes(x = read_count, y = fastq_bytes)) +
   geom_point(alpha = 1, aes(color = yeast_strain))
 ```
 
-![](R_Intro_Lesson_files/figure-markdown_github/unnamed-chunk-58-1.png)
+<center><img src="_static/ggplot-4.png" width="90%"></center>
+<br>
 
 We can also specify the color inside the mapping:
 
@@ -1165,7 +1182,8 @@ ggplot(data = yeast_metadata, mapping = aes(x = read_count, y = fastq_bytes, col
   geom_point(alpha = 1)
 ```
 
-![](R_Intro_Lesson_files/figure-markdown_github/unnamed-chunk-59-1.png)
+<center><img src="_static/ggplot-5.png" width="90%"></center>
+<br>
 
 or try different geom layers:
 
@@ -1174,7 +1192,8 @@ ggplot(data = yeast_metadata, mapping = aes(x = read_count, y = fastq_bytes, col
   geom_jitter(alpha = 1)
 ```
 
-![](R_Intro_Lesson_files/figure-markdown_github/unnamed-chunk-60-1.png)
+<center><img src="_static/ggplot-6.png" width="90%"></center>
+<br>
 
 We can use boxplots to see the distribution of reads within strains:
 
@@ -1183,7 +1202,9 @@ ggplot(data = yeast_metadata, mapping = aes(x = yeast_strain, y = read_count)) +
   geom_boxplot()
 ```
 
-![](R_Intro_Lesson_files/figure-markdown_github/unnamed-chunk-61-1.png)
+<center><img src="_static/ggplot-7.png" width="90%"></center>
+<br>
+
 This is useful, but if we add dots to the boxplots we will have a better
 idea of the number of measurements and their distribution:
 
@@ -1193,14 +1214,15 @@ ggplot(data = yeast_metadata, mapping = aes(x = yeast_strain, y = read_count)) +
   geom_jitter(alpha = 1, color = "tomato")
 ```
 
-![](R_Intro_Lesson_files/figure-markdown_github/unnamed-chunk-62-1.png)
+<center><img src="_static/ggplot-8.png" width="90%"></center>
+<br>
 
 ### Exercise 10
 
 > Replace the boxplot with a violin plot.
 
 <details>
-<summary><strong><font color="#6B33FF">Solution-\#10</font></strong></summary>
+<summary><strong><font color="#6B33FF">Solution #10</font></strong></summary>
 
 ``` r
 ggplot(data = yeast_metadata, mapping = aes(x = yeast_strain, y = read_count)) +
@@ -1208,14 +1230,17 @@ ggplot(data = yeast_metadata, mapping = aes(x = yeast_strain, y = read_count)) +
   geom_jitter(alpha = 1, color = "tomato")
 ```
 
-![](R_Intro_Lesson_files/figure-markdown_github/exercise10-1.png)
+<center><img src="_static/ggplot-9.png" width="90%"></center>
+<br>
+
 </details>
+
 ### Exercise 11
 
 > Represent the read\_count on log10 scale. Check out `scale_y_log10()`.
 
 <details>
-<summary><strong><font color="#6B33FF">Solution-\#11</font></strong></summary>
+<summary><strong><font color="#6B33FF">Solution-#11</font></strong></summary>
 
 ``` r
 ggplot(data = yeast_metadata, mapping = aes(x = yeast_strain, y = read_count)) +
@@ -1224,23 +1249,26 @@ ggplot(data = yeast_metadata, mapping = aes(x = yeast_strain, y = read_count)) +
   geom_jitter(alpha = 1, color = "tomato")
 ```
 
-![](R_Intro_Lesson_files/figure-markdown_github/exercise11-1.png)
+<center><img src="_static/ggplot-10.png" width="90%"></center>
+<br>
+
 </details>
+
 ### Exercise 12
 
 > Try to make a histogram plot for the read counts, coloring each yeast
 > strain.
 
 <details>
-<summary><strong><font color="#6B33FF">Solution-\#12</font></strong></summary>
+<summary><strong><font color="#6B33FF">Solution-#12</font></strong></summary>
 
 ``` r
 # Basic histogram
 ggplot(data = yeast_metadata, aes(x=read_count)) + 
   geom_histogram()
 ```
-
-![](R_Intro_Lesson_files/figure-markdown_github/exercise12-1.png)
+<center><img src="_static/ggplot-11.png" width="90%"></center>
+<br>
 
 ``` r
 # Change colors
@@ -1249,7 +1277,8 @@ p<-ggplot(data = yeast_metadata, aes(x=read_count)) +
 p
 ```
 
-![](R_Intro_Lesson_files/figure-markdown_github/exercise12-2.png)
+<center><img src="_static/ggplot-12.png" width="90%"></center>
+<br>
 
 ``` r
 # Change colors based on yeast strain
@@ -1257,7 +1286,8 @@ ggplot(data = yeast_metadata, aes(x=read_count, fill = yeast_strain)) +
   geom_histogram(color="black")
 ```
 
-![](R_Intro_Lesson_files/figure-markdown_github/exercise12-3.png)
+<center><img src="_static/ggplot-13.png" width="90%"></center>
+<br>
 
 ``` r
 # Facet based on yeast strain
@@ -1266,7 +1296,8 @@ ggplot(data = yeast_metadata, aes(x=read_count, fill = yeast_strain)) +
   facet_grid(yeast_strain~.)
 ```
 
-![](R_Intro_Lesson_files/figure-markdown_github/exercise12-4.png)
+<center><img src="_static/ggplot-14.png" width="90%"></center>
+<br>
 
 ``` r
 # Change to custom colors that are color blind friend
@@ -1277,7 +1308,8 @@ ggplot(data = yeast_metadata, aes(x=read_count, fill = yeast_strain)) +
   scale_fill_manual(values = c("cornflowerblue", "goldenrod2"))
 ```
 
-![](R_Intro_Lesson_files/figure-markdown_github/exercise12-5.png)
+<center><img src="_static/ggplot-15.png" width="90%"></center>
+<br>
 
 ``` r
 # Density based on yeast strain
@@ -1287,7 +1319,8 @@ ggplot(data = yeast_metadata, aes(x=read_count, fill = yeast_strain)) +
   scale_fill_manual(values = c("cornflowerblue", "goldenrod2"))
 ```
 
-![](R_Intro_Lesson_files/figure-markdown_github/exercise12-6.png)
+<center><img src="_static/ggplot-16.png" width="90%"></center>
+<br>
 
 ``` r
 # A white background might be preferable for the yellow color
@@ -1298,15 +1331,17 @@ ggplot(data = yeast_metadata, aes(x=read_count, fill = yeast_strain)) +
   theme_bw()
 ```
 
-![](R_Intro_Lesson_files/figure-markdown_github/exercise12-7.png)
+<center><img src="_static/ggplot-17.png" width="90%"></center>
+<br>
+
 </details>
+
 ### Exercise 13
 
 > What if we want to add the mean read counts in a vertical line?
 
 <details>
-<summary><strong><font color="#6B33FF">Solution
-\#13</font></strong></summary>
+<summary><strong><font color="#6B33FF">Solution #13</font></strong></summary>
 
 ``` r
 # To do so, we need to calculate the mean_read_count in a new data frame
@@ -1333,8 +1368,11 @@ ggplot(data = yeast_metadata, aes(x=read_count, fill = yeast_strain)) +
   scale_fill_manual(values = c("cornflowerblue", "goldenrod2"))
 ```
 
-![](R_Intro_Lesson_files/figure-markdown_github/exercise13-1.png)
+<center><img src="_static/ggplot-18.png" width="90%"></center>
+<br>
+
 </details>
+
 Acknowledgements
 ----------------
 
@@ -1354,3 +1392,4 @@ R, including:
 -   [R Colors](http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf)  
 -   [Software Carpentry R
     Lesson](http://swcarpentry.github.io/r-novice-gapminder/)
+- [Going deeper with indexing in R](https://astrobiomike.github.io/R/more_indexing)
