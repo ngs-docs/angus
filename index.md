@@ -67,15 +67,19 @@ Room Conway will be led by [Sateesh Peri](https://twitter.com/perisateesh?lang=e
 
 * **9:00-10:20am:** [Read Quantification](salmon-quant.md) / [Finding resources](finding_resources_online.md)
 	* **10:20-10:40am:** BREAK
-* **10:40am-12:00pm:** Introduction to R & RStudio
+* **10:40am-12:00pm:** [Introduction to R & RStudio](R_Intro_Lesson.md)
 	* **12:00-1:00pm:** LUNCH
 * **1:00-2:00pm:** [Rayna Harris](https://twitter.com/raynamharris?lang=en) - RNAseq: a five course meal
 	* **2:00-2:10pm:** BREAK
-* **2:15-3:30pm:** RNAseq - Differential Expression
+* **2:15-3:30pm:** [Introduction to R & RStudio](R_Intro_Lesson.md)
 	* **3:30-3:50pm:** BREAK
-* **3:50-5:00pm:** RNAseq - Visualization
+* **3:50-5:00pm:** [Introduction to R & RStudio](R_Intro_Lesson.md)
 	* **5:00pm:** DONE
 
+
+<!--RNAseq - Differential Expression 
+RNAseq - Visualization
+-->
 
 ## Second week: July 8-13, 2019.
 

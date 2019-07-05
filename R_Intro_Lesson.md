@@ -1240,7 +1240,7 @@ ggplot(data = yeast_metadata, mapping = aes(x = yeast_strain, y = read_count)) +
 > Represent the read\_count on log10 scale. Check out `scale_y_log10()`.
 
 <details>
-<summary><strong><font color="#6B33FF">Solution-#11</font></strong></summary>
+<summary><strong><font color="#6B33FF">Solution #11</font></strong></summary>
 
 ``` r
 ggplot(data = yeast_metadata, mapping = aes(x = yeast_strain, y = read_count)) +
@@ -1260,7 +1260,7 @@ ggplot(data = yeast_metadata, mapping = aes(x = yeast_strain, y = read_count)) +
 > strain.
 
 <details>
-<summary><strong><font color="#6B33FF">Solution-#12</font></strong></summary>
+<summary><strong><font color="#6B33FF">Solution #12</font></strong></summary>
 
 ``` r
 # Basic histogram
