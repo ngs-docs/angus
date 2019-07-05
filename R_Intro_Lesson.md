@@ -167,7 +167,7 @@ the function. An example of a function call is:
 sqrt(a) ## calculate the square root of a
 ```
 
-Here, the value of a is given to the `sqrt()` function, the `sqrt()`
+Here, the value of `a` is given to the `sqrt()` function, the `sqrt()`
 function calculates the square root, and returns the value which is then
 assigned to the object `b`. This function is very simple, because it
 takes just one argument.
@@ -177,17 +177,17 @@ The return ‘value’ of a function need not be numerical (like that of
 set of things, or even a dataset. We’ll see that when we read data files
 into R.
 
-Arguments can be anything, not only numbers or filenames, but also other
-objects. Exactly what each argument means differs per function, and must
-be looked up in the documentation (see below). Some functions take
-arguments which may either be specified by the user, or, if left out,
-take on a default value: these are called options. Options are typically
-used to alter the way the function operates, such as whether it ignores
-‘bad values’, or what symbol to use in a plot. However, if you want
-something specific, you can specify a value of your choice which will be
-used instead of the default.
+Similar to the shell, **arguments** can be anything, not only numbers or
+filenames, but also other objects. Exactly what each argument means
+differs per function, and must be looked up in the documentation (see
+below). Some functions take arguments which may either be specified by
+the user, or, if left out, take on a default value: these are called
+options. **Options** are typically used to alter the way the function
+operates, such as whether it ignores ‘bad values’, or what symbol to use
+in a plot. However, if you want something specific, you can specify a
+value of your choice which will be used instead of the default.
 
-Let’s try a function that can take multiple arguments: round().
+Let’s try a function that can take multiple arguments: `round()`.
 
 ``` r
 round(3.141592) ## round number
@@ -220,8 +220,9 @@ detects this by the position within the function:
 round(3.141592, 2)
 ```
 
-But you can change the order of the arguments if the arguments are
-named:
+Though, it is preferablt to show the argument names. Plus, we have the
+added benefit of having the ability to change the order of the arguments
+if the arguments are named:
 
 ``` r
 round(digits = 2, x= 3.141592)
@@ -252,30 +253,20 @@ class(concentration) # type of object b
 str(yeast_strain) # inspect the structure of a
 ```
 
-**Challenge**:
-
-We’ve seen that atomic vectors can be of type character, numeric (or
-double), integer, and logical. But what happens if we try to mix these
-types in a single vector?
-
-``` r
-yeast_strain_concentration <- c(yeast_strain, concentration) # combine two vectors
-```
-
-Solution: All indices are “coerced” to the same “type”, e.g. character.
-
 ### Data types
 
 An **atomic vector** is the simplest R data type, and it is a vector of
 a single type. The 6 main atomic vector types that R uses are:
 
-**`'character'`** letters or words **`'numeric'`** (or `double`) for
-numbers **`'logical'`** for `TRUE` and `FALSE` (booleans)
-**`'integer'`** for integer numbers (e.g., `2L`, the `L` indicates to R
-that it’s an integer) **`'complex'`** to represent complex numbers with
-real and imaginary parts, for example `2 + 4i` **`'raw'`** for
-bitstreams that we will not use or discuss further **`factor`**
-represents categorical data (more below!)
+-   **`'character'`** letters or words  
+-   **`'numeric'`** (or `double`) for numbers  
+-   **`'logical'`** for `TRUE` and `FALSE` (booleans)  
+-   **`'integer'`** for integer numbers (e.g., `2L`, the `L` indicates
+    to R that it’s an integer)  
+-   **`'complex'`** to represent complex numbers with real and imaginary
+    parts, for example `2 + 4i`  
+-   **`'raw'`** for bitstreams that we will not use or discuss further  
+-   **`factor`** represents categorical data (more below!)
 
 You can check the type of vecor you are using with the `typeof()`
 function.
@@ -284,6 +275,25 @@ function.
 typeof(concentration)
 ```
 
+**Challenge**: Atomic vectors can be a character, numeric (or double),
+integer, and logical. But what happens if we try to mix these types in a
+single vector?
+
+<details>
+<summary><strong><font color="#6B33FF">Solution</font></strong></summary>
+
+``` r
+yeast_strain_concentration <- c(yeast_strain, concentration) # combine two vectors
+yeast_strain_concentration
+```
+
+    ## [1] "WT"     "snf2"   "43.903" "47.871"
+
+``` r
+# Solution: All indices are "coerced" to the same "type", e.g. character.
+```
+
+</details>
 As we saw in our challenge problem, objects of different types get
 converted into a single type. This is called **coercion** and it follows
 a hierarchy:
@@ -292,12 +302,13 @@ logical → numeric → character ← logical
 
 R uses many **data structures**, the main ones are:
 
-**`vector`** contain elements of the same type in one dimension
-**`list`** can contain elements of different types and multiple data
-structures **`data.frame`** contains rows and columns. Columns can
-contain different types from other columns. **`matrix`** with rows and
-columns that are of the same type **`array`** stores data in more than 2
-dimensions
+-   **`vector`** contain elements of the same type in one dimension  
+-   **`list`** can contain elements of different types and multiple data
+    structures  
+-   **`data.frame`** contains rows and columns. Columns can contain
+    different types from other columns.  
+-   **`matrix`** with rows and columns that are of the same type  
+-   **`array`** stores data in more than 2 dimensions
 
 We will use `vectors`, `matrices`, `data.frames`, and `factors` today.
 
@@ -447,12 +458,17 @@ sum(is.na(experiment_info$X10)) # checks how many NAs the column X10 has so that
 experiment_info <- experiment_info[ , 1:9] # subset all rows and columns 1 to 9
 ```
 
-**Challenge** Check how many columns are in the data frame now.
+**Challenge:** How many columns are in the `experiment_info` data frame
+now?
+
+<details>
+<summary><strong><font color="#6B33FF">Solution</font></strong></summary>
 
 ``` r
 dim(experiment_info) # dimensions
 ```
 
+</details>
 The 9th column has no name, but we can change this using `rename()`:
 
 ``` r
@@ -464,54 +480,67 @@ experiment_info <- rename(experiment_info, units = X9)
 We can now explore this table and reshape it using `dplyr`. We will
 cover in this lesson:
 
-`%>%`: pipes, they allow ‘concatenating’ functions  
-`select()`: subsets columns  
-`filter()`: subsets rows on conditions  
-`mutate()`: create new columns using information from other columns  
-`group_by()` and `summarize()`: create summary statistics on grouped
-data  
-`arrange()`: sort results  
-`count()`: counts discrete values
+-   `%>%`: pipes, they allow ‘concatenating’ functions  
+-   `select()`: subsets columns  
+-   `filter()`: subsets rows on conditions  
+-   `mutate()`: create new columns using information from other
+    columns  
+-   `group_by()` and `summarize()`: create summary statistics on grouped
+    data  
+-   `arrange()`: sort results  
+-   `count()`: counts discrete values
 
 ### Selecting columns and filtering rows
 
 We have now a table with many columns – but what if we don’t need all of
-the columns? We can select columns using `select`, which requires as
-*arguments* the names of the colums that you want to keep:
+the columns? We can select columns using `select`, which requires the
+names of the colums that you want to keep as *arguments*:
 
 ``` r
+# Let's confirm the arguments by looking at the help page 
+?select # Notice how the help page is different from the shell manual pages?  
+
+# Now lets select specific columns
 select(experiment_info, Sample, Yeast Strain, Nucleic Acid Conc., Sample, 260/280, Total RNA)
 ```
 
 What happened? R cannot parse the spaces in the column names properly.
-Also, it gets a little confused when column names start with a number.
 We can add back commas around the `name of the column`. These tell R
 that `these words belong together`:
+
+``` r
+select(experiment_info, Sample, `Yeast Strain`, `Nucleic Acid Conc.`, 260/280, `Total RNA`)
+```
+
+Also, R gets confused when column names start with a number. So, we will
+also need to specify where the numbers start and stop:
 
 ``` r
 select(experiment_info, Sample, `Yeast Strain`, `Nucleic Acid Conc.`, `260/280`, `Total RNA`)
 ```
 
-So let’s store that in `experiment_info`:
+So let’s store that in an object named `experiment_info`:
 
 ``` r
 experiment_info <- select(experiment_info, Sample, `Yeast Strain`, `Nucleic Acid Conc.`, A260, A280, `260/280`, `Total RNA`)
 ```
 
-**NOTE**: When choosing names from columns, make sure that you choose
-something simple, all lowercase, all uppercase, or CamelCase. Having
-spaces in column makes it hard for R to deal with, and can lead to
-unexpected results.
+**NOTE**: When choosing names from columns, make sure that you are
+consistent and choose something simple, all lowercase, all uppercase, or
+CamelCase. Having spaces in column makes it hard for R to deal with, and
+can lead to unexpected results or silent errors.
 
-We select all columns *except for* by using ‘-’ before the name of the
+We select all columns *except for* by using `-` before the name of the
 columns we do not want to include, for example all columns except for
 A260 and A280:
 
 ``` r
+# Remove two columns: A260 and A280
 select(experiment_info, -A260, -A280)
 ```
 
-We can also `filter` rows based on conditions in a column:
+The `filter` function works on rows, so we can also `filter` the data
+based on conditions in a column:
 
 ``` r
 filter(experiment_info, `Nucleic Acid Conc.` > 1500)
@@ -519,12 +548,11 @@ filter(experiment_info, `Nucleic Acid Conc.` > 1500)
 
 ### Exercise 1
 
-> Select the columns Sample, Yeast Strain, A260 and A280 and assign that
-> to a new object called experiment\_data.
+> Select the columns `Sample`, `Yeast Strain`, `A260` and `A280` and
+> assign that to a new object called `experiment_data`.
 
 <details>
-<summary><strong><font color="#6B33FF">Solution
-\#1</font></strong></summary>
+<summary><strong><font color="#6B33FF">Solution-\#1</font></strong></summary>
 
 ``` r
 experiment_data <-  select(experiment_info, Sample, `Yeast Strain`, A260, A280)
@@ -548,8 +576,7 @@ head(experiment_data)
 > concentration and make a new tibble called wild\_type.
 
 <details>
-<summary><strong><font color="#6B33FF">Solution
-\#2</font></strong></summary>
+<summary><strong><font color="#6B33FF">Solution-\#2</font></strong></summary>
 
 ``` r
 wild_type <- filter(experiment_info, `Yeast Strain` %in% 'WT' & `Nucleic Acid Conc.` > 1500)
@@ -569,18 +596,21 @@ head(wild_type)
 </details>
 ### Pipes
 
-What if we want to `select` and `filter` at the same time? We use %&gt;%
-(pipes) for that. Pipes are available via the `magrittr` package,
-installed automatically with `dplyr`. If you use RStudio, you can type
-the pipe with `Ctrl + Shift + M` if you have a PC or `Cmd + Shift + M`
-if you have a Mac as a shortcut to get to produce a pipe.
+What if we want to `select` and `filter` at the same time? We use a
+“pipe” in R, which is represented by `%>%`. **Note:** This is the R
+version of the shell command `|`!
+
+Pipes are available via the `magrittr` package, installed automatically
+with `dplyr`. If you use RStudio, you can type the pipe with
+`Ctrl + Shift + M` if you have a PC or `Cmd + Shift + M` if you have a
+Mac as a shortcut to get to produce a pipe.
 
 We can combine the two subsetting activities from Exercise 1 and 2 using
 pipes `%>%` :
 
 ``` r
 experiment_info_wt <- experiment_info %>% 
-  filter(`Yeast Strain` %in% 'WT' & `Nucleic Acid Conc.` > 1500) %>% 
+  filter(`Yeast Strain` == 'WT' & `Nucleic Acid Conc.` > 1500) %>% 
   select(Sample, `Yeast Strain`, A260, A280)
 ```
 
@@ -593,8 +623,7 @@ experiment_info_wt <- experiment_info %>%
 > a new table called samples\_sequenced.
 
 <details>
-<summary><strong><font color="#6B33FF">Solution
-\#3</font></strong></summary>
+<summary><strong><font color="#6B33FF">Solution-\#3</font></strong></summary>
 
 ``` r
 samples_sequenced <- experiment_info %>% 
@@ -643,8 +672,7 @@ experiment_info %>%
 > that to reach 50uL.
 
 <details>
-<summary><strong><font color="#6B33FF">Solution
-\#4</font></strong></summary>
+<summary><strong><font color="#6B33FF">Solution-\#4</font></strong></summary>
 
 ``` r
 library_start <- experiment_info %>% 
@@ -673,8 +701,7 @@ head(library_start)
 > in addition to sample, yeast strain, RNA\_100 and water.
 
 <details>
-<summary><strong><font color="#6B33FF">Solution
-\#5</font></strong></summary>
+<summary><strong><font color="#6B33FF">Solution-\#5</font></strong></summary>
 
 ``` r
 library_start_diluted <-  experiment_info %>% 
@@ -704,8 +731,7 @@ head(library_start_diluted)
 > strain, A260280 ratio, diluted RNA and water.
 
 <details>
-<summary><strong><font color="#6B33FF">Solution
-\#6</font></strong></summary>
+<summary><strong><font color="#6B33FF">Solution-\#6</font></strong></summary>
 
 ``` r
 seq_samples <- library_start_diluted %>%
@@ -795,7 +821,7 @@ experiment_info %>%
   count(`Yeast Strain`)
 ```
 
-### Combining Datasets using `join`
+### Combining Datasets using **join**
 
 On many ocassions we will have more than one table that we need to
 extract information from. We can easily do this in R using the family of
@@ -816,8 +842,7 @@ sample_mapping <- read_tsv(file = 'https://osf.io/uva3r/download')
 > can you use?
 
 <details>
-<summary><strong><font color="#6B33FF">Solution
-\#7</font></strong></summary>
+<summary><strong><font color="#6B33FF">Solution-\#7</font></strong></summary>
 
 ``` r
 head(ena_info)
@@ -960,14 +985,18 @@ We have run accession numbers in both our tibbles `sample_mapping` and
 present in both tables in one big table that contains everything. We
 need a column that has the same name in both tables.
 
-**Challenge**: which function would you use if the column names where
-not the same?
+**Challenge**: Which function would you use if the column names were not
+the same?
+
+<details>
+<summary><strong><font color="#6B33FF">Solution</font></strong></summary>
 
 ``` r
 sample_mapping <- rename(sample_mapping, run_accession = RunAccession) # would rename a column called Sample into sample_number to match with the column sample_number in ena_info
 yeast_metadata_right <- right_join(ena_info, sample_mapping, by = "run_accession") # this will join both tables matching rows from experiment_info in ena_info
 ```
 
+</details>
 That is a big table!
 
 ### Exercise 8
@@ -976,8 +1005,7 @@ That is a big table!
 > between both tables are preserved?
 
 <details>
-<summary><strong><font color="#6B33FF">Solution
-\#8</font></strong></summary>
+<summary><strong><font color="#6B33FF">Solution-\#8</font></strong></summary>
 
 ``` r
 yeast_metadata_inner <- inner_join(ena_info, sample_mapping, by = "run_accession")
@@ -1087,7 +1115,7 @@ We build plots in ‘layers’:
 ggplot(data = yeast_metadata)
 ```
 
-![](R_Intro_Lesson_files/figure-markdown_github/unnamed-chunk-52-1.png)
+![](R_Intro_Lesson_files/figure-markdown_github/unnamed-chunk-53-1.png)
 
 Specifying `data` binds the plot to a specific data frame.
 
@@ -1095,7 +1123,7 @@ Specifying `data` binds the plot to a specific data frame.
 ggplot(data = yeast_metadata, mapping = aes(x = read_count, y = fastq_bytes))
 ```
 
-![](R_Intro_Lesson_files/figure-markdown_github/unnamed-chunk-53-1.png)
+![](R_Intro_Lesson_files/figure-markdown_github/unnamed-chunk-54-1.png)
 
 defines the mapping using `aes` (aesthetics of the plot) by selecting
 the variables to be plotted and how they will be plotted (e.g. x/y,
@@ -1106,15 +1134,13 @@ ggplot(data = yeast_metadata, mapping = aes(x = read_count, y = fastq_bytes)) +
   geom_point()
 ```
 
-![](R_Intro_Lesson_files/figure-markdown_github/unnamed-chunk-54-1.png)
+![](R_Intro_Lesson_files/figure-markdown_github/unnamed-chunk-55-1.png)
 
 which sets what type of plot we want to have (boxplot, lines, bars):
 
-`geom_point()` for scatter plots, dot plots, etc.;
-
-`geom_boxplot()` for boxplots;
-
-`geom_line()` for trend lines, time series, etc.
+-   `geom_point()` for scatter plots, dot plots, etc.;  
+-   `geom_boxplot()` for boxplots;  
+-   `geom_line()` for trend lines, time series, etc.
 
 We can modify plots to extract more information. We can add
 transparency:
@@ -1124,7 +1150,7 @@ ggplot(data = yeast_metadata, mapping = aes(x = read_count, y = fastq_bytes)) +
   geom_point(alpha = 0.1)
 ```
 
-![](R_Intro_Lesson_files/figure-markdown_github/unnamed-chunk-55-1.png)
+![](R_Intro_Lesson_files/figure-markdown_github/unnamed-chunk-56-1.png)
 
 or change the color of the points:
 
@@ -1133,7 +1159,7 @@ ggplot(data = yeast_metadata, mapping = aes(x = read_count, y = fastq_bytes)) +
   geom_point(alpha = 0.1, color = "red")
 ```
 
-![](R_Intro_Lesson_files/figure-markdown_github/unnamed-chunk-56-1.png)
+![](R_Intro_Lesson_files/figure-markdown_github/unnamed-chunk-57-1.png)
 
 Or color each strain differently:
 
@@ -1142,7 +1168,7 @@ ggplot(data = yeast_metadata, mapping = aes(x = read_count, y = fastq_bytes)) +
   geom_point(alpha = 1, aes(color = yeast_strain))
 ```
 
-![](R_Intro_Lesson_files/figure-markdown_github/unnamed-chunk-57-1.png)
+![](R_Intro_Lesson_files/figure-markdown_github/unnamed-chunk-58-1.png)
 
 We can also specify the color inside the mapping:
 
@@ -1151,7 +1177,7 @@ ggplot(data = yeast_metadata, mapping = aes(x = read_count, y = fastq_bytes, col
   geom_point(alpha = 1)
 ```
 
-![](R_Intro_Lesson_files/figure-markdown_github/unnamed-chunk-58-1.png)
+![](R_Intro_Lesson_files/figure-markdown_github/unnamed-chunk-59-1.png)
 
 or try different geom layers:
 
@@ -1160,7 +1186,7 @@ ggplot(data = yeast_metadata, mapping = aes(x = read_count, y = fastq_bytes, col
   geom_jitter(alpha = 1)
 ```
 
-![](R_Intro_Lesson_files/figure-markdown_github/unnamed-chunk-59-1.png)
+![](R_Intro_Lesson_files/figure-markdown_github/unnamed-chunk-60-1.png)
 
 We can use boxplots to see the distribution of reads within strains:
 
@@ -1169,7 +1195,7 @@ ggplot(data = yeast_metadata, mapping = aes(x = yeast_strain, y = read_count)) +
   geom_boxplot()
 ```
 
-![](R_Intro_Lesson_files/figure-markdown_github/unnamed-chunk-60-1.png)
+![](R_Intro_Lesson_files/figure-markdown_github/unnamed-chunk-61-1.png)
 This is useful, but if we add dots to the boxplots we will have a better
 idea of the number of measurements and their distribution:
 
@@ -1179,15 +1205,14 @@ ggplot(data = yeast_metadata, mapping = aes(x = yeast_strain, y = read_count)) +
   geom_jitter(alpha = 1, color = "tomato")
 ```
 
-![](R_Intro_Lesson_files/figure-markdown_github/unnamed-chunk-61-1.png)
+![](R_Intro_Lesson_files/figure-markdown_github/unnamed-chunk-62-1.png)
 
 ### Exercise 10
 
 > Replace the boxplot with a violin plot.
 
 <details>
-<summary><strong><font color="#6B33FF">Solution
-\#10</font></strong></summary>
+<summary><strong><font color="#6B33FF">Solution-\#10</font></strong></summary>
 
 ``` r
 ggplot(data = yeast_metadata, mapping = aes(x = yeast_strain, y = read_count)) +
@@ -1202,8 +1227,7 @@ ggplot(data = yeast_metadata, mapping = aes(x = yeast_strain, y = read_count)) +
 > Represent the read\_count on log10 scale. Check out `scale_y_log10()`.
 
 <details>
-<summary><strong><font color="#6B33FF">Solution
-\#11</font></strong></summary>
+<summary><strong><font color="#6B33FF">Solution-\#11</font></strong></summary>
 
 ``` r
 ggplot(data = yeast_metadata, mapping = aes(x = yeast_strain, y = read_count)) +
@@ -1220,8 +1244,7 @@ ggplot(data = yeast_metadata, mapping = aes(x = yeast_strain, y = read_count)) +
 > strain.
 
 <details>
-<summary><strong><font color="#6B33FF">Solution
-\#12</font></strong></summary>
+<summary><strong><font color="#6B33FF">Solution-\#12</font></strong></summary>
 
 ``` r
 # Basic histogram
