@@ -23,13 +23,13 @@ port 8787), which we can get from the terminal by running the following command:
 echo http://$(hostname -i):8787/
 ```
 
-Now go to the web address printed to your terminal in your Web browser
-and log in with the username and password we will provide. You should
-see something that looks like:
+> `hostname` is a command in the terminal that will get various information about our computers. Using it with the `-i` option returns our computer's IP address. So surrounding it within parentheses preceded by the `$` means the command line will execute that command first, put the output of that command in it's place (our IP address), and then run the `echo` command which then prints out the proper link to our RStudio server 😊
+
+Now go to the web address printed to your terminal in your Web browser, which should look something like this: 
 
 ![](_static/RStudio.png)
 
-where you type your username and the password that you have set.
+and log in with the username and password we will provide. 
 
 ### Installing on your own computer:
 
