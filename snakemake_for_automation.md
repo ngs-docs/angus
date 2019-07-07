@@ -61,7 +61,7 @@ A workflow management system allows you to:
 + Run multiple steps in sequence, parallelising where possible
 + Automatically detect if something changes and then reprocess data if needed
 
-<center><img src="_static/wms.png" width="90%"></center>
+<center><img src="_static/wms_syntax.png" width="90%"></center>
 <br>
 
 ## Automation with BASH
