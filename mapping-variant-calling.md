@@ -79,6 +79,7 @@ bwa mem -t 4 orf_coding.fasta ERR458493.qc.fq.gz  > ERR458493.sam
 
 ```
 head ERR458493.sam
+tail ERR458493.sam
 ```
 
 The SAM file is a tab-delimited text file that contains information for each individual read and its 
@@ -94,6 +95,10 @@ Following the header is the alignment section. Each line that follows correspond
 for a single read. Each alignment line has 11 mandatory fields for essential mapping information and a 
 variable number of other fields for aligner specific information. An example entry from a SAM file is 
 displayed below with the different fields highlighted.
+
+**Challenge**
+
+Construct a `for` loop to to generate `.sam` alignment files for all of our quality controlled samples.
 
 ## Visualize mapping
 
@@ -116,6 +121,10 @@ samtools import orf_coding.fasta.fai ERR458493.sam ERR458493.bam
 ```
         
 ### Sort the BAM file by position in genome:
+
+You can sort on many different fields within a sam or bam file. After mapping, our
+files are sorted by read number. Most programs require mapping files to be sorted by
+position in the reference. You can sort a file using the `samtools sort` command.
 
 ```
 samtools sort ERR458493.bam -o ERR458493.sorted.bam
@@ -174,29 +183,18 @@ we will be using `bcftools`, but there are a few things we need to do before act
 
 ```
 bcftools mpileup -O b -f orf_coding.fasta ERR458493.sorted.bam | \
-    bcftools call --ploidy 2 -m -v -o variants.vcf -l
-```
- bcftools call --ploidy 1 -m -v -o results/bcf/SRR2584866_variants.vcf results/bcf/SRR2584866_raw.bcf 
-```
-bcftools mpileup -O b -f orf_coding.fasta ERR458493.sorted.bam | \
-    bcftools call 
+    bcftools call -m -v -o variants.vcf
 ```
 
+```
+vcfutils.pl varFilter variants.vcf  > variants_filtered.vcf
+```
+
+**Challenge** 
+
+How many fewer lines are there in the `variants.vcf` vs. in the `variants_filtered.vcf` file?
 
 To look at the entire `variants.vcf` file you can do `cat
 variants.vcf`; all of the lines starting with `#` are comments.  You
 can use `tail variants.vcf` to see the last ~10 lines, which should
 be all of the called variants.
-
-
-
-
-
-
-$ vcfutils.pl varFilter results/bcf/SRR2584866_variants.vcf  > results/vcf/SRR2584866_final_variants.vcf
-## Discussion points / extra things to cover
-
-* What are the drawbacks to mapping-based variant calling? What are
-  the positives?
-
-* Where do reference genomes come from?
