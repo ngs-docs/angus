@@ -44,17 +44,20 @@ PS1='$ '
 
 ## Rationale
 
-![](_static/wms_rationale.png)
+<center><img src="_static/wms_rationale.png" width="90%"></center>
+<br>
 
 **RNAseq & Variant Calling Workflow Steps**
 
-![](_static/workflow_steps.png)
+<center><img src="_static/workflow_steps.png" width="90%"></center>
+<br>
 
 ## Introduction to Workflow Management
 
 a workflow management system, consists of a text-based workflow specification language and a scalable execution environment, that allows the parallelized execution of workflows on workstations, compute servers and clusters without modification of the workflow definition.
 
-![](_static/wms.png)
+<center><img src="_static/wms.png" width="90%"></center>
+<br>
 
 ## Automation with BASH
 
@@ -147,7 +150,8 @@ We'll be using snakemake for automation.
 
 ## Introduction to Snakemake
 
-![](_static/smake_rule.png)
+<center><img src="_static/smake_rule.png" width="90%"></center>
+<br>
 
 The Snakemake workflow management system is a tool to create reproducible and 
 scalable data analyses. It orchestrates and keeps track of all the different
@@ -328,7 +332,8 @@ Job counts:
 
 Snakemake now has two processes it's keeping track of. 
 
-![](_static/dag_one.png)
+<center><img src="_static/dag_one.png" width="90%"></center>
+<br>
 
 ## Using Snakemake to process multiple files
 
@@ -379,7 +384,8 @@ rule unzip_fastqc_raw:
 
 And we have now run these rules for each of our samples!
 
-![](_static/dag_multiple.png)
+<center><img src="_static/dag_multiple.png" width="90%"></center>
+<br>
 
 
 ### Helpful guidelines
