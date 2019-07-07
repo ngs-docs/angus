@@ -25,7 +25,7 @@ conda install -y bwa samtools bcftools
 After installing the necessary software, we will create the working directory for the mapping as follows:
 ```
 cd ~/
-mkdir -p mapping
+mkdir mapping
 cd mapping
 ```
 Next, we will create links from the previously downloaded and quality-trimmed yeast dataset:
@@ -40,24 +40,36 @@ Goal: execute a basic mapping
 
 ### Download and gunzip the reference:
 
+Here we are using open coding regions to do variant calling because we are working with mRNA sequences.
+It's important to think about what reference is appropriate for your experiment. Many biologically important
+variants exist in non-coding regions, so if we were looking at genomic sequences, it would be important to
+use a different reference such as the whole genome.
+
 ```
 curl -O https://downloads.yeastgenome.org/sequence/S288C_reference/orf_dna/orf_coding.fasta.gz
 gunzip orf_coding.fasta.gz
 ```
 
-and look at it:
+Let's take a look at our reference:
 
 ```
 head orf_coding.fasta
 ```
         
-### Prepare it for mapping:
+### Indexing: Prepare reference for mapping:
+
+Our first step is to index the reference genome for use by BWA. Indexing allows the aligner to quickly find potential
+alignment sites for query sequences in a genome, which saves time during alignment. Indexing the reference only has to 
+be run once. The only reason you would want to create a new index is if you are working with a different reference genome
+or you are using a different tool for alignment.
 
 ```
 bwa index orf_coding.fasta
 ```
         
 ### Map!
+
+We use an algorithm called `bwa mem` to perform mapping.
 
 ```
 bwa mem -t 4 orf_coding.fasta ERR458493.qc.fq.gz  > ERR458493.sam
@@ -69,13 +81,29 @@ bwa mem -t 4 orf_coding.fasta ERR458493.qc.fq.gz  > ERR458493.sam
 head ERR458493.sam
 ```
 
-what does all this mean??
-        
+The SAM file is a tab-delimited text file that contains information for each individual read and its 
+alignment to the genome. While we do not have time to go in detail of the features of the SAM format, 
+the paper by Heng Li et al. provides a lot more detail on the specification.
+
+The compressed binary version of SAM is called a BAM file. We use this version to reduce size and to 
+allow for indexing, which enables efficient random access of the data contained within the file.
+
+The file begins with a header, which is optional. The header is used to describe source of data, 
+reference sequence, method of alignment, etc., this will change depending on the aligner being used. 
+Following the header is the alignment section. Each line that follows corresponds to alignment information 
+for a single read. Each alignment line has 11 mandatory fields for essential mapping information and a 
+variable number of other fields for aligner specific information. An example entry from a SAM file is 
+displayed below with the different fields highlighted.
+
 ## Visualize mapping
 
 Goal: make it possible to go look at a specific bit of the genome.
 
 ### Index the reference genome:
+
+Before we indexed the reference for BWA, now we reference the index for samtools. Although both
+tools use different indexing methods, they both allow the tools to find specific sequences within
+the reference quickly.
 
 ```
 samtools faidx orf_coding.fasta
@@ -100,6 +128,13 @@ samtools index ERR458493.sorted.bam
 ```
         
 ### Visualize with `tview`:
+
+Samtools implements a very simple text alignment viewer based on the GNU ncurses library, called tview. 
+This alignment viewer works with short indels and shows MAQ consensus. It uses different colors to display 
+mapping quality or base quality, subjected to users' choice. Samtools viewer is known to work with an 
+130 GB alignment swiftly. Due to its text interface, displaying alignments over network is also very fast.
+
+In order to visualize our mapped reads we use tview, giving it the sorted bam file and the reference file:
 
 ```
 samtools tview ERR458493.sorted.bam orf_coding.fasta
@@ -129,20 +164,36 @@ samtools flagstat ERR458493.sorted.bam
 
 Goal: find places where the reads are systematically different from the
 genome.
-   
-Now we can call variants using
-[samtools mpileup](http://samtools.sourceforge.net/mpileup.shtml):
+
+A variant call is a conclusion that there is a nucleotide difference vs. some reference at a given 
+position in an individual genome or transcriptome, often referred to as a Single Nucleotide Polymorphism (SNP). 
+The call is usually accompanied by an estimate of variant frequency and some measure of confidence. Similar 
+to other steps in this workflow, there are number of tools available for variant calling. In this workshop 
+we will be using `bcftools`, but there are a few things we need to do before actually calling the variants.
+
 
 ```
-samtools mpileup -u -t DP -f orf_coding.fasta ERR458493.sorted.bam | \
-    bcftools call -mv -Ov > variants.vcf
+bcftools mpileup -O b -f orf_coding.fasta ERR458493.sorted.bam | \
+    bcftools call --ploidy 2 -m -v -o variants.vcf -l
 ```
+ bcftools call --ploidy 1 -m -v -o results/bcf/SRR2584866_variants.vcf results/bcf/SRR2584866_raw.bcf 
+```
+bcftools mpileup -O b -f orf_coding.fasta ERR458493.sorted.bam | \
+    bcftools call 
+```
+
 
 To look at the entire `variants.vcf` file you can do `cat
 variants.vcf`; all of the lines starting with `#` are comments.  You
 can use `tail variants.vcf` to see the last ~10 lines, which should
 be all of the called variants.
 
+
+
+
+
+
+$ vcfutils.pl varFilter results/bcf/SRR2584866_variants.vcf  > results/vcf/SRR2584866_final_variants.vcf
 ## Discussion points / extra things to cover
 
 * What are the drawbacks to mapping-based variant calling? What are
