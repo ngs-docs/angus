@@ -1,4 +1,4 @@
-# Workflow Managaement using Snakemake
+# Workflow Management using Snakemake
 
 ## Objectives
 
