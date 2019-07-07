@@ -54,9 +54,9 @@ PS1='$ '
 
 a workflow management system, consists of a text-based workflow specification language and a scalable execution environment, that allows the parallelized execution of workflows on workstations, compute servers and clusters without modification of the workflow definition.
 
-## Automation with BASH
+![](_static/wms.png)
 
-![](_static/explicit_coding.png)
+## Automation with BASH
 
 In both our RNA-seq workflow and our mapping and variant calling workflow, we 
 performed many steps. We performed steps like quality control and analysis using
@@ -147,7 +147,7 @@ We'll be using snakemake for automation.
 
 ## Introduction to Snakemake
 
-![](_static/implicit_coding.png)
+![](_static/smake_rule.png)
 
 The Snakemake workflow management system is a tool to create reproducible and 
 scalable data analyses. It orchestrates and keeps track of all the different
@@ -381,6 +381,13 @@ And we have now run these rules for each of our samples!
 
 ![](_static/dag_multiple.png)
 
+
+### Helpful guidelines
+
++ Indentation is important, use two or four spaces for each indentation.
++ Define your target (final output) files in rule all
++ Use unique extensions or directories for each rule to avoid wildcard collisions
+
 ## Snakemake Additional Features
 
 # dry-run, print shell commands and reason for execution
@@ -466,7 +473,11 @@ $ snakemake --use-conda
 
 + Here are some great [Snakemake Workflows](https://github.com/snakemake-workflows). Check out the RNAseq-STAR-DESEq2 workflow [here](https://github.com/snakemake-workflows/rna-seq-star-deseq2).
 
+# Exercises
 
++ Make a three rule snakemake pipeline using basic unix tools. Include at least one wildcard variable.
++ Make a Snakefile for RNAseq workflow covered in this workshop
++ Make a Snakefile for Variant-Calling workflow covered in this workshop
 
 
 
