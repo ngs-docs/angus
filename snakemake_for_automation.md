@@ -1,4 +1,4 @@
-# Snakemake for Automation
+# Workflow Managaement using Snakemake
 
 ## Objectives
 
@@ -32,7 +32,32 @@ Install `snakemake` using conda.
 conda install -y -c bioconda snakemake-minimal
 ```
 
-## Automation
+Type the following in your terminal to display a link to Rstudio web-server for your instance’s $(hostname)
+
+```
+echo http://$(hostname):8787/
+```
+click on the link generated to open Rstudio in your browser and login with your room's jetstream username and password. We’re mostly going to work in the file editor and the terminal of Rstudio; to get started, open the terminal, and execute following to to get a shorter terminal prompt.
+
+```
+PS1='$ '
+```
+
+## Rationale
+
+![](_static/wms_rationale.png)
+
+**RNAseq & Variant Calling Workflow Steps**
+
+![](_static/workflow_steps.png)
+
+## Introduction to Workflow Management
+
+a workflow management system, consists of a text-based workflow specification language and a scalable execution environment, that allows the parallelized execution of workflows on workstations, compute servers and clusters without modification of the workflow definition.
+
+## Automation with BASH
+
+![](_static/explicit_coding.png)
 
 In both our RNA-seq workflow and our mapping and variant calling workflow, we 
 performed many steps. We performed steps like quality control and analysis using
@@ -123,6 +148,8 @@ We'll be using snakemake for automation.
 
 ## Introduction to Snakemake
 
+![](_static/implicit_coding.png)
+
 What is Snakemake and why are we using it?
 
 The Snakemake workflow management system is a tool to create reproducible and 
@@ -148,7 +175,7 @@ Our goal is to automate our example workflow using snakemake!
 
 ## Starting with Snakemake
 
-Snakemake workflows are built around rules. Let's make a rule to run `fastqc`
+Snakemake workflows are built around **rules**. Let's make a rule to run `fastqc`
 on one of our samples below. We'll put this rule in a file called `Snakefile`.
 
 ```
@@ -196,7 +223,7 @@ ls data/*fastqc*
 
 Yay! Snakemake ran the thing!
 
-We can also use better organization. Let's specify a different output folder for
+We can also use better organization. Let's **specify a different output folder** for
 our fastqc results
 
 ```
@@ -284,6 +311,7 @@ rule unzip_fastqc_raw:
     output: "fastqc_raw/ERR458493_fastqc/summary.txt"
     shell:'''
     unzip -d fastqc_raw/ {input}
+    '''
 ```
 
 And it worked! Now we see output like this:
@@ -302,6 +330,8 @@ Job counts:
 ```
 
 Snakemake now has two processes it's keeping track of. 
+
+![](_static/dag_one.png)
 
 ## Using Snakemake to process multiple files
 
@@ -352,3 +382,82 @@ rule unzip_fastqc_raw:
 
 And we have now run these rules for each of our samples!
 
+![](_static/dag_multiple.png)
+
+## Snakemake Additional Features
+
+# dry-run, print shell commands and reason for execution
+
+```
+snakemake -n –p -r
+```
+# visualize the DAG of jobs using the Graphviz dot command
+
+```
+snakemake --dag | dot -Tsvg > dag.svg
+```
+# execute the workflow with 8 cores
+
+```
+snakemake --cores 8
+```
+# run the workflow on a SLURM cluster
+
+```
+snakemake --cluster-config cluster.yml --cluster \ "sbatch -A {cluster.account} -t {cluster.time}"
+```
+# Visualize entire workflow diagram
+
+```
+snakemake --dag | dot -Tpng > dag.png
+```
+The DAG png file should look something as shown above.
+
+### Snakemake Report
+
+Snakemake can automatically generate detailed self-contained HTML reports that encompass runtime statistics, provenance information, workflow topology and results.
+
+- To create the report simply run
+
+```
+snakemake --report report.html
+```
+View sample report here(xyz)
+
+### Specifying software required for a rule
+
+**You can specify software on a per-rule basis! This is really helpful when you have incompatible software requirements for different rules, or want to run on a cluster, or just want to pin your snakemake workflow to a specific version.**
+
+For example, if you create a file `env_fastqc.yml` with the following content,
+```
+channels:
+  - bioconda
+  - defaults
+  - conda-forge
+dependencies:
+  - fastqc==0.11.8
+```
+
+and then change the fastqc rule to look like this:
+
+```python
+rule fastqc_raw:
+    input: "data/{sample}.fastq.gz"
+    output: 
+        "fastqc_raw/{sample}_fastqc.html",
+        "fastqc_raw/{sample}_fastqc.zip"
+    conda:
+    	"env_fastqc.yml"
+    shell:'''
+    fastqc -o fastqc_raw {input}
+    '''
+```
+
+you can now run snakemake like so,
+
+```bash
+$ snakemake --use-conda
+```
+**and for that rule, snakemake will install just that software, with the specified version.**
+
+**This aids in reproducibility, in addition to the practical advantages of isolating software installs from each other.**
