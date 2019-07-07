@@ -8,8 +8,7 @@
 
 ## Getting started
 
-Start up a Jetstream m1.medium or larger
-[as per Jetstream startup instructions](jetstream/boot.html).
+Start up your Jetstream instance [as per Jetstream startup instructions](jetstream/boot.html).
 
 ---
 
@@ -150,8 +149,6 @@ We'll be using snakemake for automation.
 
 ![](_static/implicit_coding.png)
 
-What is Snakemake and why are we using it?
-
 The Snakemake workflow management system is a tool to create reproducible and 
 scalable data analyses. It orchestrates and keeps track of all the different
 steps of workflows that have been run so you don't have to! It has a lot of 
@@ -171,7 +168,7 @@ resources!).
 + Anything that you can do in Python, you can do with Snakemake (since you can 
 pretty much execute arbitrary Python code anywhere).
 
-Our goal is to automate our example workflow using snakemake! 
+Our goal is to automate the first two steps (FastQC & Unzipping of FastQC results) of our example workflow using snakemake! 
 
 ## Starting with Snakemake
 
@@ -429,6 +426,7 @@ View sample report here(xyz)
 **You can specify software on a per-rule basis! This is really helpful when you have incompatible software requirements for different rules, or want to run on a cluster, or just want to pin your snakemake workflow to a specific version.**
 
 For example, if you create a file `env_fastqc.yml` with the following content,
+
 ```
 channels:
   - bioconda
@@ -461,3 +459,17 @@ $ snakemake --use-conda
 **and for that rule, snakemake will install just that software, with the specified version.**
 
 **This aids in reproducibility, in addition to the practical advantages of isolating software installs from each other.**
+
+# Advanced Snakemake
+
++ What happens when a tool does not have any specific input requirements as we have been specifying for our rules in the Snakefile? e.g., [MultiQC] is a tool that aggregates multiple FastQC reports into one html file. Multiqc not having any input dependencies, is a problem that is a bit harder to fix. Why do we want to fix this? Well, this is how snakemake tracks “out of date” files - if we don’t specify input dependencies, then we may update one of the fastqc results that multiqc uses, but snakemake won’t re-run multiqc on it, and our multiqc results will be out of date. See Tutorial [here].
+
++ Here are some great [Snakemake Workflows](https://github.com/snakemake-workflows). Check out the RNAseq-STAR-DESEq2 workflow [here](https://github.com/snakemake-workflows/rna-seq-star-deseq2).
+
+
+
+
+
+
+
+
