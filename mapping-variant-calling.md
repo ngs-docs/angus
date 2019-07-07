@@ -75,6 +75,12 @@ We use an algorithm called `bwa mem` to perform mapping.
 bwa mem -t 4 orf_coding.fasta ERR458493.qc.fq.gz  > ERR458493.sam
 ```
         
+**What is the difference between Salmon and bwa mem?** In an earlier tutorial, we used Salmon "quasi-mapping" to generate
+counts for transcripts. Salmon uses exact matching of k-mers (sub-strings in reads) to approximate which read a transcipt
+originated from. This is enough information for read quantification, and is really fast. BWA `mem` produces an alignment,
+where an entire read is mapped exactly against a reference sequence. This produces more information that is important
+for things like variant calling. 
+
 ### Observe!
 
 ```
