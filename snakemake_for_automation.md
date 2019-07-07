@@ -57,9 +57,9 @@ PS1='$ '
 Definition: A workflow management system, consists of a text-based workflow specification language and a scalable execution environment, that allows the parallelized execution of workflows on workstations, compute servers and clusters without modification of the workflow definition.
 
 A workflow management system allows you to:
-	+ Keep a record of how your scripts are used and what their input dependencies are
-	+ Run multiple steps in sequence, parallelising where possible
-	+ Automatically detect if something changes and then reprocess data if needed
++ Keep a record of how your scripts are used and what their input dependencies are
++ Run multiple steps in sequence, parallelising where possible
++ Automatically detect if something changes and then reprocess data if needed
 
 <center><img src="_static/wms.png" width="90%"></center>
 <br>
