@@ -332,7 +332,7 @@ Job counts:
 
 Snakemake now has two processes it's keeping track of. 
 
-<center><img src="_static/dag_one.png" width="90%"></center>
+<center><img src="_static/dag_one.png" width="30%"></center>
 <br>
 
 ## Using Snakemake to process multiple files
