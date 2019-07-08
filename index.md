@@ -88,19 +88,19 @@ Room Conway will be led by [Sateesh Peri](https://twitter.com/perisateesh?lang=e
 	* **2:00-2:10pm:** BREAK
 * **2:15-3:30pm:** [RNAseq - Differential expression and visualization with R](diff-ex-and-viz.md)
 	* **3:30-3:50pm:** BREAK
-* **3:50-5:00pm:** [Mapping & Variant Calling & Automation](mapping-variant-calling.md) (continued)
+* **3:50-5:00pm:** [Mapping & Variant Calling & Automation](mapping-variant-calling.md) 
 	* **5:00pm:** DONE
 
 
 **Tuesday, July 9th, 2019**
 
-* **9:00-10:20am:** [Mapping & Variant Calling & Automation](mapping-variant-calling.md)
+* **9:00-10:20am:** [Mapping & Variant Calling & Automation](mapping-variant-calling.md) (continued)
 	* **10:20-10:40am:** BREAK
 * **10:40am-12:00pm:** Automation of Variant Calling with Snakemake 
 	* **12:00-1:00pm:** LUNCH
 * **1:00-2:00pm:** [Shannon Joslin](https://twitter.com/IntrprtngGnmcs?lang=en) - Genome Assembly
 	* **2:00-2:10pm:** BREAK
-* **2:15-3:30pm:** Automation of Variant Calling with Snakemake 
+* **2:15-3:30pm:** Automation of Variant Calling with Snakemake (continued)
 	* **3:30-3:50pm:** BREAK
 * **3:50-5:00pm:** Build your own RNA-seq workflow with Snakemake 
 	* **5:00pm:** DONE
@@ -112,7 +112,7 @@ Genome Assembly (continued)
 
 * **9a:00-10:20am:** Genome Assembly
 	* **10:20-10:40am:** BREAK
-* **10:40am-12:00pm:** Genome Assembly
+* **10:40am-12:00pm:** Genome Assembly (continued)
 	* **12:00-1:00pm:** LUNCH
 * **1:00-2:00pm:** [Erich Schwarz](https://twitter.com/ErichMSchwarz?lang=en) - Doing science with big genomes
 	* **2:00-2:10pm:** BREAK
