@@ -88,13 +88,13 @@ Room Conway will be led by [Sateesh Peri](https://twitter.com/perisateesh?lang=e
 	* **2:00-2:10pm:** BREAK
 * **2:15-3:30pm:** [RNAseq - Differential expression and visualization with R](diff-ex-and-viz.md)
 	* **3:30-3:50pm:** BREAK
-* **3:50-5:00pm:** [Mapping & Variant Calling & Automation](mapping-variant-calling.md) 
+* **3:50-5:00pm:** [Mapping & Variant Calling](mapping-variant-calling.md) 
 	* **5:00pm:** DONE
 
 
 **Tuesday, July 9th, 2019**
 
-* **9:00-10:20am:** [Mapping & Variant Calling & Automation](mapping-variant-calling.md) (continued)
+* **9:00-10:20am:** [Mapping & Variant Calling](mapping-variant-calling.md) and [Automation with bash](bash_automation.md)
 	* **10:20-10:40am:** BREAK
 * **10:40am-12:00pm:** Automation of Variant Calling with Snakemake 
 	* **12:00-1:00pm:** LUNCH
