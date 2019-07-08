@@ -72,7 +72,9 @@ or you are using a different tool for alignment.
 bwa index orf_coding.fasta
 ```
         
-### Map!
+### Read Alignment
+
+In order to identify the transcripts that are present in a specific sample, the genomic origin of the sequenced cDNA fragments must be determined. The assignment of sequencing reads to the most likely locus of originis called read alignment or mapping and it is a crucial step in most types of high-throughput sequencing experiments
 
 We use an algorithm called `bwa mem` to perform mapping.
 
@@ -81,11 +83,15 @@ bwa mem -t 4 orf_coding.fasta ERR458493.qc.fq.gz  > ERR458493.sam
 ```
 Have a look at the [bwa options](http://bio-bwa.sourceforge.net/bwa.shtml) page. While we are running bwa with the default parameters here, your use case might require a change of parameters. NOTE: Always read the manual page for any tool before using and make sure the options you use are appropriate for your data.
         
-**What is the difference between Salmon and bwa mem?** In an earlier tutorial, we used Salmon "quasi-mapping" to generate
-counts for transcripts. Salmon uses exact matching of k-mers (sub-strings in reads) to approximate which read a transcipt
-originated from. This is enough information for read quantification, and is really fast. BWA `mem` produces an alignment,
-where an entire read is mapped exactly against a reference sequence. This produces more information that is important
-for things like variant calling. 
+**What is the difference between Salmon and bwa mem?** 
+
+Standard alignment tools (Hisat2, STAR, BWA) try to find the read origin by FULL-ALIGNMENT of reads to a genome or transcriptome.
+
+Ultra-fast alignment-free methods, such as Sailfish, **Salmon** and Kallisto, have been developed by exploiting the idea that precise alignments are not required to assign reads to their origins
+
+Salmon’s "quasi-mapping" approach uses exact matching of k-mers (sub-strings in reads) to approximate which read a transcipt originated from. The idea behind it being that it may not be important to exactly know where within a transcript a certain read originated from. Instead, it may be enough to simply know which transcript the read represents. Salmon therefore does not generate a BAM file because, it does not worry about finding the best possible alignment. Instead, it yields a (probabilistic) measure of how many reads indicate the presence of each transcript. This is enough information for read quantification, and is really fast.
+
+However, BWA `mem` produces an alignment, where an entire read is mapped exactly against a reference sequence. This produces more information that is important for things like variant calling. 
 
 ### Observe!
 
@@ -93,6 +99,7 @@ for things like variant calling.
 head ERR458493.sam
 tail ERR458493.sam
 ```
+### SAM/BAM File formats
 
 The SAM file is a tab-delimited text file that contains information for each individual read and its 
 alignment to the genome. While we do not have time to go in detail of the features of the SAM format, 
