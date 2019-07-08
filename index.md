@@ -86,9 +86,9 @@ Room Conway will be led by [Sateesh Peri](https://twitter.com/perisateesh?lang=e
 	* **12:00-1:00pm:** LUNCH
 * **1:00-2:00pm:** [Olga Botvinnik](https://twitter.com/olgabot?lang=en) - Single cell RNAseq
 	* **2:00-2:10pm:** BREAK
-* **2:15-3:30pm:** Mapping & Variant Calling
+* **2:15-3:30pm:** [Mapping & Variant Calling](mapping-variant-calling.md)
 	* **3:30-3:50pm:** BREAK
-* **3:50-5:00pm:** Mapping & Variant Calling (continued)
+* **3:50-5:00pm:** [Mapping & Variant Calling](mapping-variant-calling.md) (continued)
 	* **5:00pm:** DONE
 
 
