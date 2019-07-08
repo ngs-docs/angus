@@ -44,13 +44,6 @@ in the file editor and the terminal of Rstudio; to get started, open the
 terminal.
 
 
-**RNAseq & Variant Calling Workflow Steps**
-
-<center><img src="_static/workflow_steps.png" width="90%"></center>
-<br>
-
-
-
 ## Automation with BASH
 
 In both our RNA-seq workflow and our mapping and variant calling workflow, we 
@@ -298,7 +291,7 @@ rule fastqc_raw:
     '''
 
 rule multiqc_raw:
-    input: "fastqc_raw/ERR458493_fastqc.zip"
+    input: "fastqc_raw/ERR458493_fastqc.html"
     output: "fastqc_raw/multiqc_report.html"
     shell:'''
     multiqc -o fastqc_raw fastqc_raw
