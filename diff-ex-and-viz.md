@@ -8,7 +8,7 @@ Learning objectives:
 
 ## Getting started on Jetstream
 
-You may still have your jetstream instance running, you can following the instructions [here](jetstream/boot.html) to connect to your instance or start a new one if needed. Then `ssh` into your instance following the instructions [here](jetstream/boot.html#ssh-secure-login).
+You should still have your jetstream instance running, you can following the instructions [here](jetstream/boot.html) to log in to JetStream and find your instance. Then `ssh` into it following the instructions [here](jetstream/boot.html#ssh-secure-login).
 
 You should have the salmon counts on your instance in the `~/quant/` folder. If
 not, you can get this data by running:
