@@ -40,7 +40,7 @@ First, launch RStudio from your instance. Run the following link to produce
 a url that navigates to RStudio when entered in your browser.
 
 ```
-echo http://$(hostname):8787/
+echo http://$(hostname -i):8787/
 ```
 
 From R, start a new script. 
