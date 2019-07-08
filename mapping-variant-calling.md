@@ -34,13 +34,18 @@ ln -fs ~/quality/*.qc.fq.gz .
 ls
 ```
 
+## Variant Calling Workflow
+
+<center><img src="_static/variant_calling_workflow.png" width="50%"></center>
+<br>
+
 ## Map data
 
-Goal: execute a basic mapping
+Goal: perform read alignment or mapping to determine where in the genome our reads originated from.
 
 ### Download and gunzip the reference:
 
-Here we are using open coding regions to do variant calling because we are working with mRNA sequences.
+Here we are using **open coding regions** to do variant calling because we are working with mRNA sequences.
 It's important to think about what reference is appropriate for your experiment. Many biologically important
 variants exist in non-coding regions, so if we were looking at genomic sequences, it would be important to
 use a different reference such as the whole genome.
@@ -74,6 +79,7 @@ We use an algorithm called `bwa mem` to perform mapping.
 ```
 bwa mem -t 4 orf_coding.fasta ERR458493.qc.fq.gz  > ERR458493.sam
 ```
+Have a look at the [bwa options](http://bio-bwa.sourceforge.net/bwa.shtml) page. While we are running bwa with the default parameters here, your use case might require a change of parameters. NOTE: Always read the manual page for any tool before using and make sure the options you use are appropriate for your data.
         
 **What is the difference between Salmon and bwa mem?** In an earlier tutorial, we used Salmon "quasi-mapping" to generate
 counts for transcripts. Salmon uses exact matching of k-mers (sub-strings in reads) to approximate which read a transcipt
@@ -90,7 +96,7 @@ tail ERR458493.sam
 
 The SAM file is a tab-delimited text file that contains information for each individual read and its 
 alignment to the genome. While we do not have time to go in detail of the features of the SAM format, 
-the paper by Heng Li et al. provides a lot more detail on the specification.
+the paper by [Heng Li et al.](http://bioinformatics.oxfordjournals.org/content/25/16/2078.full) provides a lot more detail on the specification.
 
 The compressed binary version of SAM is called a BAM file. We use this version to reduce size and to 
 allow for indexing, which enables efficient random access of the data contained within the file.
@@ -101,6 +107,12 @@ Following the header is the alignment section. Each line that follows correspond
 for a single read. Each alignment line has 11 mandatory fields for essential mapping information and a 
 variable number of other fields for aligner specific information. An example entry from a SAM file is 
 displayed below with the different fields highlighted.
+
+<center><img src="_static/sam_file.png" width="60%"></center>
+<br>
+
+<center><img src="_static/bam_file.png" width="60%"></center>
+<br>
 
 **Challenge**
 
@@ -204,3 +216,17 @@ To look at the entire `variants.vcf` file you can do `cat
 variants.vcf`; all of the lines starting with `#` are comments.  You
 can use `tail variants.vcf` to see the last ~10 lines, which should
 be all of the called variants.
+
+The first few columns of the VCF file represent the information we have about a predicted variation:
+
+| column | info |
+| ------ | ------ | 
+| CHROM |	contig location where the variation occurs |
+| POS |	position within the contig where the variation occurs |
+| ID |	a `.` until we add annotation information |
+| REF |	reference genotype (forward strand) |
+| ALT |	sample genotype (forward strand) |
+| QUAL |	Phred-scaled probablity that the observed variant exists at this site (higher is better) |
+| FILTER |	a `.` if no quality filters have been applied, PASS if a filter is passed, or the name of the filters this variant failed |
+
+The Broad Institute’s [VCF guide](https://www.broadinstitute.org/gatk/guide/article?id=1268) is an excellent place to learn more about VCF file format.
