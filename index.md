@@ -67,7 +67,7 @@ Room Conway will be led by [Sateesh Peri](https://twitter.com/perisateesh?lang=e
 
 * **9:00-10:20am:** [Finding resources](finding_resources_online.md)
 	* **10:20-10:40am:** BREAK
-* **10:50am-12:00pm:** [Rayna Harris](https://twitter.com/raynamharris?lang=en) - RNAseq: a five course meal - [video recording](https://www.youtube.com/watch?v=vAPSd2qPdRI&feature=youtu.be)
+* **10:50am-12:00pm:** [Rayna Harris](https://twitter.com/raynamharris?lang=en) - [RNAseq: a five course meal](https://speakerdeck.com/raynamharris/rnaseq-a-five-course-meal) - [video recording](https://www.youtube.com/watch?v=vAPSd2qPdRI&feature=youtu.be)
 	* **12:00-1:00pm:** LUNCH
 * **1:00-2:00pm:** [Read Quantification](salmon-quant.md) 
 	* **2:00-2:10pm:** BREAK
@@ -80,9 +80,9 @@ Room Conway will be led by [Sateesh Peri](https://twitter.com/perisateesh?lang=e
 
 **Monday, July 8th, 2019**
 
-* **9:00-10:20am:** RNAseq - Differential Expression 
+* **9:00-10:20am:** [Introduction to R & RStudio cont.](R_Intro_Lesson.md)
 	* **10:20-10:40am:** BREAK
-* **10:40am-12:00pm:** RNAseq - Visualization
+* **10:40am-12:00pm:** [RNAseq - Differential expression and visualization with R](diff-ex-and-viz.md)
 	* **12:00-1:00pm:** LUNCH
 * **1:00-2:00pm:** [Olga Botvinnik](https://twitter.com/olgabot?lang=en) - Single cell RNAseq
 	* **2:00-2:10pm:** BREAK

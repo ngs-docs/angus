@@ -695,7 +695,7 @@ head(library_start)
 
 ### Exercise 5
 
-> Pretty difficult to pipette! Can redo the table considering a 1:10
+> Pretty difficult to pipette! Can redo the table considering that you have done a 1:10
 > dilution of your samples? Include the columns of A260 and A280 values
 > in addition to sample, yeast strain, RNA\_100 and water.
 
@@ -704,7 +704,7 @@ head(library_start)
 
 ``` r
 library_start_diluted <-  experiment_info %>% 
-  mutate(diluted_RNA = 10/ `Nucleic Acid Conc.`,
+  mutate(diluted_RNA = 1000/ `Nucleic Acid Conc.`,
           water = 50 - diluted_RNA) %>% 
   select(Sample, `Yeast Strain`, `A260`, `A280`, diluted_RNA, water)  
 

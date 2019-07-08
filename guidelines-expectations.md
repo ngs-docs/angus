@@ -77,7 +77,8 @@ Everyone who participates in our ANGUS 2019 workshop shares the responsibility o
         * Talking to instructors and course coordinators regarding events that you may witness.
 * Teach attendees 
     * Ask leading questions and help learners get to answers on their own 
-    * When actively teaching, **use a microphone.**
+    * When actively teaching, **use a microphone.** 
+    * Instructors will repeat questions from learners 
 * Provide individualized or group help as needed
 * Avoid disruptive behavior including:
     * Intellectually agressive behavoir such as challenging other people (including instructors/helpers/attendees) in their content  
@@ -108,4 +109,5 @@ Everyone who participates in our ANGUS 2019 workshop shares the responsibility o
 
 
  ## Expectations in the lecture hall
-- Always use the microphone 
+* Always use the microphone . 
+* Speakers to repeat questions from the audience

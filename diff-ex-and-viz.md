@@ -8,17 +8,17 @@ Learning objectives:
 
 ## Getting started on Jetstream
 
-[Start up an m1.medium instance running Ubuntu 18.04 on Jetstream.](jetstream/boot.html)
+You should still have your jetstream instance running, you can following the instructions [here](jetstream/boot.html) to log in to JetStream and find your instance. Then `ssh` into it following the instructions [here](jetstream/boot.html#ssh-secure-login).
 
 You should have the salmon counts on your instance in the `~/quant/` folder. If
 not, you can get this data by running:
 
 ```
 cd ~
-mkdir -p  quant
+mkdir -p quant
 cd quant
 wget -O salmon_quant.tar.gz https://osf.io/5dbrh/download
-tar xvf salmon_quant.tar.gz
+tar -xvf salmon_quant.tar.gz
 ```
 
 ## Importing gene-level counts into R using tximport
@@ -68,6 +68,19 @@ samples <- read_csv("https://osf.io/cxp2w/download")
 head(samples)
 ```
 
+you should see output like this,
+```
+# A tibble: 6 x 3
+  sample    quant_file                                condition
+  <chr>     <chr>                                     <chr>    
+1 ERR458493 ~/quant/ERR458493.qc.fq.gz_quant/quant.sf wt       
+2 ERR458494 ~/quant/ERR458494.qc.fq.gz_quant/quant.sf wt       
+3 ERR458495 ~/quant/ERR458495.qc.fq.gz_quant/quant.sf wt       
+4 ERR458500 ~/quant/ERR458500.qc.fq.gz_quant/quant.sf snf2     
+5 ERR458501 ~/quant/ERR458501.qc.fq.gz_quant/quant.sf snf2     
+6 ERR458502 ~/quant/ERR458502.qc.fq.gz_quant/quant.sf snf2  
+```
+
 Second, we need a file that specifies which transcripts are associated with
 which genes. In this case, we have associated transcript names with yeast
 ORF names. 
@@ -79,6 +92,19 @@ tx2gene_map <- read_tsv("https://osf.io/a75zm/download")
 head(tx2gene_map)
 ```
 
+the output should look something like this,
+```
+# A tibble: 6 x 2
+  TXNAME                GENEID   
+  <chr>                 <chr>    
+1 lcl|BK006935.2_mrna_1 YAL068C  
+2 lcl|BK006935.2_mrna_2 YAL067W-A
+3 lcl|BK006935.2_mrna_3 YAL067C  
+4 lcl|BK006935.2_mrna_4 YAL065C  
+5 lcl|BK006935.2_mrna_5 YAL064W-B
+6 lcl|BK006935.2_mrna_6 YAL064C-A
+```
+
 We can now use `tximport()` to read in our count files
 
 ```
@@ -88,6 +114,14 @@ txi <- tximport(files = samples$quant_file, type = "salmon", tx2gene = tx2gene_m
 Let's look at this new object:
 ```
 summary(txi)
+```
+
+```
+                    Length Class  Mode     
+abundance           36774  -none- numeric  
+counts              36774  -none- numeric  
+length              36774  -none- numeric  
+countsFromAbundance     1  -none- character
 ```
 
 `txi` is a bit like a list, where it has multiple objects in it. Let's take a 
@@ -105,7 +139,34 @@ also ensure that we assign the correct names to each column.
 colnames(txi$counts) <- samples$sample
 ```
 
+## Why do we need to normalize and transform read counts
+
+Given a uniform sampling of a diverse transcript pool, the number of sequenced reads mapped to a gene depends on:
+
++ its own expression level,
++ its length,
++ the sequencing depth,
++ the expression of all other genes within the sample.
+
+In order to compare the gene expression between two conditions, we must therefore calculate the fraction of the reads assigned to each gene relative to the total number of reads and with respect to the entire RNA repertoire which may vary drastically from sample to sample. While the number of sequenced reads is known, the total RNA library and its complexity is unknown and variation between samples may be due to contamination as well as biological reasons. **The purpose of normalization is to eliminate systematic effects that are not associated with the biological differences of interest.**
+
+Normalization aims at correcting systematic technical biases in the data, in order to make read counts comparable across samples. The normalization proposed by DESeq2 relies on the hypothesis that most features are not differentially expressed. It computes a scaling factor for each sample. Normalized read counts are obtained by dividing raw read counts by the scaling factor associated with the sample they belong to.
+
 ## Differential Expression with `DESeq2`
+
+<center><img src="_static/de_theory.png" width="90%"></center>
+<br>
+Image credit: Paul Pavlidis, UBC
+<br>
+
+Differential expression analysis with DESeq2 involves multiple steps as displayed in the flowchart below. Briefly,
+
++ DESeq2 will model the raw counts, using normalization factors (size factors) to account for differences in library depth.
++ Then, it will estimate the gene-wise dispersions and shrink these estimates to generate more accurate estimates of dispersion to model the counts.
++ Finally, DESeq2 will fit the negative binomial model and perform hypothesis testing using the Wald test or Likelihood Ratio Test.
+
+<center><img src="_static/DESeq2_workflow.png" width="90%"></center>
+<br>
 
 We're now ready to use `DESeq2`, the package that will perform differential 
 expression.
@@ -113,14 +174,15 @@ expression.
 We'll start with a function called `DESeqDataSetFromTximport` which will 
 transform our `txi` object into something that other functions in `DESeq2` can
 work on. This is where we also give information about our samples contain
-in the `samples` data.frame, and where we provide our experimental design.
-Here our experimental design has one factor with two levels.
+in the `samples` data.frame, and where we provide our experimental design. **A design formula tells the statistical software the known sources of variation to control for, as well as, the factor of interest to test for during differential expression testing. Here our experimental design has one factor with two levels.**
 
 ```
 dds <- DESeqDataSetFromTximport(txi = txi, 
                                 colData = samples, 
                                 design = ~condition)
 ```
+
+Note: DESeq stores virtually all information associated with your experiment in one specific R object, called DESeqDataSet. This is, in fact, a specialized object of the class “SummarizedExperiment". This, in turn,is a container where rows (rowRanges()) represent features of interest (e.g. genes, transcripts, exons) and columns represent samples (colData()). The actual count data is stored in theassay()slot.
 
 After running this command, you should see red output messages that look
 something like this: 
@@ -142,7 +204,19 @@ Now that we have a DESeq2 object, we can can perform differential expression.
 dds <- DESeq(dds)
 ```
 
-And look at the results!
+Everything from normalization to linear modeling was carried out by the use of a single function! This function will print out a message for the various steps it performs:
+```
+estimating size factors
+using 'avgTxLength' from assays(dds), correcting for library size
+estimating dispersions
+gene-wise dispersion estimates
+mean-dispersion relationship
+final dispersion estimates
+fitting model and testing
+```
+
+And look at the results! The results() function lets you extract the base means across samples, log2-fold changes, standard errors, test statistics etc. for every gene.
+
 ```
 res <- results(dds)
 head(res)
@@ -171,9 +245,9 @@ WT had a decrease of -0.2124 in log2fold change of gene expression.
 
 Speaking of log2fold change, what do all of these columns mean?
 
-| baseMean   | giving base means across samples (i.e. mean count value across biological replicates in one condition) |
+| baseMean   | giving means across all samples |
 |----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| log2FoldChange | log2 fold changes of gene expression from one condition to another. Reflects how different the expression of a gene is one condition is from the expression of the same gene in another condition. |
+| log2FoldChange | log2 fold changes of gene expression from one condition to another. Reflects how different the expression of a gene in one condition is from the expression of the same gene in another condition. |
 | lfcSE  | standard errors  (used to calculate p value) |
 | stat | test statistics used to calculate p value) |
 | pvalue | p-values for the log fold change |
@@ -182,7 +256,7 @@ Speaking of log2fold change, what do all of these columns mean?
 
 We see that the default differential expression output is sorted the same way
 as our input counts. Instead, it can be helpful to sort and filter by adjusted
-p value or log2FoldChange:
+p value or log2 Fold Change:
 
 ```
 res_sig <- subset(res, padj<.05)
@@ -196,14 +270,14 @@ Looking at our results is great, but visualizing them is even better!
 
 ### MA Plot
 
-An MA plot is a visualization of the base means and log2fold changes of the
-genes we performed differential expression on.
+The MA plot provides a global view of the relationship between the expression change between conditions (log ratios, M), the average expression strength of the genes (average mean, A) and the ability of the algorithm to detect differential gene expression: genes that pass the significance threshold are colored in red
 
 ```
 plotMA(res)
 ```
 
-Genes in red have significant p-values. 
+<center><img src="_static/deseq_ma.png" width="90%"></center>
+<br>
 
 **Question**  
 Why are more genes grey on the left side of the axis than on the right side?
@@ -219,25 +293,28 @@ to produce such a plot:
 plotCounts(dds, gene=which.min(res$padj), intgroup="condition")
 ```
 
+<center><img src="_static/deseq_rdn18.png" width="90%"></center>
+<br>
+
 **Question**  
 What gene is plotted here (i.e., what criteria did we use to select a single 
 gene to plot)?
 
-### Normalization and transformations
+### Normalization & Transformation
 
 `DESeq2` automatically normalizes our count data when it runs differential 
 expression. However, for certain plots, we need to normalize our raw count data.
 One way to do that is to use the `vst()` function. It perform variance 
 stabilized transformation on the count data, while controlling for library
-size of samples. 
+size of samples.
 
 ```
 vsd <- vst(dds)
-``` 
+```
 
 ### MDS Plot
 
-An MDS plot gives us an idea of how similar our samples are. The closer two 
+An MDS (multi-dimensional scaling) plot gives us an idea of how our samples relate to each other. The closer two 
 samples are on a plot, the more similar all of their counts are. To generate
 this plot in DESeq2, we need to calculate "sample distances" and then plot them.
 
@@ -266,6 +343,9 @@ ggplot(mds, aes(X1, X2, shape = condition)) +
   theme_minimal()
 ``` 
 
+<center><img src="_static/deseq_mds.png" width="90%"></center>
+<br>
+
 **Question**  
 How similar are the samples between conditions?
 
@@ -285,7 +365,7 @@ yeast genes, let's choose the 20 genes with the largest positive log2fold
 change.
 
 ```
-genes <- order(res_lfc$log2FoldChange)[1:20]
+genes <- order(res_lfc$log2FoldChange, decreasing=TRUE)[1:20]
 ```
 
 We can also make a data.frame that contains information about our samples that 
@@ -308,6 +388,9 @@ pheatmap(assay(vsd)[genes, ], cluster_rows=TRUE, show_rownames=TRUE,
          cluster_cols=FALSE, annotation_col=annot_col)
 ```
 
+<center><img src="_static/deseq_heatmap.png" width="90%"></center>
+<br>
+
 We see that our samples do cluster by condition, but that by looking at just the
 counts, the patterns aren't very strong. How does this compare to our MDS plot?
 
@@ -320,10 +403,14 @@ What other types of heatmaps have you seen in the wild?
 Here are some helpful notes or resources for anyone performing differential
 expression.
 
++ Introduction to differential gene expression analysis using RNA-seq (Written by Friederike Dündar, Luce Skrabanek, Paul Zumbo). Click [here](http://chagall.med.cornell.edu/RNASEQcourse/Intro2RNAseq.pdf)
+
++ Introduction to DGE - click [here](https://hbctraining.github.io/DGE_workshop/lessons/04_DGE_DESeq2_analysis.html)
+
 ### Making a tx2gene file
 
 Making a tx2gene file is often a little different for each organism. If your 
-organism has a transcriptome (or \*rna\_from\_genomic.fnai.gz file) on RefSeq,
+organism has a transcriptome (or \*rna\_from\_genomic.fna.gz file) on RefSeq,
 you can often get the information from the `*feature_table.txt.gz`. You 
 might also be able to parse a gtf or gff file to produce the information you
 need. This information is sometimes also found in the fasta headers of the 
