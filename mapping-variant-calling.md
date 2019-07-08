@@ -13,7 +13,7 @@ Learning objectives:
 
 ## Boot up a Jetstream
 
-[Boot an m1.medium Jetstream instance](jetstream/boot.md) and log in.
+You should still have your jetstream instance running, you can following the instructions [here](jetstream/boot.html) to log in to [JetStream](https://use.jetstream-cloud.org/application/dashboard) and find your instance. Then `ssh` into it following the instructions [here](jetstream/boot.html#ssh-secure-login).
 
 ## Install software
 
@@ -23,12 +23,15 @@ conda install -y bwa samtools bcftools
 
 ## Change to a new working directory and map data
 After installing the necessary software, we will create the working directory for the mapping as follows:
+
 ```
 cd ~/
 mkdir mapping
 cd mapping
 ```
+
 Next, we will create links from the previously downloaded and quality-trimmed yeast dataset:
+
 ```
 ln -fs ~/quality/*.qc.fq.gz .
 ls
@@ -45,7 +48,7 @@ Goal: perform read alignment or mapping to determine where in the genome our rea
 
 ### Download and gunzip the reference:
 
-Here we are using **open coding regions** to do variant calling because we are working with mRNA sequences.
+Here we are using **open reading frames** to do variant calling because we are working with mRNA sequences.
 It's important to think about what reference is appropriate for your experiment. Many biologically important
 variants exist in non-coding regions, so if we were looking at genomic sequences, it would be important to
 use a different reference such as the whole genome.
@@ -81,49 +84,64 @@ bwa mem -t 4 orf_coding.fasta ERR458493.qc.fq.gz  > ERR458493.sam
 ```
 Have a look at the [bwa options](http://bio-bwa.sourceforge.net/bwa.shtml) page. While we are running bwa with the default parameters here, your use case might require a change of parameters. NOTE: Always read the manual page for any tool before using and make sure the options you use are appropriate for your data.
         
-## What is the difference between Salmon and bwa mem?
-
-- Standard alignment tools (Hisat2, STAR, BWA) try to find the read origin by FULL-ALIGNMENT of reads to a genome or transcriptome.
-
-- Ultra-fast alignment-free methods, such as Sailfish, **Salmon** and Kallisto, have been developed by exploiting the idea that precise alignments are not required to assign reads to their origins
-
-- Salmon’s "quasi-mapping" approach uses **exact matching of k-mers (sub-strings in reads) to approximate which read a transcipt originated from.** The idea behind it being that it may not be important to exactly know where within a transcript a certain read originated from. Instead, it may be enough to **simply know which transcript the read represents.** 
-
-- Salmon therefore does not generate a BAM file because, it does not worry about finding the best possible alignment. Instead, it yields a (probabilistic) measure of how many reads indicate the presence of each transcript. This is enough information for read quantification, and is really fast.
-
-- However, BWA `mem` produces an alignment, where an entire read is mapped exactly against a reference sequence. This produces more information that is important for things like variant calling. 
+> **What is the difference between Salmon and bwa mem?**
+>
+> - Standard alignment tools (Hisat2, STAR, BWA) try to find the read origin by FULL-ALIGNMENT of reads to a genome or transcriptome.
+>
+> - Ultra-fast alignment-free methods, such as Sailfish, **Salmon** and Kallisto, have been developed by exploiting the idea that precise alignments are not required to assign reads to their origins
+>
+> - Salmon’s "quasi-mapping" approach uses **exact matching of k-mers (sub-strings in reads) to approximate which read a transcipt originated from.** The idea behind it being that it may not be important to exactly know where within a transcript a certain read originated from. Instead, it may be enough to **simply know which transcript the read represents.** 
+>
+> - Salmon therefore does not generate a BAM file because it does not worry about finding the best possible alignment. Instead, it yields a (probabilistic) measure of how many reads originated from each transcript. This is enough information for read quantification, and is really fast.
+>
+> - However, BWA `mem` produces an alignment, where an entire read is mapped exactly against a reference sequence. This produces more information that is important for things like variant calling. 
 
 ### Observe!
+
+
+### SAM/BAM File formats
+
+We can peek at our ".sam" file:
 
 ```
 head ERR458493.sam
 tail ERR458493.sam
 ```
-### SAM/BAM File formats
 
 The SAM file is a tab-delimited text file that contains information for each individual read and its 
-alignment to the genome. While we do not have time to go in detail of the features of the SAM format, 
+alignment to the reference. While we do not have time to go in detail of the features of the SAM format, 
 the paper by [Heng Li et al.](http://bioinformatics.oxfordjournals.org/content/25/16/2078.full) provides a lot more detail on the specification.
 
 The compressed binary version of SAM is called a BAM file. We use this version to reduce size and to 
 allow for indexing, which enables efficient random access of the data contained within the file.
 
-The file begins with a header, which is optional. The header is used to describe source of data, 
-reference sequence, method of alignment, etc., this will change depending on the aligner being used. 
-Following the header is the alignment section. Each line that follows corresponds to alignment information 
-for a single read. Each alignment line has 11 mandatory fields for essential mapping information and a 
-variable number of other fields for aligner specific information. An example entry from a SAM file is 
-displayed below with the different fields highlighted.
+<blockquote>
+<center><b>PRACTICE!</b></center>
 
-<center><img src="_static/sam_file.png" width="60%"></center>
-<br>
+Using the <code>bwa</code> command we ran above as the foundation, construct a <i>for loop</i> to generate ".sam" alignment files for all of our quality controlled samples!
 
-<center><img src="_static/bam_file.png" width="60%"></center>
-<br>
+<div class="toggle-header closed">
+    <strong>Solution</strong>
+</div>
 
-**Challenge**
+<div class="toggle-content docutils container" style="width:100%">
 
-Construct a `for` loop to to generate `.sam` alignment files for all of our quality controlled samples.
+<div class="highlight-bash notranslate">
+<div class="highlight">
+<pre>
+
+<span class="nb">for filename in *.qc.fq.gz
+do
+&nbsp;&nbsp;name=$(basename $filename .qc.fq.gz)
+&nbsp;&nbsp;echo "Working on: $name"
+&nbsp;&nbsp;bwa mem -t 4 orf_coding.fasta $filename > ${name}.sam
+done</span>
+</pre>
+</div>
+</div>
+</div>
+</blockquote>
+
 
 ## Visualize mapping
 
@@ -131,7 +149,7 @@ Goal: make it possible to go look at a specific bit of the genome.
 
 ### Index the reference genome:
 
-Before we indexed the reference for BWA, now we reference the index for samtools. Although both
+Before we indexed the reference for BWA, now we need to index the reference for samtools. Although both
 tools use different indexing methods, they both allow the tools to find specific sequences within
 the reference quickly.
 
@@ -142,12 +160,12 @@ samtools faidx orf_coding.fasta
 ### Convert the SAM file into a BAM file:
 
 ```
-samtools import orf_coding.fasta.fai ERR458493.sam ERR458493.bam
+samtools view -S -b ERR458493.sam > ERR458493.bam
 ```
         
 ### Sort the BAM file by position in genome:
 
-You can sort on many different fields within a sam or bam file. After mapping, our
+You can sort on many different columns within a sam or bam file. After mapping, our
 files are sorted by read number. Most programs require mapping files to be sorted by
 position in the reference. You can sort a file using the `samtools sort` command.
 
@@ -163,7 +181,7 @@ samtools index ERR458493.sorted.bam
         
 ### Visualize with `tview`:
 
-Samtools implements a very simple text alignment viewer based on the GNU ncurses library, called tview. 
+Samtools implements a very simple text alignment viewer called tview. 
 This alignment viewer works with short indels and shows MAQ consensus. It uses different colors to display 
 mapping quality or base quality, subjected to users' choice. Samtools viewer is known to work with an 
 130 GB alignment swiftly. Due to its text interface, displaying alignments over network is also very fast.
@@ -215,9 +233,6 @@ bcftools mpileup -O b -f orf_coding.fasta ERR458493.sorted.bam | \
 vcfutils.pl varFilter variants.vcf  > variants_filtered.vcf
 ```
 
-**Challenge** 
-
-How many fewer lines are there in the `variants.vcf` vs. in the `variants_filtered.vcf` file?
 
 To look at the entire `variants.vcf` file you can do `cat
 variants.vcf`; all of the lines starting with `#` are comments.  You
