@@ -490,6 +490,12 @@ $ snakemake --use-conda
 + Make a Snakefile for RNAseq workflow covered in this workshop
 + Make a Snakefile for Variant-Calling workflow covered in this workshop
 
+- [snakemake paper](https://academic.oup.com/bioinformatics/article/28/19/2520/290322)
+
+- [snakemake GUI](https://academic.oup.com/bioinformatics/article/34/11/1934/4817647)
+
+- [snakemake metagenomics](https://github.com/AAFC-BICoE/snakemake-amplicon-metagenomics)
+
 
 
 
