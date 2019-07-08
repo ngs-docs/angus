@@ -152,7 +152,7 @@ Using the <code>bwa</code> command we ran above as the foundation, construct a <
 <span class="nb">for filename in *.qc.fq.gz
 do
 &nbsp;&nbsp;name=$(basename $filename .qc.fq.gz)
-&nbsp;&nbsp;echo "Working on: $name"
+&nbsp;&nbsp;echo Working on: $name
 &nbsp;&nbsp;bwa mem -t 4 orf_coding.fasta $filename > ${name}.sam
 done</span>
 </pre>
