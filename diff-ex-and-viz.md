@@ -154,9 +154,9 @@ Normalization aims at correcting systematic technical biases in the data, in ord
 <center><img src="_static/de_theory.png" width="90%"></center>
 <br>
 Image credit: Paul Pavlidis, UBC
+<br>
 
-
-- Differential expression analysis with DESeq2 involves multiple steps as displayed in the flowchart below. Briefly,
+Differential expression analysis with DESeq2 involves multiple steps as displayed in the flowchart below. Briefly,
 
 + DESeq2 will model the raw counts, using normalization factors (size factors) to account for differences in library depth.
 + Then, it will estimate the gene-wise dispersions and shrink these estimates to generate more accurate estimates of dispersion to model the counts.
