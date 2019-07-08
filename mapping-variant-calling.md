@@ -44,12 +44,11 @@ ls
 
 ## Map data
 
-Goal: perform read alignment or mapping to determine where in the genome our reads originated from.
+Goal: perform read alignment (also known as mapping) to determine where our reads originated from.
 
 ### Download and gunzip the reference:
 
-Here we are using **open reading frames** to do variant calling because we are working with mRNA sequences.
-It's important to think about what reference is appropriate for your experiment. Many biologically important
+Here we are going to align our transcripts to the reference's **open reading frames** to look for single-nucleotide variants. It's important to think about what reference is appropriate for your experiment. Many biologically important
 variants exist in non-coding regions, so if we were looking at genomic sequences, it would be important to
 use a different reference such as the whole genome.
 
@@ -66,9 +65,9 @@ head orf_coding.fasta
         
 ### Indexing: Prepare reference for mapping:
 
-Our first step is to index the reference genome for use by BWA. Indexing allows the aligner to quickly find potential
-alignment sites for query sequences in a genome, which saves time during alignment. Indexing the reference only has to 
-be run once. The only reason you would want to create a new index is if you are working with a different reference genome
+Our first step is to index the reference sequences for use by BWA. Indexing allows the aligner to quickly find potential
+alignment sites for query sequences in a reference, which saves time during alignment. Indexing the reference only has to 
+be run once. The only reason you would want to create a new index is if you are working with a different reference
 or you are using a different tool for alignment.
 
 ```
@@ -145,9 +144,9 @@ done</span>
 
 ## Visualize mapping
 
-Goal: make it possible to go look at a specific bit of the genome.
+Goal: make it possible to vizualize some of our mapping results.
 
-### Index the reference genome:
+### Index the reference:
 
 Before we indexed the reference for BWA, now we need to index the reference for samtools. Although both
 tools use different indexing methods, they both allow the tools to find specific sequences within
@@ -215,7 +214,7 @@ samtools flagstat ERR458493.sorted.bam
 ## Call variants!
 
 Goal: find places where the reads are systematically different from the
-genome.
+reference.
 
 A variant call is a conclusion that there is a nucleotide difference vs. some reference at a given 
 position in an individual genome or transcriptome, often referred to as a Single Nucleotide Polymorphism (SNP). 
