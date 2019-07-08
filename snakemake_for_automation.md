@@ -31,38 +31,25 @@ Install `snakemake` using conda.
 conda install -y -c bioconda snakemake-minimal
 ```
 
-Type the following in your terminal to display a link to Rstudio web-server for your instance’s $(hostname)
+Type the following in your terminal to display a link to Rstudio web-server 
+for your instance’s $(hostname)
 
 ```
 echo http://$(hostname):8787/
 ```
-click on the link generated to open Rstudio in your browser and login with your room's jetstream username and password. We’re mostly going to work in the file editor and the terminal of Rstudio; to get started, open the terminal, and execute following to to get a shorter terminal prompt.
 
-```
-PS1='$ '
-```
+Copy and paste the generated link into your browser to open Rstudio and login
+with your room's jetstream username and password. We’re going to work 
+in the file editor and the terminal of Rstudio; to get started, open the 
+terminal.
 
-## Rationale
-
-<center><img src="_static/wms_rationale.png" width="90%"></center>
-<br>
 
 **RNAseq & Variant Calling Workflow Steps**
 
 <center><img src="_static/workflow_steps.png" width="90%"></center>
 <br>
 
-## Introduction to Workflow Management
 
-Definition: A workflow management system, consists of a text-based workflow specification language and a scalable execution environment, that allows the parallelized execution of workflows on workstations, compute servers and clusters without modification of the workflow definition.
-
-A workflow management system allows you to:
-+ Keep a record of how your scripts are used and what their input dependencies are
-+ Run multiple steps in sequence, parallelising where possible
-+ Automatically detect if something changes and then reprocess data if needed
-
-<center><img src="_static/wms_syntax.png" width="90%"></center>
-<br>
 
 ## Automation with BASH
 
@@ -81,7 +68,7 @@ set -e
 cd ~/data/
 
 echo "Running FastQC ..."
-fastqc *.fastq.gz
+fastqc *.fastq.gz 
 
 mkdir -p ~/fastqc_untrimmed
 
@@ -89,22 +76,16 @@ echo "Saving FastQC results..."
 mv *.zip ~/fastqc_untrimmed/
 mv *.html ~/fastqc_untrimmed/
 
-cd ~/fastqc_untrimmed_reads/
+cd ~/fastqc_untrimmed/
 
-echo "Unzipping..."
-for filename in *.zip
-do
-    unzip $filename
-done
-
-echo "Saving summary..."
-cat */summary.txt > ~/fastqc_summaries.txt
+echo "Running multiqc..."
+multiqc .
 ```
 
 We can run it using this command:
 
 ```
-bash read_qc.sh
+bash qc.sh
 ```
 
 Oh crap! We realize just after we've finished `Running FastQC` that we wanted 
@@ -120,31 +101,25 @@ lines we know already ran and then re-run the script:
 set -e
 cd ~/data/
 
-#echo "Running FastQC ..."
-#fastqc *.fastq.gz
+# echo "Running FastQC ..."
+# fastqc *.fastq.gz 
 
-#mkdir -p ~/fastqc_untrimmed
+mkdir -p ~/data/fastqc_untrimmed
 
 echo "Saving FastQC results..."
-mv *.zip ~/fastqc_untrimmed/
-mv *.html ~/fastqc_untrimmed/
+mv *.zip ~/data/fastqc_untrimmed/
+mv *.html ~/data/fastqc_untrimmed/
 
-cd ~/fastqc_untrimmed_reads/
+cd ~/data/fastqc_untrimmed/
 
-echo "Unzipping..."
-for filename in *.zip
-do
-    unzip $filename
-done
-
-echo "Saving summary..."
-cat */summary.txt > ~/fastqc_summaries.txt
+echo "Running multiqc..."
+multiqc .
 ```
 
 Now we can re-run the script:
 
 ```
-bash read_qc.sh 
+bash qc.sh 
 ```
 
 This (maybe) worked out ok this time. However, it's hard to be sure we know 
@@ -154,9 +129,6 @@ managers to keep track of the things that have and haven't run yet!
 We'll be using snakemake for automation. 
 
 ## Introduction to Snakemake
-
-<center><img src="_static/smake_rule.png" width="90%"></center>
-<br>
 
 The Snakemake workflow management system is a tool to create reproducible and 
 scalable data analyses. It orchestrates and keeps track of all the different
@@ -177,12 +149,26 @@ resources!).
 + Anything that you can do in Python, you can do with Snakemake (since you can 
 pretty much execute arbitrary Python code anywhere).
 
-Our goal is to automate the first two steps (FastQC & Unzipping of FastQC results) of our example workflow using snakemake! 
+Like other workflow management systems, Snakemake allows you to:
+
++ Keep a record of how your scripts are used and what their input dependencies 
+are
++ Run multiple steps in sequence, parallelising where possible
++ Automatically detect if something changes and then reprocess data if needed
+
+Our goal is to automate the first two steps (FastQC MultiQC) of our example 
+workflow using snakemake! 
 
 ## Starting with Snakemake
 
-Snakemake workflows are built around **rules**. Let's make a rule to run `fastqc`
-on one of our samples below. We'll put this rule in a file called `Snakefile`.
+Snakemake workflows are built around **rules**. The diagram below shows the
+anatomy of a snakemake rule:
+
+<center><img src="_static/smake_rule.png" width="90%"></center>
+<br>
+
+Let's make a rule to run `fastqc` on one of our samples below. We'll put this 
+rule in a file called `Snakefile`.
 
 ```
 rule fastqc_raw:
@@ -229,8 +215,8 @@ ls data/*fastqc*
 
 Yay! Snakemake ran the thing!
 
-We can also use better organization. Let's **specify a different output folder** for
-our fastqc results
+We can also use better organization. Let's **specify a different output folder** 
+for our fastqc results
 
 ```
 rule fastqc_raw:
@@ -260,8 +246,7 @@ ls fastqc_raw
 ## Creating a pipeline with snakemake
 
 We told snakemake to do something, and it did it. Let's add another rule to our
-Snakefile telling snakemake to do something else. This time, we'll unzip the 
-zipped fastc files.  
+Snakefile telling snakemake to do something else. This time, we'll run multiqc.
 
 ```
 rule fastqc_raw:
@@ -273,11 +258,11 @@ rule fastqc_raw:
     fastqc -o fastqc_raw {input}
     '''
 
-rule unzip_fastqc_raw:
+rule multiqc_raw:
     input: "fastqc_raw/ERR458493_fastqc.zip"
-    output: "fastqc_raw/ERR458493_fastqc/summary.txt"
+    output: "fastqc_raw/multiqc_report.html"
     shell:'''
-    unzip -d fastqc_raw/ {input}
+    multiqc -o fastqc_raw fastqc_raw
     '''
 ```
 
@@ -289,8 +274,8 @@ Nothing to be done.
 Complete log: /Users/tr/2019_angus/.snakemake/log/2019-07-02T191640.002744.snakemake.log
 ```
 
-However, when we look at the output directory `fastqc_raw`, we see that our file
-was not unzipped! Bad Snakemake! Bad!! 
+However, when we look at the output directory `fastqc_raw`, we see that our 
+multiqc file does not exist! Bad Snakemake! Bad!! 
 
 Snakemake looks for a `rule all` in a file as the final file it needs to 
 produce in a workflow. Once this file is defined, it will go back through all 
@@ -301,7 +286,7 @@ in our workflow, this is our fastqc sample directory.. Let's add a rule all.
 ```
 rule all:
     input:
-        "fastqc_raw/ERR458493_fastqc/summary.txt"
+        "fastqc_raw/multiqc_report.html"
 
 rule fastqc_raw:
     input: "data/ERR458493.fastq.gz"
@@ -312,11 +297,11 @@ rule fastqc_raw:
     fastqc -o fastqc_raw {input}
     '''
 
-rule unzip_fastqc_raw:
+rule multiqc_raw:
     input: "fastqc_raw/ERR458493_fastqc.zip"
-    output: "fastqc_raw/ERR458493_fastqc/summary.txt"
+    output: "fastqc_raw/multiqc_report.html"
     shell:'''
-    unzip -d fastqc_raw/ {input}
+    multiqc -o fastqc_raw fastqc_raw
     '''
 ```
 
@@ -331,7 +316,7 @@ Rules claiming more threads will be scaled down.
 Job counts:
 	count	jobs
 	1	all
-	1	unzip_fastqc_raw
+	1	multiqc_raw
 	2
 ```
 
@@ -348,14 +333,16 @@ Snakemake is can be flexibly extended to more samples using wildcards.
 We already saw wildcards previously. 
 
 When we specified the output file path with `{input}`, `{input}` was a
-wildcard. The wildcard is equivalent to the value we specified for `{output}`.
+wildcard. The wildcard is equivalent to the value we specified for `{input}`.
 
 ```
-rule unzip_fastqc_raw:
-    input: "fastqc_raw/ERR458493_fastqc.zip"
-    output: "fastqc_raw/ERR458493_fastqc/summary.txt"
+rule fastqc_raw:
+    input: "data/ERR458493.fastq.gz"
+    output: 
+        "fastqc_raw/ERR458493_fastqc.html",
+        "fastqc_raw/ERR458493_fastqc.zip"
     shell:'''
-    unzip -d fastqc_raw/ {input}
+    fastqc -o fastqc_raw {input}
     '''
 ```
 
@@ -368,7 +355,8 @@ SAMPLES=['ERR458493', 'ERR458494', 'ERR458495', 'ERR458500', 'ERR458501',
 
 rule all:
     input:
-        expand("fastqc_raw/{sample}_fastqc/summary.txt", sample = SAMPLES)
+        "fastqc_raw/multiqc_report.html"
+
 
 rule fastqc_raw:
     input: "data/{sample}.fastq.gz"
@@ -379,15 +367,27 @@ rule fastqc_raw:
     fastqc -o fastqc_raw {input}
     '''
 
-rule unzip_fastqc_raw:
-    input: "fastqc_raw/{sample}_fastqc.zip"
-    output: "fastqc_raw/{sample}_fastqc/summary.txt"
+rule multiqc_raw:
+    input: expand("fastqc_raw/{sample}_fastqc.html", sample = SAMPLES)
+    output: "fastqc_raw/multiqc_report.html"
     shell:'''
-    unzip -d fastqc_raw/ {input}
+    multiqc -o fastqc_raw fastqc_raw
     '''
 ```
 
+We can run this again at the terminal.
+
+```
+snakemake
+```
+
 And we have now run these rules for each of our samples!
+
+Note that we added new syntax here as well. We define a variable at the top
+of the snakefile call `SAMPLES`. Snakemake solves the values for the wildcard
+`{sample}` the last time that see that wildcard. However, we need to `expand`
+the wildcard using the `expand` function, and tell snakemake in which variable
+to look for the values. 
 
 <center><img src="_static/dag_multiple.png" width="90%"></center>
 <br>
@@ -401,27 +401,28 @@ And we have now run these rules for each of our samples!
 
 ## Snakemake Additional Features
 
-# dry-run, print shell commands and reason for execution
+#### dry-run, print shell commands and reason for execution
 
 ```
 snakemake -n –p -r
 ```
-# visualize the DAG of jobs using the Graphviz dot command
+#### visualize the DAG of jobs using the Graphviz dot command
 
 ```
 snakemake --dag | dot -Tsvg > dag.svg
 ```
-# execute the workflow with 8 cores
+#### execute the workflow with 8 cores
 
 ```
 snakemake --cores 8
 ```
-# run the workflow on a SLURM cluster
+#### run the workflow on a SLURM cluster
 
 ```
-snakemake --cluster-config cluster.yml --cluster \ "sbatch -A {cluster.account} -t {cluster.time}"
+snakemake --cluster-config cluster.yml --cluster \ 
+  "sbatch -A {cluster.account} -t {cluster.time}"
 ```
-# Visualize entire workflow diagram
+#### Visualize entire workflow diagram
 
 ```
 snakemake --dag | dot -Tpng > dag.png
@@ -430,33 +431,38 @@ The DAG png file should look something as shown above.
 
 ### Snakemake Report
 
-Snakemake can automatically generate detailed self-contained HTML reports that encompass runtime statistics, provenance information, workflow topology and results.
+Snakemake can automatically generate detailed self-contained HTML reports that 
+encompass runtime statistics, provenance information, workflow topology and 
+results.
 
-- To create the report simply run
+To create the report, run
 
 ```
 snakemake --report report.html
 ```
+
 View sample report here(xyz)
 
 ### Specifying software required for a rule
 
-**You can specify software on a per-rule basis! This is really helpful when you have incompatible software requirements for different rules, or want to run on a cluster, or just want to pin your snakemake workflow to a specific version.**
+**You can specify software on a per-rule basis! This is really helpful when 
+you have incompatible software requirements for different rules, or want to run 
+on a cluster, or want to make your workflow repeatible.**
 
-For example, if you create a file `env_fastqc.yml` with the following content,
+For example, if you create a file `env_fastqc.yml` with the following content:
 
 ```
 channels:
+  - conda-forge
   - bioconda
   - defaults
-  - conda-forge
 dependencies:
   - fastqc==0.11.8
 ```
 
 and then change the fastqc rule to look like this:
 
-```python
+```
 rule fastqc_raw:
     input: "data/{sample}.fastq.gz"
     output: 
@@ -471,24 +477,22 @@ rule fastqc_raw:
 
 you can now run snakemake like so,
 
-```bash
-$ snakemake --use-conda
 ```
-**and for that rule, snakemake will install just that software, with the specified version.**
+snakemake --use-conda
+```
 
-**This aids in reproducibility, in addition to the practical advantages of isolating software installs from each other.**
+and for that rule, snakemake will install the specified software and 
+and dependencies in its own environment,  with the specified version.
 
-# Advanced Snakemake
+This aids in reproducibility, in addition to the practical advantages of 
+isolating software installs from each other.
 
-+ What happens when a tool does not have any specific input requirements as we have been specifying for our rules in the Snakefile? e.g., [MultiQC] is a tool that aggregates multiple FastQC reports into one html file. Multiqc not having any input dependencies, is a problem that is a bit harder to fix. Why do we want to fix this? Well, this is how snakemake tracks “out of date” files - if we don’t specify input dependencies, then we may update one of the fastqc results that multiqc uses, but snakemake won’t re-run multiqc on it, and our multiqc results will be out of date. See Tutorial [here].
 
-+ Here are some great [Snakemake Workflows](https://github.com/snakemake-workflows). Check out the RNAseq-STAR-DESEq2 workflow [here](https://github.com/snakemake-workflows/rna-seq-star-deseq2).
+## Resources
 
-# Exercises
-
-+ Make a three rule snakemake pipeline using basic unix tools. Include at least one wildcard variable.
-+ Make a Snakefile for RNAseq workflow covered in this workshop
-+ Make a Snakefile for Variant-Calling workflow covered in this workshop
++ Here are some great 
+[Snakemake Workflows](https://github.com/snakemake-workflows). Check out the 
+RNAseq-STAR-DESEq2 workflow [here](https://github.com/snakemake-workflows/rna-seq-star-deseq2).
 
 - [snakemake paper](https://academic.oup.com/bioinformatics/article/28/19/2520/290322)
 
