@@ -72,9 +72,7 @@ or you are using a different tool for alignment.
 bwa index orf_coding.fasta
 ```
         
-### Read Alignment
-
-In order to identify the transcripts that are present in a specific sample, the genomic origin of the sequenced cDNA fragments must be determined. The assignment of sequencing reads to the most likely locus of origin is called read alignment or mapping.
+### Mapping
 
 We use an algorithm called `bwa mem` to perform mapping.
 
