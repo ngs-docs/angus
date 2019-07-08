@@ -67,6 +67,8 @@ samples <- read_csv("https://osf.io/cxp2w/download")
 # look at the first 6 lines
 head(samples)
 ```
+
+you should see output like this,
 ```
 # A tibble: 6 x 3
   sample    quant_file                                condition
@@ -90,6 +92,7 @@ tx2gene_map <- read_tsv("https://osf.io/a75zm/download")
 head(tx2gene_map)
 ```
 
+the ourput should look something like this,
 ```
 # A tibble: 6 x 2
   TXNAME                GENEID   
