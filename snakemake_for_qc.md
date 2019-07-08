@@ -10,6 +10,14 @@ the full workflow to run on all samples.
 
 We've added in the rules we created from our previous lesson as well.
 
+Let's make sure we're in a good working directory and we have the necessary
+software installed.
+
+```
+cd ~
+conda install -y fastqc multiqc trimmomatic
+```
+
 ```
 SAMPLES=['ERR458493', 'ERR458494', 'ERR458495', 'ERR458500', 'ERR458501', 
 'ERR458502']
@@ -39,11 +47,13 @@ rule trim:
     input:
         reads = "",
         adapters = ""
-    output:
+    output: "" # the output should be the trimmed file
     shell: '''
     trimmomatic SE 
     '''
-    
+
+# Use the commands above as a template to fill in these rules, this time
+running the analyses on the trimmed reads.
 rule fastqc_trimmed:
 
 rule multiqc_trimmed:
