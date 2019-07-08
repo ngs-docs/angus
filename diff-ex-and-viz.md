@@ -140,10 +140,10 @@ colnames(txi$counts) <- samples$sample
 
 Given a uniform sampling of a diverse transcript pool, the number of sequenced reads mapped to a gene depends on:
 
-•its own expression level,
-•its length,
-•the sequencing depth,
-•the expression of all other genes within the sample.
++ its own expression level,
++ its length,
++ the sequencing depth,
++ the expression of all other genes within the sample.
 
 In order to compare the gene expression between two conditions, we must therefore calculate the fraction of the reads assigned to each gene relative to the total number of reads and with respect to the entire RNA repertoire which may vary drastically from sample to sample. While the number of sequenced reads is known, the total RNA library and its complexity is unknown and variation between samples may be due to contamination as well as biological reasons. **The purpose of normalization is to eliminate systematic effects that are not associated with the biological differences of interest.**
 
@@ -156,7 +156,8 @@ Normalization aims at correcting systematic technical biases in the data, in ord
 Image credit: Paul Pavlidis, UBC
 
 Differential expression analysis with DESeq2 involves multiple steps as displayed in the flowchart below in blue. Briefly,
-+ DESeq2 will model the raw counts, using normalization factors (size factors) to account for differences in library depth. + Then, it will estimate the gene-wise dispersions and shrink these estimates to generate more accurate estimates of dispersion to model the counts.
++ DESeq2 will model the raw counts, using normalization factors (size factors) to account for differences in library depth.
++ Then, it will estimate the gene-wise dispersions and shrink these estimates to generate more accurate estimates of dispersion to model the counts.
 + Finally, DESeq2 will fit the negative binomial model and perform hypothesis testing using the Wald test or Likelihood Ratio Test.
 
 <center><img src="_static/DESeq2_workflow.png" width="90%"></center>
@@ -270,6 +271,9 @@ The MA plot provides a global view of the relationship between the expression ch
 plotMA(res)
 ```
 
+<center><img src="_static/deseq_ma.png" width="90%"></center>
+<br>
+
 **Question**  
 Why are more genes grey on the left side of the axis than on the right side?
  
@@ -283,6 +287,9 @@ to produce such a plot:
 ```
 plotCounts(dds, gene=which.min(res$padj), intgroup="condition")
 ```
+
+<center><img src="_static/deseq_rdn18.png" width="90%"></center>
+<br>
 
 **Question**  
 What gene is plotted here (i.e., what criteria did we use to select a single 
@@ -310,6 +317,8 @@ The main variability within the experiment is expected to come from biological d
 plotPCA(vsd, intgroup="condition")
 ```
 
+<center><img src="_static/deseq_pca.png" width="90%"></center>
+<br>
 
 ### MDS Plot
 
@@ -341,6 +350,9 @@ ggplot(mds, aes(X1, X2, shape = condition)) +
   geom_point(size = 3) +
   theme_minimal()
 ``` 
+
+<center><img src="_static/deseq_mds.png" width="90%"></center>
+<br>
 
 **Question**  
 How similar are the samples between conditions?
@@ -383,6 +395,9 @@ And now plot the heatmap!
 pheatmap(assay(vsd)[genes, ], cluster_rows=TRUE, show_rownames=TRUE,
          cluster_cols=FALSE, annotation_col=annot_col)
 ```
+
+<center><img src="_static/deseq_heatmap.png" width="90%"></center>
+<br>
 
 We see that our samples do cluster by condition, but that by looking at just the
 counts, the patterns aren't very strong. How does this compare to our MDS plot?
