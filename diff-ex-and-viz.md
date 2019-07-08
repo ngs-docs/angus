@@ -155,7 +155,9 @@ Normalization aims at correcting systematic technical biases in the data, in ord
 <br>
 Image credit: Paul Pavlidis, UBC
 
-Differential expression analysis with DESeq2 involves multiple steps as displayed in the flowchart below in blue. Briefly,
+
+- Differential expression analysis with DESeq2 involves multiple steps as displayed in the flowchart below. Briefly,
+
 + DESeq2 will model the raw counts, using normalization factors (size factors) to account for differences in library depth.
 + Then, it will estimate the gene-wise dispersions and shrink these estimates to generate more accurate estimates of dispersion to model the counts.
 + Finally, DESeq2 will fit the negative binomial model and perform hypothesis testing using the Wald test or Likelihood Ratio Test.
@@ -251,7 +253,7 @@ Speaking of log2fold change, what do all of these columns mean?
 
 We see that the default differential expression output is sorted the same way
 as our input counts. Instead, it can be helpful to sort and filter by adjusted
-p value or log2FoldChange:
+p value or log2 Fold Change:
 
 ```
 res_sig <- subset(res, padj<.05)
@@ -411,8 +413,11 @@ What other types of heatmaps have you seen in the wild?
 Once you have obtained a table of genes that show signs of differential expression, you have reached one of the most important milestones of RNA-seq analysis!. To evaluate how confident you can be in that list of DE genes, you should look at several aspects of the analyses you did and perform basic checks on your results:
 
 1. Did the unsupervised clustering and PCA analyses reproduce the major trends of the initial experiment? For example, did replicates of the same condition cluster together and were they well separated from the replicates of the other condition(s)?
+
 2. How well do different DGE programs agree on the final list of DE genes? You may want to considerperforming downstream analyses only on the list of genes that were identified as DE by more than one tool.
+
 3. Do the results of the DGE analysis agree with results from small-scale experiments? Can you reproduce qPCR results (and vice versa: can you reproduce the results of the DGE analysis with qPCR)?
+
 4. How robust are the observed fold changes? Can they explain the effects you see on a phenotypic level?
 
 ## Further Notes
