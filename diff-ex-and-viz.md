@@ -92,7 +92,7 @@ tx2gene_map <- read_tsv("https://osf.io/a75zm/download")
 head(tx2gene_map)
 ```
 
-the ourput should look something like this,
+the output should look something like this,
 ```
 # A tibble: 6 x 2
   TXNAME                GENEID   
@@ -182,7 +182,7 @@ dds <- DESeqDataSetFromTximport(txi = txi,
                                 design = ~condition)
 ```
 
-Note: DESeq stores virtually all information associated with your experiment in one specific R object, called DESeqDataSet. This is, in fact, a specialized object of the class “SummarizedExperiment". This, in turn,is a container where rows (rowRanges()) represent features of interest (e.g. genes, transcripts, exons) andcolumns represent samples (colData()). The actual count data is stored in theassay()slot.
+Note: DESeq stores virtually all information associated with your experiment in one specific R object, called DESeqDataSet. This is, in fact, a specialized object of the class “SummarizedExperiment". This, in turn,is a container where rows (rowRanges()) represent features of interest (e.g. genes, transcripts, exons) and columns represent samples (colData()). The actual count data is stored in theassay()slot.
 
 After running this command, you should see red output messages that look
 something like this: 
@@ -215,7 +215,7 @@ final dispersion estimates
 fitting model and testing
 ```
 
-And look at the results!. The results()function lets you extract the base means across samples, moderated log2 fold changes,standard errors, test statistics etc. for every gene.
+And look at the results! The results()function lets you extract the base means across samples, moderated log2 fold changes,standard errors, test statistics etc. for every gene.
 
 ```
 res <- results(dds)
@@ -300,15 +300,13 @@ plotCounts(dds, gene=which.min(res$padj), intgroup="condition")
 What gene is plotted here (i.e., what criteria did we use to select a single 
 gene to plot)?
 
-### Transformation of sequencing-depth-normalized read counts
-
-While most models used for differential gene expression testing operate on the raw count values, many downstream analyses (including clustering & PCA) work better if the read counts are transformed to the log scale. While you will occasionally see log10 transformed read counts,log2 is more commonly used because it is easier to think about doubled values rather than powers of 10. **The transformation should be done in addition to sequencing depth normalization.**
+### Normalization & Transformation
 
 `DESeq2` automatically normalizes our count data when it runs differential 
 expression. However, for certain plots, we need to normalize our raw count data.
 One way to do that is to use the `vst()` function. It perform variance 
 stabilized transformation on the count data, while controlling for library
-size of samples. 
+size of samples. **The transformation should be done in addition to sequencing depth normalization.**
 
 ```
 vsd <- vst(dds)
@@ -410,18 +408,6 @@ counts, the patterns aren't very strong. How does this compare to our MDS plot?
 **Question**  
 When are heatmaps useful?   
 What other types of heatmaps have you seen in the wild?
-
-## Judging DGE results
-
-Once you have obtained a table of genes that show signs of differential expression, you have reached one of the most important milestones of RNA-seq analysis!. To evaluate how confident you can be in that list of DE genes, you should look at several aspects of the analyses you did and perform basic checks on your results:
-
-1. Did the unsupervised clustering and PCA analyses reproduce the major trends of the initial experiment? For example, did replicates of the same condition cluster together and were they well separated from the replicates of the other condition(s)?
-
-2. How well do different DGE programs agree on the final list of DE genes? You may want to considerperforming downstream analyses only on the list of genes that were identified as DE by more than one tool.
-
-3. Do the results of the DGE analysis agree with results from small-scale experiments? Can you reproduce qPCR results (and vice versa: can you reproduce the results of the DGE analysis with qPCR)?
-
-4. How robust are the observed fold changes? Can they explain the effects you see on a phenotypic level?
 
 ## Further Notes
 
