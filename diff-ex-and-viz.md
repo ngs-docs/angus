@@ -215,7 +215,7 @@ final dispersion estimates
 fitting model and testing
 ```
 
-And look at the results! The results()function lets you extract the base means across samples, moderated log2 fold changes,standard errors, test statistics etc. for every gene.
+And look at the results! The results() function lets you extract the base means across samples, log2-fold changes, standard errors, test statistics etc. for every gene.
 
 ```
 res <- results(dds)
@@ -306,26 +306,15 @@ gene to plot)?
 expression. However, for certain plots, we need to normalize our raw count data.
 One way to do that is to use the `vst()` function. It perform variance 
 stabilized transformation on the count data, while controlling for library
-size of samples. **The transformation should be done in addition to sequencing depth normalization.**
+size of samples.
 
 ```
 vsd <- vst(dds)
 ```
 
-### Principal Components Analysis (PCA)
-
-The main variability within the experiment is expected to come from biological differences between the samples. A way of visualizing the experiment variability is by Principal Component Analysis. The result of PCA are principal components that represent the directions along which the variation in the original multi-dimensional data matrix is maximal. This way a few dimensions (components) can be used to represent the information from thousands of mRNAs. Most commonly, the two principal components explaining the majority of the variability are displayed. It is also useful to identify unexpected patterns, such as batch effects or outliers
-
-```
-plotPCA(vsd, intgroup="condition")
-```
-
-<center><img src="_static/deseq_pca.png" width="90%"></center>
-<br>
-
 ### MDS Plot
 
-An MDS plot gives us an idea of how similar our samples are. The closer two 
+An MDS (multi-dimensional scaling) plot gives us an idea of how our samples relate to each other. The closer two 
 samples are on a plot, the more similar all of their counts are. To generate
 this plot in DESeq2, we need to calculate "sample distances" and then plot them.
 
@@ -376,7 +365,7 @@ yeast genes, let's choose the 20 genes with the largest positive log2fold
 change.
 
 ```
-genes <- order(res_lfc$log2FoldChange)[1:20]
+genes <- order(res_lfc$log2FoldChange, decreasing=TRUE)[1:20]
 ```
 
 We can also make a data.frame that contains information about our samples that 
@@ -421,7 +410,7 @@ expression.
 ### Making a tx2gene file
 
 Making a tx2gene file is often a little different for each organism. If your 
-organism has a transcriptome (or \*rna\_from\_genomic.fnai.gz file) on RefSeq,
+organism has a transcriptome (or \*rna\_from\_genomic.fna.gz file) on RefSeq,
 you can often get the information from the `*feature_table.txt.gz`. You 
 might also be able to parse a gtf or gff file to produce the information you
 need. This information is sometimes also found in the fasta headers of the 
