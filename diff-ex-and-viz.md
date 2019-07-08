@@ -8,17 +8,17 @@ Learning objectives:
 
 ## Getting started on Jetstream
 
-[Start up an m1.medium instance running Ubuntu 18.04 on Jetstream.](jetstream/boot.html)
+You may still have your jetstream instance running, you can following the instructions [here](jetstream/boot.html) to connect to your instance or start a new one if needed. Then `ssh` into your instance following the instructions [here](jetstream/boot.html#ssh-secure-login).
 
 You should have the salmon counts on your instance in the `~/quant/` folder. If
 not, you can get this data by running:
 
 ```
 cd ~
-mkdir -p  quant
+mkdir -p quant
 cd quant
 wget -O salmon_quant.tar.gz https://osf.io/5dbrh/download
-tar xvf salmon_quant.tar.gz
+tar -xvf salmon_quant.tar.gz
 ```
 
 ## Importing gene-level counts into R using tximport
@@ -171,9 +171,9 @@ WT had a decrease of -0.2124 in log2fold change of gene expression.
 
 Speaking of log2fold change, what do all of these columns mean?
 
-| baseMean   | giving base means across samples (i.e. mean count value across biological replicates in one condition) |
+| baseMean   | giving means across all samples |
 |----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| log2FoldChange | log2 fold changes of gene expression from one condition to another. Reflects how different the expression of a gene is one condition is from the expression of the same gene in another condition. |
+| log2FoldChange | log2 fold changes of gene expression from one condition to another. Reflects how different the expression of a gene in one condition is from the expression of the same gene in another condition. |
 | lfcSE  | standard errors  (used to calculate p value) |
 | stat | test statistics used to calculate p value) |
 | pvalue | p-values for the log fold change |
