@@ -2,9 +2,7 @@
 
 ## Objectives
 
-+ Write a shell script with multiple variables.
-+ Incorporate a for loop into a shell script.
-+ Understand how to make a workflow more efficient and less error-prone
++ Write a shell script
 
 We have now worked through two workflows, RNA-seq analysis and variant calling.
 In both cases, we pasted all of our commands into the terminal, and used for 
