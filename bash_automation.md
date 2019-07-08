@@ -30,7 +30,8 @@ script in a text file in the "script" pane of RStudio, and we will execute it
 in the "Terminal" tab of the "console" pane. We could use nano, but RStudio
 makes it easier to navigate a text file. 
 
-First, let's make a new directory called `scripts`.
+First, from the terminal, let's make a new directory called `scripts`.
+
 
 ```
 cd ~
@@ -43,7 +44,7 @@ When we write a bash script, we need to add *all* commands that we ran in our
 workflow. This includes making and changing directories, moving files, and 
 running analysis programs like `fastqc`. 
 
-Let's start by changing into the right directory and running `fastqc`:
+Let's start by changing into the right directory and running `fastqc`. 
 
 ```
 cd ~/data/
