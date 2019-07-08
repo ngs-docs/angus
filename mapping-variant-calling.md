@@ -169,15 +169,32 @@ Goal: make it possible to go look at a specific bit of the genome.
 
 ### Index the reference genome:
 
-Before we indexed the reference for BWA, now we need to index the reference for samtools. Although both
-tools use different indexing methods, they both allow the tools to find specific sequences within
-the reference quickly.
+Before we indexed the reference for BWA, now we need to index the reference for samtools. To see the manual for `samtools` we can type:
+
+```
+samtools
+```
+
+Although both tools use different indexing methods, they both allow the tools to find specific sequences within
+the reference quickly. We can see that an indexing function is `samtools faidx`.
 
 ```
 samtools faidx orf_coding.fasta
 ```
         
 ### Convert the SAM file into a BAM file:
+
+Next, we will convert our file format to a `.bam` file with the `samtools view` command. Let's see the different parameters for this function:
+
+```
+samtools view
+```
+We can see that:
+
+- `-S`: ignored (input format is auto-detected)
+- `-b`: output BAM
+
+So let's convert our file format for sample `ERR458493`:
 
 ```
 samtools view -S -b ERR458493.sam > ERR458493.bam
