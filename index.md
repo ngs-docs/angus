@@ -82,27 +82,27 @@ Room Conway will be led by [Sateesh Peri](https://twitter.com/perisateesh?lang=e
 
 * **9:00-10:20am:** [Introduction to R & RStudio cont.](R_Intro_Lesson.md)
 	* **10:20-10:40am:** BREAK
-* **10:40am-12:00pm:** [RNAseq - Differential expression and visualization with R](diff-ex-and-viz.md)
+* **10:40am-12:00pm:** [Introduction to R & RStudio cont.](R_Intro_Lesson.md)
 	* **12:00-1:00pm:** LUNCH
 * **1:00-2:00pm:** [Olga Botvinnik](https://twitter.com/olgabot?lang=en) - Single cell RNAseq
 	* **2:00-2:10pm:** BREAK
-* **2:15-3:30pm:** [Mapping & Variant Calling](mapping-variant-calling.md)
+* **2:15-3:30pm:** [RNAseq - Differential expression and visualization with R](diff-ex-and-viz.md)
 	* **3:30-3:50pm:** BREAK
-* **3:50-5:00pm:** [Mapping & Variant Calling](mapping-variant-calling.md) (continued)
+* **3:50-5:00pm:** [Mapping & Variant Calling & Automation](mapping-variant-calling.md) (continued)
 	* **5:00pm:** DONE
 
 
 **Tuesday, July 9th, 2019**
 
-* **9:00-10:20am:** Automation of Variant Calling with Snakemake
+* **9:00-10:20am:** [Mapping & Variant Calling & Automation](mapping-variant-calling.md)
 	* **10:20-10:40am:** BREAK
-* **10:40am-12:00pm:** Automation of Variant Calling with Snakemake (continued)
+* **10:40am-12:00pm:** Automation of Variant Calling with Snakemake 
 	* **12:00-1:00pm:** LUNCH
 * **1:00-2:00pm:** [Shannon Joslin](https://twitter.com/IntrprtngGnmcs?lang=en) - Genome Assembly
 	* **2:00-2:10pm:** BREAK
-* **2:15-3:30pm:** Build your own RNA-seq workflow with Snakemake
+* **2:15-3:30pm:** Automation of Variant Calling with Snakemake 
 	* **3:30-3:50pm:** BREAK
-* **3:50-5:00pm:** Build your own RNA-seq workflow with Snakemake (continued)
+* **3:50-5:00pm:** Build your own RNA-seq workflow with Snakemake 
 	* **5:00pm:** DONE
 
 <!--Genome Assembly
@@ -110,44 +110,44 @@ Genome Assembly (continued)
 -->
 **Wednesday, July 10th, 2019**
 
-* **9a:00-10:20am:** Transcriptome Assembly
+* **9a:00-10:20am:** Genome Assembly
 	* **10:20-10:40am:** BREAK
-* **10:40am-12:00pm:** Transcriptome Annotation
+* **10:40am-12:00pm:** Genome Assembly
 	* **12:00-1:00pm:** LUNCH
 * **1:00-2:00pm:** [Erich Schwarz](https://twitter.com/ErichMSchwarz?lang=en) - Doing science with big genomes
 	* **2:00-2:10pm:** BREAK
-* **2:15-3:30pm:** Elective Labs & BYOD
+* **2:15-3:30pm:** Elective Lab: (1) More Practical Use of Unix & (2) BYOD
 	* **3:30-3:50pm:** BREAK
-* **3:50-5:00pm:** Elective Labs & BYOD
+* **3:50-5:00pm:** Elective Lab: (1) Intro to Computing Clusters & (2) BYOD
 	* **5:00pm:** DONE
 	
 	
 	
 **Thursday, July 11th, 2019**
 
-* **9:00-10:20am:** Elective Labs & BYOD
+* **9:00-10:20am:** Elective Lab: (1) Intro to Git & (2) BYOD
 	* **10:20-10:40am:** BREAK
-* **10:40am-12:00pm:** Elective Labs & BYOD
+* **10:40am-12:00pm:** Elective Lab: (1) Intro to Git (continued) & (2) BYOD
 	* **12:00-1:00pm:** LUNCH
 * **1:00-2:00pm:** [Phillip Brooks](https://twitter.com/brooksph?lang=en) - Cloud platforms & Seven Bridges
 	* **2:00-2:10pm:** BREAK
-* **2:15-3:30pm:** Elective Labs & BYOD
+* **2:15-3:30pm:** Elective Lab: (1) Microbial Ecology & (2) BYOD
 	* **3:30-3:50pm:** BREAK
-* **3:50-5:00pm:** Elective Labs & BYOD
+* **3:50-5:00pm:** Elective Lab: Quick Insights from Sequencing Data with Sourmash & (2) BYOD
 	* **5:00pm:** DONE	
 	
 	
 **Friday, July 12th, 2019**
 
-* **9:00-10:20am:** Elective Labs & BYOD
+* **9:00-10:20am:** Elective Lab: (1) Metagenome Assembled Genomes (MAGs) & (2) RNAseq in R & (3) BYOD
 	* **10:20-10:40am:** BREAK
-* **10:40am-12:00pm:** Elective Labs & BYOD
+* **10:40am-12:00pm:** Elective Lab: (1) Metagenome Assembled Genomes (MAGs) & (2) RNAseq in R & (3) BYOD
 	* **12:00-1:00pm:** LUNCH
 * **1:00-2:00pm:** [Rocio Martinez-Nunez](https://twitter.com/rociotmartinez?lang=en) - What comes after ANGUS?
 	* **2:00-2:10pm:** BREAK
-* **2:15-3:30pm:** Elective Labs & BYOD
+* **2:15-3:30pm:** Elective Labs & BYOD (more info soon)
 	* **3:30-3:50pm:** BREAK
-* **3:50-5:00pm:** Elective Labs & BYOD
+* **3:50-5:00pm:** Elective Labs & BYOD (more info soon)
 	* **5:00pm:** DONE	
 	
 	
