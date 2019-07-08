@@ -63,7 +63,20 @@ Let's take a look at our reference:
 ```
 head orf_coding.fasta
 ```
-        
+
+### Finding Help with bwa
+
+To bring up the manual page for bwa we can type:
+
+```
+bwa
+```
+
+Notice that it brings up a description of the different commands within the `bwa` software. We will be using `index` and `mem`. 
+
+We can also have a look at the [bwa options](http://bio-bwa.sourceforge.net/bwa.shtml) page. 
+
+
 ### Indexing: Prepare reference for mapping:
 
 Our first step is to index the reference genome for use by BWA. Indexing allows the aligner to quickly find potential
@@ -77,12 +90,19 @@ bwa index orf_coding.fasta
         
 ### Mapping
 
-We use an algorithm called `bwa mem` to perform mapping.
+We use an algorithm called `bwa mem` to perform mapping. To find more information via the help page for the `bwa mem` function we can type the command below. Without any input, the help page will come up by default:
+
+```
+bwa mem
+```
+
+Then, when we are ready perform mapping with our sample `ERR458493` we can type: 
 
 ```
 bwa mem -t 4 orf_coding.fasta ERR458493.qc.fq.gz  > ERR458493.sam
 ```
-Have a look at the [bwa options](http://bio-bwa.sourceforge.net/bwa.shtml) page. While we are running bwa with the default parameters here, your use case might require a change of parameters. NOTE: Always read the manual page for any tool before using and make sure the options you use are appropriate for your data.
+While we are running bwa with the default parameters here, your use case might require a change of parameters. **NOTE:** Always read the manual page for any tool before using and make sure the options you use are appropriate for your data.
+
         
 > **What is the difference between Salmon and bwa mem?**
 >
