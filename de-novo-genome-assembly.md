@@ -146,7 +146,7 @@ And just for a peek at the FastQC output after our trimming:
 fastqc BCep_R1_paired.fastq.gz BCep_R2_paired.fastq.gz -t 4
 ```
 
-<center><img src="_static/fastqc_after.png"></center>
+<center><img src="_static/fastqc_after.png" width="90%"></center>
 <br>
 
 These are the forward reads, the reverse looked basically the same. Things still don't look perfect, but they look much cleaner than before – now our interquartile boxes (yellow) are much more snuggly sitting up top telling us our distribution of higher qualities across the end of the reads is much better. And though they weren't much of a factor here, don't forget to keep an eye on all the other modules from FastQC with any data you throw into it. They are not designed to be perfect assessments, because different experimental conditions can lead to warnings or failures for expected reasons as mentioned above, but they are very useful in that they can point you toward potential problems you might not otherwise see. When something does catch your eye, open up the manual for that module [here](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/) and look into what it can mean and what can cause it 🙂  
