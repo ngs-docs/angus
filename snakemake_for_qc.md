@@ -11,7 +11,8 @@ the full workflow to run on all samples.
 We've added in the rules we created from our previous lesson as well.
 
 Let's make sure we're in a good working directory and we have the necessary
-software installed.
+software installed. If you've already ran the installation command on your 
+current instance, you don't need to run it again. 
 
 ```
 cd ~
@@ -62,3 +63,17 @@ rule multiqc_trimmed:
 
 When complete, this snakemake workflow automates all of the bash steps of our
 quality control workflow!
+
+You can generate a dag of your workflow using the following command:
+
+```
+snakemake --dag | dot -Tpng > dag.png
+```
+
+Remember, "dag" stands for Directed Acyclic Graph. It shows the steps of your
+workflow that are executed by Snakemake. This dag can be helpful to 
+communicate your workflow to others, or to visualize the decisions snakemake is
+making as you are constructing your workflow. 
+
+You can open it to view using the "Files" tab in the RStudio pane and opening
+the `dag.png` file you created.  
