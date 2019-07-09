@@ -214,8 +214,87 @@ samtools sort ERR458493.bam -o ERR458493.sorted.bam
 ```
 samtools index ERR458493.sorted.bam
 ```
+
+### Call variants with `bcftools`!
+
+**Goal:** find places where the reads are systematically different from the
+reference.
+
+A variant call is a conclusion that there is a nucleotide difference vs. some reference at a given 
+position in an individual genome or transcriptome, often referred to as a Single Nucleotide Polymorphism (**SNP**). 
+The call is usually accompanied by an estimate of variant frequency and some measure of confidence. Similar 
+to other steps in this workflow, there are number of tools available for variant calling. In this workshop 
+we will be using `bcftools`, but there are a few things we need to do before actually calling the variants.
+
+First, let's look at the manual page for `bcftools`, making note of the `mpileup` and `call` commands:
+
+```
+bcftools
+```
+
+Let's see the different parameters for the `bcftools mpileup` command by typing:
+
+```
+bcftools mpileup
+```
+
+**Note:** The parameters we will use for `bcftools mpileup` are:  
+- `-O`:  Output file type, which can be:  
+    - 'b' **compressed BCF. We will use this output format!**
+    - 'u' uncompressed BCF 
+    - 'z' compressed VCF
+    - 'v' uncompressed VCF
+- `-f`: faidx indexed reference sequence file
+
+And to find help for the `bcftools call` function: 
+
+```
+bcftools call
+```
+
+**Note:** The parameters for `bcftools call` that we will use:  
+- `-m`: alternative model for multiallelic and rare-variant calling (conflicts with -c)  
+- `-v`: output variant sites only
+- `-o`: write output to a file 
+
+Now, let's go ahead and run our command on our sample `ERR458493`! 
+
+```
+bcftools mpileup -O b -f orf_coding.fasta ERR458493.sorted.bam | \
+    bcftools call -m -v -o variants.vcf
+```
+
+Next, we will use a perl script from `samtools` called `vcfutils.pl` that will filter out our variants and 
+we can write the output to a new file.  
+
+```
+vcfutils.pl varFilter variants.vcf  > variants_filtered.vcf
+```
+
+
+To look at the entire `variants.vcf` file you can do `cat
+variants.vcf`; all of the lines starting with `#` are comments.  You
+can use `tail variants.vcf` to see the last ~10 lines, which should
+be all of the called variants.
+
+The first few columns of the VCF file represent the information we have about a predicted variation:
+
+| column | info |
+| ------ | ------ | 
+| CHROM |	contig location where the variation occurs |
+| POS |	position within the contig where the variation occurs |
+| ID |	a `.` until we add annotation information |
+| REF |	reference genotype (forward strand) |
+| ALT |	sample genotype (forward strand) |
+| QUAL |	Phred-scaled probablity that the observed variant exists at this site (higher is better) |
+| FILTER |	a `.` if no quality filters have been applied, PASS if a filter is passed, or the name of the filters this variant failed |
+
+The Broad Institute’s [VCF guide](https://www.broadinstitute.org/gatk/guide/article?id=1268) is an excellent place to learn more about VCF file format.
+
         
 ### Visualize with `tview`:
+
+Now that we know the locations of our variants, let's view them with `samtools`!
 
 Samtools implements a very simple text alignment viewer called tview. 
 This alignment viewer works with short indels and shows MAQ consensus. It uses different colors to display 
@@ -248,43 +327,3 @@ Get some summary statistics as well:
 samtools flagstat ERR458493.sorted.bam
 ```
    
-## Call variants!
-
-Goal: find places where the reads are systematically different from the
-reference.
-
-A variant call is a conclusion that there is a nucleotide difference vs. some reference at a given 
-position in an individual genome or transcriptome, often referred to as a Single Nucleotide Polymorphism (SNP). 
-The call is usually accompanied by an estimate of variant frequency and some measure of confidence. Similar 
-to other steps in this workflow, there are number of tools available for variant calling. In this workshop 
-we will be using `bcftools`, but there are a few things we need to do before actually calling the variants.
-
-
-```
-bcftools mpileup -O b -f orf_coding.fasta ERR458493.sorted.bam | \
-    bcftools call -m -v -o variants.vcf
-```
-
-```
-vcfutils.pl varFilter variants.vcf  > variants_filtered.vcf
-```
-
-
-To look at the entire `variants.vcf` file you can do `cat
-variants.vcf`; all of the lines starting with `#` are comments.  You
-can use `tail variants.vcf` to see the last ~10 lines, which should
-be all of the called variants.
-
-The first few columns of the VCF file represent the information we have about a predicted variation:
-
-| column | info |
-| ------ | ------ | 
-| CHROM |	contig location where the variation occurs |
-| POS |	position within the contig where the variation occurs |
-| ID |	a `.` until we add annotation information |
-| REF |	reference genotype (forward strand) |
-| ALT |	sample genotype (forward strand) |
-| QUAL |	Phred-scaled probablity that the observed variant exists at this site (higher is better) |
-| FILTER |	a `.` if no quality filters have been applied, PASS if a filter is passed, or the name of the filters this variant failed |
-
-The Broad Institute’s [VCF guide](https://www.broadinstitute.org/gatk/guide/article?id=1268) is an excellent place to learn more about VCF file format.
