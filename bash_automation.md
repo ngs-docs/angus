@@ -5,6 +5,8 @@
 + Learn what a bash/shell script is and how to write one
 + Incorporate for loops within a shell script
 
+---
+
 We have now worked through two workflows, RNA-seq analysis and variant calling.
 In both cases, we pasted all of our commands into the terminal one command at a time, and used for 
 loops to run each step of the workflow over our six samples. This is necessary at first, and a great way
@@ -191,7 +193,7 @@ bash workflow.sh
 <blockquote>
 <center><b>PRACTICE!</b></center>
 
-Add some commands at the end of our script that will: 1) run FastQC on the output files from Trimmomatic (those that end with ".qc.fq.gz"); 2) create a new directory called "fastqc_trimmed"; and 3) move the output files from FastQC into "fastqc_trimmed".
+Add some commands at the end of our script that will:<br>&nbsp;&nbsp;1) run FastQC on the output files from Trimmomatic (those that end with ".qc.fq.gz")<br>&nbsp;&nbsp;2) create a new directory called "fastqc_trimmed"<br>&nbsp;&nbsp;3) move the output files from FastQC into "fastqc_trimmed".
 
 <div class="toggle-header closed">
     <strong>Solution</strong>
@@ -199,42 +201,35 @@ Add some commands at the end of our script that will: 1) run FastQC on the outpu
 
 <div class="toggle-content docutils container" style="width:100%">
 
+<br>
 Our entire file should now look something like this:
 
 <div class="highlight-bash notranslate">
 <div class="highlight">
 <pre>
 <span class="nb">echo "Running FastQC..."
-fastqc *.fastq.gz
-
+fastqc *.fastq.gz<br>
 echo "Moving FastQC results..."
-mkdir fastqc_untrimmed/
-
+mkdir fastqc_untrimmed/<br>
 mv *.zip fastqc_untrimmed/
-mv *.html fastqc_untrimmed/
-
+mv *.html fastqc_untrimmed/<br>
 echo "Running Trimmomatic..."
 for filename in *.fastq.gz
-do
-  # first, getting the unique part of the file name alone by removing ".fastq.gz"
-  base=$(basename $filename .fastq.gz)
-  
-  echo "On sample: $base"
-
-  trimmomatic SE ${base}.fastq.gz \
-              ${base}.qc.fq.gz \
-              ILLUMINACLIP:TruSeq2-SE.fa:2:0:15 \
-              LEADING:15 TRAILING:15 \
-              SLIDINGWINDOW:10:20 \
-              MINLEN:25
-done
-
+do<br>
+&nbsp;&nbsp;# first, getting the unique part of the file name by removing ".fastq.gz"
+&nbsp;&nbsp;base=$(basename $filename .fastq.gz)
+&nbsp;&nbsp;echo On sample: $base<br>
+&nbsp;&nbsp;trimmomatic SE ${base}.fastq.gz \
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${base}.qc.fq.gz \
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ILLUMINACLIP:TruSeq2-SE.fa:2:0:15 \
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LEADING:15 TRAILING:15 \
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SLIDINGWINDOW:10:20 \
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MINLEN:25<br>
+done<br>
 echo "Running FastQC on trimmed files..."
-fastqc *.qc.fq.gz
-
+fastqc *.qc.fq.gz<br>
 echo "Moving trimmed FastQC results..."
-mkdir fastqc_trimmed/
-
+mkdir fastqc_trimmed/<br>
 mv *.zip fastqc_trimmed/
 mv *.html fastqc_trimmed/</span>
 </pre>
@@ -244,13 +239,7 @@ mv *.html fastqc_trimmed/</span>
 </div>
 </blockquote>
 
-Don't forget to save it, and now let's run it!
-
-```bash
-bash workflow.sh
-```
-
-Stellar! Lastly, let's add on read quantification with Salmon like we did [here](salmon-quant.md#index-the-yeast-transcriptome). We only need to run the indexing command once, and then we can put a for loop to run the quantification command on our quality trimmed fastq files just like the one used [here](salmon-quant.md#run-salmon-on-all-the-samples):
+Lastly, let's add on read quantification with Salmon like we did [here](salmon-quant.md#index-the-yeast-transcriptome). We only need to run the indexing command once, and then we can put a for loop to run the quantification command on our quality trimmed fastq files just like the one used [here](salmon-quant.md#run-salmon-on-all-the-samples):
 
 ```
 echo "Running FastQC..."
@@ -302,6 +291,13 @@ do
 done
 
 echo "Job Done!!"
+```
+
+
+Stellar! Don't forget to save it, and now let's run it!
+
+```bash
+bash workflow.sh
 ```
 
 Bash scripting can be very powerful!!
