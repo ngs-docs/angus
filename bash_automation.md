@@ -113,7 +113,7 @@ And then save the file as "workflow.sh", and **be sure to save it in the "script
 Now we have a bash script that automates `fastqc`! Let's run the bash script from our terminal in RStudio:**
 
 ```bash
-bash qc.sh
+bash workflow.sh
 ```
 
 <center><img src="_static/bash-script-02b.png" width="90%"></center>
