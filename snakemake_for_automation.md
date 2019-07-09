@@ -408,6 +408,12 @@ snakemake --cluster-config cluster.yml --cluster \
 ```
 #### Visualize entire workflow diagram
 
+First we need to install a tool called Graphviz, which codes for the dot command:
+
+```
+conda install -c conda-forge graphviz
+```
+
 ```
 snakemake --dag | dot -Tpng > dag.png
 ```
