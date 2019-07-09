@@ -37,7 +37,7 @@ conda install -y -c bioconda -c conda-forge fastqc=0.11.5 \
 >   - **`fastqc=0.11.5`** and rest of positional arguments - names the program wanted, followed by an equals sign preceding the version we want
 
 ## The data
-The practice data we're going to use here was provided by colleagues at the [J. Craig Venter Institute](http://www.jcvi.org/){:target="_blank"}. In working out the details for a rather large-scale project, which in part involves sequencing a bunch of *Burkholderia* isolates from the ISS and performing de novo genome assemblies, [Aubrie O'Rourke](https://www.jcvi.org/about/aorourke){:target="_blank"} and her team put an already sequenced isolate – [*Burkholderia cepacia* (ATCC 25416)](https://www.atcc.org/products/all/25416.aspx){:target="_blank"} – through their pipeline in order to test things out and to have something to benchmark their expectations against. The sequencing was done on Illumina's Nextseq platform as paired-end 2x150 bps, with about a 350-bp insert size.  
+The practice data we're going to use here was provided by colleagues at the [J. Craig Venter Institute](http://www.jcvi.org/). In working out the details for a rather large-scale project, which in part involves sequencing a bunch of *Burkholderia* isolates from the ISS and performing de novo genome assemblies, [Aubrie O'Rourke](https://www.jcvi.org/about/aorourke) and her team put an already sequenced isolate – [*Burkholderia cepacia* (ATCC 25416)](https://www.atcc.org/products/all/25416.aspx) – through their pipeline in order to test things out and to have something to benchmark their expectations against. The sequencing was done on Illumina's Nextseq platform as paired-end 2x150 bps, with about a 350-bp insert size.  
 
 The data files are rather large for this example, at 250 MB compressed, and 1 GB uncompressed. The download below comes with starting and output files, so that we can skip some of the more time-consuming steps and just copy over results. 
 
@@ -76,10 +76,10 @@ cd working/
 ```
 
 ## Quality trimming/filtering
-Assessing the quality of our sequence data and filtering appropriately should pretty much always be one of the first things we do with our data. A great tool we've already used for this is [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/){:target="_blank"}. Here we'll start with that on the raw reads.
+Assessing the quality of our sequence data and filtering appropriately should pretty much always be one of the first things we do with our data. A great tool we've already used for this is [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/). Here we'll start with that on the raw reads.
 
 ## FastQC
-Remember that [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/){:target="_blank"} scans the fastq files we give it to generate a broad overview of some summary statistics. And it has several screening modules that test for some commonly occurring problems. But as we talked about before, its modules are expecting random sequence data, and any warning or failure notices the program generates should be interpreted within the context of our experiment (e.g. high duplication levels are to be expected with RNAseq or amplicon data, but FastQC would still flag them as something possibly wrong). Here we'll provide our forward and reverse reads as 2 positional arguments:
+Remember that [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/) scans the fastq files we give it to generate a broad overview of some summary statistics. And it has several screening modules that test for some commonly occurring problems. But as we talked about before, its modules are expecting random sequence data, and any warning or failure notices the program generates should be interpreted within the context of our experiment (e.g. high duplication levels are to be expected with RNAseq or amplicon data, but FastQC would still flag them as something possibly wrong). Here we'll provide our forward and reverse reads as 2 positional arguments:
 
 ```bash
 fastqc B_cepacia_raw_R1.fastq.gz B_cepacia_raw_R2.fastq.gz -t 4
@@ -98,7 +98,7 @@ The reverse reads look very similar:
 <br>
 
 ## Trimmomatic
-Also as we've seen, [Trimmomatic](http://www.usadellab.org/cms/?page=trimmomatic){:target="_blank"} is a pretty flexible tool that enables us to trim up our sequences based on several quality thresholds and some other metrics (like minimum length or removing adapters and such). The summary from [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/){:target="_blank"} didn't look all that terrible other than semi-low quality scores towards the end of each read, so for a first pass let's run Trimmomatic with pretty generic, but stringent settings and see what we get:
+Also as we've seen, [Trimmomatic](http://www.usadellab.org/cms/?page=trimmomatic) is a pretty flexible tool that enables us to trim up our sequences based on several quality thresholds and some other metrics (like minimum length or removing adapters and such). The summary from [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/) didn't look all that terrible other than semi-low quality scores towards the end of each read, so for a first pass let's run Trimmomatic with pretty generic, but stringent settings and see what we get:
 
 ```bash
 trimmomatic PE B_cepacia_raw_R1.fastq.gz B_cepacia_raw_R2.fastq.gz \
@@ -149,7 +149,7 @@ fastqc BCep_R1_paired.fastq.gz BCep_R2_paired.fastq.gz -t 4
 <center><img src="../images/fastqc_after.png"></center>  
 
 <br>
-Things still don't look perfect, but they look cleaner than before – now our interquartile boxes (yellow) are much more snuggly sitting up top telling us our distribution of higher qualities across the end of the reads is much better. And though they weren't much of a factor here, don't forget to keep an eye on all the other modules from FastQC with any data you throw into it. They are not designed to be perfect assessments, because different experimental conditions can lead to warnings or failures for expected reasons as mentioned above, but they are very useful in that they can point you toward potential problems you might not otherwise see. When something does catch your eye, open up the manual for that module [here](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/){:target="_blank"} and look into what it can mean and what can cause it 🙂  
+Things still don't look perfect, but they look cleaner than before – now our interquartile boxes (yellow) are much more snuggly sitting up top telling us our distribution of higher qualities across the end of the reads is much better. And though they weren't much of a factor here, don't forget to keep an eye on all the other modules from FastQC with any data you throw into it. They are not designed to be perfect assessments, because different experimental conditions can lead to warnings or failures for expected reasons as mentioned above, but they are very useful in that they can point you toward potential problems you might not otherwise see. When something does catch your eye, open up the manual for that module [here](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/) and look into what it can mean and what can cause it 🙂  
 
 ## Read-error correction
 Even though we've done our best to quality trim and filter our reads, there can still be errors in there that may hurt our assembly attempts. This paper by [Heydari et al.](https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-017-1784-8) goes a bit into trying to systematically evaluate Illumina read-error correction tools, which might be a good place to start if you'd like to look into it more. In my experience it seems to consistently improve assembly, but as with most of these things, that isn't *always* the case – which is discussed a bit in that paper. Here we'll be trying different 4 different assemblies all with error-corrected reads, but feel free to experiment with that too 🙂
@@ -265,7 +265,7 @@ There are, however, some general things we can look at, like N50 (half of the to
 
 
 ## QUAST
-[QUAST](https://github.com/ablab/quast) is a really nice tool for comparing multiple assemblies, and for metagenome assemblies there is a comparable [MetaQUAST](http://bioinf.spbau.ru/metaquast). We can provide QUAST with all of our assemblies, a fasta file of our reference genome, and a .gff (**g**eneral **f**eature **f**ormat) file of our reference genome that contains information about its genes. Then QUAST will compare compare our assemblies to the reference and generate several reference-independent summary statistics. Our two reference files for our *Bulkholderia cepacia* ATCC 25416 came from NCBI [here](https://www.ncbi.nlm.nih.gov/genome/10703?genome_assembly_id=255013){:target="_blank"}. And here's how we can run QUAST:  
+[QUAST](https://github.com/ablab/quast) is a really nice tool for comparing multiple assemblies, and for metagenome assemblies there is a comparable [MetaQUAST](http://bioinf.spbau.ru/metaquast). We can provide QUAST with all of our assemblies, a fasta file of our reference genome, and a .gff (**g**eneral **f**eature **f**ormat) file of our reference genome that contains information about its genes. Then QUAST will compare compare our assemblies to the reference and generate several reference-independent summary statistics. Our two reference files for our *Bulkholderia cepacia* ATCC 25416 came from NCBI [here](https://www.ncbi.nlm.nih.gov/genome/10703?genome_assembly_id=255013). And here's how we can run QUAST:  
 
 ```bash
 quast -o quast-B-cep-out -r ../reference_genome/BCep_ref.fna \
@@ -383,7 +383,7 @@ centrifuge -f -x p_compressed+h+v gene_calls.fa -S centrifuge_hits.tsv -p 6 # to
 anvi-import-taxonomy-for-genes -c contigs.db -i centrifuge_report.tsv centrifuge_hits.tsv -p centrifuge
 ```
 
-The last thing we want to add right now is mapping information from recruiting our reads to the assembly. Here is generating that with [bowtie2](https://github.com/BenLangmead/bowtie2){:target="_blank"} and preparing for anvi'o:
+The last thing we want to add right now is mapping information from recruiting our reads to the assembly. Here is generating that with [bowtie2](https://github.com/BenLangmead/bowtie2) and preparing for anvi'o:
 
 ```bash
   # building bowtie index from our selected assembly fasta file
