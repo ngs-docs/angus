@@ -348,7 +348,7 @@ We can create our own wildcard too. This is really handy for running our
 workflow on all of our samples.  
 
 ```
-# Create a list of strings ontaining all of our sample names
+# Create a list of strings containing all of our sample names
 SAMPLES=['ERR458493', 'ERR458494', 'ERR458495', 'ERR458500', 'ERR458501', 
 'ERR458502']
 
