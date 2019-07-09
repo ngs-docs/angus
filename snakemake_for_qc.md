@@ -2,7 +2,7 @@
 
 In our previous lesson, we use snakemake to automate the first two rules of our
 quality control/quality analysis. Given the things you learned during that 
-lesson, we will now automate the rest of the quality control  workflow through
+lesson, we will now automate the rest of the quality control workflow with
 using snakemake. For this lesson, we would like you to work with others in 
 your room to make the snakefile. We have provided the basic structure for each 
 of the rules, and would like you to fill in the remaining necessary details for 
