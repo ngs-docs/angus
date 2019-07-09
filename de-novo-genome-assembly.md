@@ -62,10 +62,10 @@ cd genomics_de_novo_temp/
 >   - **`-o`** - let's us specify the name of the output file, which we are naming "genomics_de_novo_temp.tar.gz"
 > 
 > - **`tar`** - program that unpacks "tarballs" (.tar) files, and can also optionally decompress them if they are gzipped (.gz)
->   - **`-x` - exctract files from a .tar
->   - **`-z` - decompress if gzipped (.gz)
->   - **`-v` - print verbose output
->   - **`-f genomics_de_novo_tmp.tar.gz` - specifies the file we want to act on
+>   - **`-x`** - exctract files from a .tar
+>   - **`-z`** - decompress if gzipped (.gz)
+>   - **`-v`** - print verbose output
+>   - **`-f genomics_de_novo_tmp.tar.gz`** - specifies the file we want to act on
 > 
 > Then we delete the downloaded file with **`rm`** and change into our new directory with the last **`cd`** command
 
@@ -159,8 +159,9 @@ The read-error correction I typically use is employed by the SPAdes assembler. S
 This was the most computationally intensive step, taking about 45 minutes with the resources employed in the following command (which is more than are available on our instances). So for the sake of this tutorial, instead of running this command (which is commented out below), we are just going to copy over the result files in the next code block:
 
 ```bash
-# spades.py -1 BCep_R1_paired.fastq.gz -2 BCep_R2_paired.fastq.gz -o spades_error_corrected_rea
-ds -t 50 -m 500 --only-error-correction
+# spades.py -1 BCep_R1_paired.fastq.gz -2 BCep_R2_paired.fastq.gz \
+            -o spades_error_corrected_reads -t 50 -m 500 \
+            --only-error-correction
 ```
 
 > **CODE BREAKDOWN**
@@ -191,22 +192,12 @@ Here we'll run a couple with [SPAdes](http://cab.spbu.ru/software/spades/) and a
 ## SPAdes
 As mentioned above, [SPAdes](http://cab.spbu.ru/software/spades/) tends to do well with isolate or enrichment cultures that aren't too diverse. Since this is an isolate culture that was sequenced, it should run just fine. We're going to try with default settings and then with an additional option set, for a total for 2 assemblies from SPAdes. 
 
-### SPAdes, default settings, no read-error correction
-Let's first run a SPAdes assembly with default settings on the *non*-error-corrected reads. By default, this version of SPAdes would run the error-correction step, so we will be providing it the `--only-assembler` flag to ensure it does not. 
-
-This run should take ~10 minutes on our instances with the following settings:
-
-```bash
-spades.py -1 BCep_R1_paired.fastq.gz -2 BCep_R2_paired.fastq.gz -o spades-default-assembly/ -t 6 --only-assembler
-```
-
-
-
 ### SPAdes with default settings
 Let's first run a SPAdes assembly with default settings. Note that we are providing the `--only-assembler` flag because we already ran the read-error correction step above, and are providing the output from that here as the input: 
 
 ```bash
-spades.py -1 BCep_R1_err_corr.fq.gz -2 BCep_R2_err_corr.fq.gz -o spades-default/ -t 6 --only-assembler
+spades.py -1 BCep_R1_err_corr.fq.gz -2 BCep_R2_err_corr.fq.gz \
+          -o spades-default/ -t 6 --only-assembler
 ```
 
 While that's running, let's talk about some of the others 🙂
@@ -216,7 +207,9 @@ In the SPAdes documentation, they have [this note](http://cab.spbu.ru/files/rele
 
 ```bash
      ## don't run this code block, we will copy over results ##
-# spades.py -1 BCep_R1_paired.fastq.gz -2 BCep_R2_paired.fastq.gz -o spades-careful-assembly -t 6 --only-assembler --careful
+# spades.py -1 BCep_R1_paired.fastq.gz -2 BCep_R2_paired.fastq.gz \
+            -o spades-careful-assembly -t 6 --only-assembler \
+            --careful
 ```
 
 Command to copy over results when our first assembly is done:
@@ -233,7 +226,8 @@ Here's how we could run one with default MEGAHIT settings:
 
 ```bash
      ## don't run this code block, we will copy over results ##
-megahit -1 BCep_R1_paired.fastq.gz -2 BCep_R2_paired.fastq.gz -o megahit-default-assembly -t 6
+megahit -1 BCep_R1_paired.fastq.gz -2 BCep_R2_paired.fastq.gz \
+        -o megahit-default-assembly -t 6
 ```
 
 Command to copy over results when our first assembly is done:
@@ -247,7 +241,8 @@ The [MEGAHIT documentation](https://github.com/voutcn/megahit/wiki) has an assem
 
 ```bash
      ## don't run this code block, we will copy over results ##
-# megahit -1 BCep_R1_paired.fastq.gz -2 BCep_R2_paired.fastq.gz -o megahit-min-count-3-assembly/ -t 6 --min-count 3
+# megahit -1 BCep_R1_paired.fastq.gz -2 BCep_R2_paired.fastq.gz \
+          -o megahit-min-count-3-assembly/ -t 6 --min-count 3
 ```
 
 Command to copy over results when our first assembly is done:
@@ -454,7 +449,8 @@ We can also generate some summary statistics on our assembly, including estimate
   # this is adding all contigs to a group called "DEFAULT"
 anvi-script-add-default-collection -p B-cep-profiled/PROFILE.db
   # and here is our summary command
-anvi-summarize -c contigs.db -p B-cep-profiled/PROFILE.db -C DEFAULT -o B-cepacia-assembly-summary/
+anvi-summarize -c contigs.db -p B-cep-profiled/PROFILE.db \
+               -C DEFAULT -o B-cepacia-assembly-summary/
 ```
 
 A lot was generated with that, now found in our new directory, "B_cepacia_assembly_summary/". If we glance at the "bins_summary.txt" file, we can see some summary statistics of our assembled genome, including the completion/redundancy estimates (`column -t` will keep the columns lined up for us):
@@ -483,7 +479,8 @@ echo "http://$(hostname -i):8080"
 Now let's start up the anvi'o interactive interface:
 
 ```bash
-anvi-interactive -c contigs.db -p B-cep-profiled/PROFILE.db --server-only -P 8080
+anvi-interactive -c contigs.db -p B-cep-profiled/PROFILE.db \
+                 --server-only -P 8080
 ```
 
 Now if we go back to our browser, and refresh or load the address we copied above, it should open to the anvi'o interactive interface and look something like this: 
