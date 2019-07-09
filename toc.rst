@@ -27,14 +27,10 @@ Table of Contents
 
    diff-ex-and-viz.md
 
-   .. not up to date yet: transcriptome-assembly.md
+   mapping-variant-calling.md
 
-   .. not up to date yet: dammit_annotation.md
+   bash_automation.md
 
-   .. not up to date yet: mapping-variant-calling.md
+   snakemake_for_automation.md
 
-   .. placeholder: Automation of Variant Calling with Snakemake
-
-   .. placeholder: Build your own RNA-seq workflow with Snakemake
-
-   .. placeholder: Genome Assembly
+   snakemake_for_qc.md
