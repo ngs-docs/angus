@@ -488,7 +488,7 @@ anvi-interactive -c contigs.db -p B-cep-profiled/PROFILE.db --server-only -P 808
 
 Now if we go back to our browser, and refresh or load the address we copied above, it should open to the anvi'o interactive interface and look something like this: 
 
-<center><img src="_static/fresh_anvi.png"></center>
+<center><img src="_static/fresh_anvi.png" width="90%"></center>
 <br>
 
 So there is a lot going on here at first glance, especially if you're not yet familiar with how anvi'o organizes things. So here's a quick crash course 🙂  
@@ -499,7 +499,7 @@ One of the first things that might jump out here is the outer layer (purple in t
 
 Just for a quick comparison, here is the same type of figure (taxonomy at the inner-part of the circle here), but from an enrichment culture, rather than axenic:  
 
-<center><img src="_static/other_anvi.png"></center>
+<center><img src="_static/other_anvi.png" width="90%"></center>
 <br>
 
 Here the highlighted contigs, labeled "Bin 1", represent the targeted cultivar from this sequencing run, demonstrating a nice example of how anvi'o can help you manually curate bins you're trying derive from assemblies.  
@@ -514,19 +514,19 @@ This was all basically to get a high-quality draft of our isolate genome, that w
 ### Phylogenomics
 Pull available reference genomes of close relatives and build a phylogenomic tree to get a robust estimate of where our newly acquired isolate(s) fit in evolutionarily with what is already known. 
 
-<center><img src="_static/phylo_syn.png"></center>
+<center><img src="_static/phylo_syn.png" width="90%"></center>
 <br>
 
 ### Distributions
 Pull available metagenomes from studies and recruit the reads to a reference library containing our isolate (and its close relatives if it has any) to begin assessing their distributions across samples. This example is done with ocean samples, but the same principle can be applied to any environments.
 
-<center><img src="_static/dist_syn.png"></center> 
+<center><img src="_static/dist_syn.png" width="90%"></center> 
 <br>
 
 ### Pangenomics
 Start investigating differences in the genetic complement of our new isolate as compared to its known close relatives. This example figure is combining pangenomics (the core of the figure showing the presence or absence of genes within each genome) with metagenomics (distributions of the genomes across samples in the top right corner) to try to associate genomic variability with ecological delineations:
 
-<center><img src="_static/pan_syn.png"></center>  
+<center><img src="_static/pan_syn.png" width="90%"></center>  
 <br>
 
 And so much more! This is where just pure data crunching slows down, and the actual science begins. The above are just some of the ways to get to the point where we can then consider our experimental design and our questions and let them guide where we go next 🙂
