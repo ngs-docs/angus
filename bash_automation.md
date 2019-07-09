@@ -3,7 +3,7 @@
 ## Objectives
 
 + Learn what a bash/shell script is and how to write one
-+ Incorporate a for loop within a shell script
++ Incorporate for loops within a shell script
 
 We have now worked through two workflows, RNA-seq analysis and variant calling.
 In both cases, we pasted all of our commands into the terminal one command at a time, and used for 
