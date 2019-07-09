@@ -6,14 +6,12 @@
 + Understand the components of a Snakefile: rules, inputs, outputs, and actions.
 + Write and run a Snakefile.
 
-## Getting started
+## Accessing our JetStream intances
 
-Start up your Jetstream instance [as per Jetstream startup instructions](jetstream/boot.html).
+You should still have your jetstream instance running, you can follow the instructions [here](jetstream/boot.html) to log in to JetStream and find your instance. Then `ssh` into it following the instructions [here](jetstream/boot.html#ssh-secure-login).
 
----
-
-You should now be logged into your Jetstream computer!  You should see
-something like this
+You should now be logged into your Jetstream computer! You should see
+something like this:
 
 ```
 diblynn@js-17-71:~$
@@ -32,22 +30,21 @@ conda install -y -c bioconda snakemake-minimal
 ```
 
 Type the following in your terminal to display a link to Rstudio web-server 
-for your instance’s $(hostname)
+for your instance’s $(hostname -i):
 
 ```
-echo http://$(hostname):8787/
+echo http://$(hostname -i):8787/
 ```
 
 Copy and paste the generated link into your browser to open Rstudio and login
-with your room's jetstream username and password. We’re going to work 
-in the file editor and the terminal of Rstudio; to get started, open the 
-terminal.
+with your room's jetstream username and password. We’re going to again work 
+with the text editor and the terminal of Rstudio.
 
 
 ## Automation with BASH
 
 In both our RNA-seq workflow and our mapping and variant calling workflow, we 
-performed many steps. We performed steps like quality control and analysis using
+performed many steps. We performed steps like quality assessment and filtering using
 `fastqc` and `trimmomatic`. We performed these steps on 6 files using for loops.
 
 In our last lesson, we automated these steps using a bash script. We put all of 
@@ -57,7 +54,6 @@ our quality control workflow. Bash scripting for automation is really powerful!
 Let's revisit our bash script for running and organizing our fastqc results:
 
 ```
-set -e
 cd ~/data/
 
 echo "Running FastQC ..."
@@ -91,7 +87,6 @@ we already ran the first part of our file! Let's add comment characters to the
 lines we know already ran and then re-run the script:
 
 ```
-set -e
 cd ~/data/
 
 # echo "Running FastQC ..."
