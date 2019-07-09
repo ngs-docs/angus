@@ -24,7 +24,7 @@ You should still have your jetstream instance running, you can follow the instru
 Next, we're going to access RStudio again on our instances. RStudio will be convenient for being able to edit a text file alongside an active terminal window (command-line window). We'll see this in action in a second. As earlier, run the following link to produce
 a url that navigates to RStudio when entered in your browser.
 
-```
+```bash
 echo http://$(hostname -i):8787/
 ```
 
@@ -59,13 +59,13 @@ And save the file in our home directory (which should be where it starts) as "my
 
 Now if we check at the command line, (our terminal window at the bottom left), we can see this file is there: 
 
-```
+```bash
 ls *.sh
 ```
 
 And we can run it by providing the command `bash`, and then the file we just made as a positional argument like so:
 
-```
+```bash
 bash my-first-bash-script.sh
 ```
 
@@ -98,7 +98,7 @@ Let's start by just running `fastqc` inside a script.
 
 **Don't enter this command in your Terminal, instead copy and paste it into a new text document in the top left panel (File -> New File -> Text File).**
 
-```
+```bash
 fastqc *fastq.gz
 ```
 
@@ -112,7 +112,7 @@ And then save the file as "workflow.sh", and **be sure to save it in the "script
 
 Now we have a bash script that automates `fastqc`! Let's run the bash script from our terminal in RStudio:**
 
-```
+```bash
 bash qc.sh
 ```
 
@@ -121,7 +121,7 @@ bash qc.sh
 
 Let's add more to our script. Next we'll organize our output files, and add some `echo` commands to tell us where we are up to if we happen to be watching. **Add this text onto our file in the text-editor panel where our script is building, not in the Terminal window.**
 
-```
+```bash
 echo "Running FastQC..."
 fastqc *.fastq.gz
 
@@ -139,20 +139,20 @@ And don't forget to save the file after making changes, `cmd + s` or `ctrl + s` 
 
 Now, let's run this again. 
 
-```
+```bash
 bash workflow.sh
 ```
 
 We now see that our echo messages print to the terminal and tell us where we
 are in the workflow. After it finishes, if we run `ls` on the "fastqc_untrimmed" directory, we see our `fastqc` output files are in there:
 
-```
+```bash
 ls fastqc_untrimmed/
 ```
 
 Now let's add our Trimmomatic command in a for loop like we did [here](https://angus.readthedocs.io/en/2019/quality-and-trimming.html#trimming-files-using-basename-and-for-loops): 
 
-```
+```bash
 echo "Running FastQC..."
 fastqc *.fastq.gz
 
@@ -186,7 +186,7 @@ And don't forget to save the file again:
 
 And now we are ready to run it in our terminal window:
 
-```
+```bash
 bash workflow.sh
 ```
 
@@ -241,7 +241,7 @@ mv *.html fastqc_trimmed/</span>
 
 Lastly, let's add on read quantification with Salmon like we did [here](salmon-quant.md#index-the-yeast-transcriptome). We only need to run the indexing command once, and then we can put a for loop to run the quantification command on our quality trimmed fastq files just like the one used [here](salmon-quant.md#run-salmon-on-all-the-samples):
 
-```
+```bash
 echo "Running FastQC..."
 fastqc *.fastq.gz
 
