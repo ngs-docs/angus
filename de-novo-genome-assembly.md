@@ -26,7 +26,8 @@ conda activate de_novo_example
 
 conda install -y -c bioconda -c conda-forge fastqc=0.11.5 \
               trimmomatic=0.36 spades=3.11.1 megahit=1.1.1 \
-              quast=5.0.2
+              quast=5.0.2 bowtie2=2.2.5 anvio=5.5.0 \
+              centrifuge=1.0.4
 ```
 
 > **CODE BREAKDOWN**
