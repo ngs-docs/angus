@@ -51,7 +51,8 @@ In our last lesson, we automated these steps using a bash script. We put all of
 our commands into one file so that we only had to run one command to orchestrate
 our quality control workflow. Bash scripting for automation is really powerful!
 
-Let's revisit our bash script for running and organizing our fastqc results:
+Let's revisit the first part of our bash script for running and organizing our 
+fastqc results:
 
 ```
 cd ~/data/
@@ -393,11 +394,7 @@ to look for the values.
 ```
 snakemake -n –p -r
 ```
-#### visualize the DAG of jobs using the Graphviz dot command
 
-```
-snakemake --dag | dot -Tsvg > dag.svg
-```
 #### execute the workflow with 8 cores
 
 ```
@@ -428,7 +425,7 @@ To create the report, run
 snakemake --report report.html
 ```
 
-View sample report here(xyz)
+View sample report [here](_static/report.html)
 
 ### Specifying software required for a rule
 
