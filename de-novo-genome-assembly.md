@@ -1,5 +1,7 @@
 # De novo genome assembly
 
+<h1> TEMPORARY NOTICE: UNDER CONSTRUCTION!! (July-9-2019)</h1>
+
 Here we're going to run through some of the typical steps for taking a newly sequenced bacterial isolate genome from raw fastq files through to an assembled, curated genome we can then begin to explore 🙂  
 
 Before we get started, a public service announcement:
