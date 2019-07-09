@@ -84,7 +84,7 @@ Room Conway will be led by [Sateesh Peri](https://twitter.com/perisateesh?lang=e
 	* **10:20-10:40am:** BREAK
 * **10:40am-12:00pm:** [Introduction to R & RStudio cont.](R_Intro_Lesson.md)
 	* **12:00-1:00pm:** LUNCH
-* **1:00-2:00pm:** [Olga Botvinnik](https://twitter.com/olgabot?lang=en) - Single cell RNAseq
+* **1:00-2:00pm:** [Olga Botvinnik](https://twitter.com/olgabot?lang=en) - [Single cell RNAseq (PDF)](https://osf.io/gdzuy/) - [video recording](https://www.youtube.com/watch?v=hAqa8DztxSU&feature=youtu.be)
 	* **2:00-2:10pm:** BREAK
 * **2:15-3:30pm:** [RNAseq - Differential expression and visualization with R](diff-ex-and-viz.md)
 	* **3:30-3:50pm:** BREAK
