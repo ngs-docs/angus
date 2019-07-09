@@ -163,10 +163,10 @@ rule in a file called `Snakefile`.
 rule fastqc_raw:
     input: "data/ERR458493.fastq.gz"
     output: 
-        "data/ERR458493_fastqc.html",
-        "data/ERR458493_fastqc.zip"
+        "fastqc_raw/ERR458493_fastqc.html",
+        "fastqc_raw/ERR458493_fastqc.zip"
     shell:'''
-    fastqc -o data {input}
+    fastqc -o fastqc_raw {input}
     '''
 ```
 
@@ -191,7 +191,7 @@ Job counts:
 [Tue Jul  2 19:10:26 2019]
 rule fastqc_raw:
     input: data/ERR458493.fastq.gz
-    output: data/ERR458493_fastqc.html, data/ERR458493_fastqc.zip
+    output: fastqc_raw/ERR458493_fastqc.html, fastqc_raw/ERR458493_fastqc.zip
     jobid: 0
 
 ```
@@ -199,7 +199,7 @@ rule fastqc_raw:
 Let's check that the output file is there:
 
 ```
-ls data/*fastqc*
+ls fastqc_raw/*fastqc*
 ```
 
 Yay! Snakemake ran the thing!
@@ -407,6 +407,12 @@ snakemake --cluster-config cluster.yml --cluster \
   "sbatch -A {cluster.account} -t {cluster.time}"
 ```
 #### Visualize entire workflow diagram
+
+First we need to install a tool called Graphviz, which codes for the dot command:
+
+```
+conda install -c conda-forge graphviz
+```
 
 ```
 snakemake --dag | dot -Tpng > dag.png
