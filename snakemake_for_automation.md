@@ -26,7 +26,7 @@ cd ~
 Install `snakemake` using conda. 
 
 ```
-conda install -y -c bioconda snakemake-minimal
+conda install -y -c conda-forge -c bioconda snakemake-minimal
 ```
 
 Type the following in your terminal to display a link to Rstudio web-server 
@@ -296,7 +296,6 @@ rule multiqc_raw:
 And it worked! Now we see output like this:
 
 ```
-The flag 'directory' used in rule all is only valid for outputs, not inputs.
 Building DAG of jobs...
 Using shell: /bin/bash
 Provided cores: 1
