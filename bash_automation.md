@@ -239,7 +239,7 @@ mv *.html fastqc_trimmed/</span>
 </div>
 </blockquote>
 
-Lastly, let's add on read quantification with Salmon like we did [here](salmon-quant.md#index-the-yeast-transcriptome). We only need to run the indexing command once, and then we can put a for loop to run the quantification command on our quality trimmed fastq files just like the one used [here](salmon-quant.md#run-salmon-on-all-the-samples):
+Lastly, let's add on read quantification with Salmon like we did [here](salmon-quant.md#index-the-yeast-transcriptome). We only need to run the indexing command once, and then we can put a for loop to run the quantification command on our quality trimmed fastq files just like the one used [here](salmon-quant.md#run-salmon-on-all-the-samples). And then let's add a message at the end for our future selves:
 
 ```bash
 echo "Running FastQC..."
@@ -290,7 +290,7 @@ do
                --gcBias --validateMappings
 done
 
-echo "Job Done!!"
+echo "Job Done!! (That's a nice-lookin' script!)"
 ```
 
 
