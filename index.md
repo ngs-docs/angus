@@ -97,10 +97,10 @@ Room Conway will be led by [Sateesh Peri](https://twitter.com/perisateesh?lang=e
 * **9:00-10:20am:** [Mapping & Variant Calling](mapping-variant-calling.md) and/or [Automation with bash](bash_automation.md)
 	* **10:20-10:40am:** BREAK
 * **10:40am-12:00pm:** [Automation with bash](bash_automation.md) and/or [Workflow management with Snakemake](snakemake_for_automation.md) 
-	* **12:00-1:00pm:** LUNCH
-* **1:00-2:00pm:** [Shannon Joslin](https://twitter.com/IntrprtngGnmcs?lang=en) - Genome Assembly
-	* **2:00-2:10pm:** BREAK
-* **2:15-3:30pm:**  [Workflow management with Snakemake](snakemake_for_automation.md) (continued)
+	* **12:00-1:15pm:** LUNCH
+* **1:15-2:15pm:** [Shannon Joslin](https://twitter.com/IntrprtngGnmcs?lang=en) - Genome Assembly
+	* **2:15-2:25pm:** BREAK
+* **2:25-3:30pm:**  [Workflow management with Snakemake](snakemake_for_automation.md) (continued)
 	* **3:30-3:50pm:** BREAK
 * **3:50-5:00pm:** [Adding onto our Snakemake workflow](snakemake_for_qc.md) 
 	* **5:00pm:** DONE
