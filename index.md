@@ -94,7 +94,7 @@ Room Conway will be led by [Sateesh Peri](https://twitter.com/perisateesh?lang=e
 
 **Tuesday, July 9th, 2019**
 
-* **9:00-10:20am:** [Mapping & Variant Calling](mapping-variant-calling.md) and [Automation with bash](bash_automation.md)
+* **9:00-10:20am:** [Mapping & Variant Calling](mapping-variant-calling.md) and/or [Automation with bash](bash_automation.md)
 	* **10:20-10:40am:** BREAK
 * **10:40am-12:00pm:** [Automation with bash](bash_automation.md) and/or [Workflow management with Snakemake](snakemake_for_automation.md) 
 	* **12:00-1:00pm:** LUNCH
