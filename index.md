@@ -102,7 +102,7 @@ Room Conway will be led by [Sateesh Peri](https://twitter.com/perisateesh?lang=e
 	* **2:00-2:10pm:** BREAK
 * **2:15-3:30pm:**  [Workflow management with Snakemake](snakemake_for_automation.md) (continued)
 	* **3:30-3:50pm:** BREAK
-* **3:50-5:00pm:** Build your own RNA-seq workflow with Snakemake 
+* **3:50-5:00pm:** [Adding onto our Snakemake workflow](snakemake_for_qc.md) 
 	* **5:00pm:** DONE
 
 <!--Genome Assembly

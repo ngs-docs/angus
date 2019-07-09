@@ -1,4 +1,4 @@
-# Using snakemake to automate an RNA-seq workflow
+# Adding onto our snakemake workflow
 
 In our previous lesson, we use snakemake to automate the first two rules of our
 quality control/quality analysis. Given the things you learned during that 
