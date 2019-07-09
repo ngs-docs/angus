@@ -166,7 +166,7 @@ rule fastqc_raw:
         "fastqc_raw/ERR458493_fastqc.html",
         "fastqc_raw/ERR458493_fastqc.zip"
     shell:'''
-    fastqc -o data {input}
+    fastqc -o fastqc_raw {input}
     '''
 ```
 
