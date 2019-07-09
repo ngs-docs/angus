@@ -160,6 +160,7 @@ Let's make a rule to run `fastqc` on one of our samples below. We'll put this
 rule in a file called `Snakefile`.
 
 ```
+# This rule will run fastqc on the specified input file.
 rule fastqc_raw:
     input: "data/ERR458493.fastq.gz"
     output: 
@@ -208,6 +209,8 @@ We can also use better organization. Let's **specify a different output folder**
 for our fastqc results
 
 ```
+# This rule will run fastqc on the specified input file
+# (replace the prior fastqc_raw rule with this new rule)
 rule fastqc_raw:
     input: "data/ERR458493.fastq.gz"
     output: 
@@ -238,6 +241,7 @@ We told snakemake to do something, and it did it. Let's add another rule to our
 Snakefile telling snakemake to do something else. This time, we'll run multiqc.
 
 ```
+# Run fastqc on the specified input file
 rule fastqc_raw:
     input: "data/ERR458493.fastq.gz"
     output: 
@@ -247,6 +251,7 @@ rule fastqc_raw:
     fastqc -o fastqc_raw {input}
     '''
 
+# Run multiqc on the results of the fastqc_raw rule
 rule multiqc_raw:
     input: "fastqc_raw/ERR458493_fastqc.zip"
     output: "fastqc_raw/multiqc_report.html"
@@ -274,6 +279,11 @@ in our workflow, this is our fastqc sample directory.. Let's add a rule all.
 
 ```
 rule all:
+    """
+    The "all" rule is the first rule that Snakemake will run.
+    Snakemake will automatically figure out which rules need to 
+    be run to generate the specified input file.
+    """
     input:
         "fastqc_raw/multiqc_report.html"
 
@@ -338,13 +348,13 @@ We can create our own wildcard too. This is really handy for running our
 workflow on all of our samples.  
 
 ```
+# Create a list of strings ontaining all of our sample names
 SAMPLES=['ERR458493', 'ERR458494', 'ERR458495', 'ERR458500', 'ERR458501', 
 'ERR458502']
 
 rule all:
     input:
         "fastqc_raw/multiqc_report.html"
-
 
 rule fastqc_raw:
     input: "data/{sample}.fastq.gz"
