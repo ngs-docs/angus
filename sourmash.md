@@ -21,10 +21,7 @@ ATTG - a 4-mer
 ATGGAC - a 6-mer
 ```
 
-Typically we extract k-mers from genomic assemblies or read data sets by running 
-a k-length window across all of the reads and sequences -- e.g. given a 
-sequence of length 16, you could extract 11 k-mers of length six from it like 
-so:
+Typically we extract k-mers from genomic assemblies or read data sets by running a k-length window across all of the reads and sequences -- e.g. given a sequence of length 16, you could extract 11 k-mers of length six from it like so:
 
 ```
 AGGATGAGACAGATAG
@@ -46,39 +43,25 @@ AGGATG
 
 ## Why k-mers, though? Why not just work with the full read sequences?
 
-Computers *love* k-mers because there's no ambiguity in matching them. You 
-either have an exact match, or you don't. And computers love that sort of thing!
+Computers *love* k-mers because there's no ambiguity in matching them. You either have an exact match, or you don't. And computers love that sort of thing!
 
-Basically, it's really easy for a computer to tell if two reads share a k-mer, 
-and it's pretty easy for a computer to store all the k-mers that it sees in a 
-pile of reads or in a genome.
+Basically, it's really easy for a computer to tell if two reads share a k-mer, and it's pretty easy for a computer to store all the k-mers that it sees in a pile of reads or in a genome.
 
 ## Long k-mers are species specific
 
-k-mers are most useful when they're *long*, because then they're *specific*. 
-That is, if you have a 31-mer taken from a human genome, it's pretty unlikely 
-that another genome has that exact 31-mer in it.  (You can calculate the 
-probability if you assume genomes are random: there are 4<sup>31</sup> possible 
-31-mers, and 4<sup>31</sup> = 4,611,686,018,427,387,904\.  So, you know, a lot.)
+k-mers are most useful when they're *long*, because then they're *specific*. That is, if you have a 31-mer taken from a human genome, it's pretty unlikely that another genome has that exact 31-mer in it.  (You can calculate the probability if you assume genomes are random: there are 4<sup>31</sup> possible 31-mers, and 4<sup>31</sup> = 4,611,686,018,427,387,904\.  So, you know, a lot.)
 
-Essentially, *long k-mers are species specific*. Check out this figure from the
- [MetaPalette paper](http://msystems.asm.org/content/1/3/e00020-16):
+Essentially, *long k-mers are species specific*. Check out this figure from the [MetaPalette paper](http://msystems.asm.org/content/1/3/e00020-16):
 
 ![](_static/kmers-metapalette.png)
 
-Here, the Koslicki and Falush show that k-mer similarity works to group microbes 
-by genus, at k=40. If you go longer (say k=50) then you get only very little 
-similarity between different species.
+Here, the Koslicki and Falush show that k-mer similarity works to group microbes by genus, at k=40\. If you go longer (say k=50) then you get only very little similarity between different species.
 
 ## Using k-mers to compare samples
 
-One thing you can do is use k-mers to compare read data sets to read data 
-sets, or genomes to genomes: data sets that have a lot of similarity probably 
-are similar or even the same genome.
+So, one thing you can do is use k-mers to compare read data sets to read data sets, or genomes to genomes: data sets that have a lot of similarity probably are similar or even the same genome.
 
-One metric you can use for this comparisons is the Jaccard distance, which is 
-calculated by asking how many k-mers are *shared* between two samples vs how 
-many k-mers in total are in the combined samples.
+One metric you can use for this comparisons is the Jaccard distance, which is calculated by asking how many k-mers are *shared* between two samples vs how many k-mers in total are in the combined samples.
 
 ```
 only k-mers in both samples
@@ -86,34 +69,18 @@ only k-mers in both samples
 all k-mers in either or both samples
 ```
 
-A Jaccard distance of 1 means the samples are identical; a Jaccard distance of 
-0 means the samples are completely different.
+A Jaccard distance of 1 means the samples are identical; a Jaccard distance of 0 means the samples are completely different.
 
-Jaccard distance works really well when we don't care how many times we see a 
-k-mer. 
+Jaccard distance works really well when we don't care how many times we see a k-mer. 
+When we keep track of the abundance of a k-mer, say for example in RNA-seq samples where the number of read counts matters, we use cosine distance instead. 
 
-When we keep track of the abundance of a k-mer, say for example in RNA-seq 
-samples where the number of read counts matters, we use cosine distance instead. 
+These two measures can be used to search databases, compare RNA-seq samples, and all sorts of other things!  The only real problem with it is that there are a *lot* of k-mers in a genome -- a 5 Mbp genome (like E. coli) has 5 m k-mers!
 
-These two measures can be used to search databases, compare RNA-seq samples, and 
-all sorts of other things!  The only real problem with it is that there are a 
-*lot* of k-mers in a genome -- a 5 Mbp genome (like E. coli) has 5 m k-mers!
+About two years ago, [Ondov et al. (2016)](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-0997-x) showed that [MinHash approaches](https://en.wikipedia.org/wiki/MinHash) could be used to estimate Jaccard distance using only a small fraction (1 in 10,000 or so) of all the k-mers.
 
-About two years ago, [Ondov et al. (2016)](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-0997-x) 
-showed that [MinHash approaches](https://en.wikipedia.org/wiki/MinHash) could 
-be used to estimate Jaccard distance using only a small fraction (1 in 10,000 
-or so) of all the k-mers.
+The basic idea behind MinHash is that you pick a small subset of k-mers to look at, and you use those as a proxy for *all* the k-mers.  The trick is that you pick the k-mers randomly but consistently: so if a chosen k-mer is present in two data sets of interest, it will be picked in both. This is done using a clever trick that we can try to explain to you in class - but either way, trust us, it works!
 
-The basic idea behind MinHash is that you pick a small subset of k-mers to look 
-at, and you use those as a proxy for *all* the k-mers.  The trick is that you 
-pick the k-mers randomly but consistently: so if a chosen k-mer is present in 
-two data sets of interest, it will be picked in both. This is done using a 
-clever trick that we can try to explain to you in class - but either way, trust 
-us, it works!
-
-We have implemented a MinHash approach in our 
-[sourmash software](https://github.com/dib-lab/sourmash/), which can do some 
-nice things with samples.  We'll show you some of these things next!
+We have implemented a MinHash approach in our [sourmash software](https://github.com/dib-lab/sourmash/), which can do some nice things with samples.  We'll show you some of these things next!
 
 ## Installing sourmash
 
@@ -127,13 +94,11 @@ conda install -y -c bioconda sourmash
 
 A signature is a compressed representation of the k-mers in the sequence. 
 
-Depending on your application, we recommend different ways of preparing 
-sequencing data to create a signature. 
+Depending on your application, we recommend different ways of preparing sequencing data to create a signature. 
 
-In a genome or transcriptome, we expect that the k-mers we see are accurate. We 
-can create signatures from these type of sequencing data sets without any 
-preparation. We demonstrate how to create a signature from high-quality 
-sequences below.
+In a genome or transcriptome, we expect that the k-mers we see are accurate. We can create 
+signatures from these type of sequencing data sets without any preparation. We demonstrate
+how to create a signature from high-quality sequences below.
 
 First, download a genome assembly:
 
@@ -152,24 +117,22 @@ Compute a scaled MinHash from the assembly:
 sourmash compute −k 21,31,51 −−scaled 2000 −−track−abundance −o ecoliMG1655.sig ecoliMG1655.fa.gz
 ```
 
-For raw sequencing reads, we expect that many of the unique k-mers we observe 
-will be due to errors in sequencing. Unlike with high-quality sequences like 
-transcriptomes and genomes, we need to think carefully about how we want to 
-create each signature, as it will depend on the downstream application. 
+For raw sequencing reads, we expect that many of the unique k-mers we observe will be due
+to errors in sequencing. Unlike with high-quality sequences like transcriptomes and 
+genomes, we need to think carefully about how we want to create each signature, as it will
+depend on the downstream application. 
 
-+ **Comparing reads against high quality sequences**: Because our references 
-that we are comparing or searching against only contain k-mers that are likely 
-real, we don't want to trim potentially erroneous k-mers. Although most of the 
-k-mers would be errors that we would trim, there is a chance we could 
-accidentally remove **real** biological variation that is present at low 
-abundance.
-+ **Comparing reads against other reads**: Because both datasets likely have 
-many erroneous k-mers, we want to remove the majority of these so as not to 
-falsely deflate similarity between samples. Therefore, we want to trim what 
-are likely erroneous k-mers from sequencing errors. 
++ **Comparing reads against high quality sequences**: Because our references that we are
+comparing or searching against only contain k-mers that are likely real, we don't want to 
+trim potentially erroneous k-mers. Although most of the k-mers would be errors that we 
+would trim, there is a chance we could accidentally remove **real** biological variation
+that is present at low abundance.
++ **Comparing reads against other reads**: Because both datasets likely have many 
+erroneous k-mers, we want to remove the majority of these so as not to falsely deflate
+similarity between samples. Therefore, we want to trim what are likely erroneous k-mers 
+from sequencing errors. 
 
-Let's download some raw sequencing reads and demonstrate what k-mer trimming 
-looks like. 
+Let's download some raw sequencing reads and demonstrate what k-mer trimming looks like. 
 
 First, download a read file:
 
@@ -178,8 +141,8 @@ curl −L https://osf.io/pfxth/download −o ERR458584.fq.gz
 gunzip -c ERR458584.fq.gz | head
 ```
 
-Next, perform k-mer trimming using a library called khmer. K-mer trimming 
-removes low-abundant k-mers from the sample.
+Next, perform k-mer trimming using a library called khmer. K-mer trimming removes
+low-abundant k-mers from the sample.
 
 ```
 trim−low−abund.py ERR458584.fq.gz −V −Z 10 −C 3 −−gzip −M 3e9 −o ERR458584.khmer.fq.gz
@@ -195,27 +158,25 @@ sourmash compute −k 21,31,51 −−scaled 2000 −−track−abundance −o ER
 
 [![compute](_static/Sourmash_flow_diagrams_compute.thumb.png)](_static/Sourmash_flow_diagrams_compute.png)
 
-We can prepare signatures like this for any sequencing data file! For the rest 
-of the tutorial, we have prepared signatures for each sequencing data set we 
-will be working with.
+We can prepare signatures like this for any sequencing data file! For the rest of the 
+tutorial, we have prepared signatures for each sequencing data set we will be working
+with.
 
 ## Compare many RNA-seq samples quickly
 
 Use case: how similar are my samples to one another?
 
-Traditionally in RNA-seq workflows, we use MDS plots to determine how similar 
-our samples are. Samples that are closer together on the MDS plot are more 
-similar. However, to get to this point, we have to trim our reads, download or 
-build a reference transcriptome, quantify our reads using a tool like Salmon, 
-and then read the counts into R and make an MDS plot. This is a lot of steps to 
-go through just to figure out how similar your samples are! 
+Traditionally in RNA-seq workflows, we use MDS plots to determine how similar our samples are. Samples that are closer together on the MDS plot are more similar. However, to get to this point, we have to trim our reads, download or build a reference transcriptome, quantify our reads using a tool like Salmon, and then read the counts into R and make an MDS plot. This is a lot of steps to go through just to figure out how similar your samples are! 
 
 Luckily, we can use sourmash to quickly compare how similar our samples are. 
+
+
 
 
 ## Detect Eukaryotic Contamination in Raw RNA Sequencing data
 
 Use case: Search for the presence of unexpected organisms in raw RNA-seq reads 
+
 
 
 ## Compare reads to assemblies
@@ -560,5 +521,4 @@ AGGATGAGACAGATAGGATTGC
 ```
 
 Graphs of many k-mers together are called De Bruijn graphs, and assemblers like MEGAHIT and SOAPdenovo are De Bruijn graph assemblers - they use k-mers underneath.
-
 
