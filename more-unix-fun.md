@@ -263,6 +263,8 @@ nohup blastn -query contigs-not-in-ref.fa -remote -db nr \
 > - **`-remote`** – this tells the computer to send the BLAST job to the NCBI servers
 > - **`&`** - this at the end tells the computer to run the process in the background so we can still work in our terminal. We can check on the job with the command `jobs`. This will finish when it does and it won't be interrupted disconnect or sign off before then. 
 
+We can press `enter` to get get our regular prompt back. 
+
 This may take a few minutes (the amount of traffic the blast servers deal with fluctuates). So we can download a results file as follows and move on while that continues in the background:
 
 ```bash
@@ -312,3 +314,35 @@ It's possible some of these might be non-coding RNAs, and therefore aren't in th
 </blockquote>
 
 **Isn't Unix grand 🙂**
+
+---
+---
+
+One-liner that removes softwraps from fasta files:
+
+Download and unzip example file with softwraps:
+
+```bash
+curl -LO ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/146/045/GCF_000146045.2_R64/GCF_000146045.2_R64_rna.fna.gz
+gunzip GCF_000146045.2_R64_rna.fna.gz
+```
+
+Look at the file before removing softwraps:
+
+```bash
+head GCF_000146045.2_R64_rna.fna
+```
+
+Complicated command to fix this (but easy to save somewhere for when needed, so no need to remember):
+
+```bash
+awk '!/^>/ { printf "%s", $0; n="\n" } /^>/ { print n $0; n = "" } END { printf "%s", n }' GCF_000146045.2_R64_rna.fna > GCF_000146045.2_R64_rna_no_softwraps.fna
+```
+
+Looking at new file:
+
+```bash
+head GCF_000146045.2_R64_rna_no_softwraps.fna
+```
+
+Now we'd be able to `grep` out sequences if we wanted 🙂
