@@ -1,4 +1,4 @@
-# Version Control with Github YAY
+# Version Control with Github
 
 
 Learning objectives
@@ -76,35 +76,35 @@ Click the green “Create Repository” button and you’re set. You now have an
 
 # Creating Your Local Repository
 
-
+To begin, let's create a new directory called MyProject.
 ```
 mkdir ~/MyProject
 ```
-
+Then we will move into this new directory.
 ```
 cd ~/MyProject
 ```
-
+To create a local repository, we will first initiate a new repository for "MyProject" by entering the following command:
 ```
 git init
 ```
-
+Touch is a multi-purpose command, but one of its key uses is to creat new, empty files. In our case, we will create a new file called Readme.txt. 
 ```
 touch Readme.txt
 ```
-
+We can check the status of our new repository by using ```git status```.  
 ```
 git status
 ```
-
+When we want Git to track a file, we use ```git add``` followed by the file we want Git to "see". If we do not use ```git add```, Git will not "see" this file.
 ```
 git add Readme.txt
 ```
-
+Lastly, to have Git track the current "snapshot" of our file, we enter ```git commit```. The ```-m``` flag allows us to add a personal message with the files we are committing. In the following example, our message is "Add Readme.txt". Examples of other messages could include version information, changes made to a document, document descriptions, etc. 
 ```
 git commit -m “Add Readme.txt”
 ```
-
+Now Git has a "snapshot" of this version of Readme.txt which you can return to at any time in the future!
 
 # Connect Your Local Repository To Your GitHub Repository
 
