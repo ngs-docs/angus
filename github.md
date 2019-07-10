@@ -60,8 +60,7 @@ A version control application like Git keeps that from happening. You and your c
 
 # Setting Up GitHub And Git For The First Time
 
-You should now be logged into your Jetstream computer! You should see
-something like this:
+Login to your Jetstream computer! You should see and should see something like this:
 
 ```
 diblynn@js-17-71:~$
