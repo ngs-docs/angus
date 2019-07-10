@@ -89,16 +89,16 @@ git config --global user.email "your_email@youremail.com"
 
 Now that you’re all set up, it’s time to create a place for your project to live. Both Git and GitHub refer to this as a repository, or “repo” for short, a digital directory or storage space where you can access your project, its files, and all the versions of its files that Git saves.
 
-On your Github profile, click the plus button and select a "New Repository".
+- On your Github profile, click the plus button and select a "New Repository".
 
 <center><img src="_static/git_new_repo.png" width="50%"></center>
 <br>
 
-Give your repository a name & fill out the necessary information for your repository to be distinct and recognizeable.
+- Give your repository a name & fill out the necessary information for your repository to be distinct and recognizeable.
 
-Don’t worry about clicking the checkbox next to “Initialize this repository with a README.” A Readme file is usually a text file that explains a bit about the project. But we can make our own Readme file locally for practice.
+- Don’t worry about clicking the checkbox next to “Initialize this repository with a README.” A Readme file is usually a text file that explains a bit about the project. But we can make our own Readme file locally for practice.
 
-Click the green “Create Repository” button and you’re set. You now have an online space for your project to live in.
+- Click the green “Create Repository” button and you’re set. You now have an online space for your project to live in.
 
 <center><img src="_static/git_create_repo.png" width="50%"></center>
 <br>
@@ -175,7 +175,10 @@ Great, Git is able to connect with our remote on Github. So, let's go ahead and 
 git push origin master
 ```
 
-and you can see some output like this that git is sending packets of data to your github repo
+
+**You will be prompted for your Github username and password at this point**
+
+and you can see some output like this that git is sending packets of data to your github repo and by this you will force git to back up all of your commits since the last time you pushed to be backed up online. FOR FREE!
 
 ```
 Counting objects: 3, done.
@@ -186,74 +189,11 @@ To https://github.com/sateeshbio5/angus_test.git
 
 ```
 
+> Note: To avoid having to type your username and password each time you push/pull from your github repos, read about Secure Login [here](https://help.github.com/articles/connecting-to-github-with-ssh/)
+
+
 <center><img src="_static/github_repo.png" width="50%"></center>
 <br>
-
-# All Together Now!
-
-
-You’ve created a new shell script to run your pipeline (FastQC->STAR->FeatureCounts->DESeq2), and it’s time to add it to the project. You’ve saved them in a folder on your computer called “rnaseq”.
-
-Open up the Command Line and change directory until you’re inside the rnaseq folder, where your Snakefile is stored.
-
-```
-cd ~/rnaseq
-```
-
-Next, initialize Git so you can start using Git commands inside the folder. The folder is now a Git repository.
-
-```
-git init
-```
-
-Wait, this is the right folder, right? Here’s how you check and make sure this is where you stored your Snakefile
-
-```
-git status
-```
-
-And this is what Git will tell you in reply:
-
-```
-# Untracked files:
-#   (use "git add ..." to include in what will be committed)
-#
-#       Snakefile
-```
-
-There it is! Add it to your local Git repository so it will be tracked by Git.
-
-```
-git add Snakefile
-```
-
-Now, take a “snapshot” of the repository as it stands now with the commit command:
-
-```
-git commit -m “Add Snakefile for RNAseq”
-```
-
-Great! But your co-workers, hard at work in their own local repositories, can’t see your fantastic new Snakefile. That’s because the main project is stored in the institution's GitHub account (username: 123genomics) in the repository called “rnaseq”
-
-Since you haven’t connected to the GitHub repo yet, your computer doesn’t even know this exists. So tell your local repository about it:
-
-```
-git remote add origin https://github.com/sateeshperi/atom_test.git
-```
-
-And double check to make sure it knows:
-
-```
-git remote -v
-```
-
-Finally, it’s the moment you’ve been waiting for. Upload that Snakefile up to the project:
-
-```
-git push
-```
-
-Ta da! Success.
 
 # Collaborating via GitHub
 
