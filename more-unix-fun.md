@@ -181,7 +181,7 @@ comm -23 all-assembly-contig-IDs.txt all-assembly-contig-IDs-with-hits.txt > all
 >     * So by providing the flags `-23` we are saying to keep those, all we want are the lines (contig names) in file 1 that are not in file 2. This gives us all the contig names that we assembled but that did not successfully align to the reference.
 > * `>` – We then redirect the output to a new file called "all-assembly-contigs-that-did-not-hit-ref.txt"
 
-And this should hold the 65 contig names that we're looking for (sanity check):
+And this should hold the 61 contig names that we're looking for (sanity check):
 
 ```bash
 wc -l all-assembly-contig-IDs-that-did-not-hit-ref.txt
