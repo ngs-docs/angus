@@ -151,10 +151,12 @@ git status
 
 And this is what Git will tell you in reply:
 
+```
 # Untracked files:
 #   (use "git add ..." to include in what will be committed)
 #
 #       Snakefile
+```
 
 There it is! Add it to your local Git repository so it will be tracked by Git.
 
