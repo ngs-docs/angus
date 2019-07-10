@@ -95,7 +95,9 @@ Looking at our output from the forward reads ([B_cepacia_raw_R1_fastqc.html](_st
 <center><img src="_static/fastqc_R1_before.png" width="90%"></center>  
 <br>
 
-> Here: the read length is stretched across the x-axis; the blue line is the mean quality score of all reads at the corresponding positions; red line is the median; the yellow boxplots represent the interquartile range; and the whiskers represent the 10th and 90th percentiles. 
+>**FASTQC LEGEND**
+>
+>The read length is stretched across the x-axis, quality scores on the y-axis; the blue line is the mean quality score of all reads at the corresponding positions; red line is the median; the yellow boxplots represent the interquartile range; and the whiskers represent the 10th and 90th percentiles. 
 
 The [reverse reads](_static/de-novo-pre-trim-R2-fastqc.html) look pretty similar: 
 
