@@ -93,7 +93,6 @@ fastqc B_cepacia_raw_R1.fastq.gz B_cepacia_raw_R2.fastq.gz -t 6
 Looking at our output from the forward reads ([B_cepacia_raw_R1_fastqc.html](_static/de-novo-pre-trim-R1-fastqc.html)), not too much stands out other than the quality scores are pretty mediocre from about 2/3 of the way through the read on: 
 
 <center><img src="_static/fastqc_R1_before.png" width="90%"></center>  
-<br>
 
 >**FASTQC LEGEND**
 >
