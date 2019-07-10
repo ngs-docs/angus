@@ -79,49 +79,83 @@ It’s time to introduce yourself to Git. Type in the following code:
 git config --global user.name "Your Name Here"
 ```
 
+Next, tell it your email and make sure it’s the same email you used when you signed up for a GitHub.com account
+
 ```
 git config --global user.email "your_email@youremail.com"
 ```
 
 # Creating Your Online Repository
 
+Now that you’re all set up, it’s time to create a place for your project to live. Both Git and GitHub refer to this as a repository, or “repo” for short, a digital directory or storage space where you can access your project, its files, and all the versions of its files that Git saves.
+
+On your Github profile, click the plus button and select a "New Repository".
+
+<center><img src="_static/git_new_repo.png" width="50%"></center>
+<br>
+
+Give your repository a name & fill out the necessary information for your repository to be distinct and recognizeable.
+
 Don’t worry about clicking the checkbox next to “Initialize this repository with a README.” A Readme file is usually a text file that explains a bit about the project. But we can make our own Readme file locally for practice.
 
 Click the green “Create Repository” button and you’re set. You now have an online space for your project to live in.
 
+<center><img src="_static/git_create_repo.png" width="50%"></center>
+<br>
+
 # Creating Your Local Repository
 
 To begin, let's create a new directory called MyProject.
+
 ```
 mkdir ~/MyProject
 ```
+
 Then we will move into this new directory.
+
 ```
 cd ~/MyProject
 ```
+
 To create a local repository, we will first initiate a new repository for "MyProject" by entering the following command:
+
 ```
 git init
 ```
+
 Touch is a multi-purpose command, but one of its key uses is to creat new, empty files. In our case, we will create a new file called Readme.txt. 
+
 ```
 touch Readme.txt
 ```
+
 We can check the status of our new repository by using ```git status```.  
+
 ```
 git status
 ```
+
 When we want Git to track a file, we use ```git add``` followed by the file we want Git to "see". If we do not use ```git add```, Git will not "see" this file.
+
 ```
 git add Readme.txt
 ```
+
 Lastly, to have Git track the current "snapshot" of our file, we enter ```git commit```. The ```-m``` flag allows us to add a personal message with the files we are committing. In the following example, our message is "Add Readme.txt". Examples of other messages could include version information, changes made to a document, document descriptions, etc. 
+
 ```
 git commit -m “Add Readme.txt”
 ```
+
 Now Git has a "snapshot" of this version of Readme.txt which you can return to at any time in the future!
 
-# Connect Your Local Repository To Your GitHub Repository
+<center><img src="_static/git_working.png" width="50%"></center>
+<br>
+
+# Connect Your Local Repository To Your GitHub Repository Online
+
+<center><img src="_static/git_remote.png" width="50%"></center>
+<br>
 
 This setup also makes it easy to have multiple collaborators working on the same project. Each of you can work alone on your own computers, but upload or “push” your changes up to the GitHub repository when they’re ready.
 
@@ -135,16 +169,30 @@ Git now knows there’s a remote repository and it’s where you want your local
 git remote -v
 ```
 
+Great, Git is able to connect with our remote on Github. So, let's go ahead and push our files to Github
+
 ```
 git push origin master
 ```
 
+and you can see some output like this that git is sending packets of data to your github repo
+
+```
+Counting objects: 3, done.
+Writing objects: 100% (3/3), 217 bytes | 217.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To https://github.com/sateeshbio5/angus_test.git
+ * [new branch]      master -> master
+
+```
+
+<center><img src="_static/github_repo.png" width="50%"></center>
+<br>
 
 # All Together Now!
 
-You are now an employee at 123 genomics center, where you’re building a new Snakemake pipeline for RNAseq analysis using STAR aligner & DESeq2 differential expression analysis tool along with a few of your coworkers.
 
-You’ve created a new Snakefile to run your pipeline (FastQC->STAR->FeatureCounts->DESeq2), and it’s time to add it to the project. You’ve saved them in a folder on your computer called “rnaseq”.
+You’ve created a new shell script to run your pipeline (FastQC->STAR->FeatureCounts->DESeq2), and it’s time to add it to the project. You’ve saved them in a folder on your computer called “rnaseq”.
 
 Open up the Command Line and change directory until you’re inside the rnaseq folder, where your Snakefile is stored.
 
@@ -190,7 +238,7 @@ Great! But your co-workers, hard at work in their own local repositories, can’
 Since you haven’t connected to the GitHub repo yet, your computer doesn’t even know this exists. So tell your local repository about it:
 
 ```
-git remote add origin https://github.com/123genomics/rnaseq.git
+git remote add origin https://github.com/sateeshperi/atom_test.git
 ```
 
 And double check to make sure it knows:
@@ -211,7 +259,13 @@ Ta da! Success.
 
 - **GitHub Issues:** Issues are a great way to keep track of tasks, enhancements, and bugs for your projects. They’re kind of like email—except they can be shared and discussed with all. Read more about Mastering Issues on Github [here](https://guides.github.com/features/issues/)
 
+<center><img src="_static/git_issues.png" width="50%"></center>
+<br>
+
 - **GitHub Pull-Requests:** Pull requests let you tell others about changes you've pushed to a branch in a repository on GitHub. Once a pull request is opened, you can discuss and review the potential changes with collaborators and add follow-up commits before your changes are merged into the base branch.
+
+<center><img src="_static/git_PR.png" width="50%"></center>
+<br>
 
 Look at others' repositories:
 
@@ -230,7 +284,7 @@ Look at others' repositories:
 
 # Git Resources
 
-_ Thanks to Lauren Orsini for this introductory [tutorial](https://readwrite.com/2013/09/30/understanding-github-a-journey-for-beginners-part-1/)
+_ Introductory tutorial by Lauren Orsini [here](https://readwrite.com/2013/09/30/understanding-github-a-journey-for-beginners-part-1/)
 
 - [Pro Git](https://git-scm.com/book)
 
