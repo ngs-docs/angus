@@ -224,7 +224,7 @@ Look at others' repositories:
 
 # Git Resources
 
-_ Introductory tutorial by Lauren Orsini [here](https://readwrite.com/2013/09/30/understanding-github-a-journey-for-beginners-part-1/)
+- Introductory tutorial by Lauren Orsini [here](https://readwrite.com/2013/09/30/understanding-github-a-journey-for-beginners-part-1/)
 
 - [Pro Git](https://git-scm.com/book)
 
