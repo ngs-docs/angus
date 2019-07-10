@@ -1,84 +1,95 @@
-# Comparing our de novo transcriptome assembly to the reference
+# Some more practical use of Unix
 
-In the [transcriptome assembly lesson](https://angus.readthedocs.io/en/2018/transcriptome-assembly.html), we assembled short RNA reads into contigs. Here we will compare this to the reference transcriptome we worked with in the [mapping and variant calling](https://angus.readthedocs.io/en/2018/mapping-variant-calling.html) lesson, and get some more practice at the command line and working with blast!  
+In the [transcriptome assembly lesson](transcriptome-assembly.md) we didn't run through this year (yet, at least), we would have assembled our yeast RNA reads into contigs using [Trinity](https://github.com/trinityrnaseq/trinityrnaseq/wiki), a popular transcriptome assembler. Here we will compare that assembly to the reference [open-reading frames](https://en.wikipedia.org/wiki/Open_reading_frame) of the same organism that we worked with in the [variant calling](mapping-variant-calling.md) and [read quantification](salmon-quant.md) lessons while getting some more practice at the command line! 
 
 ---
 
-Learning objectives:
+## Objectives:
 
-	* Explore some more bash commands in a practical way (e.g. `grep`, `sed`, `cut`, `comm`, `cat`)
-	* Practice stringing together multiple commands with pipes (`|`) step-by-step
-	* Use blast to compare two transcriptomes to find sequences that are different
-	* Run a "remote" blast from the command line
+* Explore some more bash commands in practical usage examples (e.g. **`grep`**, **`sed`**, **`cut`**, **`comm`**, **`cat`**)
+* Practice stringing together multiple commands with pipes (**`|`**) step-by-step
+* Use blast to compare two transcriptomes to find sequences that are different
+* Run a "remote" blast from the command line
 
-## Boot up a Jetstream
-[Boot an m1.medium Jetstream instance](https://angus.readthedocs.io/en/2018/jetstream/boot.html) and log in.
+## Accessing our JetStream instances
+You should still have your jetstream instance running, you can follow the instructions [here](jetstream/boot.html) to log in to JetStream and find your instance. Then `ssh` into it following the instructions [here](jetstream/boot.html#ssh-secure-login).
 
-## Software needed
-We will be using blast here, so if you've run through the [using blast at the command line](https://angus.readthedocs.io/en/2018/running-command-line-blast.html) lesson, you're already good to go. You can check that you have blast by entering:
-
-```bash
-makeblastdb -h
-```
-
-If that returns some help information, blast is already installed. If it returns a message with "command not found", then you can install blast with:
+## Installing BLAST
+We will be using blast here, which we can install like so:
 
 ```bash
 conda install -y blast
 ```
 
 ## Setting up our working directory
-
-Let's set up a new working directory to compare our assembly to the orf reference and copy over the reference we worked with and the result from our de novo transcriptome assembly (they're both small enough files that copying isn't a big deal).
-
-> NOTE: ".fa", ".fasta", and ".fna" are all common extensions for a nucleotide fasta file. Amino acid fasta files typically have ".faa".
+Let's set up a new working directory and download the files we'll be working with:
 
 ```bash
 cd ~
-mkdir comparing_assembly_to_ref
-cd comparing_assembly_to_ref/
-cp ../mapping/orf_coding.fasta .
-cp ../assembly/yeast-transcriptome-assembly.fa .
+mkdir more-unix-fun/
+cd more-unix-fun/
+
+curl -L https://ndownloader.figshare.com/files/16200176 -o our-transcriptome-assembly.fa
+curl -L https://ndownloader.figshare.com/files/16203260 -o ref-orfs.fa
 ```
 
-> If either of those returned an error message (file not found), you can download the reference by running `curl -O https://downloads.yeastgenome.org/sequence/S288C_reference/orf_dna/orf_coding.fasta.gz` followed by `gunzip orf_coding.fasta.gz` to download and unzip the reference, and/or `curl -L https://ndownloader.figshare.com/files/12323351 -o yeast-transcriptome-assembly.fa` to download a result of the transcriptome assembly (this one is not gzipped).
-
-Out of curiousity, let's see how many contigs we assembled vs how many are in the orf reference file we have?
+Out of curiousity, let's see how many contigs we assembled vs how many open-reading frames there are in the reference we have:
 
 ```bash
-grep -c ">" yeast-transcriptome-assembly.fa
-grep -c ">" orf_coding.fasta
+grep -c ">" our-transcriptome-assembly.fa
+grep -c ">" ref-orfs.fa
 ```
 
-> **Code breakdown:** This is a common, quick way to check how many sequences are in a fasta file. 
-> * `grep` by default will pull out all lines containing the pattern we give it, from the file we provide. Here we are adding the `-c` flag telling it to just count the lines for us, and the pattern we are searching for is just the ">" character. 
->   * This is because if you remember in true fasta format those should only be found once for each sequence directly in front of the header line.
->   * You can peak at one of the files to remind yourself of the format with `head yeast-transcriptome-assembly.fa`. 
+<blockquote>
+<center><b>QUICK QUESTION!</b></center>
 
-**How can we check if the contigs we assembled are all in the orf reference? Or find which ones aren't and might be spurious? Blast is one way.**
+What might be some of the reasons for the large difference between the number of transcripts we assembled and the number of open-reading frames in the reference? 
 
-### Making a blast database of our reference
+<div class="toggle-header closed">
+    <strong>Possible Causes</strong>
+</div>
+
+<div class="toggle-content docutils container" style="width:100%">
+<br>
+Even if transcripts encompassing every open-reading frame in the reference were expressed at the time of sampling, it is possible many of them may not have assembled. And/or those expressed in very low abundance may not have been amplified. (This is not an exhaustive list).
+
+</div>
+</blockquote>
+
+Even though we assembled fewer transcripts than the number of open-reading frames in our reference, let's use BLAST and the command line to try to find out if all of what we did assemble can actually be found in our reference!
+
+## Making a blast database of our reference
 Here we are going to make our blast database using our original reference fasta. Then we are going to blast the assembled transcripts against it.
 
 ```bash
-makeblastdb -dbtype nucl -in orf_coding.fasta -out orf_coding_blastdb
+makeblastdb -dbtype nucl -in ref-orfs.fa -out ref-orfs.blastdb
 ```
 
-> Note that we are providing a name to the `-out` flag. This is going to be the "basename" of the files that are created. Running `ls orf_coding_blastdb*` after it's done will show them.
+>**CODE BREAKDOWN**
+>
+> - **`makeblastdb`** - this is our command to make a blast database out of our reference fasta file
+>   - **`-dbtype nucl`** - here we are specifying there are nucleotides
+>   - **`-in`** - specifying the input file
+>   - **`-out`** - naming the prefix of the output database files
 
-### Blasting our assembly against the reference
-Now we're going to try to align our assembled contigs against the reference. You can see all the options for `blastn` by running `blastn -help`, and there's an explanation of what we've done here in the following code breakdown block. 
-
-> **NOTE:** Ignore the "\\" at the end of lines within code blocks like below. They are there to tell the terminal to ignore the newline characters that were added here so that these can be copied and pasted and still run properly. Feel free to copy and paste. Typing out is good practice too sometimes, but thinking about what the code is doing is probably more useful here.
+## Blasting our assembly against the reference
+Now we're going to try to align our assembled contigs against the reference. There are a lot of options for `blastn` that can be seen by running `blastn -help`, and there's an explanation of what we've done here in the following code breakdown block. 
 
 ```bash
-blastn -query yeast-transcriptome-assembly.fa -db orf_coding_blastdb \
--max_target_seqs 1 -max_hsps 1 \
--out assembly_to_orf_coding_blastnout.tsv -outfmt "6 qseqid qlen sseqid slen pident \
-length qcovhsp mismatch gapopen qstart qend sstart send evalue bitscore score"
+blastn -query our-transcriptome-assembly.fa -db ref-orfs.blastdb \
+       -max_target_seqs 1 -max_hsps 1 \
+       -out assembly_to_orf_coding_blastnout.tsv \
+       -outfmt "6 qseqid qlen sseqid slen length pident evalue bitscore"
 ```
 
-> **Code breakdown:** We've added a couple new ones here, namely `-max_target_seqs 1` and `-max_hsps 1`. Both of these are here to ensure we only get one entry back for each of our query sequences, in theory, the "best hit". The first tells the program to only record one "target" sequence. In blast terminology, the "query" is what you're blasting (our assembly contigs), and the "target" is what you're blasting against (our reference fasta in this case). The second, dealing with "hsps" is for "highest scoring pairs". Since blast is a "local" alignment (**B**asic **L**ocal **A**lignment **S**earch **T**ool), you can get more than one alignment between the same two sequences in different places.
+>**CODE BREAKDOWN** 
+>
+>
+
+
+
+
+We've added a couple new ones here, namely `-max_target_seqs 1` and `-max_hsps 1`. Both of these are here to ensure we only get one entry back for each of our query sequences, in theory, the "best hit". The first tells the program to only record one "target" sequence. In blast terminology, the "query" is what you're blasting (our assembly contigs), and the "target" is what you're blasting against (our reference fasta in this case). The second, dealing with "hsps" is for "highest scoring pairs". Since blast is a "local" alignment (**B**asic **L**ocal **A**lignment **S**earch **T**ool), you can get more than one alignment between the same two sequences in different places.
 
 Sometimes it's useful to add headers to tabular blast output files right at the command line. This can be done in `nano` (be sure to put tabs between the column names if you do it this way), but sometimes files are large and `nano` can be sluggish too. So here's a little command-line detour showing another way.
 
