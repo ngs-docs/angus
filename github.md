@@ -10,9 +10,9 @@ Learning objectives
 
 # Setup
 
-First, you’ll need to sign up for an account on GitHub.com. It’s as simple as signing up for any other social network. Keep the email you picked handy; we’ll be referencing it again soon.
+First, you’ll need to sign up for an account on [GitHub.com](https://github.com/). It’s as simple as signing up for any other social network. Keep the email you picked handy; we’ll be referencing it again in the lesson.
 
-You could stop there and GitHub would work fine. But if you want to work on your project on your local computer, you need to have Git installed. In fact, GitHub won’t work on your local computer if you don’t install Git. Install Git for Windows, Mac or Linux as needed here.
+You could stop there and GitHub would work fine. But if you want to work on your project on your local computer, you need to have Git installed. Instructions to install Git for Windows, Mac or Linux as needed [here](https://git-scm.com/downloads).
 
 # What is Github?
 
