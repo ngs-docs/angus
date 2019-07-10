@@ -18,7 +18,7 @@ our workflow works, and we know how we want to run them, one way we can automate
 
 Here we are going to automate the quality assessment and trimming we did [here](quality-and-trimming.md) and the read quantification we performed [here](salmon-quant.md) in one script. But first, let's see what a bash script is!
 
-## Accessing our JetStream intances
+## Accessing our JetStream instances
 You should still have your jetstream instance running, you can follow the instructions [here](jetstream/boot.html) to log in to JetStream and find your instance. Then `ssh` into it following the instructions [here](jetstream/boot.html#ssh-secure-login).
 
 Next, we're going to access RStudio again on our instances. RStudio will be convenient for being able to edit a text file alongside an active terminal window (command-line window). We'll see this in action in a second. As earlier, run the following link to produce
