@@ -126,11 +126,11 @@ depend on the downstream application.
 comparing or searching against only contain k-mers that are likely real, we don't want to 
 trim potentially erroneous k-mers. Although most of the k-mers would be errors that we 
 would trim, there is a chance we could accidentally remove **real** biological variation
-that is present at low abundance.
+that is present at low abundance. Instead, we only want to trim adapters.
 + **Comparing reads against other reads**: Because both datasets likely have many 
 erroneous k-mers, we want to remove the majority of these so as not to falsely deflate
 similarity between samples. Therefore, we want to trim what are likely erroneous k-mers 
-from sequencing errors. 
+from sequencing errors, as well as adapters.
 
 Let's download some raw sequencing reads and demonstrate what k-mer trimming looks like. 
 
@@ -166,18 +166,57 @@ with.
 
 Use case: how similar are my samples to one another?
 
-Traditionally in RNA-seq workflows, we use MDS plots to determine how similar our samples are. Samples that are closer together on the MDS plot are more similar. However, to get to this point, we have to trim our reads, download or build a reference transcriptome, quantify our reads using a tool like Salmon, and then read the counts into R and make an MDS plot. This is a lot of steps to go through just to figure out how similar your samples are! 
+Traditionally in RNA-seq workflows, we use MDS plots to determine how similar our samples
+are. Samples that are closer together on the MDS plot are more similar. However, to get
+to this point, we have to trim our reads, download or build a reference transcriptome,
+quantify our reads using a tool like Salmon, and then read the counts into R and make an
+MDS plot. This is a lot of steps to go through just to figure out how similar your samples
+are! 
 
 Luckily, we can use sourmash to quickly compare how similar our samples are. 
 
+We [generated signatures](https://github.com/taylorreiter/yeast-rna-sigs/blob/master/Snakefile) 
+for the majority of the rest of the 
+[Schurch et al. experiment](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4878611/) we 
+have been working with this week. Below we download and compare the 647 signatures, and
+then produce a plot that shows how similar they are to one another.
 
+First, download and uncompress the signatures.
 
+```
+curl -o schurch_sigs.tar.gz https://osf.io/p3ryg/download
+tar xf schurch_sigs.tar.gz
+```
+
+Next, compare the signatures using sourmash.
+
+```
+sourmash compare -k 31 -o schurch_compare_matrix schurch_sigs/*sig
+```
+
+This outputs a comparison matrix and a set of labels. The matrix is symmetrical, and 
+contains numbers 0-1 that captures similarity between samples. 0 means there are no 
+k-mers in common between two samples, while 1 means all k-mers are shared.
+
+Lastly, we plot the comparison matrix.
+
+```
+sourmash plot --labels schurch_compare_matrix
+```
+
+![compare](_static/schurch_comp.matrix.png.png)
+
+We see there are two major blocks of similar samples, which makes sense given that we have
+WT and SNF2 knockout samples. However, we also see that some of our samples are outliers!
+If this were our experiment, we would want to investigate the outliers further to see 
+what caused them to be so dissimilar.
 
 ## Detect Eukaryotic Contamination in Raw RNA Sequencing data
 
 Use case: Search for the presence of unexpected organisms in raw RNA-seq reads 
 
-
+When you first get sequences back from the sequencing center, or when you first download
+publicly available sequences, 
 
 ## Compare reads to assemblies
 
