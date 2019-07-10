@@ -118,7 +118,7 @@ Genome Assembly (continued)
 	* **2:00-2:10pm:** BREAK
 * **2:15-3:30pm:** [Genome Assembly](de-novo-genome-assembly.md) (continued)
 	* **3:30-3:50pm:** BREAK
-* **3:50-5:00pm:** Elective Lab: (1) More Practical Use of Unix & (2) BYOD
+* **3:50-5:00pm:** Elective Lab: (1) [More Practical Use of Unix](more-unix-fun.md) & (2) BYOD
 	* **5:00pm:** DONE
 	
 	
