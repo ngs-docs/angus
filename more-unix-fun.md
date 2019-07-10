@@ -4,11 +4,11 @@ In many of our lessons we have been working with RNASeq data from *Saccharomyces
 
 ---
 
-## Objectives:
+## Objectives
 
 * Explore some more bash commands in practical usage examples (e.g. **`grep`**, **`sed`**, **`cut`**, **`comm`**, **`cat`**)
 * Practice stringing together multiple commands with pipes (**`|`**) step-by-step
-* Use blast to compare two transcriptomes to find sequences that are different
+* Use blast to compare an assembled transcriptome to its reference transcriptome
 * Run a "remote" blast from the command line
 
 ## Accessing our JetStream instances
@@ -311,4 +311,4 @@ It's possible some of these might be non-coding RNAs, and therefore aren't in th
 </div>
 </blockquote>
 
-Isn't Unix grand?
+**Isn't Unix grand 🙂**
