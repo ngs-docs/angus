@@ -129,7 +129,7 @@ Genome Assembly (continued)
 	* **10:20-10:40am:** BREAK
 * **10:40am-12:00pm:** Elective Lab: (1) Intro to Git (continued) & (2) BYOD
 	* **12:00-1:00pm:** LUNCH
-* **1:00-2:00pm:** [Phillip Brooks](https://twitter.com/brooksph?lang=en) - Cloud platforms & Seven Bridges
+* **1:00-2:00pm:** [Rocio Martinez-Nunez](https://twitter.com/rociotmartinez?lang=en) - What comes after ANGUS?
 	* **2:00-2:10pm:** BREAK
 * **2:15-3:30pm:** Elective Lab: (1) Microbial Ecology & (2) BYOD
 	* **3:30-3:50pm:** BREAK
@@ -143,7 +143,7 @@ Genome Assembly (continued)
 	* **10:20-10:40am:** BREAK
 * **10:40am-12:00pm:** Elective Lab: (1) Metagenome Assembled Genomes (MAGs) & (2) RNAseq in R & (3) BYOD
 	* **12:00-1:00pm:** LUNCH
-* **1:00-2:00pm:** [Rocio Martinez-Nunez](https://twitter.com/rociotmartinez?lang=en) - What comes after ANGUS?
+* **1:00-2:00pm:** [Phillip Brooks](https://twitter.com/brooksph?lang=en) - Cloud platforms & Seven Bridges
 	* **2:00-2:10pm:** BREAK
 * **2:15-3:30pm:** Elective Labs & BYOD (more info soon)
 	* **3:30-3:50pm:** BREAK
