@@ -1,6 +1,6 @@
 # Some more practical use of Unix
 
-In many of our lessons we have been working with RNASeq data from *Saccharomyces cerevisiae*. In the [transcriptome assembly lesson](transcriptome-assembly.md), which we didn't run through this year (yet, at least), we would have assembled these RNA reads into contigs using [Trinity](https://github.com/trinityrnaseq/trinityrnaseq/wiki), a popular transcriptome assembler. Here we will compare the results of that assembly to the [reference](https://www.ncbi.nlm.nih.gov/assembly/GCF_000146045.2/) RNA sequences from NCBI while getting some more practice at the command line! 
+In many of our lessons we have been working with RNASeq data from *Saccharomyces cerevisiae*. In the [transcriptome assembly lesson](transcriptome-assembly.md), which we didn't run through this year (yet, at least), we would have assembled these RNA reads into contigs using [Trinity](https://github.com/trinityrnaseq/trinityrnaseq/wiki), a popular transcriptome assembler. Here we will compare the results of that assembly to the [reference](https://www.ncbi.nlm.nih.gov/assembly/GCF_000146045.2/) RNA sequences from NCBI (specifically the GCF000146045.2_R64_rna.fna.gz file from [here](ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/146/045/GCF_000146045.2_R64)) while getting some more practice at the command line! 
 
 ---
 
