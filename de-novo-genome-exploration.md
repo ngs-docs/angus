@@ -187,10 +187,11 @@ ssh -L 8080:localhost:8080 dibada@XXX.XXX.XXX.XXX
 
 Where the `-L 8080:localhost:8080` stays exactly the same as it appears above, but `dibada` above should be your room name, and the IP address at the end should be yours. You will also need to enter the password again.
 
-Next we need to re-activate our conda environment:
+Next we need to re-activate our conda environment and change back into our working directory:
 
 ```bash
 conda activate de_novo_example
+cd ~/genomics_de_novo_temp/working/
 ```
 
 Next, let's copy-and-paste this command to get the link we will need to view our anvi'o interactive interface:
