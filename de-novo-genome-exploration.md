@@ -39,12 +39,6 @@ anvi-gen-contigs-database -f spades-careful-assembly/contigs.fasta \
                           -o contigs.db -n B_cepacia_assembly
 ```
 
-> **CODE BREAKDOWN**
-> 
-> - **`-f`** - specifies our input fasta file of our chosen assembly
-> - **`-o`** - specifies our output file name, which has the ".db" extension as required by anvi'o
-> - **`-n`** - specifies a name for our anvi'o project
-
 Now that we have our `contigs.db` that holds our sequences and some basic information about them, we can start adding more information. This is one of the places where the flexibility comes into play, but for now we'll just move forward with some parts of a general anvi'o workflow, including:
 
 - using the program [HMMER](http://hmmer.org/) with profile hidden Markov models (HMMs) to scan for bacterial single-copy genes [(from Campbell et al. 2013)](http://www.pnas.org/content/110/14/5540.short)
@@ -218,7 +212,7 @@ At the center of the figure is a hierarchical clustering of the contigs from our
 
 One of the first things that might jump out here is the outer layer (purple in this image, but may be different on yours), labeled "Taxonomy". There is actually a color for each contig for whatever taxonomy was assigned to the majority of genes in that particular contig. This solid bar all around tells us that the genes in almost the entire assembly were identified as *Burkholderia* – minus two contigs which were not classified as anything (and have no color there). The next thing that stands out is how stable the mean coverage is across almost all contigs, other than that area near the top in this image (yours may be oriented differently too). That likely holds things found in multiple copies in the genome. For instance, according to [IMG](https://img.jgi.doe.gov/cgi-bin/m/main.cgi?section=TaxonDetail&page=taxonDetail&taxon_oid=2509276048), *B. cepacia* ATCC 25416 has 7 16S copies and 9 23S copies, which would complicate assembly if they aren't all identical, and would inflate their coverage compared to the parts of the genome that exist in single copy. Overall this is great and shows the culture really seems to have been axenic.  
 
-Just for a quick comparison, here is the same type of figure (taxonomy at the inner-part of the circle here), but from an enrichment culture, rather than axenic:  
+Just for a quick comparison, here is the same type of figure (taxonomy at the inner-part of the circle here), but from an enrichment culture of a cyanobacterium (so "contaminant" genomes in there too), rather than axenic:  
 
 <center><img src="_static/other_anvi.png" width="90%"></center>
 <br>
@@ -250,4 +244,4 @@ Start investigating differences in the genetic complement of our new isolate as 
 <center><img src="_static/pan_syn.png" width="90%"></center>  
 <br>
 
-And so much more! This is where just pure data crunching slows down, and the actual science begins. The above are just some of the ways to get to the point where we can then consider our experimental design and our questions and let them guide where we go next 🙂
+And so much more! **This is where just pure data crunching slows down, and the actual science begins.** The above are just some of the ways to get to the point where we can then consider our experimental design and our questions and let them guide where we go next 🙂
