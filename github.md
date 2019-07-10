@@ -10,9 +10,9 @@ Learning objectives
 
 # Setup
 
-First, you’ll need to sign up for an account on [GitHub.com](https://github.com/). It’s as simple as signing up for any other social network. Keep the email you picked handy; we’ll be referencing it again in the lesson.
+First, you’ll need to sign up for a free account on [GitHub.com](https://github.com/). It’s as simple as signing up for any other social network. Keep the email you picked handy; we’ll be referencing it again in the lesson.
 
-You could stop there and GitHub would work fine. But if you want to work on your project on your local computer, you need to have Git installed. Instructions to install Git for Windows, Mac or Linux as needed [here](https://git-scm.com/downloads).
+We will be following this lesson on our Jetstream instances which comes with `Git` installed. However, if you want to work on your project on your local computer, you need to have `Git` installed. Instructions to install Git for Windows, Mac or Linux can be found [here](https://git-scm.com/downloads).
 
 # What is Github?
 
@@ -60,11 +60,26 @@ A version control application like Git keeps that from happening. You and your c
 
 # Setting Up GitHub And Git For The First Time
 
+You should now be logged into your Jetstream computer! You should see
+something like this:
 
+```
+diblynn@js-17-71:~$
+```
+
+Make sure you're in your home directory:
+
+```
+cd ~
+```
+
+It’s time to introduce yourself to Git. Type in the following code:
 
 ```
 git config --global user.name "Your Name Here"
+```
 
+```
 git config --global user.email "your_email@youremail.com"
 ```
 
@@ -214,6 +229,8 @@ Look at others' repositories:
 
 
 # Git Resources
+
+_ Thanks to Lauren Orsini for this introductory [tutorial](https://readwrite.com/2013/09/30/understanding-github-a-journey-for-beginners-part-1/)
 
 - [Pro Git](https://git-scm.com/book)
 
