@@ -110,15 +110,15 @@ Genome Assembly (continued)
 -->
 **Wednesday, July 10th, 2019**
 
-* **9a:00-10:20am:** Genome Assembly
+* **9a:00-10:20am:** Reviewing [adding onto our Snakemake workflow](snakemake_for_qc.md)
 	* **10:20-10:40am:** BREAK
-* **10:40am-12:00pm:** Genome Assembly (continued)
+* **10:40am-12:00pm:** [Genome Assembly](de-novo-genome-assembly.md)
 	* **12:00-1:00pm:** LUNCH
 * **1:00-2:00pm:** [Erich Schwarz](https://twitter.com/ErichMSchwarz?lang=en) - Doing science with big genomes
 	* **2:00-2:10pm:** BREAK
-* **2:15-3:30pm:** Elective Lab: (1) More Practical Use of Unix & (2) BYOD
+* **2:15-3:30pm:** [Genome Assembly](de-novo-genome-assembly.md) (continued)
 	* **3:30-3:50pm:** BREAK
-* **3:50-5:00pm:** Elective Lab: (1) Intro to Computing Clusters & (2) BYOD
+* **3:50-5:00pm:** Elective Lab: (1) More Practical Use of Unix & (2) BYOD
 	* **5:00pm:** DONE
 	
 	
