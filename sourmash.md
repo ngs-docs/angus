@@ -55,7 +55,7 @@ Essentially, *long k-mers are species specific*. Check out this figure from the 
 
 ![](_static/kmers-metapalette.png)
 
-Here, the Koslicki and Falush show that k-mer similarity works to group microbes by genus, at k=40\. If you go longer (say k=50) then you get only very little similarity between different species.
+Here, Koslicki and Falush show that k-mer similarity works to group microbes by genus, at k=40\. If you go longer (say k=50) then you get only very little similarity between different species.
 
 ## Using k-mers to compare samples
 
