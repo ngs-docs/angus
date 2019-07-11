@@ -8,7 +8,7 @@ Learning objectives:
 	* Checking the quality of assembly
 	* Understanding Transcriptome assembly
 	
-In [variant calling](http://angus.readthedocs.io/en/2018/mapping-variant-calling.html), we mapped reads to a reference and looked systematically for differences.
+In [variant calling](http://angus.readthedocs.io/en/2019/mapping-variant-calling.html), we mapped reads to a reference and looked systematically for differences.
 
 But what if you don't have a reference? How do you construct one?
 
@@ -20,17 +20,47 @@ Trinity, developed at the [Broad Institute](http://www.broadinstitute.org/) and 
 
 [Boot an m1.medium Jetstream instance](jetstream/boot.md) and log in.
 
-## Install the TRINITY assembler
+## Install the TRINITY assembler in a conda environment
 
 The [Trinity assembler](https://www.ncbi.nlm.nih.gov/pubmed/21572440) can also install it through `conda`:
 
 ```
-conda install -y trinity 
+conda create -y -n trinity-env trinity khmer
+```
+where: 
+   - `-y` says to install the pkgs without double checking with me
+   - `-n` names the environment "trinity-env"
+
+Now, let's enter that environment:
+
+```
+conda activate trinity-env
 ```
 
-## Change to a new working directory and link the original data
+## Make sure you've got the data
 
 We will be using the same data as before ([Schurch et al, 2016](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4878611/)), so the following commands will create a new folder `assembly` and link the trimmed data we prepared earlier in the newly created folder:
+
+```
+cd
+ls -l quality/*qc*
+```
+
+You should see the following:
+
+```
+-rw-rw-r-- 1 dibada dibada  59465832 Jul 11 15:45 quality/ERR458493.qc.fq.gz
+-rw-rw-r-- 1 dibada dibada  58503534 Jul 11 15:46 quality/ERR458494.qc.fq.gz
+-rw-rw-r-- 1 dibada dibada  58054460 Jul 11 15:46 quality/ERR458495.qc.fq.gz
+-rw-rw-r-- 1 dibada dibada 102164315 Jul 11 15:44 quality/ERR458500.qc.fq.gz
+-rw-rw-r-- 1 dibada dibada 101187090 Jul 11 15:44 quality/ERR458501.qc.fq.gz
+-rw-rw-r-- 1 dibada dibada 100550095 Jul 11 15:45 quality/ERR458502.qc.fq.gz
+```
+
+If you don't see the data, head over to the [trimming lesson](https://angus.readthedocs.io/en/2019/quality-and-trimming.html#data-source) to download and trim again.
+
+
+## Change to a new working directory and link the original data
 
 ```
 cd ~/
@@ -59,7 +89,7 @@ This tools works mainly for paired-end reads, combined with a one file containin
 Now, run through all the reads and trim off low-abundance parts of high-coverage reads
 
 ```
-filter-abund.py --threads 4 --variable-coverage --normalize-to 18 normC20k20.ct *.keep
+filter-abund.py --threads 6 --variable-coverage --normalize-to 18 normC20k20.ct *.keep
 ```
 
 The parameter `--variable-coverage` requests that only trim low-abundance k-mers from sequences that have high coverage. The parameter `--normalize-to` bases the variable-coverage cutoff on this median k-mer abundance.
@@ -69,7 +99,7 @@ The parameter `--variable-coverage` requests that only trim low-abundance k-mers
 ### Run the assembler
 
 
-Trinity works both with paired-end reads as well as single-end reads (including simultaneously both types at the same time). In the general case, the paired-end files are defined as `--left left.fq` and `--right right.fq` respectively. The single-end reads (a.k.a _orphans_) are defined by the flag `--single`. 
+Trinity works both with paired-end reads as well as single-end reads (including simultaneously both types at the same time). In the general case, the paired-end files are defined as `--left left.fq` and `--right right.fq` respectively. If assembling from single-end reads (as in this case), we use the flag `--single`. 
 
 First of all though, we need to make sure that there are no whitespaces in the header of the input fastq file. This is done using the following command:
 
@@ -88,17 +118,23 @@ time Trinity --seqType fq --max_memory 10G --CPU 4 --single ERR458493.qc.fq.gz.k
 You should see something like:
 
 ```
+All commands completed successfully. :-)
+
+
+
 ** Harvesting all assembled transcripts into a single multi-fasta file...
 
-Saturday, June 30, 2018: 16:42:08       CMD: find /home/tx160085/assembly/yeast_trinity/read_partitions/ -name '*inity.fasta'  | /opt/miniconda/opt/trinity-2.6.6/util/support_scripts /partitioned_trinity_aggregator.pl TRINITY_DN > /home/tx160085/assembly/yeast_trinity/Trinity.fasta.tmp 
--relocating /home/tx160085/assembly/yeast_trinity/Trinity.fasta.tmp to /home/tx160085/assembly/yeast_trinity/Trinity.fasta
-Saturday, June 30, 2018: 16:42:08       CMD: mv /home/tx160085/assembly/yeast_trinity/Trinity.fasta.tmp /home/tx160085/assembly/yeast_trinity/Trinity.fasta
+Thursday, July 11, 2019: 17:15:47	CMD: find /home/dibada/assembly/yeast_trinity/read_partitions/ -name '*inity.fasta'  | /opt/miniconda/envs/trinity-env/opt/trinity-2.8.5/util/support_scripts/partitioned_trinity_aggregator.pl --token_prefix TRINITY_DN --output_prefix /home/dibada/assembly/yeast_trinity/Trinity.tmp
+-relocating Trinity.tmp.fasta to /home/dibada/assembly/yeast_trinity/Trinity.fasta
+Thursday, July 11, 2019: 17:15:47	CMD: mv Trinity.tmp.fasta /home/dibada/assembly/yeast_trinity/Trinity.fasta
+
 
 ###################################################################
-Trinity assemblies are written to /home/tx160085/assembly/yeast_trinity/Trinity.fasta
+Trinity assemblies are written to /home/dibada/assembly/yeast_trinity/Trinity.fasta
 ###################################################################
 
-Saturday, June 30, 2018: 16:42:08       CMD: /opt/miniconda/opt/trinity-2.6.6/util/support_scripts/get_Trinity_gene_to_trans_map.pl /home/tx160085/assembly/yeast_trinity/Trinity.fasta > /home/tx160085/assembly/yeast_trinity/Trinity.fasta.gene_trans_map
+
+Thursday, July 11, 2019: 17:15:47	CMD: /opt/miniconda/envs/trinity-env/opt/trinity-2.8.5/util/support_scripts/get_Trinity_gene_to_trans_map.pl /home/dibada/assembly/yeast_trinity/Trinity.fasta > /home/dibada/assembly/yeast_trinity/Trinity.fasta.gene_trans_map
 ```
 
 at the end.
@@ -130,40 +166,43 @@ TrinityStats.pl yeast-transcriptome-assembly.fa
 The output should look something like the following:
 
 ```
+
 ################################
 ## Counts of transcripts, etc.
 ################################
-Total trinity 'genes':  3305
-Total trinity transcripts:      3322
-Percent GC: 42.05
+Total trinity 'genes':	3296
+Total trinity transcripts:	3320
+Percent GC: 42.02
 
 ########################################
 Stats based on ALL transcript contigs:
 ########################################
 
-        Contig N10: 1355
-        Contig N20: 1016
-        Contig N30: 781
-        Contig N40: 617
-        Contig N50: 502
+	Contig N10: 1420
+	Contig N20: 1069
+	Contig N30: 802
+	Contig N40: 634
+	Contig N50: 514
 
-        Median contig length: 319
-        Average contig: 441.65
-        Total assembled bases: 1467173
+	Median contig length: 321
+	Average contig: 448.98
+	Total assembled bases: 1490618
+
 
 #####################################################
 ## Stats based on ONLY LONGEST ISOFORM per 'GENE':
 #####################################################
 
-        Contig N10: 1358
-        Contig N20: 1016
-        Contig N30: 781
-        Contig N40: 617
-        Contig N50: 500
+	Contig N10: 1385
+	Contig N20: 1021
+	Contig N30: 787
+	Contig N40: 618
+	Contig N50: 502
 
-        Median contig length: 319
-        Average contig: 440.93
-        Total assembled bases: 1457279
+	Median contig length: 319
+	Average contig: 442.56
+	Total assembled bases: 1458676
+
 ```
 
 This is a set of summary stats about your assembly. Are they good? Bad? How would you know?

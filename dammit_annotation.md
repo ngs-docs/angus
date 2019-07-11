@@ -24,66 +24,45 @@ There are several lineage-specific datasets available from the authors of BUSCO.
 Annotation necessarily requires a lot of software! dammit attempts to simplify this and
 make it as reliable as possible, but we still have some dependencies.
 
-Create a python 3 environment for dammit:
+dammit can be installed via bioconda, but the latest version is not up there yet. Let's download a working conda `environment.yml` file that will help us install the latest version of dammit.
 
 ```
-conda create -y --name py3.dammit python=3
-```
-Then
-```
-source activate py3.dammit
+cd 
+curl -L https://raw.githubusercontent.com/dib-lab/elvers/master/elvers/rules/dammit/environment.yml -o dammit-env.yaml
 ```
 
-dammit can be installed via bioconda. Due to some dependency issues with bioconda packages, first run:
+Now let's build an environment from that `yaml` file:
 ```
-conda config --add pinned_packages 'r-base >=3.4'
-```
-Add the appropriate channels, including bioconda:
-```
-conda config --add channels defaults
-conda config --add channels conda-forge
-conda config --add channels bioconda
-```
-Then, you can install dammit normally (this will take some time, ~5-10 min):
-```
-conda install -y dammit
+conda env create -n dammit-env -f dammit-env.yml
 ```
 
 To make sure your installation was successful, run
 
 ```
-dammit help
+dammit -h
 ```
 
 This will give a list of dammit's commands and options:
-```
-usage: dammit [-h] [--debug] [--version] {migrate,databases,annotate} ...
-dammit: error: invalid choice: 'help' (choose from 'migrate', 'databases', 'annotate')
-```
+
 The version (`dammit --version`) should be:
 ```
-dammit 1.0rc2
+dammit 1.1
 ```
+
 #### Database Preparation
 
 dammit has two major subcommands: `dammit databases` and `dammit annotate`. The `databases` command checks that databases are installed and prepared, and if run with the `--install` flag,
 it will perform that installation and preparation. If you just run `dammit databases` on its own, you should get a notification that some database tasks are not up-to-date. So, we need
 to install them!
 
-Note: if you have limited space on your instance, you can also install these databases in a different location (e.g. on an external volume). Run this command **before** running the database install.
-
-```
-#Run  ONLY if you want to install databases in different location. 
-#To run, remove the `#` from the front of the following command:
-
-# dammit databases --database-dir /path/to/databases
-```
 
 Install databases (this will take a long time, usually >10 min):
-
 ```
 dammit databases --install --busco-group metazoa
 ```
+
+Note: dammit installs databases in your home directory by default. if you have limited space in your home directory or on your instance, you can install these databases in a different location (e.g. on an external volume) by running `dammit databases --database-dir /path/to/install/databases` before running the installation command.
+
 
 We used the "metazoa" BUSCO group. We can use any of the BUSCO databases, so long as we install them with the `dammit databases` subcommand. You can see the whole list by running
 `dammit databases -h`. You should try to match your species as closely as possible for the best results. If we want to install another, for example:
