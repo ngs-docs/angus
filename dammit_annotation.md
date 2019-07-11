@@ -142,39 +142,19 @@ Cammille wrote dammit in Python, which includes a library to parse gff3 dammit o
 
 To do this, we will use a [Jupyter notebook](http://jupyter.org/). In addition to executing Python commands, Jupyter notebooks can also run R (as well as many other languages). Similar to R markdown (Rmd) files, Jupyter notebooks can keep track of code and output. The output file format for Jupyter notebooks is .ipynb, which GitHub can render. See this [gallery of interesting Jupyter notebooks](https://github.com/jupyter/jupyter/wiki/A-gallery-of-interesting-Jupyter-Notebooks#mathematics-physics-chemistry-biology).  
 
-Install Jupyter notebook:
-```
-conda install -y jupyter
-```
-Then
-```
-jupyter notebook --generate-config
-```
-Then generate a config file. (Note: this password protects the notebook.)
-```
-cat >> ~/.jupyter/jupyter_notebook_config.py <<EOF
-c = get_config()
-c.NotebookApp.ip = '*'
-c.NotebookApp.open_browser = False
-c.NotebookApp.password = u'sha1:d3f13af9db69:31268fb729f127aebb2f77f7b61fa92d6c9e3aa1'
-c.NotebookApp.port = 8000
+Let's open a Jupyter notebook! The ANGUS_base images are configured to make this simple.
 
-EOF
+In a browser on your laptop, go to:
 ```
-
-Now run the jupyter notebook:
+http://149.165.157.247:8000/lab
 ```
-jupyter notebook &
+Then click on the `Python 3` notebook (top box) to open a Jupyter notebook.
 ```
-
-You will see a list of files, start a new Python 3 notebook:
-![](_static/jupyter/jupyter_notebook.png)
-
-This will open a new notebook.
 
 Enter this into the first cell:
 
 ```
+!conda install -y pandas
 import pandas as pd
 from dammit.fileio.gff3 import GFF3Parser
 ```
@@ -187,7 +167,7 @@ To add a new cell, with the "plus" icon.
 
 In a new cell enter:
 ```
-gff_file = "trinity.nema.fasta.dammit/trinity.nema.fasta.dammit.gff3"
+gff_file = "nema-trinity.fa.dammit/trinity.nema.fasta.dammit.gff3"
 annotations = GFF3Parser(filename=gff_file).read()
 names = annotations.sort_values(by=['seqid', 'score'], ascending=True).query('score < 1e-05').drop_duplicates(subset='seqid')[['seqid', 'Name']]
 new_file = names.dropna(axis=0,how='all')
@@ -227,44 +207,10 @@ less nema_gene_name_id.csv
 
 Notice there are multiple transcripts per gene model prediction. This `.csv` file can be used in `tximport` in downstream DE analysis.
 
-## Evaluation
-
-We will be using Transrate and Busco!
+## Evaluation with BUSCO
 
 
-### Transrate
-
-[Transrate](http://hibberdlab.com/transrate/getting_started.html) serves two main purposes. It can compare two assemblies to see how similar they are. Or, it can give you a score which represents proportion of input reads that provide positive support for the assembly. Today, we will use transrate to compare two assemblies. To get a transrate score, we would need to use the trimmed reads, which takes a long time. For a further explanation of metrics and how to get a transrate score, see the [documentation](http://hibberdlab.com/transrate/metrics.html) and the paper by [Smith-Unna et al. 2016](http://genome.cshlp.org/content/early/2016/06/01/gr.196469.115). 
-
-#### Install Transrate
-
-```
-cd 
-curl -SL https://bintray.com/artifact/download/blahah/generic/transrate-1.0.3-linux-x86_64.tar.gz | tar -xz
-cd transrate-1.0.3-linux-x86_64 
-./transrate --install-deps ref
-rm -f bin/librt.so.1
-echo 'export PATH="$HOME/transrate-1.0.3-linux-x86_64":$PATH' >> ~/.bashrc
-source ~/.bashrc
-conda activate py3.dammit
-```
-
-* How do the two transcriptomes compare with each other?
-
-```
-cd ~/annotation
-transrate --reference=Trinity.fasta --assembly=trinity.nema.fasta --output=subset_v_full
-transrate --reference=trinity.nema.fasta --assembly=Trinity.fasta --output=full_v_subset
-```
-
-The results will be in two separate directoreis, with the important metrics in the `assemblies.csv` files.
-
-```
-cat full_v_subset/assemblies.csv
-cat subset_v_full/assemblies.csv
-```
-
-### BUSCO
+BUSCO aims to provide a quantitative measure of transcriptome (or genome/gene set) completeness by searching for near-universal single-copy orthologs. These ortholog lists are curated into different groups (e.g. genes found universally across all metazoa, or all fungi, etc), and are currently based off of OrthoDB v9.
 
 * Metazoa database used with 978 genes
 * "Complete" lengths are within two standard deviations of the BUSCO group mean length
@@ -298,5 +244,37 @@ run_BUSCO.py \
 When you're finished, exit out of the conda environment:
 ```
 source deactivate
+```
+
+### Transrate
+
+[Transrate](http://hibberdlab.com/transrate/getting_started.html) serves two main purposes. It can compare two assemblies to see how similar they are. Or, it can give you a score which represents proportion of input reads that provide positive support for the assembly. Today, we will use transrate to compare two assemblies. To get a transrate score, we would need to use the trimmed reads, which takes a long time. For a further explanation of metrics and how to get a transrate score, see the [documentation](http://hibberdlab.com/transrate/metrics.html) and the paper by [Smith-Unna et al. 2016](http://genome.cshlp.org/content/early/2016/06/01/gr.196469.115). 
+
+#### Install Transrate
+
+```
+cd 
+curl -SL https://bintray.com/artifact/download/blahah/generic/transrate-1.0.3-linux-x86_64.tar.gz | tar -xz
+cd transrate-1.0.3-linux-x86_64 
+./transrate --install-deps ref
+rm -f bin/librt.so.1
+echo 'export PATH="$HOME/transrate-1.0.3-linux-x86_64":$PATH' >> ~/.bashrc
+source ~/.bashrc
+conda activate dammit
+```
+
+* How do the two transcriptomes compare with each other?
+
+```
+cd ~/annotation
+transrate --reference=Trinity.fasta --assembly=trinity.nema.fasta --output=subset_v_full
+transrate --reference=trinity.nema.fasta --assembly=Trinity.fasta --output=full_v_subset
+```
+
+The results will be in two separate directoreis, with the important metrics in the `assemblies.csv` files.
+
+```
+cat full_v_subset/assemblies.csv
+cat subset_v_full/assemblies.csv
 ```
 
