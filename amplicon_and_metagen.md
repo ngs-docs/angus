@@ -22,7 +22,6 @@ Here we'll discuss some of the things each is useful and not useful for, and the
         * can say something about relative abundance of gene copies recovered
     * can track changes in community structure (as interpreted by recovered gene copy numbers) in response to a treatment and/or across environmental gradients/time
     * can provide strong support for further investigation of things 
-        * e.g. *Trichodesmium–Alteromonas* story ([starting paper here](https://www.nature.com/articles/ismej201749))  
 
 * **_Not_ useful for:**
     * abundance of organisms (or relative abundance of organisms)
