@@ -2,12 +2,12 @@
 
 Learning objectives:
 
-* What is transcriptome assembly?
-* How do assemblers work?
-* Checking the quality of assembly
-* Understanding transcriptome assembly
+	* Learn what transcriptome assembly is
+	* Learn to differentiate different types of assemblies
+	* Discuss how do assemblers work
+	* Learn to check the quality of a transcriptome assembly
 
-What if you are working with a species with no existing reference genome or transcriptome. How do you construct one?
+What if you are working with a species with no existing reference genome or transcriptome...how do you construct a reference?
 
 The answer is *de novo* assembly. The basic idea with *de novo* transcriptome assembly is you feed in your reads and you get out a bunch of *contigs* that represent transcripts, or stretches of RNA present in the reads that don't have any long repeats or much significant polymorphism. You run a  *de novo* transcriptome assembly program using the trimmed reads as input and get out a pile of assembled RNA.
 
@@ -17,8 +17,13 @@ Trinity, one of the leading *de novo* transcriptome assemblers, was developed at
 
 We will be using a set of *Nematostella vectensis* mRNAseq reads from [Tulin et al., 2013](https://evodevojournal.biomedcentral.com/articles/10.1186/2041-9139-4-16).
 
-To avoid needing to go though the trimming steps as before, we'll download a snakefile to take care of these steps for us. If you look at this file, you may notice it is very similar to the one you generated during the snakemake challenge.
+To avoid needing to go though the trimming steps as before, we'll download a snakefile to take care of these steps for us. If you look at this file, you may notice it is very similar to the one you generated during the [snakemake challenge](./snakemake_for_qc.md).
 
+
+Make sure you have snakemake installed in your base environment, where we will be running the snakefile:
+```
+conda install -c conda-forge snakemake-minimal
+```
 
 Download the snakefile and a corresponding conda environment file:
 ```
@@ -27,17 +32,28 @@ curl -L https://osf.io/nqh6p/download -o nema_trim.snakefile
 curl -L https://osf.io/xs6k7/download -o trim-env.yml
 ```
 
-Run the snakefile to download and trim the Nematostella reads:
+Let's take a look at the environment file to see what software snakemake will be putting in the environment it creates:
+
+```
+less trim-env.yml
+```
+
+Run the snakefile to download and trim the *Nematostella* reads:
 ```
 snakemake -s nema_trim.snakefile --use-conda --cores 6
 ```
+
+Here, we run snakemake. We use the `-s` command to tell snakemake where it can find our snakefile, 
+tell it to build and use the environment above using the `--use-conda` flag, and have it execute 
+the workflow over 6 cores using `--cores 6`.
 
 The trimmed data should now be within the `nema_trimmed` folder.
 
 
 ## Generate a _de novo_ assembly
 
-The following commands will create a new folder `assembly` and link the trimmed data we prepared earlier in the newly created folder:
+The following commands will create a new folder `assembly` and link the trimmed data we prepared in our 
+snakemake workflow into the `assembly` folder:
 
 ```
 cd 
@@ -48,7 +64,14 @@ ln -fs ../nema_trimmed/*.qc.fq.gz .
 ls
 ```
 
-Combine all fq into 2 files (left.fq and right.fq)
+Next we will combine our all forward reads into a single file and all reverse reads into a single file.
+Usually, you want to have many samples from a single individual that are combined, but that minimize 
+polymorphism and improve assembly. See this 
+[preprint](https://www.biorxiv.org/content/10.1101/035642v2) for best practices for care and 
+feeding of your transcriptome.
+
+Use the following command to combine all fq into 2 files (left.fq and right.fq). 
+
 ```
 cat *_1.pe.qc.fq.gz *se.qc.fq.gz > left.fq.gz
 cat *_2.pe.qc.fq.gz > right.fq.gz
@@ -59,7 +82,7 @@ _Note: this step just makes it easier for us to type out the trinity command. Tr
 
 ## Run the assembler
 
-Trinity works both with paired-end reads as well as single-end reads (including simultaneously both types at the same time). In the general case, the paired-end files are defined as `--left left.fq` and `--right right.fq` respectively. Our single-end reads (orphans) have been concatenated onto the `left.fq` file. 
+Trinity works both with paired-end reads as well as single-end reads (including with both types of reads at the same time). In the general case, the paired-end files are defined as `--left left.fq` and `--right right.fq` respectively. Our single-end reads (orphans) have been concatenated onto the `left.fq` file. 
 
 
 So let's run the assembler as follows:
@@ -69,6 +92,8 @@ time Trinity --seqType fq --max_memory 16G --CPU 6 --left left.fq.gz --right rig
 ```
 
 (This will take a few minutes)
+
+The `time` command allows us to see how long Trinity takes to run, but is not a part of the Trinity command.
 
 You should see something like:
 
@@ -97,13 +122,13 @@ at the end.
 First, save the assembly:
 
 ```
-cp nema_trinity/Trinity.fasta nema-transcriptome-assembly.fa
+cp nema_trinity/Trinity.fasta nema-trinity.fa
 ``` 
  
 Now, look at the beginning:
 
 ```
-head nema-transcriptome-assembly.fa
+head nema-trinity.fa
 ```
     
 These are the transcripts! Yay!
@@ -111,7 +136,7 @@ These are the transcripts! Yay!
 Let's capture also some statistics of the Trinity assembly. Trinity provides a handy tool to do exactly that:
 
 ```
-TrinityStats.pl nema-transcriptome-assembly.fa
+TrinityStats.pl nema-trinity.fa
 ```
 
 The output should look something like the following:
