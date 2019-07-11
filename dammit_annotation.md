@@ -162,7 +162,7 @@ from dammit.fileio.gff3 import GFF3Parser
 
 Now enter these commands:
 ```
-gff_file = "nema-trinity.fa.dammit/trinity.nema.fasta.dammit.gff3"
+gff_file = "nema-trinity.fa.dammit/nema-trinity.fa.dammit.gff3"
 annotations = GFF3Parser(filename=gff_file).read()
 names = annotations.sort_values(by=['seqid', 'score'], ascending=True).query('score < 1e-05').drop_duplicates(subset='seqid')[['seqid', 'Name']]
 new_file = names.dropna(axis=0,how='all')
