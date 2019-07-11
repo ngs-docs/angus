@@ -138,16 +138,17 @@ If the above `dammit` command is run again, there will be a message:
 
 ### Parse dammit output
 
-Cammille wrote dammit in Python, which includes a library to parse gff3 dammit output. To send this output to a useful table, we will need to open the Python environment. 
+Camille wrote dammit in Python, which includes a library to parse gff3 dammit output. To send this output to a useful table, we will need to open the Python environment. 
 
-To do this, we will use a [Jupyter notebook](http://jupyter.org/). In addition to executing Python commands, Jupyter notebooks can also run R (as well as many other languages). Similar to R markdown (Rmd) files, Jupyter notebooks can keep track of code and output. The output file format for Jupyter notebooks is .ipynb, which GitHub can render. See this [gallery of interesting Jupyter notebooks](https://github.com/jupyter/jupyter/wiki/A-gallery-of-interesting-Jupyter-Notebooks#mathematics-physics-chemistry-biology).  
+To do this, we will use a [Jupyter notebook](http://jupyter.org/). In addition to executing Python commands, Jupyter notebooks can also run R (as well as many other languages). Similar to R markdown (`Rmd`) files, Jupyter notebooks can keep track of code and output. The output file format for Jupyter notebooks is `.ipynb`, which GitHub can render. See this [gallery of interesting Jupyter notebooks](https://github.com/jupyter/jupyter/wiki/A-gallery-of-interesting-Jupyter-Notebooks#mathematics-physics-chemistry-biology).  
 
 Let's open a Jupyter notebook! The ANGUS_base images are configured to make this simple.
 
 In a browser on your laptop, go to:
 ```
-http://149.165.157.247:8000/lab
+http://{ip.address}:8000/lab
 ```
+
 Then click on the `Python 3` notebook (top box) to open a Jupyter notebook.
 ```
 
@@ -205,7 +206,7 @@ We can look at the output we just made, which is a table of genes with 'seqid' a
 less nema_gene_name_id.csv
 ```
 
-Notice there are multiple transcripts per gene model prediction. This `.csv` file can be used in `tximport` in downstream DE analysis.
+Notice there are multiple transcripts per gene model prediction. This `.csv` file can be used in `tximport` as a `tx2gene` file in downstream DE analysis. 
 
 ## Evaluation with BUSCO
 
@@ -243,38 +244,5 @@ run_BUSCO.py \
 
 When you're finished, exit out of the conda environment:
 ```
-source deactivate
+conda deactivate
 ```
-
-### Transrate
-
-[Transrate](http://hibberdlab.com/transrate/getting_started.html) serves two main purposes. It can compare two assemblies to see how similar they are. Or, it can give you a score which represents proportion of input reads that provide positive support for the assembly. Today, we will use transrate to compare two assemblies. To get a transrate score, we would need to use the trimmed reads, which takes a long time. For a further explanation of metrics and how to get a transrate score, see the [documentation](http://hibberdlab.com/transrate/metrics.html) and the paper by [Smith-Unna et al. 2016](http://genome.cshlp.org/content/early/2016/06/01/gr.196469.115). 
-
-#### Install Transrate
-
-```
-cd 
-curl -SL https://bintray.com/artifact/download/blahah/generic/transrate-1.0.3-linux-x86_64.tar.gz | tar -xz
-cd transrate-1.0.3-linux-x86_64 
-./transrate --install-deps ref
-rm -f bin/librt.so.1
-echo 'export PATH="$HOME/transrate-1.0.3-linux-x86_64":$PATH' >> ~/.bashrc
-source ~/.bashrc
-conda activate dammit
-```
-
-* How do the two transcriptomes compare with each other?
-
-```
-cd ~/annotation
-transrate --reference=Trinity.fasta --assembly=trinity.nema.fasta --output=subset_v_full
-transrate --reference=trinity.nema.fasta --assembly=Trinity.fasta --output=full_v_subset
-```
-
-The results will be in two separate directoreis, with the important metrics in the `assemblies.csv` files.
-
-```
-cat full_v_subset/assemblies.csv
-cat subset_v_full/assemblies.csv
-```
-
