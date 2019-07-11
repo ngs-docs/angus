@@ -7,9 +7,11 @@
 This page presents a broad-level overview of amplicon sequencing and metagenomics as applied to microbial ecology and outlines some generic workflows for each. Both of these methods are most often applied for exploration and hypothesis generation and should be thought of as steps in the process of science rather than end-points – like all tools of science 🙂 
 
 **Amplicon sequencing**  
+
 Amplicon sequencing of marker-genes (e.g. 16S, 18S, ITS) involves using specific primers that target a specific gene or gene fragment. It is one of the first tools in the microbial ecologist's toolkit. It is most often used as a broad-level survey of community composition used to generate hypotheses based on differences between recovered gene-copy numbers between samples.
 
 **Metagenomics**  
+
 Shotgun metagenomic sequencing aims to amplify all the accessible DNA of a mixed community. It uses random primers and therefore suffers much less from pcr bias (discussed below). Metagenomics enables profiling of taxonomy and functional potential. Recently, the recovery of representative genomes from metagenomes has become a very powerful approach in microbial ecology, drastically expanding the known Tree of Life by granting us genomic access to as-yet unculturable microbial populations (e.g. [Hug et al. 2016](https://www.nature.com/articles/nmicrobiol201648); [Parks et al. 2017](https://www.nature.com/articles/s41564-017-0012-7)). 
 
 Here we'll discuss some of the things each is useful and not useful for, and then look at some general workflows for each. 
@@ -77,7 +79,7 @@ No, and that's not a problem if we understand that neither are meant to tell us 
 
 ## Amplicon overview
 
-<center><a href="_static/amplicon_overview.png"><img src="_static/amplicon_overview.png"></a></center>
+<center><a href="_static/amplicon_overview.png"><img src="_static/amplicon_overview.png" width=“95%”></a></center>
 
 <p align="right"><a href="https://ndownloader.figshare.com/files/15628100">PDF download</a></p>
 
@@ -107,7 +109,6 @@ If you happen to work with amplicon data, I highly recommend digging into the [C
 
 ## Metagenomics overview
 
-<center><a href="_static/metagenomics_overview.png"><img src="_static/metagenomics_overview.png"></a></center>
+<center><a href="_static/metagenomics_overview.png"><img src="_static/metagenomics_overview.png" width=“95%”></a></center>
 
 <p align="right"><a href="https://ndownloader.figshare.com/files/15628103">PDF download</a></p>
-
