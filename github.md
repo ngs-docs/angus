@@ -34,6 +34,9 @@ A version control application like Git keeps that from happening. You and your c
 
 **Branch:** How do multiple people work on a project at the same time without Git getting them confused? Usually, they “branch off” of the main project with their own versions full of changes they themselves have made. After they’re done, it’s time to “merge” that branch back with the “master,” the main directory of the project.
 
+<center><img src="_static/git_branch.png" width="70%"></center>
+<br>
+
 # Git-Specific Commands
 
 `git init`: Initializes a new Git repository. Until you run this command inside a repository or directory, it’s just a regular folder. Only after you input this does it accept further Git commands.
@@ -90,7 +93,7 @@ Now that you’re all set up, it’s time to create a place for your project to 
 
 - On your Github profile, click the plus button and select a "New Repository".
 
-<center><img src="_static/git_new_repo.png" width="50%"></center>
+<center><img src="_static/git_new_repo.png" width="70%"></center>
 <br>
 
 - Give your repository a name & fill out the necessary information for your repository to be distinct and recognizeable.
@@ -99,7 +102,7 @@ Now that you’re all set up, it’s time to create a place for your project to 
 
 - Click the green “Create Repository” button and you’re set. You now have an online space for your project to live in.
 
-<center><img src="_static/git_create_repo.png" width="50%"></center>
+<center><img src="_static/git_create_repo.png" width="70%"></center>
 <br>
 
 # Creating Your Local Repository
@@ -148,12 +151,12 @@ git commit -m “Add Readme.txt”
 
 Now Git has a "snapshot" of this version of Readme.txt which you can return to at any time in the future!
 
-<center><img src="_static/git_working.png" width="50%"></center>
+<center><img src="_static/git_working.png" width="60%"></center>
 <br>
 
 # Connect Your Local Repository To Your GitHub Repository Online
 
-<center><img src="_static/git_remote.png" width="50%"></center>
+<center><img src="_static/git_remote.png" width="70%"></center>
 <br>
 
 This setup also makes it easy to have multiple collaborators working on the same project. Each of you can work alone on your own computers, but upload or “push” your changes up to the GitHub repository when they’re ready.
@@ -191,19 +194,19 @@ To https://github.com/sateeshbio5/angus_test.git
 > Note: To avoid having to type your username and password each time you push/pull from your github repos, read about Secure Login [here](https://help.github.com/articles/connecting-to-github-with-ssh/)
 
 
-<center><img src="_static/github_repo.png" width="50%"></center>
+<center><img src="_static/github_repo.png" width="70%"></center>
 <br>
 
 # Collaborating via GitHub
 
 - **GitHub Issues:** Issues are a great way to keep track of tasks, enhancements, and bugs for your projects. They’re kind of like email—except they can be shared and discussed with all. Read more about Mastering Issues on Github [here](https://guides.github.com/features/issues/)
 
-<center><img src="_static/git_issues.png" width="50%"></center>
+<center><img src="_static/git_issues.png" width="70%"></center>
 <br>
 
 - **GitHub Pull-Requests:** Pull requests let you tell others about changes you've pushed to a branch in a repository on GitHub. Once a pull request is opened, you can discuss and review the potential changes with collaborators and add follow-up commits before your changes are merged into the base branch.
 
-<center><img src="_static/git_PR.png" width="50%"></center>
+<center><img src="_static/git_PR.png" width="70%"></center>
 <br>
 
 Look at others' repositories:
