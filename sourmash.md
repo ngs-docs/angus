@@ -55,7 +55,7 @@ Essentially, *long k-mers are species specific*. Check out this figure from the 
 
 ![](_static/kmers-metapalette.png)
 
-Here, Koslicki and Falush show that k-mer similarity works to group microbes by genus, at k=40\. If you go longer (say k=50) then you get only very little similarity between different species.
+Here, the Koslicki and Falush show that k-mer similarity works to group microbes by genus, at k=40\. If you go longer (say k=50) then you get only very little similarity between different species.
 
 ## Using k-mers to compare samples
 
@@ -204,7 +204,7 @@ Lastly, we plot the comparison matrix.
 sourmash plot --labels schurch_compare_matrix
 ```
 
-![compare](_static/schurch_comp.matrix.png.png)
+![compare](_static/schurch_comp.matrix.png)
 
 We see there are two major blocks of similar samples, which makes sense given that we have
 WT and SNF2 knockout samples. However, we also see that some of our samples are outliers!
@@ -215,8 +215,83 @@ what caused them to be so dissimilar.
 
 Use case: Search for the presence of unexpected organisms in raw RNA-seq reads 
 
-When you first get sequences back from the sequencing center, or when you first download
-publicly available sequences, 
+For most analysis pipelines, there are many steps that need to be executed before we get 
+to the analysis and interpretation of what is in our sample. This often means we are 10-15
+steps into our analysis before we find any problems. However, if our reads contain 
+contamination, we want to know that as quickly as possible so we can remove the
+contamination and solve any issues that led to the contamination.
+
+Using sourmash, we can quickly check if we have any unexpected organisms in our sequencing
+samples. We do this by comparing a signature from our reads against a database of known 
+signatures from publicly available reference sequences.
+ 
+We have generated sourmash databases for all publicly available Eukaryotic RNA samples
+(we used the `*rna_from_genomic*` files from RefSeq and Genbank...however keep in mind
+that not all sequenced genomes have these files!). This database includes
+fungi, plants, vertebrates, invertebrates, and protazoa. It does not include human, so we
+incorporate that separately. We also built another database of the ~700 recently 
+[re-assembled](https://academic.oup.com/gigascience/article/8/4/giy158/5241890)  marine 
+transcriptomes from the 
+[MMETSP project](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001889). 
+These databases allow us to detect common organisms that might be unexpectedly present
+in our sequencing data. 
+
+First, let's download and uncompress our three databases: human, MMETSP, and everything 
+else!
+
+```
+wget -O sourmash_euk_rna_db.tar.gz https://osf.io/vpk8s/download
+tar xf sourmash_euk_rna_db.tar.gz
+```
+
+Next, let's download a signature from some sequencing reads. We'll work with some 
+sequencing reads from a wine fermentation. 
+
+```
+wget -O wine.sig https://osf.io/5vsjq/download
+```
+
+We expected fungus and grape to be metabolically active in these samples. Let's check 
+which organisms we detect.
+
+```
+sourmash gather -k 31 --scaled 2000 -o wine.csv wine.sig sourmash_euk_rna_db/*sbt.json *sig  
+```
+
+If we take a look at the output, we see:
+
+```
+== This is sourmash version 2.0.1. ==
+== Please cite Brown and Irber (2016), doi:10.21105/joss.00027. ==
+
+loaded query: wine_fermentation... (k=31, DNA)
+downsampling query from scaled=2000 to 2000
+loaded 1 signatures and 2 databases total.
+
+
+overlap     p_query p_match avg_abund
+---------   ------- ------- ---------
+2.2 Mbp       79.0%   28.5%     122.2     Sc_YJM1477_v1  Saccharomyces cerevis...
+0.8 Mbp        1.4%    2.2%       6.2     12X  Vitis vinifera (wine grape)
+2.1 Mbp        0.4%    1.6%       9.3     GLBRCY22-3  Saccharomyces cerevisiae...
+124.0 kbp      0.1%    0.7%       3.1     Aureobasidium pullulans var. pullula...
+72.0 kbp       0.0%    0.1%       1.9     Mm_Celera  Mus musculus (house mouse)
+1.9 Mbp        0.0%    0.5%       3.7     Sc_YJM1460_v1  Saccharomyces cerevis...
+1.8 Mbp        0.1%    0.5%      14.1     ASM18217v1  Saccharomyces cerevisiae...
+2.1 Mbp        0.1%    0.3%      17.7     R008  Saccharomyces cerevisiae R008 ...
+1.9 Mbp        0.0%    0.1%       3.1     ASM32610v1  Saccharomyces cerevisiae...
+found less than 18.0 kbp in common. => exiting
+
+found 9 matches total;
+the recovered matches hit 81.2% of the query
+```
+
+...which is almost exactly what we expect, except we see some house mouse! And I promise
+Ratatouille was not making this wine.
+
+Using this method, we have now identified contamination in our reads. We could align to
+the mouse genome to remove these reads, however the best strategy to remove these reads
+may vary on a case by case basis.  
 
 ## Compare reads to assemblies
 
