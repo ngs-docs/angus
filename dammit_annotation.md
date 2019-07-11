@@ -61,7 +61,7 @@ Install databases (this will take a long time, usually >10 min):
 dammit databases --install --busco-group metazoa
 ```
 
-Note: dammit installs databases in your home directory by default. if you have limited space in your home directory or on your instance, you can install these databases in a different location (e.g. on an external volume) by running `dammit databases --database-dir /path/to/install/databases` before running the installation command.
+Note: dammit installs databases in your home directory by default. If you have limited space in your home directory or on your instance, you can install these databases in a different location (e.g. on an external volume) by running `dammit databases --database-dir /path/to/install/databases` before running the installation command.
 
 
 We used the "metazoa" BUSCO group. We can use any of the BUSCO databases, so long as we install them with the `dammit databases` subcommand. You can see the whole list by running
