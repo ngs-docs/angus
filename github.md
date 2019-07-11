@@ -1,7 +1,6 @@
 # Version Control with Github
 
-
-Learning objectives
+### Learning objectives
 
 + Learn about version Control
 + Learn about Github repositories
