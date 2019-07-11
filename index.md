@@ -141,9 +141,9 @@ Room Conway will be led by [Sateesh Peri](https://twitter.com/perisateesh?lang=e
 	* **12:00-1:00pm:** LUNCH
 * **1:00-2:00pm:** [Phillip Brooks](https://twitter.com/brooksph?lang=en) - Cloud platforms & Seven Bridges
 	* **2:00-2:10pm:** BREAK
-* **2:15-3:30pm:** Elective Lab: (1) Seven Bridges & (2) BYOD (more info soon)
+* **2:15-3:30pm:** Elective Lab: (1) Seven Bridges & (2) Overview of Cluster Computing & (3) BYOD
 	* **3:30-3:50pm:** BREAK
-* **3:50-5:00pm:** Elective Lab: (1) Seven Bridges & (2) BYOD (more info soon)
+* **3:50-5:00pm:** Elective Lab: (1) Seven Bridges & (2) BYOC (Bring Your Own Cluster\* questions \*for slurm and UGE & (3) BYOD
 	* **5:00pm:** DONE	
 	
 	
