@@ -107,8 +107,8 @@ First, download a genome assembly:
 
 ```
 cd ~
-mkdir data
-cd data
+mkdir sourmash_data
+cd sourmash_data
 
 curl -L https://osf.io/963dg/download -o ecoliMG1655.fa.gz 
 gunzip -c ecoliMG1655.fa.gz | head
@@ -117,7 +117,7 @@ gunzip -c ecoliMG1655.fa.gz | head
 Compute a scaled MinHash from the assembly:
 
 ```
-sourmash compute −k 21,31,51 −−scaled 2000 −−track−abundance −o ecoliMG1655.sig ecoliMG1655.fa.gz
+sourmash compute -k 21,31,51 --scaled 2000 --track-abundance -o ecoliMG1655.sig ecoliMG1655.fa.gz
 ```
 
 For raw sequencing reads, we expect that many of the unique k-mers we observe will be due
@@ -140,7 +140,7 @@ Let's download some raw sequencing reads and demonstrate what k-mer trimming loo
 First, download a read file:
 
 ```
-curl −L https://osf.io/pfxth/download −o ERR458584.fq.gz
+curl -L https://osf.io/pfxth/download -o ERR458584.fq.gz
 gunzip -c ERR458584.fq.gz | head
 ```
 
@@ -148,12 +148,12 @@ Next, perform k-mer trimming using a library called khmer. K-mer trimming remove
 low-abundant k-mers from the sample.
 
 ```
-trim−low−abund.py ERR458584.fq.gz −V −Z 10 −C 3 −−gzip −M 3e9 −o ERR458584.khmer.fq.gz
+trim-low-abund.py ERR458584.fq.gz -V -Z 10 -C 3 --gzip -M 3e9 -o ERR458584.khmer.fq.gz
 ```
 
 Finally, calculate a signature from the trimmed reads.
 ```
-sourmash compute −k 21,31,51 −−scaled 2000 −−track−abundance −o ERR458584.khmer.sig ERR458584.khmer.fq.gz
+sourmash compute -k 21,31,51 --scaled 2000 --track-abundance -o ERR458584.khmer.sig ERR458584.khmer.fq.gz
 ```
 
 [![qc](_static/Sourmash_flow_diagrams_QC.thumb.png)](_static/Sourmash_flow_diagrams_QC.png)
@@ -187,7 +187,7 @@ then produce a plot that shows how similar they are to one another.
 First, download and uncompress the signatures.
 
 ```
-curl -o schurch_sigs.tar.gz https://osf.io/p3ryg/download
+curl -o schurch_sigs.tar.gz -L https://osf.io/p3ryg/download
 tar xf schurch_sigs.tar.gz
 ```
 
@@ -300,12 +300,19 @@ may vary on a case by case basis.
 
 Use case: how much of the read content is contained in the reference genome?
 
+First we’ll download some reads from an E. coli genome, then we will generate a signature from them
+
+```
+curl -L https://osf.io/frdz5/download -o ecoli_ref-5m.fastq.gz
+sourmash compute  -k 31 --scaled 2000 ~/sourmash_data/ecoli_ref-5m.fastq.gz -o ecoli-reads.sig
+```
+
 [![search](_static/Sourmash_flow_diagrams_search.thumb.png)](_static/Sourmash_flow_diagrams_search.png)
 
 Build a signature for an E. coli genome:
 
 ```
-sourmash compute --scaled 2000 -k 31 ~/data/ecoliMG1655.fa.gz -o ecoli-genome.sig
+sourmash compute --scaled 2000 -k 31 ~/sourmash_data/ecoliMG1655.fa.gz -o ecoli-genome.sig
 ```
 
 and now evaluate *containment*, that is, what fraction of the read content is
@@ -427,8 +434,8 @@ identifying what genome is in the signature. Some pretty good matches but nothin
 
 First, let's download and upack the database we'll use for classification
 ```
-cd ~/sourmash
-curl -L https://osf.io/zskb9/download -o genbank-k31.lca.json.gz 
+cd ~/sourmash_data
+curl -L https://osf.io/4f8n3/download -o genbank-k31.lca.json.gz
 gunzip genbank-k31.lca.json.gz
 ```
 
