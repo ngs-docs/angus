@@ -105,9 +105,6 @@ Room Conway will be led by [Sateesh Peri](https://twitter.com/perisateesh?lang=e
 * **3:50-5:00pm:** [Adding onto our Snakemake workflow](snakemake_for_qc.md) 
 	* **5:00pm:** DONE
 
-<!--Genome Assembly
-Genome Assembly (continued)
--->
 **Wednesday, July 10th, 2019**
 
 * **9a:00-10:20am:** Reviewing [adding onto our Snakemake workflow](snakemake_for_qc.md)
@@ -122,7 +119,6 @@ Genome Assembly (continued)
 	* **5:00pm:** DONE
 	
 	
-	
 **Thursday, July 11th, 2019**
 
 * **9:00-10:20am:** Elective Lab: (1) Intro to Git & (2) BYOD
@@ -131,7 +127,7 @@ Genome Assembly (continued)
 	* **12:00-1:00pm:** LUNCH
 * **1:00-2:00pm:** [Phillip Brooks](https://twitter.com/brooksph?lang=en) - Cloud platforms & Seven Bridges
 	* **2:00-2:10pm:** BREAK
-* **2:15-3:30pm:** Elective Lab: (1) Microbial Ecology & (2) BYOD
+* **2:15-3:30pm:** Elective Lab: (1) Microbial Ecology & (2) Transcriptome Assembly and Annotation & (3) BYOD
 	* **3:30-3:50pm:** BREAK
 * **3:50-5:00pm:** Elective Lab: Quick Insights from Sequencing Data with Sourmash & (2) BYOD
 	* **5:00pm:** DONE	
