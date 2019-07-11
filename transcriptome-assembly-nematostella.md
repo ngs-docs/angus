@@ -68,28 +68,24 @@ So let's run the assembler as follows:
 time Trinity --seqType fq --max_memory 16G --CPU 6 --left left.fq.gz --right right.fq.gz --output nema_trinity
 ```
 
-(This will take about 5 minutes)
+(This will take a few minutes)
 
 You should see something like:
 
 ```
 ** Harvesting all assembled transcripts into a single multi-fasta file...
 
-Thursday, October 25, 2018: 21:55:15	CMD: find /home/dibbears/work/assembly/nema_trinity/read_partitions/ -name '*inity.fasta'  | /opt/miniconda3/opt/trinity-2.8.4/util/support_scripts/partitioned_trinity_aggregator.pl --token_prefix TRINITY_DN --output_prefix /home/dibbears/work/assembly/nema_trinity/Trinity.tmp
--relocating Trinity.tmp.fasta to /home/dibbears/work/assembly/nema_trinity/Trinity.fasta
-Thursday, October 25, 2018: 21:55:15	CMD: mv Trinity.tmp.fasta /home/dibbears/work/assembly/nema_trinity/Trinity.fasta
+Thursday, July 11, 2019: 18:21:18       CMD: find /home/dibada/assembly/nema_trinity/read_partitions/ -name '*inity.fasta'  | /opt/miniconda/envs/trinity-env/opt/trinity-2.8.5/util/support_scripts/partitioned_trinity_aggregator.pl --token_prefix TRINITY_DN --output_prefix /home/dibada/assembly/nema_trinity/Trinity.tmp
+-relocating Trinity.tmp.fasta to /home/dibada/assembly/nema_trinity/Trinity.fasta
+Thursday, July 11, 2019: 18:21:18       CMD: mv Trinity.tmp.fasta /home/dibada/assembly/nema_trinity/Trinity.fasta
 
 
 ###################################################################
-Trinity assemblies are written to /home/dibbears/work/assembly/nema_trinity/Trinity.fasta
+Trinity assemblies are written to /home/dibada/assembly/nema_trinity/Trinity.fasta
 ###################################################################
 
 
-Thursday, October 25, 2018: 21:55:15	CMD: /opt/miniconda3/opt/trinity-2.8.4/util/support_scripts/get_Trinity_gene_to_trans_map.pl /home/dibbears/work/assembly/nema_trinity/Trinity.fasta > /home/dibbears/work/assembly/nema_trinity/Trinity.fasta.gene_trans_map
-
-real	7m7.692s
-user	23m59.929s
-sys	13m32.485s
+Thursday, July 11, 2019: 18:21:18       CMD: /opt/miniconda/envs/trinity-env/opt/trinity-2.8.5/util/support_scripts/get_Trinity_gene_to_trans_map.pl /home/dibada/assembly/nema_trinity/Trinity.fasta > /home/dibada/assembly/nema_trinity/Trinity.fasta.gene_trans_map
 ```
 
 at the end.
@@ -124,38 +120,38 @@ The output should look something like the following:
 ################################
 ## Counts of transcripts, etc.
 ################################
-Total trinity 'genes':	217
-Total trinity transcripts:	220
-Percent GC: 48.24
+Total trinity 'genes':  18
+Total trinity transcripts:      46
+Percent GC: 46.68
 
 ########################################
 Stats based on ALL transcript contigs:
 ########################################
 
-	Contig N10: 1763
-	Contig N20: 819
-	Contig N30: 548
-	Contig N40: 407
-	Contig N50: 320
+        Contig N10: 3631
+        Contig N20: 2497
+        Contig N30: 2145
+        Contig N40: 2097
+        Contig N50: 1977
 
-	Median contig length: 245.5
-	Average contig: 351.60
-	Total assembled bases: 77353
+        Median contig length: 1593
+        Average contig: 1459.98
+        Total assembled bases: 67159
 
 
 #####################################################
 ## Stats based on ONLY LONGEST ISOFORM per 'GENE':
 #####################################################
 
-	Contig N10: 1034
-	Contig N20: 605
-	Contig N30: 454
-	Contig N40: 357
-	Contig N50: 303
+        Contig N10: 4447
+        Contig N20: 3631
+        Contig N30: 3631
+        Contig N40: 2497
+        Contig N50: 2151
 
-	Median contig length: 245
-	Average contig: 328.43
-	Total assembled bases: 71270
+        Median contig length: 1107
+        Average contig: 1422.83
+        Total assembled bases: 25611
 ```
 
 This is a set of summary stats about your assembly. Are they good? Bad? How would you know?
@@ -163,5 +159,5 @@ This is a set of summary stats about your assembly. Are they good? Bad? How woul
 ## Suggestions for next steps 
 
 After generating a *de novo* transcriptome assembly:
-* [annotation](https://angus.readthedocs.io/en/2018/dammit_annotation.html)
+* [annotation](https://angus.readthedocs.io/en/2019/dammit_annotation.html)
 * [evaluation](https://dibsi-rnaseq.readthedocs.io/en/latest/evaluation.html)
