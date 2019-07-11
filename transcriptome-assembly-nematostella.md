@@ -23,7 +23,7 @@ To avoid needing to go though the trimming steps as before, we'll download a sna
 Download the snakefile:
 ```
 cd ~ # cd to home directory
-curl -L https://osf.io/2me4d/download -o nema_trim.snakefile
+curl -L https://osf.io/b9gxq/download -o nema_trim.snakefile
 ```
 
 Run the snakefile to download and trim the Nematostella reads:
