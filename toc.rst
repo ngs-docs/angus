@@ -41,11 +41,9 @@ Table of Contents
    
    more-unix-fun.md
    
-   dammit_annotation.md
-   
-   github.md
-   
    transcriptome-assembly-nematostella.md
+   
+   dammit_annotation.md
    
    sourmash.md
    
