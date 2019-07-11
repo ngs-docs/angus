@@ -85,11 +85,10 @@ mkdir -p ~/annotation
 cd ~/annotation
 ```
 
-You all ran Trinity last week to generate an assembly. The output from Trinity is a file, `Trinity.fasta`. Today, we're going to use a *de novo* transcriptome assembly from [Nematostella vectensis](https://en.wikipedia.org/wiki/Starlet_sea_anemone_ ([Tulin et al., 2013](https://evodevojournal.biomedcentral.com/articles/10.1186/2041-9139-4-16)).
+Let's copy in the trinity assembly file we made earlier:
 
 ```
-curl -OL https://darchive.mblwhoilibrary.org/bitstream/handle/1912/5613/Trinity.fasta
-head -3000 Trinity.fasta > trinity.nema.fasta
+cp ../assembly/nema-trinity.fa ./
 ```
 
 Now we'll download a custom *Nematostella vectensis* protein database. Somebody has already created a proper database for us [Putnam et al. 2007](https://www.uniprot.org/proteomes/UP000001593) (reference proteome
@@ -104,7 +103,7 @@ rm UP000001593_45351.fasta.gz
 Run the command:
 
 ```
-dammit annotate trinity.nema.fasta --busco-group metazoa --user-databases nema.reference.prot.faa --n_threads 4
+dammit annotate nema-trinity.fa --busco-group metazoa --user-databases nema.reference.prot.faa --n_threads 6
 ```
 
 While dammit runs, it will print out which task it is running to the terminal. dammit is
@@ -116,21 +115,22 @@ After a successful run, you'll have a new directory called `trinity.nema.fasta.d
 look inside, you'll see a lot of files:
 
 ```
-ls trinity.nema.fasta.dammit/
+ls nema-trinity.fa.dammit/
 ``` 
 Expected output:
 ```    
-    annotate.doit.db                              trinity.nema.fasta.dammit.namemap.csv  trinity.nema.fasta.transdecoder.pep
-    dammit.log                                    trinity.nema.fasta.dammit.stats.json   trinity.nema.fasta.x.nema.reference.prot.faa.crbl.csv
-    run_trinity.nema.fasta.metazoa.busco.results  trinity.nema.fasta.transdecoder.bed    trinity.nema.fasta.x.nema.reference.prot.faa.crbl.gff3
-    tmp                                           trinity.nema.fasta.transdecoder.cds    trinity.nema.fasta.x.nema.reference.prot.faa.crbl.model.csv
-    trinity.nema.fasta                            trinity.nema.fasta.transdecoder_dir    trinity.nema.fasta.x.nema.reference.prot.faa.crbl.model.plot.pdf
-    trinity.nema.fasta.dammit.fasta               trinity.nema.fasta.transdecoder.gff3
-    trinity.nema.fasta.dammit.gff3                trinity.nema.fasta.transdecoder.mRNA
+annotate.doit.db                    nema-trinity.fa.transdecoder.cds                    nema-trinity.fa.x.nema.reference.prot.faa.crbl.gff3            nema-trinity.fa.x.sprot.best.csv
+dammit.log                          nema-trinity.fa.transdecoder.gff3                   nema-trinity.fa.x.nema.reference.prot.faa.crbl.model.csv       nema-trinity.fa.x.sprot.best.gff3
+nema-trinity.fa                     nema-trinity.fa.transdecoder.pep                    nema-trinity.fa.x.nema.reference.prot.faa.crbl.model.plot.pdf  nema-trinity.fa.x.sprot.maf
+nema-trinity.fa.dammit.fasta        nema-trinity.fa.transdecoder_dir                    nema-trinity.fa.x.pfam-A.csv                                   run_nema-trinity.fa.metazoa.busco.results
+nema-trinity.fa.dammit.gff3         nema-trinity.fa.x.OrthoDB.best.csv                  nema-trinity.fa.x.pfam-A.gff3                                  tmp
+nema-trinity.fa.dammit.namemap.csv  nema-trinity.fa.x.OrthoDB.best.gff3                 nema-trinity.fa.x.rfam.gff3
+nema-trinity.fa.dammit.stats.json   nema-trinity.fa.x.OrthoDB.maf                       nema-trinity.fa.x.rfam.tbl
+nema-trinity.fa.transdecoder.bed    nema-trinity.fa.x.nema.reference.prot.faa.crbl.csv  nema-trinity.fa.x.rfam.tbl.cmscan.out
 ```
 
-The most important files for you are `trinity.nema.fasta.dammit.fasta`,
-`trinity.nema.fasta.dammit.gff3`, and `trinity.nema.fasta.dammit.stats.json`.
+The most important files for you are `nema-trinity.fa.dammit.fasta`,
+`nema-trinity.fa.dammit.gff3`, and `nema-trinity.fa.dammit.stats.json`.
 
 If the above `dammit` command is run again, there will be a message:
 `**Pipeline is already completed!**`
@@ -144,7 +144,7 @@ To do this, we will use a [Jupyter notebook](http://jupyter.org/). In addition t
 
 Install Jupyter notebook:
 ```
-pip install jupyter
+conda install -y jupyter
 ```
 Then
 ```
@@ -281,7 +281,7 @@ We've already installed and ran the BUSCO command with the dammit pipeline. Let'
 Check the output:
 
 ```
-cat trinity.nema.fasta.dammit/run_trinity.nema.fasta.metazoa.busco.results/short_summary_trinity.nema.fasta.metazoa.busco.results.txt
+cat nema-trinity.fa.dammit/run_nema-trinity.fa.metazoa.busco.results/short_summary_nema-trinity.fa.metazoa.busco.results.txt 
 ```
 
 * Challenge: How do the BUSCO results of the full transcriptome compare?
@@ -290,7 +290,7 @@ cat trinity.nema.fasta.dammit/run_trinity.nema.fasta.metazoa.busco.results/short
 Run the BUSCO command by itself:
 ```
 run_BUSCO.py \
--i trinity.nema.fasta \
+-i nema-trinity.fa \
 -o nema_busco_metazoa -l ~/.dammit/databases/busco2db/metazoa_odb9 \
 -m transcriptome --cpu 4
 ```
