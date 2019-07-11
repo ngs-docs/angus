@@ -121,9 +121,9 @@ Room Conway will be led by [Sateesh Peri](https://twitter.com/perisateesh?lang=e
 	
 **Thursday, July 11th, 2019**
 
-* **9:00-10:20am:** Elective Lab: (1) Intro to Git & (2) BYOD
+* **9:00-10:20am:** Elective Lab: (1) [Intro to Git](github.md) & (2) BYOD
 	* **10:20-10:40am:** BREAK
-* **10:40am-12:00pm:** Elective Lab: (1) Intro to Git (continued) & (2) BYOD
+* **10:40am-12:00pm:** Elective Lab: (1) [Intro to Git](github.md) (continued) & (2) BYOD
 	* **12:00-1:00pm:** LUNCH
 * **1:00-2:00pm:** [Rocio Martinez-Nunez](https://twitter.com/rociotmartinez?lang=en) - What comes after ANGUS?
 	* **2:00-2:10pm:** BREAK
