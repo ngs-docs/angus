@@ -82,6 +82,13 @@ _Note: this step just makes it easier for us to type out the trinity command. Tr
 
 ## Run the assembler
 
+First, we'll create and activate an environment where Trinity is installed:
+
+```
+conda create -y -n trinity-env trinity
+conda activate trinity-env
+```
+
 Trinity works both with paired-end reads as well as single-end reads (including with both types of reads at the same time). In the general case, the paired-end files are defined as `--left left.fq` and `--right right.fq` respectively. Our single-end reads (orphans) have been concatenated onto the `left.fq` file. 
 
 
@@ -180,6 +187,12 @@ Stats based on ALL transcript contigs:
 ```
 
 This is a set of summary stats about your assembly. Are they good? Bad? How would you know?
+
+Lastly, we'll deactivate the environment where Trinity is installed.
+
+```
+conda deactivate
+```
 
 ## Suggestions for next steps 
 
