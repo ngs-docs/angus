@@ -41,6 +41,9 @@ AGGATG
           AGATAG
 ```
 
+Today we will be using a tool called [sourmash](https://f1000research.com/articles/8-1006) 
+to explore k-mers!
+
 ## Why k-mers, though? Why not just work with the full read sequences?
 
 Computers *love* k-mers because there's no ambiguity in matching them. You either have an exact match, or you don't. And computers love that sort of thing!
@@ -55,7 +58,7 @@ Essentially, *long k-mers are species specific*. Check out this figure from the 
 
 ![](_static/kmers-metapalette.png)
 
-Here, the Koslicki and Falush show that k-mer similarity works to group microbes by genus, at k=40\. If you go longer (say k=50) then you get only very little similarity between different species.
+Here, Koslicki and Falush show that k-mer similarity works to group microbes by genus, at k=40\. If you go longer (say k=50) then you get only very little similarity between different species.
 
 ## Using k-mers to compare samples
 
@@ -420,39 +423,6 @@ similarity   match
 
 identifying what genome is in the signature. Some pretty good matches but nothing above %75. Why? What are some things we should think about when we're doing taxonomic classification? 
 
-## Compare many signatures and build a tree.
-
-Adjust plotting (this is a bug in sourmash :) --
-```
-echo 'backend : Agg' > matplotlibrc
-```
-
-[![compare](_static/Sourmash_flow_diagrams_compare.thumb.png)](_static/Sourmash_flow_diagrams_compare.png)
-
-Compare all the things:
-
-```
-sourmash compare ecoli_many_sigs/* -o ecoli_cmp
-```
-
-and then plot:
-
-```
-sourmash plot --pdf --labels ecoli_cmp
-```
-
-which will produce a file `ecoli_cmp.matrix.pdf` and `ecoli_cmp.dendro.pdf`
-which you can then download via RStudio and view on your local computer.
-
-Here's a PNG version:
-
-[![E. coli comparison plot](_static/ecoli_cmp.matrix.thumb.png)](_static/ecoli_cmp.matrix.png)
-
-How do you interpret this?
-
-What does the little dot on the lower left mean? What is that and why is
-it occurring?
-
 ## What's in my metagenome?
 
 First, let's download and upack the database we'll use for classification
@@ -461,6 +431,7 @@ cd ~/sourmash
 curl -L https://osf.io/zskb9/download -o genbank-k31.lca.json.gz 
 gunzip genbank-k31.lca.json.gz
 ```
+
 This database is a GenBank index of all
 the microbial genomes
 -- this one contains sketches of all 87,000 microbial genomes (including viral and fungal). See
@@ -589,50 +560,5 @@ is a (non-exclusive) list of other uses that we've been thinking about --
 
 * index and search private sequencing collections;
 
-* search all of SRA for overlaps in metagenomes;
-
-Chat with Phillip or Titus if you are interested in these use cases!
-
-## K-mers in the wild
-
-## K-mers and assembly graphs
-
-One of the three major ways that genome assembly works is by taking reads, breaking them into
-k-mers, and then "walking" from one k-mer to the next to bridge between reads.  To see how this works, let's take the 16-base sequence above, and add another overlapping sequence:
-
-```
-AGGATGAGACAGATAG
-    TGAGACAGATAGGATTGC
-```
-
-One way to assemble these together is to break them down into k-mers -- 
-
-becomes the following set of 6-mers:
-```
-AGGATG
- GGATGA
-  GATGAG
-   ATGAGA
-    TGAGAC
-     GAGACA
-      AGACAG
-       GACAGA
-        ACAGAT
-         CAGATA
-          AGATAG -> off the end of the first sequence
-           GATAGG <- beginning of the second sequence
-            ATAGGA
-             TAGGAT
-              AGGATT
-               GGATTG
-                GATTGC
-```
-
-and if you walk from one 6-mer to the next based on 5-mer overlap, you get the assembled sequence:
-
-```
-AGGATGAGACAGATAGGATTGC
-```
-
-Graphs of many k-mers together are called De Bruijn graphs, and assemblers like MEGAHIT and SOAPdenovo are De Bruijn graph assemblers - they use k-mers underneath.
+* search all of SRA for overlaps in metagenomes
 
