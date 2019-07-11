@@ -8,40 +8,40 @@ Learning objectives
 + Create local repositories
 + Backup your work online using git
 
-# Setup
+## Setup
 
 First, you’ll need to sign up for a free account on [GitHub.com](https://github.com/). It’s as simple as signing up for any other social network. Keep the email you picked handy; we’ll be referencing it again in the lesson.
 
 We will be following this lesson on our Jetstream instances which comes with `Git` installed. However, if you want to work on your project on your local computer, you need to have `Git` installed. Instructions to install Git for Windows, Mac or Linux can be found [here](https://git-scm.com/downloads).
 
-# What is Github?
+## What is Github?
 
 GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere. GitHub is now the largest online storage space of collaborative works that exists in the world
 
-# What Is Git?
+## What Is Git?
 
 Why use something like Git? Say you and a coworker are both updating pages on the same website. You make your changes, save them, and upload them back to the website. So far, so good. The problem comes when your coworker is working on the same page as you at the same time. One of you is about to have your work overwritten and erased.
 
 A version control application like Git keeps that from happening. You and your coworker can each upload your revisions to the same page, and Git will save two copies. Later, you can merge your changes together without losing any work along the way. You can even revert to an earlier version at any time, because Git keeps a “snapshot” of every change ever made.
 
-# Git terms
+## Git terms
 
-### **Repository:** 
+#### **Repository:** 
 A directory or storage space where your projects can live. Sometimes GitHub users shorten this to “repo.” It can be local to a folder on your computer, or it can be a storage space on GitHub or another online host. You can keep code files, text files, image files, you name it, inside a repository.
 
-### **Version Control:** 
+#### **Version Control:** 
 Basically, the purpose Git was designed to serve. When you have a Microsoft Word file, you either overwrite every saved file with a new save, or you save multiple versions. With Git, you don’t have to. It keeps “snapshots” of every point in time in the project’s history, so you can never lose or overwrite it.
 
-### **Commit:** 
+#### **Commit:** 
 This is the command that gives Git its power. When you commit, you are taking a “snapshot” of your repository at that point in time, giving you a checkpoint to which you can reevaluate or restore your project to any previous state.
 
-### **Branch:** 
+#### **Branch:** 
 How do multiple people work on a project at the same time without Git getting them confused? Usually, they “branch off” of the main project with their own versions full of changes they themselves have made. After they’re done, it’s time to “merge” that branch back with the “master,” the main directory of the project.
 
 <center><img src="_static/git_branch.png" width="70%"></center>
 <br>
 
-# Git-Specific Commands
+## Git-Specific Commands
 
 `git init`: Initializes a new Git repository. Until you run this command inside a repository or directory, it’s just a regular folder. Only after you input this does it accept further Git commands.
 
@@ -65,7 +65,7 @@ How do multiple people work on a project at the same time without Git getting th
 
 `git pull`: If you’re working on your local computer and want the most up-to-date version of your repository to work with, you “pull” the changes down from GitHub with this command.
 
-# Setting Up GitHub And Git For The First Time
+## Setting Up GitHub And Git For The First Time
 
 Login to your Jetstream computer! You should see and should see something like this:
 
@@ -91,7 +91,7 @@ Next, tell it your email and make sure it’s the same email you used when you s
 git config --global user.email "your_email@youremail.com"
 ```
 
-# Creating Your Online Repository
+## Creating Your Online Repository
 
 Now that you’re all set up, it’s time to create a place for your project to live. Both Git and GitHub refer to this as a repository, or “repo” for short, a digital directory or storage space where you can access your project, its files, and all the versions of its files that Git saves.
 
@@ -109,7 +109,7 @@ Now that you’re all set up, it’s time to create a place for your project to 
 <center><img src="_static/git_create_repo.png" width="70%"></center>
 <br>
 
-# Creating Your Local Repository
+## Creating Your Local Repository
 
 To begin, let's create a new directory called MyProject.
 
@@ -158,7 +158,7 @@ Now Git has a "snapshot" of this version of Readme.txt which you can return to a
 <center><img src="_static/git_working.png" width="60%"></center>
 <br>
 
-# Connect Your Local Repository To Your GitHub Repository Online
+## Connect Your Local Repository To Your GitHub Repository Online
 
 <center><img src="_static/git_remote.png" width="70%"></center>
 <br>
@@ -202,7 +202,7 @@ To https://github.com/sateeshbio5/angus_test.git
 <center><img src="_static/github_repo.png" width="70%"></center>
 <br>
 
-# Collaborating via GitHub
+## Collaborating via GitHub
 
 - **GitHub Issues:** Issues are a great way to keep track of tasks, enhancements, and bugs for your projects. They’re kind of like email—except they can be shared and discussed with all. Read more about Mastering Issues on Github [here](https://guides.github.com/features/issues/)
 
@@ -222,7 +222,7 @@ Look at others' repositories:
 
 - [ANGUS 2019](https://angus.readthedocs.io/en/2019/)
 
-# Host Websites & Blogs on GitHub
+## Host Websites & Blogs on GitHub
 
 - GitHub Pages is an awesome feature that lets you host websites/blogs for you and your projects.
 
@@ -231,7 +231,7 @@ Look at others' repositories:
 - Read more about GitHub Pages [here](https://pages.github.com/)
 
 
-# Sources for this tutorial & Additional Git Resources
+## Sources for this tutorial & Additional Git Resources
 
 - **Introductory tutorial by Lauren Orsini [here](https://readwrite.com/2013/09/30/understanding-github-a-journey-for-beginners-part-1/)**
 
