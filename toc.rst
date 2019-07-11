@@ -41,6 +41,10 @@ Table of Contents
    
    more-unix-fun.md
    
+   github.md
+   
+   amplicon_and_metagen.md
+   
    transcriptome-assembly-nematostella.md
    
    dammit_annotation.md
