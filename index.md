@@ -127,7 +127,7 @@ Room Conway will be led by [Sateesh Peri](https://twitter.com/perisateesh?lang=e
 	* **12:00-1:00pm:** LUNCH
 * **1:00-2:00pm:** [Rocio Martinez-Nunez](https://twitter.com/rociotmartinez?lang=en) - What comes after ANGUS?
 	* **2:00-2:10pm:** BREAK
-* **2:15-3:30pm:** Elective Lab: (1) [Microbial Ecology (a discussion on amplicon sequencing and metagenomics)](amplicon_and_metagen.md) & (2) (Transcriptome Assembly)[transcriptome-assembly-nematostella.md] and (Annotation)[dammit_annotation.md] & (3) BYOD
+* **2:15-3:30pm:** Elective Lab: (1) [Microbial Ecology (a discussion on amplicon sequencing and metagenomics)](amplicon_and_metagen.md) & (2) [Transcriptome Assembly](transcriptome-assembly-nematostella.md) and [Annotation](dammit_annotation.md) & (3) BYOD
 	* **3:30-3:50pm:** BREAK
 * **3:50-5:00pm:** Elective Lab: [Quick Insights from Sequencing Data with Sourmash](sourmash.md) & (2) BYOD
 	* **5:00pm:** DONE	
