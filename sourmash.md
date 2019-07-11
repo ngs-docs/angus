@@ -90,7 +90,7 @@ We have implemented a MinHash approach in our [sourmash software](https://github
 To install sourmash, run:
 
 ```
-conda install -y -c bioconda sourmash
+conda install -y -c conda-forge -c bioconda sourmash
 ```
 
 ## Creating signatures
