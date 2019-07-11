@@ -20,16 +20,20 @@ We will be using a set of *Nematostella vectensis* mRNAseq reads from [Tulin et 
 To avoid needing to go though the trimming steps as before, we'll download a snakefile to take care of these steps for us. If you look at this file, you may notice it is very similar to the one you generated during the snakemake challenge.
 
 
-Download the snakefile:
+Download the snakefile and a corresponding conda environment file:
 ```
 cd ~ # cd to home directory
-curl -L https://osf.io/b9gxq/download -o nema_trim.snakefile
+curl -L https://osf.io/nqh6p/download -o nema_trim.snakefile
+curl -L https://osf.io/xs6k7/download -o trim-env.yml
 ```
 
 Run the snakefile to download and trim the Nematostella reads:
 ```
 snakemake -s nema_trim.snakefile --use-conda --cores 6
 ```
+
+The trimmed data should now be within the `nema_trimmed` folder.
+
 
 ## Generate a _de novo_ assembly
 
