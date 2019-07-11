@@ -145,31 +145,22 @@ Camille wrote dammit in Python, which includes a library to parse gff3 dammit ou
 
 To do this, we will use a [Jupyter notebook](http://jupyter.org/). In addition to executing Python commands, Jupyter notebooks can also run R (as well as many other languages). Similar to R markdown (`Rmd`) files, Jupyter notebooks can keep track of code and output. The output file format for Jupyter notebooks is `.ipynb`, which GitHub can render. See this [gallery of interesting Jupyter notebooks](https://github.com/jupyter/jupyter/wiki/A-gallery-of-interesting-Jupyter-Notebooks#mathematics-physics-chemistry-biology).  
 
-Let's open a Jupyter notebook! The ANGUS_base images are configured to make this simple.
-
-In a browser on your laptop, go to:
+Let's open python in our terminal!
 
 ```
-http://{ip.address}:8000/lab
+python
 ```
 
-Then click on the `Python 3` notebook (top box) to open a Jupyter notebook.
+This opens python in your terminal, allowing you to run commands in the python language. 
 
-Enter this into the first cell:
+Let's import the libraries we need.
 
 ```
-!conda install -y pandas
 import pandas as pd
 from dammit.fileio.gff3 import GFF3Parser
 ```
 
-Press Shift + Enter to execute the cell.
-
-To add a new cell, with the "plus" icon. 
-
-![](_static/jupyter/jupyter_notebook_add_cell.png)
-
-In a new cell enter:
+Now enter these commands:
 ```
 gff_file = "nema-trinity.fa.dammit/trinity.nema.fasta.dammit.gff3"
 annotations = GFF3Parser(filename=gff_file).read()
@@ -177,6 +168,7 @@ names = annotations.sort_values(by=['seqid', 'score'], ascending=True).query('sc
 new_file = names.dropna(axis=0,how='all')
 new_file.head()
 ```
+
 Which will give an output that looks like this:
 ![](_static/jupyter/annotation_names.png)
 
@@ -202,7 +194,12 @@ To save the file, add a new cell and enter:
 new_file.to_csv("nema_gene_name_id.csv")
 ```
 
-Now, we can return to the terminal, Control + C to cancel and close the Jupyter notebook.
+
+Now, we can return to the bash terminal, type:
+
+```
+quit()
+```
 
 We can look at the output we just made, which is a table of genes with 'seqid' and 'Name' in a .csv file: `nema_gene_name_id.csv`.
 ```
