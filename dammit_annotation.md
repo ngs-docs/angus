@@ -24,66 +24,46 @@ There are several lineage-specific datasets available from the authors of BUSCO.
 Annotation necessarily requires a lot of software! dammit attempts to simplify this and
 make it as reliable as possible, but we still have some dependencies.
 
-Create a python 3 environment for dammit:
+dammit can be installed via bioconda, but the latest version is not up there yet. Let's download a working conda `environment.yml` file that will help us install the latest version of dammit.
 
 ```
-conda create -y --name py3.dammit python=3
-```
-Then
-```
-source activate py3.dammit
+cd 
+curl -L https://raw.githubusercontent.com/dib-lab/elvers/master/elvers/rules/dammit/environment.yml -o dammit-env.yaml
 ```
 
-dammit can be installed via bioconda. Due to some dependency issues with bioconda packages, first run:
+Now let's build an environment from that `yaml` file:
 ```
-conda config --add pinned_packages 'r-base >=3.4'
-```
-Add the appropriate channels, including bioconda:
-```
-conda config --add channels defaults
-conda config --add channels conda-forge
-conda config --add channels bioconda
-```
-Then, you can install dammit normally (this will take some time, ~5-10 min):
-```
-conda install -y dammit
+conda env create -f dammit-env.yml -n dammit-env 
+conda activate dammit-env
 ```
 
 To make sure your installation was successful, run
 
 ```
-dammit help
+dammit -h
 ```
 
 This will give a list of dammit's commands and options:
-```
-usage: dammit [-h] [--debug] [--version] {migrate,databases,annotate} ...
-dammit: error: invalid choice: 'help' (choose from 'migrate', 'databases', 'annotate')
-```
+
 The version (`dammit --version`) should be:
 ```
-dammit 1.0rc2
+dammit 1.1
 ```
+
 #### Database Preparation
 
 dammit has two major subcommands: `dammit databases` and `dammit annotate`. The `databases` command checks that databases are installed and prepared, and if run with the `--install` flag,
 it will perform that installation and preparation. If you just run `dammit databases` on its own, you should get a notification that some database tasks are not up-to-date. So, we need
 to install them!
 
-Note: if you have limited space on your instance, you can also install these databases in a different location (e.g. on an external volume). Run this command **before** running the database install.
-
-```
-#Run  ONLY if you want to install databases in different location. 
-#To run, remove the `#` from the front of the following command:
-
-# dammit databases --database-dir /path/to/databases
-```
 
 Install databases (this will take a long time, usually >10 min):
-
 ```
 dammit databases --install --busco-group metazoa
 ```
+
+Note: dammit installs databases in your home directory by default. If you have limited space in your home directory or on your instance, you can install these databases in a different location (e.g. on an external volume) by running `dammit databases --database-dir /path/to/install/databases` before running the installation command.
+
 
 We used the "metazoa" BUSCO group. We can use any of the BUSCO databases, so long as we install them with the `dammit databases` subcommand. You can see the whole list by running
 `dammit databases -h`. You should try to match your species as closely as possible for the best results. If we want to install another, for example:
@@ -106,11 +86,10 @@ mkdir -p ~/annotation
 cd ~/annotation
 ```
 
-You all ran Trinity last week to generate an assembly. The output from Trinity is a file, `Trinity.fasta`. Today, we're going to use a *de novo* transcriptome assembly from [Nematostella vectensis](https://en.wikipedia.org/wiki/Starlet_sea_anemone_ ([Tulin et al., 2013](https://evodevojournal.biomedcentral.com/articles/10.1186/2041-9139-4-16)).
+Let's copy in the trinity assembly file we made earlier:
 
 ```
-curl -OL https://darchive.mblwhoilibrary.org/bitstream/handle/1912/5613/Trinity.fasta
-head -3000 Trinity.fasta > trinity.nema.fasta
+cp ../assembly/nema-trinity.fa ./
 ```
 
 Now we'll download a custom *Nematostella vectensis* protein database. Somebody has already created a proper database for us [Putnam et al. 2007](https://www.uniprot.org/proteomes/UP000001593) (reference proteome
@@ -125,7 +104,7 @@ rm UP000001593_45351.fasta.gz
 Run the command:
 
 ```
-dammit annotate trinity.nema.fasta --busco-group metazoa --user-databases nema.reference.prot.faa --n_threads 4
+dammit annotate nema-trinity.fa --busco-group metazoa --user-databases nema.reference.prot.faa --n_threads 6
 ```
 
 While dammit runs, it will print out which task it is running to the terminal. dammit is
@@ -137,21 +116,24 @@ After a successful run, you'll have a new directory called `trinity.nema.fasta.d
 look inside, you'll see a lot of files:
 
 ```
-ls trinity.nema.fasta.dammit/
+ls nema-trinity.fa.dammit/
 ``` 
+
 Expected output:
+
 ```    
-    annotate.doit.db                              trinity.nema.fasta.dammit.namemap.csv  trinity.nema.fasta.transdecoder.pep
-    dammit.log                                    trinity.nema.fasta.dammit.stats.json   trinity.nema.fasta.x.nema.reference.prot.faa.crbl.csv
-    run_trinity.nema.fasta.metazoa.busco.results  trinity.nema.fasta.transdecoder.bed    trinity.nema.fasta.x.nema.reference.prot.faa.crbl.gff3
-    tmp                                           trinity.nema.fasta.transdecoder.cds    trinity.nema.fasta.x.nema.reference.prot.faa.crbl.model.csv
-    trinity.nema.fasta                            trinity.nema.fasta.transdecoder_dir    trinity.nema.fasta.x.nema.reference.prot.faa.crbl.model.plot.pdf
-    trinity.nema.fasta.dammit.fasta               trinity.nema.fasta.transdecoder.gff3
-    trinity.nema.fasta.dammit.gff3                trinity.nema.fasta.transdecoder.mRNA
+annotate.doit.db                    nema-trinity.fa.transdecoder.cds                    nema-trinity.fa.x.nema.reference.prot.faa.crbl.gff3            nema-trinity.fa.x.sprot.best.csv
+dammit.log                          nema-trinity.fa.transdecoder.gff3                   nema-trinity.fa.x.nema.reference.prot.faa.crbl.model.csv       nema-trinity.fa.x.sprot.best.gff3
+nema-trinity.fa                     nema-trinity.fa.transdecoder.pep                    nema-trinity.fa.x.nema.reference.prot.faa.crbl.model.plot.pdf  nema-trinity.fa.x.sprot.maf
+nema-trinity.fa.dammit.fasta        nema-trinity.fa.transdecoder_dir                    nema-trinity.fa.x.pfam-A.csv                                   run_nema-trinity.fa.metazoa.busco.results
+nema-trinity.fa.dammit.gff3         nema-trinity.fa.x.OrthoDB.best.csv                  nema-trinity.fa.x.pfam-A.gff3                                  tmp
+nema-trinity.fa.dammit.namemap.csv  nema-trinity.fa.x.OrthoDB.best.gff3                 nema-trinity.fa.x.rfam.gff3
+nema-trinity.fa.dammit.stats.json   nema-trinity.fa.x.OrthoDB.maf                       nema-trinity.fa.x.rfam.tbl
+nema-trinity.fa.transdecoder.bed    nema-trinity.fa.x.nema.reference.prot.faa.crbl.csv  nema-trinity.fa.x.rfam.tbl.cmscan.out
 ```
 
-The most important files for you are `trinity.nema.fasta.dammit.fasta`,
-`trinity.nema.fasta.dammit.gff3`, and `trinity.nema.fasta.dammit.stats.json`.
+The most important files for you are `nema-trinity.fa.dammit.fasta`,
+`nema-trinity.fa.dammit.gff3`, and `nema-trinity.fa.dammit.stats.json`.
 
 If the above `dammit` command is run again, there will be a message:
 `**Pipeline is already completed!**`
@@ -159,61 +141,34 @@ If the above `dammit` command is run again, there will be a message:
 
 ### Parse dammit output
 
-Cammille wrote dammit in Python, which includes a library to parse gff3 dammit output. To send this output to a useful table, we will need to open the Python environment. 
+Camille wrote dammit in Python, which includes a library to parse gff3 dammit output. To send this output to a useful table, we will need to open the Python environment. 
 
-To do this, we will use a [Jupyter notebook](http://jupyter.org/). In addition to executing Python commands, Jupyter notebooks can also run R (as well as many other languages). Similar to R markdown (Rmd) files, Jupyter notebooks can keep track of code and output. The output file format for Jupyter notebooks is .ipynb, which GitHub can render. See this [gallery of interesting Jupyter notebooks](https://github.com/jupyter/jupyter/wiki/A-gallery-of-interesting-Jupyter-Notebooks#mathematics-physics-chemistry-biology).  
+To do this, we will use a [Jupyter notebook](http://jupyter.org/). In addition to executing Python commands, Jupyter notebooks can also run R (as well as many other languages). Similar to R markdown (`Rmd`) files, Jupyter notebooks can keep track of code and output. The output file format for Jupyter notebooks is `.ipynb`, which GitHub can render. See this [gallery of interesting Jupyter notebooks](https://github.com/jupyter/jupyter/wiki/A-gallery-of-interesting-Jupyter-Notebooks#mathematics-physics-chemistry-biology).  
 
-Install Jupyter notebook:
-```
-pip install jupyter
-```
-Then
-```
-jupyter notebook --generate-config
-```
-Then generate a config file. (Note: this password protects the notebook.)
-```
-cat >> ~/.jupyter/jupyter_notebook_config.py <<EOF
-c = get_config()
-c.NotebookApp.ip = '*'
-c.NotebookApp.open_browser = False
-c.NotebookApp.password = u'sha1:d3f13af9db69:31268fb729f127aebb2f77f7b61fa92d6c9e3aa1'
-c.NotebookApp.port = 8000
+Let's open python in our terminal!
 
-EOF
+```
+python
 ```
 
-Now run the jupyter notebook:
-```
-jupyter notebook &
-```
+This opens python in your terminal, allowing you to run commands in the python language. 
 
-You will see a list of files, start a new Python 3 notebook:
-![](_static/jupyter/jupyter_notebook.png)
-
-This will open a new notebook.
-
-Enter this into the first cell:
+Let's import the libraries we need.
 
 ```
 import pandas as pd
 from dammit.fileio.gff3 import GFF3Parser
 ```
 
-Press Shift + Enter to execute the cell.
-
-To add a new cell, with the "plus" icon. 
-
-![](_static/jupyter/jupyter_notebook_add_cell.png)
-
-In a new cell enter:
+Now enter these commands:
 ```
-gff_file = "trinity.nema.fasta.dammit/trinity.nema.fasta.dammit.gff3"
+gff_file = "nema-trinity.fa.dammit/nema-trinity.fa.dammit.gff3"
 annotations = GFF3Parser(filename=gff_file).read()
 names = annotations.sort_values(by=['seqid', 'score'], ascending=True).query('score < 1e-05').drop_duplicates(subset='seqid')[['seqid', 'Name']]
 new_file = names.dropna(axis=0,how='all')
 new_file.head()
 ```
+
 Which will give an output that looks like this:
 ![](_static/jupyter/annotation_names.png)
 
@@ -239,53 +194,24 @@ To save the file, add a new cell and enter:
 new_file.to_csv("nema_gene_name_id.csv")
 ```
 
-Now, we can return to the terminal, Control + C to cancel and close the Jupyter notebook.
+
+Now, we can return to the bash terminal, type:
+
+```
+quit()
+```
 
 We can look at the output we just made, which is a table of genes with 'seqid' and 'Name' in a .csv file: `nema_gene_name_id.csv`.
 ```
 less nema_gene_name_id.csv
 ```
 
-Notice there are multiple transcripts per gene model prediction. This `.csv` file can be used in `tximport` in downstream DE analysis.
+Notice there are multiple transcripts per gene model prediction. This `.csv` file can be used in `tximport` as a `tx2gene` file in downstream DE analysis. 
 
-## Evaluation
-
-We will be using Transrate and Busco!
+## Evaluation with BUSCO
 
 
-### Transrate
-
-[Transrate](http://hibberdlab.com/transrate/getting_started.html) serves two main purposes. It can compare two assemblies to see how similar they are. Or, it can give you a score which represents proportion of input reads that provide positive support for the assembly. Today, we will use transrate to compare two assemblies. To get a transrate score, we would need to use the trimmed reads, which takes a long time. For a further explanation of metrics and how to get a transrate score, see the [documentation](http://hibberdlab.com/transrate/metrics.html) and the paper by [Smith-Unna et al. 2016](http://genome.cshlp.org/content/early/2016/06/01/gr.196469.115). 
-
-#### Install Transrate
-
-```
-cd 
-curl -SL https://bintray.com/artifact/download/blahah/generic/transrate-1.0.3-linux-x86_64.tar.gz | tar -xz
-cd transrate-1.0.3-linux-x86_64 
-./transrate --install-deps ref
-rm -f bin/librt.so.1
-echo 'export PATH="$HOME/transrate-1.0.3-linux-x86_64":$PATH' >> ~/.bashrc
-source ~/.bashrc
-conda activate py3.dammit
-```
-
-* How do the two transcriptomes compare with each other?
-
-```
-cd ~/annotation
-transrate --reference=Trinity.fasta --assembly=trinity.nema.fasta --output=subset_v_full
-transrate --reference=trinity.nema.fasta --assembly=Trinity.fasta --output=full_v_subset
-```
-
-The results will be in two separate directoreis, with the important metrics in the `assemblies.csv` files.
-
-```
-cat full_v_subset/assemblies.csv
-cat subset_v_full/assemblies.csv
-```
-
-### BUSCO
+BUSCO aims to provide a quantitative measure of transcriptome (or genome/gene set) completeness by searching for near-universal single-copy orthologs. These ortholog lists are curated into different groups (e.g. genes found universally across all metazoa, or all fungi, etc), and are currently based off of OrthoDB v9.
 
 * Metazoa database used with 978 genes
 * "Complete" lengths are within two standard deviations of the BUSCO group mean length
@@ -302,7 +228,7 @@ We've already installed and ran the BUSCO command with the dammit pipeline. Let'
 Check the output:
 
 ```
-cat trinity.nema.fasta.dammit/run_trinity.nema.fasta.metazoa.busco.results/short_summary_trinity.nema.fasta.metazoa.busco.results.txt
+cat nema-trinity.fa.dammit/run_nema-trinity.fa.metazoa.busco.results/short_summary_nema-trinity.fa.metazoa.busco.results.txt 
 ```
 
 * Challenge: How do the BUSCO results of the full transcriptome compare?
@@ -311,13 +237,12 @@ cat trinity.nema.fasta.dammit/run_trinity.nema.fasta.metazoa.busco.results/short
 Run the BUSCO command by itself:
 ```
 run_BUSCO.py \
--i trinity.nema.fasta \
+-i nema-trinity.fa \
 -o nema_busco_metazoa -l ~/.dammit/databases/busco2db/metazoa_odb9 \
 -m transcriptome --cpu 4
 ```
 
 When you're finished, exit out of the conda environment:
 ```
-source deactivate
+conda deactivate
 ```
-
