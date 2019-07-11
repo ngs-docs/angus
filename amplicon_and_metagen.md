@@ -79,7 +79,7 @@ No, and that's not a problem if we understand that neither are meant to tell us 
 
 ## Amplicon overview
 
-<center><a href="_static/amplicon_overview.png"><img src="_static/amplicon_overview.png" width=“95%”></a></center>
+<center><a href="_static/amplicon_overview.png"><img src="_static/amplicon_overview.png" width="95%"></a></center>
 
 <p align="right"><a href="https://ndownloader.figshare.com/files/15628100">PDF download</a></p>
 
@@ -109,6 +109,6 @@ If you happen to work with amplicon data, I highly recommend digging into the [C
 
 ## Metagenomics overview
 
-<center><a href="_static/metagenomics_overview.png"><img src="_static/metagenomics_overview.png" width=“95%”></a></center>
+<center><a href="_static/metagenomics_overview.png"><img src="_static/metagenomics_overview.png" width="95%"></a></center>
 
 <p align="right"><a href="https://ndownloader.figshare.com/files/15628103">PDF download</a></p>
