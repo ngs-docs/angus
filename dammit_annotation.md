@@ -33,7 +33,8 @@ curl -L https://raw.githubusercontent.com/dib-lab/elvers/master/elvers/rules/dam
 
 Now let's build an environment from that `yaml` file:
 ```
-conda env create -n dammit-env -f dammit-env.yml
+conda env create -f dammit-env.yml -n dammit-env 
+conda activate dammit-env
 ```
 
 To make sure your installation was successful, run
@@ -117,7 +118,9 @@ look inside, you'll see a lot of files:
 ```
 ls nema-trinity.fa.dammit/
 ``` 
+
 Expected output:
+
 ```    
 annotate.doit.db                    nema-trinity.fa.transdecoder.cds                    nema-trinity.fa.x.nema.reference.prot.faa.crbl.gff3            nema-trinity.fa.x.sprot.best.csv
 dammit.log                          nema-trinity.fa.transdecoder.gff3                   nema-trinity.fa.x.nema.reference.prot.faa.crbl.model.csv       nema-trinity.fa.x.sprot.best.gff3
@@ -145,12 +148,12 @@ To do this, we will use a [Jupyter notebook](http://jupyter.org/). In addition t
 Let's open a Jupyter notebook! The ANGUS_base images are configured to make this simple.
 
 In a browser on your laptop, go to:
+
 ```
 http://{ip.address}:8000/lab
 ```
 
 Then click on the `Python 3` notebook (top box) to open a Jupyter notebook.
-```
 
 Enter this into the first cell:
 
