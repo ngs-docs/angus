@@ -4,7 +4,7 @@
 >
 > This is meant to be a guided, but very open discussion. Please feel free to jump in at any time with questions or thoughts on things!  
 
-This page presents a broad-level overview of amplicon sequencing and metagenomics as applied to microbial ecology and outlines some generic workflows for each. Both of these methods are most often applied for exploration and hypothesis generation and should be thought of as steps in the process of science rather than end-points – like all tools of science 🙂 
+This page presents a broad-level overview of amplicon sequencing and metagenomics as applied to microbial ecology. Both of these methods are most often applied for exploration and hypothesis generation and should be thought of as steps in the process of science rather than end-points – like all tools of science 🙂 
 
 **Amplicon sequencing**  
 
