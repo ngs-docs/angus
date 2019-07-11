@@ -34,3 +34,18 @@ Table of Contents
    snakemake_for_automation.md
 
    snakemake_for_qc.md
+   
+   de-novo-genome-assembly.md
+   
+   de-novo-genome-exploration.md
+   
+   more-unix-fun.md
+   
+   dammit_annotation.md
+   
+   github.md
+   
+   transcriptome-assembly-nematostella.md
+   
+   sourmash.md
+   
