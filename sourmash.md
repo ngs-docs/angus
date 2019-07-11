@@ -1,4 +1,4 @@
-# Quick Insights from Sequencing Data with Sourmash
+# Quick Insights from Sequencing Data with sourmash
 
 ## Getting started
 
