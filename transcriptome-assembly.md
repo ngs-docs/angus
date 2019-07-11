@@ -2,11 +2,10 @@
 
 Learning objectives:
 
-	* Learn what is Transcriptome assembly?
-	* Different types of assemblies
-	* How do assemblers work?
-	* Checking the quality of assembly
-	* Understanding Transcriptome assembly
+	* Learn what transcriptome assembly is
+	* Learn to differentiate different types of assemblies
+	* Discuss how do assemblers work
+	* Learn to check the quality of a transcriptome assembly
 	
 In [variant calling](http://angus.readthedocs.io/en/2019/mapping-variant-calling.html), we mapped reads to a reference and looked systematically for differences.
 
@@ -14,7 +13,7 @@ But what if you don't have a reference? How do you construct one?
 
 The answer is *de novo* assembly, and the basic idea is you feed in your reads and you get out a bunch of *contigs*, that represent stretches of RNA present in the reads that don't have any long repeats or much significant polymorphism.  Like everything else, the basic idea is that you run a program, feed in the reads, and get out a pile of assembled RNA.
 
-Trinity, developed at the [Broad Institute](http://www.broadinstitute.org/) and the [Hebrew University of Jerusalem](http://www.cs.huji.ac.il/, represents a novel method for the efficient and robust de novo reconstruction of transcriptomes from RNA-seq data. We will be using the [eel-pond protocol](https://eel-pond.readthedocs.io/en/latest) for our guide to doing RNA-seq assembly.
+Trinity, developed at the [Broad Institute](http://www.broadinstitute.org/) and the [Hebrew University of Jerusalem](http://www.cs.huji.ac.il/, represents a novel method for the efficient and robust de novo reconstruction of transcriptomes from RNA-seq data. We will be using the [eel-pond protocol](https://eel-pond.readthedocs.io/en/latest), which uses trinity, as our guide to doing RNA-seq assembly.
 
 ## Boot up a Jetstream
 
@@ -22,7 +21,7 @@ Trinity, developed at the [Broad Institute](http://www.broadinstitute.org/) and 
 
 ## Install the TRINITY assembler in a conda environment
 
-The [Trinity assembler](https://www.ncbi.nlm.nih.gov/pubmed/21572440) can also install it through `conda`:
+Create and environment and install the [Trinity assembler](https://www.ncbi.nlm.nih.gov/pubmed/21572440) through `conda`:
 
 ```
 conda create -y -n trinity-env trinity khmer
@@ -31,7 +30,7 @@ where:
    - `-y` says to install the pkgs without double checking with me
    - `-n` names the environment "trinity-env"
 
-Now, let's enter that environment:
+Now, let's activate that environment:
 
 ```
 conda activate trinity-env
@@ -42,8 +41,8 @@ conda activate trinity-env
 We will be using the same data as before ([Schurch et al, 2016](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4878611/)), so the following commands will create a new folder `assembly` and link the trimmed data we prepared earlier in the newly created folder:
 
 ```
-cd
-ls -l quality/*qc*
+cd ~
+ls -l quality/*qc* .
 ```
 
 You should see the following:
@@ -57,7 +56,19 @@ You should see the following:
 -rw-rw-r-- 1 dibada dibada 100550095 Jul 11 15:45 quality/ERR458502.qc.fq.gz
 ```
 
-If you don't see the data, head over to the [trimming lesson](https://angus.readthedocs.io/en/2019/quality-and-trimming.html#data-source) to download and trim again.
+If you don't see the data, you can download it using the following commands:
+
+```
+cd ~
+mkdir -p quality
+cd quality
+curl -L https://osf.io/wfz34/download -o ERR458493.qc.fq.gz
+curl -L https://osf.io/jxh4d/download -o ERR458494.qc.fq.gz
+curl -L https://osf.io/zx7n3/download -o ERR458495.qc.fq.gz
+curl -L https://osf.io/96mrj/download -o ERR458500.qc.fq.gz
+curl -L https://osf.io/wc8yn/download -o ERR458501.qc.fq.gz
+curl -L https://osf.io/sdtz3/download -o ERR458502.qc.fq.gz
+```
 
 
 ## Change to a new working directory and link the original data
