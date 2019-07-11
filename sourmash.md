@@ -1,20 +1,18 @@
-# K-mers, k-mer specificity, and comparing samples with k-mer Jaccard distance. (2018)
+# Quick Insights from Sequencing Data with sourmash
+
+## Getting started
 
 [Create / log into](jetstream/boot.html) an m1.medium Jetstream instance. 
-A sourmash tutorial
----
-
 
 ## Objectives
+1. Discuss k-mers and their utility
+2. Compare RNA-seq samples quickly
+3. Detect eukaryotic contamination in raw RNA-seq reads
+4. Compare reads to an assembly
+5. Build your own database for searching 
+6. Other sourmash databases
 
-1. Discuss the power of k-mers 
-2. Compare reads to assemblies 
-3. Compare datasets and build a tree
-4. Determine what's in a metagenome by classifying reads into taxa 
-
-## K-mers!
-
-K-mers are a fairly simple concept that turn out to be tremendously powerful.
+## Introduction to k-mers
 
 A "k-mer" is a word of DNA that is k long:
 
@@ -43,70 +41,28 @@ AGGATG
           AGATAG
 ```
 
-k-mers are most useful when they're *long*, because then they're *specific*. That is, if you have a 31-mer taken from a human genome, it's pretty unlikely that another genome has that exact 31-mer in it.  (You can calculate the probability if you assume genomes are random: there are 4<sup>31</sup> possible 31-mers, and 4<sup>31</sup> = 4,611,686,018,427,387,904\.  So, you know, a lot.)
-
-The important concept here is that **long k-mers are species specific**. We'll go into a bit more detail later.
-
-## K-mers and assembly graphs
-
-One of the three major ways that genome assembly works is by taking reads, breaking them into
-k-mers, and then "walking" from one k-mer to the next to bridge between reads.  To see how this works, let's take the 16-base sequence above, and add another overlapping sequence:
-
-```
-AGGATGAGACAGATAG
-    TGAGACAGATAGGATTGC
-```
-
-One way to assemble these together is to break them down into k-mers -- 
-
-becomes the following set of 6-mers:
-```
-AGGATG
- GGATGA
-  GATGAG
-   ATGAGA
-    TGAGAC
-     GAGACA
-      AGACAG
-       GACAGA
-        ACAGAT
-         CAGATA
-          AGATAG -> off the end of the first sequence
-           GATAGG <- beginning of the second sequence
-            ATAGGA
-             TAGGAT
-              AGGATT
-               GGATTG
-                GATTGC
-```
-
-and if you walk from one 6-mer to the next based on 5-mer overlap, you get the assembled sequence:
-
-```
-AGGATGAGACAGATAGGATTGC
-```
-
-Graphs of many k-mers together are called De Bruijn graphs, and assemblers like MEGAHIT and SOAPdenovo are De Bruijn graph assemblers - they use k-mers underneath.
+Today we will be using a tool called [sourmash](https://f1000research.com/articles/8-1006) 
+to explore k-mers!
 
 ## Why k-mers, though? Why not just work with the full read sequences?
 
-Computers *love* k-mers because there's no ambiguity in matching them. You either have an exact match, or you don't.  And computers love that sort of thing!
+Computers *love* k-mers because there's no ambiguity in matching them. You either have an exact match, or you don't. And computers love that sort of thing!
 
 Basically, it's really easy for a computer to tell if two reads share a k-mer, and it's pretty easy for a computer to store all the k-mers that it sees in a pile of reads or in a genome.
 
 ## Long k-mers are species specific
 
-So, we've said long k-mers (say, k=31 or longer) are pretty species specific. Is that really true?
+k-mers are most useful when they're *long*, because then they're *specific*. That is, if you have a 31-mer taken from a human genome, it's pretty unlikely that another genome has that exact 31-mer in it.  (You can calculate the probability if you assume genomes are random: there are 4<sup>31</sup> possible 31-mers, and 4<sup>31</sup> = 4,611,686,018,427,387,904\.  So, you know, a lot.)
 
-Yes! Check out this figure from the [MetaPalette paper](http://msystems.asm.org/content/1/3/e00020-16):
+Essentially, *long k-mers are species specific*. Check out this figure from the [MetaPalette paper](http://msystems.asm.org/content/1/3/e00020-16):
 
 ![](_static/kmers-metapalette.png)
 
-here, the Koslicki and Falush show that k-mer similarity works to group microbes by genus, at k=40\. If you go longer (say k=50) then you get only very little similarity between different species.
+Here, Koslicki and Falush show that k-mer similarity works to group microbes by genus, at k=40\. If you go longer (say k=50) then you get only very little similarity between different species.
 
-## Using k-mers to compare samples against each other
+## Using k-mers to compare samples
 
-So, one thing you can do is use k-mers to compare genomes to genomes, or read data sets to read data sets: data sets that have a lot of similarity probably are similar or even the same genome.
+So, one thing you can do is use k-mers to compare read data sets to read data sets, or genomes to genomes: data sets that have a lot of similarity probably are similar or even the same genome.
 
 One metric you can use for this comparisons is the Jaccard distance, which is calculated by asking how many k-mers are *shared* between two samples vs how many k-mers in total are in the combined samples.
 
@@ -118,7 +74,10 @@ all k-mers in either or both samples
 
 A Jaccard distance of 1 means the samples are identical; a Jaccard distance of 0 means the samples are completely different.
 
-This is a great measure and it can be used to search databases and cluster unknown genomes and all sorts of other things!  The only real problem with it is that there are a *lot* of k-mers in a genome -- a 5 Mbp genome (like E. coli) has 5 m k-mers!
+Jaccard distance works really well when we don't care how many times we see a k-mer. 
+When we keep track of the abundance of a k-mer, say for example in RNA-seq samples where the number of read counts matters, we use cosine distance instead. 
+
+These two measures can be used to search databases, compare RNA-seq samples, and all sorts of other things!  The only real problem with it is that there are a *lot* of k-mers in a genome -- a 5 Mbp genome (like E. coli) has 5 m k-mers!
 
 About two years ago, [Ondov et al. (2016)](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-0997-x) showed that [MinHash approaches](https://en.wikipedia.org/wiki/MinHash) could be used to estimate Jaccard distance using only a small fraction (1 in 10,000 or so) of all the k-mers.
 
@@ -131,44 +90,229 @@ We have implemented a MinHash approach in our [sourmash software](https://github
 To install sourmash, run:
 
 ```
-conda install -y sourmash
+conda install -y -c conda-forge -c bioconda sourmash
 ```
 
+## Creating signatures
 
-## Generate a signature for Illumina reads
+A signature is a compressed representation of the k-mers in the sequence. 
 
-Download some reads and a reference genome:
+Depending on your application, we recommend different ways of preparing sequencing data to create a signature. 
+
+In a genome or transcriptome, we expect that the k-mers we see are accurate. We can create 
+signatures from these type of sequencing data sets without any preparation. We demonstrate
+how to create a signature from high-quality sequences below.
+
+First, download a genome assembly:
 
 ```
-mkdir ~/data
-cd ~/data
-curl -L https://osf.io/frdz5/download -o ecoli_ref-5m.fastq.gz 
+cd ~
+mkdir sourmash_data
+cd sourmash_data
+
 curl -L https://osf.io/963dg/download -o ecoliMG1655.fa.gz 
+gunzip -c ecoliMG1655.fa.gz | head
 ```
+
+Compute a scaled MinHash from the assembly:
+
+```
+sourmash compute -k 21,31,51 --scaled 2000 --track-abundance -o ecoliMG1655.sig ecoliMG1655.fa.gz
+```
+
+For raw sequencing reads, we expect that many of the unique k-mers we observe will be due
+to errors in sequencing. Unlike with high-quality sequences like transcriptomes and 
+genomes, we need to think carefully about how we want to create each signature, as it will
+depend on the downstream application. 
+
++ **Comparing reads against high quality sequences**: Because our references that we are
+comparing or searching against only contain k-mers that are likely real, we don't want to 
+trim potentially erroneous k-mers. Although most of the k-mers would be errors that we 
+would trim, there is a chance we could accidentally remove **real** biological variation
+that is present at low abundance. Instead, we only want to trim adapters.
++ **Comparing reads against other reads**: Because both datasets likely have many 
+erroneous k-mers, we want to remove the majority of these so as not to falsely deflate
+similarity between samples. Therefore, we want to trim what are likely erroneous k-mers 
+from sequencing errors, as well as adapters.
+
+Let's download some raw sequencing reads and demonstrate what k-mer trimming looks like. 
+
+First, download a read file:
+
+```
+curl -L https://osf.io/pfxth/download -o ERR458584.fq.gz
+gunzip -c ERR458584.fq.gz | head
+```
+
+Next, perform k-mer trimming using a library called khmer. K-mer trimming removes
+low-abundant k-mers from the sample.
+
+```
+trim-low-abund.py ERR458584.fq.gz -V -Z 10 -C 3 --gzip -M 3e9 -o ERR458584.khmer.fq.gz
+```
+
+Finally, calculate a signature from the trimmed reads.
+```
+sourmash compute -k 21,31,51 --scaled 2000 --track-abundance -o ERR458584.khmer.sig ERR458584.khmer.fq.gz
+```
+
 [![qc](_static/Sourmash_flow_diagrams_QC.thumb.png)](_static/Sourmash_flow_diagrams_QC.png)
 
 
 [![compute](_static/Sourmash_flow_diagrams_compute.thumb.png)](_static/Sourmash_flow_diagrams_compute.png)
 
-Compute a scaled MinHash signature from our reads:
+We can prepare signatures like this for any sequencing data file! For the rest of the 
+tutorial, we have prepared signatures for each sequencing data set we will be working
+with.
+
+## Compare many RNA-seq samples quickly
+
+Use case: how similar are my samples to one another?
+
+Traditionally in RNA-seq workflows, we use MDS plots to determine how similar our samples
+are. Samples that are closer together on the MDS plot are more similar. However, to get
+to this point, we have to trim our reads, download or build a reference transcriptome,
+quantify our reads using a tool like Salmon, and then read the counts into R and make an
+MDS plot. This is a lot of steps to go through just to figure out how similar your samples
+are! 
+
+Luckily, we can use sourmash to quickly compare how similar our samples are. 
+
+We [generated signatures](https://github.com/taylorreiter/yeast-rna-sigs/blob/master/Snakefile) 
+for the majority of the rest of the 
+[Schurch et al. experiment](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4878611/) we 
+have been working with this week. Below we download and compare the 647 signatures, and
+then produce a plot that shows how similar they are to one another.
+
+First, download and uncompress the signatures.
 
 ```
-mkdir ~/sourmash
-cd ~/sourmash
-
-sourmash compute --scaled 2000 ~/data/ecoli_ref-5m.fastq.gz -o ecoli-reads.sig -k 31
+curl -o schurch_sigs.tar.gz -L https://osf.io/p3ryg/download
+tar xf schurch_sigs.tar.gz
 ```
+
+Next, compare the signatures using sourmash.
+
+```
+sourmash compare -k 31 -o schurch_compare_matrix schurch_sigs/*sig
+```
+
+This outputs a comparison matrix and a set of labels. The matrix is symmetrical, and 
+contains numbers 0-1 that captures similarity between samples. 0 means there are no 
+k-mers in common between two samples, while 1 means all k-mers are shared.
+
+Lastly, we plot the comparison matrix.
+
+```
+sourmash plot --labels schurch_compare_matrix
+```
+
+![compare](_static/schurch_comp.matrix.png)
+
+We see there are two major blocks of similar samples, which makes sense given that we have
+WT and SNF2 knockout samples. However, we also see that some of our samples are outliers!
+If this were our experiment, we would want to investigate the outliers further to see 
+what caused them to be so dissimilar.
+
+## Detect Eukaryotic Contamination in Raw RNA Sequencing data
+
+Use case: Search for the presence of unexpected organisms in raw RNA-seq reads 
+
+For most analysis pipelines, there are many steps that need to be executed before we get 
+to the analysis and interpretation of what is in our sample. This often means we are 10-15
+steps into our analysis before we find any problems. However, if our reads contain 
+contamination, we want to know that as quickly as possible so we can remove the
+contamination and solve any issues that led to the contamination.
+
+Using sourmash, we can quickly check if we have any unexpected organisms in our sequencing
+samples. We do this by comparing a signature from our reads against a database of known 
+signatures from publicly available reference sequences.
+ 
+We have generated sourmash databases for all publicly available Eukaryotic RNA samples
+(we used the `*rna_from_genomic*` files from RefSeq and Genbank...however keep in mind
+that not all sequenced genomes have these files!). This database includes
+fungi, plants, vertebrates, invertebrates, and protazoa. It does not include human, so we
+incorporate that separately. We also built another database of the ~700 recently 
+[re-assembled](https://academic.oup.com/gigascience/article/8/4/giy158/5241890)  marine 
+transcriptomes from the 
+[MMETSP project](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001889). 
+These databases allow us to detect common organisms that might be unexpectedly present
+in our sequencing data. 
+
+First, let's download and uncompress our three databases: human, MMETSP, and everything 
+else!
+
+```
+wget -O sourmash_euk_rna_db.tar.gz https://osf.io/vpk8s/download
+tar xf sourmash_euk_rna_db.tar.gz
+```
+
+Next, let's download a signature from some sequencing reads. We'll work with some 
+sequencing reads from a wine fermentation. 
+
+```
+wget -O wine.sig https://osf.io/5vsjq/download
+```
+
+We expected fungus and grape to be metabolically active in these samples. Let's check 
+which organisms we detect.
+
+```
+sourmash gather -k 31 --scaled 2000 -o wine.csv wine.sig sourmash_euk_rna_db/*sbt.json *sig  
+```
+
+If we take a look at the output, we see:
+
+```
+== This is sourmash version 2.0.1. ==
+== Please cite Brown and Irber (2016), doi:10.21105/joss.00027. ==
+
+loaded query: wine_fermentation... (k=31, DNA)
+downsampling query from scaled=2000 to 2000
+loaded 1 signatures and 2 databases total.
+
+
+overlap     p_query p_match avg_abund
+---------   ------- ------- ---------
+2.2 Mbp       79.0%   28.5%     122.2     Sc_YJM1477_v1  Saccharomyces cerevis...
+0.8 Mbp        1.4%    2.2%       6.2     12X  Vitis vinifera (wine grape)
+2.1 Mbp        0.4%    1.6%       9.3     GLBRCY22-3  Saccharomyces cerevisiae...
+124.0 kbp      0.1%    0.7%       3.1     Aureobasidium pullulans var. pullula...
+72.0 kbp       0.0%    0.1%       1.9     Mm_Celera  Mus musculus (house mouse)
+1.9 Mbp        0.0%    0.5%       3.7     Sc_YJM1460_v1  Saccharomyces cerevis...
+1.8 Mbp        0.1%    0.5%      14.1     ASM18217v1  Saccharomyces cerevisiae...
+2.1 Mbp        0.1%    0.3%      17.7     R008  Saccharomyces cerevisiae R008 ...
+1.9 Mbp        0.0%    0.1%       3.1     ASM32610v1  Saccharomyces cerevisiae...
+found less than 18.0 kbp in common. => exiting
+
+found 9 matches total;
+the recovered matches hit 81.2% of the query
+```
+
+...which is almost exactly what we expect, except we see some house mouse! And I promise
+Ratatouille was not making this wine.
+
+Using this method, we have now identified contamination in our reads. We could align to
+the mouse genome to remove these reads, however the best strategy to remove these reads
+may vary on a case by case basis.  
 
 ## Compare reads to assemblies
 
 Use case: how much of the read content is contained in the reference genome?
+
+First we’ll download some reads from an E. coli genome, then we will generate a signature from them
+
+```
+curl -L https://osf.io/frdz5/download -o ecoli_ref-5m.fastq.gz
+sourmash compute  -k 31 --scaled 2000 ~/sourmash_data/ecoli_ref-5m.fastq.gz -o ecoli-reads.sig
+```
 
 [![search](_static/Sourmash_flow_diagrams_search.thumb.png)](_static/Sourmash_flow_diagrams_search.png)
 
 Build a signature for an E. coli genome:
 
 ```
-sourmash compute --scaled 2000 -k 31 ~/data/ecoliMG1655.fa.gz -o ecoli-genome.sig
+sourmash compute --scaled 2000 -k 31 ~/sourmash_data/ecoliMG1655.fa.gz -o ecoli-genome.sig
 ```
 
 and now evaluate *containment*, that is, what fraction of the read content is
@@ -286,47 +430,15 @@ similarity   match
 
 identifying what genome is in the signature. Some pretty good matches but nothing above %75. Why? What are some things we should think about when we're doing taxonomic classification? 
 
-## Compare many signatures and build a tree.
-
-Adjust plotting (this is a bug in sourmash :) --
-```
-echo 'backend : Agg' > matplotlibrc
-```
-
-[![compare](_static/Sourmash_flow_diagrams_compare.thumb.png)](_static/Sourmash_flow_diagrams_compare.png)
-
-Compare all the things:
-
-```
-sourmash compare ecoli_many_sigs/* -o ecoli_cmp
-```
-
-and then plot:
-
-```
-sourmash plot --pdf --labels ecoli_cmp
-```
-
-which will produce a file `ecoli_cmp.matrix.pdf` and `ecoli_cmp.dendro.pdf`
-which you can then download via RStudio and view on your local computer.
-
-Here's a PNG version:
-
-[![E. coli comparison plot](_static/ecoli_cmp.matrix.thumb.png)](_static/ecoli_cmp.matrix.png)
-
-How do you interpret this?
-
-What does the little dot on the lower left mean? What is that and why is
-it occurring?
-
 ## What's in my metagenome?
 
 First, let's download and upack the database we'll use for classification
 ```
-cd ~/sourmash
-curl -L https://osf.io/zskb9/download -o genbank-k31.lca.json.gz 
+cd ~/sourmash_data
+curl -L https://osf.io/4f8n3/download -o genbank-k31.lca.json.gz
 gunzip genbank-k31.lca.json.gz
 ```
+
 This database is a GenBank index of all
 the microbial genomes
 -- this one contains sketches of all 87,000 microbial genomes (including viral and fungal). See
@@ -455,6 +567,5 @@ is a (non-exclusive) list of other uses that we've been thinking about --
 
 * index and search private sequencing collections;
 
-* search all of SRA for overlaps in metagenomes;
+* search all of SRA for overlaps in metagenomes
 
-Chat with Phillip or Titus if you are interested in these use cases!
