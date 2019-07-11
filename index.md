@@ -125,7 +125,7 @@ Room Conway will be led by [Sateesh Peri](https://twitter.com/perisateesh?lang=e
 	* **10:20-10:40am:** BREAK
 * **10:40am-12:00pm:** Elective Lab: (1) Intro to Git (continued) & (2) BYOD
 	* **12:00-1:00pm:** LUNCH
-* **1:00-2:00pm:** [Phillip Brooks](https://twitter.com/brooksph?lang=en) - Cloud platforms & Seven Bridges
+* **1:00-2:00pm:** [Rocio Martinez-Nunez](https://twitter.com/rociotmartinez?lang=en) - What comes after ANGUS?
 	* **2:00-2:10pm:** BREAK
 * **2:15-3:30pm:** Elective Lab: (1) [Microbial Ecology (a discussion on amplicon sequencing and metagenomics)](amplicon_and_metagen.md) & (2) Transcriptome Assembly and Annotation & (3) BYOD
 	* **3:30-3:50pm:** BREAK
@@ -139,11 +139,11 @@ Room Conway will be led by [Sateesh Peri](https://twitter.com/perisateesh?lang=e
 	* **10:20-10:40am:** BREAK
 * **10:40am-12:00pm:** Elective Lab: (1) Recovering "genomes" from metagenomes (continued) & (2) RNAseq in R (continued) & (3) BYOD
 	* **12:00-1:00pm:** LUNCH
-* **1:00-2:00pm:** [Rocio Martinez-Nunez](https://twitter.com/rociotmartinez?lang=en) - What comes after ANGUS?
+* **1:00-2:00pm:** [Phillip Brooks](https://twitter.com/brooksph?lang=en) - Cloud platforms & Seven Bridges
 	* **2:00-2:10pm:** BREAK
-* **2:15-3:30pm:** Elective Labs & BYOD (more info soon)
+* **2:15-3:30pm:** Elective Lab: (1) Seven Bridges & (2) BYOD (more info soon)
 	* **3:30-3:50pm:** BREAK
-* **3:50-5:00pm:** Elective Labs & BYOD (more info soon)
+* **3:50-5:00pm:** Elective Lab: (1) Seven Bridges & (2) BYOD (more info soon)
 	* **5:00pm:** DONE	
 	
 	
