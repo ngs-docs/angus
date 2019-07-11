@@ -19,8 +19,10 @@ We will be using a set of *Nematostella vectensis* mRNAseq reads from [Tulin et 
 
 To avoid needing to go though the trimming steps as before, we'll download a snakefile to take care of these steps for us. If you look at this file, you may notice it is very similar to the one you generated during the snakemake challenge.
 
+
 Download the snakefile:
 ```
+cd ~ # cd to home directory
 curl -L https://osf.io/2me4d/download -o nema_trim.snakefile
 ```
 
