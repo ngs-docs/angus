@@ -16,7 +16,7 @@ We will cover:
 ## What is a "Cluster"
 A cluster can be thought of as a group of computers which work together to allow you to log onto one computer (**head node**) and use resources to perform memory intensive functions from other connected computers.
 
-![](https://i.imgur.com/2nl5zzP.png)
+<center><img src="https://i.imgur.com/2nl5zzP.png" width="100%"></a></center>
 ###### Image modified from (http://www.vrlab.umu.se/documentation/guides/beginner-guide)
 
 
@@ -35,10 +35,10 @@ This is the password you entered when you generated your rsa_key or the one you 
 
 When you have successfully logged in, you'll probably see a lot of text that gives you some important information--READ THIS!--like when maintenence on the machines will take place, information about which machines are appropriate for what kind of work, and probably some information about space allocation. This will vary between institutions. It might look something like this:
 
-![](https://i.imgur.com/JdDspJe.png)
-
+<center><img src="https://i.imgur.com/JdDspJe.png" width="100%"></a></center>
  Also, notice when you log onto the cluster your prompt will change:
- ![](https://i.imgur.com/igIqHiv.png)
+
+ <center><img src="https://i.imgur.com/igIqHiv.png" width="100%"></a></center>
 
 When you log onto the cluster you automatically start interacting on the login/head node. **This is a computer that is shared by all the users** who have logged onto the cluster you are using. The login/head has a limited amount of resources (memory & RAM) dedicated to it. As such, make sure you only run commands that don't take up much memory like navigating around `cd`, looking at files with `less`, creating scripts or looking through directories `ls` on the head node.
 
