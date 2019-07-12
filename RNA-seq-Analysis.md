@@ -136,7 +136,7 @@ This is how you start any project in R: set your working directory, where you wi
 
 We are now going to download the rest of the lesson and follow it on RMarkdown, which is a great way of making and sharing documents. Type in your Terminal:
 
-`wget "https://github.com/maggimars/YeastTutorial/blob/master/R_RNA.Rmd"`
+`wget https://raw.githubusercontent.com/maggimars/YeastTutorial/master/R_RNA.Rmd`
 
 and let's get started!
 
