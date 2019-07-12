@@ -1,9 +1,5 @@
 # RNA-seq Analysis
 
-## Table of Contents
-
-[TOC]
-
 ## Some basics 
 
 We are going to first talk about different needs in RNA-seq, from basics in library prep to the last steps of analyses. 
@@ -36,8 +32,9 @@ We are going to first talk about different needs in RNA-seq, from basics in libr
 | Pathway analysis | GSET |
 | Visualization 1 | Visualization 100!|
 | Upload them before paper submission! | Upload them before paper submission!|
+
 ## Installations
----
+
 We have installed the 'heaviest' packages that you need in this lesson in our [Jetstream](https://use.jetstream-cloud.org/application/) image. For future work, these are the installations that you will need, so that you have all of them together:
 ```
 source("https://bioconductor.org/biocLite.R") # calls the package from the source
@@ -152,13 +149,14 @@ and let's get started!
 
 ## More resources
 
-[*ExpressionSet*](https://www.bioconductor.org/packages//2.10/bioc/vignettes/Biobase/inst/doc/ExpressionSetIntroduction.pdf)
-[salmon](https://combine-lab.github.io/salmon/getting_started/)
-[DESEq2](http://bioconductor.org/packages/devel/bioc/vignettes/DESeq2/inst/doc/DESeq2.html)
-[Data Carpentry R]
-[Software Carpentry R]
+[*ExpressionSet*](https://www.bioconductor.org/packages//2.10/bioc/vignettes/Biobase/inst/doc/ExpressionSetIntroduction.pdf)  
 
-:::info
-**Find this document incomplete?** Leave a comment!
-:::
+[salmon](https://combine-lab.github.io/salmon/getting_started/)  
+
+[DESEq2](http://bioconductor.org/packages/devel/bioc/vignettes/DESeq2/inst/doc/DESeq2.html)  
+
+[Data Carpentry R](https://datacarpentry.org/)  
+
+[Software Carpentry R](https://software-carpentry.org/)
+
 ###### tags: `RNA-seq` `R` `Bioconductor` `DESeq2`
