@@ -135,9 +135,9 @@ Room Conway will be led by [Sateesh Peri](https://twitter.com/perisateesh?lang=e
 	
 **Friday, July 12th, 2019**
 
-* **9:00-10:20am:** Elective Lab: (1) [Recovering "genomes" from metagenomes](recovering-rep-genomes-from-mgs.md) & (2) RNAseq in R & (3) BYOD
+* **9:00-10:20am:** Elective Lab: (1) [Recovering "genomes" from metagenomes](recovering-rep-genomes-from-mgs.md) & (2) [RNAseq in R](RNA-seq-Analysis.md) & (3) BYOD
 	* **10:20-10:40am:** BREAK
-* **10:40am-12:00pm:** Elective Lab: (1) [Recovering "genomes" from metagenomes](recovering-rep-genomes-from-mgs.md) (continued) & (2) RNAseq in R (continued) & (3) BYOD
+* **10:40am-12:00pm:** Elective Lab: (1) [Recovering "genomes" from metagenomes](recovering-rep-genomes-from-mgs.md) (continued) & (2) [RNAseq in R](RNA-seq-Analysis.md) (continued) & (3) BYOD
 	* **12:00-1:00pm:** LUNCH
 * **1:00-2:00pm:** [Phillip Brooks](https://twitter.com/brooksph?lang=en) - Cloud platforms & Seven Bridges
 	* **2:00-2:10pm:** BREAK
