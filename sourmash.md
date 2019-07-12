@@ -258,7 +258,7 @@ We expected fungus and grape to be metabolically active in these samples. Let's 
 which organisms we detect.
 
 ```
-sourmash gather -k 31 --scaled 2000 -o wine.csv wine.sig sourmash_euk_rna_db/*sbt.json *sig  
+sourmash gather -k 31 --scaled 2000 -o wine.csv wine.sig sourmash_euk_rna_db/*sbt.json sourmash_euk_rna_db/*sig  
 ```
 
 If we take a look at the output, we see:
