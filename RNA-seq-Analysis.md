@@ -16,6 +16,7 @@ We are going to first talk about different needs in RNA-seq, from basics in libr
 | Single end | Paired end |
 | Short Read (50) | Medium Read (150)
 | Depth 1 | Depth 2|
+| RNA-seq | Targeted RNA-seq |
 
 + **Biological vs Technical replicates**
 
