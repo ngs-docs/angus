@@ -57,7 +57,7 @@ Let's start downloading the example data and then talk about what a co-assembly 
 
 ```bash
 cd ~/
-curl -L https://ndownloader.figshare.com/files/12389045 -o metagen-ex.tar.gz
+curl -L https://ndownloader.figshare.com/files/16249280 -o metagen-ex.tar.gz
 ```
 
 ## What is a co-assembly?
