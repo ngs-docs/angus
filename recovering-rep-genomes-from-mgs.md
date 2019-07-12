@@ -45,7 +45,8 @@ We'll need two programs for the work in this page. They are going to be installe
 Here, we are creating a new environment and specifying the packages we want installed at the same time, then entering the environment: 
 
 ```bash
-conda create -y -n metagen_example -c conda-forge -c bioconda bowtie2=2.2.5 anvio=5.5.0 megahit=1.1.1 centrifuge=1.0.4
+conda create -y -n metagen_example -c conda-forge -c bioconda \
+             bowtie2=2.2.5 anvio=5.5.0 megahit=1.1.1 centrifuge=1.0.4
 
 conda activate metagen_example
 ```
@@ -70,7 +71,7 @@ Three major benefits of co-assembly include:
 3. it can substantially improve your ability to recover genomes from metagenomes due to the awesome power of differential coverage (you can download a slide showing how coverage is used to do this from here -> [keynote](https://ndownloader.figshare.com/files/12367211), [powerpoint](https://ndownloader.figshare.com/files/12367226)).
 
 ## To co-assemble or not to co-assemble?
-Though a co-assembly has its benefits, it will not be ideal in all circumstances. And as with most things in bioinformatics, there are no golden rules as for when it would be better to co-assemble multiple samples together over when it would be better to run individual assemblies on each. This is because it depends on many factors like: the diversity of the communities as a whole; how much variation in the communities there is between the samples; the assembler(s) we're trying; and our overall goals. There can be many situations where a co-assembly might give us a much poorer assembly than any individual assembly might, and there are cases where we might get a much better assembly from a co-assembly than from any individual sample's assembly. It is something to be aware of and consider, and if we have the time and resources, it is reasonable to try multiple avenues.
+Though a co-assembly has its benefits, it will not be ideal in all circumstances. And as with most things in bioinformatics, there are no golden rules as for when it would be better to co-assemble multiple samples together over when it would be better to run individual assemblies on each. This is because it depends on many factors, like: the diversity of the communities as a whole; how much variation in the communities there is between the samples; the assembler(s) we're trying; and our overall goals. There can be many situations where a co-assembly might give us a much poorer assembly than any individual assembly might, and there are cases where we might get a much better assembly from a co-assembly than from any individual sample's assembly. It is something to be aware of and consider, and if we have the time and resources, it is reasonable to try multiple avenues.
 
 >**NOTE:** The following examples are not authoritative guidelines at all, those really don't exist for this. These are just anecdotally observed trends 🙂
 
@@ -157,7 +158,7 @@ The next code block shows how we would run [bowtie2](http://bowtie-bio.sourcefor
    ## DON'T RUN THIS CODE BLOCK; WE WILL COPY OVER THE RESULTS ##
 
   # making index
-bowtie2-build final.contigs.fa assembly
+# bowtie2-build final.contigs.fa assembly
 
   # here is what mapping one sample would look like
 # bowtie2 -q -x assembly -1 ../data/Sample_A_1.fastq.gz \
@@ -217,8 +218,11 @@ For all those steps we need to run on each individual sample, it'd be much bette
 As mentioned above, running that together would take a little longer than is practical for us time-wise. So here we're just going to copy over the file resulting final ".bam" files and their ".bai" indexes:
 
 ```bash
-ls ../results/*.bam*
-cp ../results/*.bam* .
+ls ../results/*.bam
+cp ../results/*.bam .
+
+ls ../results/*.bai
+cp ../results/*.bai .
 ```
 
 ## Identifying individual MAGs based on coverage and sequence composition within anvi'o
@@ -229,14 +233,16 @@ Here we're going to put our assembly into the anvi'o framework and use it to hel
 
 ### Putting our assembly into anvi'o and generating some information about it
 
-For us to get our assembly into anvi'o, first we need to generate what it calls a [contigs database](http://merenlab.org/2016/06/22/anvio-tutorial-v2/#creating-an-anvio-contigs-database). This contains the contigs from our assembly and some information them (like GC content, tetranucleotide frequency, and open-reading frame coordinates). The following command will organize our contigs in an anvi'o-friendly way, generate some basic stats about them, and use the program [Prodigal](https://github.com/hyattpd/Prodigal) to identify [open-reading frames](https://en.wikipedia.org/wiki/Open_reading_frame) (takes < 2 min.):
+For us to get our assembly into anvi'o, first we need to generate what it calls a [contigs database](http://merenlab.org/2016/06/22/anvio-tutorial-v2/#creating-an-anvio-contigs-database). This contains the contigs from our assembly and some information them (like GC content, tetranucleotide frequency, and open-reading frame coordinates). The following command will organize our contigs in an anvi'o-friendly way, generate some basic stats about them, and use the program [Prodigal](https://github.com/hyattpd/Prodigal) to identify [open-reading frames](https://en.wikipedia.org/wiki/Open_reading_frame). This is how the code would be run, but again to save time, we are going to skip it here and copy the results in a bit:
 
 ```bash
-anvi-gen-contigs-database -f final.contigs.fa -o contigs.db \
-                          -n "Our metagenome"
+   ## DON'T RUN THIS CODE BLOCK; WE WILL COPY OVER THE RESULTS ##
+
+# anvi-gen-contigs-database -f final.contigs.fa -o contigs.db \
+#                           -n "Our metagenome"
 ```
 
-Now that we have our `contigs.db` that holds our sequences and some basic information about them, we can start adding more information. This is one of the places where the flexibility comes into play, but for now we'll just move forward with some parts of a general anvi'o workflow, including:
+After generating an initial `contigs.db` that holds our sequences and some basic information about them, we can start adding more information. This is one of the places where the flexibility comes into play, but for now we'll just move forward with some parts of a general anvi'o workflow, including:
 
 - using the program [HMMER](http://hmmer.org/) with profile hidden Markov models (HMMs) to scan for bacterial single-copy genes [(from Campbell et al. 2013)](http://www.pnas.org/content/110/14/5540.short)
   - if new to HMMs, see the bottom of page 7 [here](http://eddylab.org/software/hmmer3/3.1b2/Userguide.pdf) for a good explanation of what exactly a "hidden Markov model" is in the realm of sequence data
@@ -246,7 +252,7 @@ Now that we have our `contigs.db` that holds our sequences and some basic inform
 
 - using a tool called [centrifuge](https://ccb.jhu.edu/software/centrifuge/index.shtml) for taxonomic classification of the identified open-reading frames
 
-The following block of code would take ~45 minutes to run, mostly because of needing to download and setup some databases (only needed for their first use). So we are going to skip running this code block and copy over the results after.
+The following block of code would take ~45 minutes to run, mostly because of needing to download and setup some databases (only needed for their first use). So we are going to skip running this code block also and copy over the results.
 
 ```bash
    ## DON'T RUN THIS CODE BLOCK; WE WILL COPY OVER THE RESULTS ##
@@ -353,6 +359,7 @@ If that successfully launches, your terminal should display this message:
 
 Then go to your computer's web browser and paste in the link that we generated in the terminal with the above `echo` command. Once there, click the "Draw" buttom at the bottom left and you should see something like this:
 
+<br>
 <center><img src="_static/metagen-anvi-open.png" width="95%"></center>
 <br>
 
@@ -362,11 +369,13 @@ At the center of the figure is a hierarchical clustering of the contigs from our
 
 Let's look at the taxonomy layer at the outer edge for a second, if we press the `M` key on our keyboard, a panel should pop out from the right side with information. Then if we hover over the taxonomy bar, we will see the taxonomy classification for whichever particular contig we are hovering over. Here is an example:
 
+<br>
 <center><img src="_static/metagen-anvi-tax.png" width="95%"></center>
 <br>
 
 Your colors will probably be different, as they are chosen at random when launched if not set already. Try to find the cluster of contigs that represents *Trichodesmium*. If we click on the "Bins" tab at the top left, and then select the branch on the tree at the center that holds all the *Trichodesmium*-classified contigs, we will see a real-time estimate of % completion/redundancy:
 
+<br>
 <center><img src="_static/metagen-tricho-bin.png" width="95%"></center>
 <br>
 
@@ -374,11 +383,13 @@ And we can see in the left pane that we selected 535 splits (contigs and/or spli
 
 In the panel to the left, click "New bin", and let's look at some of these other clusters of contigs. Try to find the *Alteromonas* cluster, and then select the branch that holds them:
 
+<br>
 <center><img src="_static/metagen-alteromonas.png" width="95%"></center>
 <br>
 
 This ones says 4.93 Mbps which is pretty spot on for a typical *Alteromonas* genome, with an estimated 99.3% complete and 0.7% redundancy. Here we had the taxonomy clearly helping to define this group of contigs, but that's very dependent on databases. Let's imagine we didn't have the taxonomy guiding us, and take a closer look at the coverage of reads from the 4 different samples across these contigs:
 
+<br>
 <center><img src="_static/metagen-alt-close.png" width="95%"></center>
 <br>
 
@@ -386,11 +397,13 @@ Notice how across the samples (the rows wrapping around the circle), the coverag
 
 Let's look at one where the taxonomy layer is a mess and doesn't help as much. First click "New bin" again at the left, then select this cluster of contigs:
 
+<br>
 <center><img src="_static/metagen-bacteroidetes.png" width="95%"></center>
 <br>
 
 Note again how drastically the coverage shifts across samples, but how consistent it is within a sample. This is currently the most powerful tool we have for attempting to recover genomes from metagenomes. There are some contigs with pretty different coverage at the top here, higher than the rest of what we've selected, and they also have a pretty drastically different GC content:
 
+<br>
 <center><img src="_static/metagen-bac-choppy.png" width="95%"></center>
 <br>
 
@@ -398,6 +411,7 @@ But, they still change consistently across samples in the same fashion the rest 
 
 So let's go one layer deeper and take a quick look at this. If we "right" click on one of the specific contigs, here selecting the tallest peak in coverage "c_000000020639", we'll get a menu where we can select "Inspect" which opens a visualization of that particular contig:
 
+<br>
 <center><img src="_static/metagen-bac-transposon.png" width="95%"></center>
 <br>
 
@@ -406,6 +420,7 @@ So let's go one layer deeper and take a quick look at this. If we "right" click 
 
 Here each row is a sample, the x-axis is the contig laid out, showing about 1,400 bps here, and the peaks show read coverage according to the y-axis on the left side. The majority of this contig is spanned by one gene, shown by the green arrow on the bottom (green means there is an annotation stored, gray is one without any annotation stored). If we click on that green arrow, we can see what the gene was annotated as:
 
+<br>
 <center><img src="_static/metagen-bac-transposon-B.png" width="95%"></center>
 <br>
 
@@ -416,6 +431,7 @@ This was just an example of how this interface can help us manually identify and
 ## Exporting our bins
 Now that we've selected 3 bins, if we want to export them from anvi'o we need to save them first. To do that, on the "Bins" pane at the left of the main interactive screen, we need to select "Store bin collection", and give it a new name like "my_bins" and click "Store". Then one way we can summarize them and generate fasta files for them is by clicking "Generate a static summary page" in the "Bins" pane, and then select the new collection we made, and then click "Generate":
 
+<br>
 <center><img src="_static/metagen-anvi-summarize.png" width="95%"></center>
 <br>
 
