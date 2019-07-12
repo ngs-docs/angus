@@ -62,16 +62,8 @@ browseVignettes("Biobase")
 ```
 
 ## A simple RNA-seq flow
----
-```sequence
-seq reads ->RapClust: no reference
-seq reads ->salmon: reference
-quantified reads-->DESeq2: import into R
-Note left of DESeq2: tximport
-DESEq2-->Amazing data: sample clustering
-DESEq2-->Amazing data: pathway analysis
-DESEq2-->Amazing data: GSET
-```
+
+<center><img src="_static/rna-seq-workflow.png" width="100%"></a></center>
 
 ## [DESeq2](http://bioconductor.org/packages/devel/bioc/vignettes/DESeq2/inst/doc/DESeq2.html#tximport)
 
