@@ -154,5 +154,6 @@ Room Conway will be led by [Sateesh Peri](https://twitter.com/perisateesh?lang=e
 * **9:00-9:30am:** XSEDE Resources with [Sateesh Peri](https://twitter.com/perisateesh?lang=en) 
 * **9:30-10:20am:** Closing thoughts by [Mike Lee](https://twitter.com/AstrobioMike?lang=en) 
 	* **10:20am-10:40am:** BREAK
+* **10:40am-11:30am:** Classroom feedback--1up/1down (in classrooms) & TA / Instructor meeting (in Rm1030)
 * **11:30am-12:00pm:** Assessment & Final Perspective
 	* **12:00pm:** THANK YOU & HAPPY TRAVELS! 
