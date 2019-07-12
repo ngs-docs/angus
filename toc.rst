@@ -51,3 +51,5 @@ Table of Contents
    
    sourmash.md
    
+   RNA-seq-Analysis.md
+   
