@@ -48,7 +48,7 @@
 
 ---
 
-### [Taylor Reiter](taylorreiter.github.io)  
+### [Taylor Reiter](https://taylorreiter.github.io)  
 - I work with metagenomic and metatranscriptomic sequencing data & wine. I use R, python, bash, snakemake, conda, git & github to power my workflows.
   - contact: [@ReiterTaylor](https://twitter.com/ReiterTaylor); tereiter@udavis.edu
 
