@@ -157,3 +157,5 @@ Room Conway will be led by [Sateesh Peri](https://twitter.com/perisateesh?lang=e
 * **10:40am-11:30am:** Classroom feedback--1up/1down (in classrooms) & TA / Instructor meeting (in Rm1030)
 * **11:30am-12:00pm:** Assessment & Final Perspective
 	* **12:00pm:** THANK YOU & HAPPY TRAVELS! 
+
+[Some contact info](feel-free-to-reach-out.md) 😊
