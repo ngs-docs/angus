@@ -66,7 +66,9 @@ echo $0
 6. Getting files on and off a remote space:
     - `scp` - Instructions -> https://kb.iu.edu/d/agye
     Note that some clusters require specific **transfer nodes** to transfer data to and from the cluster. To transfer from a specific port use:
-    `scp -p <port_number> <item(s)_to_copy> <destination>`
+    ```
+    scp -p <port_number> <item(s)_to_copy> <destination>
+    ```
     - `sftp` - Instructions -> https://hackmd.io/s/rybzCZasX#
         - bonus instructions for filezilla included in above link
     - `git` - clone/merge things into/from a remote repo. Not super efficient but works for most purposes.
@@ -190,61 +192,63 @@ There are two main ways you can request resources using slurm:
 
 Interactive sessions allow you to work on computers that aren't the login/head node. Essentially you can do everything you've done at the command line interface on Jetstream on the compute cluster. This is really powerful for doing memory intensive commands that you may not need to keep track of. However, with this power comes a great danger as the commands you run will not be save in a script anywhere. So, if you wanted to go back and recreate an analysis, you won't know what you've run or with which versions of software.
 
-To request and launch a very basic interactive session that will last for two hours use the following:
+To request and launch a basic interactive session that will last for two hours use the following:
 ```
 srun --time=02:00:00 --pty /bin/bash
 ```
 
 Pay close attention to the time you give to yourself using `srun`! Slurm will terminate the session immediately at the end of the allotted time. It, sadly, doesn't care if you are 99.99% of the way through your analysis :0]
 
-Also, you can request more resources by using to following flags:
+Also, you can request more/different resources by using to following flags:
 * `--mem=<number>Gb` request memory
 * `-c <number>` request a certain number of CPUs
 
 
 #### 2.Submit batch scripts with `sbatch`
 
-Batch job scripts (also known) are scripts that contain `#!/bin/bash` at the beginning of each script and are submitted to the slurm workload manager by using `sbatch`. When we submit a script to slurm it is considered a _job_ and gets a job ID assigned to it.
+Batch job scripts (also known as job scripts) are scripts that contain `#!/bin/bash` at the beginning of each script and are submitted to the slurm workload manager by using `sbatch`. When we submit a script to slurm it is considered a _job_ and gets a unique job ID assigned to it.
 
-There are a few things which are required for the workload manager before the workload manager can & will accept the jobs we wish to run.
+There are a few parameters which are required before the workload manager can & will accept the jobs we submit to run.
 
 Required input:
-* the **time** we request to run our job/submitted script. A job scheduler will not accept a job without a time parameter. We can request time with the following flag: `--time=01-02:03:04`
-* the **partition** we would like to use for our job––oftentimes this will also entail the _priority_ in which our job is submitted. We can request time with the following flag: `-p <name_of_partition>`
-* the **memory** required to run our job. We can request time with the following flag: `--mem=16Gb`
+* the **time** we request to run our job/submitted script. A job scheduler will not accept a job without a time parameter. We can request time with the following flag: `--time=01-02:03:04` Note: the format is dd-hh:mm:ss
+* the **partition** we would like to use for our job––oftentimes this will also entail the _priority_ in which our job is submitted. We can request a partition by using the following flag: `-p <name_of_partition>`
+* the **memory** required to run our job. We can request a specified amount of time with the following flag: `--mem=<number>Gb`
 
 Optional input:
-* we can have slurm **mail** us updates about our job, such as when it starts, ends or if it fails. We can request slurm emails us with the following flag: `--mail-user=<your_email> --mail-user=<your_email>`
+* we can have slurm **mail** us updates about our job, such as when it starts(`BEGIN`), ends(`END`), if it fails(`FAIL`) or all of the above (`ALL`). We can request slurm emails us with the following flag: `--mail-user=<your_email> --mail-type=ALL`
 * we can also give jobs specific **names**. To name your job use: `-J <job_name>` Be careful, as there is a limit to the number of characters your job name can be.
 * slurm automatically generates output scripts where all of the output from commands run from the script are printed to. These will take the form as `slurm12345.out` where 12345 is the unique identifying number slurm assigns to the file. We can change this to any output file name we want. To specify the name of your output file use `-o <file_name>.out`
 * slurm can generate error files, where all of the errors from the script are printed to. We ask slurm to create err files and name them with `-e <file_name>.err`
 
 If we were hard to ourselves we would write these out at the command line each time we submitted a job to slurm with `sbatch`. It would look something like this:
 ```
-sbatch --time=01-02:03:04 -p <name_of_partition> --mem=16Gb --mail-user=<your_email> --mail-user=<your_email> -J <job_name> -o <file_name>.out -e <file_name>.err
+sbatch --time=01-02:03:04 -p <name_of_partition> --mem=<number>Gb --mail-user=<your_email> --mail-type=ALL -J <job_name> -o <file_name>.out -e <file_name>.err
 ```
+We will ned to switch out the <text> with parameters specific to our preference, but hopefully you get the gist.
 
-However, we want to be nice to ourselves and our futureselves so we can put these run parameters into the beginning of our batch job scripts with the following **example `sbatch` script**:
+However, typing out the command above is quite lengthy and we want to be nice to our current and futureselves. So, we can put these run parameters into the beginning of our batch job scripts with the following **example `sbatch` script**:
 ```
 #!/bin/bash
 #
 #SBATCH --mail-user=<your_email>    # Your email
 #SBATCH --mail-type=ALL             # Options: ALL, NONE, BEGIN, END, FAIL, REQUEUE
-#SBATCH -J DIV60x                   # Job name (limit character usage)
-#SBATCH -e divide60x.err            # batch script's standard error file
-#SBATCH -o divide60x.out            # batch script's standard output file
+#SBATCH -J fastQC                   # Job name (limit character usage)
+#SBATCH -e fastQC.err               # batch script's standard error file
+#SBATCH -o fastQC.out               # batch script's standard output file
 #SBATCH --time=01-02:03:04          # time allocated to this job FORMAT: dd-hh:mm:ss
 #SBATCH --mem=16Gb                  # memory allocated to each node
-#SBATCH --partition                 # partition to request resources from
+#SBATCH --partition <partition>     # partition to request resources from
 
 set -e # exits job upon running into an error
 set -x # print commands and their arguments as they are executed.
 
 
-module load fastqc                  # Required modules to load
+module load fastqc                  # Required modules to load (you 
 
 fastqc <file>
 ```
+Generally job scripts end in `.sh` and occasionally `.slurm`
 
 ### Other Useful Commands
 
@@ -261,21 +265,33 @@ How do we know what resources are available to us through slurm?? `sinfo` lets u
 * `STATE` = this lists the current state of the nodes
 * `NODELIST` = this lists the node names that are currently at the same state on the same partition
 
+**Cancel jobs with `scancel`**
+We can cancel any and all jobs that we currently have submitted to slurm. 
+
+To cancel a particular job, we will need the job number (remember you can find this by using `squeue -u <username>`). Then, we can cancel the job with 
+```
+scancel <job_number>
+```
+
+Additionally, we can cancel ALL of our jobs by typing:
+```
+scancel -u <username>
+```
 
 
 
 # Remote  Vocabulary & Thesaurus
 
 | **Term** | **Definition** |
-| -------- | --------|
+| ----------- | --------------|
 |cluster| group of computers that is managed by institution |
 | job | a program or series of programs found in a script submitted to the job scheduler |
-|node| the functional unit of resources in a cluster|
+| node | the functional unit of resources in a cluster|
 
 
 
 | **Synonyms** | for all intensive purposes these are the same! |
-| -------- | ------- |
+| ---------- | ----------------- |
 | login node | head node|
 | cluster | remote cluster |
 | batch job script | batch script | job script |

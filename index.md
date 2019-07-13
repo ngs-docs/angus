@@ -151,9 +151,13 @@ Room Conway will be led by [Sateesh Peri](https://twitter.com/perisateesh?lang=e
 
 (check out of your rooms and bring luggage over. Please be sure to bring your computer!)
 
-* **9:00-9:30am:** XSEDE Resources with [Sateesh Peri](https://twitter.com/perisateesh?lang=en) 
-* **9:30-10:20am:** Closing thoughts by [Mike Lee](https://twitter.com/AstrobioMike?lang=en) 
+* **9:00am-9:30am:** [Cloud Resources](cloud_resources.md) with [Sateesh Peri](https://twitter.com/perisateesh?lang=en) 
+* **9:30am-10:00am:** Closing thoughts by [Mike Lee](https://twitter.com/AstrobioMike?lang=en)
+* **10:00am-10:20am:** What to Slack after DIBSI? by [Shannon Joslin](https://twitter.com/IntrprtngGnmcs?lang=en)
 	* **10:20am-10:40am:** BREAK
-* **10:40am-11:30am:** Classroom feedback--1up/1down (in classrooms) & TA / Instructor meeting (in Rm1030)
-* **11:30am-12:00pm:** Assessment & Final Perspective
+* **10:40am-11:00am:** Survey in Room 1030
+* **11:00am-11:30am:** Classroom feedback--1up/1down (in classrooms) & TA / Instructor meeting (in Rm1030)
+* **11:30am-12:00pm:** Titus Wrap up & Outro
 	* **12:00pm:** THANK YOU & HAPPY TRAVELS! 
+
+[Some contact info](feel-free-to-reach-out.md) 😊
