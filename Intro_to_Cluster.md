@@ -6,6 +6,7 @@ We will cover:
 * Cluster structure overview
 * Logging onto the cluster
 * Working on the cluster
+* Using job schedulers
 * Finding resources on the cluster
 
  *This tutorial was written by Chissa Rivaldi and Shannon Joslin and was last updated July 2019*
@@ -15,7 +16,7 @@ We will cover:
 ## What is a "Cluster"
 A cluster can be thought of as a group of computers which work together to allow you to log onto one computer (**head node**) and use resources to perform memory intensive functions from other connected computers.
 
-![](https://i.imgur.com/2nl5zzP.png)
+<center><img src="https://i.imgur.com/2nl5zzP.png" width="100%"></a></center>
 ###### Image modified from (http://www.vrlab.umu.se/documentation/guides/beginner-guide)
 
 
@@ -27,24 +28,24 @@ You need to provide the command with an address to complete the connection:
     ```
     ssh <username>@<computer.address>.edu
     ```
-The command you will use will look very similar to this. The username and password will be set when you start an account. Sometimes your cluster admins will require a training session before your credentials will be granted access to the machines.
+The command you will use will look very similar to this. Sometimes there may be a few flags the sys admin will suggest you use when logging in––follow their instructions! The username and password will be set when you start an account. Sometimes your cluster admins will require a training session before your credentials will be granted access to the machines.
 
 3. **Enter your password** and hit `enter`
-This is the password you entered when you generated your rsa_key or you gave to the admins who set up your account. When you enter your password you'll probably not see your cursor move as you're typing - this is a little odd the first few times you do it, but rest assured your keys are being registered.
+This is the password you entered when you generated your rsa_key or the one you gave to the admins who set up your account. When you enter your password you'll probably not see your cursor move as you're typing - this is a little odd the first few times you do it, but rest assured your keys are being registered.
 
 When you have successfully logged in, you'll probably see a lot of text that gives you some important information--READ THIS!--like when maintenence on the machines will take place, information about which machines are appropriate for what kind of work, and probably some information about space allocation. This will vary between institutions. It might look something like this:
 
-![](https://i.imgur.com/JdDspJe.png)
-
+<center><img src="https://i.imgur.com/JdDspJe.png" width="100%"></a></center>
  Also, notice when you log onto the cluster your prompt will change:
- ![](https://i.imgur.com/igIqHiv.png)
+
+ <center><img src="https://i.imgur.com/igIqHiv.png" width="100%"></a></center>
 
 When you log onto the cluster you automatically start interacting on the login/head node. **This is a computer that is shared by all the users** who have logged onto the cluster you are using. The login/head has a limited amount of resources (memory & RAM) dedicated to it. As such, make sure you only run commands that don't take up much memory like navigating around `cd`, looking at files with `less`, creating scripts or looking through directories `ls` on the head node.
 
 
 
 4. **Start computing!**
-Try some of the same things we've done previously in the command line!
+Try some of the basic commands (such as `ls` or `pwd` or `cd`) as we've done previously in the command line!
 Your cluster may run a different shell than `bash`, which we've been using throughout the workshop. To check which shell you are using type:
 ```
 echo $0
@@ -58,8 +59,8 @@ echo $0
 
     - Do not use `sudo` on remote clusters- this is not your computer and the people who run this computer will send you an irritable email if you try to use sudo to force anything to install or delete, etc. Luckily, you almost never need to use sudo in a bioinformatics workflow.
     - Do not upload a lot of data to this computer unless you have a lot of space. Your space allocation will generally be fixed, and you will have issues of varying irritability if you run out. If your cluster has scratch space available to you, ask for an allocation of that to *usually temporarily* gain more space.
-    - **Do not run memory-intensive programs on the login/head node**. Depending on your institution, you may have _testing nodes_ and/or _interactive nodes_, and you can make sure your code is working on these before you submit a job. When you run big programs at the command line on the **head node**, you consume a lot of the resources and slow down the machines for everyone using them. So make sure you keep it simple on the head node!
-    - Always back up your data and scripts! Occasionally clusters can have catastrophic failures where all or some data can be lost. Becuase of this chance, it is imperative to backup your data and consistent
+    - **Do not run memory-intensive programs on the login/head node**. Depending on your institution you may have _testing nodes_ and/or _interactive nodes_. You can make sure your code is working before you submit a job on these nodes. When you run big programs or use memory intensive commands (such as copying large files) on the **head node**, you consume A LOT of the resources and slow down the machines for everyone using them. So make sure you keep it simple on the head node!
+    - Always back up your data and scripts! Occasionally clusters can have catastrophic failures where all or some data can be lost. Becuase of this chance, it is imperative to backup your data consistently!
 
 
 6. Getting files on and off a remote space:

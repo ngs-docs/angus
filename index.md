@@ -141,7 +141,7 @@ Room Conway will be led by [Sateesh Peri](https://twitter.com/perisateesh?lang=e
 	* **12:00-1:00pm:** LUNCH
 * **1:00-2:00pm:** [Phillip Brooks](https://twitter.com/brooksph?lang=en) - Cloud platforms & Seven Bridges
 	* **2:00-2:10pm:** BREAK
-* **2:15-3:30pm:** Elective Lab: (1) Seven Bridges & (2) [Overview of Cluster Computing](Intro_to_cluster.md) & (3) BYOD
+* **2:15-3:30pm:** Elective Lab: (1) Seven Bridges & (2) [Overview of Cluster Computing](Intro_to_Cluster.md) & (3) BYOD
 	* **3:30-3:50pm:** BREAK
 * **3:50-5:00pm:** Elective Lab: (1) Seven Bridges & (2) BYOC (Bring Your Own Cluster\* questions \*for slurm and UGE & (3) BYOD
 	* **5:00pm:** DONE	
@@ -154,5 +154,6 @@ Room Conway will be led by [Sateesh Peri](https://twitter.com/perisateesh?lang=e
 * **9:00-9:30am:** XSEDE Resources with [Sateesh Peri](https://twitter.com/perisateesh?lang=en) 
 * **9:30-10:20am:** Closing thoughts by [Mike Lee](https://twitter.com/AstrobioMike?lang=en) 
 	* **10:20am-10:40am:** BREAK
+* **10:40am-11:30am:** Classroom feedback--1up/1down (in classrooms) & TA / Instructor meeting (in Rm1030)
 * **11:30am-12:00pm:** Assessment & Final Perspective
 	* **12:00pm:** THANK YOU & HAPPY TRAVELS! 
