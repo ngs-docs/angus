@@ -1,8 +1,8 @@
 # Feel free to reach out to us directly!
 
 ### [Rocio Martinez-Nunez](https://twitter.com/rociotmartinez)
-- RNA-seq goddess
-  - contact: [@rociotmartinez](https://twitter.com/rociotmartinez); rociotmartinez@kcl.ac.uk  
+- RNA-seq adn RNA things:
+  - contact: [@rociotmartinez](https://twitter.com/rociotmartinez); rocio.martinez_nunez@kcl.ac.uk  
 
 ---
 
