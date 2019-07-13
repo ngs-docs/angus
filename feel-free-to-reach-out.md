@@ -6,7 +6,7 @@
 
 ---
 
-### [Mike Lee](astrobiomike.github.io)  
+### [Mike Lee](https://astrobiomike.github.io)  
 - I focus primarily on microbial ecology and evolution, and have a good amount of experience with amplicon/marker-gene analysis, metagenomics, metatranscriptomics, bash, R, and python
   - contact: [@AstrobioMike](https://twitter.com/AstrobioMike); Mike.Lee@nasa.gov
 
@@ -31,6 +31,6 @@
 ---
 
 ### [Marian L. Schmidt](https://marschmi.github.io/marschmi.github.io/)  
-- My research focuses on the ecology & evolution of aquatic bacterial communities. Specifically, I'm interested in the drivers of community composition and the controls on bacterial genome size. I have experience (& am happy to help others!) with 16S rRNA amplicon data sets and recovering & refining genomes from complex metagenomic sequencing data sets. 
+- I study the drivers of aquatic bacterial community composition & the evolutionary controls on bacterial genome size. I have experience (& am happy to help others!) with 16S rRNA amplicon data sets, recovering genomes from complex metagenomic sequencing data sets, using version control with git/GitHub, and programming in R (Yay Rmarkdown!) & bash. 
   - contact: [@micro_marian](https://twitter.com/micro_marian); marschmi "at" utexas "dot" edu
 ---
