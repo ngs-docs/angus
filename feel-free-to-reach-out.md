@@ -34,3 +34,9 @@
 - My research focuses on the ecology & evolution of aquatic bacterial communities. Specifically, I'm interested in the drivers of community composition and the controls on bacterial genome size. I have experience (& am happy to help others!) with 16S rRNA amplicon data sets and recovering & refining genomes from complex metagenomic sequencing data sets. 
   - contact: [@micro_marian](https://twitter.com/micro_marian); marschmi "at" utexas "dot" edu
 ---
+
+---
+
+### [Shannon E.K. Joslin](https://github.com/shannonekj)  
+- i work in the field of Conservation Genetics and Genomics. I am broadly interested in providing tools to the scientific community through mechanisms such as genome assemblies and bioinformatics workshop. My dissertation work involves population genetics of _Hypomesus transpacificus_ (delta smelt) and identification of sex determination markers in the species. I love chatting about assembly and the refinement of assemblies, population genetics pipelines, `bash` and teaching. Please reach out with any questions! 
+  - contact: [@IntrprtngGnmcs](https://twitter.com/IntrprtngGnmcs); marschmi "at" utexas "dot" edu
