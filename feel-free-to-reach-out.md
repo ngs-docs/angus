@@ -18,7 +18,7 @@
 
 ---
 
-### Sichong Peng
+### [Sichong Peng](http://sichong.site/)
 - My study focuses on completing functional annotation of the horse genome. I have a strong interest of applying genomics tools to non-model organisms to improve health care of companion and agricultral animals.
   - contact: scpeng@ucdavis.edu
 
