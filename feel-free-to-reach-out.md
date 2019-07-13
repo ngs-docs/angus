@@ -34,3 +34,6 @@
 - My research focuses on the ecology & evolution of aquatic bacterial communities. Specifically, I'm interested in the drivers of community composition and the controls on bacterial genome size. I have experience (& am happy to help others!) with 16S rRNA amplicon data sets and recovering & refining genomes from complex metagenomic sequencing data sets. 
   - contact: [@micro_marian](https://twitter.com/micro_marian); marschmi "at" utexas "dot" edu
 ---
+### [Sateesh Peri]
+- My primary research focus is on identification and characterization of long non-coding RNAs while I spend my spare time learning and teaching computational skills to biologists.
+  - contact: [@perisateesh](https://twitter.com/perisateesh); sateeshp "at" email "dot" arizona "dot" edu
