@@ -51,7 +51,16 @@
 ### [Taylor Reiter](taylorreiter.github.io)  
 - I work with metagenomic and metatranscriptomic sequencing data & wine. I use R, python, bash, snakemake, conda, git & github to power my workflows.
   - contact: [@ReiterTaylor](https://twitter.com/ReiterTaylor); tereiter@udavis.edu
+
 ---
+
+### [Shannon E.K. Joslin](https://github.com/shannonekj)  
+- I work in the field of Conservation Genetics and Genomics. I am broadly interested in providing tools to the scientific community through mechanisms such as genome assemblies and bioinformatics workshop. My dissertation work involves population genetics of _Hypomesus transpacificus_ (delta smelt) and identification of sex determination markers in the species. I love chatting about assembly and the refinement of assemblies, population genetics pipelines, `bash` and teaching. Please reach out with any questions! 
+  - contact: [@IntrprtngGnmcs](https://twitter.com/IntrprtngGnmcs); sejoslin "at" ucdavis "dot" edu
+
+---
+
 ### [Sateesh Peri](https://sateeshperi.github.io/)
 - My primary research focus is on identification and characterization of long non-coding RNAs while I spend my spare time learning and teaching computational skills (BASH, R, python, conda, git-github, snakemake, ) to biologists.
   - contact: [@perisateesh](https://twitter.com/perisateesh); sateeshp "at" email "dot" arizona "dot" edu
+
