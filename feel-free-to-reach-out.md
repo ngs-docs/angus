@@ -31,7 +31,7 @@
 ---
 
 ### [Sichong Peng](http://sichong.site/)
-- My study focuses on completing functional annotation of the horse genome. I have a strong interest of applying genomics tools to non-model organisms to improve health care of companion and agricultral animals.
+- My study focuses on completing functional annotation of the horse genome. I have a strong interest of applying genomics tools to non-model organisms to improve health care of companion and agricultural animals.
   - contact: scpeng@ucdavis.edu
 
 ---
@@ -52,3 +52,6 @@
 - I work with metagenomic and metatranscriptomic sequencing data & wine. I use R, python, bash, snakemake, conda, git & github to power my workflows.
   - contact: [@ReiterTaylor](https://twitter.com/ReiterTaylor); tereiter@udavis.edu
 ---
+### [Sateesh Peri](https://sateeshperi.github.io/)
+- My primary research focus is on identification and characterization of long non-coding RNAs while I spend my spare time learning and teaching computational skills (BASH, R, python, conda, git-github, snakemake, ) to biologists.
+  - contact: [@perisateesh](https://twitter.com/perisateesh); sateeshp "at" email "dot" arizona "dot" edu
