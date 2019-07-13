@@ -1,7 +1,7 @@
 # Feel free to reach out to us directly!
 
 ### [Rocio Martinez-Nunez](https://twitter.com/rociotmartinez)
-- RNA-seq adn RNA things:
+- RNA-seq and RNA things:
   - contact: [@rociotmartinez](https://twitter.com/rociotmartinez); rocio.martinez_nunez@kcl.ac.uk  
 
 ---
@@ -31,6 +31,6 @@
 ---
 
 ### [Marian L. Schmidt](https://marschmi.github.io/marschmi.github.io/)  
-- My research focuses on how the environment influencces bacterial community composition and the evolution of aquatic bacterial communities. I have experience with (and am happy to help others) with 16S rDNA data amplicon data sets and recovering genomes from complex metagenomic data. 
+- My research focuses on the ecology & evolution of aquatic bacterial communities. Specifically, I'm interested in the drivers of community composition and the controls on bacterial genome size. I have experience (& am happy to help others!) with 16S rRNA amplicon data sets and recovering & refining genomes from complex metagenomic sequencing data sets. 
   - contact: [@micro_marian](https://twitter.com/micro_marian); marschmi "at" utexas "dot" edu
 ---
