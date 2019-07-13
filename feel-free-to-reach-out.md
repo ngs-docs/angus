@@ -19,7 +19,7 @@
 ---
 
 ### [Sichong Peng](http://sichong.site/)
-- My study focuses on completing functional annotation of the horse genome. I have a strong interest of applying genomics tools to non-model organisms to improve health care of companion and agricultral animals.
+- My study focuses on completing functional annotation of the horse genome. I have a strong interest of applying genomics tools to non-model organisms to improve health care of companion and agricultural animals.
   - contact: scpeng@ucdavis.edu
 
 ---
@@ -35,5 +35,5 @@
   - contact: [@micro_marian](https://twitter.com/micro_marian); marschmi "at" utexas "dot" edu
 ---
 ### [Sateesh Peri]
-- My primary research focus is on identification and characterization of long non-coding RNAs while I spend my spare time learning and teaching computational skills to biologists.
+- My primary research focus is on identification and characterization of long non-coding RNAs while I spend my spare time learning and teaching computational skills (BASH, R, python, conda, git-github, snakemake, ) to biologists.
   - contact: [@perisateesh](https://twitter.com/perisateesh); sateeshp "at" email "dot" arizona "dot" edu
