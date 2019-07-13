@@ -18,9 +18,14 @@
 
 ---
 
+### Sichong Peng
+- My study focuses on completing functional annotation of the horse genome. I have a strong interest of applying genomics tools to non-model organisms to improve health care of companion and agricultral animals.
+  - contact: scpeng@ucdavis.edu
+
+---
+
 ### [Chissa Rivaldi](https://twitter.com/powerofcheez)
 - I am rooted in population/landscape genetics, parasite, and amplicon sequencing studies. I script in bash, python, and R, and increasingly automation flows like snakemake. 
   - contact: [@powerofcheez](https://twitter.com/powerofcheez); clrivaldi@gmail.com 
-
 
 ---
