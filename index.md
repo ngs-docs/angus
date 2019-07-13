@@ -152,7 +152,7 @@ Room Conway will be led by [Sateesh Peri](https://twitter.com/perisateesh?lang=e
 (check out of your rooms and bring luggage over. Please be sure to bring your computer!)
 
 * **9:00am-9:30am:** [Cloud Resources](cloud_resources.md) with [Sateesh Peri](https://twitter.com/perisateesh?lang=en) 
-* **9:30am-10:00am:** Closing thoughts by [Mike Lee](https://twitter.com/AstrobioMike?lang=en)
+* **9:30am-10:00am:** [5 things I wish I knew](_static/Lee-5-things.pdf) by [Mike Lee](https://twitter.com/AstrobioMike?lang=en)
 * **10:00am-10:20am:** What to Slack after DIBSI? by [Shannon Joslin](https://twitter.com/IntrprtngGnmcs?lang=en)
 	* **10:20am-10:40am:** BREAK
 * **10:40am-11:00am:** Survey in Room 1030
