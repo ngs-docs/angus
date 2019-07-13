@@ -34,3 +34,8 @@
 - My research focuses on the ecology & evolution of aquatic bacterial communities. Specifically, I'm interested in the drivers of community composition and the controls on bacterial genome size. I have experience (& am happy to help others!) with 16S rRNA amplicon data sets and recovering & refining genomes from complex metagenomic sequencing data sets. 
   - contact: [@micro_marian](https://twitter.com/micro_marian); marschmi "at" utexas "dot" edu
 ---
+
+### [Taylor Reiter](taylorreiter.github.io)  
+- I work with metagenomic and metatranscriptomic sequencing data & wine. I use R, python, bash, snakemake, conda, git & github to power my workflows.
+  - contact: [@ReiterTaylor](https://twitter.com/ReiterTaylor); tereiter@udavis.edu
+---
