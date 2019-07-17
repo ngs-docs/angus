@@ -56,7 +56,8 @@ k-mers are most useful when they're *long*, because then they're *specific*. Tha
 
 Essentially, *long k-mers are species specific*. Check out this figure from the [MetaPalette paper](http://msystems.asm.org/content/1/3/e00020-16):
 
-![](_static/kmers-metapalette.png)
+<center><img src="_static/kmers-metapalette.png" width="90%"></center>  
+<br>
 
 Here, Koslicki and Falush show that k-mer similarity works to group microbes by genus, at k=40\. If you go longer (say k=50) then you get only very little similarity between different species.
 
