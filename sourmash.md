@@ -208,7 +208,8 @@ Lastly, we plot the comparison matrix.
 sourmash plot --labels schurch_compare_matrix
 ```
 
-![compare](_static/schurch_comp.matrix.png)
+<center><img src="_static/schurch_comp.matrix.png" width="100%"></center>  
+<br>
 
 We see there are two major blocks of similar samples, which makes sense given that we have
 WT and SNF2 knockout samples. However, we also see that some of our samples are outliers!
