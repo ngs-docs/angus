@@ -19,7 +19,7 @@ Rather than installing software system-wide, wouldn’t it be great if we could 
 
 ## What is an environment?
 
-A environment is a directory that contains a specific collection of packages/tools that you have installed. For example, you may have one environment with Pyton 2.7 and its dependencies, and another environment with Python 3.4 for legacy testing. If you change one environment, your other environments are not affected. You can easily activate or deactivate environments, which is how you switch between them. 
+A environment is a directory that contains a specific collection of packages/tools that you have installed. For example, you may have one environment with Python 2.7 and its dependencies, and another environment with Python 3.4 for legacy testing. If you change one environment, your other environments are not affected. You can easily activate or deactivate environments, which is how you switch between them. 
 
 <center><img src="_static/envs.png" width="90%"></center>
 <br>
