@@ -5,3 +5,5 @@ sphinx_bootstrap_theme
 guzzle_sphinx_theme==0.7.11
 sphinxcontrib-contentui
 sphinx-markdown-tables
+Sphinx==5.3.0
+myst-parser==0.18.1
